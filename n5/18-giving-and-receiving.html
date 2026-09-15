@@ -2606,6 +2606,13 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
   gap: 0.5rem;
 }
   </style>
+<script>
+  try {
+    if (localStorage.getItem('jlpt-furigana') === 'off') {
+      document.documentElement.setAttribute('data-furigana', 'off');
+    }
+  } catch (e) {}
+</script>
 </head>
 <body>
 
@@ -2614,7 +2621,16 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <div id="presentation">
 <div class="slide" data-index="0">
   
-  <div class="slide__content"><style>html { font-size: 20.0px; }</style>
+  <div class="slide__content"><style>
+  html { font-size: 20.0px; }
+  .slide__content p, .slide__content li,
+  .slide__content td, .slide__content th { line-height: 2.05; }
+  rt { font-size: 0.5em; line-height: 1.1; opacity: 0.72; font-weight: 400; }
+  :root[data-furigana="off"] rt { display: none; }
+  :root[data-furigana="off"] .slide__content p, :root[data-furigana="off"] .slide__content li,
+  :root[data-furigana="off"] .slide__content td, :root[data-furigana="off"] .slide__content th
+    { line-height: 1.5; }
+</style>
 
 <h1>N5 - Giving and receiving</h1>
 <ul>
@@ -2650,42 +2666,42 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <tbody><tr>
 <td>あげる（away from me）</td>
 <td>Aが Bに Nを あげる</td>
-<td>私(わたし)は妹(いもうと)に本(ほん)をあげる</td>
+<td><ruby>私<rt>わたし</rt></ruby>は<ruby>妹<rt>いもうと</rt></ruby>に<ruby>本<rt>ほん</rt></ruby>をあげる</td>
 </tr>
 <tr>
 <td>くれる（toward me）</td>
-<td>Aが（私(わたし)に）Nを くれる</td>
-<td>友(とも)だちが私(わたし)に本(ほん)をくれる</td>
+<td>Aが（<ruby>私<rt>わたし</rt></ruby>に）Nを くれる</td>
+<td><ruby>友<rt>とも</rt></ruby>だちが<ruby>私<rt>わたし</rt></ruby>に<ruby>本<rt>ほん</rt></ruby>をくれる</td>
 </tr>
 <tr>
 <td>もらう（I receive）</td>
 <td>Bが Aに／から Nを もらう</td>
-<td>私(わたし)は友(とも)だちに本(ほん)をもらう</td>
+<td><ruby>私<rt>わたし</rt></ruby>は<ruby>友<rt>とも</rt></ruby>だちに<ruby>本<rt>ほん</rt></ruby>をもらう</td>
 </tr>
 <tr>
 <td>Polite</td>
 <td>あげます／くれます／もらいます</td>
-<td>本(ほん)をもらいました</td>
+<td><ruby>本<rt>ほん</rt></ruby>をもらいました</td>
 </tr>
 <tr>
 <td>I give upward（humble）</td>
 <td>さしあげる</td>
-<td>先生(せんせい)にさしあげる</td>
+<td><ruby>先生<rt>せんせい</rt></ruby>にさしあげる</td>
 </tr>
 <tr>
 <td>A superior gives to me（honorific）</td>
 <td>くださる → くださいます</td>
-<td>先生(せんせい)がくださる</td>
+<td><ruby>先生<rt>せんせい</rt></ruby>がくださる</td>
 </tr>
 <tr>
 <td>I receive from above（humble）</td>
 <td>いただく</td>
-<td>先生(せんせい)にいただく</td>
+<td><ruby>先生<rt>せんせい</rt></ruby>にいただく</td>
 </tr>
 <tr>
 <td>Giving down the scale</td>
 <td>やる</td>
-<td>花(はな)に水(みず)をやる</td>
+<td><ruby>花<rt>はな</rt></ruby>に<ruby>水<rt>みず</rt></ruby>をやる</td>
 </tr>
 </tbody></table>
 </div>
@@ -2702,32 +2718,37 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <div class="slide" data-index="5">
   
   <div class="slide__content"><h2>あげる・くれる・もらう · Examples</h2>
-<p>妹(いもうと)にプレゼントを<strong>あげました</strong>。<br><em>I gave my little sister a present.</em></p>
-<p>友(とも)だちが私(わたし)にチョコレートを<strong>くれました</strong>。<br><em>A friend gave me some chocolate.</em></p>
-<p>父(ちち)に時計(とけい)を<strong>もらいました</strong>。<br><em>I got a watch from my father.</em></p>
-<p>山田(やまだ)さんは田中(たなか)さんに花(はな)を<strong>あげました</strong>。<br><em>Yamada gave Tanaka some flowers.</em></p>
-<p>毎朝(まいあさ)、犬(いぬ)にごはんを<strong>やって</strong>から会社(かいしゃ)へ行(い)きます。<br><em>Every morning I feed the dog before leaving for work.</em></p>
+<p><ruby>妹<rt>いもうと</rt></ruby>にプレゼントを<strong>あげました</strong>。<br><em>I gave my little sister a present.</em></p>
+<p><ruby>友<rt>とも</rt></ruby>だちが<ruby>私<rt>わたし</rt></ruby>にチョコレートを<strong>くれました</strong>。<br><em>A friend gave me some chocolate.</em></p>
+<p><ruby>父<rt>ちち</rt></ruby>に<ruby>時計<rt>とけい</rt></ruby>を<strong>もらいました</strong>。<br><em>I got a watch from my father.</em></p>
+<p><ruby>山田<rt>やまだ</rt></ruby>さんは<ruby>田中<rt>たなか</rt></ruby>さんに<ruby>花<rt>はな</rt></ruby>を<strong>あげました</strong>。<br><em>Yamada gave Tanaka some flowers.</em></p>
 </div>
 </div>
 <div class="slide" data-index="6">
   
   <div class="slide__content"><h2>あげる・くれる・もらう · Examples (cont.)</h2>
-<p>となりの人(ひと)が子(こ)どもたちにおかしを<strong>くれました</strong>。<br><em>The neighbour gave my children some sweets.</em></p>
-<p>先生(せんせい)が弟(おとうと)に辞書(じしょ)を<strong>くださいました</strong>。<br><em>The teacher kindly gave my younger brother a dictionary.</em></p>
-<p>誕生日(たんじょうび)に姉(あね)からきれいなカップを<strong>もらいました</strong>。<br><em>I got a lovely cup from my older sister for my birthday.</em></p>
-<p>会社(かいしゃ)をやめるとき、同(おな)じ部(ぶ)の人(ひと)たちが花束(はなたば)を<strong>くれました</strong>。<br><em>When I left the company, the people in my department gave me a bouquet.</em></p>
+<p><ruby>毎朝<rt>まいあさ</rt></ruby>、<ruby>犬<rt>いぬ</rt></ruby>にごはんを<strong>やって</strong>から<ruby>会社<rt>かいしゃ</rt></ruby>へ<ruby>行<rt>い</rt></ruby>きます。<br><em>Every morning I feed the dog before leaving for work.</em></p>
+<p>となりの<ruby>人<rt>ひと</rt></ruby>が<ruby>子<rt>こ</rt></ruby>どもたちにおかしを<strong>くれました</strong>。<br><em>The neighbour gave my children some sweets.</em></p>
+<p><ruby>先生<rt>せんせい</rt></ruby>が<ruby>弟<rt>おとうと</rt></ruby>に<ruby>辞書<rt>じしょ</rt></ruby>を<strong>くださいました</strong>。<br><em>The teacher kindly gave my younger brother a dictionary.</em></p>
+<p><ruby>誕生日<rt>たんじょうび</rt></ruby>に<ruby>姉<rt>あね</rt></ruby>からきれいなカップを<strong>もらいました</strong>。<br><em>I got a lovely cup from my older sister for my birthday.</em></p>
 </div>
 </div>
 <div class="slide" data-index="7">
   
+  <div class="slide__content"><h2>あげる・くれる・もらう · Examples (cont.)</h2>
+<p><ruby>会社<rt>かいしゃ</rt></ruby>をやめるとき、<ruby>同<rt>おな</rt></ruby>じ<ruby>部<rt>ぶ</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>たちが<ruby>花束<rt>はなたば</rt></ruby>を<strong>くれました</strong>。<br><em>When I left the company, the people in my department gave me a bouquet.</em></p>
+</div>
+</div>
+<div class="slide" data-index="8">
+  
   <div class="slide__content"><h2>あげる・くれる・もらう · Nuance &amp; register</h2>
 <p><strong>The in-group is what really matters.</strong> <code>くれる</code> is not only for gifts to <em>me</em>. It is for gifts to my <strong>side</strong> - what Japanese calls うち, as opposed to そと, everyone else. My family, and depending on the conversation my close friends, my colleagues, my company: if the thing lands with any of them, <code>くれる</code> is the verb.</p>
-<p>That is why 「先生(せんせい)が弟(おとうと)に本(ほん)をくださいました」 uses a giving-toward-me verb even though the book went to my brother. My brother is inside my circle, so the book came toward my side of the line. Say ❌先生(せんせい)が弟(おとうと)に本(ほん)をあげました and you have pushed your own brother out of your family.</p>
+<p>That is why 「<ruby>先生<rt>せんせい</rt></ruby>が<ruby>弟<rt>おとうと</rt></ruby>に<ruby>本<rt>ほん</rt></ruby>をくださいました」 uses a giving-toward-me verb even though the book went to my brother. My brother is inside my circle, so the book came toward my side of the line. Say ❌<ruby>先生<rt>せんせい</rt></ruby>が<ruby>弟<rt>おとうと</rt></ruby>に<ruby>本<rt>ほん</rt></ruby>をあげました and you have pushed your own brother out of your family.</p>
 <p>The line moves with the situation. Talking to a customer, everyone at my company is うち; talking to a colleague, only my own team might be.</p>
 <p><strong>The politeness axis.</strong> Each verb has a version for when a status gap is in play:</p>
 </div>
 </div>
-<div class="slide" data-index="8">
+<div class="slide" data-index="9">
   
   <div class="slide__content"><h2>あげる・くれる・もらう · Nuance &amp; register (cont.)</h2>
 <ul>
@@ -2735,139 +2756,154 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <li><code>くださる</code> - honorific, for when someone above me gives to me or mine.<br><em>The ます-form is irregular: <strong>くださいます</strong>, not ❌くださります. <code>ください</code>, the word you already know, is its imperative.</em></li>
 <li><code>いただく</code> - humble, for when <em>I</em> receive from someone above me.</li>
 </ul>
-<p>Of these, <code>くださる</code> and <code>いただく</code> are safe and extremely common. <code>さしあげる</code> needs care: announcing that you have bestowed something on your superior can sound self-important, so people often avoid it and say 先生(せんせい)にお渡(わた)ししました or simply 先生(せんせい)に渡(わた)しました instead.</p>
-</div>
-</div>
-<div class="slide" data-index="9">
-  
-  <div class="slide__content"><h2>あげる・くれる・もらう · Nuance &amp; register (cont.)</h2>
-<p><strong>やる</strong><strong>, and how rough it sounds.</strong> <code>やる</code> is the downward version of <code>あげる</code>, used for plants, animals and - in older or rougher speech - for children and younger siblings. It is standard for 花(はな)に水(みず)をやる and 犬(いぬ)にえさをやる. Used of people it now sounds blunt and is male-marked; younger speakers say 犬(いぬ)にごはんをあげる without a second thought, and some older speakers find that overly precious. Either is acceptable; know that both exist.</p>
-<p><strong>Two smaller points.</strong> <code>もらう</code> takes <code>に</code> or <code>から</code> for the source. <code>から</code> is preferred when the giver is an organisation rather than a person: 会社(かいしゃ)から手紙(てがみ)をもらいました.</p>
-<p>The plain command <code>くれ</code>（水(みず)をくれ）is very rough - men&#39;s speech, brusque. Use ください.</p>
-<p>Finally, these three verbs also work as helpers on the て-form - 買(か)ってあげる, 教(おし)えてくれる, 作(つく)ってもらう - where the same direction logic applies to <em>actions</em> rather than objects. That construction is taught at N4, and it is unusable until the direction rule on this page is solid.</p>
+<p>Of these, <code>くださる</code> and <code>いただく</code> are safe and extremely common. <code>さしあげる</code> needs care: announcing that you have bestowed something on your superior can sound self-important, so people often avoid it and say <ruby>先生<rt>せんせい</rt></ruby>にお<ruby>渡<rt>わた</rt></ruby>ししました or simply <ruby>先生<rt>せんせい</rt></ruby>に<ruby>渡<rt>わた</rt></ruby>しました instead.</p>
 </div>
 </div>
 <div class="slide" data-index="10">
+  
+  <div class="slide__content"><h2>あげる・くれる・もらう · Nuance &amp; register (cont.)</h2>
+<p><strong>やる</strong><strong>, and how rough it sounds.</strong> <code>やる</code> is the downward version of <code>あげる</code>, used for plants, animals and - in older or rougher speech - for children and younger siblings. It is standard for <ruby>花<rt>はな</rt></ruby>に<ruby>水<rt>みず</rt></ruby>をやる and <ruby>犬<rt>いぬ</rt></ruby>にえさをやる. Used of people it now sounds blunt and is male-marked; younger speakers say <ruby>犬<rt>いぬ</rt></ruby>にごはんをあげる without a second thought, and some older speakers find that overly precious. Either is acceptable; know that both exist.</p>
+<p><strong>Two smaller points.</strong> <code>もらう</code> takes <code>に</code> or <code>から</code> for the source. <code>から</code> is preferred when the giver is an organisation rather than a person: <ruby>会社<rt>かいしゃ</rt></ruby>から<ruby>手紙<rt>てがみ</rt></ruby>をもらいました.</p>
+<p>The plain command <code>くれ</code>（<ruby>水<rt>みず</rt></ruby>をくれ）is very rough - men&#39;s speech, brusque. Use ください.</p>
+</div>
+</div>
+<div class="slide" data-index="11">
+  
+  <div class="slide__content"><h2>あげる・くれる・もらう · Nuance &amp; register (cont.)</h2>
+<p>Finally, these three verbs also work as helpers on the て-form - <ruby>買<rt>か</rt></ruby>ってあげる, <ruby>教<rt>おし</rt></ruby>えてくれる, <ruby>作<rt>つく</rt></ruby>ってもらう - where the same direction logic applies to <em>actions</em> rather than objects. That construction is taught at N4, and it is unusable until the direction rule on this page is solid.</p>
+</div>
+</div>
+<div class="slide" data-index="12">
   
   <div class="slide__content"><h2>あげる・くれる・もらう · あげる vs くれる</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - both mean &quot;give&quot;, and both take the giver as subject. <code>あげる</code> sends the thing away from the speaker; <code>くれる</code> brings it toward the speaker&#39;s side.</p>
 </blockquote>
-<p>私(わたし)は田中(たなか)さんに傘(かさ)を<strong>あげました</strong>。<br><em>I gave Tanaka an umbrella.</em></p>
-<p>田中(たなか)さんが私(わたし)に傘(かさ)を<strong>くれました</strong>。<br><em>Tanaka gave me an umbrella.</em></p>
-<p>The two sentences describe opposite events, and the only substantive difference is the verb. Note that <code>くれる</code> may <strong>never</strong> have the speaker as giver: ❌私(わたし)が田中(たなか)さんにくれました is impossible in any context.</p>
+<p><ruby>私<rt>わたし</rt></ruby>は<ruby>田中<rt>たなか</rt></ruby>さんに<ruby>傘<rt>かさ</rt></ruby>を<strong>あげました</strong>。<br><em>I gave Tanaka an umbrella.</em></p>
+<p><ruby>田中<rt>たなか</rt></ruby>さんが<ruby>私<rt>わたし</rt></ruby>に<ruby>傘<rt>かさ</rt></ruby>を<strong>くれました</strong>。<br><em>Tanaka gave me an umbrella.</em></p>
 </div>
 </div>
-<div class="slide" data-index="11">
+<div class="slide" data-index="13">
   
   <div class="slide__content"><h2>あげる・くれる・もらう · あげる vs くれる (cont.)</h2>
-<p>In <code>くれる</code> sentences the 私(わたし)に is usually dropped, because the verb has already said it: 田中(たなか)さんが傘(かさ)をくれました is the natural form.</p>
+<p>The two sentences describe opposite events, and the only substantive difference is the verb. Note that <code>くれる</code> may <strong>never</strong> have the speaker as giver: ❌<ruby>私<rt>わたし</rt></ruby>が<ruby>田中<rt>たなか</rt></ruby>さんにくれました is impossible in any context.</p>
+<p>In <code>くれる</code> sentences the <ruby>私<rt>わたし</rt></ruby>に is usually dropped, because the verb has already said it: <ruby>田中<rt>たなか</rt></ruby>さんが<ruby>傘<rt>かさ</rt></ruby>をくれました is the natural form.</p>
 </div>
 </div>
-<div class="slide" data-index="12">
+<div class="slide" data-index="14">
   
   <div class="slide__content"><h2>あげる・くれる・もらう · くれる vs もらう</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - one event, two camera angles. <code>くれる</code> puts the giver in the subject slot; <code>もらう</code> puts the receiver there.</p>
 </blockquote>
-<p>母(はは)が私(わたし)にセーターを<strong>くれました</strong>。<br><em>My mother gave me a jumper.</em></p>
-<p>私(わたし)は母(はは)にセーターを<strong>もらいました</strong>。<br><em>I got a jumper from my mother.</em></p>
-<p>Both are correct and both are common. <code>くれる</code> feels slightly warmer - it presents the other person as acting kindly toward you - while <code>もらう</code> is more neutral and focuses on the fact that you now have the thing. Note that the particle on 母(はは) flips: <code>が</code> when she is the subject, <code>に</code> when she is the source.</p>
+<p><ruby>母<rt>はは</rt></ruby>が<ruby>私<rt>わたし</rt></ruby>にセーターを<strong>くれました</strong>。<br><em>My mother gave me a jumper.</em></p>
+<p><ruby>私<rt>わたし</rt></ruby>は<ruby>母<rt>はは</rt></ruby>にセーターを<strong>もらいました</strong>。<br><em>I got a jumper from my mother.</em></p>
 </div>
 </div>
-<div class="slide" data-index="13">
+<div class="slide" data-index="15">
+  
+  <div class="slide__content"><h2>あげる・くれる・もらう · くれる vs もらう (cont.)</h2>
+<p>Both are correct and both are common. <code>くれる</code> feels slightly warmer - it presents the other person as acting kindly toward you - while <code>もらう</code> is more neutral and focuses on the fact that you now have the thing. Note that the particle on <ruby>母<rt>はは</rt></ruby> flips: <code>が</code> when she is the subject, <code>に</code> when she is the source.</p>
+</div>
+</div>
+<div class="slide" data-index="16">
   
   <div class="slide__content"><h2>あげる・くれる・もらう vs さしあげる・くださる・いただく</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - the plain three are for equals and for people below you. The polite three encode a status gap, and each one specifies which direction the gap runs in.</p>
 </blockquote>
-<p>課長(かちょう)が資料(しりょう)を<strong>くださいました</strong>。<br><em>The section chief gave me the documents.</em></p>
-<p>課長(かちょう)に資料(しりょう)を<strong>いただきました</strong>。<br><em>I received the documents from the section chief.</em></p>
-<p>Both are polite and both are safe. What you must not do is use the plain verbs of a superior&#39;s giving in a formal setting - 課長(かちょう)が資料(しりょう)をくれました is grammatical but sounds disrespectful in front of the section chief, though it is perfectly normal when grumbling to a friend.</p>
-</div>
-</div>
-<div class="slide" data-index="14">
-  
-  <div class="slide__content"><h2>あげる・くれる・もらう · Common mistakes</h2>
-<ul>
-<li><p>❌ 友(とも)だちが私(わたし)にプレゼントを<strong>あげました</strong>。 → ✅ 友(とも)だちが私(わたし)にプレゼントを<strong>くれました</strong>。<br><em>When the thing arrives at the speaker, the verb must be <code>くれる</code>. This is the single most frequent error learners make, because English uses &quot;gave&quot; for both directions.</em></p>
-</li>
-<li><p>❌ 私(わたし)が山田(やまだ)さんに本(ほん)を<strong>くれました</strong>。 → ✅ 私(わたし)が山田(やまだ)さんに本(ほん)を<strong>あげました</strong>。<br><em><code>くれる</code> can never have the speaker as the giver. Nothing can move toward you when you are the one letting go of it.</em></p>
-</li>
-<li><p>❌ 私(わたし)は兄(あに)<strong>が</strong>お金(かね)をもらいました。 → ✅ 私(わたし)は兄(あに)<strong>に</strong>お金(かね)をもらいました。<br><em>With <code>もらう</code> the source takes <code>に</code> or <code>から</code>. <code>が</code> there would make your brother the one doing the receiving.</em></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="slide" data-index="15">
-  
-  <div class="slide__content"><h2>あげる・くれる・もらう · Common mistakes (cont.)</h2>
-<ul>
-<li><p>❌ 先生(せんせい)が花(はな)を<strong>くださります</strong>。 → ✅ 先生(せんせい)が花(はな)を<strong>くださいます</strong>。<br><em><code>くださる</code> is one of a small group of honorific verbs with an irregular ます-form - like おっしゃる → おっしゃいます.</em></p>
-</li>
-<li><p>❌ 先生(せんせい)に辞書(じしょ)を<strong>あげました</strong>。 → ✅ 先生(せんせい)に辞書(じしょ)を<strong>さしあげました</strong>。／先生(せんせい)に辞書(じしょ)をお渡(わた)ししました。<br><em>Using plain <code>あげる</code> about a gift to a teacher sounds as though you were doing them a favour from above. Even the humble form is often sidestepped in favour of a neutral verb.</em></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="slide" data-index="16">
-  
-  <div class="slide__content"><h2>あげる・くれる・もらう · Practice 1</h2>
-<p><strong>1.</strong> 山田(やまだ)さんが私(わたし)に地図(ちず)を____。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-山田(やまだ)さんが私(わたし)に地図(ちず)を<strong>くれました</strong>。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The map ends up with the speaker, so the verb has to be <code>くれる</code>. In real speech the 私(わたし)に would usually be left out, since <code>くれる</code> already tells you where the map went.</p>
+<p><ruby>課長<rt>かちょう</rt></ruby>が<ruby>資料<rt>しりょう</rt></ruby>を<strong>くださいました</strong>。<br><em>The section chief gave me the documents.</em></p>
+<p><ruby>課長<rt>かちょう</rt></ruby>に<ruby>資料<rt>しりょう</rt></ruby>を<strong>いただきました</strong>。<br><em>I received the documents from the section chief.</em></p>
 </div>
 </div>
 <div class="slide" data-index="17">
   
-  <div class="slide__content"><h2>あげる・くれる・もらう · Practice 2</h2>
-<p><strong>2.</strong> Choose: 部長(ぶちょう)にお土産(みやげ)を（もらいました・いただきました）。 You are speaking at work, in front of colleagues.</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-部長(ぶちょう)にお土産(みやげ)を<strong>いただきました</strong>。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>いただく</code> is the humble verb for receiving from someone above you, and a department head qualifies. <code>もらいました</code> is not wrong grammatically, but in a workplace setting it sounds too flat about a superior&#39;s kindness.</p>
+  <div class="slide__content"><h2>あげる・くれる・もらう vs さしあげる・くださる・いただく (cont.)</h2>
+<p>Both are polite and both are safe. What you must not do is use the plain verbs of a superior&#39;s giving in a formal setting - <ruby>課長<rt>かちょう</rt></ruby>が<ruby>資料<rt>しりょう</rt></ruby>をくれました is grammatical but sounds disrespectful in front of the section chief, though it is perfectly normal when grumbling to a friend.</p>
 </div>
 </div>
 <div class="slide" data-index="18">
   
-  <div class="slide__content"><h2>あげる・くれる・もらう · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese: &quot;My grandmother gave my son a book.&quot;</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-祖母(そぼ)が息子(むすこ)に本(ほん)を<strong>くれました</strong>。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Your son is inside your family, so the book has travelled toward your side and <code>くれる</code> is required - even though the speaker is not the recipient. Using あげました here would sound as though the boy were somebody else&#39;s child.</p>
+  <div class="slide__content"><h2>あげる・くれる・もらう · Common mistakes</h2>
+<ul>
+<li><p>❌ <ruby>友<rt>とも</rt></ruby>だちが<ruby>私<rt>わたし</rt></ruby>にプレゼントを<strong>あげました</strong>。 → ✅ <ruby>友<rt>とも</rt></ruby>だちが<ruby>私<rt>わたし</rt></ruby>にプレゼントを<strong>くれました</strong>。<br><em>When the thing arrives at the speaker, the verb must be <code>くれる</code>. This is the single most frequent error learners make, because English uses &quot;gave&quot; for both directions.</em></p>
+</li>
+<li><p>❌ <ruby>私<rt>わたし</rt></ruby>が<ruby>山田<rt>やまだ</rt></ruby>さんに<ruby>本<rt>ほん</rt></ruby>を<strong>くれました</strong>。 → ✅ <ruby>私<rt>わたし</rt></ruby>が<ruby>山田<rt>やまだ</rt></ruby>さんに<ruby>本<rt>ほん</rt></ruby>を<strong>あげました</strong>。<br><em><code>くれる</code> can never have the speaker as the giver. Nothing can move toward you when you are the one letting go of it.</em></p>
+</li>
+<li><p>❌ <ruby>私<rt>わたし</rt></ruby>は<ruby>兄<rt>あに</rt></ruby><strong>が</strong>お<ruby>金<rt>かね</rt></ruby>をもらいました。 → ✅ <ruby>私<rt>わたし</rt></ruby>は<ruby>兄<rt>あに</rt></ruby><strong>に</strong>お<ruby>金<rt>かね</rt></ruby>をもらいました。<br><em>With <code>もらう</code> the source takes <code>に</code> or <code>から</code>. <code>が</code> there would make your brother the one doing the receiving.</em></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="19">
   
-  <div class="slide__content"><h2>あげる・くれる・もらう · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 私(わたし)は友(とも)だちにおかしをくれました。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 私(わたし)は友(とも)だちにおかしを<strong>あげました</strong>。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The sweets are leaving the speaker, so the verb must be <code>あげる</code>. <code>くれる</code> with 私(わたし) as the giver is not merely unnatural - it is impossible, because the verb&#39;s whole job is to mark movement toward the speaker.</p>
+  <div class="slide__content"><h2>あげる・くれる・もらう · Common mistakes (cont.)</h2>
+<ul>
+<li><p>❌ <ruby>先生<rt>せんせい</rt></ruby>が<ruby>花<rt>はな</rt></ruby>を<strong>くださります</strong>。 → ✅ <ruby>先生<rt>せんせい</rt></ruby>が<ruby>花<rt>はな</rt></ruby>を<strong>くださいます</strong>。<br><em><code>くださる</code> is one of a small group of honorific verbs with an irregular ます-form - like おっしゃる → おっしゃいます.</em></p>
+</li>
+<li><p>❌ <ruby>先生<rt>せんせい</rt></ruby>に<ruby>辞書<rt>じしょ</rt></ruby>を<strong>あげました</strong>。 → ✅ <ruby>先生<rt>せんせい</rt></ruby>に<ruby>辞書<rt>じしょ</rt></ruby>を<strong>さしあげました</strong>。／<ruby>先生<rt>せんせい</rt></ruby>に<ruby>辞書<rt>じしょ</rt></ruby>をお<ruby>渡<rt>わた</rt></ruby>ししました。<br><em>Using plain <code>あげる</code> about a gift to a teacher sounds as though you were doing them a favour from above. Even the humble form is often sidestepped in favour of a neutral verb.</em></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="20">
   
+  <div class="slide__content"><h2>あげる・くれる・もらう · Practice 1</h2>
+<p><strong>1.</strong> <ruby>山田<rt>やまだ</rt></ruby>さんが<ruby>私<rt>わたし</rt></ruby>に<ruby>地図<rt>ちず</rt></ruby>を____。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>山田<rt>やまだ</rt></ruby>さんが<ruby>私<rt>わたし</rt></ruby>に<ruby>地図<rt>ちず</rt></ruby>を<strong>くれました</strong>。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The map ends up with the speaker, so the verb has to be <code>くれる</code>. In real speech the <ruby>私<rt>わたし</rt></ruby>に would usually be left out, since <code>くれる</code> already tells you where the map went.</p>
+</div>
+</div>
+<div class="slide" data-index="21">
+  
+  <div class="slide__content"><h2>あげる・くれる・もらう · Practice 2</h2>
+<p><strong>2.</strong> Choose: <ruby>部長<rt>ぶちょう</rt></ruby>にお<ruby>土産<rt>みやげ</rt></ruby>を（もらいました・いただきました）。 You are speaking at work, in front of colleagues.</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>部長<rt>ぶちょう</rt></ruby>にお<ruby>土産<rt>みやげ</rt></ruby>を<strong>いただきました</strong>。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code>いただく</code> is the humble verb for receiving from someone above you, and a department head qualifies. <code>もらいました</code> is not wrong grammatically, but in a workplace setting it sounds too flat about a superior&#39;s kindness.</p>
+</div>
+</div>
+<div class="slide" data-index="22">
+  
+  <div class="slide__content"><h2>あげる・くれる・もらう · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese: &quot;My grandmother gave my son a book.&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>祖母<rt>そぼ</rt></ruby>が<ruby>息子<rt>むすこ</rt></ruby>に<ruby>本<rt>ほん</rt></ruby>を<strong>くれました</strong>。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+Your son is inside your family, so the book has travelled toward your side and <code>くれる</code> is required - even though the speaker is not the recipient. Using あげました here would sound as though the boy were somebody else&#39;s child.</p>
+</div>
+</div>
+<div class="slide" data-index="23">
+  
+  <div class="slide__content"><h2>あげる・くれる・もらう · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the error: <ruby>私<rt>わたし</rt></ruby>は<ruby>友<rt>とも</rt></ruby>だちにおかしをくれました。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ <ruby>私<rt>わたし</rt></ruby>は<ruby>友<rt>とも</rt></ruby>だちにおかしを<strong>あげました</strong>。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The sweets are leaving the speaker, so the verb must be <code>あげる</code>. <code>くれる</code> with <ruby>私<rt>わたし</rt></ruby> as the giver is not merely unnatural - it is impossible, because the verb&#39;s whole job is to mark movement toward the speaker.</p>
+</div>
+</div>
+<div class="slide" data-index="24">
+  
   <div class="slide__content"><h2>あげる・くれる・もらう · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 父(ちち)が自転車(じてんしゃ)をくれました。 (b) 父(ちち)に自転車(じてんしゃ)をもらいました。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>父<rt>ちち</rt></ruby>が<ruby>自転車<rt>じてんしゃ</rt></ruby>をくれました。 (b) <ruby>父<rt>ちち</rt></ruby>に<ruby>自転車<rt>じてんしゃ</rt></ruby>をもらいました。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 Both report the same bicycle changing hands, and both are perfectly natural.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) makes the father the subject and presents the act as something he did for the speaker; there is a faint warmth of gratitude in it. (b) makes the speaker the subject and simply records the acquisition - closer to &quot;I got a bike from my dad&quot;. The choice is about where you point the camera, not about the facts.</p>
 </div>
 </div>
-<div class="slide" data-index="21">
+<div class="slide" data-index="25">
   
   <div class="slide__content"><h1>お・ご</h1>
 <p><strong>Meaning</strong> · the politeness prefix - attached to a noun to make it respectful, humble, or simply more refined</p>
 <p><code>お</code> and <code>ご</code> are the same prefix wearing two coats. Which one a word takes is decided by the word&#39;s <strong>origin</strong>, not by how polite you are feeling: native Japanese vocabulary takes <code>お</code>, vocabulary borrowed from Chinese takes <code>ご</code>. The choice is fixed per word and has to be learnt with the word.</p>
 </div>
 </div>
-<div class="slide" data-index="22">
+<div class="slide" data-index="26">
   
   <div class="slide__content"><h2>お・ご · Formation</h2>
 <table>
@@ -2881,47 +2917,52 @@ Both report the same bicycle changing hands, and both are perfectly natural.</p>
 <tbody><tr>
 <td>Native noun (kun reading)</td>
 <td><strong>お</strong> + noun</td>
-<td>名前(なまえ) → お名前(なまえ)</td>
+<td><ruby>名前<rt>なまえ</rt></ruby> → お<ruby>名前<rt>なまえ</rt></ruby></td>
 </tr>
 <tr>
 <td>Native noun (kun reading)</td>
 <td><strong>お</strong> + noun</td>
-<td>金(かね) → お金(かね)</td>
+<td><ruby>金<rt>かね</rt></ruby> → お<ruby>金<rt>かね</rt></ruby></td>
 </tr>
 <tr>
 <td>Sino-Japanese noun (on reading)</td>
 <td><strong>ご</strong> + noun</td>
-<td>家族(かぞく) → ご家族(かぞく)</td>
+<td><ruby>家族<rt>かぞく</rt></ruby> → ご<ruby>家族<rt>かぞく</rt></ruby></td>
 </tr>
 <tr>
 <td>Sino-Japanese noun (on reading)</td>
 <td><strong>ご</strong> + noun</td>
-<td>住所(じゅうしょ) → ご住所(じゅうしょ)</td>
+<td><ruby>住所<rt>じゅうしょ</rt></ruby> → ご<ruby>住所<rt>じゅうしょ</rt></ruby></td>
 </tr>
 <tr>
 <td>Sino-Japanese exceptions</td>
 <td><strong>お</strong> + noun</td>
-<td>電話(でんわ) → お電話(でんわ)</td>
+<td><ruby>電話<rt>でんわ</rt></ruby> → お<ruby>電話<rt>でんわ</rt></ruby></td>
 </tr>
 <tr>
 <td>な-adjective</td>
 <td>お／ご + adjective</td>
-<td>元気(げんき) → お元気(げんき)／親切(しんせつ) → ご親切(しんせつ)</td>
+<td><ruby>元気<rt>げんき</rt></ruby> → お<ruby>元気<rt>げんき</rt></ruby>／<ruby>親切<rt>しんせつ</rt></ruby> → ご<ruby>親切<rt>しんせつ</rt></ruby></td>
 </tr>
 <tr>
 <td>Verb, honorific</td>
 <td>お + ます-stem + になる</td>
-<td>読(よ)む → お読(よ)みになる</td>
+<td><ruby>読<rt>よ</rt></ruby>む → お<ruby>読<rt>よ</rt></ruby>みになる</td>
 </tr>
 <tr>
 <td>Verb, humble</td>
 <td>お／ご + stem + する</td>
-<td>電話(でんわ)する → お電話(でんわ)します</td>
+<td><ruby>電話<rt>でんわ</rt></ruby>する → お<ruby>電話<rt>でんわ</rt></ruby>します</td>
+</tr>
+<tr>
+<td>Fossilised</td>
+<td>prefix is part of the word</td>
+<td>ご<ruby>飯<rt>はん</rt></ruby>、お<ruby>茶<rt>ちゃ</rt></ruby>、おなか</td>
 </tr>
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="23">
+<div class="slide" data-index="27">
   
   <div class="slide__content"><h2>お・ご · Formation (cont.)</h2>
 <table>
@@ -2933,173 +2974,187 @@ Both report the same bicycle changing hands, and both are perfectly natural.</p>
 </tr>
 </thead>
 <tbody><tr>
-<td>Fossilised</td>
-<td>prefix is part of the word</td>
-<td>ご飯(はん)、お茶(ちゃ)、おなか</td>
-</tr>
-<tr>
 <td>Loanwords</td>
 <td>normally nothing</td>
 <td>コーヒー → ❌おコーヒー</td>
 </tr>
 </tbody></table>
 <blockquote>
-<p><strong>Rule of thumb</strong> - read the word aloud. If it sounds like plain old Japanese （名前(なまえ), 金(かね), 手紙(てがみ)）, use <code>お</code>. If it is a compact two-character compound read with Chinese-derived sounds （住所(じゅうしょ), 家族(かぞく), 注文(ちゅうもん)）, use <code>ご</code>. Then learn the handful of exceptions by heart.</p>
+<p><strong>Rule of thumb</strong> - read the word aloud. If it sounds like plain old Japanese （<ruby>名前<rt>なまえ</rt></ruby>, <ruby>金<rt>かね</rt></ruby>, <ruby>手紙<rt>てがみ</rt></ruby>）, use <code>お</code>. If it is a compact two-character compound read with Chinese-derived sounds （<ruby>住所<rt>じゅうしょ</rt></ruby>, <ruby>家族<rt>かぞく</rt></ruby>, <ruby>注文<rt>ちゅうもん</rt></ruby>）, use <code>ご</code>. Then learn the handful of exceptions by heart.</p>
 </blockquote>
-</div>
-</div>
-<div class="slide" data-index="24">
-  
-  <div class="slide__content"><h2>お・ご · Formation (cont.)</h2>
-<p>The common Sino-Japanese words that take <code>お</code> anyway are worth memorising as a list: お電話(でんわ), お返事(へんじ), お食事(しょくじ), お時間(じかん), お料理(りょうり), お約束(やくそく), お礼(れい), お茶(ちゃ), お客(きゃく)さん. These have been in everyday Japanese so long that they stopped feeling foreign.</p>
-</div>
-</div>
-<div class="slide" data-index="25">
-  
-  <div class="slide__content"><h2>お・ご · Examples</h2>
-<p>**お名前(なまえ)**を教(おし)えてください。<br><em>Could you tell me your name?</em></p>
-<p>**ご家族(かぞく)**は何人(なんにん)ですか。<br><em>How many people are there in your family?</em></p>
-<p>先生(せんせい)、**お元気(げんき)**ですか。<br><em>How are you, sensei?</em></p>
-<p>すみません、<strong>お手洗(てあら)い</strong>はどこですか。<br><em>Excuse me, where is the toilet?</em></p>
-<p>**ご注文(ちゅうもん)**はお決(き)まりですか。<br><em>Are you ready to order?</em></p>
-</div>
-</div>
-<div class="slide" data-index="26">
-  
-  <div class="slide__content"><h2>お・ご · Examples (cont.)</h2>
-<p>あとで会社(かいしゃ)から<strong>お電話(でんわ)します</strong>。<br><em>I&#39;ll call you from the office later.</em></p>
-<p>**ご住所(じゅうしょ)**と電話(でんわ)番号(ばんごう)をこちらに書(か)いてください。<br><em>Please write your address and telephone number here.</em></p>
-<p>昨日(きのう)は**ご親切(しんせつ)**にありがとうございました。<br><em>Thank you for your kindness yesterday.</em></p>
-</div>
-</div>
-<div class="slide" data-index="27">
-  
-  <div class="slide__content"><h2>お・ご · Nuance &amp; register</h2>
-<p>The prefix is doing one of three quite different jobs, and telling them apart is the whole skill.</p>
-<p><strong>Respect.</strong> Attached to something belonging to the listener - お名前(なまえ), ご家族(かぞく), お仕事(しごと) - it raises <em>them</em>. This is the use that must never be turned on yourself: ❌私(わたし)のお名前(なまえ)は… is the classic beginner&#39;s error, and it sounds like bowing to your own reflection.</p>
-<p><strong>Humility.</strong> In お + stem + する（お電話(でんわ)します, お待(ま)ちしています）the prefix belongs to <em>your</em> action, lowering you rather than raising anyone. The <code>お</code> is attached to a verb here, not a noun.</p>
-<p><strong>Beautification</strong> - 美化語(びかご). お茶(ちゃ), ご飯(はん), お金(かね), お菓子(かし), お水(みず) have nothing to do with respect at all. Everyone says them about everyone&#39;s tea and everyone&#39;s money, and dropping the prefix from some of these（茶(ちゃ), 金(かね)）sounds coarse. A few have fused completely: おなか and おかし are simply the words, and no one hears a prefix in them any more.</p>
 </div>
 </div>
 <div class="slide" data-index="28">
   
-  <div class="slide__content"><h2>お・ご · Nuance &amp; register (cont.)</h2>
-<p>Register notes worth having:</p>
-<ul>
-<li>Heavy use of 美化語(びかご) is traditionally associated with women&#39;s speech and<br><em>with a refined register. Layering it everywhere - おビール, おズボン - sounds affected, though shops and restaurants do exactly that.</em></li>
-<li>Katakana loanwords normally take nothing. The one you will genuinely hear is<br><em>おトイレ, which has become ordinary polite speech.</em></li>
-<li>A small set of い-adjectives takes <code>お</code> in fixed courtesies:<br><em>お忙(いそが)しいところすみません, お若(わか)いですね.</em></li>
-<li>Some words take either prefix - お返事(へんじ) and ご返事(へんじ) are both<br><em>used, with お the more common today.</em></li>
-</ul>
+  <div class="slide__content"><h2>お・ご · Formation (cont.)</h2>
+<p>The common Sino-Japanese words that take <code>お</code> anyway are worth memorising as a list: お<ruby>電話<rt>でんわ</rt></ruby>, お<ruby>返事<rt>へんじ</rt></ruby>, お<ruby>食事<rt>しょくじ</rt></ruby>, お<ruby>時間<rt>じかん</rt></ruby>, お<ruby>料理<rt>りょうり</rt></ruby>, お<ruby>約束<rt>やくそく</rt></ruby>, お<ruby>礼<rt>れい</rt></ruby>, お<ruby>茶<rt>ちゃ</rt></ruby>, お<ruby>客<rt>きゃく</rt></ruby>さん. These have been in everyday Japanese so long that they stopped feeling foreign.</p>
 </div>
 </div>
 <div class="slide" data-index="29">
   
-  <div class="slide__content"><h2>お・ご · Nuance &amp; register (cont.)</h2>
-<p>You cannot attach the prefix wherever you like. There is no ❌お机(つくえ), no ❌おテレビ, no ❌ご勉強(べんきょう)部屋(べや). The set of words that take it is closed, and it is learnt word by word.</p>
+  <div class="slide__content"><h2>お・ご · Examples</h2>
+<p>**お<ruby>名前<rt>なまえ</rt></ruby>**を<ruby>教<rt>おし</rt></ruby>えてください。<br><em>Could you tell me your name?</em></p>
+<p>**ご<ruby>家族<rt>かぞく</rt></ruby>**は<ruby>何人<rt>なんにん</rt></ruby>ですか。<br><em>How many people are there in your family?</em></p>
+<p><ruby>先生<rt>せんせい</rt></ruby>、**お<ruby>元気<rt>げんき</rt></ruby>**ですか。<br><em>How are you, sensei?</em></p>
+<p>すみません、<strong>お<ruby>手洗<rt>てあら</rt></ruby>い</strong>はどこですか。<br><em>Excuse me, where is the toilet?</em></p>
 </div>
 </div>
 <div class="slide" data-index="30">
   
-  <div class="slide__content"><h2>お・ご · お vs ご</h2>
-<blockquote>
-<p><strong>Rule of thumb</strong> - <code>お</code> for 和語(わご) (native words, kun readings), <code>ご</code> for 漢語(かんご) (Chinese-derived words, on readings).</p>
-</blockquote>
-<p>**お手紙(てがみ)**をありがとうございました。<br><em>Thank you for your letter.</em></p>
-<p>**ご意見(いけん)**をお聞(き)かせください。<br><em>Please let us hear your opinion.</em></p>
-<p><code>手紙(てがみ)</code> is read with native Japanese sounds, so <code>お</code>. <code>意見(いけん)</code> is a two-character on-reading compound, so <code>ご</code>. The test is not infallible - 返事(へんじ) is an on-reading compound and still prefers <code>お</code> - but it is right far more often than it is wrong.</p>
+  <div class="slide__content"><h2>お・ご · Examples (cont.)</h2>
+<p>**ご<ruby>注文<rt>ちゅうもん</rt></ruby>**はお<ruby>決<rt>き</rt></ruby>まりですか。<br><em>Are you ready to order?</em></p>
+<p>あとで<ruby>会社<rt>かいしゃ</rt></ruby>から<strong>お<ruby>電話<rt>でんわ</rt></ruby>します</strong>。<br><em>I&#39;ll call you from the office later.</em></p>
+<p>**ご<ruby>住所<rt>じゅうしょ</rt></ruby>**と<ruby>電話<rt>でんわ</rt></ruby><ruby>番号<rt>ばんごう</rt></ruby>をこちらに<ruby>書<rt>か</rt></ruby>いてください。<br><em>Please write your address and telephone number here.</em></p>
+<p><ruby>昨日<rt>きのう</rt></ruby>は**ご<ruby>親切<rt>しんせつ</rt></ruby>**にありがとうございました。<br><em>Thank you for your kindness yesterday.</em></p>
 </div>
 </div>
 <div class="slide" data-index="31">
   
-  <div class="slide__content"><h2>お・ご · Respectful お vs beautifying お</h2>
-<blockquote>
-<p><strong>Rule of thumb</strong> - if removing the prefix would be rude to a <em>person</em>, it is respect. If it would just sound rough, it is beautification.</p>
-</blockquote>
-<p>**お仕事(しごと)**は何(なん)ですか。<br><em>What do you do for a living?</em></p>
-<p>**お茶(ちゃ)**でも飲(の)みませんか。<br><em>Shall we have some tea?</em></p>
-<p>The first <code>お</code> honours the listener, and you would drop it when talking about your own job: 私(わたし)の仕事(しごと)は教師(きょうし)です. The second belongs to the tea and stays put whoever the tea is for - you say お茶(ちゃ) about your own cup without a second thought.</p>
+  <div class="slide__content"><h2>お・ご · Nuance &amp; register</h2>
+<p>The prefix is doing one of three quite different jobs, and telling them apart is the whole skill.</p>
+<p><strong>Respect.</strong> Attached to something belonging to the listener - お<ruby>名前<rt>なまえ</rt></ruby>, ご<ruby>家族<rt>かぞく</rt></ruby>, お<ruby>仕事<rt>しごと</rt></ruby> - it raises <em>them</em>. This is the use that must never be turned on yourself: ❌<ruby>私<rt>わたし</rt></ruby>のお<ruby>名前<rt>なまえ</rt></ruby>は… is the classic beginner&#39;s error, and it sounds like bowing to your own reflection.</p>
+<p><strong>Humility.</strong> In お + stem + する（お<ruby>電話<rt>でんわ</rt></ruby>します, お<ruby>待<rt>ま</rt></ruby>ちしています）the prefix belongs to <em>your</em> action, lowering you rather than raising anyone. The <code>お</code> is attached to a verb here, not a noun.</p>
 </div>
 </div>
 <div class="slide" data-index="32">
   
-  <div class="slide__content"><h2>お・ご · お + stem + になる vs お + stem + する</h2>
-<blockquote>
-<p><strong>Rule of thumb</strong> - <code>になる</code> raises the other person; <code>する</code> lowers you. Both are polite; they point in opposite directions.</p>
-</blockquote>
-<p>社長(しゃちょう)はもう<strong>お帰(かえ)りになりました</strong>。<br><em>The company president has already gone home.</em></p>
-<p>明日(あした)、こちらから<strong>お届(とど)けします</strong>。<br><em>We&#39;ll deliver it to you tomorrow.</em></p>
-<p>Use the first about somebody else&#39;s action, the second about your own. Applying the honorific form to yourself - ❌私(わたし)がお帰(かえ)りになります - is a serious error, and the mirror-image mistake of using <code>私(わたし)のお名前(なまえ)</code>. Both are covered properly at N4; what matters now is knowing that the prefix alone does not make a phrase polite in the right direction.</p>
+  <div class="slide__content"><h2>お・ご · Nuance &amp; register (cont.)</h2>
+<p><strong>Beautification</strong> - <ruby>美化語<rt>びかご</rt></ruby>. お<ruby>茶<rt>ちゃ</rt></ruby>, ご<ruby>飯<rt>はん</rt></ruby>, お<ruby>金<rt>かね</rt></ruby>, お<ruby>菓子<rt>かし</rt></ruby>, お<ruby>水<rt>みず</rt></ruby> have nothing to do with respect at all. Everyone says them about everyone&#39;s tea and everyone&#39;s money, and dropping the prefix from some of these（<ruby>茶<rt>ちゃ</rt></ruby>, <ruby>金<rt>かね</rt></ruby>）sounds coarse. A few have fused completely: おなか and おかし are simply the words, and no one hears a prefix in them any more.</p>
+<p>Register notes worth having:</p>
 </div>
 </div>
 <div class="slide" data-index="33">
   
-  <div class="slide__content"><h2>お・ご · Common mistakes</h2>
+  <div class="slide__content"><h2>お・ご · Nuance &amp; register (cont.)</h2>
 <ul>
-<li><p>❌ 私(わたし)の<strong>お</strong>名前(なまえ)は田中(たなか)です。 → ✅ 私(わたし)の名前(なまえ)は田中(たなか)です。<br><em>The respectful prefix never goes on your own possessions. Ask the listener for お名前(なまえ), then answer with a bare 名前(なまえ).</em></p>
-</li>
-<li><p>❌ <strong>ご</strong>電話(でんわ)ありがとうございます。 → ✅ <strong>お</strong>電話(でんわ)ありがとうございます。<br><em><code>電話(でんわ)</code> looks like a <code>ご</code> word - two characters, on readings - but it is one of the fixed exceptions that take <code>お</code>.</em></p>
-</li>
-<li><p>❌ <strong>お</strong>住所(じゅうしょ)を書(か)いてください。 → ✅ <strong>ご</strong>住所(じゅうしょ)を書(か)いてください。<br><em>The mirror error. <code>住所(じゅうしょ)</code> is straightforwardly 漢語(かんご) and takes <code>ご</code>, as do ご職業(しょくぎょう) and ご連絡(れんらく) on the same form.</em></p>
-</li>
+<li>Heavy use of <ruby>美化語<rt>びかご</rt></ruby> is traditionally associated with women&#39;s speech and<br><em>with a refined register. Layering it everywhere - おビール, おズボン - sounds affected, though shops and restaurants do exactly that.</em></li>
+<li>Katakana loanwords normally take nothing. The one you will genuinely hear is<br><em>おトイレ, which has become ordinary polite speech.</em></li>
+<li>A small set of い-adjectives takes <code>お</code> in fixed courtesies:<br><em>お<ruby>忙<rt>いそが</rt></ruby>しいところすみません, お<ruby>若<rt>わか</rt></ruby>いですね.</em></li>
+<li>Some words take either prefix - お<ruby>返事<rt>へんじ</rt></ruby> and ご<ruby>返事<rt>へんじ</rt></ruby> are both<br><em>used, with お the more common today.</em></li>
 </ul>
 </div>
 </div>
 <div class="slide" data-index="34">
   
-  <div class="slide__content"><h2>お・ご · Common mistakes (cont.)</h2>
-<ul>
-<li><p>❌ <strong>お</strong>コーヒーをどうぞ。 → ✅ コーヒーをどうぞ。<br><em>Loanwords do not take the prefix. Shop staff sometimes say it anyway; a learner saying it sounds like a mistake rather than like service language.</em></p>
-</li>
-<li><p>❌ 朝(あさ)、飯(はん)を食(た)べました。 → ✅ 朝(あさ)ごはんを食(た)べました。<br><em>In ご飯(はん) the prefix has fused into the word. Removing it does not make the sentence casual - it makes it wrong.</em></p>
-</li>
-</ul>
+  <div class="slide__content"><h2>お・ご · Nuance &amp; register (cont.)</h2>
+<p>You cannot attach the prefix wherever you like. There is no ❌お<ruby>机<rt>つくえ</rt></ruby>, no ❌おテレビ, no ❌ご<ruby>勉強<rt>べんきょう</rt></ruby><ruby>部屋<rt>べや</rt></ruby>. The set of words that take it is closed, and it is learnt word by word.</p>
 </div>
 </div>
 <div class="slide" data-index="35">
   
-  <div class="slide__content"><h2>お・ご · Practice 1</h2>
-<p><strong>1.</strong> すみません、____名前(なまえ)は何(なん)とおっしゃいますか。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-すみません、<strong>お</strong>名前(なまえ)は何(なん)とおっしゃいますか。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>名前(なまえ)</code> is a native Japanese word, so the prefix is <code>お</code>. It is required here because you are asking about the listener&#39;s name, and a bare 名前(なまえ) in a question to a stranger sounds abrupt.</p>
+  <div class="slide__content"><h2>お・ご · お vs ご</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - <code>お</code> for <ruby>和語<rt>わご</rt></ruby> (native words, kun readings), <code>ご</code> for <ruby>漢語<rt>かんご</rt></ruby> (Chinese-derived words, on readings).</p>
+</blockquote>
+<p>**お<ruby>手紙<rt>てがみ</rt></ruby>**をありがとうございました。<br><em>Thank you for your letter.</em></p>
+<p>**ご<ruby>意見<rt>いけん</rt></ruby>**をお<ruby>聞<rt>き</rt></ruby>かせください。<br><em>Please let us hear your opinion.</em></p>
 </div>
 </div>
 <div class="slide" data-index="36">
   
-  <div class="slide__content"><h2>お・ご · Practice 2</h2>
-<p><strong>2.</strong> Choose: （お・ご）家族(かぞく)によろしくお伝(つた)えください。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<strong>ご</strong>家族(かぞく)によろしくお伝(つた)えください。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>家族(かぞく)</code> is a two-character on-reading compound - 漢語(かんご) - so it takes <code>ご</code>. Note that お伝(つた)えください in the same sentence takes <code>お</code>, because <code>伝(つた)える</code> is a native verb.</p>
+  <div class="slide__content"><h2>お・ご · お vs ご (cont.)</h2>
+<p><code><ruby>手紙<rt>てがみ</rt></ruby></code> is read with native Japanese sounds, so <code>お</code>. <code><ruby>意見<rt>いけん</rt></ruby></code> is a two-character on-reading compound, so <code>ご</code>. The test is not infallible - <ruby>返事<rt>へんじ</rt></ruby> is an on-reading compound and still prefers <code>お</code> - but it is right far more often than it is wrong.</p>
 </div>
 </div>
 <div class="slide" data-index="37">
   
-  <div class="slide__content"><h2>お・ご · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese: &quot;Thank you for your reply.&quot;</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-**お返事(へんじ)**ありがとうございます。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>返事(へんじ)</code> is one of the on-reading words that nevertheless prefers <code>お</code>. You will also see ご返事(へんじ), especially in older writing, but お返事(へんじ) is the safer choice today.</p>
+  <div class="slide__content"><h2>お・ご · Respectful お vs beautifying お</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - if removing the prefix would be rude to a <em>person</em>, it is respect. If it would just sound rough, it is beautification.</p>
+</blockquote>
+<p>**お<ruby>仕事<rt>しごと</rt></ruby>**は<ruby>何<rt>なん</rt></ruby>ですか。<br><em>What do you do for a living?</em></p>
+<p>**お<ruby>茶<rt>ちゃ</rt></ruby>**でも<ruby>飲<rt>の</rt></ruby>みませんか。<br><em>Shall we have some tea?</em></p>
 </div>
 </div>
 <div class="slide" data-index="38">
   
-  <div class="slide__content"><h2>お・ご · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 私(わたし)のお仕事(しごと)は先生(せんせい)です。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 私(わたし)の仕事(しごと)は教師(きょうし)です。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Two things. The honorific <code>お</code> cannot describe your own job, so it must go. And <code>先生(せんせい)</code> is itself a respectful word - use <code>教師(きょうし)</code> about yourself.</p>
+  <div class="slide__content"><h2>お・ご · Respectful お vs beautifying お (cont.)</h2>
+<p>The first <code>お</code> honours the listener, and you would drop it when talking about your own job: <ruby>私<rt>わたし</rt></ruby>の<ruby>仕事<rt>しごと</rt></ruby>は<ruby>教師<rt>きょうし</rt></ruby>です. The second belongs to the tea and stays put whoever the tea is for - you say お<ruby>茶<rt>ちゃ</rt></ruby> about your own cup without a second thought.</p>
 </div>
 </div>
 <div class="slide" data-index="39">
   
+  <div class="slide__content"><h2>お・ご · お + stem + になる vs お + stem + する</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - <code>になる</code> raises the other person; <code>する</code> lowers you. Both are polite; they point in opposite directions.</p>
+</blockquote>
+<p><ruby>社長<rt>しゃちょう</rt></ruby>はもう<strong>お<ruby>帰<rt>かえ</rt></ruby>りになりました</strong>。<br><em>The company president has already gone home.</em></p>
+<p><ruby>明日<rt>あした</rt></ruby>、こちらから<strong>お<ruby>届<rt>とど</rt></ruby>けします</strong>。<br><em>We&#39;ll deliver it to you tomorrow.</em></p>
+</div>
+</div>
+<div class="slide" data-index="40">
+  
+  <div class="slide__content"><h2>お・ご · お + stem + になる vs お + stem + する (cont.)</h2>
+<p>Use the first about somebody else&#39;s action, the second about your own. Applying the honorific form to yourself - ❌<ruby>私<rt>わたし</rt></ruby>がお<ruby>帰<rt>かえ</rt></ruby>りになります - is a serious error, and the mirror-image mistake of using <code><ruby>私<rt>わたし</rt></ruby>のお<ruby>名前<rt>なまえ</rt></ruby></code>. Both are covered properly at N4; what matters now is knowing that the prefix alone does not make a phrase polite in the right direction.</p>
+</div>
+</div>
+<div class="slide" data-index="41">
+  
+  <div class="slide__content"><h2>お・ご · Common mistakes</h2>
+<ul>
+<li><p>❌ <ruby>私<rt>わたし</rt></ruby>の<strong>お</strong><ruby>名前<rt>なまえ</rt></ruby>は<ruby>田中<rt>たなか</rt></ruby>です。 → ✅ <ruby>私<rt>わたし</rt></ruby>の<ruby>名前<rt>なまえ</rt></ruby>は<ruby>田中<rt>たなか</rt></ruby>です。<br><em>The respectful prefix never goes on your own possessions. Ask the listener for お<ruby>名前<rt>なまえ</rt></ruby>, then answer with a bare <ruby>名前<rt>なまえ</rt></ruby>.</em></p>
+</li>
+<li><p>❌ <strong>ご</strong><ruby>電話<rt>でんわ</rt></ruby>ありがとうございます。 → ✅ <strong>お</strong><ruby>電話<rt>でんわ</rt></ruby>ありがとうございます。<br><em><code><ruby>電話<rt>でんわ</rt></ruby></code> looks like a <code>ご</code> word - two characters, on readings - but it is one of the fixed exceptions that take <code>お</code>.</em></p>
+</li>
+<li><p>❌ <strong>お</strong><ruby>住所<rt>じゅうしょ</rt></ruby>を<ruby>書<rt>か</rt></ruby>いてください。 → ✅ <strong>ご</strong><ruby>住所<rt>じゅうしょ</rt></ruby>を<ruby>書<rt>か</rt></ruby>いてください。<br><em>The mirror error. <code><ruby>住所<rt>じゅうしょ</rt></ruby></code> is straightforwardly <ruby>漢語<rt>かんご</rt></ruby> and takes <code>ご</code>, as do ご<ruby>職業<rt>しょくぎょう</rt></ruby> and ご<ruby>連絡<rt>れんらく</rt></ruby> on the same form.</em></p>
+</li>
+<li><p>❌ <strong>お</strong>コーヒーをどうぞ。 → ✅ コーヒーをどうぞ。<br><em>Loanwords do not take the prefix. Shop staff sometimes say it anyway; a learner saying it sounds like a mistake rather than like service language.</em></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="42">
+  
+  <div class="slide__content"><h2>お・ご · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ <ruby>朝<rt>あさ</rt></ruby>、<ruby>飯<rt>はん</rt></ruby>を<ruby>食<rt>た</rt></ruby>べました。 → ✅ <ruby>朝<rt>あさ</rt></ruby>ごはんを<ruby>食<rt>た</rt></ruby>べました。<br><em>In ご<ruby>飯<rt>はん</rt></ruby> the prefix has fused into the word. Removing it does not make the sentence casual - it makes it wrong.</em></li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="43">
+  
+  <div class="slide__content"><h2>お・ご · Practice 1</h2>
+<p><strong>1.</strong> すみません、____<ruby>名前<rt>なまえ</rt></ruby>は<ruby>何<rt>なん</rt></ruby>とおっしゃいますか。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+すみません、<strong>お</strong><ruby>名前<rt>なまえ</rt></ruby>は<ruby>何<rt>なん</rt></ruby>とおっしゃいますか。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code><ruby>名前<rt>なまえ</rt></ruby></code> is a native Japanese word, so the prefix is <code>お</code>. It is required here because you are asking about the listener&#39;s name, and a bare <ruby>名前<rt>なまえ</rt></ruby> in a question to a stranger sounds abrupt.</p>
+</div>
+</div>
+<div class="slide" data-index="44">
+  
+  <div class="slide__content"><h2>お・ご · Practice 2</h2>
+<p><strong>2.</strong> Choose: （お・ご）<ruby>家族<rt>かぞく</rt></ruby>によろしくお<ruby>伝<rt>つた</rt></ruby>えください。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<strong>ご</strong><ruby>家族<rt>かぞく</rt></ruby>によろしくお<ruby>伝<rt>つた</rt></ruby>えください。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code><ruby>家族<rt>かぞく</rt></ruby></code> is a two-character on-reading compound - <ruby>漢語<rt>かんご</rt></ruby> - so it takes <code>ご</code>. Note that お<ruby>伝<rt>つた</rt></ruby>えください in the same sentence takes <code>お</code>, because <code><ruby>伝<rt>つた</rt></ruby>える</code> is a native verb.</p>
+</div>
+</div>
+<div class="slide" data-index="45">
+  
+  <div class="slide__content"><h2>お・ご · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese: &quot;Thank you for your reply.&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+**お<ruby>返事<rt>へんじ</rt></ruby>**ありがとうございます。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code><ruby>返事<rt>へんじ</rt></ruby></code> is one of the on-reading words that nevertheless prefers <code>お</code>. You will also see ご<ruby>返事<rt>へんじ</rt></ruby>, especially in older writing, but お<ruby>返事<rt>へんじ</rt></ruby> is the safer choice today.</p>
+</div>
+</div>
+<div class="slide" data-index="46">
+  
+  <div class="slide__content"><h2>お・ご · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the error: <ruby>私<rt>わたし</rt></ruby>のお<ruby>仕事<rt>しごと</rt></ruby>は<ruby>先生<rt>せんせい</rt></ruby>です。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ <ruby>私<rt>わたし</rt></ruby>の<ruby>仕事<rt>しごと</rt></ruby>は<ruby>教師<rt>きょうし</rt></ruby>です。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+Two things. The honorific <code>お</code> cannot describe your own job, so it must go. And <code><ruby>先生<rt>せんせい</rt></ruby></code> is itself a respectful word - use <code><ruby>教師<rt>きょうし</rt></ruby></code> about yourself.</p>
+</div>
+</div>
+<div class="slide" data-index="47">
+  
   <div class="slide__content"><h2>お・ご · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 時間(じかん)がありますか。 (b) お時間(じかん)、よろしいですか。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>時間<rt>じかん</rt></ruby>がありますか。 (b) お<ruby>時間<rt>じかん</rt></ruby>、よろしいですか。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) is a plain question about availability. Between friends it is perfectly normal; addressed to a customer or a superior it sounds blunt.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
@@ -3130,7 +3185,7 @@ Two things. The honorific <code>お</code> cannot describe your own job, so it m
     </div>
     <div id="hud-right">
       <a href="https://github.com/arpitbbhayani/deckrun" target="_blank" rel="noopener noreferrer" class="hud-brand" id="hud-brand" title="deckrun — Markdown presentations">powered by <span>deckrun</span></a>
-      <div id="slide-counter"><span id="cur">1</span>&nbsp;/&nbsp;<span id="tot">40</span></div>
+      <div id="slide-counter"><span id="cur">1</span>&nbsp;/&nbsp;<span id="tot">48</span></div>
     </div>
   </div>
 </div>
@@ -3183,7 +3238,7 @@ Two things. The honorific <code>お</code> cannot describe your own job, so it m
 
 
 
-<script id="deck-notes" type="application/json">["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]</script>
+<script id="deck-notes" type="application/json">["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]</script>
 <script id="deck-themes" type="application/json">{"themes":[{"id":"midnight","label":"midnight","mood":"dark","blurb":"Catppuccin Mocha. Violet on deep indigo, drifting orbs.","decor":"orbs","colors":{"crust":"#11111b","mantle":"#181825","base":"#1e1e2e","surface0":"#313244","overlay1":"#7f849c","subtext1":"#bac2de","text":"#cdd6f4","accent":"#cba6f7","accent2":"#89b4fa","accent3":"#89dceb"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"tokyo","label":"tokyo night","mood":"dark","blurb":"Neon cyan over a wireframe grid, lifted from a rainy skyline.","decor":"grid","colors":{"crust":"#16161e","mantle":"#1a1b26","base":"#1f2335","surface0":"#292e42","overlay1":"#7c86ab","subtext1":"#b7c0e0","text":"#c8d3f5","accent":"#2ac3de","accent2":"#bb9af7","accent3":"#73daca"},"fonts":{"display":"'Sora', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"nord","label":"nord","mood":"dark","blurb":"Arctic frost blue on polar slate, with slow contour waves.","decor":"waves","colors":{"crust":"#232831","mantle":"#2e3440","base":"#353c4a","surface0":"#3b4252","overlay1":"#8e9aae","subtext1":"#d8dee9","text":"#eceff4","accent":"#88c0d0","accent2":"#81a1c1","accent3":"#8fbcbb"},"fonts":{"display":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace","body":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"dracula","label":"dracula","mood":"dark","blurb":"Purple and hot pink over charcoal, lit by a gradient mesh.","decor":"mesh","colors":{"crust":"#1a1b23","mantle":"#21222c","base":"#282a36","surface0":"#343746","overlay1":"#7b85b6","subtext1":"#e2e4f0","text":"#f8f8f2","accent":"#bd93f9","accent2":"#ff79c6","accent3":"#8be9fd"},"fonts":{"display":"'Syne', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'Fira Code', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"gruvbox","label":"gruvbox","mood":"dark","blurb":"Warm amber and moss on retro brown, hatched like graph paper.","decor":"topo","colors":{"crust":"#1b1e1f","mantle":"#232728","base":"#282828","surface0":"#32302f","overlay1":"#928374","subtext1":"#d5c4a1","text":"#ebdbb2","accent":"#fabd2f","accent2":"#fe8019","accent3":"#b8bb26"},"fonts":{"display":"'Bricolage Grotesque', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Work Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"rosepine","label":"rosé pine","mood":"dark","blurb":"Muted iris and gold on plum, under a slow aurora.","decor":"aurora","colors":{"crust":"#14121f","mantle":"#191724","base":"#1f1d2e","surface0":"#26233a","overlay1":"#817c9c","subtext1":"#cdc9e6","text":"#e0def4","accent":"#c4a7e7","accent2":"#9ccfd8","accent3":"#f6c177"},"fonts":{"display":"'Fraunces', Georgia, 'Times New Roman', serif","body":"'Newsreader', Georgia, 'Times New Roman', serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"forest","label":"forest","mood":"dark","blurb":"Everforest sage on deep pine, rippling in concentric rings.","decor":"rings","colors":{"crust":"#232a2e","mantle":"#2d353b","base":"#343f44","surface0":"#3d484d","overlay1":"#9da9a0","subtext1":"#d3c6aa","text":"#e5dfd2","accent":"#a7c080","accent2":"#6fb5ac","accent3":"#dbbc7f"},"fonts":{"display":"'Outfit', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"neon","label":"neon","mood":"dark","blurb":"Electric cyan and magenta on true black, raked by light beams.","decor":"beams","colors":{"crust":"#050509","mantle":"#0a0a12","base":"#0e0e1a","surface0":"#16162a","overlay1":"#6a6a96","subtext1":"#c8c8e4","text":"#f0f0ff","accent":"#22d3ee","accent2":"#ff5cc8","accent3":"#38e8ff"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'Space Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"daylight","label":"daylight","mood":"light","blurb":"Catppuccin Latte, contrast-tuned for a projector. Dot matrix.","decor":"dots","colors":{"crust":"#ebebeb","mantle":"#f5f5f5","base":"#fafaf8","surface0":"#ccd0da","overlay1":"#5c5f77","subtext1":"#3a3c52","text":"#1e2030","accent":"#8839ef","accent2":"#1e66f5","accent3":"#179299"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"arctic","label":"arctic","mood":"light","blurb":"Nord inverted. Frost blue on cool paper, with contour waves.","decor":"waves","colors":{"crust":"#e3e8ef","mantle":"#eceff4","base":"#f7f9fc","surface0":"#dbe1ea","overlay1":"#5f6b7c","subtext1":"#364150","text":"#2e3440","accent":"#2f7d94","accent2":"#4a7ba7","accent3":"#3b8b8a"},"fonts":{"display":"'Manrope', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"solarized","label":"solarized","mood":"light","blurb":"The classic low-glare cream, paired with Lora for long prose.","decor":"topo","colors":{"crust":"#eee8d5","mantle":"#f5efdc","base":"#fdf6e3","surface0":"#e3ddc8","overlay1":"#657b83","subtext1":"#3f5b62","text":"#073642","accent":"#268bd2","accent2":"#6c71c4","accent3":"#21958c"},"fonts":{"display":"'Outfit', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Lora', Georgia, 'Times New Roman', serif","mono":"'Source Code Pro', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"paper","label":"paper","mood":"light","blurb":"Crimson serif on warm cream. Editorial, print-first, very legible.","decor":"rings","colors":{"crust":"#efe8dc","mantle":"#f7f2e9","base":"#fdfbf5","surface0":"#e4dccc","overlay1":"#6e6553","subtext1":"#38311f","text":"#211c11","accent":"#a81f2c","accent2":"#1f7f96","accent3":"#9a6c12"},"fonts":{"display":"'Fraunces', Georgia, 'Times New Roman', serif","body":"'Newsreader', Georgia, 'Times New Roman', serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"rosequartz","label":"rose quartz","mood":"light","blurb":"Rosé Pine Dawn. Blush and iris on linen, with soft orbs.","decor":"orbs","colors":{"crust":"#f2e9e1","mantle":"#faf4ed","base":"#fffaf3","surface0":"#ece0d8","overlay1":"#7d7791","subtext1":"#55506e","text":"#423d5c","accent":"#b4637a","accent2":"#907aa9","accent3":"#56949f"},"fonts":{"display":"'Playfair Display', Georgia, 'Times New Roman', serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"swiss","label":"swiss","mood":"light","blurb":"Black on white, one red. Heavy grotesk, tight tracking, hard grid.","decor":"grid","colors":{"crust":"#f0f0f0","mantle":"#f8f8f8","base":"#ffffff","surface0":"#dcdcdc","overlay1":"#5a5a5a","subtext1":"#222222","text":"#0a0a0a","accent":"#e01b24","accent2":"#0a0a0a","accent3":"#5a5a5a"},"fonts":{"display":"'Archivo', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}}],"hljsMap":{"midnight":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css","tokyo":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css","nord":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/nord.min.css","dracula":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/dracula.min.css","gruvbox":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/gruvbox-dark-medium.min.css","rosepine":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/ros-pine.min.css","forest":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css","neon":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/night-owl.min.css","daylight":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","arctic":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","solarized":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/solarized-light.min.css","paper":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","rosequartz":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/ros-pine-dawn.min.css","swiss":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css"},"decorMap":{"midnight":"orbs","tokyo":"grid","nord":"waves","dracula":"mesh","gruvbox":"topo","rosepine":"aurora","forest":"rings","neon":"beams","daylight":"dots","arctic":"waves","solarized":"topo","paper":"rings","rosequartz":"orbs","swiss":"grid"}}</script>
 
 <script>
@@ -4371,6 +4426,36 @@ Two things. The honorific <code>お</code> cannot describe your own job, so it m
     transition: opacity 0.15s ease, background 0.15s ease; }
   #deck-home:hover, #deck-home:focus-visible { opacity: 0.95; background: rgba(128,128,128,0.14); }
   @media print { #deck-home { display: none !important; } }
+  #furigana-toggle { position: fixed; bottom: 2.7rem; right: 1.1rem; z-index: 40;
+    font: 500 0.78rem/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+    color: currentColor; opacity: 0.38; cursor: pointer; user-select: none;
+    background: none; border: 1px solid currentColor; border-radius: 4px;
+    padding: 0.38rem 0.6rem;
+    transition: opacity 0.15s ease, background 0.15s ease; }
+  #furigana-toggle:hover, #furigana-toggle:focus-visible { opacity: 0.95; background: rgba(128,128,128,0.14); }
+  @media print { #furigana-toggle { display: none !important; } }
 </style>
+<button id="furigana-toggle" type="button" aria-pressed="true">&#12405;&#12426;&#12364;&#12394; ON</button>
+<script>
+  (function () {
+    // Deliberately click-only: readers who do not want furigana turn it off
+    // once and it sticks, while every key stays free for presenting.
+    var root = document.documentElement, btn = document.getElementById('furigana-toggle');
+    function paint() {
+      var off = root.getAttribute('data-furigana') === 'off';
+      btn.textContent = '\u3075\u308a\u304c\u306a ' + (off ? 'OFF' : 'ON');
+      btn.setAttribute('aria-pressed', String(!off));
+    }
+    btn.addEventListener('click', function () {
+      var off = root.getAttribute('data-furigana') === 'off';
+      if (off) root.removeAttribute('data-furigana');
+      else root.setAttribute('data-furigana', 'off');
+      try { localStorage.setItem('jlpt-furigana', off ? 'on' : 'off'); } catch (e) {}
+      paint();
+      btn.blur();
+    });
+    paint();
+  })();
+</script>
 </body>
 </html>

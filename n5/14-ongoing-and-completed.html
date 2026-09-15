@@ -2606,6 +2606,13 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
   gap: 0.5rem;
 }
   </style>
+<script>
+  try {
+    if (localStorage.getItem('jlpt-furigana') === 'off') {
+      document.documentElement.setAttribute('data-furigana', 'off');
+    }
+  } catch (e) {}
+</script>
 </head>
 <body>
 
@@ -2614,7 +2621,16 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <div id="presentation">
 <div class="slide" data-index="0">
   
-  <div class="slide__content"><style>html { font-size: 20.0px; }</style>
+  <div class="slide__content"><style>
+  html { font-size: 20.0px; }
+  .slide__content p, .slide__content li,
+  .slide__content td, .slide__content th { line-height: 2.05; }
+  rt { font-size: 0.5em; line-height: 1.1; opacity: 0.72; font-weight: 400; }
+  :root[data-furigana="off"] rt { display: none; }
+  :root[data-furigana="off"] .slide__content p, :root[data-furigana="off"] .slide__content li,
+  :root[data-furigana="off"] .slide__content td, :root[data-furigana="off"] .slide__content th
+    { line-height: 1.5; }
+</style>
 
 <h1>N5 - Ongoing and completed</h1>
 <ul>
@@ -2653,47 +2669,47 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <tbody><tr>
 <td>う-verb (て)</td>
 <td>て-form + いる</td>
-<td>待(ま)つ → 待(ま)っている</td>
+<td><ruby>待<rt>ま</rt></ruby>つ → <ruby>待<rt>ま</rt></ruby>っている</td>
 </tr>
 <tr>
 <td>う-verb (で)</td>
 <td>で-form + いる</td>
-<td>遊(あそ)ぶ → 遊(あそ)んでいる</td>
+<td><ruby>遊<rt>あそ</rt></ruby>ぶ → <ruby>遊<rt>あそ</rt></ruby>んでいる</td>
 </tr>
 <tr>
 <td>る-verb</td>
 <td>て-form + いる</td>
-<td>食(た)べる → 食(た)べている</td>
+<td><ruby>食<rt>た</rt></ruby>べる → <ruby>食<rt>た</rt></ruby>べている</td>
 </tr>
 <tr>
 <td>する</td>
 <td>している</td>
-<td>勉強(べんきょう)する → 勉強(べんきょう)している</td>
+<td><ruby>勉強<rt>べんきょう</rt></ruby>する → <ruby>勉強<rt>べんきょう</rt></ruby>している</td>
 </tr>
 <tr>
-<td>来(く)る</td>
+<td><ruby>来<rt>く</rt></ruby>る</td>
 <td>きている</td>
-<td>来(く)る → 来(き)ている</td>
+<td><ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>き</rt></ruby>ている</td>
 </tr>
 <tr>
 <td>Polite</td>
 <td>ています</td>
-<td>食(た)べています</td>
+<td><ruby>食<rt>た</rt></ruby>べています</td>
 </tr>
 <tr>
 <td>Negative</td>
 <td>ていない／ていません</td>
-<td>食(た)べていません</td>
+<td><ruby>食<rt>た</rt></ruby>べていません</td>
 </tr>
 <tr>
 <td>Past</td>
 <td>ていた／ていました</td>
-<td>食(た)べていました</td>
+<td><ruby>食<rt>た</rt></ruby>べていました</td>
 </tr>
 <tr>
 <td>Casual contraction</td>
 <td>ている → てる</td>
-<td>食(た)べてる</td>
+<td><ruby>食<rt>た</rt></ruby>べてる</td>
 </tr>
 </tbody></table>
 </div>
@@ -2712,273 +2728,300 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <tbody><tr>
 <td>Honorific / humble</td>
 <td>ていらっしゃる／ております</td>
-<td>待(ま)っていらっしゃる</td>
+<td><ruby>待<rt>ま</rt></ruby>っていらっしゃる</td>
 </tr>
 </tbody></table>
 <blockquote>
-<p><strong>Rule of thumb</strong> - verbs that take time (<code>食(た)べる</code>, <code>読(よ)む</code>, <code>走(はし)る</code>) give <strong>ongoing action</strong>. Verbs that happen in an instant and change something (<code>結婚(けっこん)する</code>, <code>死(し)ぬ</code>, <code>開(あ)く</code>, <code>知(し)る</code>) give <strong>resulting state</strong>. Same <code>ている</code>, two readings, and the verb decides.</p>
+<p><strong>Rule of thumb</strong> - verbs that take time (<code><ruby>食<rt>た</rt></ruby>べる</code>, <code><ruby>読<rt>よ</rt></ruby>む</code>, <code><ruby>走<rt>はし</rt></ruby>る</code>) give <strong>ongoing action</strong>. Verbs that happen in an instant and change something (<code><ruby>結婚<rt>けっこん</rt></ruby>する</code>, <code><ruby>死<rt>し</rt></ruby>ぬ</code>, <code><ruby>開<rt>あ</rt></ruby>く</code>, <code><ruby>知<rt>し</rt></ruby>る</code>) give <strong>resulting state</strong>. Same <code>ている</code>, two readings, and the verb decides.</p>
 </blockquote>
-<p>There is a third, quieter use - <strong>habitual action</strong> (<code>毎朝(まいあさ)走(はし)っています</code>) - and a fourth for accumulated record (<code>三回(さんかい)優勝(ゆうしょう)している</code>, &quot;has won three times&quot;). Both are common; the first is essential at N5.</p>
+<p>There is a third, quieter use - <strong>habitual action</strong> (<code><ruby>毎朝<rt>まいあさ</rt></ruby><ruby>走<rt>はし</rt></ruby>っています</code>) - and a fourth for accumulated record (<code><ruby>三回<rt>さんかい</rt></ruby><ruby>優勝<rt>ゆうしょう</rt></ruby>している</code>, &quot;has won three times&quot;). Both are common; the first is essential at N5.</p>
 </div>
 </div>
 <div class="slide" data-index="5">
   
   <div class="slide__content"><h2>～ている - is doing; is in a state · Examples</h2>
-<p>今(いま)、ごはんを<strong>食(た)べています</strong>。<br><em>I&#39;m eating right now.</em></p>
-<p>子(こ)どもたちが公園(こうえん)で<strong>遊(あそ)んでいる</strong>。<br><em>The children are playing in the park.</em></p>
-<p>姉(あね)は<strong>結婚(けっこん)しています</strong>。<br><em>My older sister is married.</em></p>
-<p>あの人(ひと)の名前(なまえ)を<strong>知(し)っています</strong>か。<br><em>Do you know that person&#39;s name?</em></p>
-<p>田中(たなか)さんはめがねを<strong>かけています</strong>。<br><em>Tanaka wears glasses.</em></p>
+<p><ruby>今<rt>いま</rt></ruby>、ごはんを**<ruby>食<rt>た</rt></ruby>べています**。<br><em>I&#39;m eating right now.</em></p>
+<p><ruby>子<rt>こ</rt></ruby>どもたちが<ruby>公園<rt>こうえん</rt></ruby>で**<ruby>遊<rt>あそ</rt></ruby>んでいる**。<br><em>The children are playing in the park.</em></p>
+<p><ruby>姉<rt>あね</rt></ruby>は**<ruby>結婚<rt>けっこん</rt></ruby>しています**。<br><em>My older sister is married.</em></p>
+<p>あの<ruby>人<rt>ひと</rt></ruby>の<ruby>名前<rt>なまえ</rt></ruby>を**<ruby>知<rt>し</rt></ruby>っています**か。<br><em>Do you know that person&#39;s name?</em></p>
 </div>
 </div>
 <div class="slide" data-index="6">
   
   <div class="slide__content"><h2>～ている - is doing; is in a state · Examples (cont.)</h2>
-<p>窓(まど)が<strong>開(あ)いています</strong>よ。閉(し)めましょうか。<br><em>The window&#39;s open. Shall I shut it?</em></p>
-<p>毎朝(まいあさ)六時(ろくじ)に起(お)きて、近(ちか)くの川(かわ)まで<strong>走(はし)っています</strong>。<br><em>Every morning I get up at six and run down to the river nearby.</em></p>
-<p>庭(にわ)で虫(むし)が<strong>死(し)んでいた</strong>ので、土(つち)にうめてやった。<br><em>There was a dead insect in the garden, so I buried it.</em></p>
-<p>道(みち)が<strong>混(こ)んでいる</strong>から、着(つ)くのが少(すこ)し遅(おそ)くなりそうです。<br><em>The roads are busy, so I&#39;ll probably arrive a little late.</em></p>
+<p><ruby>田中<rt>たなか</rt></ruby>さんはめがねを<strong>かけています</strong>。<br><em>Tanaka wears glasses.</em></p>
+<p><ruby>窓<rt>まど</rt></ruby>が**<ruby>開<rt>あ</rt></ruby>いています**よ。<ruby>閉<rt>し</rt></ruby>めましょうか。<br><em>The window&#39;s open. Shall I shut it?</em></p>
+<p><ruby>毎朝<rt>まいあさ</rt></ruby><ruby>六時<rt>ろくじ</rt></ruby>に<ruby>起<rt>お</rt></ruby>きて、<ruby>近<rt>ちか</rt></ruby>くの<ruby>川<rt>かわ</rt></ruby>まで**<ruby>走<rt>はし</rt></ruby>っています**。<br><em>Every morning I get up at six and run down to the river nearby.</em></p>
+<p><ruby>庭<rt>にわ</rt></ruby>で<ruby>虫<rt>むし</rt></ruby>が**<ruby>死<rt>し</rt></ruby>んでいた**ので、<ruby>土<rt>つち</rt></ruby>にうめてやった。<br><em>There was a dead insect in the garden, so I buried it.</em></p>
 </div>
 </div>
 <div class="slide" data-index="7">
   
-  <div class="slide__content"><h2>～ている - is doing; is in a state · Nuance &amp; register</h2>
-<p><strong><code>ている</code> is where Japanese talks about the present.</strong> The dictionary form does <em>not</em> mean &quot;now&quot;: <code>食(た)べる</code> is &quot;will eat&quot; or &quot;eats (habitually)&quot;, never &quot;is eating&quot;. If something is happening as you speak, <code>ている</code> is not optional.</p>
-<p><strong><code>てる</code> is the normal spoken shape.</strong> <code>何(なに)してるの？</code>, <code>待(ま)ってるよ</code>, <code>知(し)ってた？</code> - the <code>い</code> drops in casual speech, including in <code>ていた</code> → <code>てた</code>. It is informal but extremely common; keep the full form in writing, in <code>ます</code> speech and in the exam.</p>
-<p><strong>States you would never think of as verbs.</strong> Japanese uses <code>ている</code> for a large class of descriptions that English handles with adjectives or the simple present: <code>住(す)んでいます</code> (live), <code>持(も)っています</code> (have), <code>勤(つと)めています</code> (work for), <code>似(に)ている</code> (resemble), <code>太(ふと)っている</code> (be heavy-set), <code>曲(ま)がっている</code> (be bent). Several of these are <em>only</em> natural in <code>ている</code> form - you cannot describe a present resemblance with ❌<code>似(に)る</code>.</p>
+  <div class="slide__content"><h2>～ている - is doing; is in a state · Examples (cont.)</h2>
+<p><ruby>道<rt>みち</rt></ruby>が**<ruby>混<rt>こ</rt></ruby>んでいる**から、<ruby>着<rt>つ</rt></ruby>くのが<ruby>少<rt>すこ</rt></ruby>し<ruby>遅<rt>おそ</rt></ruby>くなりそうです。<br><em>The roads are busy, so I&#39;ll probably arrive a little late.</em></p>
 </div>
 </div>
 <div class="slide" data-index="8">
   
-  <div class="slide__content"><h2>～ている - is doing; is in a state · Nuance &amp; register (cont.)</h2>
-<p><strong>Politeness.</strong> Honorific speech gives <code>～ていらっしゃる</code> and <code>～ておられる</code>; humble speech gives <code>～ております</code> (<code>承知(しょうち)しております</code>). These are N4 and beyond, but you will hear <code>ております</code> on the phone from day one.</p>
-<p><strong>The negative is where the special cases hide.</strong> <code>食(た)べていません</code> means &quot;hasn&#39;t eaten (yet)&quot; - the action has not started or is not underway. But some state verbs refuse the negative <code>ている</code> altogether, and <code>知(し)る</code> is the famous one: see below.</p>
+  <div class="slide__content"><h2>～ている - is doing; is in a state · Nuance &amp; register</h2>
+<p><strong><code>ている</code> is where Japanese talks about the present.</strong> The dictionary form does <em>not</em> mean &quot;now&quot;: <code><ruby>食<rt>た</rt></ruby>べる</code> is &quot;will eat&quot; or &quot;eats (habitually)&quot;, never &quot;is eating&quot;. If something is happening as you speak, <code>ている</code> is not optional.</p>
+<p><strong><code>てる</code> is the normal spoken shape.</strong> <code><ruby>何<rt>なに</rt></ruby>してるの？</code>, <code><ruby>待<rt>ま</rt></ruby>ってるよ</code>, <code><ruby>知<rt>し</rt></ruby>ってた？</code> - the <code>い</code> drops in casual speech, including in <code>ていた</code> → <code>てた</code>. It is informal but extremely common; keep the full form in writing, in <code>ます</code> speech and in the exam.</p>
 </div>
 </div>
 <div class="slide" data-index="9">
+  
+  <div class="slide__content"><h2>～ている - is doing; is in a state · Nuance &amp; register (cont.)</h2>
+<p><strong>States you would never think of as verbs.</strong> Japanese uses <code>ている</code> for a large class of descriptions that English handles with adjectives or the simple present: <code><ruby>住<rt>す</rt></ruby>んでいます</code> (live), <code><ruby>持<rt>も</rt></ruby>っています</code> (have), <code><ruby>勤<rt>つと</rt></ruby>めています</code> (work for), <code><ruby>似<rt>に</rt></ruby>ている</code> (resemble), <code><ruby>太<rt>ふと</rt></ruby>っている</code> (be heavy-set), <code><ruby>曲<rt>ま</rt></ruby>がっている</code> (be bent). Several of these are <em>only</em> natural in <code>ている</code> form - you cannot describe a present resemblance with ❌<code><ruby>似<rt>に</rt></ruby>る</code>.</p>
+<p><strong>Politeness.</strong> Honorific speech gives <code>～ていらっしゃる</code> and <code>～ておられる</code>; humble speech gives <code>～ております</code> (<code><ruby>承知<rt>しょうち</rt></ruby>しております</code>). These are N4 and beyond, but you will hear <code>ております</code> on the phone from day one.</p>
+</div>
+</div>
+<div class="slide" data-index="10">
+  
+  <div class="slide__content"><h2>～ている - is doing; is in a state · Nuance &amp; register (cont.)</h2>
+<p><strong>The negative is where the special cases hide.</strong> <code><ruby>食<rt>た</rt></ruby>べていません</code> means &quot;hasn&#39;t eaten (yet)&quot; - the action has not started or is not underway. But some state verbs refuse the negative <code>ている</code> altogether, and <code><ruby>知<rt>し</rt></ruby>る</code> is the famous one: see below.</p>
+</div>
+</div>
+<div class="slide" data-index="11">
   
   <div class="slide__content"><h2>～ている - is doing; is in a state · Ongoing action vs resulting state</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - ask how long the verb takes. If the action itself has duration, <code>ている</code> catches it mid-flow. If the action is over in an instant and leaves a changed world, <code>ている</code> describes the change that is still there.</p>
 </blockquote>
-<p>弟(おとうと)は今(いま)、手紙(てがみ)を<strong>書(か)いています</strong>。<br><em>My little brother is writing a letter right now. (still writing)</em></p>
-<p>おじいさんは去年(きょねん)<strong>亡(な)くなっています</strong>。<br><em>My grandfather passed away last year. (and is dead now)</em></p>
-<p>The second is not &quot;is dying&quot;. <code>死(し)ぬ</code> and <code>亡(な)くなる</code> take no time at all, so there is no flow for <code>ている</code> to catch - only the state afterwards. The same logic explains <code>結婚(けっこん)している</code> (is married, not &quot;is getting married&quot;), <code>来(き)ている</code> (is here, having come), <code>ドアが閉(し)まっている</code> (the door is shut) and <code>覚(おぼ)えている</code> (remembers).</p>
+<p><ruby>弟<rt>おとうと</rt></ruby>は<ruby>今<rt>いま</rt></ruby>、<ruby>手紙<rt>てがみ</rt></ruby>を**<ruby>書<rt>か</rt></ruby>いています**。<br><em>My little brother is writing a letter right now. (still writing)</em></p>
+<p>おじいさんは<ruby>去年<rt>きょねん</rt></ruby><strong><ruby>亡<rt>な</rt></ruby>くなっています</strong>。<br><em>My grandfather passed away last year. (and is dead now)</em></p>
 </div>
 </div>
-<div class="slide" data-index="10">
+<div class="slide" data-index="12">
   
   <div class="slide__content"><h2>～ている - is doing; is in a state · Ongoing action vs resulting state (cont.)</h2>
-<p>電気(でんき)が<strong>ついています</strong>。誰(だれ)かいるのかもしれません。<br><em>The light is on. Someone might be in.</em></p>
+<p>The second is not &quot;is dying&quot;. <code><ruby>死<rt>し</rt></ruby>ぬ</code> and <code><ruby>亡<rt>な</rt></ruby>くなる</code> take no time at all, so there is no flow for <code>ている</code> to catch - only the state afterwards. The same logic explains <code><ruby>結婚<rt>けっこん</rt></ruby>している</code> (is married, not &quot;is getting married&quot;), <code><ruby>来<rt>き</rt></ruby>ている</code> (is here, having come), <code>ドアが<ruby>閉<rt>し</rt></ruby>まっている</code> (the door is shut) and <code><ruby>覚<rt>おぼ</rt></ruby>えている</code> (remembers).</p>
+<p><ruby>電気<rt>でんき</rt></ruby>が<strong>ついています</strong>。<ruby>誰<rt>だれ</rt></ruby>かいるのかもしれません。<br><em>The light is on. Someone might be in.</em></p>
 <p>A useful test: if the English translation is an adjective or &quot;is/has been&quot;, you are looking at a resulting state.</p>
 </div>
 </div>
-<div class="slide" data-index="11">
+<div class="slide" data-index="13">
   
   <div class="slide__content"><h2>～ている - is doing; is in a state · ～ている vs the dictionary form</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>ている</code> = now. Dictionary form = will, or generally does. The overlap English speakers expect between &quot;I eat&quot; and &quot;I&#39;m eating&quot; does not exist here.</p>
 </blockquote>
-<p>毎日(まいにち)新聞(しんぶん)を読(よ)みます。<br><em>I read the newspaper every day. (habit - plain present is fine)</em></p>
-<p>今(いま)、新聞(しんぶん)を<strong>読(よ)んでいます</strong>。<br><em>I&#39;m reading the newspaper right now.</em></p>
-<p>Habitual actions can take either form, with a difference of framing: <code>ています</code> presents the habit as a current, ongoing arrangement of your life - <code>銀行(ぎんこう)で働(はたら)いています</code> is how you say what you do for a living, and <code>銀行(ぎんこう)で働(はたら)きます</code> would sound like a plan for tomorrow.</p>
-</div>
-</div>
-<div class="slide" data-index="12">
-  
-  <div class="slide__content"><h2>～ている - is doing; is in a state · 知(し)っている vs 知(し)らない</h2>
-<blockquote>
-<p><strong>Rule of thumb</strong> - &quot;I know&quot; is <code>知(し)っています</code>. &quot;I don&#39;t know&quot; is <code>知(し)りません</code>. There is no ❌<code>知(し)っていません</code> in ordinary use.</p>
-</blockquote>
-<p>その話(はなし)なら<strong>知(し)っています</strong>。<br><em>Yes, I know about that.</em></p>
-<p>すみません、知(し)りません。<br><em>Sorry, I don&#39;t know.</em></p>
-<p><code>知(し)る</code> means &quot;to come to know&quot;, so <code>知(し)っている</code> is the state of having come to know - and its opposite is simply never having done so, which is <code>知(し)らない</code>. Answering a question with ❌<code>知(し)っていません</code> marks you immediately as a learner; answering with a flat <code>知(し)りません</code> can sound curt, so soften it: <code>ちょっと分(わ)かりません</code>, <code>すみません、知(し)らないんです</code>.</p>
-</div>
-</div>
-<div class="slide" data-index="13">
-  
-  <div class="slide__content"><h2>～ている - is doing; is in a state · 知(し)っている vs 知(し)らない (cont.)</h2>
-<p><code>分(わ)かる</code> behaves differently again: it is already a state, so <code>分(わ)かります</code>／<code>分(わ)かりません</code> need no <code>ている</code> at all.</p>
+<p><ruby>毎日<rt>まいにち</rt></ruby><ruby>新聞<rt>しんぶん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>みます。<br><em>I read the newspaper every day. (habit - plain present is fine)</em></p>
+<p><ruby>今<rt>いま</rt></ruby>、<ruby>新聞<rt>しんぶん</rt></ruby>を**<ruby>読<rt>よ</rt></ruby>んでいます**。<br><em>I&#39;m reading the newspaper right now.</em></p>
 </div>
 </div>
 <div class="slide" data-index="14">
   
-  <div class="slide__content"><h2>～ている - is doing; is in a state · Common mistakes</h2>
-<ul>
-<li><p>❌ その人(ひと)は知(し)っていません。 → ✅ その人(ひと)は知(し)りません。<br><em>The negative of <code>知(し)っている</code> is <code>知(し)らない</code>. This one is worth memorising as a pair rather than as a rule.</em></p>
-</li>
-<li><p>❌ 今(いま)、昼(ひる)ごはんを食(た)べます。（intending &quot;I&#39;m eating lunch now&quot;）→ ✅ 今(いま)、昼(ひる)ごはんを食(た)べています。<br><em>The plain present is future or habitual. It cannot describe what is happening as you speak.</em></p>
-</li>
-<li><p>❌ 兄(あに)は結婚(けっこん)します。（intending &quot;my brother is married&quot;）→ ✅ 兄(あに)は結婚(けっこん)しています。<br><em>Without <code>ている</code> you have announced a wedding that has not happened yet.</em></p>
-</li>
-<li><p>❌ 東京(とうきょう)に住(す)みます。 → ✅ 東京(とうきょう)に住(す)んでいます。<br><em>Living somewhere is a state. The dictionary form would mean you are about to move there.</em></p>
-</li>
-<li><p>❌ 駅(えき)で待(ま)ちています。 → ✅ 駅(えき)で待(ま)っています。<br><em><code>待(ま)つ</code> is a <code>つ</code> verb, so its て-form is <code>待(ま)って</code>. <code>ている</code> never attaches to the ます-stem.</em></p>
-</li>
-</ul>
+  <div class="slide__content"><h2>～ている - is doing; is in a state · ～ている vs the dictionary form (cont.)</h2>
+<p>Habitual actions can take either form, with a difference of framing: <code>ています</code> presents the habit as a current, ongoing arrangement of your life - <code><ruby>銀行<rt>ぎんこう</rt></ruby>で<ruby>働<rt>はたら</rt></ruby>いています</code> is how you say what you do for a living, and <code><ruby>銀行<rt>ぎんこう</rt></ruby>で<ruby>働<rt>はたら</rt></ruby>きます</code> would sound like a plan for tomorrow.</p>
 </div>
 </div>
 <div class="slide" data-index="15">
   
-  <div class="slide__content"><h2>～ている - is doing; is in a state · Practice 1</h2>
-<p><strong>1.</strong> 母(はは)は台所(だいどころ)で料理(りょうり)を____います。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-料理(りょうり)を<strong>して</strong>います。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>する</code> becomes <code>して</code>, and cooking takes time, so this is the ongoing reading: she is in the middle of it right now.</p>
+  <div class="slide__content"><h2>～ている - is doing; is in a state · 知っている vs 知らない</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - &quot;I know&quot; is <code><ruby>知<rt>し</rt></ruby>っています</code>. &quot;I don&#39;t know&quot; is <code><ruby>知<rt>し</rt></ruby>りません</code>. There is no ❌<code><ruby>知<rt>し</rt></ruby>っていません</code> in ordinary use.</p>
+</blockquote>
+<p>その<ruby>話<rt>はなし</rt></ruby>なら**<ruby>知<rt>し</rt></ruby>っています**。<br><em>Yes, I know about that.</em></p>
+<p>すみません、<ruby>知<rt>し</rt></ruby>りません。<br><em>Sorry, I don&#39;t know.</em></p>
 </div>
 </div>
 <div class="slide" data-index="16">
   
-  <div class="slide__content"><h2>～ている - is doing; is in a state · Practice 2</h2>
-<p><strong>2.</strong> 山田(やまだ)さんの電話番号(でんわばんごう)を（知(し)っていません・知(し)りません）。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-山田(やまだ)さんの電話番号(でんわばんごう)を<strong>知(し)りません</strong>。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>知(し)っている</code> has no negative form of its own - not knowing is expressed by the plain negative <code>知(し)らない</code>／<code>知(し)りません</code>. The affirmative and the negative simply do not match in shape.</p>
+  <div class="slide__content"><h2>～ている - is doing; is in a state · 知っている vs 知らない (cont.)</h2>
+<p><code><ruby>知<rt>し</rt></ruby>る</code> means &quot;to come to know&quot;, so <code><ruby>知<rt>し</rt></ruby>っている</code> is the state of having come to know - and its opposite is simply never having done so, which is <code><ruby>知<rt>し</rt></ruby>らない</code>. Answering a question with ❌<code><ruby>知<rt>し</rt></ruby>っていません</code> marks you immediately as a learner; answering with a flat <code><ruby>知<rt>し</rt></ruby>りません</code> can sound curt, so soften it: <code>ちょっと<ruby>分<rt>わ</rt></ruby>かりません</code>, <code>すみません、<ruby>知<rt>し</rt></ruby>らないんです</code>.</p>
+<p><code><ruby>分<rt>わ</rt></ruby>かる</code> behaves differently again: it is already a state, so <code><ruby>分<rt>わ</rt></ruby>かります</code>／<code><ruby>分<rt>わ</rt></ruby>かりません</code> need no <code>ている</code> at all.</p>
 </div>
 </div>
 <div class="slide" data-index="17">
   
-  <div class="slide__content"><h2>～ている - is doing; is in a state · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese: &quot;The door is open.&quot;</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-ドアが<strong>開(あ)いています</strong>。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>開(あ)く</code> is an instantaneous change of state, so <code>ている</code> gives the resulting state - the door is <em>currently open</em>, not &quot;is opening&quot;. English speakers often reach for an adjective here; Japanese uses the verb.</p>
+  <div class="slide__content"><h2>～ている - is doing; is in a state · Common mistakes</h2>
+<ul>
+<li><p>❌ その<ruby>人<rt>ひと</rt></ruby>は<ruby>知<rt>し</rt></ruby>っていません。 → ✅ その<ruby>人<rt>ひと</rt></ruby>は<ruby>知<rt>し</rt></ruby>りません。<br><em>The negative of <code><ruby>知<rt>し</rt></ruby>っている</code> is <code><ruby>知<rt>し</rt></ruby>らない</code>. This one is worth memorising as a pair rather than as a rule.</em></p>
+</li>
+<li><p>❌ <ruby>今<rt>いま</rt></ruby>、<ruby>昼<rt>ひる</rt></ruby>ごはんを<ruby>食<rt>た</rt></ruby>べます。（intending &quot;I&#39;m eating lunch now&quot;）→ ✅ <ruby>今<rt>いま</rt></ruby>、<ruby>昼<rt>ひる</rt></ruby>ごはんを<ruby>食<rt>た</rt></ruby>べています。<br><em>The plain present is future or habitual. It cannot describe what is happening as you speak.</em></p>
+</li>
+<li><p>❌ <ruby>兄<rt>あに</rt></ruby>は<ruby>結婚<rt>けっこん</rt></ruby>します。（intending &quot;my brother is married&quot;）→ ✅ <ruby>兄<rt>あに</rt></ruby>は<ruby>結婚<rt>けっこん</rt></ruby>しています。<br><em>Without <code>ている</code> you have announced a wedding that has not happened yet.</em></p>
+</li>
+<li><p>❌ <ruby>東京<rt>とうきょう</rt></ruby>に<ruby>住<rt>す</rt></ruby>みます。 → ✅ <ruby>東京<rt>とうきょう</rt></ruby>に<ruby>住<rt>す</rt></ruby>んでいます。<br><em>Living somewhere is a state. The dictionary form would mean you are about to move there.</em></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="18">
   
-  <div class="slide__content"><h2>～ている - is doing; is in a state · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the problem: 今(いま)、田中(たなか)さんは電話(でんわ)を使(つか)います。あとでかけ直(なお)してください。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 今(いま)、田中(たなか)さんは電話(でんわ)を使(つか)っています。あとでかけ直(なお)してください。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The second sentence makes it clear the phone is in use <em>at this moment</em>, so the first needs <code>ています</code>. As written, it says Tanaka will use the phone - which gives the listener no reason to call back later.</p>
+  <div class="slide__content"><h2>～ている - is doing; is in a state · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ <ruby>駅<rt>えき</rt></ruby>で<ruby>待<rt>ま</rt></ruby>ちています。 → ✅ <ruby>駅<rt>えき</rt></ruby>で<ruby>待<rt>ま</rt></ruby>っています。<br><em><code><ruby>待<rt>ま</rt></ruby>つ</code> is a <code>つ</code> verb, so its て-form is <code><ruby>待<rt>ま</rt></ruby>って</code>. <code>ている</code> never attaches to the ます-stem.</em></li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="19">
   
-  <div class="slide__content"><h2>～ている - is doing; is in a state · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 窓(まど)を開(あ)けています。 (b) 窓(まど)が開(あ)いています。</p>
+  <div class="slide__content"><h2>～ている - is doing; is in a state · Practice 1</h2>
+<p><strong>1.</strong> <ruby>母<rt>はは</rt></ruby>は<ruby>台所<rt>だいどころ</rt></ruby>で<ruby>料理<rt>りょうり</rt></ruby>を____います。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-(a) uses the transitive <code>開(あ)ける</code> with <code>を</code>: somebody is in the act of opening the window, and the sentence is about their action.</p>
+<ruby>料理<rt>りょうり</rt></ruby>を<strong>して</strong>います。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-(b) uses the intransitive <code>開(あ)く</code> with <code>が</code>: the window is open. Nobody is mentioned, nobody is doing anything, and the sentence simply describes the state of the room. The particle and the verb pair together - change one and you must change the other.</p>
+<code>する</code> becomes <code>して</code>, and cooking takes time, so this is the ongoing reading: she is in the middle of it right now.</p>
 </div>
 </div>
 <div class="slide" data-index="20">
+  
+  <div class="slide__content"><h2>～ている - is doing; is in a state · Practice 2</h2>
+<p><strong>2.</strong> <ruby>山田<rt>やまだ</rt></ruby>さんの<ruby>電話番号<rt>でんわばんごう</rt></ruby>を（<ruby>知<rt>し</rt></ruby>っていません・<ruby>知<rt>し</rt></ruby>りません）。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>山田<rt>やまだ</rt></ruby>さんの<ruby>電話番号<rt>でんわばんごう</rt></ruby>を**<ruby>知<rt>し</rt></ruby>りません**。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code><ruby>知<rt>し</rt></ruby>っている</code> has no negative form of its own - not knowing is expressed by the plain negative <code><ruby>知<rt>し</rt></ruby>らない</code>／<code><ruby>知<rt>し</rt></ruby>りません</code>. The affirmative and the negative simply do not match in shape.</p>
+</div>
+</div>
+<div class="slide" data-index="21">
+  
+  <div class="slide__content"><h2>～ている - is doing; is in a state · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese: &quot;The door is open.&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+ドアが**<ruby>開<rt>あ</rt></ruby>いています**。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code><ruby>開<rt>あ</rt></ruby>く</code> is an instantaneous change of state, so <code>ている</code> gives the resulting state - the door is <em>currently open</em>, not &quot;is opening&quot;. English speakers often reach for an adjective here; Japanese uses the verb.</p>
+</div>
+</div>
+<div class="slide" data-index="22">
+  
+  <div class="slide__content"><h2>～ている - is doing; is in a state · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the problem: <ruby>今<rt>いま</rt></ruby>、<ruby>田中<rt>たなか</rt></ruby>さんは<ruby>電話<rt>でんわ</rt></ruby>を<ruby>使<rt>つか</rt></ruby>います。あとでかけ<ruby>直<rt>なお</rt></ruby>してください。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ <ruby>今<rt>いま</rt></ruby>、<ruby>田中<rt>たなか</rt></ruby>さんは<ruby>電話<rt>でんわ</rt></ruby>を<ruby>使<rt>つか</rt></ruby>っています。あとでかけ<ruby>直<rt>なお</rt></ruby>してください。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The second sentence makes it clear the phone is in use <em>at this moment</em>, so the first needs <code>ています</code>. As written, it says Tanaka will use the phone - which gives the listener no reason to call back later.</p>
+</div>
+</div>
+<div class="slide" data-index="23">
+  
+  <div class="slide__content"><h2>～ている - is doing; is in a state · Practice 5</h2>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>窓<rt>まど</rt></ruby>を<ruby>開<rt>あ</rt></ruby>けています。 (b) <ruby>窓<rt>まど</rt></ruby>が<ruby>開<rt>あ</rt></ruby>いています。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+(a) uses the transitive <code><ruby>開<rt>あ</rt></ruby>ける</code> with <code>を</code>: somebody is in the act of opening the window, and the sentence is about their action.</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+(b) uses the intransitive <code><ruby>開<rt>あ</rt></ruby>く</code> with <code>が</code>: the window is open. Nobody is mentioned, nobody is doing anything, and the sentence simply describes the state of the room. The particle and the verb pair together - change one and you must change the other.</p>
+</div>
+</div>
+<div class="slide" data-index="24">
   
   <div class="slide__content"><h1>まだ - still; not yet</h1>
 <p><strong>Meaning</strong> · still (it hasn&#39;t changed) - or, with a negative, not yet (it hasn&#39;t happened)</p>
 <p><code>まだ</code> marks a situation as <strong>unchanged</strong>. If the sentence is positive, what has not changed is a state that continues: <em>still</em>. If the sentence is negative, what has not changed is an event everyone is waiting for: <em>not yet</em>. One word, one idea, two English translations.</p>
 </div>
 </div>
-<div class="slide" data-index="21">
+<div class="slide" data-index="25">
   
   <div class="slide__content"><h2>まだ - still; not yet · Usage</h2>
 <p><code>まだ</code> is an adverb. It does not conjugate and it attaches to nothing - you simply put it before the part of the sentence it applies to, usually near the front.</p>
-<p>With an <strong>affirmative</strong> predicate it means <em>still</em>: <code>まだ降(ふ)っています</code> (still raining), <code>まだ子(こ)どもです</code> (still a child), <code>まだ新(あたら)しい</code> (still new). Verbs, い-adjectives, な-adjectives and nouns all take it equally.</p>
-<p>With a <strong>negative</strong> predicate it means <em>not yet</em>: <code>まだ決(き)まっていません</code> (not decided yet), <code>まだ来(き)ません</code> (hasn&#39;t come yet). The most important pattern of this kind is <code>まだ～ていません</code>, which has a page of its own.</p>
-<p><code>まだ</code> also stands alone as a complete answer. To <code>もう食(た)べましたか</code> you can reply simply <code>まだです</code>, or casually <code>まだ</code>. And doubled, <code>まだまだ</code> means &quot;nowhere near yet&quot;: <code>日本語(にほんご)はまだまだです</code>.</p>
+<p>With an <strong>affirmative</strong> predicate it means <em>still</em>: <code>まだ<ruby>降<rt>ふ</rt></ruby>っています</code> (still raining), <code>まだ<ruby>子<rt>こ</rt></ruby>どもです</code> (still a child), <code>まだ<ruby>新<rt>あたら</rt></ruby>しい</code> (still new). Verbs, い-adjectives, な-adjectives and nouns all take it equally.</p>
+<p>With a <strong>negative</strong> predicate it means <em>not yet</em>: <code>まだ<ruby>決<rt>き</rt></ruby>まっていません</code> (not decided yet), <code>まだ<ruby>来<rt>き</rt></ruby>ません</code> (hasn&#39;t come yet). The most important pattern of this kind is <code>まだ～ていません</code>, which has a page of its own.</p>
 </div>
 </div>
-<div class="slide" data-index="22">
+<div class="slide" data-index="26">
   
   <div class="slide__content"><h2>まだ - still; not yet · Usage (cont.)</h2>
-<p>One extra use worth knowing: before a quantity or a time, <code>まだ</code> means <em>only</em> - <code>まだ三時(さんじ)ですよ</code> (&quot;it&#39;s only three&quot;), <code>まだ半分(はんぶん)残(のこ)っている</code> (&quot;there&#39;s still half left&quot;). The nuance is that there is more of it than the listener assumed.</p>
+<p><code>まだ</code> also stands alone as a complete answer. To <code>もう<ruby>食<rt>た</rt></ruby>べましたか</code> you can reply simply <code>まだです</code>, or casually <code>まだ</code>. And doubled, <code>まだまだ</code> means &quot;nowhere near yet&quot;: <code><ruby>日本語<rt>にほんご</rt></ruby>はまだまだです</code>.</p>
+<p>One extra use worth knowing: before a quantity or a time, <code>まだ</code> means <em>only</em> - <code>まだ<ruby>三時<rt>さんじ</rt></ruby>ですよ</code> (&quot;it&#39;s only three&quot;), <code>まだ<ruby>半分<rt>はんぶん</rt></ruby><ruby>残<rt>のこ</rt></ruby>っている</code> (&quot;there&#39;s still half left&quot;). The nuance is that there is more of it than the listener assumed.</p>
 </div>
 </div>
-<div class="slide" data-index="23">
+<div class="slide" data-index="27">
   
   <div class="slide__content"><h2>まだ - still; not yet · Examples</h2>
-<p><strong>まだ</strong>時間(じかん)がありますよ。<br><em>There&#39;s still time.</em></p>
-<p>父(ちち)は<strong>まだ</strong>寝(ね)ています。<br><em>My father is still asleep.</em></p>
-<p>バスが<strong>まだ</strong>来(き)ません。<br><em>The bus still hasn&#39;t come.</em></p>
-<p>駅前(えきまえ)のパン屋(や)、<strong>まだ</strong>やっているかな。もう九時(くじ)だけど。<br><em>I wonder if the bakery by the station is still open - it&#39;s gone nine, though.</em></p>
+<p><strong>まだ</strong><ruby>時間<rt>じかん</rt></ruby>がありますよ。<br><em>There&#39;s still time.</em></p>
+<p><ruby>父<rt>ちち</rt></ruby>は<strong>まだ</strong><ruby>寝<rt>ね</rt></ruby>ています。<br><em>My father is still asleep.</em></p>
+<p>バスが<strong>まだ</strong><ruby>来<rt>き</rt></ruby>ません。<br><em>The bus still hasn&#39;t come.</em></p>
+<p><ruby>駅前<rt>えきまえ</rt></ruby>のパン<ruby>屋<rt>や</rt></ruby>、<strong>まだ</strong>やっているかな。もう<ruby>九時<rt>くじ</rt></ruby>だけど。<br><em>I wonder if the bakery by the station is still open - it&#39;s gone nine, though.</em></p>
 </div>
 </div>
-<div class="slide" data-index="24">
+<div class="slide" data-index="28">
   
   <div class="slide__content"><h2>まだ - still; not yet · Nuance &amp; register</h2>
 <p><code>まだ</code> is register-neutral. It sits comfortably in a business email and in a text message to a friend, and it carries no politeness of its own - the ending of the sentence does that work.</p>
-<p>What it does carry is a faint sense of <strong>expectation not yet met</strong>, and that is where tone creeps in. A bare <code>まだ？</code> to someone who is running late is impatient in any language. The polite answer <code>まだです</code> is neutral, but as a <em>question</em> - <code>まだですか</code> - it presses. Aimed upward, replace it with something that does not ask the person to account for the delay: <code>恐(おそ)れ入(い)りますが、いかがでしょうか</code>.</p>
+<p>What it does carry is a faint sense of <strong>expectation not yet met</strong>, and that is where tone creeps in. A bare <code>まだ？</code> to someone who is running late is impatient in any language. The polite answer <code>まだです</code> is neutral, but as a <em>question</em> - <code>まだですか</code> - it presses. Aimed upward, replace it with something that does not ask the person to account for the delay: <code><ruby>恐<rt>おそ</rt></ruby>れ<ruby>入<rt>い</rt></ruby>りますが、いかがでしょうか</code>.</p>
 <p>In the other direction, <code>まだまだ</code> is a standard humility formula. Told that your Japanese is good, <code>いえいえ、まだまだです</code> is the expected reply - literally &quot;not by a long way yet&quot;, and understood as modesty rather than self-criticism.</p>
 </div>
 </div>
-<div class="slide" data-index="25">
+<div class="slide" data-index="29">
   
   <div class="slide__content"><h2>まだ - still; not yet · まだ vs もう</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>まだ</code> says nothing has changed; <code>もう</code> says the change has already happened. They divide the timeline at the moment of change, and they are each other&#39;s natural opposite in both positive and negative sentences.</p>
 </blockquote>
-<p>外(そと)は<strong>まだ</strong>明(あか)るいですね。<br><em>It&#39;s still light outside.</em></p>
-<p>外(そと)はもう暗(くら)いですね。<br><em>It&#39;s already dark outside.</em></p>
+<p><ruby>外<rt>そと</rt></ruby>は<strong>まだ</strong><ruby>明<rt>あか</rt></ruby>るいですね。<br><em>It&#39;s still light outside.</em></p>
+<p><ruby>外<rt>そと</rt></ruby>はもう<ruby>暗<rt>くら</rt></ruby>いですね。<br><em>It&#39;s already dark outside.</em></p>
 <p>The negative pairing is the one to watch, because the English flips too:</p>
-<p>兄(あに)は<strong>まだ</strong>働(はたら)いていません。<br><em>My brother isn&#39;t working yet. (he will - he&#39;s still studying)</em></p>
-</div>
-</div>
-<div class="slide" data-index="26">
-  
-  <div class="slide__content"><h2>まだ - still; not yet · まだ vs もう (cont.)</h2>
-<p>兄(あに)はもう働(はたら)いていません。<br><em>My brother isn&#39;t working any more. (he has retired or quit)</em></p>
-<p><code>まだ</code> + negative looks forward to something expected; <code>もう</code> + negative looks back at something finished. Choosing the wrong one does not produce a slightly odd sentence - it produces the opposite fact.</p>
-</div>
-</div>
-<div class="slide" data-index="27">
-  
-  <div class="slide__content"><h2>まだ - still; not yet · Common mistakes</h2>
-<ul>
-<li><p>❌ <strong>まだ</strong>昼(ひる)ごはんを食(た)べませんでした。 → ✅ <strong>まだ</strong>昼(ひる)ごはんを食(た)べていません。<br><em><code>ませんでした</code> closes the door on the event: it did not happen and that is that. <code>まだ</code> means it is still coming, so it needs the <code>ていません</code> form.</em></p>
-</li>
-<li><p>❌ レポートは<strong>まだ</strong>終(お)わりました。 → ✅ レポートは<strong>もう</strong>終(お)わりました。<br><em><code>まだ</code> cannot introduce a completed event. Once something is done, the adverb you want is <code>もう</code>.</em></p>
-</li>
-<li><p>❌ もう<strong>まだ</strong>着(つ)いていません。 → ✅ <strong>まだ</strong>着(つ)いていません。<br><em><code>もう</code> and <code>まだ</code> are opposites and do not stack. Pick one.</em></p>
-</li>
-<li><p>❌ 部長(ぶちょう)、あの件(けん)、<strong>まだ</strong>ですか。 → ✅ 部長(ぶちょう)、あの件(けん)はいかがでしょうか。<br><em>Grammatical, but it asks a superior why they have not finished. Ask about the status instead of the delay.</em></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="slide" data-index="28">
-  
-  <div class="slide__content"><h2>まだ - still; not yet · Practice 1</h2>
-<p><strong>1.</strong> 「もう帰(かえ)りますか。」「いいえ、____仕事(しごと)が残(のこ)っているので、もう少(すこ)しいます。」</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-いいえ、<strong>まだ</strong>仕事(しごと)が残(のこ)っているので…</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The work is unfinished and the situation is unchanged, which is exactly <code>まだ</code> with an affirmative verb: <em>still</em> there is work left. <code>もう</code> would claim the opposite.</p>
-</div>
-</div>
-<div class="slide" data-index="29">
-  
-  <div class="slide__content"><h2>まだ - still; not yet · Practice 2</h2>
-<p><strong>2.</strong> 子(こ)どもたちは（まだ・もう）起(お)きています。寝(ね)かせないと。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-子(こ)どもたちは<strong>まだ</strong>起(お)きています。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The second sentence - &quot;I need to get them to bed&quot; - tells you the children ought to be asleep already and are not. That is a continuing state contrary to expectation, so <code>まだ</code>. <code>もう起(お)きています</code> would mean they are already awake, which fits a morning, not a bedtime.</p>
 </div>
 </div>
 <div class="slide" data-index="30">
   
+  <div class="slide__content"><h2>まだ - still; not yet · まだ vs もう (cont.)</h2>
+<p><ruby>兄<rt>あに</rt></ruby>は<strong>まだ</strong><ruby>働<rt>はたら</rt></ruby>いていません。<br><em>My brother isn&#39;t working yet. (he will - he&#39;s still studying)</em></p>
+<p><ruby>兄<rt>あに</rt></ruby>はもう<ruby>働<rt>はたら</rt></ruby>いていません。<br><em>My brother isn&#39;t working any more. (he has retired or quit)</em></p>
+<p><code>まだ</code> + negative looks forward to something expected; <code>もう</code> + negative looks back at something finished. Choosing the wrong one does not produce a slightly odd sentence - it produces the opposite fact.</p>
+</div>
+</div>
+<div class="slide" data-index="31">
+  
+  <div class="slide__content"><h2>まだ - still; not yet · Common mistakes</h2>
+<ul>
+<li><p>❌ <strong>まだ</strong><ruby>昼<rt>ひる</rt></ruby>ごはんを<ruby>食<rt>た</rt></ruby>べませんでした。 → ✅ <strong>まだ</strong><ruby>昼<rt>ひる</rt></ruby>ごはんを<ruby>食<rt>た</rt></ruby>べていません。<br><em><code>ませんでした</code> closes the door on the event: it did not happen and that is that. <code>まだ</code> means it is still coming, so it needs the <code>ていません</code> form.</em></p>
+</li>
+<li><p>❌ レポートは<strong>まだ</strong><ruby>終<rt>お</rt></ruby>わりました。 → ✅ レポートは<strong>もう</strong><ruby>終<rt>お</rt></ruby>わりました。<br><em><code>まだ</code> cannot introduce a completed event. Once something is done, the adverb you want is <code>もう</code>.</em></p>
+</li>
+<li><p>❌ もう<strong>まだ</strong><ruby>着<rt>つ</rt></ruby>いていません。 → ✅ <strong>まだ</strong><ruby>着<rt>つ</rt></ruby>いていません。<br><em><code>もう</code> and <code>まだ</code> are opposites and do not stack. Pick one.</em></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="32">
+  
+  <div class="slide__content"><h2>まだ - still; not yet · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ <ruby>部長<rt>ぶちょう</rt></ruby>、あの<ruby>件<rt>けん</rt></ruby>、<strong>まだ</strong>ですか。 → ✅ <ruby>部長<rt>ぶちょう</rt></ruby>、あの<ruby>件<rt>けん</rt></ruby>はいかがでしょうか。<br><em>Grammatical, but it asks a superior why they have not finished. Ask about the status instead of the delay.</em></li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="33">
+  
+  <div class="slide__content"><h2>まだ - still; not yet · Practice 1</h2>
+<p><strong>1.</strong> 「もう<ruby>帰<rt>かえ</rt></ruby>りますか。」「いいえ、____<ruby>仕事<rt>しごと</rt></ruby>が<ruby>残<rt>のこ</rt></ruby>っているので、もう<ruby>少<rt>すこ</rt></ruby>しいます。」</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+いいえ、<strong>まだ</strong><ruby>仕事<rt>しごと</rt></ruby>が<ruby>残<rt>のこ</rt></ruby>っているので…</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The work is unfinished and the situation is unchanged, which is exactly <code>まだ</code> with an affirmative verb: <em>still</em> there is work left. <code>もう</code> would claim the opposite.</p>
+</div>
+</div>
+<div class="slide" data-index="34">
+  
+  <div class="slide__content"><h2>まだ - still; not yet · Practice 2</h2>
+<p><strong>2.</strong> <ruby>子<rt>こ</rt></ruby>どもたちは（まだ・もう）<ruby>起<rt>お</rt></ruby>きています。<ruby>寝<rt>ね</rt></ruby>かせないと。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>子<rt>こ</rt></ruby>どもたちは<strong>まだ</strong><ruby>起<rt>お</rt></ruby>きています。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The second sentence - &quot;I need to get them to bed&quot; - tells you the children ought to be asleep already and are not. That is a continuing state contrary to expectation, so <code>まだ</code>. <code>もう<ruby>起<rt>お</rt></ruby>きています</code> would mean they are already awake, which fits a morning, not a bedtime.</p>
+</div>
+</div>
+<div class="slide" data-index="35">
+  
   <div class="slide__content"><h2>まだ - still; not yet · Practice 3</h2>
-<p><strong>3.</strong> Explain the difference in nuance: (a) まだ三時(さんじ)ですよ。 (b) もう三時(さんじ)ですよ。</p>
+<p><strong>3.</strong> Explain the difference in nuance: (a) まだ<ruby>三時<rt>さんじ</rt></ruby>ですよ。 (b) もう<ruby>三時<rt>さんじ</rt></ruby>ですよ。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 Both state the same time and disagree entirely about what it means.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) presents three o&#39;clock as early: there is more of the day left than the listener thought - sit down, finish your coffee. (b) presents it as late: time has run away and something should have happened by now. <code>まだ</code> measures what remains; <code>もう</code> measures what has already gone.</p>
 </div>
 </div>
-<div class="slide" data-index="31">
+<div class="slide" data-index="36">
   
   <div class="slide__content"><h1>まだ～ていません - haven&#39;t ~ yet</h1>
 <p><strong>Meaning</strong> · I haven&#39;t done it yet - and it is still on the list</p>
 <p>This is the standard answer to <code>もう～ましたか</code>. The two halves each do a job: <code>まだ</code> says the situation is unchanged, and <code>～ていません</code> says the action has not reached completion. Together they describe something that has not happened <strong>and is still expected to</strong> - which is why &quot;yet&quot; is such a good translation and &quot;didn&#39;t&quot; is such a bad one.</p>
 </div>
 </div>
-<div class="slide" data-index="32">
+<div class="slide" data-index="37">
   
   <div class="slide__content"><h2>まだ～ていません - haven&#39;t ~ yet · Formation</h2>
 <table>
@@ -2992,311 +3035,328 @@ Both state the same time and disagree entirely about what it means.</p>
 <tbody><tr>
 <td>Verb</td>
 <td>まだ + て-form + いません</td>
-<td>食(た)べる → まだ食(た)べていません</td>
+<td><ruby>食<rt>た</rt></ruby>べる → まだ<ruby>食<rt>た</rt></ruby>べていません</td>
 </tr>
 <tr>
 <td>Plain style</td>
 <td>まだ + て-form + いない</td>
-<td>食(た)べる → まだ食(た)べていない</td>
+<td><ruby>食<rt>た</rt></ruby>べる → まだ<ruby>食<rt>た</rt></ruby>べていない</td>
 </tr>
 <tr>
 <td>Casual contraction</td>
 <td>ていない → てない</td>
-<td>食(た)べる → まだ食(た)べてない</td>
+<td><ruby>食<rt>た</rt></ruby>べる → まだ<ruby>食<rt>た</rt></ruby>べてない</td>
 </tr>
 <tr>
 <td>する verbs</td>
 <td>まだ + していません</td>
-<td>予約(よやく)する → まだ予約(よやく)していません</td>
+<td><ruby>予約<rt>よやく</rt></ruby>する → まだ<ruby>予約<rt>よやく</rt></ruby>していません</td>
 </tr>
 <tr>
-<td>来(く)る</td>
+<td><ruby>来<rt>く</rt></ruby>る</td>
 <td>まだ + きていません</td>
-<td>来(く)る → まだ来(き)ていません</td>
+<td><ruby>来<rt>く</rt></ruby>る → まだ<ruby>来<rt>き</rt></ruby>ていません</td>
 </tr>
 <tr>
 <td>Short answer</td>
 <td>まだです</td>
-<td>「もう読(よ)みましたか。」「いいえ、まだです。」</td>
+<td>「もう<ruby>読<rt>よ</rt></ruby>みましたか。」「いいえ、まだです。」</td>
 </tr>
 <tr>
 <td>The question it answers</td>
 <td>もう～ましたか</td>
-<td>もう読(よ)みましたか</td>
+<td>もう<ruby>読<rt>よ</rt></ruby>みましたか</td>
 </tr>
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="33">
+<div class="slide" data-index="38">
   
   <div class="slide__content"><h2>まだ～ていません - haven&#39;t ~ yet · Formation (cont.)</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - the negative goes on <code>いる</code>, not on the main verb. It is <code>食(た)べて + いません</code>, never ❌<code>食(た)べない + います</code> and never ❌<code>食(た)べませんでした</code>.</p>
+<p><strong>Rule of thumb</strong> - the negative goes on <code>いる</code>, not on the main verb. It is <code><ruby>食<rt>た</rt></ruby>べて + いません</code>, never ❌<code><ruby>食<rt>た</rt></ruby>べない + います</code> and never ❌<code><ruby>食<rt>た</rt></ruby>べませんでした</code>.</p>
 </blockquote>
 </div>
 </div>
-<div class="slide" data-index="34">
+<div class="slide" data-index="39">
   
   <div class="slide__content"><h2>まだ～ていません - haven&#39;t ~ yet · Examples</h2>
-<p>いいえ、<strong>まだ読(よ)んでいません</strong>。<br><em>No, I haven&#39;t read it yet.</em></p>
-<p>宿題(しゅくだい)は<strong>まだ終(お)わっていません</strong>。<br><em>I haven&#39;t finished my homework yet.</em></p>
-<p>ホテルは<strong>まだ予約(よやく)していません</strong>。<br><em>I haven&#39;t booked the hotel yet.</em></p>
-<p>「もう返事(へんじ)が来(き)ましたか。」「いいえ、<strong>まだ来(き)ていません</strong>。」<br><em>&quot;Has the reply arrived?&quot; &quot;No, not yet.&quot;</em></p>
-<p>そのドラマ、<strong>まだ見(み)てない</strong>から言(い)わないで。<br><em>I haven&#39;t watched that show yet, so don&#39;t tell me.</em></p>
+<p>いいえ、<strong>まだ<ruby>読<rt>よ</rt></ruby>んでいません</strong>。<br><em>No, I haven&#39;t read it yet.</em></p>
+<p><ruby>宿題<rt>しゅくだい</rt></ruby>は<strong>まだ<ruby>終<rt>お</rt></ruby>わっていません</strong>。<br><em>I haven&#39;t finished my homework yet.</em></p>
+<p>ホテルは<strong>まだ<ruby>予約<rt>よやく</rt></ruby>していません</strong>。<br><em>I haven&#39;t booked the hotel yet.</em></p>
+<p>「もう<ruby>返事<rt>へんじ</rt></ruby>が<ruby>来<rt>き</rt></ruby>ましたか。」「いいえ、<strong>まだ<ruby>来<rt>き</rt></ruby>ていません</strong>。」<br><em>&quot;Has the reply arrived?&quot; &quot;No, not yet.&quot;</em></p>
 </div>
 </div>
-<div class="slide" data-index="35">
+<div class="slide" data-index="40">
   
   <div class="slide__content"><h2>まだ～ていません - haven&#39;t ~ yet · Examples (cont.)</h2>
-<p>新(あたら)しい住所(じゅうしょ)は<strong>まだ誰(だれ)にも教(おし)えていません</strong>。<br><em>I haven&#39;t given anyone my new address yet.</em></p>
-<p>来月(らいげつ)の旅行(りょこう)のことは、両親(りょうしん)に<strong>まだ話(はな)していない</strong>んです。<br><em>I haven&#39;t told my parents about next month&#39;s trip yet.</em></p>
-<p>注文(ちゅうもん)した品物(しなもの)が<strong>まだ届(とど)いていない</strong>のですが、確認(かくにん)していただけますか。<br><em>The item I ordered still hasn&#39;t arrived - could you look into it?</em></p>
+<p>そのドラマ、<strong>まだ<ruby>見<rt>み</rt></ruby>てない</strong>から<ruby>言<rt>い</rt></ruby>わないで。<br><em>I haven&#39;t watched that show yet, so don&#39;t tell me.</em></p>
+<p><ruby>新<rt>あたら</rt></ruby>しい<ruby>住所<rt>じゅうしょ</rt></ruby>は<strong>まだ<ruby>誰<rt>だれ</rt></ruby>にも<ruby>教<rt>おし</rt></ruby>えていません</strong>。<br><em>I haven&#39;t given anyone my new address yet.</em></p>
+<p><ruby>来月<rt>らいげつ</rt></ruby>の<ruby>旅行<rt>りょこう</rt></ruby>のことは、<ruby>両親<rt>りょうしん</rt></ruby>に<strong>まだ<ruby>話<rt>はな</rt></ruby>していない</strong>んです。<br><em>I haven&#39;t told my parents about next month&#39;s trip yet.</em></p>
+<p><ruby>注文<rt>ちゅうもん</rt></ruby>した<ruby>品物<rt>しなもの</rt></ruby>が<strong>まだ<ruby>届<rt>とど</rt></ruby>いていない</strong>のですが、<ruby>確認<rt>かくにん</rt></ruby>していただけますか。<br><em>The item I ordered still hasn&#39;t arrived - could you look into it?</em></p>
 </div>
 </div>
-<div class="slide" data-index="36">
+<div class="slide" data-index="41">
   
   <div class="slide__content"><h2>まだ～ていません - haven&#39;t ~ yet · Nuance &amp; register</h2>
-<p><strong>It promises the action is coming.</strong> <code>まだ払(はら)っていません</code> means the bill is unpaid <em>and</em> that paying is still on the table. That is why it makes such a good excuse and such a good apology: it admits the gap and implies you will close it. If the thing genuinely will never happen, this pattern is the wrong choice.</p>
-<p><strong>It is softer than it looks.</strong> Compared with a flat <code>いいえ</code>, answering <code>まだです</code> or <code>まだ決(き)めていません</code> leaves the door open and buys time. In business Japanese this is a standard hedge: <code>社内(しゃない)でまだ検討(けんとう)しております</code> - &quot;we are still considering it internally&quot; - says no without saying no.</p>
-<p><strong>Register is carried by the ending, not by <code>まだ</code>.</strong> <code>まだ～ていません</code> polite, <code>まだ～ていない</code> plain, <code>まだ～てない</code> casual and extremely common in speech. <code>まだ？</code> on its own is blunt and impatient; <code>まだですか</code> presses; and neither should be aimed at a superior.</p>
+<p><strong>It promises the action is coming.</strong> <code>まだ<ruby>払<rt>はら</rt></ruby>っていません</code> means the bill is unpaid <em>and</em> that paying is still on the table. That is why it makes such a good excuse and such a good apology: it admits the gap and implies you will close it. If the thing genuinely will never happen, this pattern is the wrong choice.</p>
+<p><strong>It is softer than it looks.</strong> Compared with a flat <code>いいえ</code>, answering <code>まだです</code> or <code>まだ<ruby>決<rt>き</rt></ruby>めていません</code> leaves the door open and buys time. In business Japanese this is a standard hedge: <code><ruby>社内<rt>しゃない</rt></ruby>でまだ<ruby>検討<rt>けんとう</rt></ruby>しております</code> - &quot;we are still considering it internally&quot; - says no without saying no.</p>
 </div>
 </div>
-<div class="slide" data-index="37">
+<div class="slide" data-index="42">
   
   <div class="slide__content"><h2>まだ～ていません - haven&#39;t ~ yet · Nuance &amp; register (cont.)</h2>
-<p><strong>Watch the stative verbs.</strong> A handful of verbs describe states already and do not take <code>ている</code> in the negative: it is <code>まだ分(わ)かりません</code> (&quot;I don&#39;t know yet&quot;), <code>まだ要(い)りません</code> (&quot;I don&#39;t need it yet&quot;), and <code>まだありません</code>. The most notorious is <code>知(し)る</code> - &quot;I don&#39;t know yet&quot; is <code>まだ知(し)りません</code>, never ❌<code>まだ知(し)っていません</code>.</p>
+<p><strong>Register is carried by the ending, not by <code>まだ</code>.</strong> <code>まだ～ていません</code> polite, <code>まだ～ていない</code> plain, <code>まだ～てない</code> casual and extremely common in speech. <code>まだ？</code> on its own is blunt and impatient; <code>まだですか</code> presses; and neither should be aimed at a superior.</p>
+<p><strong>Watch the stative verbs.</strong> A handful of verbs describe states already and do not take <code>ている</code> in the negative: it is <code>まだ<ruby>分<rt>わ</rt></ruby>かりません</code> (&quot;I don&#39;t know yet&quot;), <code>まだ<ruby>要<rt>い</rt></ruby>りません</code> (&quot;I don&#39;t need it yet&quot;), and <code>まだありません</code>. The most notorious is <code><ruby>知<rt>し</rt></ruby>る</code> - &quot;I don&#39;t know yet&quot; is <code>まだ<ruby>知<rt>し</rt></ruby>りません</code>, never ❌<code>まだ<ruby>知<rt>し</rt></ruby>っていません</code>.</p>
 </div>
 </div>
-<div class="slide" data-index="38">
+<div class="slide" data-index="43">
   
   <div class="slide__content"><h2>まだ～ていません - haven&#39;t ~ yet · まだ～ていません vs ～ませんでした</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>～ませんでした</code> closes the book: it didn&#39;t happen, end of story. <code>まだ～ていません</code> leaves it open: it hasn&#39;t happened <em>so far</em>.</p>
 </blockquote>
-<p>お昼(ひる)は<strong>まだ食(た)べていません</strong>。<br><em>I haven&#39;t had lunch yet. (and I intend to)</em></p>
-<p>昨日(きのう)はお昼(ひる)を食(た)べませんでした。<br><em>I didn&#39;t have lunch yesterday. (I skipped it - that day is over)</em></p>
+<p>お<ruby>昼<rt>ひる</rt></ruby>は<strong>まだ<ruby>食<rt>た</rt></ruby>べていません</strong>。<br><em>I haven&#39;t had lunch yet. (and I intend to)</em></p>
+<p><ruby>昨日<rt>きのう</rt></ruby>はお<ruby>昼<rt>ひる</rt></ruby>を<ruby>食<rt>た</rt></ruby>べませんでした。<br><em>I didn&#39;t have lunch yesterday. (I skipped it - that day is over)</em></p>
 <p>English uses &quot;haven&#39;t&quot; and &quot;didn&#39;t&quot; for this distinction and Japanese uses the aspect of the verb, so the mapping is clean once you see it. If you can add &quot;yet&quot; to the English, you need <code>まだ～ていません</code>.</p>
 </div>
 </div>
-<div class="slide" data-index="39">
+<div class="slide" data-index="44">
   
   <div class="slide__content"><h2>まだ～ていません - haven&#39;t ~ yet · まだ～ていません vs もう～ました</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - these two are the answer pair to the same question. <code>もう～ました</code> = done. <code>まだ～ていません</code> = not done. Nothing else belongs in that slot.</p>
 </blockquote>
-<p>「もう薬(くすり)を飲(の)みましたか。」「はい、もう飲(の)みました。」<br><em>&quot;Have you taken your medicine?&quot; &quot;Yes, I&#39;ve taken it.&quot;</em></p>
-<p>「もう薬(くすり)を飲(の)みましたか。」「いいえ、<strong>まだ飲(の)んでいません</strong>。」<br><em>&quot;Have you taken your medicine?&quot; &quot;No, not yet.&quot;</em></p>
-<p>Note the asymmetry that trips everyone up: the affirmative answer uses the plain past, but the negative answer cannot. ❌<code>いいえ、飲(の)みませんでした</code> would mean you skipped it altogether - a different, and in a hospital a dangerous, answer.</p>
+<p>「もう<ruby>薬<rt>くすり</rt></ruby>を<ruby>飲<rt>の</rt></ruby>みましたか。」「はい、もう<ruby>飲<rt>の</rt></ruby>みました。」<br><em>&quot;Have you taken your medicine?&quot; &quot;Yes, I&#39;ve taken it.&quot;</em></p>
+<p>「もう<ruby>薬<rt>くすり</rt></ruby>を<ruby>飲<rt>の</rt></ruby>みましたか。」「いいえ、<strong>まだ<ruby>飲<rt>の</rt></ruby>んでいません</strong>。」<br><em>&quot;Have you taken your medicine?&quot; &quot;No, not yet.&quot;</em></p>
 </div>
 </div>
-<div class="slide" data-index="40">
+<div class="slide" data-index="45">
+  
+  <div class="slide__content"><h2>まだ～ていません - haven&#39;t ~ yet · まだ～ていません vs もう～ました (cont.)</h2>
+<p>Note the asymmetry that trips everyone up: the affirmative answer uses the plain past, but the negative answer cannot. ❌<code>いいえ、<ruby>飲<rt>の</rt></ruby>みませんでした</code> would mean you skipped it altogether - a different, and in a hospital a dangerous, answer.</p>
+</div>
+</div>
+<div class="slide" data-index="46">
   
   <div class="slide__content"><h2>まだ～ていません vs ～たことがありません</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - &quot;not yet&quot; implies you expect to. &quot;Never&quot; makes no such promise. <code>まだ～ていません</code> is about a pending task; <code>～たことがありません</code> is about an empty life-experience column.</p>
 </blockquote>
-<p>来週(らいしゅう)の会議(かいぎ)の資料(しりょう)は、<strong>まだ作(つく)っていません</strong>。<br><em>I haven&#39;t made the materials for next week&#39;s meeting yet.</em></p>
-<p>北海道(ほっかいどう)へは行(い)ったことがありません。<br><em>I&#39;ve never been to Hokkaido.</em></p>
-<p>Saying <code>北海道(ほっかいどう)へはまだ行(い)っていません</code> is not wrong, but it means something narrower: a trip is planned, or expected of you, and it has not happened <em>yet</em>. Use it when there is a plan; use <code>～たことがありません</code> when there is only an absence.</p>
-</div>
-</div>
-<div class="slide" data-index="41">
-  
-  <div class="slide__content"><h2>まだ～ていません - haven&#39;t ~ yet · Common mistakes</h2>
-<ul>
-<li><p>❌ まだレポートを出(だ)し<strong>ませんでした</strong>。 → ✅ まだレポートを出(だ)し<strong>ていません</strong>。<br><em><code>まだ</code> cannot sit with a plain past negative. The two contradict each other: one says &quot;still pending&quot;, the other says &quot;over and done with&quot;.</em></p>
-</li>
-<li><p>❌ <strong>もう</strong>荷物(にもつ)が届(とど)いていません。 → ✅ <strong>まだ</strong>荷物(にもつ)が届(とど)いていません。<br><em><code>もう～ていません</code> means &quot;not any more&quot;. With a parcel that never came, you want <code>まだ</code>.</em></p>
-</li>
-<li><p>❌ まだ知(し)っていません。 → ✅ まだ知(し)りません。<br><em><code>知(し)る</code> has no negative <code>ている</code> form. This exception survives inside the <code>まだ</code> pattern too.</em></p>
-</li>
-<li><p>❌ まだ食(た)べ<strong>ないです</strong>。 → ✅ まだ食(た)べ<strong>ていません</strong>。<br><em><code>食(た)べない</code> means &quot;won&#39;t eat&quot; - a refusal, not a delay. The negative belongs on <code>いる</code>.</em></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="slide" data-index="42">
-  
-  <div class="slide__content"><h2>まだ～ていません - haven&#39;t ~ yet · Common mistakes (cont.)</h2>
-<ul>
-<li>❌ お寿司(すし)はまだ食(た)べていません。（meaning &quot;I&#39;ve never eaten sushi&quot;）→ ✅ お寿司(すし)は食(た)べたことがありません。<br><em><code>まだ</code> promises that it is going to happen. For a plain absence of experience, use <code>～たことがありません</code>.</em></li>
-</ul>
-</div>
-</div>
-<div class="slide" data-index="43">
-  
-  <div class="slide__content"><h2>まだ～ていません - haven&#39;t ~ yet · Practice 1</h2>
-<p><strong>1.</strong> 「もうチケットを買(か)いましたか。」「いいえ、まだ買(か)____。」</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-いいえ、まだ<strong>買(か)っていません</strong>。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The negative attaches to <code>いる</code>, giving <code>買(か)って + いません</code>. The answer also implies you still mean to buy them, which is exactly what the questioner wants to know.</p>
-</div>
-</div>
-<div class="slide" data-index="44">
-  
-  <div class="slide__content"><h2>まだ～ていません - haven&#39;t ~ yet · Practice 2</h2>
-<p><strong>2.</strong> 昨日(きのう)は忙(いそが)しくて、晩(ばん)ごはんを（食(た)べませんでした・まだ食(た)べていません）。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-昨日(きのう)は忙(いそが)しくて、晩(ばん)ごはんを<strong>食(た)べませんでした</strong>。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Yesterday is finished, so the meal was skipped rather than postponed. <code>まだ～ていません</code> would claim that yesterday&#39;s dinner is still coming, which time no longer allows.</p>
-</div>
-</div>
-<div class="slide" data-index="45">
-  
-  <div class="slide__content"><h2>まだ～ていません - haven&#39;t ~ yet · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese: &quot;I haven&#39;t decided yet.&quot;</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<strong>まだ決(き)めていません</strong>。 （casual: まだ決(き)めてない。）</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>決(き)める</code> → <code>決(き)めて</code> → <code>決(き)めていません</code>. This is one of the most useful sentences in the language, because it declines to answer without refusing to answer.</p>
-</div>
-</div>
-<div class="slide" data-index="46">
-  
-  <div class="slide__content"><h2>まだ～ていません - haven&#39;t ~ yet · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the problem: メールをまだ送(おく)りませんでした。すみません、これから送(おく)ります。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ メールをまだ送(おく)っていません。すみません、これから送(おく)ります。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The second sentence says you are about to send it, so the first cannot use <code>ませんでした</code> - that would mean the sending is off the table. <code>まだ送(おく)っていません</code> keeps the action pending, which matches the apology.</p>
+<p><ruby>来週<rt>らいしゅう</rt></ruby>の<ruby>会議<rt>かいぎ</rt></ruby>の<ruby>資料<rt>しりょう</rt></ruby>は、<strong>まだ<ruby>作<rt>つく</rt></ruby>っていません</strong>。<br><em>I haven&#39;t made the materials for next week&#39;s meeting yet.</em></p>
+<p><ruby>北海道<rt>ほっかいどう</rt></ruby>へは<ruby>行<rt>い</rt></ruby>ったことがありません。<br><em>I&#39;ve never been to Hokkaido.</em></p>
 </div>
 </div>
 <div class="slide" data-index="47">
   
+  <div class="slide__content"><h2>まだ～ていません vs ～たことがありません (cont.)</h2>
+<p>Saying <code><ruby>北海道<rt>ほっかいどう</rt></ruby>へはまだ<ruby>行<rt>い</rt></ruby>っていません</code> is not wrong, but it means something narrower: a trip is planned, or expected of you, and it has not happened <em>yet</em>. Use it when there is a plan; use <code>～たことがありません</code> when there is only an absence.</p>
+</div>
+</div>
+<div class="slide" data-index="48">
+  
+  <div class="slide__content"><h2>まだ～ていません - haven&#39;t ~ yet · Common mistakes</h2>
+<ul>
+<li><p>❌ まだレポートを<ruby>出<rt>だ</rt></ruby>し<strong>ませんでした</strong>。 → ✅ まだレポートを<ruby>出<rt>だ</rt></ruby>し<strong>ていません</strong>。<br><em><code>まだ</code> cannot sit with a plain past negative. The two contradict each other: one says &quot;still pending&quot;, the other says &quot;over and done with&quot;.</em></p>
+</li>
+<li><p>❌ <strong>もう</strong><ruby>荷物<rt>にもつ</rt></ruby>が<ruby>届<rt>とど</rt></ruby>いていません。 → ✅ <strong>まだ</strong><ruby>荷物<rt>にもつ</rt></ruby>が<ruby>届<rt>とど</rt></ruby>いていません。<br><em><code>もう～ていません</code> means &quot;not any more&quot;. With a parcel that never came, you want <code>まだ</code>.</em></p>
+</li>
+<li><p>❌ まだ<ruby>知<rt>し</rt></ruby>っていません。 → ✅ まだ<ruby>知<rt>し</rt></ruby>りません。<br><em><code><ruby>知<rt>し</rt></ruby>る</code> has no negative <code>ている</code> form. This exception survives inside the <code>まだ</code> pattern too.</em></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="49">
+  
+  <div class="slide__content"><h2>まだ～ていません - haven&#39;t ~ yet · Common mistakes (cont.)</h2>
+<ul>
+<li><p>❌ まだ<ruby>食<rt>た</rt></ruby>べ<strong>ないです</strong>。 → ✅ まだ<ruby>食<rt>た</rt></ruby>べ<strong>ていません</strong>。<br><em><code><ruby>食<rt>た</rt></ruby>べない</code> means &quot;won&#39;t eat&quot; - a refusal, not a delay. The negative belongs on <code>いる</code>.</em></p>
+</li>
+<li><p>❌ お<ruby>寿司<rt>すし</rt></ruby>はまだ<ruby>食<rt>た</rt></ruby>べていません。（meaning &quot;I&#39;ve never eaten sushi&quot;）→ ✅ お<ruby>寿司<rt>すし</rt></ruby>は<ruby>食<rt>た</rt></ruby>べたことがありません。<br><em><code>まだ</code> promises that it is going to happen. For a plain absence of experience, use <code>～たことがありません</code>.</em></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="50">
+  
+  <div class="slide__content"><h2>まだ～ていません - haven&#39;t ~ yet · Practice 1</h2>
+<p><strong>1.</strong> 「もうチケットを<ruby>買<rt>か</rt></ruby>いましたか。」「いいえ、まだ<ruby>買<rt>か</rt></ruby>____。」</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+いいえ、まだ**<ruby>買<rt>か</rt></ruby>っていません**。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The negative attaches to <code>いる</code>, giving <code><ruby>買<rt>か</rt></ruby>って + いません</code>. The answer also implies you still mean to buy them, which is exactly what the questioner wants to know.</p>
+</div>
+</div>
+<div class="slide" data-index="51">
+  
+  <div class="slide__content"><h2>まだ～ていません - haven&#39;t ~ yet · Practice 2</h2>
+<p><strong>2.</strong> <ruby>昨日<rt>きのう</rt></ruby>は<ruby>忙<rt>いそが</rt></ruby>しくて、<ruby>晩<rt>ばん</rt></ruby>ごはんを（<ruby>食<rt>た</rt></ruby>べませんでした・まだ<ruby>食<rt>た</rt></ruby>べていません）。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>昨日<rt>きのう</rt></ruby>は<ruby>忙<rt>いそが</rt></ruby>しくて、<ruby>晩<rt>ばん</rt></ruby>ごはんを**<ruby>食<rt>た</rt></ruby>べませんでした**。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+Yesterday is finished, so the meal was skipped rather than postponed. <code>まだ～ていません</code> would claim that yesterday&#39;s dinner is still coming, which time no longer allows.</p>
+</div>
+</div>
+<div class="slide" data-index="52">
+  
+  <div class="slide__content"><h2>まだ～ていません - haven&#39;t ~ yet · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese: &quot;I haven&#39;t decided yet.&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<strong>まだ<ruby>決<rt>き</rt></ruby>めていません</strong>。 （casual: まだ<ruby>決<rt>き</rt></ruby>めてない。）</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code><ruby>決<rt>き</rt></ruby>める</code> → <code><ruby>決<rt>き</rt></ruby>めて</code> → <code><ruby>決<rt>き</rt></ruby>めていません</code>. This is one of the most useful sentences in the language, because it declines to answer without refusing to answer.</p>
+</div>
+</div>
+<div class="slide" data-index="53">
+  
+  <div class="slide__content"><h2>まだ～ていません - haven&#39;t ~ yet · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the problem: メールをまだ<ruby>送<rt>おく</rt></ruby>りませんでした。すみません、これから<ruby>送<rt>おく</rt></ruby>ります。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ メールをまだ<ruby>送<rt>おく</rt></ruby>っていません。すみません、これから<ruby>送<rt>おく</rt></ruby>ります。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The second sentence says you are about to send it, so the first cannot use <code>ませんでした</code> - that would mean the sending is off the table. <code>まだ<ruby>送<rt>おく</rt></ruby>っていません</code> keeps the action pending, which matches the apology.</p>
+</div>
+</div>
+<div class="slide" data-index="54">
+  
   <div class="slide__content"><h2>まだ～ていません - haven&#39;t ~ yet · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) その本(ほん)はまだ読(よ)んでいません。 (b) その本(ほん)は読(よ)んだことがありません。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) その<ruby>本<rt>ほん</rt></ruby>はまだ<ruby>読<rt>よ</rt></ruby>んでいません。 (b) その<ruby>本<rt>ほん</rt></ruby>は<ruby>読<rt>よ</rt></ruby>んだことがありません。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) says the book is on your list. It is sitting on the shelf, someone recommended it, perhaps it was assigned - and you fully expect to get to it.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (b) simply reports that reading it has never been part of your life. There is no implication of a plan, and none of guilt. If your professor asks whether you have read the set text, (a) is a promise and (b) is a confession.</p>
 </div>
 </div>
-<div class="slide" data-index="48">
+<div class="slide" data-index="55">
   
   <div class="slide__content"><h1>もう - already; anymore</h1>
 <p><strong>Meaning</strong> · the change has happened - already, by now, or (with a negative) not any more</p>
 <p><code>もう</code> marks a threshold as crossed. Whatever the situation used to be, it is not that any longer: the meal is eaten, the shop is shut, the pain has stopped. Point it at a positive sentence and you get <em>already</em>; point it at a negative one and you get <em>not any more</em>.</p>
 </div>
 </div>
-<div class="slide" data-index="49">
+<div class="slide" data-index="56">
   
   <div class="slide__content"><h2>もう - already; anymore · Usage</h2>
 <p><code>もう</code> is an adverb and never changes shape. It normally comes early in the sentence, though it can sit right before the word it modifies.</p>
-<p>With a <strong>past or completed</strong> predicate it means <em>already</em>: <code>もう終(お)わりました</code>, <code>もう出(で)かけた</code>, <code>もう大丈夫(だいじょうぶ)です</code>. In a question it is the standard way to ask whether something is done: <code>もう見(み)ましたか</code>.</p>
-<p>With a <strong>negative</strong> predicate it means <em>no longer</em>: <code>もう吸(す)いません</code> (I don&#39;t smoke any more), <code>もう子(こ)どもじゃない</code> (not a child any more). The change has already happened and there is no going back.</p>
-<p>Before a <strong>number or quantity</strong> it means <em>another</em>, <em>more</em>: <code>もう一杯(いっぱい)</code> (one more glass), <code>もう一度(いちど)</code> (once more), <code>もう少(すこ)し</code> (a bit more), <code>もうちょっと</code>. This use has nothing to do with time, and learners often meet it before they meet the other two.</p>
+<p>With a <strong>past or completed</strong> predicate it means <em>already</em>: <code>もう<ruby>終<rt>お</rt></ruby>わりました</code>, <code>もう<ruby>出<rt>で</rt></ruby>かけた</code>, <code>もう<ruby>大丈夫<rt>だいじょうぶ</rt></ruby>です</code>. In a question it is the standard way to ask whether something is done: <code>もう<ruby>見<rt>み</rt></ruby>ましたか</code>.</p>
+<p>With a <strong>negative</strong> predicate it means <em>no longer</em>: <code>もう<ruby>吸<rt>す</rt></ruby>いません</code> (I don&#39;t smoke any more), <code>もう<ruby>子<rt>こ</rt></ruby>どもじゃない</code> (not a child any more). The change has already happened and there is no going back.</p>
 </div>
 </div>
-<div class="slide" data-index="50">
+<div class="slide" data-index="57">
   
   <div class="slide__content"><h2>もう - already; anymore · Usage (cont.)</h2>
-<p>Before a <strong>time expression</strong> it means the moment has arrived: <code>もうすぐ着(つ)きます</code> (arriving shortly), <code>もう帰(かえ)る時間(じかん)だ</code> (time to go home). And on its own, <code>もう</code> is an interjection of exasperation - see below.</p>
+<p>Before a <strong>number or quantity</strong> it means <em>another</em>, <em>more</em>: <code>もう<ruby>一杯<rt>いっぱい</rt></ruby></code> (one more glass), <code>もう<ruby>一度<rt>いちど</rt></ruby></code> (once more), <code>もう<ruby>少<rt>すこ</rt></ruby>し</code> (a bit more), <code>もうちょっと</code>. This use has nothing to do with time, and learners often meet it before they meet the other two.</p>
+<p>Before a <strong>time expression</strong> it means the moment has arrived: <code>もうすぐ<ruby>着<rt>つ</rt></ruby>きます</code> (arriving shortly), <code>もう<ruby>帰<rt>かえ</rt></ruby>る<ruby>時間<rt>じかん</rt></ruby>だ</code> (time to go home). And on its own, <code>もう</code> is an interjection of exasperation - see below.</p>
 </div>
 </div>
-<div class="slide" data-index="51">
+<div class="slide" data-index="58">
   
   <div class="slide__content"><h2>もう - already; anymore · Examples</h2>
-<p><strong>もう</strong>昼(ひる)ごはんを食(た)べましたか。<br><em>Have you had lunch already?</em></p>
-<p><strong>もう</strong>お酒(さけ)は飲(の)みません。<br><em>I don&#39;t drink any more.</em></p>
-<p>コーヒーを<strong>もう</strong>一杯(いっぱい)いかがですか。<br><em>Would you like another cup of coffee?</em></p>
-<p><strong>もう</strong>こんな時間(じかん)。そろそろ失礼(しつれい)します。<br><em>Look at the time already. I ought to be going.</em></p>
+<p><strong>もう</strong><ruby>昼<rt>ひる</rt></ruby>ごはんを<ruby>食<rt>た</rt></ruby>べましたか。<br><em>Have you had lunch already?</em></p>
+<p><strong>もう</strong>お<ruby>酒<rt>さけ</rt></ruby>は<ruby>飲<rt>の</rt></ruby>みません。<br><em>I don&#39;t drink any more.</em></p>
+<p>コーヒーを<strong>もう</strong><ruby>一杯<rt>いっぱい</rt></ruby>いかがですか。<br><em>Would you like another cup of coffee?</em></p>
+<p><strong>もう</strong>こんな<ruby>時間<rt>じかん</rt></ruby>。そろそろ<ruby>失礼<rt>しつれい</rt></ruby>します。<br><em>Look at the time already. I ought to be going.</em></p>
 </div>
 </div>
-<div class="slide" data-index="52">
+<div class="slide" data-index="59">
   
   <div class="slide__content"><h2>もう - already; anymore · Nuance &amp; register</h2>
 <p><code>もう</code> itself is neutral - it belongs equally to a text message and to a meeting. What varies is what surrounds it, and <code>もう</code> has a few spoken lives worth knowing.</p>
-<p><strong><code>もう？</code> is surprise.</strong> Said with a rising tone in reply to news, it means &quot;that soon?&quot; - <code>え、もう終(お)わったの？</code>. It is friendly, and it is one of the easiest natural-sounding reactions to learn.</p>
-<p><strong><code>もう！</code> is exhaustion.</strong> Alone, drawn out, it expresses irritation or fond exasperation: <code>もう、遅(おそ)いよ！</code>. This interjection leans female and very casual, and it is the <code>もう</code> you will hear most often in drama.</p>
-<p><strong><code>もういい</code> needs care.</strong> It means &quot;that&#39;s enough&quot; and lands anywhere between &quot;I&#39;m full, thank you&quot; and &quot;forget it, I&#39;m done with this,&quot; depending entirely on tone. <code>もういいです</code> said flatly to a shop assistant sounds like giving up on them; <code>結構(けっこう)です</code> is the safe refusal.</p>
+<p><strong><code>もう？</code> is surprise.</strong> Said with a rising tone in reply to news, it means &quot;that soon?&quot; - <code>え、もう<ruby>終<rt>お</rt></ruby>わったの？</code>. It is friendly, and it is one of the easiest natural-sounding reactions to learn.</p>
+<p><strong><code>もう！</code> is exhaustion.</strong> Alone, drawn out, it expresses irritation or fond exasperation: <code>もう、<ruby>遅<rt>おそ</rt></ruby>いよ！</code>. This interjection leans female and very casual, and it is the <code>もう</code> you will hear most often in drama.</p>
 </div>
 </div>
-<div class="slide" data-index="53">
+<div class="slide" data-index="60">
   
   <div class="slide__content"><h2>もう - already; anymore · Nuance &amp; register (cont.)</h2>
-<p><strong>Formal writing prefers <code>すでに</code>.</strong> Reports and notices use <code>すでに完了(かんりょう)しております</code> rather than <code>もう</code>. <code>もう</code> is not rude, just conversational.</p>
+<p><strong><code>もういい</code> needs care.</strong> It means &quot;that&#39;s enough&quot; and lands anywhere between &quot;I&#39;m full, thank you&quot; and &quot;forget it, I&#39;m done with this,&quot; depending entirely on tone. <code>もういいです</code> said flatly to a shop assistant sounds like giving up on them; <code><ruby>結構<rt>けっこう</rt></ruby>です</code> is the safe refusal.</p>
+<p><strong>Formal writing prefers <code>すでに</code>.</strong> Reports and notices use <code>すでに<ruby>完了<rt>かんりょう</rt></ruby>しております</code> rather than <code>もう</code>. <code>もう</code> is not rude, just conversational.</p>
 </div>
 </div>
-<div class="slide" data-index="54">
+<div class="slide" data-index="61">
   
   <div class="slide__content"><h2>もう - already; anymore · もう vs まだ</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>もう</code> is on the far side of the change; <code>まだ</code> is on the near side. Every <code>もう</code> sentence has a <code>まだ</code> mirror image, and the mirror flips in the negative as well as the positive.</p>
 </blockquote>
-<p>会議(かいぎ)は<strong>もう</strong>始(はじ)まりました。<br><em>The meeting has already started.</em></p>
-<p>会議(かいぎ)はまだ始(はじ)まっていません。<br><em>The meeting hasn&#39;t started yet.</em></p>
+<p><ruby>会議<rt>かいぎ</rt></ruby>は<strong>もう</strong><ruby>始<rt>はじ</rt></ruby>まりました。<br><em>The meeting has already started.</em></p>
+<p><ruby>会議<rt>かいぎ</rt></ruby>はまだ<ruby>始<rt>はじ</rt></ruby>まっていません。<br><em>The meeting hasn&#39;t started yet.</em></p>
 <p>Now the negatives, which is where English gives you two completely different words:</p>
-<p>足(あし)は<strong>もう</strong>痛(いた)くありません。<br><em>My leg doesn&#39;t hurt any more. (it did; it stopped)</em></p>
+<p><ruby>足<rt>あし</rt></ruby>は<strong>もう</strong><ruby>痛<rt>いた</rt></ruby>くありません。<br><em>My leg doesn&#39;t hurt any more. (it did; it stopped)</em></p>
 </div>
 </div>
-<div class="slide" data-index="55">
+<div class="slide" data-index="62">
   
   <div class="slide__content"><h2>もう - already; anymore · もう vs まだ (cont.)</h2>
-<p>足(あし)はまだ痛(いた)いです。<br><em>My leg still hurts. (nothing has changed)</em></p>
-<p>Keep hold of the direction rather than the English: <code>もう</code> + negative looks back at something that has ended, <code>まだ</code> + negative looks forward to something that has not begun. <code>もう働(はたら)いていません</code> is a retirement; <code>まだ働(はたら)いていません</code> is a student.</p>
+<p><ruby>足<rt>あし</rt></ruby>はまだ<ruby>痛<rt>いた</rt></ruby>いです。<br><em>My leg still hurts. (nothing has changed)</em></p>
+<p>Keep hold of the direction rather than the English: <code>もう</code> + negative looks back at something that has ended, <code>まだ</code> + negative looks forward to something that has not begun. <code>もう<ruby>働<rt>はたら</rt></ruby>いていません</code> is a retirement; <code>まだ<ruby>働<rt>はたら</rt></ruby>いていません</code> is a student.</p>
 </div>
 </div>
-<div class="slide" data-index="56">
+<div class="slide" data-index="63">
   
   <div class="slide__content"><h2>もう - already; anymore · Common mistakes</h2>
 <ul>
-<li><p>❌ 宿題(しゅくだい)は<strong>もう</strong>しています。（intending &quot;I&#39;ve already done it&quot;）→ ✅ 宿題(しゅくだい)は<strong>もう</strong>しました。<br><em><code>もう～ている</code> says you are already in the middle of it. Completion in the past takes the plain past: <code>もう～ました</code>.</em></p>
+<li><p>❌ <ruby>宿題<rt>しゅくだい</rt></ruby>は<strong>もう</strong>しています。（intending &quot;I&#39;ve already done it&quot;）→ ✅ <ruby>宿題<rt>しゅくだい</rt></ruby>は<strong>もう</strong>しました。<br><em><code>もう～ている</code> says you are already in the middle of it. Completion in the past takes the plain past: <code>もう～ました</code>.</em></p>
 </li>
-<li><p>❌ バスが<strong>もう</strong>来(き)ていません。（intending &quot;the bus hasn&#39;t come yet&quot;）→ ✅ バスが<strong>まだ</strong>来(き)ていません。<br><em>With a negative, <code>もう</code> means &quot;not any more&quot; - you would be saying the bus service has stopped running.</em></p>
+<li><p>❌ バスが<strong>もう</strong><ruby>来<rt>き</rt></ruby>ていません。（intending &quot;the bus hasn&#39;t come yet&quot;）→ ✅ バスが<strong>まだ</strong><ruby>来<rt>き</rt></ruby>ていません。<br><em>With a negative, <code>もう</code> means &quot;not any more&quot; - you would be saying the bus service has stopped running.</em></p>
 </li>
-<li><p>❌ コーヒーを<strong>もう</strong>一(いち)ください。 → ✅ コーヒーを<strong>もう</strong>一杯(いっぱい)ください。<br><em><code>もう</code> needs a full counter phrase after it: <code>一杯(いっぱい)</code>, <code>一(ひと)つ</code>, <code>一度(いちど)</code>, <code>少(すこ)し</code>.</em></p>
-</li>
-<li><p>❌ （in a written report）作業(さぎょう)は<strong>もう</strong>終(お)わりました。 → ✅ 作業(さぎょう)はすでに完了(かんりょう)しております。<br><em>Not ungrammatical, just conversational. Formal writing reaches for <code>すでに</code>.</em></p>
+<li><p>❌ コーヒーを<strong>もう</strong><ruby>一<rt>いち</rt></ruby>ください。 → ✅ コーヒーを<strong>もう</strong><ruby>一杯<rt>いっぱい</rt></ruby>ください。<br><em><code>もう</code> needs a full counter phrase after it: <code><ruby>一杯<rt>いっぱい</rt></ruby></code>, <code><ruby>一<rt>ひと</rt></ruby>つ</code>, <code><ruby>一度<rt>いちど</rt></ruby></code>, <code><ruby>少<rt>すこ</rt></ruby>し</code>.</em></p>
 </li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="57">
+<div class="slide" data-index="64">
+  
+  <div class="slide__content"><h2>もう - already; anymore · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ （in a written report）<ruby>作業<rt>さぎょう</rt></ruby>は<strong>もう</strong><ruby>終<rt>お</rt></ruby>わりました。 → ✅ <ruby>作業<rt>さぎょう</rt></ruby>はすでに<ruby>完了<rt>かんりょう</rt></ruby>しております。<br><em>Not ungrammatical, just conversational. Formal writing reaches for <code>すでに</code>.</em></li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="65">
   
   <div class="slide__content"><h2>もう - already; anymore · Practice 1</h2>
-<p><strong>1.</strong> 「映画(えいが)のチケット、____買(か)いましたか。」「はい、昨日(きのう)買(か)いました。」</p>
+<p><strong>1.</strong> 「<ruby>映画<rt>えいが</rt></ruby>のチケット、____<ruby>買<rt>か</rt></ruby>いましたか。」「はい、<ruby>昨日<rt>きのう</rt></ruby><ruby>買<rt>か</rt></ruby>いました。」</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-「映画(えいが)のチケット、<strong>もう</strong>買(か)いましたか。」</p>
+「<ruby>映画<rt>えいが</rt></ruby>のチケット、<strong>もう</strong><ruby>買<rt>か</rt></ruby>いましたか。」</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 Asking whether something is done by now is the core use of <code>もう</code> with the past tense. It is also the question that <code>まだ～ていません</code> exists to answer in the negative.</p>
 </div>
 </div>
-<div class="slide" data-index="58">
+<div class="slide" data-index="66">
   
   <div class="slide__content"><h2>もう - already; anymore · Practice 2</h2>
-<p><strong>2.</strong> 昔(むかし)はたばこを吸(す)っていましたが、（もう・まだ）吸(す)っていません。</p>
+<p><strong>2.</strong> <ruby>昔<rt>むかし</rt></ruby>はたばこを<ruby>吸<rt>す</rt></ruby>っていましたが、（もう・まだ）<ruby>吸<rt>す</rt></ruby>っていません。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-昔(むかし)はたばこを吸(す)っていましたが、<strong>もう</strong>吸(す)っていません。</p>
+<ruby>昔<rt>むかし</rt></ruby>はたばこを<ruby>吸<rt>す</rt></ruby>っていましたが、<strong>もう</strong><ruby>吸<rt>す</rt></ruby>っていません。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The first half establishes that the speaker used to smoke, so the habit has ended: &quot;not any more.&quot; <code>まだ</code> would mean they had never started, which contradicts <code>昔(むかし)は吸(す)っていました</code>.</p>
+The first half establishes that the speaker used to smoke, so the habit has ended: &quot;not any more.&quot; <code>まだ</code> would mean they had never started, which contradicts <code><ruby>昔<rt>むかし</rt></ruby>は<ruby>吸<rt>す</rt></ruby>っていました</code>.</p>
 </div>
 </div>
-<div class="slide" data-index="59">
+<div class="slide" data-index="67">
   
   <div class="slide__content"><h2>もう - already; anymore · Practice 3</h2>
-<p><strong>3.</strong> Explain the difference in nuance: (a) もう少(すこ)し待(ま)ってください。 (b) もう待(ま)ちません。</p>
+<p><strong>3.</strong> Explain the difference in nuance: (a) もう<ruby>少<rt>すこ</rt></ruby>し<ruby>待<rt>ま</rt></ruby>ってください。 (b) もう<ruby>待<rt>ま</rt></ruby>ちません。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-(a) uses the quantity sense: <code>もう少(すこ)し</code> is &quot;a little more&quot;, so the speaker is asking for extra time. It is polite and cooperative.</p>
+(a) uses the quantity sense: <code>もう<ruby>少<rt>すこ</rt></ruby>し</code> is &quot;a little more&quot;, so the speaker is asking for extra time. It is polite and cooperative.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (b) uses the negative sense: the waiting is over and will not continue. Depending on the tone it is either a decision to give up or an outright threat. The same adverb, doing two of its jobs, in sentences that could not be further apart.</p>
 </div>
 </div>
-<div class="slide" data-index="60">
+<div class="slide" data-index="68">
   
   <div class="slide__content"><h1>～たことがある</h1>
 <p><strong>Meaning</strong> · to have done something before - an experience you carry with you</p>
 <p><code>～たことがある</code> is not a past tense. It says that somewhere in your life there exists an instance of doing this thing. Literally: &quot;there is a <em>time-when-I-did-it</em>.&quot; That is why it uses <code>ある</code> - the experience is treated as something you possess, not as an event on a calendar.</p>
 </div>
 </div>
-<div class="slide" data-index="61">
+<div class="slide" data-index="69">
   
   <div class="slide__content"><h2>～たことがある · Formation</h2>
 <p>Take the <strong>た-form</strong>, then add <code>ことがある</code>.</p>
 </div>
 </div>
-<div class="slide" data-index="62">
+<div class="slide" data-index="70">
   
   <div class="slide__content"><h2>～たことがある · Formation (cont.)</h2>
 <table>
@@ -3310,52 +3370,52 @@ The first half establishes that the speaker used to smoke, so the habit has ende
 <tbody><tr>
 <td>Verb</td>
 <td>た-form + ことがある</td>
-<td>行(い)く → 行(い)った → 行(い)ったことがある</td>
+<td><ruby>行<rt>い</rt></ruby>く → <ruby>行<rt>い</rt></ruby>った → <ruby>行<rt>い</rt></ruby>ったことがある</td>
 </tr>
 <tr>
 <td>Verb (る-verb)</td>
 <td>た-form + ことがある</td>
-<td>食(た)べる → 食(た)べた → 食(た)べたことがある</td>
+<td><ruby>食<rt>た</rt></ruby>べる → <ruby>食<rt>た</rt></ruby>べた → <ruby>食<rt>た</rt></ruby>べたことがある</td>
 </tr>
 <tr>
-<td>Verb (する／来(く)る)</td>
-<td>した／来(き)た + ことがある</td>
+<td>Verb (する／<ruby>来<rt>く</rt></ruby>る)</td>
+<td>した／<ruby>来<rt>き</rt></ruby>た + ことがある</td>
 <td>する → したことがある</td>
 </tr>
 <tr>
 <td>い-adjective</td>
 <td>かった + ことがある</td>
-<td>忙(いそが)しい → 忙(いそが)しかったことがある</td>
+<td><ruby>忙<rt>いそが</rt></ruby>しい → <ruby>忙<rt>いそが</rt></ruby>しかったことがある</td>
 </tr>
 <tr>
 <td>な-adjective</td>
 <td>だった + ことがある</td>
-<td>大変(たいへん)だ → 大変(たいへん)だったことがある</td>
+<td><ruby>大変<rt>たいへん</rt></ruby>だ → <ruby>大変<rt>たいへん</rt></ruby>だったことがある</td>
 </tr>
 <tr>
 <td>Noun</td>
 <td>だった + ことがある</td>
-<td>学生(がくせい) → 学生(がくせい)だったことがある</td>
+<td><ruby>学生<rt>がくせい</rt></ruby> → <ruby>学生<rt>がくせい</rt></ruby>だったことがある</td>
 </tr>
 <tr>
 <td>Polite</td>
 <td>ある → あります</td>
-<td>行(い)ったことがあります</td>
+<td><ruby>行<rt>い</rt></ruby>ったことがあります</td>
 </tr>
 <tr>
 <td>Negative</td>
 <td>ある → ない／ありません</td>
-<td>行(い)ったことがない</td>
+<td><ruby>行<rt>い</rt></ruby>ったことがない</td>
 </tr>
 <tr>
 <td>Past</td>
 <td>ある → あった／ありました</td>
-<td>行(い)ったことがありました</td>
+<td><ruby>行<rt>い</rt></ruby>ったことがありました</td>
 </tr>
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="63">
+<div class="slide" data-index="71">
   
   <div class="slide__content"><h2>～たことがある · Formation (cont.)</h2>
 <blockquote>
@@ -3363,158 +3423,164 @@ The first half establishes that the speaker used to smoke, so the habit has ende
 </blockquote>
 </div>
 </div>
-<div class="slide" data-index="64">
+<div class="slide" data-index="72">
   
   <div class="slide__content"><h2>～たことがある · Examples</h2>
-<p>おすしを<strong>食(た)べたことがあります</strong>か。<br><em>Have you ever eaten sushi?</em></p>
-<p>北海道(ほっかいどう)に<strong>行(い)ったことがあります</strong>。<br><em>I&#39;ve been to Hokkaido.</em></p>
-<p>私(わたし)は馬(うま)に<strong>乗(の)ったことがない</strong>。<br><em>I&#39;ve never ridden a horse.</em></p>
-<p>富士山(ふじさん)に<strong>登(のぼ)ったことある</strong>?<br><em>Have you ever climbed Mt. Fuji?</em></p>
-<p>学生(がくせい)のとき、パン屋(や)で<strong>働(はたら)いたことがあります</strong>。<br><em>When I was a student I worked at a bakery for a while.</em></p>
+<p>おすしを**<ruby>食<rt>た</rt></ruby>べたことがあります**か。<br><em>Have you ever eaten sushi?</em></p>
+<p><ruby>北海道<rt>ほっかいどう</rt></ruby>に**<ruby>行<rt>い</rt></ruby>ったことがあります**。<br><em>I&#39;ve been to Hokkaido.</em></p>
+<p><ruby>私<rt>わたし</rt></ruby>は<ruby>馬<rt>うま</rt></ruby>に**<ruby>乗<rt>の</rt></ruby>ったことがない**。<br><em>I&#39;ve never ridden a horse.</em></p>
+<p><ruby>富士山<rt>ふじさん</rt></ruby>に**<ruby>登<rt>のぼ</rt></ruby>ったことある**?<br><em>Have you ever climbed Mt. Fuji?</em></p>
 </div>
 </div>
-<div class="slide" data-index="65">
+<div class="slide" data-index="73">
   
   <div class="slide__content"><h2>～たことがある · Examples (cont.)</h2>
-<p>一度(いちど)だけ、テレビで見(み)た人(ひと)に道(みち)で<strong>会(あ)ったことがある</strong>。<br><em>Just once, I&#39;ve run into someone on the street that I&#39;d seen on TV.</em></p>
-<p>日本(にほん)に三年(さんねん)住(す)んでいましたが、京都(きょうと)には一度(いちど)も<strong>行(い)ったことがありません</strong>。<br><em>I lived in Japan for three years, but I&#39;ve never once been to Kyoto.</em></p>
-<p>こんなに美(うつく)しい景色(けしき)は今(いま)まで<strong>見(み)たことがない</strong>。<br><em>I have never seen scenery this beautiful in my life.</em></p>
+<p><ruby>学生<rt>がくせい</rt></ruby>のとき、パン<ruby>屋<rt>や</rt></ruby>で**<ruby>働<rt>はたら</rt></ruby>いたことがあります**。<br><em>When I was a student I worked at a bakery for a while.</em></p>
+<p><ruby>一度<rt>いちど</rt></ruby>だけ、テレビで<ruby>見<rt>み</rt></ruby>た<ruby>人<rt>ひと</rt></ruby>に<ruby>道<rt>みち</rt></ruby>で**<ruby>会<rt>あ</rt></ruby>ったことがある**。<br><em>Just once, I&#39;ve run into someone on the street that I&#39;d seen on TV.</em></p>
+<p><ruby>日本<rt>にほん</rt></ruby>に<ruby>三年<rt>さんねん</rt></ruby><ruby>住<rt>す</rt></ruby>んでいましたが、<ruby>京都<rt>きょうと</rt></ruby>には<ruby>一度<rt>いちど</rt></ruby>も**<ruby>行<rt>い</rt></ruby>ったことがありません**。<br><em>I lived in Japan for three years, but I&#39;ve never once been to Kyoto.</em></p>
+<p>こんなに<ruby>美<rt>うつく</rt></ruby>しい<ruby>景色<rt>けしき</rt></ruby>は<ruby>今<rt>いま</rt></ruby>まで**<ruby>見<rt>み</rt></ruby>たことがない**。<br><em>I have never seen scenery this beautiful in my life.</em></p>
 </div>
 </div>
-<div class="slide" data-index="66">
+<div class="slide" data-index="74">
   
   <div class="slide__content"><h2>～たことがある · Nuance &amp; register</h2>
 <p>Register-neutral. <code>あります</code> polite, <code>ある</code> plain, and nothing about the pattern marks age or gender.</p>
 <p>Two contractions dominate spoken Japanese and will ambush you:</p>
 <ul>
-<li><strong><code>が</code> drops.</strong> 行(い)ったことある? - this is the ordinary spoken form of the<br><em>question. So is 見(み)たことない, for the negative.</em></li>
-<li><strong><code>が</code> becomes <code>は</code> for emphasis.</strong> 見(み)たこと<strong>は</strong>ない - &quot;I&#39;ve certainly<br><em>never <em>seen</em> it (whatever else I may have done).&quot; The <code>は</code> adds the contrast that <code>は</code> always adds.</em></li>
+<li><strong><code>が</code> drops.</strong> <ruby>行<rt>い</rt></ruby>ったことある? - this is the ordinary spoken form of the<br><em>question. So is <ruby>見<rt>み</rt></ruby>たことない, for the negative.</em></li>
+<li><strong><code>が</code> becomes <code>は</code> for emphasis.</strong> <ruby>見<rt>み</rt></ruby>たこと<strong>は</strong>ない - &quot;I&#39;ve certainly<br><em>never <em>seen</em> it (whatever else I may have done).&quot; The <code>は</code> adds the contrast that <code>は</code> always adds.</em></li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="67">
+<div class="slide" data-index="75">
   
   <div class="slide__content"><h2>～たことがある · Nuance &amp; register (cont.)</h2>
-<p>The pattern carries a built-in sense of <strong>distance</strong>. The experience has to feel like part of your history, not like something from this morning. That is why a specific recent time and <code>～たことがある</code> fight each other: ❌ きのう、おすしを食(た)べたことがあります. Say 食(た)べました. Vague time expressions are fine, and in fact common: 前(まえ)に, 昔(むかし), 一度(いちど), 子(こ)どものとき, 今(いま)まで.</p>
-<p>It also implies the experience is <strong>worth remarking on</strong>. Everyday, everyone-does-it actions sound strange: ❌ ご飯(はん)を食(た)べたことがあります is odd, because of course you have. The exception is when you are genuinely drawing a line - 納豆(なっとう)は食(た)べたことがありません is fine, because plenty of people haven&#39;t.</p>
-<p><code>一度(いちど)も</code> + negative is the fixed way to say &quot;not even once&quot;, and the two must agree: 一度(いちど)も行(い)ったことが<strong>ありません</strong>.</p>
+<p>The pattern carries a built-in sense of <strong>distance</strong>. The experience has to feel like part of your history, not like something from this morning. That is why a specific recent time and <code>～たことがある</code> fight each other: ❌ きのう、おすしを<ruby>食<rt>た</rt></ruby>べたことがあります. Say <ruby>食<rt>た</rt></ruby>べました. Vague time expressions are fine, and in fact common: <ruby>前<rt>まえ</rt></ruby>に, <ruby>昔<rt>むかし</rt></ruby>, <ruby>一度<rt>いちど</rt></ruby>, <ruby>子<rt>こ</rt></ruby>どものとき, <ruby>今<rt>いま</rt></ruby>まで.</p>
+<p>It also implies the experience is <strong>worth remarking on</strong>. Everyday, everyone-does-it actions sound strange: ❌ ご<ruby>飯<rt>はん</rt></ruby>を<ruby>食<rt>た</rt></ruby>べたことがあります is odd, because of course you have. The exception is when you are genuinely drawing a line - <ruby>納豆<rt>なっとう</rt></ruby>は<ruby>食<rt>た</rt></ruby>べたことがありません is fine, because plenty of people haven&#39;t.</p>
 </div>
 </div>
-<div class="slide" data-index="68">
+<div class="slide" data-index="76">
+  
+  <div class="slide__content"><h2>～たことがある · Nuance &amp; register (cont.)</h2>
+<p><code><ruby>一度<rt>いちど</rt></ruby>も</code> + negative is the fixed way to say &quot;not even once&quot;, and the two must agree: <ruby>一度<rt>いちど</rt></ruby>も<ruby>行<rt>い</rt></ruby>ったことが<strong>ありません</strong>.</p>
+</div>
+</div>
+<div class="slide" data-index="77">
   
   <div class="slide__content"><h2>～たことがある · ～たことがある vs the plain past</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - plain past puts the event on a timeline. <code>～たことがある</code> puts it on your résumé.</p>
 </blockquote>
-<p>去年(きょねん)、北海道(ほっかいどう)に行(い)きました。<br><em>I went to Hokkaido last year.</em></p>
+<p><ruby>去年<rt>きょねん</rt></ruby>、<ruby>北海道<rt>ほっかいどう</rt></ruby>に<ruby>行<rt>い</rt></ruby>きました。<br><em>I went to Hokkaido last year.</em></p>
 <p>That is a report of one occasion, anchored to a date. Which occasion matters.</p>
-<p>北海道(ほっかいどう)に<strong>行(い)ったことがあります</strong>。<br><em>I&#39;ve been to Hokkaido.</em></p>
+<p><ruby>北海道<rt>ほっかいどう</rt></ruby>に**<ruby>行<rt>い</rt></ruby>ったことがあります**。<br><em>I&#39;ve been to Hokkaido.</em></p>
 <p>That is a fact about <em>me</em>. When I went, or how often, is beside the point - what is being claimed is that Hokkaido is inside my experience.</p>
 </div>
 </div>
-<div class="slide" data-index="69">
+<div class="slide" data-index="78">
   
   <div class="slide__content"><h2>～たことがある · ～たことがある vs the plain past (cont.)</h2>
-<p>This is why a definite time expression forces the plain past. <code>去年(きょねん)</code>, <code>きのう</code>, <code>三時(さんじ)に</code> all pin the event down, and pinning it down is exactly what <code>～たことがある</code> refuses to do. English &quot;I have been to Hokkaido&quot; behaves the same way - you cannot say &quot;I have been there yesterday&quot; either.</p>
+<p>This is why a definite time expression forces the plain past. <code><ruby>去年<rt>きょねん</rt></ruby></code>, <code>きのう</code>, <code><ruby>三時<rt>さんじ</rt></ruby>に</code> all pin the event down, and pinning it down is exactly what <code>～たことがある</code> refuses to do. English &quot;I have been to Hokkaido&quot; behaves the same way - you cannot say &quot;I have been there yesterday&quot; either.</p>
 </div>
 </div>
-<div class="slide" data-index="70">
+<div class="slide" data-index="79">
   
   <div class="slide__content"><h2>～たことがある · ～たことがある vs ～たことがない</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - the negation lands on <code>ある</code>, never on the verb.</p>
 </blockquote>
-<p>海外(かいがい)に<strong>行(い)ったことがありません</strong>。<br><em>I&#39;ve never been abroad.</em></p>
-<p>Learners reach for the verb and produce ❌<code>行(い)かなかったことがあります</code>. That is not a negative - it means &quot;there have been occasions when I didn&#39;t go&quot;, which is a real but very different sentence.</p>
-<p>The negative is used far more than the affirmative in practice, and it has its own set of companions: <code>一度(いちど)も</code> (not once), <code>まだ</code> (not yet), <code>今(いま)まで</code> (up to now).</p>
-<p>まだ新(あたら)しい店(みせ)に行(い)ったことがないんです。<br><em>I haven&#39;t been to the new place yet.</em></p>
+<p><ruby>海外<rt>かいがい</rt></ruby>に**<ruby>行<rt>い</rt></ruby>ったことがありません**。<br><em>I&#39;ve never been abroad.</em></p>
+<p>Learners reach for the verb and produce ❌<code><ruby>行<rt>い</rt></ruby>かなかったことがあります</code>. That is not a negative - it means &quot;there have been occasions when I didn&#39;t go&quot;, which is a real but very different sentence.</p>
+<p>The negative is used far more than the affirmative in practice, and it has its own set of companions: <code><ruby>一度<rt>いちど</rt></ruby>も</code> (not once), <code>まだ</code> (not yet), <code><ruby>今<rt>いま</rt></ruby>まで</code> (up to now).</p>
 </div>
 </div>
-<div class="slide" data-index="71">
+<div class="slide" data-index="80">
   
   <div class="slide__content"><h2>～たことがある · ～たことがある vs ～たことがない (cont.)</h2>
-<p>Past tense on <code>ある</code> gives you &quot;hadn&#39;t, at that point&quot;: 去年(きょねん)まで一度(いちど)も飛行機(ひこうき)に乗(の)ったことが<strong>ありませんでした</strong> - &quot;until last year I&#39;d never flown.&quot;</p>
+<p>まだ<ruby>新<rt>あたら</rt></ruby>しい<ruby>店<rt>みせ</rt></ruby>に<ruby>行<rt>い</rt></ruby>ったことがないんです。<br><em>I haven&#39;t been to the new place yet.</em></p>
+<p>Past tense on <code>ある</code> gives you &quot;hadn&#39;t, at that point&quot;: <ruby>去年<rt>きょねん</rt></ruby>まで<ruby>一度<rt>いちど</rt></ruby>も<ruby>飛行機<rt>ひこうき</rt></ruby>に<ruby>乗<rt>の</rt></ruby>ったことが<strong>ありませんでした</strong> - &quot;until last year I&#39;d never flown.&quot;</p>
 </div>
 </div>
-<div class="slide" data-index="72">
+<div class="slide" data-index="81">
   
   <div class="slide__content"><h2>～たことがある · ～たことがある vs ～ることがある</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - た-form = &quot;I have done it&quot;. Dictionary form = &quot;it sometimes happens&quot;.</p>
 </blockquote>
 <p>Same three words, and swapping the verb form changes the meaning completely.</p>
-<p>電車(でんしゃ)が<strong>遅(おく)れたことがあります</strong>。<br><em>The train has been late before. (I&#39;ve experienced it)</em></p>
-<p>電車(でんしゃ)が<strong>遅(おく)れることがあります</strong>。<br><em>The train is sometimes late. (it happens from time to time)</em></p>
-<p>The dictionary-form version is about frequency in the present, so it works with <code>ときどき</code>, <code>たまに</code>, and with negatives: 朝(あさ)ごはんを食(た)べないことがあります - &quot;there are times when I skip breakfast.&quot;</p>
+<p><ruby>電車<rt>でんしゃ</rt></ruby>が**<ruby>遅<rt>おく</rt></ruby>れたことがあります**。<br><em>The train has been late before. (I&#39;ve experienced it)</em></p>
+<p><ruby>電車<rt>でんしゃ</rt></ruby>が**<ruby>遅<rt>おく</rt></ruby>れることがあります**。<br><em>The train is sometimes late. (it happens from time to time)</em></p>
+<p>The dictionary-form version is about frequency in the present, so it works with <code>ときどき</code>, <code>たまに</code>, and with negatives: <ruby>朝<rt>あさ</rt></ruby>ごはんを<ruby>食<rt>た</rt></ruby>べないことがあります - &quot;there are times when I skip breakfast.&quot;</p>
 </div>
 </div>
-<div class="slide" data-index="73">
+<div class="slide" data-index="82">
   
   <div class="slide__content"><h2>～たことがある · Common mistakes</h2>
 <ul>
-<li><p>❌ 北海道(ほっかいどう)に<strong>行(い)くことがあります</strong>。（meaning &quot;I&#39;ve been&quot;）→ ✅ 北海道(ほっかいどう)に<strong>行(い)ったことがあります</strong>。<br><em>Dictionary form gives you &quot;I sometimes go there&quot;, which is a different claim. Experience needs the た-form.</em></p>
+<li><p>❌ <ruby>北海道<rt>ほっかいどう</rt></ruby>に**<ruby>行<rt>い</rt></ruby>くことがあります**。（meaning &quot;I&#39;ve been&quot;）→ ✅ <ruby>北海道<rt>ほっかいどう</rt></ruby>に**<ruby>行<rt>い</rt></ruby>ったことがあります**。<br><em>Dictionary form gives you &quot;I sometimes go there&quot;, which is a different claim. Experience needs the た-form.</em></p>
 </li>
-<li><p>❌ きのう、おすしを食(た)べたことがあります。 → ✅ きのう、おすしを<strong>食(た)べました</strong>。<br><em>A specific recent time pins the event to the calendar, and <code>～たことがある</code> is precisely the form that refuses to be pinned. Use the plain past.</em></p>
+<li><p>❌ きのう、おすしを<ruby>食<rt>た</rt></ruby>べたことがあります。 → ✅ きのう、おすしを**<ruby>食<rt>た</rt></ruby>べました**。<br><em>A specific recent time pins the event to the calendar, and <code>～たことがある</code> is precisely the form that refuses to be pinned. Use the plain past.</em></p>
 </li>
-<li><p>❌ 日本(にほん)に行(い)ったこと<strong>を</strong>あります。 → ✅ 日本(にほん)に行(い)ったこと<strong>が</strong>あります。<br><em><code>ある</code> is intransitive and never takes <code>を</code>. The <code>が</code> here is doing its normal job: marking what exists.</em></p>
-</li>
-<li><p>❌ 一度(いちど)も見(み)たことが<strong>あります</strong>。 → ✅ 一度(いちど)も見(み)たことが<strong>ありません</strong>。<br><em><code>一度(いちど)も</code> requires a negative to complete it, the way English &quot;not once&quot; does.</em></p>
+<li><p>❌ <ruby>日本<rt>にほん</rt></ruby>に<ruby>行<rt>い</rt></ruby>ったこと<strong>を</strong>あります。 → ✅ <ruby>日本<rt>にほん</rt></ruby>に<ruby>行<rt>い</rt></ruby>ったこと<strong>が</strong>あります。<br><em><code>ある</code> is intransitive and never takes <code>を</code>. The <code>が</code> here is doing its normal job: marking what exists.</em></p>
 </li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="74">
+<div class="slide" data-index="83">
   
   <div class="slide__content"><h2>～たことがある · Common mistakes (cont.)</h2>
 <ul>
-<li>❌ 学生(がくせい)ことがあります。 → ✅ 学生(がくせい)<strong>だった</strong>ことがあります。<br><em>Nouns and な-adjectives need <code>だった</code> in front of <code>ことがある</code>. The pattern always wants a plain past form before it, whatever the word class.</em></li>
+<li><p>❌ <ruby>一度<rt>いちど</rt></ruby>も<ruby>見<rt>み</rt></ruby>たことが<strong>あります</strong>。 → ✅ <ruby>一度<rt>いちど</rt></ruby>も<ruby>見<rt>み</rt></ruby>たことが<strong>ありません</strong>。<br><em><code><ruby>一度<rt>いちど</rt></ruby>も</code> requires a negative to complete it, the way English &quot;not once&quot; does.</em></p>
+</li>
+<li><p>❌ <ruby>学生<rt>がくせい</rt></ruby>ことがあります。 → ✅ <ruby>学生<rt>がくせい</rt></ruby><strong>だった</strong>ことがあります。<br><em>Nouns and な-adjectives need <code>だった</code> in front of <code>ことがある</code>. The pattern always wants a plain past form before it, whatever the word class.</em></p>
+</li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="75">
+<div class="slide" data-index="84">
   
   <div class="slide__content"><h2>～たことがある · Practice 1</h2>
-<p><strong>1.</strong> 馬(うま)に乗(の)____ことがありますか。</p>
+<p><strong>1.</strong> <ruby>馬<rt>うま</rt></ruby>に<ruby>乗<rt>の</rt></ruby>____ことがありますか。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-馬(うま)に乗(の)<strong>った</strong>ことがありますか。</p>
+<ruby>馬<rt>うま</rt></ruby>に<ruby>乗<rt>の</rt></ruby><strong>った</strong>ことがありますか。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The pattern is built on the た-form. <code>乗(の)る</code> is a う-verb ending in る, so る → った: 乗(の)る → 乗(の)った.</p>
+The pattern is built on the た-form. <code><ruby>乗<rt>の</rt></ruby>る</code> is a う-verb ending in る, so る → った: <ruby>乗<rt>の</rt></ruby>る → <ruby>乗<rt>の</rt></ruby>った.</p>
 </div>
 </div>
-<div class="slide" data-index="76">
+<div class="slide" data-index="85">
   
   <div class="slide__content"><h2>～たことがある · Practice 2</h2>
-<p><strong>2.</strong> &quot;Trains around here are sometimes delayed.&quot; この辺(へん)の電車(でんしゃ)は（遅(おく)れる・遅(おく)れた）ことがあります。</p>
+<p><strong>2.</strong> &quot;Trains around here are sometimes delayed.&quot; この<ruby>辺<rt>へん</rt></ruby>の<ruby>電車<rt>でんしゃ</rt></ruby>は（<ruby>遅<rt>おく</rt></ruby>れる・<ruby>遅<rt>おく</rt></ruby>れた）ことがあります。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-この辺(へん)の電車(でんしゃ)は<strong>遅(おく)れる</strong>ことがあります。</p>
+この<ruby>辺<rt>へん</rt></ruby>の<ruby>電車<rt>でんしゃ</rt></ruby>は**<ruby>遅<rt>おく</rt></ruby>れる**ことがあります。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 Dictionary form + <code>ことがある</code> means &quot;it happens from time to time&quot; - a statement about how often something occurs. The た-form would have said &quot;the trains have been late before&quot;, which is about experience rather than frequency.</p>
 </div>
 </div>
-<div class="slide" data-index="77">
+<div class="slide" data-index="86">
   
   <div class="slide__content"><h2>～たことがある · Practice 3</h2>
 <p><strong>3.</strong> Translate into Japanese: &quot;I&#39;ve never been to Kyoto.&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-京都(きょうと)に<strong>行(い)ったことがありません</strong>。 （casual: 京都(きょうと)、行(い)ったことない。）</p>
+<ruby>京都<rt>きょうと</rt></ruby>に**<ruby>行<rt>い</rt></ruby>ったことがありません**。 （casual: <ruby>京都<rt>きょうと</rt></ruby>、<ruby>行<rt>い</rt></ruby>ったことない。）</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The negation goes on <code>ある</code>, not on the verb - the た-form stays fixed. Adding <code>一度(いちど)も</code> gives &quot;never once&quot;: 京都(きょうと)には一度(いちど)も行(い)ったことがありません。</p>
+The negation goes on <code>ある</code>, not on the verb - the た-form stays fixed. Adding <code><ruby>一度<rt>いちど</rt></ruby>も</code> gives &quot;never once&quot;: <ruby>京都<rt>きょうと</rt></ruby>には<ruby>一度<rt>いちど</rt></ruby>も<ruby>行<rt>い</rt></ruby>ったことがありません。</p>
 </div>
 </div>
-<div class="slide" data-index="78">
+<div class="slide" data-index="87">
   
   <div class="slide__content"><h2>～たことがある · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 先週(せんしゅう)、あの映画(えいが)を見(み)たことがあります。</p>
+<p><strong>4.</strong> Find and fix the error: <ruby>先週<rt>せんしゅう</rt></ruby>、あの<ruby>映画<rt>えいが</rt></ruby>を<ruby>見<rt>み</rt></ruby>たことがあります。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 先週(せんしゅう)、あの映画(えいが)を<strong>見(み)ました</strong>。</p>
+✅ <ruby>先週<rt>せんしゅう</rt></ruby>、あの<ruby>映画<rt>えいが</rt></ruby>を**<ruby>見<rt>み</rt></ruby>ました**。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>先週(せんしゅう)</code> locates the event on a specific occasion, and <code>～たことがある</code> cannot take a definite recent time - it deliberately leaves <em>when</em> open. Drop the time word and <code>見(み)たことがあります</code> becomes fine again.</p>
+<code><ruby>先週<rt>せんしゅう</rt></ruby></code> locates the event on a specific occasion, and <code>～たことがある</code> cannot take a definite recent time - it deliberately leaves <em>when</em> open. Drop the time word and <code><ruby>見<rt>み</rt></ruby>たことがあります</code> becomes fine again.</p>
 </div>
 </div>
-<div class="slide" data-index="79">
+<div class="slide" data-index="88">
   
   <div class="slide__content"><h2>～たことがある · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 沖縄(おきなわ)に行(い)きました。 (b) 沖縄(おきなわ)に行(い)ったことがあります。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>沖縄<rt>おきなわ</rt></ruby>に<ruby>行<rt>い</rt></ruby>きました。 (b) <ruby>沖縄<rt>おきなわ</rt></ruby>に<ruby>行<rt>い</rt></ruby>ったことがあります。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) reports a particular trip. It belongs in a narrative - the listener will expect to hear when, or who with, or what happened there. On its own it can sound like the opening of a story.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
@@ -3545,7 +3611,7 @@ The negation goes on <code>ある</code>, not on the verb - the た-form stays f
     </div>
     <div id="hud-right">
       <a href="https://github.com/arpitbbhayani/deckrun" target="_blank" rel="noopener noreferrer" class="hud-brand" id="hud-brand" title="deckrun — Markdown presentations">powered by <span>deckrun</span></a>
-      <div id="slide-counter"><span id="cur">1</span>&nbsp;/&nbsp;<span id="tot">80</span></div>
+      <div id="slide-counter"><span id="cur">1</span>&nbsp;/&nbsp;<span id="tot">89</span></div>
     </div>
   </div>
 </div>
@@ -3598,7 +3664,7 @@ The negation goes on <code>ある</code>, not on the verb - the た-form stays f
 
 
 
-<script id="deck-notes" type="application/json">["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]</script>
+<script id="deck-notes" type="application/json">["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]</script>
 <script id="deck-themes" type="application/json">{"themes":[{"id":"midnight","label":"midnight","mood":"dark","blurb":"Catppuccin Mocha. Violet on deep indigo, drifting orbs.","decor":"orbs","colors":{"crust":"#11111b","mantle":"#181825","base":"#1e1e2e","surface0":"#313244","overlay1":"#7f849c","subtext1":"#bac2de","text":"#cdd6f4","accent":"#cba6f7","accent2":"#89b4fa","accent3":"#89dceb"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"tokyo","label":"tokyo night","mood":"dark","blurb":"Neon cyan over a wireframe grid, lifted from a rainy skyline.","decor":"grid","colors":{"crust":"#16161e","mantle":"#1a1b26","base":"#1f2335","surface0":"#292e42","overlay1":"#7c86ab","subtext1":"#b7c0e0","text":"#c8d3f5","accent":"#2ac3de","accent2":"#bb9af7","accent3":"#73daca"},"fonts":{"display":"'Sora', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"nord","label":"nord","mood":"dark","blurb":"Arctic frost blue on polar slate, with slow contour waves.","decor":"waves","colors":{"crust":"#232831","mantle":"#2e3440","base":"#353c4a","surface0":"#3b4252","overlay1":"#8e9aae","subtext1":"#d8dee9","text":"#eceff4","accent":"#88c0d0","accent2":"#81a1c1","accent3":"#8fbcbb"},"fonts":{"display":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace","body":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"dracula","label":"dracula","mood":"dark","blurb":"Purple and hot pink over charcoal, lit by a gradient mesh.","decor":"mesh","colors":{"crust":"#1a1b23","mantle":"#21222c","base":"#282a36","surface0":"#343746","overlay1":"#7b85b6","subtext1":"#e2e4f0","text":"#f8f8f2","accent":"#bd93f9","accent2":"#ff79c6","accent3":"#8be9fd"},"fonts":{"display":"'Syne', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'Fira Code', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"gruvbox","label":"gruvbox","mood":"dark","blurb":"Warm amber and moss on retro brown, hatched like graph paper.","decor":"topo","colors":{"crust":"#1b1e1f","mantle":"#232728","base":"#282828","surface0":"#32302f","overlay1":"#928374","subtext1":"#d5c4a1","text":"#ebdbb2","accent":"#fabd2f","accent2":"#fe8019","accent3":"#b8bb26"},"fonts":{"display":"'Bricolage Grotesque', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Work Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"rosepine","label":"rosé pine","mood":"dark","blurb":"Muted iris and gold on plum, under a slow aurora.","decor":"aurora","colors":{"crust":"#14121f","mantle":"#191724","base":"#1f1d2e","surface0":"#26233a","overlay1":"#817c9c","subtext1":"#cdc9e6","text":"#e0def4","accent":"#c4a7e7","accent2":"#9ccfd8","accent3":"#f6c177"},"fonts":{"display":"'Fraunces', Georgia, 'Times New Roman', serif","body":"'Newsreader', Georgia, 'Times New Roman', serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"forest","label":"forest","mood":"dark","blurb":"Everforest sage on deep pine, rippling in concentric rings.","decor":"rings","colors":{"crust":"#232a2e","mantle":"#2d353b","base":"#343f44","surface0":"#3d484d","overlay1":"#9da9a0","subtext1":"#d3c6aa","text":"#e5dfd2","accent":"#a7c080","accent2":"#6fb5ac","accent3":"#dbbc7f"},"fonts":{"display":"'Outfit', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"neon","label":"neon","mood":"dark","blurb":"Electric cyan and magenta on true black, raked by light beams.","decor":"beams","colors":{"crust":"#050509","mantle":"#0a0a12","base":"#0e0e1a","surface0":"#16162a","overlay1":"#6a6a96","subtext1":"#c8c8e4","text":"#f0f0ff","accent":"#22d3ee","accent2":"#ff5cc8","accent3":"#38e8ff"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'Space Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"daylight","label":"daylight","mood":"light","blurb":"Catppuccin Latte, contrast-tuned for a projector. Dot matrix.","decor":"dots","colors":{"crust":"#ebebeb","mantle":"#f5f5f5","base":"#fafaf8","surface0":"#ccd0da","overlay1":"#5c5f77","subtext1":"#3a3c52","text":"#1e2030","accent":"#8839ef","accent2":"#1e66f5","accent3":"#179299"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"arctic","label":"arctic","mood":"light","blurb":"Nord inverted. Frost blue on cool paper, with contour waves.","decor":"waves","colors":{"crust":"#e3e8ef","mantle":"#eceff4","base":"#f7f9fc","surface0":"#dbe1ea","overlay1":"#5f6b7c","subtext1":"#364150","text":"#2e3440","accent":"#2f7d94","accent2":"#4a7ba7","accent3":"#3b8b8a"},"fonts":{"display":"'Manrope', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"solarized","label":"solarized","mood":"light","blurb":"The classic low-glare cream, paired with Lora for long prose.","decor":"topo","colors":{"crust":"#eee8d5","mantle":"#f5efdc","base":"#fdf6e3","surface0":"#e3ddc8","overlay1":"#657b83","subtext1":"#3f5b62","text":"#073642","accent":"#268bd2","accent2":"#6c71c4","accent3":"#21958c"},"fonts":{"display":"'Outfit', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Lora', Georgia, 'Times New Roman', serif","mono":"'Source Code Pro', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"paper","label":"paper","mood":"light","blurb":"Crimson serif on warm cream. Editorial, print-first, very legible.","decor":"rings","colors":{"crust":"#efe8dc","mantle":"#f7f2e9","base":"#fdfbf5","surface0":"#e4dccc","overlay1":"#6e6553","subtext1":"#38311f","text":"#211c11","accent":"#a81f2c","accent2":"#1f7f96","accent3":"#9a6c12"},"fonts":{"display":"'Fraunces', Georgia, 'Times New Roman', serif","body":"'Newsreader', Georgia, 'Times New Roman', serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"rosequartz","label":"rose quartz","mood":"light","blurb":"Rosé Pine Dawn. Blush and iris on linen, with soft orbs.","decor":"orbs","colors":{"crust":"#f2e9e1","mantle":"#faf4ed","base":"#fffaf3","surface0":"#ece0d8","overlay1":"#7d7791","subtext1":"#55506e","text":"#423d5c","accent":"#b4637a","accent2":"#907aa9","accent3":"#56949f"},"fonts":{"display":"'Playfair Display', Georgia, 'Times New Roman', serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"swiss","label":"swiss","mood":"light","blurb":"Black on white, one red. Heavy grotesk, tight tracking, hard grid.","decor":"grid","colors":{"crust":"#f0f0f0","mantle":"#f8f8f8","base":"#ffffff","surface0":"#dcdcdc","overlay1":"#5a5a5a","subtext1":"#222222","text":"#0a0a0a","accent":"#e01b24","accent2":"#0a0a0a","accent3":"#5a5a5a"},"fonts":{"display":"'Archivo', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}}],"hljsMap":{"midnight":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css","tokyo":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css","nord":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/nord.min.css","dracula":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/dracula.min.css","gruvbox":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/gruvbox-dark-medium.min.css","rosepine":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/ros-pine.min.css","forest":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css","neon":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/night-owl.min.css","daylight":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","arctic":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","solarized":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/solarized-light.min.css","paper":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","rosequartz":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/ros-pine-dawn.min.css","swiss":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css"},"decorMap":{"midnight":"orbs","tokyo":"grid","nord":"waves","dracula":"mesh","gruvbox":"topo","rosepine":"aurora","forest":"rings","neon":"beams","daylight":"dots","arctic":"waves","solarized":"topo","paper":"rings","rosequartz":"orbs","swiss":"grid"}}</script>
 
 <script>
@@ -4786,6 +4852,36 @@ The negation goes on <code>ある</code>, not on the verb - the た-form stays f
     transition: opacity 0.15s ease, background 0.15s ease; }
   #deck-home:hover, #deck-home:focus-visible { opacity: 0.95; background: rgba(128,128,128,0.14); }
   @media print { #deck-home { display: none !important; } }
+  #furigana-toggle { position: fixed; bottom: 2.7rem; right: 1.1rem; z-index: 40;
+    font: 500 0.78rem/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+    color: currentColor; opacity: 0.38; cursor: pointer; user-select: none;
+    background: none; border: 1px solid currentColor; border-radius: 4px;
+    padding: 0.38rem 0.6rem;
+    transition: opacity 0.15s ease, background 0.15s ease; }
+  #furigana-toggle:hover, #furigana-toggle:focus-visible { opacity: 0.95; background: rgba(128,128,128,0.14); }
+  @media print { #furigana-toggle { display: none !important; } }
 </style>
+<button id="furigana-toggle" type="button" aria-pressed="true">&#12405;&#12426;&#12364;&#12394; ON</button>
+<script>
+  (function () {
+    // Deliberately click-only: readers who do not want furigana turn it off
+    // once and it sticks, while every key stays free for presenting.
+    var root = document.documentElement, btn = document.getElementById('furigana-toggle');
+    function paint() {
+      var off = root.getAttribute('data-furigana') === 'off';
+      btn.textContent = '\u3075\u308a\u304c\u306a ' + (off ? 'OFF' : 'ON');
+      btn.setAttribute('aria-pressed', String(!off));
+    }
+    btn.addEventListener('click', function () {
+      var off = root.getAttribute('data-furigana') === 'off';
+      if (off) root.removeAttribute('data-furigana');
+      else root.setAttribute('data-furigana', 'off');
+      try { localStorage.setItem('jlpt-furigana', off ? 'on' : 'off'); } catch (e) {}
+      paint();
+      btn.blur();
+    });
+    paint();
+  })();
+</script>
 </body>
 </html>

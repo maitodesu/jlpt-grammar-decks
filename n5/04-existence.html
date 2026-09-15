@@ -2606,6 +2606,13 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
   gap: 0.5rem;
 }
   </style>
+<script>
+  try {
+    if (localStorage.getItem('jlpt-furigana') === 'off') {
+      document.documentElement.setAttribute('data-furigana', 'off');
+    }
+  } catch (e) {}
+</script>
 </head>
 <body>
 
@@ -2614,7 +2621,16 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <div id="presentation">
 <div class="slide" data-index="0">
   
-  <div class="slide__content"><style>html { font-size: 20.0px; }</style>
+  <div class="slide__content"><style>
+  html { font-size: 20.0px; }
+  .slide__content p, .slide__content li,
+  .slide__content td, .slide__content th { line-height: 2.05; }
+  rt { font-size: 0.5em; line-height: 1.1; opacity: 0.72; font-weight: 400; }
+  :root[data-furigana="off"] rt { display: none; }
+  :root[data-furigana="off"] .slide__content p, :root[data-furigana="off"] .slide__content li,
+  :root[data-furigana="off"] .slide__content td, :root[data-furigana="off"] .slide__content th
+    { line-height: 1.5; }
+</style>
 
 <h1>N5 - Existence</h1>
 <ul>
@@ -2627,7 +2643,7 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
   
   <div class="slide__content"><h1>～がある</h1>
 <p><strong>Meaning</strong> · there is / there are - something inanimate exists, or is available</p>
-<p><code>ある</code> is the existence verb for things that do not move under their own will: objects, places, plants, and abstractions like time, money and plans. The same verb covers &quot;I have&quot; (時間(じかん)がある) and &quot;there&#39;s a scheduled event&quot; (会議(かいぎ)がある) - in Japanese those are all just <em>something existing</em>.</p>
+<p><code>ある</code> is the existence verb for things that do not move under their own will: objects, places, plants, and abstractions like time, money and plans. The same verb covers &quot;I have&quot; (<ruby>時間<rt>じかん</rt></ruby>がある) and &quot;there&#39;s a scheduled event&quot; (<ruby>会議<rt>かいぎ</rt></ruby>がある) - in Japanese those are all just <em>something existing</em>.</p>
 </div>
 </div>
 <div class="slide" data-index="2">
@@ -2645,37 +2661,37 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <tbody><tr>
 <td>Noun</td>
 <td>Noun + が + ある</td>
-<td>本(ほん) → 本(ほん)がある</td>
+<td><ruby>本<rt>ほん</rt></ruby> → <ruby>本<rt>ほん</rt></ruby>がある</td>
 </tr>
 <tr>
 <td>Noun + place</td>
 <td>Place + に + Noun + が + ある</td>
-<td>机(つくえ)の上(うえ)に本(ほん)がある</td>
+<td><ruby>机<rt>つくえ</rt></ruby>の<ruby>上<rt>うえ</rt></ruby>に<ruby>本<rt>ほん</rt></ruby>がある</td>
 </tr>
 <tr>
 <td>Polite</td>
 <td>ある → あります</td>
-<td>本(ほん)があります</td>
+<td><ruby>本<rt>ほん</rt></ruby>があります</td>
 </tr>
 <tr>
 <td>Negative</td>
 <td>ある → <strong>ない</strong></td>
-<td>本(ほん)がない / 本(ほん)がありません</td>
+<td><ruby>本<rt>ほん</rt></ruby>がない / <ruby>本<rt>ほん</rt></ruby>がありません</td>
 </tr>
 <tr>
 <td>Past</td>
 <td>ある → あった</td>
-<td>本(ほん)があった / 本(ほん)がありました</td>
+<td><ruby>本<rt>ほん</rt></ruby>があった / <ruby>本<rt>ほん</rt></ruby>がありました</td>
 </tr>
 <tr>
 <td>Negative past</td>
 <td>ある → なかった</td>
-<td>本(ほん)がなかった / 本(ほん)がありませんでした</td>
+<td><ruby>本<rt>ほん</rt></ruby>がなかった / <ruby>本<rt>ほん</rt></ruby>がありませんでした</td>
 </tr>
 <tr>
 <td>て-form</td>
 <td>ある → あって</td>
-<td>時間(じかん)があって…</td>
+<td><ruby>時間<rt>じかん</rt></ruby>があって…</td>
 </tr>
 </tbody></table>
 </div>
@@ -2691,34 +2707,34 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <div class="slide" data-index="4">
   
   <div class="slide__content"><h2>～がある · Examples</h2>
-<p>机(つくえ)の上(うえ)に本(ほん)<strong>があります</strong>。<br><em>There&#39;s a book on the desk.</em></p>
-<p>時間(じかん)<strong>がありません</strong>。<br><em>I don&#39;t have time.</em></p>
-<p>この近(ちか)くにコンビニ<strong>がある</strong>?<br><em>Is there a convenience store around here?</em></p>
-<p>明日(あした)の午後(ごご)、会議(かいぎ)<strong>があります</strong>。<br><em>There&#39;s a meeting tomorrow afternoon.</em></p>
-<p>かばんの中(なか)に何(なに)<strong>があります</strong>か。<br><em>What&#39;s in the bag?</em></p>
+<p><ruby>机<rt>つくえ</rt></ruby>の<ruby>上<rt>うえ</rt></ruby>に<ruby>本<rt>ほん</rt></ruby><strong>があります</strong>。<br><em>There&#39;s a book on the desk.</em></p>
+<p><ruby>時間<rt>じかん</rt></ruby><strong>がありません</strong>。<br><em>I don&#39;t have time.</em></p>
+<p>この<ruby>近<rt>ちか</rt></ruby>くにコンビニ<strong>がある</strong>?<br><em>Is there a convenience store around here?</em></p>
+<p><ruby>明日<rt>あした</rt></ruby>の<ruby>午後<rt>ごご</rt></ruby>、<ruby>会議<rt>かいぎ</rt></ruby><strong>があります</strong>。<br><em>There&#39;s a meeting tomorrow afternoon.</em></p>
 </div>
 </div>
 <div class="slide" data-index="5">
   
   <div class="slide__content"><h2>～がある · Examples (cont.)</h2>
-<p>去年(きょねん)まで、ここに大(おお)きい木(き)<strong>がありました</strong>。<br><em>Until last year there was a big tree here.</em></p>
-<p>すみません、ちょっとお話(はなし)<strong>があるん</strong>ですが、今(いま)よろしいですか。<br><em>Sorry - there&#39;s something I&#39;d like to talk to you about. Do you have a moment?</em></p>
-<p>この辺(へん)にはスーパー<strong>がない</strong>ので、買(か)い物(もの)のときは駅(えき)まで歩(ある)きます。<br><em>There&#39;s no supermarket around here, so when I shop I walk all the way to the station.</em></p>
+<p>かばんの<ruby>中<rt>なか</rt></ruby>に<ruby>何<rt>なに</rt></ruby><strong>があります</strong>か。<br><em>What&#39;s in the bag?</em></p>
+<p><ruby>去年<rt>きょねん</rt></ruby>まで、ここに<ruby>大<rt>おお</rt></ruby>きい<ruby>木<rt>き</rt></ruby><strong>がありました</strong>。<br><em>Until last year there was a big tree here.</em></p>
+<p>すみません、ちょっとお<ruby>話<rt>はなし</rt></ruby><strong>があるん</strong>ですが、<ruby>今<rt>いま</rt></ruby>よろしいですか。<br><em>Sorry - there&#39;s something I&#39;d like to talk to you about. Do you have a moment?</em></p>
+<p>この<ruby>辺<rt>へん</rt></ruby>にはスーパー<strong>がない</strong>ので、<ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>のときは<ruby>駅<rt>えき</rt></ruby>まで<ruby>歩<rt>ある</rt></ruby>きます。<br><em>There&#39;s no supermarket around here, so when I shop I walk all the way to the station.</em></p>
 </div>
 </div>
 <div class="slide" data-index="6">
   
   <div class="slide__content"><h2>～がある · Nuance &amp; register</h2>
-<p><code>ある</code> is register-neutral. <code>あります</code> is the ordinary polite form; <code>ある</code> is plain. In formal service or business Japanese it climbs to <code>ございます</code>: 何(なに)か質問(しつもん)はございますか - &quot;Are there any questions?&quot; You will hear that from shop staff and in speeches, and you are not expected to produce it at N5.</p>
+<p><code>ある</code> is register-neutral. <code>あります</code> is the ordinary polite form; <code>ある</code> is plain. In formal service or business Japanese it climbs to <code>ございます</code>: <ruby>何<rt>なに</rt></ruby>か<ruby>質問<rt>しつもん</rt></ruby>はございますか - &quot;Are there any questions?&quot; You will hear that from shop staff and in speeches, and you are not expected to produce it at N5.</p>
 <p>Two things learners get blindsided by:</p>
-<p><strong><code>が</code> drops in casual speech.</strong> 時間(じかん)ある?／お金(かね)ない／コンビニあるかな。 This is extremely common - much more common than the full form in conversation. Keep <code>が</code> in writing and in ます-speech.</p>
-<p><strong><code>ある</code> covers far more than physical objects.</strong> Events (試験(しけん)がある), appointments (約束(やくそく)がある), experiences (行(い)ったことがある), abilities and resources (自信(じしん)がある). If you find yourself reaching for &quot;to have&quot; in English, <code>ある</code> is usually the right verb.</p>
+<p><strong><code>が</code> drops in casual speech.</strong> <ruby>時間<rt>じかん</rt></ruby>ある?／お<ruby>金<rt>かね</rt></ruby>ない／コンビニあるかな。 This is extremely common - much more common than the full form in conversation. Keep <code>が</code> in writing and in ます-speech.</p>
 </div>
 </div>
 <div class="slide" data-index="7">
   
   <div class="slide__content"><h2>～がある · Nuance &amp; register (cont.)</h2>
-<p>One historical note: <code>子(こ)どもがある</code> for &quot;to have children&quot; does exist, and you will meet it in older or formal writing, where it frames children as a fact about someone&#39;s life rather than as people in the room. In modern speech use <code>子(こ)どもがいる</code>.</p>
+<p><strong><code>ある</code> covers far more than physical objects.</strong> Events (<ruby>試験<rt>しけん</rt></ruby>がある), appointments (<ruby>約束<rt>やくそく</rt></ruby>がある), experiences (<ruby>行<rt>い</rt></ruby>ったことがある), abilities and resources (<ruby>自信<rt>じしん</rt></ruby>がある). If you find yourself reaching for &quot;to have&quot; in English, <code>ある</code> is usually the right verb.</p>
+<p>One historical note: <code><ruby>子<rt>こ</rt></ruby>どもがある</code> for &quot;to have children&quot; does exist, and you will meet it in older or formal writing, where it frames children as a fact about someone&#39;s life rather than as people in the room. In modern speech use <code><ruby>子<rt>こ</rt></ruby>どもがいる</code>.</p>
 </div>
 </div>
 <div class="slide" data-index="8">
@@ -2728,14 +2744,14 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <p><strong>Rule of thumb</strong> - <code>いる</code> is for things that move under their own will; <code>ある</code> is for everything else. The line is <em>animacy</em>, not <em>life</em>.</p>
 </blockquote>
 <p>People and animals take <code>いる</code>. Plants - alive, but rooted - take <code>ある</code>. So do cars, buildings, books, and ideas.</p>
-<p>庭(にわ)に大(おお)きい木(き)<strong>があります</strong>。<br><em>There&#39;s a big tree in the garden.</em></p>
-<p>庭(にわ)に猫(ねこ)が<strong>います</strong>。<br><em>There&#39;s a cat in the garden.</em></p>
+<p><ruby>庭<rt>にわ</rt></ruby>に<ruby>大<rt>おお</rt></ruby>きい<ruby>木<rt>き</rt></ruby><strong>があります</strong>。<br><em>There&#39;s a big tree in the garden.</em></p>
+<p><ruby>庭<rt>にわ</rt></ruby>に<ruby>猫<rt>ねこ</rt></ruby>が<strong>います</strong>。<br><em>There&#39;s a cat in the garden.</em></p>
 </div>
 </div>
 <div class="slide" data-index="9">
   
   <div class="slide__content"><h2>～がある · ～がある vs ～がいる (cont.)</h2>
-<p>The animacy test is about how the speaker frames the thing, which is why the same noun can go either way. A fish swimming in a tank is 魚(さかな)が<strong>いる</strong>; a fish laid out at the shop is 魚(さかな)が<strong>ある</strong>. Ghosts, being willful, take <code>いる</code>.</p>
+<p>The animacy test is about how the speaker frames the thing, which is why the same noun can go either way. A fish swimming in a tank is <ruby>魚<rt>さかな</rt></ruby>が<strong>いる</strong>; a fish laid out at the shop is <ruby>魚<rt>さかな</rt></ruby>が<strong>ある</strong>. Ghosts, being willful, take <code>いる</code>.</p>
 <blockquote>
 <p><strong>Note</strong> - vehicles are the classic grey area. <code>タクシーがある</code> means taxis are <em>available</em> here; <code>タクシーがいる</code> pictures one sitting there with a driver in it. Both are heard. When in doubt with a vehicle, <code>ある</code> is safe.</p>
 </blockquote>
@@ -2743,23 +2759,23 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 </div>
 <div class="slide" data-index="10">
   
-  <div class="slide__content"><h2>～がある · ～がある vs ～を持(も)っている</h2>
+  <div class="slide__content"><h2>～がある · ～がある vs ～を持っている</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - <code>ある</code> says a thing exists and is at your disposal. <code>持(も)っている</code> says you own it or are physically carrying it.</p>
+<p><strong>Rule of thumb</strong> - <code>ある</code> says a thing exists and is at your disposal. <code><ruby>持<rt>も</rt></ruby>っている</code> says you own it or are physically carrying it.</p>
 </blockquote>
 <p>Both translate as &quot;have&quot;, and English gives you no help choosing.</p>
-<p>今(いま)、お金(かね)<strong>がありません</strong>。<br><em>I don&#39;t have any money right now.</em></p>
-<p>今(いま)、お金(かね)を持(も)っていません。<br><em>I&#39;m not carrying any money on me right now.</em></p>
-<p>The useful hard rule: <strong><code>持(も)っている</code> needs something you can hold or own.</strong> Abstract nouns cannot take it, so time, plans, meetings and experience are always <code>ある</code>.</p>
+<p><ruby>今<rt>いま</rt></ruby>、お<ruby>金<rt>かね</rt></ruby><strong>がありません</strong>。<br><em>I don&#39;t have any money right now.</em></p>
+<p><ruby>今<rt>いま</rt></ruby>、お<ruby>金<rt>かね</rt></ruby>を<ruby>持<rt>も</rt></ruby>っていません。<br><em>I&#39;m not carrying any money on me right now.</em></p>
 </div>
 </div>
 <div class="slide" data-index="11">
   
-  <div class="slide__content"><h2>～がある · ～がある vs ～を持(も)っている (cont.)</h2>
+  <div class="slide__content"><h2>～がある · ～がある vs ～を持っている (cont.)</h2>
+<p>The useful hard rule: <strong><code><ruby>持<rt>も</rt></ruby>っている</code> needs something you can hold or own.</strong> Abstract nouns cannot take it, so time, plans, meetings and experience are always <code>ある</code>.</p>
 <ul>
-<li>✅ 時間(じかん)があります　❌ 時間(じかん)を持(も)っています</li>
-<li>✅ 会議(かいぎ)があります　❌ 会議(かいぎ)を持(も)っています</li>
-<li>✅ 車(くるま)があります／車(くるま)を持(も)っています（both fine - &quot;there&#39;s a car I can use&quot; vs &quot;I own a car&quot;）</li>
+<li>✅ <ruby>時間<rt>じかん</rt></ruby>があります　❌ <ruby>時間<rt>じかん</rt></ruby>を<ruby>持<rt>も</rt></ruby>っています</li>
+<li>✅ <ruby>会議<rt>かいぎ</rt></ruby>があります　❌ <ruby>会議<rt>かいぎ</rt></ruby>を<ruby>持<rt>も</rt></ruby>っています</li>
+<li>✅ <ruby>車<rt>くるま</rt></ruby>があります／<ruby>車<rt>くるま</rt></ruby>を<ruby>持<rt>も</rt></ruby>っています（both fine - &quot;there&#39;s a car I can use&quot; vs &quot;I own a car&quot;）</li>
 </ul>
 </div>
 </div>
@@ -2770,9 +2786,9 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <p><strong>Rule of thumb</strong> - put the <strong>new</strong> information late. If the <em>thing</em> is new, lead with the place. If the <em>place</em> is new, lead with the thing and mark it <code>は</code>.</p>
 </blockquote>
 <p>Both sentences below are correct, and they answer different questions.</p>
-<p>机(つくえ)の上(うえ)に本(ほん)<strong>があります</strong>。<br><em>There&#39;s a book on the desk.</em></p>
+<p><ruby>机<rt>つくえ</rt></ruby>の<ruby>上<rt>うえ</rt></ruby>に<ruby>本<rt>ほん</rt></ruby><strong>があります</strong>。<br><em>There&#39;s a book on the desk.</em></p>
 <p>That answers &quot;what&#39;s on the desk?&quot; - or describes a scene from scratch. The book is the news, so it stays on the <code>が</code> side.</p>
-<p>本(ほん)<strong>は</strong>机(つくえ)の上(うえ)にあります。<br><em>The book is on the desk.</em></p>
+<p><ruby>本<rt>ほん</rt></ruby><strong>は</strong><ruby>机<rt>つくえ</rt></ruby>の<ruby>上<rt>うえ</rt></ruby>にあります。<br><em>The book is on the desk.</em></p>
 </div>
 </div>
 <div class="slide" data-index="13">
@@ -2785,83 +2801,89 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
   
   <div class="slide__content"><h2>～がある · Common mistakes</h2>
 <ul>
-<li><p>❌ 時間(じかん)が<strong>あらない</strong>。 → ✅ 時間(じかん)が<strong>ない</strong>。<br><em><code>ある</code> is the one verb whose plain negative is suppletive. <code>ない</code> - and past <code>なかった</code>, polite <code>ありません</code>.</em></p>
+<li><p>❌ <ruby>時間<rt>じかん</rt></ruby>が<strong>あらない</strong>。 → ✅ <ruby>時間<rt>じかん</rt></ruby>が<strong>ない</strong>。<br><em><code>ある</code> is the one verb whose plain negative is suppletive. <code>ない</code> - and past <code>なかった</code>, polite <code>ありません</code>.</em></p>
 </li>
-<li><p>❌ 部屋(へや)に猫(ねこ)が<strong>あります</strong>。 → ✅ 部屋(へや)に猫(ねこ)が<strong>います</strong>。<br><em>Animals move under their own will, so they take <code>いる</code>.</em></p>
+<li><p>❌ <ruby>部屋<rt>へや</rt></ruby>に<ruby>猫<rt>ねこ</rt></ruby>が<strong>あります</strong>。 → ✅ <ruby>部屋<rt>へや</rt></ruby>に<ruby>猫<rt>ねこ</rt></ruby>が<strong>います</strong>。<br><em>Animals move under their own will, so they take <code>いる</code>.</em></p>
 </li>
 <li><p>❌ ペン<strong>を</strong>あります。 → ✅ ペン<strong>が</strong>あります。<br><em><code>ある</code> is intransitive. Nothing is being acted on, so <code>を</code> has no job here.</em></p>
 </li>
-<li><p>❌ 私(わたし)は時間(じかん)を持(も)っていません。 → ✅ 私(わたし)は時間(じかん)がありません。<br><em><code>持(も)っている</code> needs a concrete possession. Time is not one.</em></p>
-</li>
-<li><p>❌ ここ<strong>で</strong>銀行(ぎんこう)があります。 → ✅ ここ<strong>に</strong>銀行(ぎんこう)があります。<br><em><code>で</code> marks where an action happens. Existence is not an action - it takes <code>に</code>.</em></p>
+<li><p>❌ <ruby>私<rt>わたし</rt></ruby>は<ruby>時間<rt>じかん</rt></ruby>を<ruby>持<rt>も</rt></ruby>っていません。 → ✅ <ruby>私<rt>わたし</rt></ruby>は<ruby>時間<rt>じかん</rt></ruby>がありません。<br><em><code><ruby>持<rt>も</rt></ruby>っている</code> needs a concrete possession. Time is not one.</em></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="slide" data-index="15">
   
-  <div class="slide__content"><h2>～がある · Practice 1</h2>
-<p><strong>1.</strong> 急(いそ)ぎましょう。もう時間(じかん)が____。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-もう時間(じかん)が<strong>ありません</strong>（casual: <strong>ない</strong>）。 &quot;Let&#39;s hurry - we&#39;re out of time.&quot;</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The negative of <code>ある</code> is suppletive: <code>ない</code> in plain form, <code>ありません</code> in polite form. ❌<code>あらない</code> and ❌<code>あらありません</code> do not exist.</p>
+  <div class="slide__content"><h2>～がある · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ ここ<strong>で</strong><ruby>銀行<rt>ぎんこう</rt></ruby>があります。 → ✅ ここ<strong>に</strong><ruby>銀行<rt>ぎんこう</rt></ruby>があります。<br><em><code>で</code> marks where an action happens. Existence is not an action - it takes <code>に</code>.</em></li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="16">
   
-  <div class="slide__content"><h2>～がある · Practice 2</h2>
-<p><strong>2.</strong> 公園(こうえん)に古(ふる)い木(き)が（あります・います）。</p>
+  <div class="slide__content"><h2>～がある · Practice 1</h2>
+<p><strong>1.</strong> <ruby>急<rt>いそ</rt></ruby>ぎましょう。もう<ruby>時間<rt>じかん</rt></ruby>が____。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-公園(こうえん)に古(ふる)い木(き)が<strong>あります</strong>。</p>
+もう<ruby>時間<rt>じかん</rt></ruby>が<strong>ありません</strong>（casual: <strong>ない</strong>）。 &quot;Let&#39;s hurry - we&#39;re out of time.&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Trees are alive, but the <code>ある</code>／<code>いる</code> split is not about life - it&#39;s about moving under your own will. Plants stay put, so they pattern with objects and take <code>ある</code>.</p>
+The negative of <code>ある</code> is suppletive: <code>ない</code> in plain form, <code>ありません</code> in polite form. ❌<code>あらない</code> and ❌<code>あらありません</code> do not exist.</p>
 </div>
 </div>
 <div class="slide" data-index="17">
   
-  <div class="slide__content"><h2>～がある · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese: &quot;Is there a post office near the station?&quot;</p>
+  <div class="slide__content"><h2>～がある · Practice 2</h2>
+<p><strong>2.</strong> <ruby>公園<rt>こうえん</rt></ruby>に<ruby>古<rt>ふる</rt></ruby>い<ruby>木<rt>き</rt></ruby>が（あります・います）。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-駅(えき)の近(ちか)くに郵便局(ゆうびんきょく)が<strong>ありますか</strong>。</p>
+<ruby>公園<rt>こうえん</rt></ruby>に<ruby>古<rt>ふる</rt></ruby>い<ruby>木<rt>き</rt></ruby>が<strong>あります</strong>。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The location takes <code>に</code> (not <code>で</code> - nothing is happening there), the thing that exists takes <code>が</code>, and a post office is inanimate, so <code>ある</code>. In casual speech you would drop the particle: 駅(えき)の近(ちか)く、郵便局(ゆうびんきょく)ある?</p>
+Trees are alive, but the <code>ある</code>／<code>いる</code> split is not about life - it&#39;s about moving under your own will. Plants stay put, so they pattern with objects and take <code>ある</code>.</p>
 </div>
 </div>
 <div class="slide" data-index="18">
   
-  <div class="slide__content"><h2>～がある · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 来週(らいしゅう)、試験(しけん)を持(も)っていますから、勉強(べんきょう)します。</p>
+  <div class="slide__content"><h2>～がある · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese: &quot;Is there a post office near the station?&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 来週(らいしゅう)、試験(しけん)が<strong>あります</strong>から、勉強(べんきょう)します。 &quot;I have an exam next week, so I&#39;m going to study.&quot;</p>
+<ruby>駅<rt>えき</rt></ruby>の<ruby>近<rt>ちか</rt></ruby>くに<ruby>郵便局<rt>ゆうびんきょく</rt></ruby>が<strong>ありますか</strong>。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-English &quot;have an exam&quot; pulls you toward <code>持(も)つ</code>, but <code>持(も)っている</code> requires something you can physically hold or legally own. Scheduled events exist - they use <code>ある</code>.</p>
+The location takes <code>に</code> (not <code>で</code> - nothing is happening there), the thing that exists takes <code>が</code>, and a post office is inanimate, so <code>ある</code>. In casual speech you would drop the particle: <ruby>駅<rt>えき</rt></ruby>の<ruby>近<rt>ちか</rt></ruby>く、<ruby>郵便局<rt>ゆうびんきょく</rt></ruby>ある?</p>
 </div>
 </div>
 <div class="slide" data-index="19">
   
+  <div class="slide__content"><h2>～がある · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the error: <ruby>来週<rt>らいしゅう</rt></ruby>、<ruby>試験<rt>しけん</rt></ruby>を<ruby>持<rt>も</rt></ruby>っていますから、<ruby>勉強<rt>べんきょう</rt></ruby>します。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ <ruby>来週<rt>らいしゅう</rt></ruby>、<ruby>試験<rt>しけん</rt></ruby>が<strong>あります</strong>から、<ruby>勉強<rt>べんきょう</rt></ruby>します。 &quot;I have an exam next week, so I&#39;m going to study.&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+English &quot;have an exam&quot; pulls you toward <code><ruby>持<rt>も</rt></ruby>つ</code>, but <code><ruby>持<rt>も</rt></ruby>っている</code> requires something you can physically hold or legally own. Scheduled events exist - they use <code>ある</code>.</p>
+</div>
+</div>
+<div class="slide" data-index="20">
+  
   <div class="slide__content"><h2>～がある · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) つくえの上(うえ)に辞書(じしょ)があります。 (b) 辞書(じしょ)はつくえの上(うえ)にあります。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) つくえの<ruby>上<rt>うえ</rt></ruby>に<ruby>辞書<rt>じしょ</rt></ruby>があります。 (b) <ruby>辞書<rt>じしょ</rt></ruby>はつくえの<ruby>上<rt>うえ</rt></ruby>にあります。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) introduces the dictionary as new information - &quot;there&#39;s a dictionary on the desk.&quot; You would say it describing a room, or answering &quot;what&#39;s on the desk?&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (b) treats the dictionary as already under discussion (<code>は</code> marks it as the topic) and delivers the <em>location</em> as the news - &quot;the dictionary is on the desk.&quot; That&#39;s the answer to &quot;where&#39;s the dictionary?&quot; Same facts, opposite information flow.</p>
 </div>
 </div>
-<div class="slide" data-index="20">
+<div class="slide" data-index="21">
   
   <div class="slide__content"><h1>～がいる</h1>
 <p><strong>Meaning</strong> · there is / there are - a living thing that moves under its own will exists, or someone has such a thing</p>
-<p><code>いる</code> is the existence verb Japanese reserves for beings that can decide to go somewhere: people, animals, insects, fish in the water. It also does the work of English &quot;have&quot; when what you have is a person or an animal - <code>兄(あに)がいる</code> is &quot;I have an older brother&quot;, and <code>猫(ねこ)がいる</code> can be either &quot;there&#39;s a cat&quot; or &quot;I have a cat&quot;, decided entirely by context.</p>
+<p><code>いる</code> is the existence verb Japanese reserves for beings that can decide to go somewhere: people, animals, insects, fish in the water. It also does the work of English &quot;have&quot; when what you have is a person or an animal - <code><ruby>兄<rt>あに</rt></ruby>がいる</code> is &quot;I have an older brother&quot;, and <code><ruby>猫<rt>ねこ</rt></ruby>がいる</code> can be either &quot;there&#39;s a cat&quot; or &quot;I have a cat&quot;, decided entirely by context.</p>
 </div>
 </div>
-<div class="slide" data-index="21">
+<div class="slide" data-index="22">
   
   <div class="slide__content"><h2>～がいる · Formation</h2>
 <p>The being that exists takes <code>が</code>. The place it is in takes <code>に</code>. <code>いる</code> is a regular る-verb, so every form is predictable - which makes it the easy half of the <code>ある</code>／<code>いる</code> pair.</p>
 </div>
 </div>
-<div class="slide" data-index="22">
+<div class="slide" data-index="23">
   
   <div class="slide__content"><h2>～がいる · Formation (cont.)</h2>
 <table>
@@ -2875,27 +2897,27 @@ English &quot;have an exam&quot; pulls you toward <code>持(も)つ</code>, but 
 <tbody><tr>
 <td>Noun</td>
 <td>Noun + が + いる</td>
-<td>犬(いぬ) → 犬(いぬ)がいる</td>
+<td><ruby>犬<rt>いぬ</rt></ruby> → <ruby>犬<rt>いぬ</rt></ruby>がいる</td>
 </tr>
 <tr>
 <td>Noun + place</td>
 <td>Place + に + Noun + が + いる</td>
-<td>庭(にわ)に犬(いぬ)がいる</td>
+<td><ruby>庭<rt>にわ</rt></ruby>に<ruby>犬<rt>いぬ</rt></ruby>がいる</td>
 </tr>
 <tr>
 <td>Polite</td>
 <td>いる → います</td>
-<td>犬(いぬ)がいます</td>
+<td><ruby>犬<rt>いぬ</rt></ruby>がいます</td>
 </tr>
 <tr>
 <td>Negative</td>
 <td>いる → いない</td>
-<td>犬(いぬ)がいない／いません</td>
+<td><ruby>犬<rt>いぬ</rt></ruby>がいない／いません</td>
 </tr>
 <tr>
 <td>Past</td>
 <td>いる → いた</td>
-<td>犬(いぬ)がいた／いました</td>
+<td><ruby>犬<rt>いぬ</rt></ruby>がいた／いました</td>
 </tr>
 <tr>
 <td>Negative past</td>
@@ -2905,22 +2927,22 @@ English &quot;have an exam&quot; pulls you toward <code>持(も)つ</code>, but 
 <tr>
 <td>て-form</td>
 <td>いる → いて</td>
-<td>友(とも)だちがいて…</td>
+<td><ruby>友<rt>とも</rt></ruby>だちがいて…</td>
 </tr>
 <tr>
 <td>Honorific / humble</td>
 <td>いる → いらっしゃる／おる</td>
-<td>先生(せんせい)がいらっしゃいます</td>
+<td><ruby>先生<rt>せんせい</rt></ruby>がいらっしゃいます</td>
 </tr>
 <tr>
 <td>Counting</td>
 <td>Place + に + Noun + が + counter + いる</td>
-<td>部屋(へや)に三人(さんにん)います</td>
+<td><ruby>部屋<rt>へや</rt></ruby>に<ruby>三人<rt>さんにん</rt></ruby>います</td>
 </tr>
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="23">
+<div class="slide" data-index="24">
   
   <div class="slide__content"><h2>～がいる · Formation (cont.)</h2>
 <blockquote>
@@ -2928,162 +2950,163 @@ English &quot;have an exam&quot; pulls you toward <code>持(も)つ</code>, but 
 </blockquote>
 </div>
 </div>
-<div class="slide" data-index="24">
-  
-  <div class="slide__content"><h2>～がいる · Examples</h2>
-<p>池(いけ)に鳥(とり)が<strong>います</strong>。<br><em>There are birds on the pond.</em></p>
-<p>私(わたし)には兄(あに)が二人(ふたり)<strong>います</strong>。<br><em>I have two older brothers.</em></p>
-<p>駅(えき)の前(まえ)に大(おお)きい犬(いぬ)が<strong>いました</strong>。<br><em>There was a big dog in front of the station.</em></p>
-<p>彼(かれ)は今(いま)大阪(おおさか)に<strong>いません</strong>。<br><em>He isn&#39;t in Osaka at the moment.</em></p>
-<p>すみません、田中(たなか)さんは<strong>いらっしゃいますか</strong>。<br><em>Excuse me - is Mr Tanaka in?</em></p>
-</div>
-</div>
 <div class="slide" data-index="25">
   
-  <div class="slide__content"><h2>～がいる · Examples (cont.)</h2>
-<p>さっきまでここに子(こ)どもが三人(さんにん)<strong>いた</strong>のに、急(きゅう)に静(しず)かになった。<br><em>There were three children here a moment ago, and then it suddenly went quiet.</em></p>
-<p>海外(かいがい)に住(す)んでいる友(とも)だちが<strong>いる</strong>ので、時々(ときどき)英語(えいご)で話(はな)します。<br><em>I have a friend living abroad, so I sometimes speak English.</em></p>
-<p>この会社(かいしゃ)には日本語(にほんご)が話(はな)せる社員(しゃいん)が何人(なんにん)<strong>いますか</strong>。<br><em>How many employees who can speak Japanese are there at this company?</em></p>
+  <div class="slide__content"><h2>～がいる · Examples</h2>
+<p><ruby>池<rt>いけ</rt></ruby>に<ruby>鳥<rt>とり</rt></ruby>が<strong>います</strong>。<br><em>There are birds on the pond.</em></p>
+<p><ruby>私<rt>わたし</rt></ruby>には<ruby>兄<rt>あに</rt></ruby>が<ruby>二人<rt>ふたり</rt></ruby><strong>います</strong>。<br><em>I have two older brothers.</em></p>
+<p><ruby>駅<rt>えき</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>に<ruby>大<rt>おお</rt></ruby>きい<ruby>犬<rt>いぬ</rt></ruby>が<strong>いました</strong>。<br><em>There was a big dog in front of the station.</em></p>
+<p><ruby>彼<rt>かれ</rt></ruby>は<ruby>今<rt>いま</rt></ruby><ruby>大阪<rt>おおさか</rt></ruby>に<strong>いません</strong>。<br><em>He isn&#39;t in Osaka at the moment.</em></p>
 </div>
 </div>
 <div class="slide" data-index="26">
   
-  <div class="slide__content"><h2>～がいる · Nuance &amp; register</h2>
-<p>Plain <code>いる</code> and polite <code>います</code> are the ordinary pair, and neither carries any special colour. What does need care is the honorific layer and the casual shortening.</p>
-<p><strong>Honorific and humble forms are compulsory at work.</strong> Talking <em>about</em> someone you respect, <code>いる</code> climbs to <code>いらっしゃる</code>: <code>社長(しゃちょう)は会議室(かいぎしつ)にいらっしゃいます</code>. Talking about yourself or your own company to an outsider, it drops to <code>おる</code>: <code>明日(あした)は一日(いちにち)会社(かいしゃ)におります</code>. Using <code>います</code> about a customer is not rude exactly, but it marks you as untrained.</p>
-<p><strong><code>が</code> drops in casual speech</strong>, exactly as it does with <code>ある</code>: 「誰(だれ)かいる?」「いないよ」. Keep <code>が</code> in writing and in ます-speech.</p>
+  <div class="slide__content"><h2>～がいる · Examples (cont.)</h2>
+<p>すみません、<ruby>田中<rt>たなか</rt></ruby>さんは<strong>いらっしゃいますか</strong>。<br><em>Excuse me - is Mr Tanaka in?</em></p>
+<p>さっきまでここに<ruby>子<rt>こ</rt></ruby>どもが<ruby>三人<rt>さんにん</rt></ruby><strong>いた</strong>のに、<ruby>急<rt>きゅう</rt></ruby>に<ruby>静<rt>しず</rt></ruby>かになった。<br><em>There were three children here a moment ago, and then it suddenly went quiet.</em></p>
+<p><ruby>海外<rt>かいがい</rt></ruby>に<ruby>住<rt>す</rt></ruby>んでいる<ruby>友<rt>とも</rt></ruby>だちが<strong>いる</strong>ので、<ruby>時々<rt>ときどき</rt></ruby><ruby>英語<rt>えいご</rt></ruby>で<ruby>話<rt>はな</rt></ruby>します。<br><em>I have a friend living abroad, so I sometimes speak English.</em></p>
+<p>この<ruby>会社<rt>かいしゃ</rt></ruby>には<ruby>日本語<rt>にほんご</rt></ruby>が<ruby>話<rt>はな</rt></ruby>せる<ruby>社員<rt>しゃいん</rt></ruby>が<ruby>何人<rt>なんにん</rt></ruby><strong>いますか</strong>。<br><em>How many employees who can speak Japanese are there at this company?</em></p>
 </div>
 </div>
 <div class="slide" data-index="27">
   
-  <div class="slide__content"><h2>～がいる · Nuance &amp; register (cont.)</h2>
-<p><strong><code>いる</code> is also how you say you have a partner.</strong> <code>彼女(かのじょ)がいる</code> and <code>彼氏(かれし)がいる</code> are the standard phrasings, and by extension <code>結婚(けっこん)している人(ひと)がいる</code>. There is no verb &quot;to have&quot; involved anywhere.</p>
-<p><strong>Do not confuse the existence verb with the auxiliary.</strong> The <code>いる</code> in <code>食(た)べている</code> is the same word historically, but grammatically it is a suffix on a て-form, not a predicate of its own. That is why <code>待(ま)っています</code> means &quot;I am waiting&quot;, not &quot;there is a waiting&quot;.</p>
-<p><strong>One homophone worth flagging early</strong>: <code>要(い)る</code>, &quot;to need&quot;, is also pronounced いる, is also used with <code>が</code>, and appears at exactly the same stage of study. It is a completely different verb - see the contrast below.</p>
+  <div class="slide__content"><h2>～がいる · Nuance &amp; register</h2>
+<p>Plain <code>いる</code> and polite <code>います</code> are the ordinary pair, and neither carries any special colour. What does need care is the honorific layer and the casual shortening.</p>
+<p><strong>Honorific and humble forms are compulsory at work.</strong> Talking <em>about</em> someone you respect, <code>いる</code> climbs to <code>いらっしゃる</code>: <code><ruby>社長<rt>しゃちょう</rt></ruby>は<ruby>会議室<rt>かいぎしつ</rt></ruby>にいらっしゃいます</code>. Talking about yourself or your own company to an outsider, it drops to <code>おる</code>: <code><ruby>明日<rt>あした</rt></ruby>は<ruby>一日<rt>いちにち</rt></ruby><ruby>会社<rt>かいしゃ</rt></ruby>におります</code>. Using <code>います</code> about a customer is not rude exactly, but it marks you as untrained.</p>
+<p><strong><code>が</code> drops in casual speech</strong>, exactly as it does with <code>ある</code>: 「<ruby>誰<rt>だれ</rt></ruby>かいる?」「いないよ」. Keep <code>が</code> in writing and in ます-speech.</p>
 </div>
 </div>
 <div class="slide" data-index="28">
+  
+  <div class="slide__content"><h2>～がいる · Nuance &amp; register (cont.)</h2>
+<p><strong><code>いる</code> is also how you say you have a partner.</strong> <code><ruby>彼女<rt>かのじょ</rt></ruby>がいる</code> and <code><ruby>彼氏<rt>かれし</rt></ruby>がいる</code> are the standard phrasings, and by extension <code><ruby>結婚<rt>けっこん</rt></ruby>している<ruby>人<rt>ひと</rt></ruby>がいる</code>. There is no verb &quot;to have&quot; involved anywhere.</p>
+<p><strong>Do not confuse the existence verb with the auxiliary.</strong> The <code>いる</code> in <code><ruby>食<rt>た</rt></ruby>べている</code> is the same word historically, but grammatically it is a suffix on a て-form, not a predicate of its own. That is why <code><ruby>待<rt>ま</rt></ruby>っています</code> means &quot;I am waiting&quot;, not &quot;there is a waiting&quot;.</p>
+<p><strong>One homophone worth flagging early</strong>: <code><ruby>要<rt>い</rt></ruby>る</code>, &quot;to need&quot;, is also pronounced いる, is also used with <code>が</code>, and appears at exactly the same stage of study. It is a completely different verb - see the contrast below.</p>
+</div>
+</div>
+<div class="slide" data-index="29">
   
   <div class="slide__content"><h2>～がいる · ～がいる vs ～がある</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>いる</code> for anything that can move itself; <code>ある</code> for everything else. The dividing line is <strong>animacy as the speaker frames it</strong>, not biological life.</p>
 </blockquote>
 <p>People, animals, birds, insects and fish take <code>いる</code>. Plants, buildings, tools, books and abstractions take <code>ある</code>, even though a plant is unambiguously alive.</p>
-<p>水槽(すいそう)に金魚(きんぎょ)が五(ご)匹(ひき)<strong>います</strong>。<br><em>There are five goldfish in the tank.</em></p>
-<p>台所(だいどころ)に新(あたら)しい冷蔵庫(れいぞうこ)があります。<br><em>There&#39;s a new fridge in the kitchen.</em></p>
+<p><ruby>水槽<rt>すいそう</rt></ruby>に<ruby>金魚<rt>きんぎょ</rt></ruby>が<ruby>五<rt>ご</rt></ruby><ruby>匹<rt>ひき</rt></ruby><strong>います</strong>。<br><em>There are five goldfish in the tank.</em></p>
+<p><ruby>台所<rt>だいどころ</rt></ruby>に<ruby>新<rt>あたら</rt></ruby>しい<ruby>冷蔵庫<rt>れいぞうこ</rt></ruby>があります。<br><em>There&#39;s a new fridge in the kitchen.</em></p>
 </div>
 </div>
-<div class="slide" data-index="29">
+<div class="slide" data-index="30">
   
   <div class="slide__content"><h2>～がいる · ～がいる vs ～がある (cont.)</h2>
 <p>The framing matters more than the noun. A goldfish swimming in the tank is <code>いる</code>; the same fish sold frozen in a bag is <code>ある</code>. A robot that walks and answers you may well get <code>いる</code>, and so does a character in a story. The <code>ある</code> page treats this boundary from the other side and gives the vehicle cases; the two accounts agree.</p>
 </div>
 </div>
-<div class="slide" data-index="30">
-  
-  <div class="slide__content"><h2>～がいる · ～がいる vs ～が要(い)る</h2>
-<blockquote>
-<p><strong>Rule of thumb</strong> - same pronunciation, same particle, unrelated meanings. <code>いる</code> = exists. <code>要(い)る</code> = is needed. They are told apart by their conjugation: negative <code>いない</code> versus <code>要(い)らない</code>.</p>
-</blockquote>
-<p>This trips people up because both are N5, both take <code>が</code>, and the second is very often written in kana.</p>
-<p>受付(うけつけ)に人(ひと)が<strong>いません</strong>。<br><em>There&#39;s nobody at the reception desk.</em></p>
-<p>受付(うけつけ)では予約(よやく)が要(い)りません。<br><em>You don&#39;t need a reservation at reception.</em></p>
-</div>
-</div>
 <div class="slide" data-index="31">
   
-  <div class="slide__content"><h2>～がいる · ～がいる vs ～が要(い)る (cont.)</h2>
-<p>The conjugation is decisive. <code>要(い)る</code> is a う-verb, so it goes <code>要(い)らない</code>, <code>要(い)ります</code>, <code>要(い)った</code>. The existence verb is a る-verb: <code>いない</code>, <code>います</code>, <code>いた</code>. If you meet <code>いらない</code> it is never the existence verb, and if you meet <code>いない</code> it never means &quot;unnecessary&quot;.</p>
+  <div class="slide__content"><h2>～がいる · ～がいる vs ～が要る</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - same pronunciation, same particle, unrelated meanings. <code>いる</code> = exists. <code><ruby>要<rt>い</rt></ruby>る</code> = is needed. They are told apart by their conjugation: negative <code>いない</code> versus <code><ruby>要<rt>い</rt></ruby>らない</code>.</p>
+</blockquote>
+<p>This trips people up because both are N5, both take <code>が</code>, and the second is very often written in kana.</p>
+<p><ruby>受付<rt>うけつけ</rt></ruby>に<ruby>人<rt>ひと</rt></ruby>が<strong>いません</strong>。<br><em>There&#39;s nobody at the reception desk.</em></p>
+<p><ruby>受付<rt>うけつけ</rt></ruby>では<ruby>予約<rt>よやく</rt></ruby>が<ruby>要<rt>い</rt></ruby>りません。<br><em>You don&#39;t need a reservation at reception.</em></p>
 </div>
 </div>
 <div class="slide" data-index="32">
+  
+  <div class="slide__content"><h2>～がいる · ～がいる vs ～が要る (cont.)</h2>
+<p>The conjugation is decisive. <code><ruby>要<rt>い</rt></ruby>る</code> is a う-verb, so it goes <code><ruby>要<rt>い</rt></ruby>らない</code>, <code><ruby>要<rt>い</rt></ruby>ります</code>, <code><ruby>要<rt>い</rt></ruby>った</code>. The existence verb is a る-verb: <code>いない</code>, <code>います</code>, <code>いた</code>. If you meet <code>いらない</code> it is never the existence verb, and if you meet <code>いない</code> it never means &quot;unnecessary&quot;.</p>
+</div>
+</div>
+<div class="slide" data-index="33">
   
   <div class="slide__content"><h2>～がいる · ～にいる vs ～ている</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>～にいる</code> states <em>where someone is</em>. <code>～ている</code> states <em>what someone is doing</em>, or the state that resulted from doing it. Only the first is the existence verb.</p>
 </blockquote>
 <p>Because both end in <code>いる</code>, learners routinely produce one when they mean the other.</p>
-<p>姉(あね)は今(いま)京都(きょうと)に<strong>います</strong>。<br><em>My older sister is in Kyoto right now.</em></p>
-<p>姉(あね)は京都(きょうと)に住(す)んでいます。<br><em>My older sister lives in Kyoto.</em></p>
-</div>
-</div>
-<div class="slide" data-index="33">
-  
-  <div class="slide__content"><h2>～がいる · ～にいる vs ～ている (cont.)</h2>
-<p>The first is about location at this moment and answers 「どこにいますか」. The second is about an ongoing situation and answers 「どこに住(す)んでいますか」. Saying <code>京都(きょうと)にいます</code> when you mean you live there sounds as though you are on a trip, and it is one of the most common small errors in self-introductions.</p>
+<p><ruby>姉<rt>あね</rt></ruby>は<ruby>今<rt>いま</rt></ruby><ruby>京都<rt>きょうと</rt></ruby>に<strong>います</strong>。<br><em>My older sister is in Kyoto right now.</em></p>
+<p><ruby>姉<rt>あね</rt></ruby>は<ruby>京都<rt>きょうと</rt></ruby>に<ruby>住<rt>す</rt></ruby>んでいます。<br><em>My older sister lives in Kyoto.</em></p>
 </div>
 </div>
 <div class="slide" data-index="34">
   
-  <div class="slide__content"><h2>～がいる · Common mistakes</h2>
-<ul>
-<li><p>❌ この町(まち)に大(おお)きい病院(びょういん)が<strong>います</strong>。 → ✅ この町(まち)に大(おお)きい病院(びょういん)が<strong>あります</strong>。<br><em>A hospital is a building. Nothing that cannot walk away takes <code>いる</code>.</em></p>
-</li>
-<li><p>❌ 弟(おとうと)を<strong>います</strong>。 → ✅ 弟(おとうと)が<strong>います</strong>。<br><em><code>いる</code> is intransitive: nothing is being acted upon, so <code>を</code> has no role. English &quot;I have a brother&quot; makes 弟(おとうと) look like an object; in Japanese it is the subject.</em></p>
-</li>
-<li><p>❌ 部屋(へや)<strong>で</strong>人(ひと)がいます。 → ✅ 部屋(へや)<strong>に</strong>人(ひと)がいます。<br><em><code>で</code> marks the place an action happens. Existing is not an action.</em></p>
-</li>
-<li><p>❌ 犬(いぬ)が<strong>いらない</strong>。（meaning &quot;there is no dog&quot;）→ ✅ 犬(いぬ)が<strong>いない</strong>。<br><em><code>いらない</code> is the negative of <code>要(い)る</code>, &quot;to need&quot;. As written, the sentence says you do not want a dog.</em></p>
-</li>
-</ul>
+  <div class="slide__content"><h2>～がいる · ～にいる vs ～ている (cont.)</h2>
+<p>The first is about location at this moment and answers 「どこにいますか」. The second is about an ongoing situation and answers 「どこに<ruby>住<rt>す</rt></ruby>んでいますか」. Saying <code><ruby>京都<rt>きょうと</rt></ruby>にいます</code> when you mean you live there sounds as though you are on a trip, and it is one of the most common small errors in self-introductions.</p>
 </div>
 </div>
 <div class="slide" data-index="35">
   
-  <div class="slide__content"><h2>～がいる · Common mistakes (cont.)</h2>
+  <div class="slide__content"><h2>～がいる · Common mistakes</h2>
 <ul>
-<li>❌ お客(きゃく)さまは会議室(かいぎしつ)に<strong>います</strong>。 → ✅ お客(きゃく)さまは会議室(かいぎしつ)に<strong>いらっしゃいます</strong>。<br><em>Grammatical, but in front of a customer or a superior the plain <code>います</code> is flat-footed. Use <code>いらっしゃる</code> for them and <code>おる</code> for yourself.</em></li>
+<li><p>❌ この<ruby>町<rt>まち</rt></ruby>に<ruby>大<rt>おお</rt></ruby>きい<ruby>病院<rt>びょういん</rt></ruby>が<strong>います</strong>。 → ✅ この<ruby>町<rt>まち</rt></ruby>に<ruby>大<rt>おお</rt></ruby>きい<ruby>病院<rt>びょういん</rt></ruby>が<strong>あります</strong>。<br><em>A hospital is a building. Nothing that cannot walk away takes <code>いる</code>.</em></p>
+</li>
+<li><p>❌ <ruby>弟<rt>おとうと</rt></ruby>を<strong>います</strong>。 → ✅ <ruby>弟<rt>おとうと</rt></ruby>が<strong>います</strong>。<br><em><code>いる</code> is intransitive: nothing is being acted upon, so <code>を</code> has no role. English &quot;I have a brother&quot; makes <ruby>弟<rt>おとうと</rt></ruby> look like an object; in Japanese it is the subject.</em></p>
+</li>
+<li><p>❌ <ruby>部屋<rt>へや</rt></ruby><strong>で</strong><ruby>人<rt>ひと</rt></ruby>がいます。 → ✅ <ruby>部屋<rt>へや</rt></ruby><strong>に</strong><ruby>人<rt>ひと</rt></ruby>がいます。<br><em><code>で</code> marks the place an action happens. Existing is not an action.</em></p>
+</li>
 </ul>
 </div>
 </div>
 <div class="slide" data-index="36">
   
-  <div class="slide__content"><h2>～がいる · Practice 1</h2>
-<p><strong>1.</strong> 木(き)の上(うえ)に猫(ねこ)が____。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-木(き)の上(うえ)に猫(ねこ)が<strong>います</strong>。（casual: <strong>いる</strong>）</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-A cat can climb down whenever it likes, so it is animate and takes <code>いる</code>. Note the tree in the same sentence would take <code>ある</code> - the choice follows the noun marked by <code>が</code>, not the scenery.</p>
+  <div class="slide__content"><h2>～がいる · Common mistakes (cont.)</h2>
+<ul>
+<li><p>❌ <ruby>犬<rt>いぬ</rt></ruby>が<strong>いらない</strong>。（meaning &quot;there is no dog&quot;）→ ✅ <ruby>犬<rt>いぬ</rt></ruby>が<strong>いない</strong>。<br><em><code>いらない</code> is the negative of <code><ruby>要<rt>い</rt></ruby>る</code>, &quot;to need&quot;. As written, the sentence says you do not want a dog.</em></p>
+</li>
+<li><p>❌ お<ruby>客<rt>きゃく</rt></ruby>さまは<ruby>会議室<rt>かいぎしつ</rt></ruby>に<strong>います</strong>。 → ✅ お<ruby>客<rt>きゃく</rt></ruby>さまは<ruby>会議室<rt>かいぎしつ</rt></ruby>に<strong>いらっしゃいます</strong>。<br><em>Grammatical, but in front of a customer or a superior the plain <code>います</code> is flat-footed. Use <code>いらっしゃる</code> for them and <code>おる</code> for yourself.</em></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="37">
   
-  <div class="slide__content"><h2>～がいる · Practice 2</h2>
-<p><strong>2.</strong> 冷蔵庫(れいぞうこ)に野菜(やさい)が（います・あります）。</p>
+  <div class="slide__content"><h2>～がいる · Practice 1</h2>
+<p><strong>1.</strong> <ruby>木<rt>き</rt></ruby>の<ruby>上<rt>うえ</rt></ruby>に<ruby>猫<rt>ねこ</rt></ruby>が____。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-冷蔵庫(れいぞうこ)に野菜(やさい)が<strong>あります</strong>。</p>
+<ruby>木<rt>き</rt></ruby>の<ruby>上<rt>うえ</rt></ruby>に<ruby>猫<rt>ねこ</rt></ruby>が<strong>います</strong>。（casual: <strong>いる</strong>）</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Vegetables are alive in a botanical sense and completely inert in a grammatical one. The test is whether the thing moves of its own accord, and a carrot does not.</p>
+A cat can climb down whenever it likes, so it is animate and takes <code>いる</code>. Note the tree in the same sentence would take <code>ある</code> - the choice follows the noun marked by <code>が</code>, not the scenery.</p>
 </div>
 </div>
 <div class="slide" data-index="38">
   
-  <div class="slide__content"><h2>～がいる · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese: &quot;Is anyone from the sales team still in the office?&quot;</p>
+  <div class="slide__content"><h2>～がいる · Practice 2</h2>
+<p><strong>2.</strong> <ruby>冷蔵庫<rt>れいぞうこ</rt></ruby>に<ruby>野菜<rt>やさい</rt></ruby>が（います・あります）。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-営業(えいぎょう)の人(ひと)はまだ会社(かいしゃ)に<strong>いますか</strong>。</p>
+<ruby>冷蔵庫<rt>れいぞうこ</rt></ruby>に<ruby>野菜<rt>やさい</rt></ruby>が<strong>あります</strong>。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-People take <code>いる</code>, and the location takes <code>に</code>. In a call to another company you would raise it to <code>いらっしゃいますか</code>, and refer to your own colleagues with <code>おります</code>.</p>
+Vegetables are alive in a botanical sense and completely inert in a grammatical one. The test is whether the thing moves of its own accord, and a carrot does not.</p>
 </div>
 </div>
 <div class="slide" data-index="39">
   
-  <div class="slide__content"><h2>～がいる · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: すみません、この書類(しょるい)にはんこがいますか。</p>
+  <div class="slide__content"><h2>～がいる · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese: &quot;Is anyone from the sales team still in the office?&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ すみません、この書類(しょるい)にはんこが<strong>要(い)りますか</strong>。 &quot;Excuse me, does this document need a seal?&quot;</p>
+<ruby>営業<rt>えいぎょう</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>はまだ<ruby>会社<rt>かいしゃ</rt></ruby>に<strong>いますか</strong>。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-A はんこ is an object, so the existence verb would have to be <code>ある</code> - but the intended meaning is &quot;is it needed&quot;, which is the separate verb <code>要(い)る</code>. Its ます-form is <code>要(い)ります</code>, never <code>います</code>.</p>
+People take <code>いる</code>, and the location takes <code>に</code>. In a call to another company you would raise it to <code>いらっしゃいますか</code>, and refer to your own colleagues with <code>おります</code>.</p>
 </div>
 </div>
 <div class="slide" data-index="40">
   
+  <div class="slide__content"><h2>～がいる · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the error: すみません、この<ruby>書類<rt>しょるい</rt></ruby>にはんこがいますか。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ すみません、この<ruby>書類<rt>しょるい</rt></ruby>にはんこが**<ruby>要<rt>い</rt></ruby>りますか**。 &quot;Excuse me, does this document need a seal?&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+A はんこ is an object, so the existence verb would have to be <code>ある</code> - but the intended meaning is &quot;is it needed&quot;, which is the separate verb <code><ruby>要<rt>い</rt></ruby>る</code>. Its ます-form is <code><ruby>要<rt>い</rt></ruby>ります</code>, never <code>います</code>.</p>
+</div>
+</div>
+<div class="slide" data-index="41">
+  
   <div class="slide__content"><h2>～がいる · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 父(ちち)は東京(とうきょう)に<strong>います</strong>。 (b) 父(ちち)は東京(とうきょう)で働(はたら)いています。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>父<rt>ちち</rt></ruby>は<ruby>東京<rt>とうきょう</rt></ruby>に<strong>います</strong>。 (b) <ruby>父<rt>ちち</rt></ruby>は<ruby>東京<rt>とうきょう</rt></ruby>で<ruby>働<rt>はたら</rt></ruby>いています。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) uses the existence verb and reports where your father physically is - possibly for the next hour, possibly permanently. It answers &quot;where is he?&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-(b) uses <code>働(はたら)く</code> plus the <code>～ている</code> auxiliary, which happens to contain the same syllables but is a suffix, not a predicate. It describes an ongoing activity rather than a position, and the place therefore takes <code>で</code> instead of <code>に</code>.</p>
+(b) uses <code><ruby>働<rt>はたら</rt></ruby>く</code> plus the <code>～ている</code> auxiliary, which happens to contain the same syllables but is a suffix, not a predicate. It describes an ongoing activity rather than a position, and the place therefore takes <code>で</code> instead of <code>に</code>.</p>
 </div>
 </div>
 </div>
@@ -3110,7 +3133,7 @@ A はんこ is an object, so the existence verb would have to be <code>ある</c
     </div>
     <div id="hud-right">
       <a href="https://github.com/arpitbbhayani/deckrun" target="_blank" rel="noopener noreferrer" class="hud-brand" id="hud-brand" title="deckrun — Markdown presentations">powered by <span>deckrun</span></a>
-      <div id="slide-counter"><span id="cur">1</span>&nbsp;/&nbsp;<span id="tot">41</span></div>
+      <div id="slide-counter"><span id="cur">1</span>&nbsp;/&nbsp;<span id="tot">42</span></div>
     </div>
   </div>
 </div>
@@ -3163,7 +3186,7 @@ A はんこ is an object, so the existence verb would have to be <code>ある</c
 
 
 
-<script id="deck-notes" type="application/json">["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]</script>
+<script id="deck-notes" type="application/json">["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]</script>
 <script id="deck-themes" type="application/json">{"themes":[{"id":"midnight","label":"midnight","mood":"dark","blurb":"Catppuccin Mocha. Violet on deep indigo, drifting orbs.","decor":"orbs","colors":{"crust":"#11111b","mantle":"#181825","base":"#1e1e2e","surface0":"#313244","overlay1":"#7f849c","subtext1":"#bac2de","text":"#cdd6f4","accent":"#cba6f7","accent2":"#89b4fa","accent3":"#89dceb"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"tokyo","label":"tokyo night","mood":"dark","blurb":"Neon cyan over a wireframe grid, lifted from a rainy skyline.","decor":"grid","colors":{"crust":"#16161e","mantle":"#1a1b26","base":"#1f2335","surface0":"#292e42","overlay1":"#7c86ab","subtext1":"#b7c0e0","text":"#c8d3f5","accent":"#2ac3de","accent2":"#bb9af7","accent3":"#73daca"},"fonts":{"display":"'Sora', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"nord","label":"nord","mood":"dark","blurb":"Arctic frost blue on polar slate, with slow contour waves.","decor":"waves","colors":{"crust":"#232831","mantle":"#2e3440","base":"#353c4a","surface0":"#3b4252","overlay1":"#8e9aae","subtext1":"#d8dee9","text":"#eceff4","accent":"#88c0d0","accent2":"#81a1c1","accent3":"#8fbcbb"},"fonts":{"display":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace","body":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"dracula","label":"dracula","mood":"dark","blurb":"Purple and hot pink over charcoal, lit by a gradient mesh.","decor":"mesh","colors":{"crust":"#1a1b23","mantle":"#21222c","base":"#282a36","surface0":"#343746","overlay1":"#7b85b6","subtext1":"#e2e4f0","text":"#f8f8f2","accent":"#bd93f9","accent2":"#ff79c6","accent3":"#8be9fd"},"fonts":{"display":"'Syne', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'Fira Code', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"gruvbox","label":"gruvbox","mood":"dark","blurb":"Warm amber and moss on retro brown, hatched like graph paper.","decor":"topo","colors":{"crust":"#1b1e1f","mantle":"#232728","base":"#282828","surface0":"#32302f","overlay1":"#928374","subtext1":"#d5c4a1","text":"#ebdbb2","accent":"#fabd2f","accent2":"#fe8019","accent3":"#b8bb26"},"fonts":{"display":"'Bricolage Grotesque', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Work Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"rosepine","label":"rosé pine","mood":"dark","blurb":"Muted iris and gold on plum, under a slow aurora.","decor":"aurora","colors":{"crust":"#14121f","mantle":"#191724","base":"#1f1d2e","surface0":"#26233a","overlay1":"#817c9c","subtext1":"#cdc9e6","text":"#e0def4","accent":"#c4a7e7","accent2":"#9ccfd8","accent3":"#f6c177"},"fonts":{"display":"'Fraunces', Georgia, 'Times New Roman', serif","body":"'Newsreader', Georgia, 'Times New Roman', serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"forest","label":"forest","mood":"dark","blurb":"Everforest sage on deep pine, rippling in concentric rings.","decor":"rings","colors":{"crust":"#232a2e","mantle":"#2d353b","base":"#343f44","surface0":"#3d484d","overlay1":"#9da9a0","subtext1":"#d3c6aa","text":"#e5dfd2","accent":"#a7c080","accent2":"#6fb5ac","accent3":"#dbbc7f"},"fonts":{"display":"'Outfit', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"neon","label":"neon","mood":"dark","blurb":"Electric cyan and magenta on true black, raked by light beams.","decor":"beams","colors":{"crust":"#050509","mantle":"#0a0a12","base":"#0e0e1a","surface0":"#16162a","overlay1":"#6a6a96","subtext1":"#c8c8e4","text":"#f0f0ff","accent":"#22d3ee","accent2":"#ff5cc8","accent3":"#38e8ff"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'Space Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"daylight","label":"daylight","mood":"light","blurb":"Catppuccin Latte, contrast-tuned for a projector. Dot matrix.","decor":"dots","colors":{"crust":"#ebebeb","mantle":"#f5f5f5","base":"#fafaf8","surface0":"#ccd0da","overlay1":"#5c5f77","subtext1":"#3a3c52","text":"#1e2030","accent":"#8839ef","accent2":"#1e66f5","accent3":"#179299"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"arctic","label":"arctic","mood":"light","blurb":"Nord inverted. Frost blue on cool paper, with contour waves.","decor":"waves","colors":{"crust":"#e3e8ef","mantle":"#eceff4","base":"#f7f9fc","surface0":"#dbe1ea","overlay1":"#5f6b7c","subtext1":"#364150","text":"#2e3440","accent":"#2f7d94","accent2":"#4a7ba7","accent3":"#3b8b8a"},"fonts":{"display":"'Manrope', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"solarized","label":"solarized","mood":"light","blurb":"The classic low-glare cream, paired with Lora for long prose.","decor":"topo","colors":{"crust":"#eee8d5","mantle":"#f5efdc","base":"#fdf6e3","surface0":"#e3ddc8","overlay1":"#657b83","subtext1":"#3f5b62","text":"#073642","accent":"#268bd2","accent2":"#6c71c4","accent3":"#21958c"},"fonts":{"display":"'Outfit', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Lora', Georgia, 'Times New Roman', serif","mono":"'Source Code Pro', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"paper","label":"paper","mood":"light","blurb":"Crimson serif on warm cream. Editorial, print-first, very legible.","decor":"rings","colors":{"crust":"#efe8dc","mantle":"#f7f2e9","base":"#fdfbf5","surface0":"#e4dccc","overlay1":"#6e6553","subtext1":"#38311f","text":"#211c11","accent":"#a81f2c","accent2":"#1f7f96","accent3":"#9a6c12"},"fonts":{"display":"'Fraunces', Georgia, 'Times New Roman', serif","body":"'Newsreader', Georgia, 'Times New Roman', serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"rosequartz","label":"rose quartz","mood":"light","blurb":"Rosé Pine Dawn. Blush and iris on linen, with soft orbs.","decor":"orbs","colors":{"crust":"#f2e9e1","mantle":"#faf4ed","base":"#fffaf3","surface0":"#ece0d8","overlay1":"#7d7791","subtext1":"#55506e","text":"#423d5c","accent":"#b4637a","accent2":"#907aa9","accent3":"#56949f"},"fonts":{"display":"'Playfair Display', Georgia, 'Times New Roman', serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"swiss","label":"swiss","mood":"light","blurb":"Black on white, one red. Heavy grotesk, tight tracking, hard grid.","decor":"grid","colors":{"crust":"#f0f0f0","mantle":"#f8f8f8","base":"#ffffff","surface0":"#dcdcdc","overlay1":"#5a5a5a","subtext1":"#222222","text":"#0a0a0a","accent":"#e01b24","accent2":"#0a0a0a","accent3":"#5a5a5a"},"fonts":{"display":"'Archivo', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}}],"hljsMap":{"midnight":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css","tokyo":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css","nord":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/nord.min.css","dracula":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/dracula.min.css","gruvbox":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/gruvbox-dark-medium.min.css","rosepine":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/ros-pine.min.css","forest":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css","neon":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/night-owl.min.css","daylight":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","arctic":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","solarized":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/solarized-light.min.css","paper":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","rosequartz":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/ros-pine-dawn.min.css","swiss":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css"},"decorMap":{"midnight":"orbs","tokyo":"grid","nord":"waves","dracula":"mesh","gruvbox":"topo","rosepine":"aurora","forest":"rings","neon":"beams","daylight":"dots","arctic":"waves","solarized":"topo","paper":"rings","rosequartz":"orbs","swiss":"grid"}}</script>
 
 <script>
@@ -4351,6 +4374,36 @@ A はんこ is an object, so the existence verb would have to be <code>ある</c
     transition: opacity 0.15s ease, background 0.15s ease; }
   #deck-home:hover, #deck-home:focus-visible { opacity: 0.95; background: rgba(128,128,128,0.14); }
   @media print { #deck-home { display: none !important; } }
+  #furigana-toggle { position: fixed; bottom: 2.7rem; right: 1.1rem; z-index: 40;
+    font: 500 0.78rem/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+    color: currentColor; opacity: 0.38; cursor: pointer; user-select: none;
+    background: none; border: 1px solid currentColor; border-radius: 4px;
+    padding: 0.38rem 0.6rem;
+    transition: opacity 0.15s ease, background 0.15s ease; }
+  #furigana-toggle:hover, #furigana-toggle:focus-visible { opacity: 0.95; background: rgba(128,128,128,0.14); }
+  @media print { #furigana-toggle { display: none !important; } }
 </style>
+<button id="furigana-toggle" type="button" aria-pressed="true">&#12405;&#12426;&#12364;&#12394; ON</button>
+<script>
+  (function () {
+    // Deliberately click-only: readers who do not want furigana turn it off
+    // once and it sticks, while every key stays free for presenting.
+    var root = document.documentElement, btn = document.getElementById('furigana-toggle');
+    function paint() {
+      var off = root.getAttribute('data-furigana') === 'off';
+      btn.textContent = '\u3075\u308a\u304c\u306a ' + (off ? 'OFF' : 'ON');
+      btn.setAttribute('aria-pressed', String(!off));
+    }
+    btn.addEventListener('click', function () {
+      var off = root.getAttribute('data-furigana') === 'off';
+      if (off) root.removeAttribute('data-furigana');
+      else root.setAttribute('data-furigana', 'off');
+      try { localStorage.setItem('jlpt-furigana', off ? 'on' : 'off'); } catch (e) {}
+      paint();
+      btn.blur();
+    });
+    paint();
+  })();
+</script>
 </body>
 </html>

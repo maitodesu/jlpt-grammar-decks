@@ -2606,6 +2606,13 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
   gap: 0.5rem;
 }
   </style>
+<script>
+  try {
+    if (localStorage.getItem('jlpt-furigana') === 'off') {
+      document.documentElement.setAttribute('data-furigana', 'off');
+    }
+  } catch (e) {}
+</script>
 </head>
 <body>
 
@@ -2614,7 +2621,16 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <div id="presentation">
 <div class="slide" data-index="0">
   
-  <div class="slide__content"><style>html { font-size: 20.0px; }</style>
+  <div class="slide__content"><style>
+  html { font-size: 20.0px; }
+  .slide__content p, .slide__content li,
+  .slide__content td, .slide__content th { line-height: 2.05; }
+  rt { font-size: 0.5em; line-height: 1.1; opacity: 0.72; font-weight: 400; }
+  :root[data-furigana="off"] rt { display: none; }
+  :root[data-furigana="off"] .slide__content p, :root[data-furigana="off"] .slide__content li,
+  :root[data-furigana="off"] .slide__content td, :root[data-furigana="off"] .slide__content th
+    { line-height: 1.5; }
+</style>
 
 <h1>N5 - Verb forms</h1>
 <ul>
@@ -2632,7 +2648,7 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <p><strong>Meaning</strong> · the polite verb endings - non-past and past, affirmative and negative</p>
 <p>These four are one system, not four separate words. <code>ます</code> is a <strong>politeness</strong> marker that happens to carry tense as well: it tells your listener you are speaking to them carefully. Every Japanese verb has a plain form and a <code>ます</code> form, and the choice between them is a choice about the relationship, not about the meaning.</p>
 <blockquote>
-<p><strong>Note</strong> - Japanese verbs fall into three classes, and every textbook names them differently. <strong>う-verbs</strong> are also called 五段(ごだん) (godan) verbs, or Group 1; <strong>る-verbs</strong> are also called 一段(いちだん) (ichidan) verbs, or Group 2; する and 来(く)る are the two irregulars, sometimes called Group 3. This page says <strong>う-verb</strong> and <strong>る-verb</strong> throughout.</p>
+<p><strong>Note</strong> - Japanese verbs fall into three classes, and every textbook names them differently. <strong>う-verbs</strong> are also called <ruby>五段<rt>ごだん</rt></ruby> (godan) verbs, or Group 1; <strong>る-verbs</strong> are also called <ruby>一段<rt>いちだん</rt></ruby> (ichidan) verbs, or Group 2; する and <ruby>来<rt>く</rt></ruby>る are the two irregulars, sometimes called Group 3. This page says <strong>う-verb</strong> and <strong>る-verb</strong> throughout.</p>
 </blockquote>
 </div>
 </div>
@@ -2651,12 +2667,12 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <tbody><tr>
 <td>Verb (う-verb)</td>
 <td>final -u → -i, + ます</td>
-<td>書(か)く → 書(か)きます</td>
+<td><ruby>書<rt>か</rt></ruby>く → <ruby>書<rt>か</rt></ruby>きます</td>
 </tr>
 <tr>
 <td>Verb (る-verb)</td>
 <td>drop る, + ます</td>
-<td>食(た)べる → 食(た)べます</td>
+<td><ruby>食<rt>た</rt></ruby>べる → <ruby>食<rt>た</rt></ruby>べます</td>
 </tr>
 <tr>
 <td>Verb (する)</td>
@@ -2664,9 +2680,9 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <td>する → します</td>
 </tr>
 <tr>
-<td>Verb (来(く)る)</td>
+<td>Verb (<ruby>来<rt>く</rt></ruby>る)</td>
 <td>き + ます</td>
-<td>来(く)る → 来(き)ます</td>
+<td><ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>き</rt></ruby>ます</td>
 </tr>
 </tbody></table>
 <p>Then the four endings, which never change shape:</p>
@@ -2686,22 +2702,22 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <tbody><tr>
 <td>Non-past, affirmative</td>
 <td>ます</td>
-<td>飲(の)みます</td>
+<td><ruby>飲<rt>の</rt></ruby>みます</td>
 </tr>
 <tr>
 <td>Non-past, negative</td>
 <td>ません</td>
-<td>飲(の)みません</td>
+<td><ruby>飲<rt>の</rt></ruby>みません</td>
 </tr>
 <tr>
 <td>Past, affirmative</td>
 <td>ました</td>
-<td>飲(の)みました</td>
+<td><ruby>飲<rt>の</rt></ruby>みました</td>
 </tr>
 <tr>
 <td>Past, negative</td>
 <td>ませんでした</td>
-<td>飲(の)みませんでした</td>
+<td><ruby>飲<rt>の</rt></ruby>みませんでした</td>
 </tr>
 </tbody></table>
 <p>For う-verbs, the final vowel moves from the う row to the い row. Every ending behaves the same way:</p>
@@ -2721,47 +2737,47 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <tbody><tr>
 <td>う</td>
 <td>い</td>
-<td>買(か)う → 買(か)います</td>
+<td><ruby>買<rt>か</rt></ruby>う → <ruby>買<rt>か</rt></ruby>います</td>
 </tr>
 <tr>
 <td>つ</td>
 <td>ち</td>
-<td>待(ま)つ → 待(ま)ちます</td>
+<td><ruby>待<rt>ま</rt></ruby>つ → <ruby>待<rt>ま</rt></ruby>ちます</td>
 </tr>
 <tr>
 <td>る</td>
 <td>り</td>
-<td>帰(かえ)る → 帰(かえ)ります</td>
+<td><ruby>帰<rt>かえ</rt></ruby>る → <ruby>帰<rt>かえ</rt></ruby>ります</td>
 </tr>
 <tr>
 <td>む</td>
 <td>み</td>
-<td>休(やす)む → 休(やす)みます</td>
+<td><ruby>休<rt>やす</rt></ruby>む → <ruby>休<rt>やす</rt></ruby>みます</td>
 </tr>
 <tr>
 <td>ぶ</td>
 <td>び</td>
-<td>遊(あそ)ぶ → 遊(あそ)びます</td>
+<td><ruby>遊<rt>あそ</rt></ruby>ぶ → <ruby>遊<rt>あそ</rt></ruby>びます</td>
 </tr>
 <tr>
 <td>ぬ</td>
 <td>に</td>
-<td>死(し)ぬ → 死(し)にます</td>
+<td><ruby>死<rt>し</rt></ruby>ぬ → <ruby>死<rt>し</rt></ruby>にます</td>
 </tr>
 <tr>
 <td>く</td>
 <td>き</td>
-<td>聞(き)く → 聞(き)きます</td>
+<td><ruby>聞<rt>き</rt></ruby>く → <ruby>聞<rt>き</rt></ruby>きます</td>
 </tr>
 <tr>
 <td>ぐ</td>
 <td>ぎ</td>
-<td>急(いそ)ぐ → 急(いそ)ぎます</td>
+<td><ruby>急<rt>いそ</rt></ruby>ぐ → <ruby>急<rt>いそ</rt></ruby>ぎます</td>
 </tr>
 <tr>
 <td>す</td>
 <td>し</td>
-<td>話(はな)す → 話(はな)します</td>
+<td><ruby>話<rt>はな</rt></ruby>す → <ruby>話<rt>はな</rt></ruby>します</td>
 </tr>
 </tbody></table>
 </div>
@@ -2770,33 +2786,33 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
   
   <div class="slide__content"><h2>～ます・～ません・～ました・～ませんでした · Formation (cont.)</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - a verb ending in る is only a る-verb if the vowel before the る is <strong>i</strong> or <strong>e</strong>. But plenty of verbs that pass that test are still う-verbs: 帰(かえ)る, 入(はい)る, 走(はし)る, 切(き)る, 知(し)る, 要(い)る. They give 帰(かえ)ります, 入(はい)ります, 走(はし)ります, 切(き)ります, 知(し)ります, 要(い)ります - never ❌帰(かえ)ます. 着(き)る &quot;wear&quot; is a genuine る-verb (着(き)ます); 切(き)る &quot;cut&quot; is not (切(き)ります). Same sound, different class.</p>
+<p><strong>Rule of thumb</strong> - a verb ending in る is only a る-verb if the vowel before the る is <strong>i</strong> or <strong>e</strong>. But plenty of verbs that pass that test are still う-verbs: <ruby>帰<rt>かえ</rt></ruby>る, <ruby>入<rt>はい</rt></ruby>る, <ruby>走<rt>はし</rt></ruby>る, <ruby>切<rt>き</rt></ruby>る, <ruby>知<rt>し</rt></ruby>る, <ruby>要<rt>い</rt></ruby>る. They give <ruby>帰<rt>かえ</rt></ruby>ります, <ruby>入<rt>はい</rt></ruby>ります, <ruby>走<rt>はし</rt></ruby>ります, <ruby>切<rt>き</rt></ruby>ります, <ruby>知<rt>し</rt></ruby>ります, <ruby>要<rt>い</rt></ruby>ります - never ❌<ruby>帰<rt>かえ</rt></ruby>ます. <ruby>着<rt>き</rt></ruby>る &quot;wear&quot; is a genuine る-verb (<ruby>着<rt>き</rt></ruby>ます); <ruby>切<rt>き</rt></ruby>る &quot;cut&quot; is not (<ruby>切<rt>き</rt></ruby>ります). Same sound, different class.</p>
 </blockquote>
-<p>The ます-stem is not only for <code>ます</code>. It is the hub the rest of the language hangs off: 飲(の)み<strong>たい</strong>, 飲(の)み<strong>ながら</strong>, 飲(の)み<strong>ましょう</strong>, 飲(の)み<strong>やすい</strong>, 飲(の)み<strong>に行(い)く</strong>. Learning to find it once pays off many times.</p>
+<p>The ます-stem is not only for <code>ます</code>. It is the hub the rest of the language hangs off: <ruby>飲<rt>の</rt></ruby>み<strong>たい</strong>, <ruby>飲<rt>の</rt></ruby>み<strong>ながら</strong>, <ruby>飲<rt>の</rt></ruby>み<strong>ましょう</strong>, <ruby>飲<rt>の</rt></ruby>み<strong>やすい</strong>, <ruby>飲<rt>の</rt></ruby>み<strong>に<ruby>行<rt>い</rt></ruby>く</strong>. Learning to find it once pays off many times.</p>
 </div>
 </div>
 <div class="slide" data-index="6">
   
   <div class="slide__content"><h2>～ます・～ません・～ました・～ませんでした · Examples</h2>
-<p>毎朝(まいあさ)6時(じ)半(はん)に<strong>起(お)きます</strong>。<br><em>I get up at half past six every morning.</em></p>
-<p>わたしはお酒(さけ)を<strong>飲(の)みません</strong>。<br><em>I don&#39;t drink alcohol.</em></p>
-<p>昨日(きのう)は一日中(いちにちじゅう)雨(あめ)が<strong>降(ふ)りました</strong>。<br><em>It rained all day yesterday.</em></p>
-<p>すみません、この漢字(かんじ)の読(よ)み方(かた)が<strong>わかりません</strong>。<br><em>Sorry - I don&#39;t know how to read this kanji.</em></p>
-<p>来週(らいしゅう)の金曜日(きんようび)、大阪(おおさか)から部長(ぶちょう)が<strong>来(き)ます</strong>。<br><em>The department manager is coming up from Osaka next Friday.</em></p>
+<p><ruby>毎朝<rt>まいあさ</rt></ruby>6<ruby>時<rt>じ</rt></ruby><ruby>半<rt>はん</rt></ruby>に**<ruby>起<rt>お</rt></ruby>きます**。<br><em>I get up at half past six every morning.</em></p>
+<p>わたしはお<ruby>酒<rt>さけ</rt></ruby>を**<ruby>飲<rt>の</rt></ruby>みません**。<br><em>I don&#39;t drink alcohol.</em></p>
+<p><ruby>昨日<rt>きのう</rt></ruby>は<ruby>一日中<rt>いちにちじゅう</rt></ruby><ruby>雨<rt>あめ</rt></ruby>が**<ruby>降<rt>ふ</rt></ruby>りました**。<br><em>It rained all day yesterday.</em></p>
+<p>すみません、この<ruby>漢字<rt>かんじ</rt></ruby>の<ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby>が<strong>わかりません</strong>。<br><em>Sorry - I don&#39;t know how to read this kanji.</em></p>
 </div>
 </div>
 <div class="slide" data-index="7">
   
   <div class="slide__content"><h2>～ます・～ません・～ました・～ませんでした · Examples (cont.)</h2>
-<p>先週(せんしゅう)のテストは、あまりよく<strong>できませんでした</strong>。<br><em>I didn&#39;t do very well on last week&#39;s test.</em></p>
-<p>遅(おそ)くまで仕事(しごと)をしていたので、昨日(きのう)は晩(ばん)ご飯(はん)を<strong>食(た)べませんでした</strong>。<br><em>I was working late, so I didn&#39;t have any dinner yesterday.</em></p>
-<p>明日(あした)の会議(かいぎ)は9時(じ)に<strong>始(はじ)まります</strong>ので、8時(じ)半(はん)までに会社(かいしゃ)に来(き)てください。<br><em>Tomorrow&#39;s meeting starts at nine, so please be at the office by eight thirty.</em></p>
+<p><ruby>来週<rt>らいしゅう</rt></ruby>の<ruby>金曜日<rt>きんようび</rt></ruby>、<ruby>大阪<rt>おおさか</rt></ruby>から<ruby>部長<rt>ぶちょう</rt></ruby>が**<ruby>来<rt>き</rt></ruby>ます**。<br><em>The department manager is coming up from Osaka next Friday.</em></p>
+<p><ruby>先週<rt>せんしゅう</rt></ruby>のテストは、あまりよく<strong>できませんでした</strong>。<br><em>I didn&#39;t do very well on last week&#39;s test.</em></p>
+<p><ruby>遅<rt>おそ</rt></ruby>くまで<ruby>仕事<rt>しごと</rt></ruby>をしていたので、<ruby>昨日<rt>きのう</rt></ruby>は<ruby>晩<rt>ばん</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>を**<ruby>食<rt>た</rt></ruby>べませんでした**。<br><em>I was working late, so I didn&#39;t have any dinner yesterday.</em></p>
+<p><ruby>明日<rt>あした</rt></ruby>の<ruby>会議<rt>かいぎ</rt></ruby>は9<ruby>時<rt>じ</rt></ruby>に**<ruby>始<rt>はじ</rt></ruby>まります**ので、8<ruby>時<rt>じ</rt></ruby><ruby>半<rt>はん</rt></ruby>までに<ruby>会社<rt>かいしゃ</rt></ruby>に<ruby>来<rt>き</rt></ruby>てください。<br><em>Tomorrow&#39;s meeting starts at nine, so please be at the office by eight thirty.</em></p>
 </div>
 </div>
 <div class="slide" data-index="8">
   
   <div class="slide__content"><h2>～ます・～ません・～ました・～ませんでした · Nuance &amp; register</h2>
-<p><code>ます</code> is 丁寧語(ていねいご) - the polite, or &quot;distal&quot;, style. It is the default with anyone you are not close to: shop staff, colleagues, teachers, strangers, and anyone you have just met. The plain forms (飲(の)む, 飲(の)んだ, 飲(の)まない) are the &quot;close&quot; style, used with family, friends, and people clearly junior to you.</p>
+<p><code>ます</code> is <ruby>丁寧語<rt>ていねいご</rt></ruby> - the polite, or &quot;distal&quot;, style. It is the default with anyone you are not close to: shop staff, colleagues, teachers, strangers, and anyone you have just met. The plain forms (<ruby>飲<rt>の</rt></ruby>む, <ruby>飲<rt>の</rt></ruby>んだ, <ruby>飲<rt>の</rt></ruby>まない) are the &quot;close&quot; style, used with family, friends, and people clearly junior to you.</p>
 <p>Three things learners get wrong about that split:</p>
 </div>
 </div>
@@ -2804,16 +2820,16 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
   
   <div class="slide__content"><h2>～ます・～ません・～ました・～ませんでした · Nuance &amp; register (cont.)</h2>
 <ul>
-<li><strong><code>ます</code> is not honorific.</strong> It says nothing about respecting the <em>subject</em> of<br><em>the sentence. Honorific and humble language (召(め)し上(あ)がります, いたします) is a separate layer stacked on top.</em></li>
+<li><strong><code>ます</code> is not honorific.</strong> It says nothing about respecting the <em>subject</em> of<br><em>the sentence. Honorific and humble language (<ruby>召<rt>め</rt></ruby>し<ruby>上<rt>あ</rt></ruby>がります, いたします) is a separate layer stacked on top.</em></li>
 <li><strong>Plain is not sloppy.</strong> Newspapers, essays, academic writing and most novels<br><em>are written in plain form throughout. <code>ます</code> in an essay looks like a letter to the reader.</em></li>
-<li><strong>Plain form is grammatically required inside sentences.</strong> Before と思(おも)う,<br><em>つもり, とき, ので, から and inside a clause modifying a noun, the verb goes plain regardless of how polite the sentence ends up: 明日(あした)行(い)くと思(おも)います, not ❌行(い)きますと思(おも)います. <code>ます</code> lives at the <strong>end</strong> of the sentence.</em></li>
+<li><strong>Plain form is grammatically required inside sentences.</strong> Before と<ruby>思<rt>おも</rt></ruby>う,<br><em>つもり, とき, ので, から and inside a clause modifying a noun, the verb goes plain regardless of how polite the sentence ends up: <ruby>明日<rt>あした</rt></ruby><ruby>行<rt>い</rt></ruby>くと<ruby>思<rt>おも</rt></ruby>います, not ❌<ruby>行<rt>い</rt></ruby>きますと<ruby>思<rt>おも</rt></ruby>います. <code>ます</code> lives at the <strong>end</strong> of the sentence.</em></li>
 </ul>
-<p>The non-past <code>ます</code> covers habits and the future alike - 毎日(まいにち)走(はし)ります &quot;I run every day&quot; and 明日(あした)走(はし)ります &quot;I&#39;ll run tomorrow&quot; - but never an action happening at this moment; that needs <code>～ています</code>.</p>
 </div>
 </div>
 <div class="slide" data-index="10">
   
   <div class="slide__content"><h2>～ます・～ません・～ました・～ませんでした · Nuance &amp; register (cont.)</h2>
+<p>The non-past <code>ます</code> covers habits and the future alike - <ruby>毎日<rt>まいにち</rt></ruby><ruby>走<rt>はし</rt></ruby>ります &quot;I run every day&quot; and <ruby>明日<rt>あした</rt></ruby><ruby>走<rt>はし</rt></ruby>ります &quot;I&#39;ll run tomorrow&quot; - but never an action happening at this moment; that needs <code>～ています</code>.</p>
 <p>Within a single conversation you normally hold one register. Dropping one plain sentence into polite speech is a real and natural move - it reads as thinking aloud, or as a flash of warmth - but a whole reply in plain form to a stranger is rude. Going the other way, switching from plain back to <code>ます</code> with a friend signals distance, and Japanese speakers use it deliberately when they are annoyed.</p>
 <p>In speech, <code>ます</code> is very often followed by softeners: <code>～ますね</code>, <code>～ますよ</code>, <code>～ますけど</code>. Bare <code>～ます</code> sentence after sentence sounds like a public announcement.</p>
 </div>
@@ -2824,9 +2840,9 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <blockquote>
 <p><strong>Rule of thumb</strong> - the ます-form is about <strong>who you are talking to</strong>. The plain form is what the <strong>grammar around the verb</strong> demands. They answer different questions, so they are not really alternatives.</p>
 </blockquote>
-<p>来年(らいねん)、国(くに)に<strong>帰(かえ)ります</strong>。<br><em>I&#39;m going home to my country next year.</em></p>
-<p>来年(らいねん)、国(くに)に<strong>帰(かえ)る</strong>と思(おも)います。<br><em>I think I&#39;ll go home to my country next year.</em></p>
-<p>The second sentence is exactly as polite as the first - the politeness is carried by 思(おも)います at the end. The embedded verb has to be plain.</p>
+<p><ruby>来年<rt>らいねん</rt></ruby>、<ruby>国<rt>くに</rt></ruby>に**<ruby>帰<rt>かえ</rt></ruby>ります**。<br><em>I&#39;m going home to my country next year.</em></p>
+<p><ruby>来年<rt>らいねん</rt></ruby>、<ruby>国<rt>くに</rt></ruby>に**<ruby>帰<rt>かえ</rt></ruby>る**と<ruby>思<rt>おも</rt></ruby>います。<br><em>I think I&#39;ll go home to my country next year.</em></p>
+<p>The second sentence is exactly as polite as the first - the politeness is carried by <ruby>思<rt>おも</rt></ruby>います at the end. The embedded verb has to be plain.</p>
 </div>
 </div>
 <div class="slide" data-index="12">
@@ -2835,8 +2851,8 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <blockquote>
 <p><strong>Rule of thumb</strong> - the meaning is identical. <code>～ません</code> is the tidier, more formal negative; <code>～ないです</code> is the plain negative with a polite <code>です</code> bolted on, and belongs to relaxed speech.</p>
 </blockquote>
-<p>今日(きょう)は時間(じかん)が<strong>ありません</strong>。<br><em>I don&#39;t have time today. (careful, businesslike)</em></p>
-<p>今日(きょう)はちょっと時間(じかん)が<strong>ないです</strong>。<br><em>I haven&#39;t really got time today. (softer, conversational)</em></p>
+<p><ruby>今日<rt>きょう</rt></ruby>は<ruby>時間<rt>じかん</rt></ruby>が<strong>ありません</strong>。<br><em>I don&#39;t have time today. (careful, businesslike)</em></p>
+<p><ruby>今日<rt>きょう</rt></ruby>はちょっと<ruby>時間<rt>じかん</rt></ruby>が<strong>ないです</strong>。<br><em>I haven&#39;t really got time today. (softer, conversational)</em></p>
 <p>The same split runs through the past: <code>～ませんでした</code> is the formal past negative, <code>～なかったです</code> the colloquial one. In writing, an email to a client, or any situation with a script, use the <code>ません</code> column. With a colleague you get on with, <code>ないです</code> is friendlier.</p>
 </div>
 </div>
@@ -2846,8 +2862,8 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>～ませんか</code> <strong>asks</strong> whether you&#39;d like to; <code>～ましょう</code> <strong>assumes</strong> you would. Both are built on the same ます-stem.</p>
 </blockquote>
-<p>一緒(いっしょ)にお昼(ひる)を<strong>食(た)べませんか</strong>。<br><em>Would you like to have lunch together?</em></p>
-<p>じゃ、そろそろ<strong>行(い)きましょう</strong>。<br><em>Right, let&#39;s get going then.</em></p>
+<p><ruby>一緒<rt>いっしょ</rt></ruby>にお<ruby>昼<rt>ひる</rt></ruby>を**<ruby>食<rt>た</rt></ruby>べませんか**。<br><em>Would you like to have lunch together?</em></p>
+<p>じゃ、そろそろ**<ruby>行<rt>い</rt></ruby>きましょう**。<br><em>Right, let&#39;s get going then.</em></p>
 <p><code>～ませんか</code> leaves the other person free to say no, so it is the polite way to open an invitation. <code>～ましょう</code> is for when the plan is already agreed, or when you are the one leading - a tour guide, a teacher, the person organising the evening. Using <code>～ましょう</code> to make the first invitation to someone senior is pushy.</p>
 </div>
 </div>
@@ -2855,80 +2871,86 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
   
   <div class="slide__content"><h2>～ます・～ません・～ました・～ませんでした · Common mistakes</h2>
 <ul>
-<li><p>❌ 食(た)べるます → ✅ <strong>食(た)べます</strong><br><em><code>ます</code> attaches to the ます-stem, never to the dictionary form. Drop the る first.</em></p>
+<li><p>❌ <ruby>食<rt>た</rt></ruby>べるます → ✅ <strong><ruby>食<rt>た</rt></ruby>べます</strong><br><em><code>ます</code> attaches to the ます-stem, never to the dictionary form. Drop the る first.</em></p>
 </li>
-<li><p>❌ 飲(の)みませんかった → ✅ <strong>飲(の)みませんでした</strong><br><em><code>ません</code> has no past form of its own. You put the past tense on the copula behind it: ません + でした.</em></p>
+<li><p>❌ <ruby>飲<rt>の</rt></ruby>みませんかった → ✅ <strong><ruby>飲<rt>の</rt></ruby>みませんでした</strong><br><em><code>ません</code> has no past form of its own. You put the past tense on the copula behind it: ません + でした.</em></p>
 </li>
-<li><p>❌ 帰(かえ)ます → ✅ <strong>帰(かえ)ります</strong><br><em>帰(かえ)る ends in る but is an う-verb, so the stem is 帰(かえ)り, not 帰(かえ).</em></p>
+<li><p>❌ <ruby>帰<rt>かえ</rt></ruby>ます → ✅ <strong><ruby>帰<rt>かえ</rt></ruby>ります</strong><br><em><ruby>帰<rt>かえ</rt></ruby>る ends in る but is an う-verb, so the stem is <ruby>帰<rt>かえ</rt></ruby>り, not <ruby>帰<rt>かえ</rt></ruby>.</em></p>
 </li>
-<li><p>❌ この本(ほん)は高(たか)いますか。 → ✅ この本(ほん)は<strong>高(たか)いですか</strong>。<br><em><code>ます</code> is for verbs only. Adjectives and nouns take <code>です</code>.</em></p>
-</li>
-<li><p>❌ 明日(あした)行(い)きますと思(おも)います。 → ✅ 明日(あした)<strong>行(い)く</strong>と思(おも)います。<br><em>Inside a clause the verb is plain. <code>ます</code> only appears at the very end of the sentence.</em></p>
+<li><p>❌ この<ruby>本<rt>ほん</rt></ruby>は<ruby>高<rt>たか</rt></ruby>いますか。 → ✅ この<ruby>本<rt>ほん</rt></ruby>は**<ruby>高<rt>たか</rt></ruby>いですか**。<br><em><code>ます</code> is for verbs only. Adjectives and nouns take <code>です</code>.</em></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="slide" data-index="15">
   
-  <div class="slide__content"><h2>～ます・～ません・～ました・～ませんでした · Practice 1</h2>
-<p><strong>1.</strong> 山田(やまだ)さんは毎日(まいにち)電車(でんしゃ)で会社(かいしゃ)に行(い)____。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-行(い)<strong>きます</strong></p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-行(い)く is an う-verb, so the final -ku becomes -ki before <code>ます</code>: 行(い)く → 行(い)き + ます. The non-past covers habits, which is what 毎日(まいにち) calls for.</p>
+  <div class="slide__content"><h2>～ます・～ません・～ました・～ませんでした · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ <ruby>明日<rt>あした</rt></ruby><ruby>行<rt>い</rt></ruby>きますと<ruby>思<rt>おも</rt></ruby>います。 → ✅ <ruby>明日<rt>あした</rt></ruby><strong><ruby>行<rt>い</rt></ruby>く</strong>と<ruby>思<rt>おも</rt></ruby>います。<br><em>Inside a clause the verb is plain. <code>ます</code> only appears at the very end of the sentence.</em></li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="16">
   
-  <div class="slide__content"><h2>～ます・～ません・～ました・～ませんでした · Practice 2</h2>
-<p><strong>2.</strong> 昨日(きのう)は雪(ゆき)が（降(ふ)りません・降(ふ)りませんでした）。</p>
+  <div class="slide__content"><h2>～ます・～ません・～ました・～ませんでした · Practice 1</h2>
+<p><strong>1.</strong> <ruby>山田<rt>やまだ</rt></ruby>さんは<ruby>毎日<rt>まいにち</rt></ruby><ruby>電車<rt>でんしゃ</rt></ruby>で<ruby>会社<rt>かいしゃ</rt></ruby>に<ruby>行<rt>い</rt></ruby>____。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-昨日(きのう)は雪(ゆき)が<strong>降(ふ)りませんでした</strong>。</p>
+<ruby>行<rt>い</rt></ruby><strong>きます</strong></p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-昨日(きのう) fixes the sentence in the past, so the negative has to be past too. Japanese marks tense on the verb even when the time word already says it - you cannot leave the ending non-past the way English can.</p>
+<ruby>行<rt>い</rt></ruby>く is an う-verb, so the final -ku becomes -ki before <code>ます</code>: <ruby>行<rt>い</rt></ruby>く → <ruby>行<rt>い</rt></ruby>き + ます. The non-past covers habits, which is what <ruby>毎日<rt>まいにち</rt></ruby> calls for.</p>
 </div>
 </div>
 <div class="slide" data-index="17">
   
-  <div class="slide__content"><h2>～ます・～ません・～ました・～ませんでした · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese: &quot;I didn&#39;t watch television last night.&quot;</p>
+  <div class="slide__content"><h2>～ます・～ません・～ました・～ませんでした · Practice 2</h2>
+<p><strong>2.</strong> <ruby>昨日<rt>きのう</rt></ruby>は<ruby>雪<rt>ゆき</rt></ruby>が（<ruby>降<rt>ふ</rt></ruby>りません・<ruby>降<rt>ふ</rt></ruby>りませんでした）。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-昨日(きのう)の夜(よる)はテレビを<strong>見(み)ませんでした</strong>。</p>
+<ruby>昨日<rt>きのう</rt></ruby>は<ruby>雪<rt>ゆき</rt></ruby>が**<ruby>降<rt>ふ</rt></ruby>りませんでした**。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-見(み)る is a る-verb, so the stem is just 見(み): drop る, add ませんでした. The plain-form answer 見(み)なかった is equally correct if you are talking to a friend.</p>
+<ruby>昨日<rt>きのう</rt></ruby> fixes the sentence in the past, so the negative has to be past too. Japanese marks tense on the verb even when the time word already says it - you cannot leave the ending non-past the way English can.</p>
 </div>
 </div>
 <div class="slide" data-index="18">
   
-  <div class="slide__content"><h2>～ます・～ません・～ました・～ませんでした · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 今朝(けさ)は朝(あさ)ご飯(はん)を食(た)べるませんでした。</p>
+  <div class="slide__content"><h2>～ます・～ません・～ました・～ませんでした · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese: &quot;I didn&#39;t watch television last night.&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 今朝(けさ)は朝(あさ)ご飯(はん)を<strong>食(た)べませんでした</strong>。</p>
+<ruby>昨日<rt>きのう</rt></ruby>の<ruby>夜<rt>よる</rt></ruby>はテレビを**<ruby>見<rt>み</rt></ruby>ませんでした**。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The dictionary form and the polite ending cannot both be there. 食(た)べる is a る-verb: remove る to get the stem 食(た)べ, then attach ませんでした.</p>
+<ruby>見<rt>み</rt></ruby>る is a る-verb, so the stem is just <ruby>見<rt>み</rt></ruby>: drop る, add ませんでした. The plain-form answer <ruby>見<rt>み</rt></ruby>なかった is equally correct if you are talking to a friend.</p>
 </div>
 </div>
 <div class="slide" data-index="19">
   
+  <div class="slide__content"><h2>～ます・～ません・～ました・～ませんでした · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the error: <ruby>今朝<rt>けさ</rt></ruby>は<ruby>朝<rt>あさ</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>を<ruby>食<rt>た</rt></ruby>べるませんでした。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ <ruby>今朝<rt>けさ</rt></ruby>は<ruby>朝<rt>あさ</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>を**<ruby>食<rt>た</rt></ruby>べませんでした**。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The dictionary form and the polite ending cannot both be there. <ruby>食<rt>た</rt></ruby>べる is a る-verb: remove る to get the stem <ruby>食<rt>た</rt></ruby>べ, then attach ませんでした.</p>
+</div>
+</div>
+<div class="slide" data-index="20">
+  
   <div class="slide__content"><h2>～ます・～ません・～ました・～ませんでした · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 今(いま)、時間(じかん)がありますか。 (b) 今(いま)、時間(じかん)ある？</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>今<rt>いま</rt></ruby>、<ruby>時間<rt>じかん</rt></ruby>がありますか。 (b) <ruby>今<rt>いま</rt></ruby>、<ruby>時間<rt>じかん</rt></ruby>ある？</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 They ask exactly the same question; only the relationship differs. (a) is the polite style - what you say to a colleague, a teacher, or anyone you are not close to. (b) is plain form with the question mark carried by rising intonation alone, which is what you use with a friend or a family member.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 Say (b) to your manager and it sounds startlingly familiar; say (a) to a close friend and it sounds like you are about to deliver bad news.</p>
 </div>
 </div>
-<div class="slide" data-index="20">
+<div class="slide" data-index="21">
   
   <div class="slide__content"><h1>する</h1>
 <p><strong>Meaning</strong> · to do - and the machine that turns nouns into verbs</p>
-<p><code>する</code> is the busiest verb in Japanese. On its own it means &quot;do&quot;, but its real job is bigger than that: stick <code>する</code> on the back of almost any noun and you have made a verb. 勉強(べんきょう) &quot;study (n.)&quot; → 勉強(べんきょう)する &quot;to study&quot;. A very large share of the verbs you will ever meet are built this way.</p>
+<p><code>する</code> is the busiest verb in Japanese. On its own it means &quot;do&quot;, but its real job is bigger than that: stick <code>する</code> on the back of almost any noun and you have made a verb. <ruby>勉強<rt>べんきょう</rt></ruby> &quot;study (n.)&quot; → <ruby>勉強<rt>べんきょう</rt></ruby>する &quot;to study&quot;. A very large share of the verbs you will ever meet are built this way.</p>
 <blockquote>
-<p><strong>Note</strong> - Japanese has exactly two irregular verbs: <code>する</code> and 来(く)る. All other verbs are う-verbs (五段(ごだん) / godan / Group 1) or る-verbs (一段(いちだん) / ichidan / Group 2). This page uses <strong>う-verb</strong> and <strong>る-verb</strong>. <code>する</code> is irregular because its stem changes vowel from form to form - し, さ, せ - so it cannot be predicted from the dictionary form.</p>
+<p><strong>Note</strong> - Japanese has exactly two irregular verbs: <code>する</code> and <ruby>来<rt>く</rt></ruby>る. All other verbs are う-verbs (<ruby>五段<rt>ごだん</rt></ruby> / godan / Group 1) or る-verbs (<ruby>一段<rt>いちだん</rt></ruby> / ichidan / Group 2). This page uses <strong>う-verb</strong> and <strong>る-verb</strong>. <code>する</code> is irregular because its stem changes vowel from form to form - し, さ, せ - so it cannot be predicted from the dictionary form.</p>
 </blockquote>
 </div>
 </div>
-<div class="slide" data-index="21">
+<div class="slide" data-index="22">
   
   <div class="slide__content"><h2>する · Formation</h2>
 <p><code>する</code> attaches to nouns. What it attaches to determines whether <code>を</code> can appear between them.</p>
@@ -2941,14 +2963,14 @@ Say (b) to your manager and it sounds startlingly familiar; say (a) to a close f
 </tr>
 </thead>
 <tbody><tr>
-<td>Noun (漢語(かんご) compound)</td>
+<td>Noun (<ruby>漢語<rt>かんご</rt></ruby> compound)</td>
 <td>Noun + する</td>
-<td>掃除(そうじ) → 掃除(そうじ)する</td>
+<td><ruby>掃除<rt>そうじ</rt></ruby> → <ruby>掃除<rt>そうじ</rt></ruby>する</td>
 </tr>
 <tr>
 <td>Noun (with the object marker)</td>
 <td>Noun + を + する</td>
-<td>掃除(そうじ) → 掃除(そうじ)をする</td>
+<td><ruby>掃除<rt>そうじ</rt></ruby> → <ruby>掃除<rt>そうじ</rt></ruby>をする</td>
 </tr>
 <tr>
 <td>Noun (loanword)</td>
@@ -2963,79 +2985,20 @@ Say (b) to your manager and it sounds startlingly familiar; say (a) to a close f
 <tr>
 <td>な-adjective / Noun</td>
 <td>～に + する</td>
-<td>静(しず)か → 静(しず)かにする</td>
+<td><ruby>静<rt>しず</rt></ruby>か → <ruby>静<rt>しず</rt></ruby>かにする</td>
 </tr>
 <tr>
 <td>い-adjective</td>
 <td>～く + する</td>
-<td>短(みじか)い → 短(みじか)くする</td>
+<td><ruby>短<rt>みじか</rt></ruby>い → <ruby>短<rt>みじか</rt></ruby>くする</td>
 </tr>
 </tbody></table>
-</div>
-</div>
-<div class="slide" data-index="22">
-  
-  <div class="slide__content"><h2>する · Formation (cont.)</h2>
-<p>The verb itself conjugates like this. Nothing here follows the う-verb or る-verb rules, which is what &quot;irregular&quot; means - these have to be memorised:</p>
 </div>
 </div>
 <div class="slide" data-index="23">
   
   <div class="slide__content"><h2>する · Formation (cont.)</h2>
-<table>
-<thead>
-<tr>
-<th>Form</th>
-<th>する</th>
-<th>With a noun</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Dictionary</td>
-<td>する</td>
-<td>運動(うんどう)する</td>
-</tr>
-<tr>
-<td>Polite</td>
-<td>します</td>
-<td>運動(うんどう)します</td>
-</tr>
-<tr>
-<td>Plain negative</td>
-<td>しない</td>
-<td>運動(うんどう)しない</td>
-</tr>
-<tr>
-<td>Polite negative</td>
-<td>しません</td>
-<td>運動(うんどう)しません</td>
-</tr>
-<tr>
-<td>Plain past</td>
-<td>した</td>
-<td>運動(うんどう)した</td>
-</tr>
-<tr>
-<td>Polite past</td>
-<td>しました</td>
-<td>運動(うんどう)しました</td>
-</tr>
-<tr>
-<td>Plain past negative</td>
-<td>しなかった</td>
-<td>運動(うんどう)しなかった</td>
-</tr>
-<tr>
-<td>て-form</td>
-<td>して</td>
-<td>運動(うんどう)して</td>
-</tr>
-<tr>
-<td>Volitional</td>
-<td>しよう／しましょう</td>
-<td>運動(うんどう)しよう</td>
-</tr>
-</tbody></table>
+<p>The verb itself conjugates like this. Nothing here follows the う-verb or る-verb rules, which is what &quot;irregular&quot; means - these have to be memorised:</p>
 </div>
 </div>
 <div class="slide" data-index="24">
@@ -3050,198 +3013,272 @@ Say (b) to your manager and it sounds startlingly familiar; say (a) to a close f
 </tr>
 </thead>
 <tbody><tr>
-<td>Potential</td>
-<td>できる</td>
-<td>運動(うんどう)できる</td>
+<td>Dictionary</td>
+<td>する</td>
+<td><ruby>運動<rt>うんどう</rt></ruby>する</td>
 </tr>
 <tr>
-<td>Conditional</td>
-<td>したら／すれば</td>
-<td>運動(うんどう)したら</td>
+<td>Polite</td>
+<td>します</td>
+<td><ruby>運動<rt>うんどう</rt></ruby>します</td>
+</tr>
+<tr>
+<td>Plain negative</td>
+<td>しない</td>
+<td><ruby>運動<rt>うんどう</rt></ruby>しない</td>
+</tr>
+<tr>
+<td>Polite negative</td>
+<td>しません</td>
+<td><ruby>運動<rt>うんどう</rt></ruby>しません</td>
+</tr>
+<tr>
+<td>Plain past</td>
+<td>した</td>
+<td><ruby>運動<rt>うんどう</rt></ruby>した</td>
+</tr>
+<tr>
+<td>Polite past</td>
+<td>しました</td>
+<td><ruby>運動<rt>うんどう</rt></ruby>しました</td>
+</tr>
+<tr>
+<td>Plain past negative</td>
+<td>しなかった</td>
+<td><ruby>運動<rt>うんどう</rt></ruby>しなかった</td>
+</tr>
+<tr>
+<td>て-form</td>
+<td>して</td>
+<td><ruby>運動<rt>うんどう</rt></ruby>して</td>
+</tr>
+<tr>
+<td>Volitional</td>
+<td>しよう／しましょう</td>
+<td><ruby>運動<rt>うんどう</rt></ruby>しよう</td>
 </tr>
 </tbody></table>
-<blockquote>
-<p><strong>Rule of thumb</strong> - the potential of <code>する</code> is <strong>できる</strong>, a completely separate word. There is no ❌されます, no ❌しられます. And because <code>できる</code> is intransitive, its object takes <code>が</code>: 料理(りょうり)<strong>が</strong>できます, never ❌料理(りょうり)をできます.</p>
-</blockquote>
-<p><code>する</code> also carries several meanings that have nothing to do with &quot;doing&quot;:</p>
 </div>
 </div>
 <div class="slide" data-index="25">
   
   <div class="slide__content"><h2>する · Formation (cont.)</h2>
-<ul>
-<li><strong>Sensations</strong>, with <code>が</code> - 音(おと)がする &quot;there&#39;s a sound&quot;,<br><em>においがする &quot;there&#39;s a smell&quot;, 味(あじ)がする &quot;it tastes of…&quot;.</em></li>
-<li><strong>Deciding</strong>, with <code>に</code> - わたしはカレーにします &quot;I&#39;ll have the curry.&quot;</li>
-<li><strong>Wearing</strong> accessories - ネクタイをする, マスクをする, 時計(とけい)をする.</li>
-<li><strong>Costing</strong> - この傘(かさ)は5000円(えん)しました &quot;this umbrella cost<br><em>5,000 yen.&quot;</em></li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Form</th>
+<th>する</th>
+<th>With a noun</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Potential</td>
+<td>できる</td>
+<td><ruby>運動<rt>うんどう</rt></ruby>できる</td>
+</tr>
+<tr>
+<td>Conditional</td>
+<td>したら／すれば</td>
+<td><ruby>運動<rt>うんどう</rt></ruby>したら</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>Rule of thumb</strong> - the potential of <code>する</code> is <strong>できる</strong>, a completely separate word. There is no ❌されます, no ❌しられます. And because <code>できる</code> is intransitive, its object takes <code>が</code>: <ruby>料理<rt>りょうり</rt></ruby><strong>が</strong>できます, never ❌<ruby>料理<rt>りょうり</rt></ruby>をできます.</p>
+</blockquote>
+<p><code>する</code> also carries several meanings that have nothing to do with &quot;doing&quot;:</p>
 </div>
 </div>
 <div class="slide" data-index="26">
   
-  <div class="slide__content"><h2>する · Examples</h2>
-<p>今(いま)、宿題(しゅくだい)を<strong>しています</strong>。<br><em>I&#39;m doing my homework right now.</em></p>
-<p>わたしはコーヒーに<strong>します</strong>。<br><em>I&#39;ll have the coffee.</em></p>
-<p>毎晩(まいばん)30分(ぷん)ぐらい<strong>運動(うんどう)します</strong>。<br><em>I exercise for about thirty minutes every evening.</em></p>
-<p>土曜日(どようび)に部屋(へや)の<strong>掃除(そうじ)をしました</strong>。<br><em>I cleaned my room on Saturday.</em></p>
-<p>台所(だいどころ)のほうから変(へん)な音(おと)が<strong>しました</strong>。<br><em>There was a strange noise from the direction of the kitchen.</em></p>
+  <div class="slide__content"><h2>する · Formation (cont.)</h2>
+<ul>
+<li><strong>Sensations</strong>, with <code>が</code> - <ruby>音<rt>おと</rt></ruby>がする &quot;there&#39;s a sound&quot;,<br><em>においがする &quot;there&#39;s a smell&quot;, <ruby>味<rt>あじ</rt></ruby>がする &quot;it tastes of…&quot;.</em></li>
+<li><strong>Deciding</strong>, with <code>に</code> - わたしはカレーにします &quot;I&#39;ll have the curry.&quot;</li>
+<li><strong>Wearing</strong> accessories - ネクタイをする, マスクをする, <ruby>時計<rt>とけい</rt></ruby>をする.</li>
+<li><strong>Costing</strong> - この<ruby>傘<rt>かさ</rt></ruby>は5000<ruby>円<rt>えん</rt></ruby>しました &quot;this umbrella cost<br><em>5,000 yen.&quot;</em></li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="27">
   
-  <div class="slide__content"><h2>する · Examples (cont.)</h2>
-<p>あの人(ひと)はいつも青(あお)いネクタイを<strong>している</strong>。<br><em>That guy always wears a blue tie.</em></p>
-<p>来月(らいげつ)京都(きょうと)に行(い)くので、きのうホテルを<strong>予約(よやく)しました</strong>。<br><em>I&#39;m going to Kyoto next month, so I booked a hotel yesterday.</em></p>
-<p>息子(むすこ)は東京(とうきょう)の大学(だいがく)で経済(けいざい)の<strong>勉強(べんきょう)をしています</strong>。<br><em>My son is studying economics at a university in Tokyo.</em></p>
+  <div class="slide__content"><h2>する · Examples</h2>
+<p><ruby>今<rt>いま</rt></ruby>、<ruby>宿題<rt>しゅくだい</rt></ruby>を<strong>しています</strong>。<br><em>I&#39;m doing my homework right now.</em></p>
+<p>わたしはコーヒーに<strong>します</strong>。<br><em>I&#39;ll have the coffee.</em></p>
+<p><ruby>毎晩<rt>まいばん</rt></ruby>30<ruby>分<rt>ぷん</rt></ruby>ぐらい**<ruby>運動<rt>うんどう</rt></ruby>します**。<br><em>I exercise for about thirty minutes every evening.</em></p>
+<p><ruby>土曜日<rt>どようび</rt></ruby>に<ruby>部屋<rt>へや</rt></ruby>の**<ruby>掃除<rt>そうじ</rt></ruby>をしました**。<br><em>I cleaned my room on Saturday.</em></p>
 </div>
 </div>
 <div class="slide" data-index="28">
   
-  <div class="slide__content"><h2>する · Nuance &amp; register</h2>
-<p>Plain <code>する</code> is register-neutral: <code>します</code> is polite, <code>する</code> is plain, and nothing about the word itself is stiff or casual. What is worth knowing is that <code>する</code> sits at the bottom of a three-storey politeness building, and the other two storeys are irregular too:</p>
-<ul>
-<li><strong>致(いた)す</strong> - humble. <code>わたしがいたします</code> &quot;I&#39;ll do it&quot;, offering your own<br><em>action deferentially. Extremely common in service and business Japanese: 説明(せつめい)いたします, ご案内(あんない)いたします.</em></li>
-<li><strong>なさる</strong> - honorific, for someone else&#39;s action. Note the irregular polite<br><em>form <strong>なさいます</strong> (not ❌なさります). ゴルフをなさいますか。</em></li>
-</ul>
+  <div class="slide__content"><h2>する · Examples (cont.)</h2>
+<p><ruby>台所<rt>だいどころ</rt></ruby>のほうから<ruby>変<rt>へん</rt></ruby>な<ruby>音<rt>おと</rt></ruby>が<strong>しました</strong>。<br><em>There was a strange noise from the direction of the kitchen.</em></p>
+<p>あの<ruby>人<rt>ひと</rt></ruby>はいつも<ruby>青<rt>あお</rt></ruby>いネクタイを<strong>している</strong>。<br><em>That guy always wears a blue tie.</em></p>
+<p><ruby>来月<rt>らいげつ</rt></ruby><ruby>京都<rt>きょうと</rt></ruby>に<ruby>行<rt>い</rt></ruby>くので、きのうホテルを**<ruby>予約<rt>よやく</rt></ruby>しました**。<br><em>I&#39;m going to Kyoto next month, so I booked a hotel yesterday.</em></p>
+<p><ruby>息子<rt>むすこ</rt></ruby>は<ruby>東京<rt>とうきょう</rt></ruby>の<ruby>大学<rt>だいがく</rt></ruby>で<ruby>経済<rt>けいざい</rt></ruby>の**<ruby>勉強<rt>べんきょう</rt></ruby>をしています**。<br><em>My son is studying economics at a university in Tokyo.</em></p>
 </div>
 </div>
 <div class="slide" data-index="29">
   
-  <div class="slide__content"><h2>する · Nuance &amp; register (cont.)</h2>
-<p>Because noun + する is so productive, it is the standard way Japanese absorbs foreign words. Anything that arrives in katakana can become a verb overnight: チェックする, キャンセルする, ダウンロードする, シェアする. If you know the noun, you know the verb - this is the single fastest way to expand your active vocabulary.</p>
-<p>One register caution: the 漢語(かんご) compounds (確認(かくにん)する, 購入(こうにゅう)する) are a shade more formal than their native equivalents (確(たし)かめる, 買(か)う). In an email they sound crisp and professional; in casual chat with a friend they sound like you are reading from a manual.</p>
-<p><code>する</code> also underlies fixed expressions that never translate word for word: 気(き)にする &quot;worry about it&quot;, 大切(たいせつ)にする &quot;treasure something&quot;, 無理(むり)をする &quot;overdo it&quot;. Meet these as vocabulary, not as grammar.</p>
+  <div class="slide__content"><h2>する · Nuance &amp; register</h2>
+<p>Plain <code>する</code> is register-neutral: <code>します</code> is polite, <code>する</code> is plain, and nothing about the word itself is stiff or casual. What is worth knowing is that <code>する</code> sits at the bottom of a three-storey politeness building, and the other two storeys are irregular too:</p>
+<ul>
+<li><strong><ruby>致<rt>いた</rt></ruby>す</strong> - humble. <code>わたしがいたします</code> &quot;I&#39;ll do it&quot;, offering your own<br><em>action deferentially. Extremely common in service and business Japanese: <ruby>説明<rt>せつめい</rt></ruby>いたします, ご<ruby>案内<rt>あんない</rt></ruby>いたします.</em></li>
+<li><strong>なさる</strong> - honorific, for someone else&#39;s action. Note the irregular polite<br><em>form <strong>なさいます</strong> (not ❌なさります). ゴルフをなさいますか。</em></li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="30">
   
-  <div class="slide__content"><h2>する · 勉強(べんきょう)する vs 勉強(べんきょう)をする</h2>
-<blockquote>
-<p><strong>Rule of thumb</strong> - both are correct and mean the same thing. Insert <code>を</code> and the noun becomes a genuine object, which has two consequences: it can now be modified, and it now blocks a second <code>を</code> in the same clause.</p>
-</blockquote>
-<p>日本語(にほんご)を<strong>勉強(べんきょう)します</strong>。<br><em>I study Japanese.</em></p>
-<p>文法(ぶんぽう)の<strong>勉強(べんきょう)をします</strong>。<br><em>I do grammar study.</em></p>
-<p>The first sentence already has a <code>を</code> on 日本語(にほんご), so ❌日本語(にほんご)を勉強(べんきょう)をします is out - one clause, one <code>を</code>. The second sentence needs the <code>を</code> version, because 文法(ぶんぽう)の has to attach to a noun; ❌文法(ぶんぽう)の勉強(べんきょう)します does not work.</p>
+  <div class="slide__content"><h2>する · Nuance &amp; register (cont.)</h2>
+<p>Because noun + する is so productive, it is the standard way Japanese absorbs foreign words. Anything that arrives in katakana can become a verb overnight: チェックする, キャンセルする, ダウンロードする, シェアする. If you know the noun, you know the verb - this is the single fastest way to expand your active vocabulary.</p>
+<p>One register caution: the <ruby>漢語<rt>かんご</rt></ruby> compounds (<ruby>確認<rt>かくにん</rt></ruby>する, <ruby>購入<rt>こうにゅう</rt></ruby>する) are a shade more formal than their native equivalents (<ruby>確<rt>たし</rt></ruby>かめる, <ruby>買<rt>か</rt></ruby>う). In an email they sound crisp and professional; in casual chat with a friend they sound like you are reading from a manual.</p>
 </div>
 </div>
 <div class="slide" data-index="31">
   
-  <div class="slide__content"><h2>する · 勉強(べんきょう)する vs 勉強(べんきょう)をする (cont.)</h2>
-<p>How to choose: bare <code>する</code> when the compound is behaving as a plain verb, <code>をする</code> when you want to describe or measure the activity itself - 軽(かる)い運動(うんどう)をする, 1時間(じかん)練習(れんしゅう)をする. Not every noun takes <code>を</code> equally happily: activity nouns (洗濯(せんたく), 散歩(さんぽ), 買(か)い物(もの)) accept it readily, while nouns naming a change of state (成功(せいこう)する, 完成(かんせい)する) essentially never appear with it.</p>
+  <div class="slide__content"><h2>する · Nuance &amp; register (cont.)</h2>
+<p><code>する</code> also underlies fixed expressions that never translate word for word: <ruby>気<rt>き</rt></ruby>にする &quot;worry about it&quot;, <ruby>大切<rt>たいせつ</rt></ruby>にする &quot;treasure something&quot;, <ruby>無理<rt>むり</rt></ruby>をする &quot;overdo it&quot;. Meet these as vocabulary, not as grammar.</p>
 </div>
 </div>
 <div class="slide" data-index="32">
+  
+  <div class="slide__content"><h2>する · 勉強する vs 勉強をする</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - both are correct and mean the same thing. Insert <code>を</code> and the noun becomes a genuine object, which has two consequences: it can now be modified, and it now blocks a second <code>を</code> in the same clause.</p>
+</blockquote>
+<p><ruby>日本語<rt>にほんご</rt></ruby>を**<ruby>勉強<rt>べんきょう</rt></ruby>します**。<br><em>I study Japanese.</em></p>
+<p><ruby>文法<rt>ぶんぽう</rt></ruby>の**<ruby>勉強<rt>べんきょう</rt></ruby>をします**。<br><em>I do grammar study.</em></p>
+</div>
+</div>
+<div class="slide" data-index="33">
+  
+  <div class="slide__content"><h2>する · 勉強する vs 勉強をする (cont.)</h2>
+<p>The first sentence already has a <code>を</code> on <ruby>日本語<rt>にほんご</rt></ruby>, so ❌<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>勉強<rt>べんきょう</rt></ruby>をします is out - one clause, one <code>を</code>. The second sentence needs the <code>を</code> version, because <ruby>文法<rt>ぶんぽう</rt></ruby>の has to attach to a noun; ❌<ruby>文法<rt>ぶんぽう</rt></ruby>の<ruby>勉強<rt>べんきょう</rt></ruby>します does not work.</p>
+<p>How to choose: bare <code>する</code> when the compound is behaving as a plain verb, <code>をする</code> when you want to describe or measure the activity itself - <ruby>軽<rt>かる</rt></ruby>い<ruby>運動<rt>うんどう</rt></ruby>をする, 1<ruby>時間<rt>じかん</rt></ruby><ruby>練習<rt>れんしゅう</rt></ruby>をする. Not every noun takes <code>を</code> equally happily: activity nouns (<ruby>洗濯<rt>せんたく</rt></ruby>, <ruby>散歩<rt>さんぽ</rt></ruby>, <ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>) accept it readily, while nouns naming a change of state (<ruby>成功<rt>せいこう</rt></ruby>する, <ruby>完成<rt>かんせい</rt></ruby>する) essentially never appear with it.</p>
+</div>
+</div>
+<div class="slide" data-index="34">
   
   <div class="slide__content"><h2>する · ～にする vs ～になる</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>する</code> means <em>someone makes it so</em>; <code>なる</code> means <em>it comes to be so</em>. Choosing from a menu is <code>する</code>, because you are the one deciding.</p>
 </blockquote>
-<p>テレビの音(おと)を小(ちい)さく<strong>して</strong>ください。<br><em>Please turn the television down.</em></p>
-<p>外(そと)が急(きゅう)に暗(くら)く<strong>なった</strong>。<br><em>It suddenly got dark outside.</em></p>
-<p>The same pair runs through nouns: 先生(せんせい)にする &quot;make someone a teacher / decide on the teacher&quot; against 先生(せんせい)になる &quot;become a teacher&quot;. If a person is deliberately causing the change, it is <code>する</code>; if the change simply happens, it is <code>なる</code>. Japanese leans on <code>なる</code> far more than English leans on &quot;become&quot;, so when in doubt about a change of state, <code>なる</code> is usually the more natural choice.</p>
+<p>テレビの<ruby>音<rt>おと</rt></ruby>を<ruby>小<rt>ちい</rt></ruby>さく<strong>して</strong>ください。<br><em>Please turn the television down.</em></p>
+<p><ruby>外<rt>そと</rt></ruby>が<ruby>急<rt>きゅう</rt></ruby>に<ruby>暗<rt>くら</rt></ruby>く<strong>なった</strong>。<br><em>It suddenly got dark outside.</em></p>
 </div>
 </div>
-<div class="slide" data-index="33">
+<div class="slide" data-index="35">
+  
+  <div class="slide__content"><h2>する · ～にする vs ～になる (cont.)</h2>
+<p>The same pair runs through nouns: <ruby>先生<rt>せんせい</rt></ruby>にする &quot;make someone a teacher / decide on the teacher&quot; against <ruby>先生<rt>せんせい</rt></ruby>になる &quot;become a teacher&quot;. If a person is deliberately causing the change, it is <code>する</code>; if the change simply happens, it is <code>なる</code>. Japanese leans on <code>なる</code> far more than English leans on &quot;become&quot;, so when in doubt about a change of state, <code>なる</code> is usually the more natural choice.</p>
+</div>
+</div>
+<div class="slide" data-index="36">
   
   <div class="slide__content"><h2>する · する vs やる</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - same meaning, different register. <code>やる</code> is the casual, slightly more physical word: it is what friends say to each other.</p>
 </blockquote>
-<p>宿題(しゅくだい)、もう<strong>やった</strong>？<br><em>Have you done your homework yet?</em></p>
-<p>宿題(しゅくだい)はもう<strong>しました</strong>。<br><em>I have already done my homework.</em></p>
-<p><code>やる</code> cannot fuse directly onto a noun the way <code>する</code> does. You can say 勉強(べんきょう)する, and you can say 勉強(べんきょう)をやる in relaxed speech, but ❌勉強(べんきょう)やる is not a word. <code>やる</code> also means &quot;give (to an animal, a plant, or someone clearly junior)&quot; - 花(はな)に水(みず)をやる - and it can sound rough or blunt from the wrong mouth, so it is a poor default in polite company.</p>
+<p><ruby>宿題<rt>しゅくだい</rt></ruby>、もう<strong>やった</strong>？<br><em>Have you done your homework yet?</em></p>
+<p><ruby>宿題<rt>しゅくだい</rt></ruby>はもう<strong>しました</strong>。<br><em>I have already done my homework.</em></p>
 </div>
 </div>
-<div class="slide" data-index="34">
+<div class="slide" data-index="37">
+  
+  <div class="slide__content"><h2>する · する vs やる (cont.)</h2>
+<p><code>やる</code> cannot fuse directly onto a noun the way <code>する</code> does. You can say <ruby>勉強<rt>べんきょう</rt></ruby>する, and you can say <ruby>勉強<rt>べんきょう</rt></ruby>をやる in relaxed speech, but ❌<ruby>勉強<rt>べんきょう</rt></ruby>やる is not a word. <code>やる</code> also means &quot;give (to an animal, a plant, or someone clearly junior)&quot; - <ruby>花<rt>はな</rt></ruby>に<ruby>水<rt>みず</rt></ruby>をやる - and it can sound rough or blunt from the wrong mouth, so it is a poor default in polite company.</p>
+</div>
+</div>
+<div class="slide" data-index="38">
   
   <div class="slide__content"><h2>する · Common mistakes</h2>
 <ul>
 <li><p>❌ するます → ✅ <strong>します</strong><br><em><code>する</code> is irregular: the ます-stem is <code>し</code>, not ❌<code>すり</code> or ❌<code>する</code>.</em></p>
 </li>
-<li><p>❌ 日本語(にほんご)を勉強(べんきょう)をします。 → ✅ 日本語(にほんご)を<strong>勉強(べんきょう)します</strong>。<br><em>Two <code>を</code> in one clause. Once 日本語(にほんご) has taken the object marker, 勉強(べんきょう) must fuse onto <code>する</code> directly.</em></p>
+<li><p>❌ <ruby>日本語<rt>にほんご</rt></ruby>を<ruby>勉強<rt>べんきょう</rt></ruby>をします。 → ✅ <ruby>日本語<rt>にほんご</rt></ruby>を**<ruby>勉強<rt>べんきょう</rt></ruby>します**。<br><em>Two <code>を</code> in one clause. Once <ruby>日本語<rt>にほんご</rt></ruby> has taken the object marker, <ruby>勉強<rt>べんきょう</rt></ruby> must fuse onto <code>する</code> directly.</em></p>
 </li>
-<li><p>❌ テニスを遊(あそ)びます。 → ✅ テニスを<strong>します</strong>。<br><em>Interference from English &quot;play tennis&quot;. 遊(あそ)ぶ means to play in the sense of having fun; sports and games take <code>する</code>.</em></p>
+<li><p>❌ テニスを<ruby>遊<rt>あそ</rt></ruby>びます。 → ✅ テニスを<strong>します</strong>。<br><em>Interference from English &quot;play tennis&quot;. <ruby>遊<rt>あそ</rt></ruby>ぶ means to play in the sense of having fun; sports and games take <code>する</code>.</em></p>
 </li>
-<li><p>❌ わたしは料理(りょうり)をできます。 → ✅ わたしは料理(りょうり)が<strong>できます</strong>。<br><em><code>できる</code> is the potential of <code>する</code> and it is intransitive, so what you can do is marked with <code>が</code>.</em></p>
+<li><p>❌ わたしは<ruby>料理<rt>りょうり</rt></ruby>をできます。 → ✅ わたしは<ruby>料理<rt>りょうり</rt></ruby>が<strong>できます</strong>。<br><em><code>できる</code> is the potential of <code>する</code> and it is intransitive, so what you can do is marked with <code>が</code>.</em></p>
 </li>
 </ul>
-</div>
-</div>
-<div class="slide" data-index="35">
-  
-  <div class="slide__content"><h2>する · Common mistakes (cont.)</h2>
-<ul>
-<li>❌ 外(そと)で大(おお)きい音(おと)をしました。 → ✅ 外(そと)で大(おお)きい音(おと)が<strong>しました</strong>。<br><em>Sensations - sounds, smells, tastes - take <code>が</code> with <code>する</code>. Nobody is doing anything here; the sound simply occurred.</em></li>
-</ul>
-</div>
-</div>
-<div class="slide" data-index="36">
-  
-  <div class="slide__content"><h2>する · Practice 1</h2>
-<p><strong>1.</strong> 明日(あした)までにこの書類(しょるい)を確認(かくにん)____おきます。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-確認(かくにん)<strong>して</strong>おきます</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>おく</code> attaches to the て-form, and the て-form of <code>する</code> is <code>して</code> - irregular, not built from a stem. The whole compound 確認(かくにん)する conjugates exactly as <code>する</code> does.</p>
-</div>
-</div>
-<div class="slide" data-index="37">
-  
-  <div class="slide__content"><h2>する · Practice 2</h2>
-<p><strong>2.</strong> 来週(らいしゅう)から新(あたら)しい仕事(しごと)を（します・なります）。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-来週(らいしゅう)から新(あたら)しい仕事(しごと)を<strong>します</strong>。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The speaker is the one taking the job, so it is a deliberate action: <code>する</code>. <code>なる</code> would need a different frame entirely, such as 来週(らいしゅう)から新(あたら)しい仕事(しごと)になります, which would mean the job itself is what changes.</p>
-</div>
-</div>
-<div class="slide" data-index="38">
-  
-  <div class="slide__content"><h2>する · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese: &quot;My daughter practises the piano for an hour every day.&quot;</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-娘(むすめ)は毎日(まいにち)1時間(じかん)ピアノの<strong>練習(れんしゅう)をします</strong>。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Both 練習(れんしゅう)します and 練習(れんしゅう)をします are possible, but here ピアノの has to modify a noun, so the <code>を</code> version is the natural one. Alternatively: 娘(むすめ)は毎日(まいにち)1時間(じかん)ピアノを練習(れんしゅう)します。</p>
 </div>
 </div>
 <div class="slide" data-index="39">
   
-  <div class="slide__content"><h2>する · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: この部屋(へや)は静(しず)かなしてください。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ この部屋(へや)では<strong>静(しず)かにして</strong>ください。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-To make something take on a quality you use the adverbial form, and for a な-adjective that is <code>に</code>, not <code>な</code>. <code>な</code> only appears directly before a noun.</p>
+  <div class="slide__content"><h2>する · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ <ruby>外<rt>そと</rt></ruby>で<ruby>大<rt>おお</rt></ruby>きい<ruby>音<rt>おと</rt></ruby>をしました。 → ✅ <ruby>外<rt>そと</rt></ruby>で<ruby>大<rt>おお</rt></ruby>きい<ruby>音<rt>おと</rt></ruby>が<strong>しました</strong>。<br><em>Sensations - sounds, smells, tastes - take <code>が</code> with <code>する</code>. Nobody is doing anything here; the sound simply occurred.</em></li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="40">
   
+  <div class="slide__content"><h2>する · Practice 1</h2>
+<p><strong>1.</strong> <ruby>明日<rt>あした</rt></ruby>までにこの<ruby>書類<rt>しょるい</rt></ruby>を<ruby>確認<rt>かくにん</rt></ruby>____おきます。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>確認<rt>かくにん</rt></ruby><strong>して</strong>おきます</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code>おく</code> attaches to the て-form, and the て-form of <code>する</code> is <code>して</code> - irregular, not built from a stem. The whole compound <ruby>確認<rt>かくにん</rt></ruby>する conjugates exactly as <code>する</code> does.</p>
+</div>
+</div>
+<div class="slide" data-index="41">
+  
+  <div class="slide__content"><h2>する · Practice 2</h2>
+<p><strong>2.</strong> <ruby>来週<rt>らいしゅう</rt></ruby>から<ruby>新<rt>あたら</rt></ruby>しい<ruby>仕事<rt>しごと</rt></ruby>を（します・なります）。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>来週<rt>らいしゅう</rt></ruby>から<ruby>新<rt>あたら</rt></ruby>しい<ruby>仕事<rt>しごと</rt></ruby>を<strong>します</strong>。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The speaker is the one taking the job, so it is a deliberate action: <code>する</code>. <code>なる</code> would need a different frame entirely, such as <ruby>来週<rt>らいしゅう</rt></ruby>から<ruby>新<rt>あたら</rt></ruby>しい<ruby>仕事<rt>しごと</rt></ruby>になります, which would mean the job itself is what changes.</p>
+</div>
+</div>
+<div class="slide" data-index="42">
+  
+  <div class="slide__content"><h2>する · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese: &quot;My daughter practises the piano for an hour every day.&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>娘<rt>むすめ</rt></ruby>は<ruby>毎日<rt>まいにち</rt></ruby>1<ruby>時間<rt>じかん</rt></ruby>ピアノの**<ruby>練習<rt>れんしゅう</rt></ruby>をします**。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+Both <ruby>練習<rt>れんしゅう</rt></ruby>します and <ruby>練習<rt>れんしゅう</rt></ruby>をします are possible, but here ピアノの has to modify a noun, so the <code>を</code> version is the natural one. Alternatively: <ruby>娘<rt>むすめ</rt></ruby>は<ruby>毎日<rt>まいにち</rt></ruby>1<ruby>時間<rt>じかん</rt></ruby>ピアノを<ruby>練習<rt>れんしゅう</rt></ruby>します。</p>
+</div>
+</div>
+<div class="slide" data-index="43">
+  
+  <div class="slide__content"><h2>する · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the error: この<ruby>部屋<rt>へや</rt></ruby>は<ruby>静<rt>しず</rt></ruby>かなしてください。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ この<ruby>部屋<rt>へや</rt></ruby>では**<ruby>静<rt>しず</rt></ruby>かにして**ください。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+To make something take on a quality you use the adverbial form, and for a な-adjective that is <code>に</code>, not <code>な</code>. <code>な</code> only appears directly before a noun.</p>
+</div>
+</div>
+<div class="slide" data-index="44">
+  
   <div class="slide__content"><h2>する · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 部屋(へや)を きれいに しました。 (b) 部屋(へや)が きれいに なりました。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>部屋<rt>へや</rt></ruby>を きれいに しました。 (b) <ruby>部屋<rt>へや</rt></ruby>が きれいに なりました。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) says somebody tidied the room - <code>する</code> puts an agent behind the change, and the room is marked with <code>を</code> as the thing acted on. (b) simply reports that the room ended up clean, with <code>が</code> marking it as the subject that changed.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 Japanese speakers often prefer (b) even when they did the work themselves, because <code>なる</code> sounds less like claiming credit. That preference for describing outcomes rather than agents runs right through the language.</p>
 </div>
 </div>
-<div class="slide" data-index="41">
+<div class="slide" data-index="45">
   
   <div class="slide__content"><h1>て-form</h1>
 <p><strong>Meaning</strong> · the connective form - the shape a verb takes when the sentence isn&#39;t finished with it yet</p>
 <p>The て-form is not a tense and not a politeness level. It is the form a word wears when something else is going to attach to it, or when the sentence carries on past it. On its own it says roughly &quot;…and then&quot;, but its real importance is structural: <code>～ている</code>, <code>～てください</code>, <code>～てもいい</code>, <code>～てから</code>, <code>～てしまう</code>, <code>～てあげる</code> and dozens more all plug into it. Learn the て-form and a large slice of the grammar you meet later costs you nothing extra.</p>
 <blockquote>
-<p><strong>Note</strong> - verbs come in three classes: <strong>う-verbs</strong> (五段(ごだん) / godan / Group 1), <strong>る-verbs</strong> (一段(いちだん) / ichidan / Group 2), and the two irregulars する and 来(く)る (Group 3). This page says <strong>う-verb</strong> and <strong>る-verb</strong>. Only う-verbs have complicated て-forms; the other two classes are trivial.</p>
+<p><strong>Note</strong> - verbs come in three classes: <strong>う-verbs</strong> (<ruby>五段<rt>ごだん</rt></ruby> / godan / Group 1), <strong>る-verbs</strong> (<ruby>一段<rt>いちだん</rt></ruby> / ichidan / Group 2), and the two irregulars する and <ruby>来<rt>く</rt></ruby>る (Group 3). This page says <strong>う-verb</strong> and <strong>る-verb</strong>. Only う-verbs have complicated て-forms; the other two classes are trivial.</p>
 </blockquote>
 </div>
 </div>
-<div class="slide" data-index="42">
+<div class="slide" data-index="46">
   
   <div class="slide__content"><h2>て-form · Formation</h2>
 <p>る-verbs and the irregulars are one-liners. う-verbs change according to their final syllable, and that table is the thing to memorise.</p>
 </div>
 </div>
-<div class="slide" data-index="43">
+<div class="slide" data-index="47">
   
   <div class="slide__content"><h2>て-form · Formation (cont.)</h2>
 <table>
@@ -3255,52 +3292,52 @@ Japanese speakers often prefer (b) even when they did the work themselves, becau
 <tbody><tr>
 <td>Verb (う-verb, う・つ・る)</td>
 <td>→ って</td>
-<td>買(か)う → 買(か)って</td>
+<td><ruby>買<rt>か</rt></ruby>う → <ruby>買<rt>か</rt></ruby>って</td>
 </tr>
 <tr>
 <td>Verb (う-verb, む・ぶ・ぬ)</td>
 <td>→ んで</td>
-<td>読(よ)む → 読(よ)んで</td>
+<td><ruby>読<rt>よ</rt></ruby>む → <ruby>読<rt>よ</rt></ruby>んで</td>
 </tr>
 <tr>
 <td>Verb (う-verb, く)</td>
 <td>→ いて</td>
-<td>書(か)く → 書(か)いて</td>
+<td><ruby>書<rt>か</rt></ruby>く → <ruby>書<rt>か</rt></ruby>いて</td>
 </tr>
 <tr>
 <td>Verb (う-verb, ぐ)</td>
 <td>→ いで</td>
-<td>泳(およ)ぐ → 泳(およ)いで</td>
+<td><ruby>泳<rt>およ</rt></ruby>ぐ → <ruby>泳<rt>およ</rt></ruby>いで</td>
 </tr>
 <tr>
 <td>Verb (う-verb, す)</td>
 <td>→ して</td>
-<td>話(はな)す → 話(はな)して</td>
+<td><ruby>話<rt>はな</rt></ruby>す → <ruby>話<rt>はな</rt></ruby>して</td>
 </tr>
 <tr>
-<td>Verb (行(い)く, exception)</td>
+<td>Verb (<ruby>行<rt>い</rt></ruby>く, exception)</td>
 <td>→ って</td>
-<td>行(い)く → 行(い)って</td>
+<td><ruby>行<rt>い</rt></ruby>く → <ruby>行<rt>い</rt></ruby>って</td>
 </tr>
 <tr>
 <td>Verb (る-verb)</td>
 <td>drop る, + て</td>
-<td>開(あ)ける → 開(あ)けて</td>
+<td><ruby>開<rt>あ</rt></ruby>ける → <ruby>開<rt>あ</rt></ruby>けて</td>
 </tr>
 <tr>
 <td>Verb (する)</td>
 <td>して</td>
-<td>掃除(そうじ)する → 掃除(そうじ)して</td>
+<td><ruby>掃除<rt>そうじ</rt></ruby>する → <ruby>掃除<rt>そうじ</rt></ruby>して</td>
 </tr>
 <tr>
-<td>Verb (来(く)る)</td>
+<td>Verb (<ruby>来<rt>く</rt></ruby>る)</td>
 <td>きて</td>
-<td>来(く)る → 来(き)て</td>
+<td><ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>き</rt></ruby>て</td>
 </tr>
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="44">
+<div class="slide" data-index="48">
   
   <div class="slide__content"><h2>て-form · Formation (cont.)</h2>
 <table>
@@ -3314,28 +3351,28 @@ Japanese speakers often prefer (b) even when they did the work themselves, becau
 <tbody><tr>
 <td>Verb (negative)</td>
 <td>ない → なくて／ないで</td>
-<td>行(い)かない → 行(い)かなくて／行(い)かないで</td>
+<td><ruby>行<rt>い</rt></ruby>かない → <ruby>行<rt>い</rt></ruby>かなくて／<ruby>行<rt>い</rt></ruby>かないで</td>
 </tr>
 <tr>
 <td>い-adjective</td>
 <td>い → くて</td>
-<td>寒(さむ)い → 寒(さむ)くて</td>
+<td><ruby>寒<rt>さむ</rt></ruby>い → <ruby>寒<rt>さむ</rt></ruby>くて</td>
 </tr>
 <tr>
 <td>な-adjective</td>
 <td>+ で</td>
-<td>親切(しんせつ) → 親切(しんせつ)で</td>
+<td><ruby>親切<rt>しんせつ</rt></ruby> → <ruby>親切<rt>しんせつ</rt></ruby>で</td>
 </tr>
 <tr>
 <td>Noun</td>
 <td>+ で</td>
-<td>学生(がくせい) → 学生(がくせい)で</td>
+<td><ruby>学生<rt>がくせい</rt></ruby> → <ruby>学生<rt>がくせい</rt></ruby>で</td>
 </tr>
 </tbody></table>
 <p>The う-verb rows again, one verb at a time, because this is the table you will come back to:</p>
 </div>
 </div>
-<div class="slide" data-index="45">
+<div class="slide" data-index="49">
   
   <div class="slide__content"><h2>て-form · Formation (cont.)</h2>
 <table>
@@ -3349,233 +3386,249 @@ Japanese speakers often prefer (b) even when they did the work themselves, becau
 <tbody><tr>
 <td>う</td>
 <td>って</td>
-<td>使(つか)う → 使(つか)って</td>
+<td><ruby>使<rt>つか</rt></ruby>う → <ruby>使<rt>つか</rt></ruby>って</td>
 </tr>
 <tr>
 <td>つ</td>
 <td>って</td>
-<td>待(ま)つ → 待(ま)って</td>
+<td><ruby>待<rt>ま</rt></ruby>つ → <ruby>待<rt>ま</rt></ruby>って</td>
 </tr>
 <tr>
 <td>る</td>
 <td>って</td>
-<td>切(き)る → 切(き)って</td>
+<td><ruby>切<rt>き</rt></ruby>る → <ruby>切<rt>き</rt></ruby>って</td>
 </tr>
 <tr>
 <td>む</td>
 <td>んで</td>
-<td>休(やす)む → 休(やす)んで</td>
+<td><ruby>休<rt>やす</rt></ruby>む → <ruby>休<rt>やす</rt></ruby>んで</td>
 </tr>
 <tr>
 <td>ぶ</td>
 <td>んで</td>
-<td>遊(あそ)ぶ → 遊(あそ)んで</td>
+<td><ruby>遊<rt>あそ</rt></ruby>ぶ → <ruby>遊<rt>あそ</rt></ruby>んで</td>
 </tr>
 <tr>
 <td>ぬ</td>
 <td>んで</td>
-<td>死(し)ぬ → 死(し)んで</td>
+<td><ruby>死<rt>し</rt></ruby>ぬ → <ruby>死<rt>し</rt></ruby>んで</td>
 </tr>
 <tr>
 <td>く</td>
 <td>いて</td>
-<td>聞(き)く → 聞(き)いて</td>
+<td><ruby>聞<rt>き</rt></ruby>く → <ruby>聞<rt>き</rt></ruby>いて</td>
 </tr>
 <tr>
 <td>ぐ</td>
 <td>いで</td>
-<td>脱(ぬ)ぐ → 脱(ぬ)いで</td>
+<td><ruby>脱<rt>ぬ</rt></ruby>ぐ → <ruby>脱<rt>ぬ</rt></ruby>いで</td>
 </tr>
 <tr>
 <td>す</td>
 <td>して</td>
-<td>出(だ)す → 出(だ)して</td>
+<td><ruby>出<rt>だ</rt></ruby>す → <ruby>出<rt>だ</rt></ruby>して</td>
 </tr>
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="46">
+<div class="slide" data-index="50">
   
   <div class="slide__content"><h2>て-form · Formation (cont.)</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - the <strong>た-form uses exactly these sound changes</strong>, with た/だ in place of て/で. 読(よ)んで → 読(よ)んだ, 書(か)いて → 書(か)いた, 話(はな)して → 話(はな)した, 行(い)って → 行(い)った. Learn one table and you have learned both. This is the single best return on memorisation effort in beginner Japanese.</p>
+<p><strong>Rule of thumb</strong> - the <strong>た-form uses exactly these sound changes</strong>, with た/だ in place of て/で. <ruby>読<rt>よ</rt></ruby>んで → <ruby>読<rt>よ</rt></ruby>んだ, <ruby>書<rt>か</rt></ruby>いて → <ruby>書<rt>か</rt></ruby>いた, <ruby>話<rt>はな</rt></ruby>して → <ruby>話<rt>はな</rt></ruby>した, <ruby>行<rt>い</rt></ruby>って → <ruby>行<rt>い</rt></ruby>った. Learn one table and you have learned both. This is the single best return on memorisation effort in beginner Japanese.</p>
 </blockquote>
 <blockquote>
-<p><strong>Note</strong> - 行(い)く is the exception every learner trips over. By the く rule it ought to be ❌行(い)いて; it is 行(い)って. Nothing else in ordinary Japanese behaves this way. Watch out too for う-verbs that <em>look</em> like る-verbs: 帰(かえ)る → 帰(かえ)って (not ❌帰(かえ)て), 走(はし)る → 走(はし)って, 入(はい)る → 入(はい)って.</p>
+<p><strong>Note</strong> - <ruby>行<rt>い</rt></ruby>く is the exception every learner trips over. By the く rule it ought to be ❌<ruby>行<rt>い</rt></ruby>いて; it is <ruby>行<rt>い</rt></ruby>って. Nothing else in ordinary Japanese behaves this way. Watch out too for う-verbs that <em>look</em> like る-verbs: <ruby>帰<rt>かえ</rt></ruby>る → <ruby>帰<rt>かえ</rt></ruby>って (not ❌<ruby>帰<rt>かえ</rt></ruby>て), <ruby>走<rt>はし</rt></ruby>る → <ruby>走<rt>はし</rt></ruby>って, <ruby>入<rt>はい</rt></ruby>る → <ruby>入<rt>はい</rt></ruby>って.</p>
 </blockquote>
 <p>What the て-form is for, in rough order of how soon you will need it:</p>
 </div>
 </div>
-<div class="slide" data-index="47">
+<div class="slide" data-index="51">
   
   <div class="slide__content"><h2>て-form · Formation (cont.)</h2>
 <ul>
-<li><strong>Linking events in sequence</strong> - 起(お)きて、顔(かお)を洗(あら)って、出(で)かけます。</li>
+<li><strong>Linking events in sequence</strong> - <ruby>起<rt>お</rt></ruby>きて、<ruby>顔<rt>かお</rt></ruby>を<ruby>洗<rt>あら</rt></ruby>って、<ruby>出<rt>で</rt></ruby>かけます。</li>
 <li><strong>A continuing action or a state</strong> - <code>～ている</code>.</li>
 <li><strong>Requests</strong> - <code>～てください</code>.</li>
 <li><strong>Permission and prohibition</strong> - <code>～てもいい</code>, <code>～てはいけない</code>.</li>
 <li><strong>Cause</strong>, when the second clause is a feeling or a result you did not choose.</li>
-<li><strong>Manner or means</strong> - 歩(ある)いて行(い)く &quot;go on foot&quot;.</li>
+<li><strong>Manner or means</strong> - <ruby>歩<rt>ある</rt></ruby>いて<ruby>行<rt>い</rt></ruby>く &quot;go on foot&quot;.</li>
 </ul>
-</div>
-</div>
-<div class="slide" data-index="48">
-  
-  <div class="slide__content"><h2>て-form · Examples</h2>
-<p>ちょっと<strong>待(ま)って</strong>。<br><em>Hang on a second.</em></p>
-<p>朝(あさ)ご飯(はん)を<strong>食(た)べて</strong>、会社(かいしゃ)に行(い)きます。<br><em>I have breakfast and then go to work.</em></p>
-<p>弟(おとうと)は今(いま)シャワーを<strong>浴(あ)びて</strong>います。<br><em>My brother is in the shower right now.</em></p>
-<p>駅(えき)まで<strong>歩(ある)いて</strong>10分(ぷん)ぐらいかかります。<br><em>It&#39;s about a ten-minute walk to the station.</em></p>
-<p>電気(でんき)を<strong>消(け)して</strong>、部屋(へや)を出(で)ました。<br><em>I turned the light off and left the room.</em></p>
-</div>
-</div>
-<div class="slide" data-index="49">
-  
-  <div class="slide__content"><h2>て-form · Examples (cont.)</h2>
-<p>田中(たなか)さんは背(せ)が<strong>高(たか)くて</strong>、髪(かみ)の長(なが)い人(ひと)です。<br><em>Tanaka is the tall one with long hair.</em></p>
-<p>昨日(きのう)は朝(あさ)から雨(あめ)が<strong>降(ふ)って</strong>、試合(しあい)が中止(ちゅうし)になりました。<br><em>It rained from the morning yesterday and the match was called off.</em></p>
-<p>この辺(へん)は夜(よる)になると店(みせ)が全部(ぜんぶ)<strong>閉(し)まって</strong>、人(ひと)も歩(ある)いていません。<br><em>Around here everything shuts at night and there&#39;s nobody about.</em></p>
-</div>
-</div>
-<div class="slide" data-index="50">
-  
-  <div class="slide__content"><h2>て-form · Nuance &amp; register</h2>
-<p>The て-form carries no politeness of its own - politeness is decided by whatever ends the sentence. 食(た)べて行(い)く and 食(た)べて行(い)きます differ only at the tail. That is exactly why it is so useful: a long chain of て-forms lets you build a complicated sentence and only worry about register at the very end.</p>
-<p>A bare て-form left at the end of a sentence is a <strong>casual request</strong>: ちょっと待(ま)って, 見(み)せて, 手伝(てつだ)って. It is <code>～てください</code> with the polite part bitten off, so it is friendly among equals and rude upwards. Softening it with <code>ね</code> - 待(ま)ってね - makes it gentler; adding <code>よ</code> makes it more insistent.</p>
-<p>Two spoken contractions to expect early, because they are everywhere:</p>
-<ul>
-<li><code>～ている</code> → <code>～てる</code>: 何(なに)してるの？ , 待(ま)ってるよ.</li>
-<li><code>～ておく</code> → <code>～とく</code>, <code>～てしまう</code> → <code>～ちゃう</code>: 買(か)っとく,<br><em>食(た)べちゃった.</em></li>
-</ul>
-</div>
-</div>
-<div class="slide" data-index="51">
-  
-  <div class="slide__content"><h2>て-form · Nuance &amp; register (cont.)</h2>
-<p>In formal writing, long chains of て-forms look chatty. Written Japanese often replaces the linking て with the bare ます-stem instead - 朝(あさ)6時(じ)に 起(お)き、新聞(しんぶん)を読(よ)む - which is compact and noticeably literary. You do not need to produce it at N5, but you will see it.</p>
-<p>One real limitation: the て-form does not mark <em>why</em> two events are next to each other. It only says they belong together, and the listener infers sequence, cause, or simple accompaniment from context. When you need the reason to be unmistakable, use <code>から</code> or <code>ので</code> instead.</p>
 </div>
 </div>
 <div class="slide" data-index="52">
+  
+  <div class="slide__content"><h2>て-form · Examples</h2>
+<p>ちょっと**<ruby>待<rt>ま</rt></ruby>って**。<br><em>Hang on a second.</em></p>
+<p><ruby>朝<rt>あさ</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>を**<ruby>食<rt>た</rt></ruby>べて**、<ruby>会社<rt>かいしゃ</rt></ruby>に<ruby>行<rt>い</rt></ruby>きます。<br><em>I have breakfast and then go to work.</em></p>
+<p><ruby>弟<rt>おとうと</rt></ruby>は<ruby>今<rt>いま</rt></ruby>シャワーを**<ruby>浴<rt>あ</rt></ruby>びて**います。<br><em>My brother is in the shower right now.</em></p>
+<p><ruby>駅<rt>えき</rt></ruby>まで**<ruby>歩<rt>ある</rt></ruby>いて**10<ruby>分<rt>ぷん</rt></ruby>ぐらいかかります。<br><em>It&#39;s about a ten-minute walk to the station.</em></p>
+</div>
+</div>
+<div class="slide" data-index="53">
+  
+  <div class="slide__content"><h2>て-form · Examples (cont.)</h2>
+<p><ruby>電気<rt>でんき</rt></ruby>を**<ruby>消<rt>け</rt></ruby>して**、<ruby>部屋<rt>へや</rt></ruby>を<ruby>出<rt>で</rt></ruby>ました。<br><em>I turned the light off and left the room.</em></p>
+<p><ruby>田中<rt>たなか</rt></ruby>さんは<ruby>背<rt>せ</rt></ruby>が**<ruby>高<rt>たか</rt></ruby>くて**、<ruby>髪<rt>かみ</rt></ruby>の<ruby>長<rt>なが</rt></ruby>い<ruby>人<rt>ひと</rt></ruby>です。<br><em>Tanaka is the tall one with long hair.</em></p>
+<p><ruby>昨日<rt>きのう</rt></ruby>は<ruby>朝<rt>あさ</rt></ruby>から<ruby>雨<rt>あめ</rt></ruby>が**<ruby>降<rt>ふ</rt></ruby>って**、<ruby>試合<rt>しあい</rt></ruby>が<ruby>中止<rt>ちゅうし</rt></ruby>になりました。<br><em>It rained from the morning yesterday and the match was called off.</em></p>
+<p>この<ruby>辺<rt>へん</rt></ruby>は<ruby>夜<rt>よる</rt></ruby>になると<ruby>店<rt>みせ</rt></ruby>が<ruby>全部<rt>ぜんぶ</rt></ruby><strong><ruby>閉<rt>し</rt></ruby>まって</strong>、<ruby>人<rt>ひと</rt></ruby>も<ruby>歩<rt>ある</rt></ruby>いていません。<br><em>Around here everything shuts at night and there&#39;s nobody about.</em></p>
+</div>
+</div>
+<div class="slide" data-index="54">
+  
+  <div class="slide__content"><h2>て-form · Nuance &amp; register</h2>
+<p>The て-form carries no politeness of its own - politeness is decided by whatever ends the sentence. <ruby>食<rt>た</rt></ruby>べて<ruby>行<rt>い</rt></ruby>く and <ruby>食<rt>た</rt></ruby>べて<ruby>行<rt>い</rt></ruby>きます differ only at the tail. That is exactly why it is so useful: a long chain of て-forms lets you build a complicated sentence and only worry about register at the very end.</p>
+<p>A bare て-form left at the end of a sentence is a <strong>casual request</strong>: ちょっと<ruby>待<rt>ま</rt></ruby>って, <ruby>見<rt>み</rt></ruby>せて, <ruby>手伝<rt>てつだ</rt></ruby>って. It is <code>～てください</code> with the polite part bitten off, so it is friendly among equals and rude upwards. Softening it with <code>ね</code> - <ruby>待<rt>ま</rt></ruby>ってね - makes it gentler; adding <code>よ</code> makes it more insistent.</p>
+<p>Two spoken contractions to expect early, because they are everywhere:</p>
+</div>
+</div>
+<div class="slide" data-index="55">
+  
+  <div class="slide__content"><h2>て-form · Nuance &amp; register (cont.)</h2>
+<ul>
+<li><code>～ている</code> → <code>～てる</code>: <ruby>何<rt>なに</rt></ruby>してるの？ , <ruby>待<rt>ま</rt></ruby>ってるよ.</li>
+<li><code>～ておく</code> → <code>～とく</code>, <code>～てしまう</code> → <code>～ちゃう</code>: <ruby>買<rt>か</rt></ruby>っとく,<br><em><ruby>食<rt>た</rt></ruby>べちゃった.</em></li>
+</ul>
+<p>In formal writing, long chains of て-forms look chatty. Written Japanese often replaces the linking て with the bare ます-stem instead - <ruby>朝<rt>あさ</rt></ruby>6<ruby>時<rt>じ</rt></ruby>に <ruby>起<rt>お</rt></ruby>き、<ruby>新聞<rt>しんぶん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>む - which is compact and noticeably literary. You do not need to produce it at N5, but you will see it.</p>
+<p>One real limitation: the て-form does not mark <em>why</em> two events are next to each other. It only says they belong together, and the listener infers sequence, cause, or simple accompaniment from context. When you need the reason to be unmistakable, use <code>から</code> or <code>ので</code> instead.</p>
+</div>
+</div>
+<div class="slide" data-index="56">
   
   <div class="slide__content"><h2>て-form · ～て vs ～てから</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - plain <code>～て</code> says the events belong together; <code>～てから</code> says the first one <strong>finished</strong> before the second started, and puts weight on that order.</p>
 </blockquote>
-<p>手(て)を<strong>洗(あら)って</strong>、ご飯(はん)を食(た)べます。<br><em>I&#39;ll wash my hands and eat.</em></p>
-<p>手(て)を<strong>洗(あら)ってから</strong>、ご飯(はん)を食(た)べます。<br><em>I&#39;ll eat after washing my hands.</em></p>
+<p><ruby>手<rt>て</rt></ruby>を**<ruby>洗<rt>あら</rt></ruby>って**、ご<ruby>飯<rt>はん</rt></ruby>を<ruby>食<rt>た</rt></ruby>べます。<br><em>I&#39;ll wash my hands and eat.</em></p>
+<p><ruby>手<rt>て</rt></ruby>を**<ruby>洗<rt>あら</rt></ruby>ってから**、ご<ruby>飯<rt>はん</rt></ruby>を<ruby>食<rt>た</rt></ruby>べます。<br><em>I&#39;ll eat after washing my hands.</em></p>
 <p>The difference is emphasis. With plain <code>て</code> the two actions are simply a routine; with <code>てから</code> you are insisting on the order - first this, <em>then</em> that. So <code>てから</code> is what you want in instructions and in warnings, and it sounds fussy when the order was never in doubt.</p>
 </div>
 </div>
-<div class="slide" data-index="53">
+<div class="slide" data-index="57">
   
   <div class="slide__content"><h2>て-form · ～なくて vs ～ないで</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>～なくて</code> gives a <strong>reason</strong>; <code>～ないで</code> describes <strong>how</strong> something was done, or asks someone <strong>not</strong> to do it.</p>
 </blockquote>
-<p>バスが<strong>来(こ)なくて</strong>、会議(かいぎ)に遅(おく)れました。<br><em>The bus didn&#39;t come, so I was late for the meeting.</em></p>
-<p>朝(あさ)ご飯(はん)を<strong>食(た)べないで</strong>学校(がっこう)に行(い)きました。<br><em>I went to school without eating breakfast.</em></p>
-<p>Swap them and you get nonsense: ❌バスが来(こ)ないで、会議(かいぎ)に 遅(おく)れました. A useful test - if you could put &quot;so&quot; or &quot;because&quot; in the English, use <code>なくて</code>; if you could put &quot;without&quot;, use <code>ないで</code>. Requests are always <code>ないで</code>: ここに車(くるま)を止(と)めないでください.</p>
-<p>Adjectives and nouns only have the <code>なくて</code> option: 安(やす)くなくて, 学生(がくせい)じゃなくて.</p>
+<p>バスが**<ruby>来<rt>こ</rt></ruby>なくて**、<ruby>会議<rt>かいぎ</rt></ruby>に<ruby>遅<rt>おく</rt></ruby>れました。<br><em>The bus didn&#39;t come, so I was late for the meeting.</em></p>
+<p><ruby>朝<rt>あさ</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>を**<ruby>食<rt>た</rt></ruby>べないで**<ruby>学校<rt>がっこう</rt></ruby>に<ruby>行<rt>い</rt></ruby>きました。<br><em>I went to school without eating breakfast.</em></p>
 </div>
 </div>
-<div class="slide" data-index="54">
+<div class="slide" data-index="58">
+  
+  <div class="slide__content"><h2>て-form · ～なくて vs ～ないで (cont.)</h2>
+<p>Swap them and you get nonsense: ❌バスが<ruby>来<rt>こ</rt></ruby>ないで、<ruby>会議<rt>かいぎ</rt></ruby>に <ruby>遅<rt>おく</rt></ruby>れました. A useful test - if you could put &quot;so&quot; or &quot;because&quot; in the English, use <code>なくて</code>; if you could put &quot;without&quot;, use <code>ないで</code>. Requests are always <code>ないで</code>: ここに<ruby>車<rt>くるま</rt></ruby>を<ruby>止<rt>と</rt></ruby>めないでください.</p>
+<p>Adjectives and nouns only have the <code>なくて</code> option: <ruby>安<rt>やす</rt></ruby>くなくて, <ruby>学生<rt>がくせい</rt></ruby>じゃなくて.</p>
+</div>
+</div>
+<div class="slide" data-index="59">
   
   <div class="slide__content"><h2>て-form · ～て (cause) vs ～から</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>～て</code> can only introduce a cause when the second clause is something <strong>outside your control</strong>: a feeling, a result, an inability. If the second clause is a request, an invitation, or a decision, you must use <code>から</code> or <code>ので</code>.</p>
 </blockquote>
-<p>ニュースを聞(き)い<strong>て</strong>、びっくりしました。<br><em>I was startled when I heard the news.</em></p>
-<p>今日(きょう)は忙(いそが)しい<strong>から</strong>、早(はや)く帰(かえ)ってください。<br><em>I&#39;m busy today, so please go home early.</em></p>
-<p>The second sentence cannot use <code>て</code>: ❌忙(いそが)しくて、早(はや)く 帰(かえ)ってください is ungrammatical, because a <code>て</code> cause clause refuses to be followed by a command, a request, an invitation or a volitional. This is the most common way learners misuse the て-form, and it is invisible in translation - English &quot;so&quot; covers both.</p>
-</div>
-</div>
-<div class="slide" data-index="55">
-  
-  <div class="slide__content"><h2>て-form · Common mistakes</h2>
-<ul>
-<li><p>❌ 行(い)いて → ✅ <strong>行(い)って</strong><br><em>行(い)く is the one exception to the く → いて rule. Everything else with く behaves normally: 書(か)いて, 聞(き)いて, 歩(ある)いて.</em></p>
-</li>
-<li><p>❌ 飲(の)んて → ✅ <strong>飲(の)んで</strong><br><em>む・ぶ・ぬ take んで with a <strong>voiced</strong> で, never んて. Same for 遊(あそ)んで and 死(し)んで.</em></p>
-</li>
-<li><p>❌ 切(き)て → ✅ <strong>切(き)って</strong><br><em>切(き)る is an う-verb even though it ends in る, so it takes って. Contrast 着(き)る &quot;wear&quot;, which really is a る-verb: 着(き)て.</em></p>
-</li>
-<li><p>❌ この部屋(へや)は広(ひろ)いで明(あか)るいです。 → ✅ この部屋(へや)は<strong>広(ひろ)くて</strong>明(あか)るいです。<br><em><code>で</code> is the connective for nouns and な-adjectives. い-adjectives drop the い and take くて.</em></p>
-</li>
-<li><p>❌ 食(た)べるてください。 → ✅ <strong>食(た)べて</strong>ください。<br><em><code>ください</code> attaches to the て-form, not to the dictionary form. Drop the る before adding て.</em></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="slide" data-index="56">
-  
-  <div class="slide__content"><h2>て-form · Practice 1</h2>
-<p><strong>1.</strong> 窓(まど)を開(あ)け____、部屋(へや)の空気(くうき)を入(い)れかえた。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-開(あ)<strong>けて</strong></p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-開(あ)ける is a る-verb: drop る and add て. Two actions in sequence, so the first verb goes into the て-form and only the last one carries the tense.</p>
-</div>
-</div>
-<div class="slide" data-index="57">
-  
-  <div class="slide__content"><h2>て-form · Practice 2</h2>
-<p><strong>2.</strong> 時間(じかん)が（なくて・ないで）、昼(ひる)ご飯(はん)が食(た)べられませんでした。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-時間(じかん)が<strong>なくて</strong>、昼(ひる)ご飯(はん)が食(た)べられませんでした。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-This is a cause - &quot;because there was no time&quot; - and causes take <code>なくて</code>. <code>ないで</code> would describe the manner of doing something, which makes no sense with an inability in the second clause.</p>
-</div>
-</div>
-<div class="slide" data-index="58">
-  
-  <div class="slide__content"><h2>て-form · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese: &quot;I got up at six, read the newspaper, and left the house at seven.&quot;</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-6時(じ)に<strong>起(お)きて</strong>、新聞(しんぶん)を<strong>読(よ)んで</strong>、7時(じ)に家(いえ)を出(で)ました。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Only the final verb takes tense and politeness; the て-forms in front of it are neutral. 起(お)きる is a る-verb (起(お)きて) and 読(よ)む is an う-verb ending in む, so it takes んで.</p>
-</div>
-</div>
-<div class="slide" data-index="59">
-  
-  <div class="slide__content"><h2>て-form · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 雨(あめ)が降(ふ)って、傘(かさ)を持(も)って行(い)ってください。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 雨(あめ)が<strong>降(ふ)っているから</strong>、傘(かさ)を持(も)って行(い)ってください。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-A <code>て</code> clause used as a cause cannot be followed by a request. Swap it for <code>から</code> or <code>ので</code>. The second 持(も)って is fine - that one is manner, not cause.</p>
+<p>ニュースを<ruby>聞<rt>き</rt></ruby>い<strong>て</strong>、びっくりしました。<br><em>I was startled when I heard the news.</em></p>
+<p><ruby>今日<rt>きょう</rt></ruby>は<ruby>忙<rt>いそが</rt></ruby>しい<strong>から</strong>、<ruby>早<rt>はや</rt></ruby>く<ruby>帰<rt>かえ</rt></ruby>ってください。<br><em>I&#39;m busy today, so please go home early.</em></p>
 </div>
 </div>
 <div class="slide" data-index="60">
   
+  <div class="slide__content"><h2>て-form · ～て (cause) vs ～から (cont.)</h2>
+<p>The second sentence cannot use <code>て</code>: ❌<ruby>忙<rt>いそが</rt></ruby>しくて、<ruby>早<rt>はや</rt></ruby>く <ruby>帰<rt>かえ</rt></ruby>ってください is ungrammatical, because a <code>て</code> cause clause refuses to be followed by a command, a request, an invitation or a volitional. This is the most common way learners misuse the て-form, and it is invisible in translation - English &quot;so&quot; covers both.</p>
+</div>
+</div>
+<div class="slide" data-index="61">
+  
+  <div class="slide__content"><h2>て-form · Common mistakes</h2>
+<ul>
+<li><p>❌ <ruby>行<rt>い</rt></ruby>いて → ✅ <strong><ruby>行<rt>い</rt></ruby>って</strong><br><em><ruby>行<rt>い</rt></ruby>く is the one exception to the く → いて rule. Everything else with く behaves normally: <ruby>書<rt>か</rt></ruby>いて, <ruby>聞<rt>き</rt></ruby>いて, <ruby>歩<rt>ある</rt></ruby>いて.</em></p>
+</li>
+<li><p>❌ <ruby>飲<rt>の</rt></ruby>んて → ✅ <strong><ruby>飲<rt>の</rt></ruby>んで</strong><br><em>む・ぶ・ぬ take んで with a <strong>voiced</strong> で, never んて. Same for <ruby>遊<rt>あそ</rt></ruby>んで and <ruby>死<rt>し</rt></ruby>んで.</em></p>
+</li>
+<li><p>❌ <ruby>切<rt>き</rt></ruby>て → ✅ <strong><ruby>切<rt>き</rt></ruby>って</strong><br><em><ruby>切<rt>き</rt></ruby>る is an う-verb even though it ends in る, so it takes って. Contrast <ruby>着<rt>き</rt></ruby>る &quot;wear&quot;, which really is a る-verb: <ruby>着<rt>き</rt></ruby>て.</em></p>
+</li>
+<li><p>❌ この<ruby>部屋<rt>へや</rt></ruby>は<ruby>広<rt>ひろ</rt></ruby>いで<ruby>明<rt>あか</rt></ruby>るいです。 → ✅ この<ruby>部屋<rt>へや</rt></ruby>は**<ruby>広<rt>ひろ</rt></ruby>くて**<ruby>明<rt>あか</rt></ruby>るいです。<br><em><code>で</code> is the connective for nouns and な-adjectives. い-adjectives drop the い and take くて.</em></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="62">
+  
+  <div class="slide__content"><h2>て-form · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ <ruby>食<rt>た</rt></ruby>べるてください。 → ✅ <strong><ruby>食<rt>た</rt></ruby>べて</strong>ください。<br><em><code>ください</code> attaches to the て-form, not to the dictionary form. Drop the る before adding て.</em></li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="63">
+  
+  <div class="slide__content"><h2>て-form · Practice 1</h2>
+<p><strong>1.</strong> <ruby>窓<rt>まど</rt></ruby>を<ruby>開<rt>あ</rt></ruby>け____、<ruby>部屋<rt>へや</rt></ruby>の<ruby>空気<rt>くうき</rt></ruby>を<ruby>入<rt>い</rt></ruby>れかえた。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>開<rt>あ</rt></ruby><strong>けて</strong></p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>開<rt>あ</rt></ruby>ける is a る-verb: drop る and add て. Two actions in sequence, so the first verb goes into the て-form and only the last one carries the tense.</p>
+</div>
+</div>
+<div class="slide" data-index="64">
+  
+  <div class="slide__content"><h2>て-form · Practice 2</h2>
+<p><strong>2.</strong> <ruby>時間<rt>じかん</rt></ruby>が（なくて・ないで）、<ruby>昼<rt>ひる</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>が<ruby>食<rt>た</rt></ruby>べられませんでした。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>時間<rt>じかん</rt></ruby>が<strong>なくて</strong>、<ruby>昼<rt>ひる</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>が<ruby>食<rt>た</rt></ruby>べられませんでした。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+This is a cause - &quot;because there was no time&quot; - and causes take <code>なくて</code>. <code>ないで</code> would describe the manner of doing something, which makes no sense with an inability in the second clause.</p>
+</div>
+</div>
+<div class="slide" data-index="65">
+  
+  <div class="slide__content"><h2>て-form · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese: &quot;I got up at six, read the newspaper, and left the house at seven.&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+6<ruby>時<rt>じ</rt></ruby>に**<ruby>起<rt>お</rt></ruby>きて**、<ruby>新聞<rt>しんぶん</rt></ruby>を**<ruby>読<rt>よ</rt></ruby>んで**、7<ruby>時<rt>じ</rt></ruby>に<ruby>家<rt>いえ</rt></ruby>を<ruby>出<rt>で</rt></ruby>ました。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+Only the final verb takes tense and politeness; the て-forms in front of it are neutral. <ruby>起<rt>お</rt></ruby>きる is a る-verb (<ruby>起<rt>お</rt></ruby>きて) and <ruby>読<rt>よ</rt></ruby>む is an う-verb ending in む, so it takes んで.</p>
+</div>
+</div>
+<div class="slide" data-index="66">
+  
+  <div class="slide__content"><h2>て-form · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the error: <ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>って、<ruby>傘<rt>かさ</rt></ruby>を<ruby>持<rt>も</rt></ruby>って<ruby>行<rt>い</rt></ruby>ってください。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ <ruby>雨<rt>あめ</rt></ruby>が**<ruby>降<rt>ふ</rt></ruby>っているから**、<ruby>傘<rt>かさ</rt></ruby>を<ruby>持<rt>も</rt></ruby>って<ruby>行<rt>い</rt></ruby>ってください。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+A <code>て</code> clause used as a cause cannot be followed by a request. Swap it for <code>から</code> or <code>ので</code>. The second <ruby>持<rt>も</rt></ruby>って is fine - that one is manner, not cause.</p>
+</div>
+</div>
+<div class="slide" data-index="67">
+  
   <div class="slide__content"><h2>て-form · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 薬(くすり)を飲(の)んで、寝(ね)ます。 (b) 薬(くすり)を飲(の)んでから、寝(ね)ます。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>薬<rt>くすり</rt></ruby>を<ruby>飲<rt>の</rt></ruby>んで、<ruby>寝<rt>ね</rt></ruby>ます。 (b) <ruby>薬<rt>くすり</rt></ruby>を<ruby>飲<rt>の</rt></ruby>んでから、<ruby>寝<rt>ね</rt></ruby>ます。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 Both describe the same two actions in the same order. (a) simply chains them - it is how you would describe your evening routine, with no particular stress on sequence. (b) foregrounds the order, so it reads as &quot;not before the medicine - medicine first, then bed.&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 That is why (b) is what a pharmacist or a parent would say: <code>てから</code> is the form you reach for when getting the order right actually matters.</p>
 </div>
 </div>
-<div class="slide" data-index="61">
+<div class="slide" data-index="68">
   
   <div class="slide__content"><h1>た-form / plain past</h1>
 <p><strong>Meaning</strong> · the plain past - &quot;did&quot;, &quot;was&quot; - and the base that a whole family of patterns attaches to</p>
 <p>The た-form is the plain-style counterpart of <code>～ました</code>. It says an event happened, or that something is now finished. It is also structural: <code>～たら</code>, <code>～たり</code>, <code>～たことがある</code>, <code>～たあとで</code> and <code>～たほうがいい</code> are all built on it, and none of them will make sense until this form is automatic.</p>
 <blockquote>
-<p><strong>Note</strong> - verbs come in three classes: <strong>う-verbs</strong> (五段(ごだん) / godan / Group 1), <strong>る-verbs</strong> (一段(いちだん) / ichidan / Group 2), and the irregulars する and 来(く)る (Group 3). This page says <strong>う-verb</strong> and <strong>る-verb</strong>.</p>
+<p><strong>Note</strong> - verbs come in three classes: <strong>う-verbs</strong> (<ruby>五段<rt>ごだん</rt></ruby> / godan / Group 1), <strong>る-verbs</strong> (<ruby>一段<rt>いちだん</rt></ruby> / ichidan / Group 2), and the irregulars する and <ruby>来<rt>く</rt></ruby>る (Group 3). This page says <strong>う-verb</strong> and <strong>る-verb</strong>.</p>
 </blockquote>
 </div>
 </div>
-<div class="slide" data-index="62">
+<div class="slide" data-index="69">
   
   <div class="slide__content"><h2>た-form / plain past · Formation</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - <strong>the た-form is the て-form with た instead of て.</strong> Every sound change is identical; only the last letter differs, and で becomes だ. 飲(の)んで → 飲(の)んだ. 書(か)いて → 書(か)いた. If you know one, you already know the other.</p>
+<p><strong>Rule of thumb</strong> - <strong>the た-form is the て-form with た instead of て.</strong> Every sound change is identical; only the last letter differs, and で becomes だ. <ruby>飲<rt>の</rt></ruby>んで → <ruby>飲<rt>の</rt></ruby>んだ. <ruby>書<rt>か</rt></ruby>いて → <ruby>書<rt>か</rt></ruby>いた. If you know one, you already know the other.</p>
 </blockquote>
 </div>
 </div>
-<div class="slide" data-index="63">
+<div class="slide" data-index="70">
   
   <div class="slide__content"><h2>た-form / plain past · Formation (cont.)</h2>
 <table>
@@ -3589,52 +3642,52 @@ That is why (b) is what a pharmacist or a parent would say: <code>てから</cod
 <tbody><tr>
 <td>Verb (う-verb, う・つ・る)</td>
 <td>→ った</td>
-<td>買(か)う → 買(か)った</td>
+<td><ruby>買<rt>か</rt></ruby>う → <ruby>買<rt>か</rt></ruby>った</td>
 </tr>
 <tr>
 <td>Verb (う-verb, む・ぶ・ぬ)</td>
 <td>→ んだ</td>
-<td>読(よ)む → 読(よ)んだ</td>
+<td><ruby>読<rt>よ</rt></ruby>む → <ruby>読<rt>よ</rt></ruby>んだ</td>
 </tr>
 <tr>
 <td>Verb (う-verb, く)</td>
 <td>→ いた</td>
-<td>書(か)く → 書(か)いた</td>
+<td><ruby>書<rt>か</rt></ruby>く → <ruby>書<rt>か</rt></ruby>いた</td>
 </tr>
 <tr>
 <td>Verb (う-verb, ぐ)</td>
 <td>→ いだ</td>
-<td>泳(およ)ぐ → 泳(およ)いだ</td>
+<td><ruby>泳<rt>およ</rt></ruby>ぐ → <ruby>泳<rt>およ</rt></ruby>いだ</td>
 </tr>
 <tr>
 <td>Verb (う-verb, す)</td>
 <td>→ した</td>
-<td>話(はな)す → 話(はな)した</td>
+<td><ruby>話<rt>はな</rt></ruby>す → <ruby>話<rt>はな</rt></ruby>した</td>
 </tr>
 <tr>
-<td>Verb (行(い)く, exception)</td>
+<td>Verb (<ruby>行<rt>い</rt></ruby>く, exception)</td>
 <td>→ った</td>
-<td>行(い)く → 行(い)った</td>
+<td><ruby>行<rt>い</rt></ruby>く → <ruby>行<rt>い</rt></ruby>った</td>
 </tr>
 <tr>
 <td>Verb (る-verb)</td>
 <td>drop る, + た</td>
-<td>寝(ね)る → 寝(ね)た</td>
+<td><ruby>寝<rt>ね</rt></ruby>る → <ruby>寝<rt>ね</rt></ruby>た</td>
 </tr>
 <tr>
 <td>Verb (する)</td>
 <td>した</td>
-<td>運動(うんどう)する → 運動(うんどう)した</td>
+<td><ruby>運動<rt>うんどう</rt></ruby>する → <ruby>運動<rt>うんどう</rt></ruby>した</td>
 </tr>
 <tr>
-<td>Verb (来(く)る)</td>
+<td>Verb (<ruby>来<rt>く</rt></ruby>る)</td>
 <td>きた</td>
-<td>来(く)る → 来(き)た</td>
+<td><ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>き</rt></ruby>た</td>
 </tr>
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="64">
+<div class="slide" data-index="71">
   
   <div class="slide__content"><h2>た-form / plain past · Formation (cont.)</h2>
 <table>
@@ -3648,28 +3701,28 @@ That is why (b) is what a pharmacist or a parent would say: <code>てから</cod
 <tbody><tr>
 <td>Verb (negative)</td>
 <td>ない → なかった</td>
-<td>行(い)かない → 行(い)かなかった</td>
+<td><ruby>行<rt>い</rt></ruby>かない → <ruby>行<rt>い</rt></ruby>かなかった</td>
 </tr>
 <tr>
 <td>い-adjective</td>
 <td>い → かった</td>
-<td>寒(さむ)い → 寒(さむ)かった</td>
+<td><ruby>寒<rt>さむ</rt></ruby>い → <ruby>寒<rt>さむ</rt></ruby>かった</td>
 </tr>
 <tr>
 <td>な-adjective</td>
 <td>+ だった</td>
-<td>元気(げんき) → 元気(げんき)だった</td>
+<td><ruby>元気<rt>げんき</rt></ruby> → <ruby>元気<rt>げんき</rt></ruby>だった</td>
 </tr>
 <tr>
 <td>Noun</td>
 <td>+ だった</td>
-<td>休(やす)み → 休(やす)みだった</td>
+<td><ruby>休<rt>やす</rt></ruby>み → <ruby>休<rt>やす</rt></ruby>みだった</td>
 </tr>
 </tbody></table>
 <p>The う-verbs again, one ending at a time:</p>
 </div>
 </div>
-<div class="slide" data-index="65">
+<div class="slide" data-index="72">
   
   <div class="slide__content"><h2>た-form / plain past · Formation (cont.)</h2>
 <table>
@@ -3683,217 +3736,233 @@ That is why (b) is what a pharmacist or a parent would say: <code>てから</cod
 <tbody><tr>
 <td>う</td>
 <td>った</td>
-<td>習(なら)う → 習(なら)った</td>
+<td><ruby>習<rt>なら</rt></ruby>う → <ruby>習<rt>なら</rt></ruby>った</td>
 </tr>
 <tr>
 <td>つ</td>
 <td>った</td>
-<td>勝(か)つ → 勝(か)った</td>
+<td><ruby>勝<rt>か</rt></ruby>つ → <ruby>勝<rt>か</rt></ruby>った</td>
 </tr>
 <tr>
 <td>る</td>
 <td>った</td>
-<td>取(と)る → 取(と)った</td>
+<td><ruby>取<rt>と</rt></ruby>る → <ruby>取<rt>と</rt></ruby>った</td>
 </tr>
 <tr>
 <td>む</td>
 <td>んだ</td>
-<td>住(す)む → 住(す)んだ</td>
+<td><ruby>住<rt>す</rt></ruby>む → <ruby>住<rt>す</rt></ruby>んだ</td>
 </tr>
 <tr>
 <td>ぶ</td>
 <td>んだ</td>
-<td>呼(よ)ぶ → 呼(よ)んだ</td>
+<td><ruby>呼<rt>よ</rt></ruby>ぶ → <ruby>呼<rt>よ</rt></ruby>んだ</td>
 </tr>
 <tr>
 <td>ぬ</td>
 <td>んだ</td>
-<td>死(し)ぬ → 死(し)んだ</td>
+<td><ruby>死<rt>し</rt></ruby>ぬ → <ruby>死<rt>し</rt></ruby>んだ</td>
 </tr>
 <tr>
 <td>く</td>
 <td>いた</td>
-<td>着(つ)く → 着(つ)いた</td>
+<td><ruby>着<rt>つ</rt></ruby>く → <ruby>着<rt>つ</rt></ruby>いた</td>
 </tr>
 <tr>
 <td>ぐ</td>
 <td>いだ</td>
-<td>急(いそ)ぐ → 急(いそ)いだ</td>
+<td><ruby>急<rt>いそ</rt></ruby>ぐ → <ruby>急<rt>いそ</rt></ruby>いだ</td>
 </tr>
 <tr>
 <td>す</td>
 <td>した</td>
-<td>返(かえ)す → 返(かえ)した</td>
+<td><ruby>返<rt>かえ</rt></ruby>す → <ruby>返<rt>かえ</rt></ruby>した</td>
 </tr>
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="66">
+<div class="slide" data-index="73">
   
   <div class="slide__content"><h2>た-form / plain past · Formation (cont.)</h2>
 <p>Patterns that need the た-form to exist at all:</p>
 <ul>
-<li><code>～たら</code> - if / when. 着(つ)いたら電話(でんわ)して。</li>
-<li><code>～たり～たりする</code> - doing this and that. 寝(ね)たり起(お)きたり。</li>
-<li><code>～たことがある</code> - have ever done. 登(のぼ)ったことがある。</li>
-<li><code>～たあとで</code> - after. 食(た)べたあとで。</li>
-<li><code>～たほうがいい</code> - had better. 休(やす)んだほうがいい。</li>
+<li><code>～たら</code> - if / when. <ruby>着<rt>つ</rt></ruby>いたら<ruby>電話<rt>でんわ</rt></ruby>して。</li>
+<li><code>～たり～たりする</code> - doing this and that. <ruby>寝<rt>ね</rt></ruby>たり<ruby>起<rt>お</rt></ruby>きたり。</li>
+<li><code>～たことがある</code> - have ever done. <ruby>登<rt>のぼ</rt></ruby>ったことがある。</li>
+<li><code>～たあとで</code> - after. <ruby>食<rt>た</rt></ruby>べたあとで。</li>
+<li><code>～たほうがいい</code> - had better. <ruby>休<rt>やす</rt></ruby>んだほうがいい。</li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="67">
+<div class="slide" data-index="74">
   
   <div class="slide__content"><h2>た-form / plain past · Examples</h2>
-<p>もう<strong>食(た)べた</strong>？<br><em>Have you eaten yet?</em></p>
-<p>昨日(きのう)は早(はや)く<strong>寝(ね)た</strong>。<br><em>I went to bed early yesterday.</em></p>
-<p>あ、鍵(かぎ)、ここに<strong>あった</strong>。<br><em>Oh - the key was here after all.</em></p>
-<p>去年(きょねん)の夏(なつ)は本当(ほんとう)に<strong>暑(あつ)かった</strong>。<br><em>Last summer was really hot.</em></p>
-<p>子(こ)どものころ、この川(かわ)でよく<strong>泳(およ)いだ</strong>。<br><em>When I was a child I often swam in this river.</em></p>
+<p>もう**<ruby>食<rt>た</rt></ruby>べた**？<br><em>Have you eaten yet?</em></p>
+<p><ruby>昨日<rt>きのう</rt></ruby>は<ruby>早<rt>はや</rt></ruby>く**<ruby>寝<rt>ね</rt></ruby>た**。<br><em>I went to bed early yesterday.</em></p>
+<p>あ、<ruby>鍵<rt>かぎ</rt></ruby>、ここに<strong>あった</strong>。<br><em>Oh - the key was here after all.</em></p>
+<p><ruby>去年<rt>きょねん</rt></ruby>の<ruby>夏<rt>なつ</rt></ruby>は<ruby>本当<rt>ほんとう</rt></ruby>に**<ruby>暑<rt>あつ</rt></ruby>かった**。<br><em>Last summer was really hot.</em></p>
 </div>
 </div>
-<div class="slide" data-index="68">
+<div class="slide" data-index="75">
   
   <div class="slide__content"><h2>た-form / plain past · Examples (cont.)</h2>
-<p>これは去年(きょねん)京都(きょうと)で<strong>撮(と)った</strong>写真(しゃしん)です。<br><em>This is a photo I took in Kyoto last year.</em></p>
-<p>大学(だいがく)のとき習(なら)った中国語(ちゅうごくご)を、すっかり<strong>忘(わす)れた</strong>。<br><em>I&#39;ve completely forgotten the Chinese I learned at university.</em></p>
-<p>空港(くうこう)に<strong>着(つ)いた</strong>ら、すぐ連絡(れんらく)しますので、心配(しんぱい)しないでください。<br><em>I&#39;ll get in touch as soon as I land, so please don&#39;t worry.</em></p>
+<p><ruby>子<rt>こ</rt></ruby>どものころ、この<ruby>川<rt>かわ</rt></ruby>でよく**<ruby>泳<rt>およ</rt></ruby>いだ**。<br><em>When I was a child I often swam in this river.</em></p>
+<p>これは<ruby>去年<rt>きょねん</rt></ruby><ruby>京都<rt>きょうと</rt></ruby>で**<ruby>撮<rt>と</rt></ruby>った**<ruby>写真<rt>しゃしん</rt></ruby>です。<br><em>This is a photo I took in Kyoto last year.</em></p>
+<p><ruby>大学<rt>だいがく</rt></ruby>のとき<ruby>習<rt>なら</rt></ruby>った<ruby>中国語<rt>ちゅうごくご</rt></ruby>を、すっかり**<ruby>忘<rt>わす</rt></ruby>れた**。<br><em>I&#39;ve completely forgotten the Chinese I learned at university.</em></p>
+<p><ruby>空港<rt>くうこう</rt></ruby>に**<ruby>着<rt>つ</rt></ruby>いた**ら、すぐ<ruby>連絡<rt>れんらく</rt></ruby>しますので、<ruby>心配<rt>しんぱい</rt></ruby>しないでください。<br><em>I&#39;ll get in touch as soon as I land, so please don&#39;t worry.</em></p>
 </div>
 </div>
-<div class="slide" data-index="69">
+<div class="slide" data-index="76">
   
   <div class="slide__content"><h2>た-form / plain past · Nuance &amp; register</h2>
-<p>The た-form is plain style. Ending a sentence with it to a stranger or a superior is too familiar - 食(た)べた to your boss should be 食(た)べました. Inside a sentence, though, plain is compulsory regardless of politeness: the verb before とき, ので, から, あとで, and before any noun it modifies, goes into the た-form even when the sentence ends politely. 買(か)った本(ほん)を読(よ)んでいます is correct; ❌買(か)いました本(ほん) is not.</p>
+<p>The た-form is plain style. Ending a sentence with it to a stranger or a superior is too familiar - <ruby>食<rt>た</rt></ruby>べた to your boss should be <ruby>食<rt>た</rt></ruby>べました. Inside a sentence, though, plain is compulsory regardless of politeness: the verb before とき, ので, から, あとで, and before any noun it modifies, goes into the た-form even when the sentence ends politely. <ruby>買<rt>か</rt></ruby>った<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>んでいます is correct; ❌<ruby>買<rt>か</rt></ruby>いました<ruby>本<rt>ほん</rt></ruby> is not.</p>
 <p>The た-form does more than past tense. Three uses that surprise learners:</p>
 </div>
 </div>
-<div class="slide" data-index="70">
+<div class="slide" data-index="77">
   
   <div class="slide__content"><h2>た-form / plain past · Nuance &amp; register (cont.)</h2>
 <ul>
-<li><strong>Completion, not past time.</strong> バスが来(き)た! - the bus is arriving right<br><em>now; you are reporting that the awaited event has landed. Likewise あ、あった &quot;there it is&quot;, said while still looking at the thing.</em></li>
-<li><strong>A sudden recollection.</strong> 明日(あした)、休(やす)みだったね - &quot;oh, tomorrow&#39;s<br><em>a day off, isn&#39;t it.&quot; Nothing is past; the <code>た</code> marks the fact newly clicking into place.</em></li>
-<li><strong>A sharp command in casual speech.</strong> 帰(かえ)った、帰(かえ)った! -<br><em>&quot;go on, off you go!&quot;, typical of a shopkeeper closing up. Rough, and worth recognising rather than using.</em></li>
+<li><strong>Completion, not past time.</strong> バスが<ruby>来<rt>き</rt></ruby>た! - the bus is arriving right<br><em>now; you are reporting that the awaited event has landed. Likewise あ、あった &quot;there it is&quot;, said while still looking at the thing.</em></li>
+<li><strong>A sudden recollection.</strong> <ruby>明日<rt>あした</rt></ruby>、<ruby>休<rt>やす</rt></ruby>みだったね - &quot;oh, tomorrow&#39;s<br><em>a day off, isn&#39;t it.&quot; Nothing is past; the <code>た</code> marks the fact newly clicking into place.</em></li>
+<li><strong>A sharp command in casual speech.</strong> <ruby>帰<rt>かえ</rt></ruby>った、<ruby>帰<rt>かえ</rt></ruby>った! -<br><em>&quot;go on, off you go!&quot;, typical of a shopkeeper closing up. Rough, and worth recognising rather than using.</em></li>
 </ul>
-<p>In writing, plain past is the default: novels, newspapers and reports are written in <code>た</code>, not <code>ました</code>. So the た-form is not &quot;informal Japanese&quot;, it is <em>plain-style</em> Japanese - a different axis from politeness.</p>
 </div>
 </div>
-<div class="slide" data-index="71">
+<div class="slide" data-index="78">
   
   <div class="slide__content"><h2>た-form / plain past · Nuance &amp; register (cont.)</h2>
-<p>In casual speech the た-form very often turns up inside the contraction <code>～ちゃった</code> (from <code>～てしまった</code>), and <code>～じゃった</code> after ん-forms: 忘(わす)れちゃった &quot;oh no, I forgot&quot;, 飲(の)んじゃった &quot;I went and drank it.&quot; Learners hear these long before they are taught them.</p>
+<p>In writing, plain past is the default: novels, newspapers and reports are written in <code>た</code>, not <code>ました</code>. So the た-form is not &quot;informal Japanese&quot;, it is <em>plain-style</em> Japanese - a different axis from politeness.</p>
+<p>In casual speech the た-form very often turns up inside the contraction <code>～ちゃった</code> (from <code>～てしまった</code>), and <code>～じゃった</code> after ん-forms: <ruby>忘<rt>わす</rt></ruby>れちゃった &quot;oh no, I forgot&quot;, <ruby>飲<rt>の</rt></ruby>んじゃった &quot;I went and drank it.&quot; Learners hear these long before they are taught them.</p>
 </div>
 </div>
-<div class="slide" data-index="72">
+<div class="slide" data-index="79">
   
   <div class="slide__content"><h2>た-form / plain past · ～た vs ～ました</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - same tense, different register. <code>ました</code> is polite style; <code>た</code> is plain style, and is also the only option inside a sentence.</p>
 </blockquote>
-<p>先週(せんしゅう)、新(あたら)しい自転車(じてんしゃ)を<strong>買(か)いました</strong>。<br><em>I bought a new bicycle last week.</em></p>
-<p>先週(せんしゅう)<strong>買(か)った</strong>自転車(じてんしゃ)が、もう壊(こわ)れました。<br><em>The bicycle I bought last week has already broken.</em></p>
-<p>In the second sentence the politeness sits on 壊(こわ)れました at the end. The relative clause modifying 自転車(じてんしゃ) has to be plain - this is a hard grammatical rule, not a stylistic preference.</p>
+<p><ruby>先週<rt>せんしゅう</rt></ruby>、<ruby>新<rt>あたら</rt></ruby>しい<ruby>自転車<rt>じてんしゃ</rt></ruby>を**<ruby>買<rt>か</rt></ruby>いました**。<br><em>I bought a new bicycle last week.</em></p>
+<p><ruby>先週<rt>せんしゅう</rt></ruby><strong><ruby>買<rt>か</rt></ruby>った</strong><ruby>自転車<rt>じてんしゃ</rt></ruby>が、もう<ruby>壊<rt>こわ</rt></ruby>れました。<br><em>The bicycle I bought last week has already broken.</em></p>
+<p>In the second sentence the politeness sits on <ruby>壊<rt>こわ</rt></ruby>れました at the end. The relative clause modifying <ruby>自転車<rt>じてんしゃ</rt></ruby> has to be plain - this is a hard grammatical rule, not a stylistic preference.</p>
 </div>
 </div>
-<div class="slide" data-index="73">
+<div class="slide" data-index="80">
   
   <div class="slide__content"><h2>た-form / plain past · ～た vs ～ていた</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>～た</code> reports an event as a single point; <code>～ていた</code> looks inside it and describes it as ongoing, repeated, or a state that held for a while.</p>
 </blockquote>
-<p>昨日(きのう)、本(ほん)を<strong>読(よ)んだ</strong>。<br><em>I read a book yesterday.</em></p>
-<p>昨日(きのう)の夜(よる)はずっと本(ほん)を<strong>読(よ)んでいた</strong>。<br><em>I was reading all last night.</em></p>
-<p>The trap is verbs of change. 結婚(けっこん)した means the wedding happened; 結婚(けっこん)している means the person is married <em>now</em>. 知(し)る behaves the same way: &quot;I know&quot; is 知(し)っています, never a plain 知(し)ります, while the negative flips back - 知(し)りません &quot;I don&#39;t know&quot;, 知(し)りませんでした &quot;I didn&#39;t know.&quot;</p>
+<p><ruby>昨日<rt>きのう</rt></ruby>、<ruby>本<rt>ほん</rt></ruby>を**<ruby>読<rt>よ</rt></ruby>んだ**。<br><em>I read a book yesterday.</em></p>
+<p><ruby>昨日<rt>きのう</rt></ruby>の<ruby>夜<rt>よる</rt></ruby>はずっと<ruby>本<rt>ほん</rt></ruby>を**<ruby>読<rt>よ</rt></ruby>んでいた**。<br><em>I was reading all last night.</em></p>
 </div>
 </div>
-<div class="slide" data-index="74">
+<div class="slide" data-index="81">
+  
+  <div class="slide__content"><h2>た-form / plain past · ～た vs ～ていた (cont.)</h2>
+<p>The trap is verbs of change. <ruby>結婚<rt>けっこん</rt></ruby>した means the wedding happened; <ruby>結婚<rt>けっこん</rt></ruby>している means the person is married <em>now</em>. <ruby>知<rt>し</rt></ruby>る behaves the same way: &quot;I know&quot; is <ruby>知<rt>し</rt></ruby>っています, never a plain <ruby>知<rt>し</rt></ruby>ります, while the negative flips back - <ruby>知<rt>し</rt></ruby>りません &quot;I don&#39;t know&quot;, <ruby>知<rt>し</rt></ruby>りませんでした &quot;I didn&#39;t know.&quot;</p>
+</div>
+</div>
+<div class="slide" data-index="82">
   
   <div class="slide__content"><h2>た-form / plain past · ～た vs ～たことがある</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>～た</code> reports a <strong>particular occasion</strong>; <code>～たことがある</code> reports that the thing is somewhere in your <strong>experience</strong>, with no occasion attached.</p>
 </blockquote>
-<p>2019年(ねん)に北海道(ほっかいどう)へ<strong>行(い)った</strong>。<br><em>I went to Hokkaido in 2019.</em></p>
-<p>北海道(ほっかいどう)へ<strong>行(い)ったことがある</strong>。<br><em>I&#39;ve been to Hokkaido before.</em></p>
-<p>Because <code>たことがある</code> is about experience rather than occasion, it clashes with a specific time word: ❌昨日(きのう)行(い)ったことがあります. It also implies the experience is unusual enough to be worth mentioning, so it sounds odd about everyday things - 今日(きょう)ご飯(はん)を食(た)べたことが あります is grammatical and absurd.</p>
+<p>2019<ruby>年<rt>ねん</rt></ruby>に<ruby>北海道<rt>ほっかいどう</rt></ruby>へ**<ruby>行<rt>い</rt></ruby>った**。<br><em>I went to Hokkaido in 2019.</em></p>
+<p><ruby>北海道<rt>ほっかいどう</rt></ruby>へ**<ruby>行<rt>い</rt></ruby>ったことがある**。<br><em>I&#39;ve been to Hokkaido before.</em></p>
 </div>
 </div>
-<div class="slide" data-index="75">
+<div class="slide" data-index="83">
+  
+  <div class="slide__content"><h2>た-form / plain past · ～た vs ～たことがある (cont.)</h2>
+<p>Because <code>たことがある</code> is about experience rather than occasion, it clashes with a specific time word: ❌<ruby>昨日<rt>きのう</rt></ruby><ruby>行<rt>い</rt></ruby>ったことがあります. It also implies the experience is unusual enough to be worth mentioning, so it sounds odd about everyday things - <ruby>今日<rt>きょう</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>を<ruby>食<rt>た</rt></ruby>べたことが あります is grammatical and absurd.</p>
+</div>
+</div>
+<div class="slide" data-index="84">
   
   <div class="slide__content"><h2>た-form / plain past · Common mistakes</h2>
 <ul>
-<li><p>❌ 寒(さむ)いでした → ✅ <strong>寒(さむ)かったです</strong><br><em>い-adjectives carry their own past tense. The い becomes かった, and <code>です</code> is added afterwards for politeness without changing anything.</em></p>
+<li><p>❌ <ruby>寒<rt>さむ</rt></ruby>いでした → ✅ <strong><ruby>寒<rt>さむ</rt></ruby>かったです</strong><br><em>い-adjectives carry their own past tense. The い becomes かった, and <code>です</code> is added afterwards for politeness without changing anything.</em></p>
 </li>
-<li><p>❌ 行(い)いた → ✅ <strong>行(い)った</strong><br><em>行(い)く breaks the く → いた rule. Compare 聞(き)いた, 着(つ)いた, which are regular.</em></p>
+<li><p>❌ <ruby>行<rt>い</rt></ruby>いた → ✅ <strong><ruby>行<rt>い</rt></ruby>った</strong><br><em><ruby>行<rt>い</rt></ruby>く breaks the く → いた rule. Compare <ruby>聞<rt>き</rt></ruby>いた, <ruby>着<rt>つ</rt></ruby>いた, which are regular.</em></p>
 </li>
-<li><p>❌ 遊(あそ)んた → ✅ <strong>遊(あそ)んだ</strong><br><em>む・ぶ・ぬ verbs take the voiced んだ. So do ぐ verbs: 泳(およ)いだ, never ❌泳(およ)いた.</em></p>
+<li><p>❌ <ruby>遊<rt>あそ</rt></ruby>んた → ✅ <strong><ruby>遊<rt>あそ</rt></ruby>んだ</strong><br><em>む・ぶ・ぬ verbs take the voiced んだ. So do ぐ verbs: <ruby>泳<rt>およ</rt></ruby>いだ, never ❌<ruby>泳<rt>およ</rt></ruby>いた.</em></p>
 </li>
-<li><p>❌ 食(た)べるた → ✅ <strong>食(た)べた</strong><br><em>For a る-verb you replace る with た; you never keep both.</em></p>
-</li>
-<li><p>❌ 昨日(きのう)、映画(えいが)を見(み)ます。 → ✅ 昨日(きのう)、映画(えいが)を<strong>見(み)ました</strong>。<br><em>A past time word does not conjugate the verb for you. Japanese marks tense on the verb every time.</em></p>
+<li><p>❌ <ruby>食<rt>た</rt></ruby>べるた → ✅ <strong><ruby>食<rt>た</rt></ruby>べた</strong><br><em>For a る-verb you replace る with た; you never keep both.</em></p>
 </li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="76">
+<div class="slide" data-index="85">
+  
+  <div class="slide__content"><h2>た-form / plain past · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ <ruby>昨日<rt>きのう</rt></ruby>、<ruby>映画<rt>えいが</rt></ruby>を<ruby>見<rt>み</rt></ruby>ます。 → ✅ <ruby>昨日<rt>きのう</rt></ruby>、<ruby>映画<rt>えいが</rt></ruby>を**<ruby>見<rt>み</rt></ruby>ました**。<br><em>A past time word does not conjugate the verb for you. Japanese marks tense on the verb every time.</em></li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="86">
   
   <div class="slide__content"><h2>た-form / plain past · Practice 1</h2>
-<p><strong>1.</strong> 先週(せんしゅう)、友達(ともだち)と山(やま)に登(のぼ)____。</p>
+<p><strong>1.</strong> <ruby>先週<rt>せんしゅう</rt></ruby>、<ruby>友達<rt>ともだち</rt></ruby>と<ruby>山<rt>やま</rt></ruby>に<ruby>登<rt>のぼ</rt></ruby>____。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-登(のぼ)<strong>った</strong>（or 登(のぼ)りました）</p>
+<ruby>登<rt>のぼ</rt></ruby><strong>った</strong>（or <ruby>登<rt>のぼ</rt></ruby>りました）</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-登(のぼ)る is an う-verb ending in る, so it takes った - the same sound change as the て-form 登(のぼ)って. Note that る-looking う-verbs are common; 登(のぼ)る is one of them.</p>
+<ruby>登<rt>のぼ</rt></ruby>る is an う-verb ending in る, so it takes った - the same sound change as the て-form <ruby>登<rt>のぼ</rt></ruby>って. Note that る-looking う-verbs are common; <ruby>登<rt>のぼ</rt></ruby>る is one of them.</p>
 </div>
 </div>
-<div class="slide" data-index="77">
+<div class="slide" data-index="87">
   
   <div class="slide__content"><h2>た-form / plain past · Practice 2</h2>
-<p><strong>2.</strong> 富士山(ふじさん)に（登(のぼ)った・登(のぼ)ったことがある）？ - うん、2回(かい)あるよ。</p>
+<p><strong>2.</strong> <ruby>富士山<rt>ふじさん</rt></ruby>に（<ruby>登<rt>のぼ</rt></ruby>った・<ruby>登<rt>のぼ</rt></ruby>ったことがある）？ - うん、2<ruby>回<rt>かい</rt></ruby>あるよ。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-富士山(ふじさん)に<strong>登(のぼ)ったことがある</strong>？</p>
+<ruby>富士山<rt>ふじさん</rt></ruby>に**<ruby>登<rt>のぼ</rt></ruby>ったことがある**？</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The reply counts occasions, so the question is about experience in general, not about one particular climb. Plain 登(のぼ)った would be asking whether you climbed it on some specific occasion both speakers already have in mind.</p>
+The reply counts occasions, so the question is about experience in general, not about one particular climb. Plain <ruby>登<rt>のぼ</rt></ruby>った would be asking whether you climbed it on some specific occasion both speakers already have in mind.</p>
 </div>
 </div>
-<div class="slide" data-index="78">
+<div class="slide" data-index="88">
   
   <div class="slide__content"><h2>た-form / plain past · Practice 3</h2>
 <p><strong>3.</strong> Translate into Japanese: &quot;The film I watched last night wasn&#39;t very interesting.&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-昨日(きのう)の夜(よる)<strong>見(み)た</strong>映画(えいが)は、あまり面白(おもしろ)くなかった。</p>
+<ruby>昨日<rt>きのう</rt></ruby>の<ruby>夜<rt>よる</rt></ruby><strong><ruby>見<rt>み</rt></ruby>た</strong><ruby>映画<rt>えいが</rt></ruby>は、あまり<ruby>面白<rt>おもしろ</rt></ruby>くなかった。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The verb inside the relative clause modifying 映画(えいが) must be plain past: 見(み)た, not ❌見(み)ました. The final adjective carries its own past negative, 面白(おもしろ)くなかった.</p>
+The verb inside the relative clause modifying <ruby>映画<rt>えいが</rt></ruby> must be plain past: <ruby>見<rt>み</rt></ruby>た, not ❌<ruby>見<rt>み</rt></ruby>ました. The final adjective carries its own past negative, <ruby>面白<rt>おもしろ</rt></ruby>くなかった.</p>
 </div>
 </div>
-<div class="slide" data-index="79">
+<div class="slide" data-index="89">
   
   <div class="slide__content"><h2>た-form / plain past · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 去年(きょねん)の冬(ふゆ)はあまり雪(ゆき)が降(ふ)りませんだった。</p>
+<p><strong>4.</strong> Find and fix the error: <ruby>去年<rt>きょねん</rt></ruby>の<ruby>冬<rt>ふゆ</rt></ruby>はあまり<ruby>雪<rt>ゆき</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>りませんだった。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 去年(きょねん)の冬(ふゆ)はあまり雪(ゆき)が<strong>降(ふ)りませんでした</strong>。</p>
+✅ <ruby>去年<rt>きょねん</rt></ruby>の<ruby>冬<rt>ふゆ</rt></ruby>はあまり<ruby>雪<rt>ゆき</rt></ruby>が**<ruby>降<rt>ふ</rt></ruby>りませんでした**。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>ません</code> takes <code>でした</code>, not ❌<code>んだった</code>. The plain-form equivalent is 降(ふ)らなかった - note that the plain past negative is built on <code>ない</code>, which inflects like an い-adjective.</p>
+<code>ません</code> takes <code>でした</code>, not ❌<code>んだった</code>. The plain-form equivalent is <ruby>降<rt>ふ</rt></ruby>らなかった - note that the plain past negative is built on <code>ない</code>, which inflects like an い-adjective.</p>
 </div>
 </div>
-<div class="slide" data-index="80">
+<div class="slide" data-index="90">
   
   <div class="slide__content"><h2>た-form / plain past · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 財布(さいふ)を落(お)とした。 (b) 財布(さいふ)を落(お)としてしまった。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>財布<rt>さいふ</rt></ruby>を<ruby>落<rt>お</rt></ruby>とした。 (b) <ruby>財布<rt>さいふ</rt></ruby>を<ruby>落<rt>お</rt></ruby>としてしまった。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) is a neutral report: the wallet got dropped, and that is the fact. (b) adds <code>～てしまう</code>, which colours the same event with regret or with the sense that it is now irreversible - closer to &quot;I&#39;ve gone and dropped my wallet.&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 Both are plain past. The tense is identical; what changes is how the speaker feels about it, which is a job Japanese hands to an auxiliary rather than to intonation.</p>
 </div>
 </div>
-<div class="slide" data-index="81">
+<div class="slide" data-index="91">
   
   <div class="slide__content"><h1>ない-form</h1>
 <p><strong>Meaning</strong> · the plain negative - &quot;doesn&#39;t&quot;, &quot;won&#39;t&quot;, &quot;isn&#39;t&quot; - and the base a whole set of later patterns attaches to</p>
 <p>The ない-form is the plain-style negative, the partner of <code>～ません</code>. It is also the foundation of <code>～ないでください</code>, <code>～なくてもいい</code>, <code>～なければならない</code>, <code>～ないほうがいい</code> and <code>～ないで</code>. Get the stem wrong here and every one of those patterns comes out wrong, which is why it repays care.</p>
 <blockquote>
-<p><strong>Note</strong> - verbs come in three classes: <strong>う-verbs</strong> (五段(ごだん) / godan / Group 1), <strong>る-verbs</strong> (一段(いちだん) / ichidan / Group 2), and the irregulars する and 来(く)る (Group 3). This page says <strong>う-verb</strong> and <strong>る-verb</strong>.</p>
+<p><strong>Note</strong> - verbs come in three classes: <strong>う-verbs</strong> (<ruby>五段<rt>ごだん</rt></ruby> / godan / Group 1), <strong>る-verbs</strong> (<ruby>一段<rt>いちだん</rt></ruby> / ichidan / Group 2), and the irregulars する and <ruby>来<rt>く</rt></ruby>る (Group 3). This page says <strong>う-verb</strong> and <strong>る-verb</strong>.</p>
 </blockquote>
 </div>
 </div>
-<div class="slide" data-index="82">
+<div class="slide" data-index="92">
   
   <div class="slide__content"><h2>ない-form · Formation</h2>
 <table>
@@ -3907,27 +3976,27 @@ Both are plain past. The tense is identical; what changes is how the speaker fee
 <tbody><tr>
 <td>Verb (う-verb)</td>
 <td>final -u → -a, + ない</td>
-<td>書(か)く → 書(か)かない</td>
+<td><ruby>書<rt>か</rt></ruby>く → <ruby>書<rt>か</rt></ruby>かない</td>
 </tr>
 <tr>
 <td>Verb (う-verb ending in う)</td>
 <td>う → <strong>わ</strong>, + ない</td>
-<td>買(か)う → 買(か)わない</td>
+<td><ruby>買<rt>か</rt></ruby>う → <ruby>買<rt>か</rt></ruby>わない</td>
 </tr>
 <tr>
 <td>Verb (る-verb)</td>
 <td>drop る, + ない</td>
-<td>見(み)る → 見(み)ない</td>
+<td><ruby>見<rt>み</rt></ruby>る → <ruby>見<rt>み</rt></ruby>ない</td>
 </tr>
 <tr>
 <td>Verb (する)</td>
 <td>しない</td>
-<td>練習(れんしゅう)する → 練習(れんしゅう)しない</td>
+<td><ruby>練習<rt>れんしゅう</rt></ruby>する → <ruby>練習<rt>れんしゅう</rt></ruby>しない</td>
 </tr>
 <tr>
-<td>Verb (来(く)る)</td>
+<td>Verb (<ruby>来<rt>く</rt></ruby>る)</td>
 <td>こない</td>
-<td>来(く)る → 来(こ)ない</td>
+<td><ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby>ない</td>
 </tr>
 <tr>
 <td>Verb (ある, irregular)</td>
@@ -3937,22 +4006,22 @@ Both are plain past. The tense is identical; what changes is how the speaker fee
 <tr>
 <td>い-adjective</td>
 <td>い → くない</td>
-<td>安(やす)い → 安(やす)くない</td>
+<td><ruby>安<rt>やす</rt></ruby>い → <ruby>安<rt>やす</rt></ruby>くない</td>
 </tr>
 <tr>
 <td>な-adjective</td>
 <td>+ じゃない／ではない</td>
-<td>暇(ひま) → 暇(ひま)じゃない</td>
+<td><ruby>暇<rt>ひま</rt></ruby> → <ruby>暇<rt>ひま</rt></ruby>じゃない</td>
 </tr>
 <tr>
 <td>Noun</td>
 <td>+ じゃない／ではない</td>
-<td>学生(がくせい) → 学生(がくせい)じゃない</td>
+<td><ruby>学生<rt>がくせい</rt></ruby> → <ruby>学生<rt>がくせい</rt></ruby>じゃない</td>
 </tr>
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="83">
+<div class="slide" data-index="93">
   
   <div class="slide__content"><h2>ない-form · Formation (cont.)</h2>
 <table>
@@ -3966,13 +4035,13 @@ Both are plain past. The tense is identical; what changes is how the speaker fee
 <tbody><tr>
 <td>Past negative (all of the above)</td>
 <td>ない → なかった</td>
-<td>書(か)かない → 書(か)かなかった</td>
+<td><ruby>書<rt>か</rt></ruby>かない → <ruby>書<rt>か</rt></ruby>かなかった</td>
 </tr>
 </tbody></table>
 <p>For う-verbs the final vowel drops to the あ row:</p>
 </div>
 </div>
-<div class="slide" data-index="84">
+<div class="slide" data-index="94">
   
   <div class="slide__content"><h2>ない-form · Formation (cont.)</h2>
 <table>
@@ -3986,69 +4055,74 @@ Both are plain past. The tense is identical; what changes is how the speaker fee
 <tbody><tr>
 <td>う</td>
 <td>わない</td>
-<td>使(つか)う → 使(つか)わない</td>
+<td><ruby>使<rt>つか</rt></ruby>う → <ruby>使<rt>つか</rt></ruby>わない</td>
 </tr>
 <tr>
 <td>つ</td>
 <td>たない</td>
-<td>待(ま)つ → 待(ま)たない</td>
+<td><ruby>待<rt>ま</rt></ruby>つ → <ruby>待<rt>ま</rt></ruby>たない</td>
 </tr>
 <tr>
 <td>る</td>
 <td>らない</td>
-<td>分(わ)かる → 分(わ)からない</td>
+<td><ruby>分<rt>わ</rt></ruby>かる → <ruby>分<rt>わ</rt></ruby>からない</td>
 </tr>
 <tr>
 <td>む</td>
 <td>まない</td>
-<td>休(やす)む → 休(やす)まない</td>
+<td><ruby>休<rt>やす</rt></ruby>む → <ruby>休<rt>やす</rt></ruby>まない</td>
 </tr>
 <tr>
 <td>ぶ</td>
 <td>ばない</td>
-<td>呼(よ)ぶ → 呼(よ)ばない</td>
+<td><ruby>呼<rt>よ</rt></ruby>ぶ → <ruby>呼<rt>よ</rt></ruby>ばない</td>
 </tr>
 <tr>
 <td>ぬ</td>
 <td>なない</td>
-<td>死(し)ぬ → 死(し)なない</td>
+<td><ruby>死<rt>し</rt></ruby>ぬ → <ruby>死<rt>し</rt></ruby>なない</td>
 </tr>
 <tr>
 <td>く</td>
 <td>かない</td>
-<td>聞(き)く → 聞(き)かない</td>
+<td><ruby>聞<rt>き</rt></ruby>く → <ruby>聞<rt>き</rt></ruby>かない</td>
 </tr>
 <tr>
 <td>ぐ</td>
 <td>がない</td>
-<td>脱(ぬ)ぐ → 脱(ぬ)がない</td>
+<td><ruby>脱<rt>ぬ</rt></ruby>ぐ → <ruby>脱<rt>ぬ</rt></ruby>がない</td>
 </tr>
 <tr>
 <td>す</td>
 <td>さない</td>
-<td>出(だ)す → 出(だ)さない</td>
+<td><ruby>出<rt>だ</rt></ruby>す → <ruby>出<rt>だ</rt></ruby>さない</td>
 </tr>
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="85">
+<div class="slide" data-index="95">
   
   <div class="slide__content"><h2>ない-form · Formation (cont.)</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - verbs ending in う take <strong>わない</strong>, not ❌あない. 買(か)う → 買(か)わない, 言(い)う → 言(い)わない, 会(あ)う → 会(あ)わない, 歌(うた)う → 歌(うた)わない. The reason is historical - these verbs used to end in a -wu sound, and the w only survives before あ - but for learning purposes it is simply the rule.</p>
+<p><strong>Rule of thumb</strong> - verbs ending in う take <strong>わない</strong>, not ❌あない. <ruby>買<rt>か</rt></ruby>う → <ruby>買<rt>か</rt></ruby>わない, <ruby>言<rt>い</rt></ruby>う → <ruby>言<rt>い</rt></ruby>わない, <ruby>会<rt>あ</rt></ruby>う → <ruby>会<rt>あ</rt></ruby>わない, <ruby>歌<rt>うた</rt></ruby>う → <ruby>歌<rt>うた</rt></ruby>わない. The reason is historical - these verbs used to end in a -wu sound, and the w only survives before あ - but for learning purposes it is simply the rule.</p>
 </blockquote>
 <blockquote>
-<p><strong>Rule of thumb</strong> - <strong>ある has no ない-form</strong>. Its negative is the word <code>ない</code> itself. There is no ❌あらない. Polite: ありません. 時間(じかん)がない &quot;there&#39;s no time&quot;, 時間(じかん)がなかった &quot;there was no time&quot;. This one irregularity catches almost everybody once.</p>
-</blockquote>
-<blockquote>
-<p><strong>Note</strong> - 来(く)る is read three different ways depending on the form: 来(く)る, 来(き)ます／来(き)た／来(き)て, and 来(こ)ない. The kanji does not change, so the negative is read <strong>こない</strong>, never ❌きない.</p>
+<p><strong>Rule of thumb</strong> - <strong>ある has no ない-form</strong>. Its negative is the word <code>ない</code> itself. There is no ❌あらない. Polite: ありません. <ruby>時間<rt>じかん</rt></ruby>がない &quot;there&#39;s no time&quot;, <ruby>時間<rt>じかん</rt></ruby>がなかった &quot;there was no time&quot;. This one irregularity catches almost everybody once.</p>
 </blockquote>
 </div>
 </div>
-<div class="slide" data-index="86">
+<div class="slide" data-index="96">
   
   <div class="slide__content"><h2>ない-form · Formation (cont.)</h2>
+<blockquote>
+<p><strong>Note</strong> - <ruby>来<rt>く</rt></ruby>る is read three different ways depending on the form: <ruby>来<rt>く</rt></ruby>る, <ruby>来<rt>き</rt></ruby>ます／<ruby>来<rt>き</rt></ruby>た／<ruby>来<rt>き</rt></ruby>て, and <ruby>来<rt>こ</rt></ruby>ない. The kanji does not change, so the negative is read <strong>こない</strong>, never ❌きない.</p>
+</blockquote>
 <p>Once <code>ない</code> is attached, the whole thing behaves as an <strong>い-adjective</strong>, and inflects like one:</p>
+</div>
+</div>
+<div class="slide" data-index="97">
+  
+  <div class="slide__content"><h2>ない-form · Formation (cont.)</h2>
 <table>
 <thead>
 <tr>
@@ -4060,169 +4134,180 @@ Both are plain past. The tense is identical; what changes is how the speaker fee
 <tbody><tr>
 <td>Plain negative</td>
 <td>ない</td>
-<td>行(い)かない</td>
+<td><ruby>行<rt>い</rt></ruby>かない</td>
 </tr>
 <tr>
 <td>Past negative</td>
 <td>ない → なかった</td>
-<td>行(い)かなかった</td>
+<td><ruby>行<rt>い</rt></ruby>かなかった</td>
 </tr>
 <tr>
 <td>て-form (cause)</td>
 <td>ない → なくて</td>
-<td>行(い)かなくて</td>
+<td><ruby>行<rt>い</rt></ruby>かなくて</td>
 </tr>
 <tr>
 <td>Manner / request</td>
 <td>ない + で</td>
-<td>行(い)かないで</td>
+<td><ruby>行<rt>い</rt></ruby>かないで</td>
 </tr>
 <tr>
 <td>Before a noun</td>
 <td>ない + Noun</td>
-<td>行(い)かない人(ひと)</td>
+<td><ruby>行<rt>い</rt></ruby>かない<ruby>人<rt>ひと</rt></ruby></td>
 </tr>
 <tr>
 <td>Polite</td>
 <td>ない + です</td>
-<td>行(い)かないです</td>
+<td><ruby>行<rt>い</rt></ruby>かないです</td>
 </tr>
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="87">
+<div class="slide" data-index="98">
   
   <div class="slide__content"><h2>ない-form · Examples</h2>
-<p>わたしは肉(にく)を<strong>食(た)べない</strong>。<br><em>I don&#39;t eat meat.</em></p>
-<p>今日(きょう)は授業(じゅぎょう)が<strong>ない</strong>。<br><em>There&#39;s no class today.</em></p>
-<p>田中(たなか)さん、まだ<strong>来(こ)ない</strong>ね。<br><em>Tanaka still isn&#39;t here, is he.</em></p>
-<p>お金(かね)が<strong>足(た)りない</strong>から、また今度(こんど)にします。<br><em>I haven&#39;t got enough money, so I&#39;ll leave it for another time.</em></p>
-<p>傘(かさ)を<strong>持(も)って行(い)かない</strong>と、ぬれるよ。<br><em>If you don&#39;t take an umbrella you&#39;ll get soaked.</em></p>
+<p>わたしは<ruby>肉<rt>にく</rt></ruby>を**<ruby>食<rt>た</rt></ruby>べない**。<br><em>I don&#39;t eat meat.</em></p>
+<p><ruby>今日<rt>きょう</rt></ruby>は<ruby>授業<rt>じゅぎょう</rt></ruby>が<strong>ない</strong>。<br><em>There&#39;s no class today.</em></p>
+<p><ruby>田中<rt>たなか</rt></ruby>さん、まだ**<ruby>来<rt>こ</rt></ruby>ない**ね。<br><em>Tanaka still isn&#39;t here, is he.</em></p>
+<p>お<ruby>金<rt>かね</rt></ruby>が**<ruby>足<rt>た</rt></ruby>りない**から、また<ruby>今度<rt>こんど</rt></ruby>にします。<br><em>I haven&#39;t got enough money, so I&#39;ll leave it for another time.</em></p>
 </div>
 </div>
-<div class="slide" data-index="88">
+<div class="slide" data-index="99">
   
   <div class="slide__content"><h2>ない-form · Examples (cont.)</h2>
-<p>ここでは写真(しゃしん)を<strong>撮(と)らないで</strong>ください。<br><em>Please don&#39;t take photographs here.</em></p>
-<p>試験(しけん)が来週(らいしゅう)なのに、弟(おとうと)は全然(ぜんぜん)<strong>勉強(べんきょう)しない</strong>。<br><em>The exam is next week and my brother isn&#39;t studying at all.</em></p>
-<p>給料(きゅうりょう)が何年(なんねん)も<strong>上(あ)がらない</strong>ので、新(あたら)しい仕事(しごと)を探(さが)している。<br><em>My pay hasn&#39;t gone up in years, so I&#39;m looking for a new job.</em></p>
+<p><ruby>傘<rt>かさ</rt></ruby>を**<ruby>持<rt>も</rt></ruby>って<ruby>行<rt>い</rt></ruby>かない**と、ぬれるよ。<br><em>If you don&#39;t take an umbrella you&#39;ll get soaked.</em></p>
+<p>ここでは<ruby>写真<rt>しゃしん</rt></ruby>を**<ruby>撮<rt>と</rt></ruby>らないで**ください。<br><em>Please don&#39;t take photographs here.</em></p>
+<p><ruby>試験<rt>しけん</rt></ruby>が<ruby>来週<rt>らいしゅう</rt></ruby>なのに、<ruby>弟<rt>おとうと</rt></ruby>は<ruby>全然<rt>ぜんぜん</rt></ruby><strong><ruby>勉強<rt>べんきょう</rt></ruby>しない</strong>。<br><em>The exam is next week and my brother isn&#39;t studying at all.</em></p>
+<p><ruby>給料<rt>きゅうりょう</rt></ruby>が<ruby>何年<rt>なんねん</rt></ruby>も**<ruby>上<rt>あ</rt></ruby>がらない**ので、<ruby>新<rt>あたら</rt></ruby>しい<ruby>仕事<rt>しごと</rt></ruby>を<ruby>探<rt>さが</rt></ruby>している。<br><em>My pay hasn&#39;t gone up in years, so I&#39;m looking for a new job.</em></p>
 </div>
 </div>
-<div class="slide" data-index="89">
+<div class="slide" data-index="100">
   
   <div class="slide__content"><h2>ない-form · Nuance &amp; register</h2>
 <p><code>ない</code> is plain style, so as a sentence ending it belongs with friends and family. To a customer or a superior you want <code>～ません</code>. The middle option, <code>～ないです</code>, is polite but relaxed, and is what colleagues say to each other all day.</p>
-<p>Bare <code>ない</code> at the end of a question - 行(い)かない？ - is a casual invitation, not a plain question: &quot;want to come?&quot; It is the plain-style twin of <code>～ませんか</code>, and it is extremely common. 今晩(こんばん)ご飯(はん) 食(た)べない？</p>
-<p>The negative also softens requests, exactly as it does in English. Compare 窓(まど)を開(あ)けてくれますか with 窓(まど)を開(あ)けてくれませんか - the negative version is more polite, because a negative question makes it easier to refuse.</p>
+<p>Bare <code>ない</code> at the end of a question - <ruby>行<rt>い</rt></ruby>かない？ - is a casual invitation, not a plain question: &quot;want to come?&quot; It is the plain-style twin of <code>～ませんか</code>, and it is extremely common. <ruby>今晩<rt>こんばん</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby> <ruby>食<rt>た</rt></ruby>べない？</p>
+<p>The negative also softens requests, exactly as it does in English. Compare <ruby>窓<rt>まど</rt></ruby>を<ruby>開<rt>あ</rt></ruby>けてくれますか with <ruby>窓<rt>まど</rt></ruby>を<ruby>開<rt>あ</rt></ruby>けてくれませんか - the negative version is more polite, because a negative question makes it easier to refuse.</p>
 </div>
 </div>
-<div class="slide" data-index="90">
+<div class="slide" data-index="101">
   
   <div class="slide__content"><h2>ない-form · Nuance &amp; register (cont.)</h2>
-<p>Two things to keep separate. <code>ない</code> is the plain <strong>negative</strong> of a verb; the adjective <code>ない</code> meaning &quot;there isn&#39;t&quot; is a different word that happens to look the same. And in speech, ん is a very common contraction of ない in the Kansai area and in men&#39;s rough speech (分(わ)からん, 知(し)らん) - recognise it, but stick to <code>ない</code> yourself until your speech is firmly anchored somewhere.</p>
-<p>Written formal Japanese prefers <code>ず</code> and <code>ぬ</code> in fixed phrases - 知(し)らずに, やむを得(え)ず - and uses <code>ではない</code> where speech uses <code>じゃない</code>. <code>じゃない</code> is a contraction of <code>ではない</code>, and it is casual: never write it in a report.</p>
+<p>Two things to keep separate. <code>ない</code> is the plain <strong>negative</strong> of a verb; the adjective <code>ない</code> meaning &quot;there isn&#39;t&quot; is a different word that happens to look the same. And in speech, ん is a very common contraction of ない in the Kansai area and in men&#39;s rough speech (<ruby>分<rt>わ</rt></ruby>からん, <ruby>知<rt>し</rt></ruby>らん) - recognise it, but stick to <code>ない</code> yourself until your speech is firmly anchored somewhere.</p>
+<p>Written formal Japanese prefers <code>ず</code> and <code>ぬ</code> in fixed phrases - <ruby>知<rt>し</rt></ruby>らずに, やむを<ruby>得<rt>え</rt></ruby>ず - and uses <code>ではない</code> where speech uses <code>じゃない</code>. <code>じゃない</code> is a contraction of <code>ではない</code>, and it is casual: never write it in a report.</p>
 </div>
 </div>
-<div class="slide" data-index="91">
+<div class="slide" data-index="102">
   
   <div class="slide__content"><h2>ない-form · ～ない vs ～ません vs ～ないです</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - one meaning, three registers. <code>ない</code> plain, <code>ないです</code> polite-casual, <code>ません</code> polite-formal.</p>
 </blockquote>
-<p>明日(あした)は学校(がっこう)に<strong>行(い)かない</strong>。<br><em>I&#39;m not going to school tomorrow. (to a friend)</em></p>
-<p>明日(あした)は学校(がっこう)に<strong>行(い)きません</strong>。<br><em>I will not be going to school tomorrow. (to a teacher)</em></p>
-<p>Note the different bases: <code>ません</code> is built on the <strong>ます-stem</strong> (行(い)き), while <code>ない</code> is built on the <strong>あ-row stem</strong> (行(い)か). They are not two endings on the same stem, which is why you cannot convert one to the other by ear.</p>
+<p><ruby>明日<rt>あした</rt></ruby>は<ruby>学校<rt>がっこう</rt></ruby>に**<ruby>行<rt>い</rt></ruby>かない**。<br><em>I&#39;m not going to school tomorrow. (to a friend)</em></p>
+<p><ruby>明日<rt>あした</rt></ruby>は<ruby>学校<rt>がっこう</rt></ruby>に**<ruby>行<rt>い</rt></ruby>きません**。<br><em>I will not be going to school tomorrow. (to a teacher)</em></p>
 </div>
 </div>
-<div class="slide" data-index="92">
+<div class="slide" data-index="103">
+  
+  <div class="slide__content"><h2>ない-form · ～ない vs ～ません vs ～ないです (cont.)</h2>
+<p>Note the different bases: <code>ません</code> is built on the <strong>ます-stem</strong> (<ruby>行<rt>い</rt></ruby>き), while <code>ない</code> is built on the <strong>あ-row stem</strong> (<ruby>行<rt>い</rt></ruby>か). They are not two endings on the same stem, which is why you cannot convert one to the other by ear.</p>
+</div>
+</div>
+<div class="slide" data-index="104">
   
   <div class="slide__content"><h2>ない-form · The verb ない vs the adjective ない</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - three different negatives all end in <code>ない</code>, and each is formed from a different base: verbs take あ-row + ない, い-adjectives swap い for くない, and nouns and な-adjectives take じゃない.</p>
 </blockquote>
-<p>このカメラは<strong>動(うご)かない</strong>。<br><em>This camera doesn&#39;t work.</em></p>
-<p>このカメラは<strong>新(あたら)しくない</strong>。<br><em>This camera isn&#39;t new.</em></p>
-<p>このカメラは<strong>防水(ぼうすい)じゃない</strong>。<br><em>This camera isn&#39;t waterproof.</em></p>
+<p>このカメラは**<ruby>動<rt>うご</rt></ruby>かない**。<br><em>This camera doesn&#39;t work.</em></p>
+<p>このカメラは**<ruby>新<rt>あたら</rt></ruby>しくない**。<br><em>This camera isn&#39;t new.</em></p>
+<p>このカメラは**<ruby>防水<rt>ぼうすい</rt></ruby>じゃない**。<br><em>This camera isn&#39;t waterproof.</em></p>
 </div>
 </div>
-<div class="slide" data-index="93">
+<div class="slide" data-index="105">
   
   <div class="slide__content"><h2>ない-form · The verb ない vs the adjective ない (cont.)</h2>
-<p>All three then inflect identically, because <code>ない</code> is an い-adjective: 動(うご)かなかった, 新(あたら)しくなかった, 防水(ぼうすい)じゃなかった. That shared tail is why ❌動(うご)かないでした and ❌新(あたら)しくないでした are wrong - an い-adjective never takes <code>でした</code>.</p>
+<p>All three then inflect identically, because <code>ない</code> is an い-adjective: <ruby>動<rt>うご</rt></ruby>かなかった, <ruby>新<rt>あたら</rt></ruby>しくなかった, <ruby>防水<rt>ぼうすい</rt></ruby>じゃなかった. That shared tail is why ❌<ruby>動<rt>うご</rt></ruby>かないでした and ❌<ruby>新<rt>あたら</rt></ruby>しくないでした are wrong - an い-adjective never takes <code>でした</code>.</p>
 </div>
 </div>
-<div class="slide" data-index="94">
+<div class="slide" data-index="106">
   
   <div class="slide__content"><h2>ない-form · ある → ない vs いる → いない</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - both mean &quot;there isn&#39;t&quot;, but they split the world the same way their positives do: <code>ある</code>/<code>ない</code> for things, <code>いる</code>/<code>いない</code> for people and animals.</p>
 </blockquote>
-<p>冷蔵庫(れいぞうこ)に何(なに)も<strong>ない</strong>。<br><em>There&#39;s nothing in the fridge.</em></p>
-<p>教室(きょうしつ)にはだれも<strong>いない</strong>。<br><em>There&#39;s nobody in the classroom.</em></p>
+<p><ruby>冷蔵庫<rt>れいぞうこ</rt></ruby>に<ruby>何<rt>なに</rt></ruby>も<strong>ない</strong>。<br><em>There&#39;s nothing in the fridge.</em></p>
+<p><ruby>教室<rt>きょうしつ</rt></ruby>にはだれも<strong>いない</strong>。<br><em>There&#39;s nobody in the classroom.</em></p>
 <p><code>いる</code> is a perfectly regular る-verb, so its negative is formed the ordinary way: drop る, add ない. <code>ある</code> is the odd one out - it simply becomes <code>ない</code>. The polite forms are ありません and いません respectively, and both keep the thing-versus-creature split.</p>
 </div>
 </div>
-<div class="slide" data-index="95">
+<div class="slide" data-index="107">
   
   <div class="slide__content"><h2>ない-form · Common mistakes</h2>
 <ul>
-<li><p>❌ 買(か)あない → ✅ <strong>買(か)わない</strong><br><em>う-verbs ending in う insert わ, not あ. Same for 言(い)わない and 会(あ)わない.</em></p>
+<li><p>❌ <ruby>買<rt>か</rt></ruby>あない → ✅ <strong><ruby>買<rt>か</rt></ruby>わない</strong><br><em>う-verbs ending in う insert わ, not あ. Same for <ruby>言<rt>い</rt></ruby>わない and <ruby>会<rt>あ</rt></ruby>わない.</em></p>
 </li>
-<li><p>❌ お金(かね)があらない → ✅ お金(かね)が<strong>ない</strong><br><em><code>ある</code> has no regular negative. Its negative is the word <code>ない</code>, and the polite form is ありません.</em></p>
+<li><p>❌ お<ruby>金<rt>かね</rt></ruby>があらない → ✅ お<ruby>金<rt>かね</rt></ruby>が<strong>ない</strong><br><em><code>ある</code> has no regular negative. Its negative is the word <code>ない</code>, and the polite form is ありません.</em></p>
 </li>
-<li><p>❌ 食(た)べるない → ✅ <strong>食(た)べない</strong><br><em>For a る-verb you replace る with ない. Keeping both is the commonest beginner slip of all.</em></p>
+<li><p>❌ <ruby>食<rt>た</rt></ruby>べるない → ✅ <strong><ruby>食<rt>た</rt></ruby>べない</strong><br><em>For a る-verb you replace る with ない. Keeping both is the commonest beginner slip of all.</em></p>
 </li>
-<li><p>❌ この部屋(へや)は広(ひろ)いない → ✅ この部屋(へや)は<strong>広(ひろ)くない</strong><br><em>い-adjectives do not take the verb negative. Swap the final い for くない.</em></p>
-</li>
-<li><p>❌ 来(く)る → 来(き)ない → ✅ 来(く)る → <strong>来(こ)ない</strong><br><em>The kanji stays the same but the reading changes to こ in the negative. Say it aloud when you practise, or the mistake will be invisible on paper.</em></p>
+<li><p>❌ この<ruby>部屋<rt>へや</rt></ruby>は<ruby>広<rt>ひろ</rt></ruby>いない → ✅ この<ruby>部屋<rt>へや</rt></ruby>は**<ruby>広<rt>ひろ</rt></ruby>くない**<br><em>い-adjectives do not take the verb negative. Swap the final い for くない.</em></p>
 </li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="96">
+<div class="slide" data-index="108">
+  
+  <div class="slide__content"><h2>ない-form · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ <ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>き</rt></ruby>ない → ✅ <ruby>来<rt>く</rt></ruby>る → <strong><ruby>来<rt>こ</rt></ruby>ない</strong><br><em>The kanji stays the same but the reading changes to こ in the negative. Say it aloud when you practise, or the mistake will be invisible on paper.</em></li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="109">
   
   <div class="slide__content"><h2>ない-form · Practice 1</h2>
-<p><strong>1.</strong> 明日(あした)は日曜日(にちようび)だから、会社(かいしゃ)に行(い)____。</p>
+<p><strong>1.</strong> <ruby>明日<rt>あした</rt></ruby>は<ruby>日曜日<rt>にちようび</rt></ruby>だから、<ruby>会社<rt>かいしゃ</rt></ruby>に<ruby>行<rt>い</rt></ruby>____。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-行(い)<strong>かない</strong></p>
+<ruby>行<rt>い</rt></ruby><strong>かない</strong></p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-行(い)く is an う-verb ending in く, so the final -ku drops to -ka before <code>ない</code>. The polite version is 行(い)きません, built on a different stem altogether.</p>
+<ruby>行<rt>い</rt></ruby>く is an う-verb ending in く, so the final -ku drops to -ka before <code>ない</code>. The polite version is <ruby>行<rt>い</rt></ruby>きません, built on a different stem altogether.</p>
 </div>
 </div>
-<div class="slide" data-index="97">
+<div class="slide" data-index="110">
   
   <div class="slide__content"><h2>ない-form · Practice 2</h2>
-<p><strong>2.</strong> 冷蔵庫(れいぞうこ)に牛乳(ぎゅうにゅう)が（ない・いない）。</p>
+<p><strong>2.</strong> <ruby>冷蔵庫<rt>れいぞうこ</rt></ruby>に<ruby>牛乳<rt>ぎゅうにゅう</rt></ruby>が（ない・いない）。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-冷蔵庫(れいぞうこ)に牛乳(ぎゅうにゅう)が<strong>ない</strong>。</p>
+<ruby>冷蔵庫<rt>れいぞうこ</rt></ruby>に<ruby>牛乳<rt>ぎゅうにゅう</rt></ruby>が<strong>ない</strong>。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 Milk is not alive, so the existence verb is <code>ある</code>, whose negative is the irregular <code>ない</code>. <code>いない</code> is the negative of <code>いる</code>, reserved for people and animals.</p>
 </div>
 </div>
-<div class="slide" data-index="98">
+<div class="slide" data-index="111">
   
   <div class="slide__content"><h2>ない-form · Practice 3</h2>
 <p><strong>3.</strong> Translate into Japanese: &quot;I don&#39;t drink coffee at night, so I sleep well.&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-夜(よる)はコーヒーを<strong>飲(の)まない</strong>ので、よく寝(ね)られます。</p>
+<ruby>夜<rt>よる</rt></ruby>はコーヒーを**<ruby>飲<rt>の</rt></ruby>まない**ので、よく<ruby>寝<rt>ね</rt></ruby>られます。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-飲(の)む is an う-verb ending in む, so the negative stem is 飲(の)ま. <code>ので</code> requires the plain form in front of it even when the sentence ends politely.</p>
+<ruby>飲<rt>の</rt></ruby>む is an う-verb ending in む, so the negative stem is <ruby>飲<rt>の</rt></ruby>ま. <code>ので</code> requires the plain form in front of it even when the sentence ends politely.</p>
 </div>
 </div>
-<div class="slide" data-index="99">
+<div class="slide" data-index="112">
   
   <div class="slide__content"><h2>ない-form · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 昨日(きのう)は友達(ともだち)に会(あ)あなかった。</p>
+<p><strong>4.</strong> Find and fix the error: <ruby>昨日<rt>きのう</rt></ruby>は<ruby>友達<rt>ともだち</rt></ruby>に<ruby>会<rt>あ</rt></ruby>あなかった。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 昨日(きのう)は友達(ともだち)に<strong>会(あ)わなかった</strong>。</p>
+✅ <ruby>昨日<rt>きのう</rt></ruby>は<ruby>友達<rt>ともだち</rt></ruby>に**<ruby>会<rt>あ</rt></ruby>わなかった**。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-会(あ)う ends in う, so the negative stem is 会(あ)わ, not ❌会(あ)あ. The past negative is then formed the い-adjective way: ない → なかった.</p>
+<ruby>会<rt>あ</rt></ruby>う ends in う, so the negative stem is <ruby>会<rt>あ</rt></ruby>わ, not ❌<ruby>会<rt>あ</rt></ruby>あ. The past negative is then formed the い-adjective way: ない → なかった.</p>
 </div>
 </div>
-<div class="slide" data-index="100">
+<div class="slide" data-index="113">
   
   <div class="slide__content"><h2>ない-form · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 朝(あさ)ご飯(はん)を食(た)べないで出(で)かけた。 (b) 朝(あさ)ご飯(はん)を食(た)べなくて、おなかがすいた。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>朝<rt>あさ</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>を<ruby>食<rt>た</rt></ruby>べないで<ruby>出<rt>で</rt></ruby>かけた。 (b) <ruby>朝<rt>あさ</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>を<ruby>食<rt>た</rt></ruby>べなくて、おなかがすいた。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) uses <code>ないで</code>, which describes the <strong>manner</strong> of the second action: he went out, and the not-eating is how he did it - &quot;without eating breakfast.&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
@@ -4253,7 +4338,7 @@ Milk is not alive, so the existence verb is <code>ある</code>, whose negative 
     </div>
     <div id="hud-right">
       <a href="https://github.com/arpitbbhayani/deckrun" target="_blank" rel="noopener noreferrer" class="hud-brand" id="hud-brand" title="deckrun — Markdown presentations">powered by <span>deckrun</span></a>
-      <div id="slide-counter"><span id="cur">1</span>&nbsp;/&nbsp;<span id="tot">101</span></div>
+      <div id="slide-counter"><span id="cur">1</span>&nbsp;/&nbsp;<span id="tot">114</span></div>
     </div>
   </div>
 </div>
@@ -4306,7 +4391,7 @@ Milk is not alive, so the existence verb is <code>ある</code>, whose negative 
 
 
 
-<script id="deck-notes" type="application/json">["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]</script>
+<script id="deck-notes" type="application/json">["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]</script>
 <script id="deck-themes" type="application/json">{"themes":[{"id":"midnight","label":"midnight","mood":"dark","blurb":"Catppuccin Mocha. Violet on deep indigo, drifting orbs.","decor":"orbs","colors":{"crust":"#11111b","mantle":"#181825","base":"#1e1e2e","surface0":"#313244","overlay1":"#7f849c","subtext1":"#bac2de","text":"#cdd6f4","accent":"#cba6f7","accent2":"#89b4fa","accent3":"#89dceb"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"tokyo","label":"tokyo night","mood":"dark","blurb":"Neon cyan over a wireframe grid, lifted from a rainy skyline.","decor":"grid","colors":{"crust":"#16161e","mantle":"#1a1b26","base":"#1f2335","surface0":"#292e42","overlay1":"#7c86ab","subtext1":"#b7c0e0","text":"#c8d3f5","accent":"#2ac3de","accent2":"#bb9af7","accent3":"#73daca"},"fonts":{"display":"'Sora', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"nord","label":"nord","mood":"dark","blurb":"Arctic frost blue on polar slate, with slow contour waves.","decor":"waves","colors":{"crust":"#232831","mantle":"#2e3440","base":"#353c4a","surface0":"#3b4252","overlay1":"#8e9aae","subtext1":"#d8dee9","text":"#eceff4","accent":"#88c0d0","accent2":"#81a1c1","accent3":"#8fbcbb"},"fonts":{"display":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace","body":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"dracula","label":"dracula","mood":"dark","blurb":"Purple and hot pink over charcoal, lit by a gradient mesh.","decor":"mesh","colors":{"crust":"#1a1b23","mantle":"#21222c","base":"#282a36","surface0":"#343746","overlay1":"#7b85b6","subtext1":"#e2e4f0","text":"#f8f8f2","accent":"#bd93f9","accent2":"#ff79c6","accent3":"#8be9fd"},"fonts":{"display":"'Syne', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'Fira Code', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"gruvbox","label":"gruvbox","mood":"dark","blurb":"Warm amber and moss on retro brown, hatched like graph paper.","decor":"topo","colors":{"crust":"#1b1e1f","mantle":"#232728","base":"#282828","surface0":"#32302f","overlay1":"#928374","subtext1":"#d5c4a1","text":"#ebdbb2","accent":"#fabd2f","accent2":"#fe8019","accent3":"#b8bb26"},"fonts":{"display":"'Bricolage Grotesque', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Work Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"rosepine","label":"rosé pine","mood":"dark","blurb":"Muted iris and gold on plum, under a slow aurora.","decor":"aurora","colors":{"crust":"#14121f","mantle":"#191724","base":"#1f1d2e","surface0":"#26233a","overlay1":"#817c9c","subtext1":"#cdc9e6","text":"#e0def4","accent":"#c4a7e7","accent2":"#9ccfd8","accent3":"#f6c177"},"fonts":{"display":"'Fraunces', Georgia, 'Times New Roman', serif","body":"'Newsreader', Georgia, 'Times New Roman', serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"forest","label":"forest","mood":"dark","blurb":"Everforest sage on deep pine, rippling in concentric rings.","decor":"rings","colors":{"crust":"#232a2e","mantle":"#2d353b","base":"#343f44","surface0":"#3d484d","overlay1":"#9da9a0","subtext1":"#d3c6aa","text":"#e5dfd2","accent":"#a7c080","accent2":"#6fb5ac","accent3":"#dbbc7f"},"fonts":{"display":"'Outfit', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"neon","label":"neon","mood":"dark","blurb":"Electric cyan and magenta on true black, raked by light beams.","decor":"beams","colors":{"crust":"#050509","mantle":"#0a0a12","base":"#0e0e1a","surface0":"#16162a","overlay1":"#6a6a96","subtext1":"#c8c8e4","text":"#f0f0ff","accent":"#22d3ee","accent2":"#ff5cc8","accent3":"#38e8ff"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'Space Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"daylight","label":"daylight","mood":"light","blurb":"Catppuccin Latte, contrast-tuned for a projector. Dot matrix.","decor":"dots","colors":{"crust":"#ebebeb","mantle":"#f5f5f5","base":"#fafaf8","surface0":"#ccd0da","overlay1":"#5c5f77","subtext1":"#3a3c52","text":"#1e2030","accent":"#8839ef","accent2":"#1e66f5","accent3":"#179299"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"arctic","label":"arctic","mood":"light","blurb":"Nord inverted. Frost blue on cool paper, with contour waves.","decor":"waves","colors":{"crust":"#e3e8ef","mantle":"#eceff4","base":"#f7f9fc","surface0":"#dbe1ea","overlay1":"#5f6b7c","subtext1":"#364150","text":"#2e3440","accent":"#2f7d94","accent2":"#4a7ba7","accent3":"#3b8b8a"},"fonts":{"display":"'Manrope', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"solarized","label":"solarized","mood":"light","blurb":"The classic low-glare cream, paired with Lora for long prose.","decor":"topo","colors":{"crust":"#eee8d5","mantle":"#f5efdc","base":"#fdf6e3","surface0":"#e3ddc8","overlay1":"#657b83","subtext1":"#3f5b62","text":"#073642","accent":"#268bd2","accent2":"#6c71c4","accent3":"#21958c"},"fonts":{"display":"'Outfit', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Lora', Georgia, 'Times New Roman', serif","mono":"'Source Code Pro', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"paper","label":"paper","mood":"light","blurb":"Crimson serif on warm cream. Editorial, print-first, very legible.","decor":"rings","colors":{"crust":"#efe8dc","mantle":"#f7f2e9","base":"#fdfbf5","surface0":"#e4dccc","overlay1":"#6e6553","subtext1":"#38311f","text":"#211c11","accent":"#a81f2c","accent2":"#1f7f96","accent3":"#9a6c12"},"fonts":{"display":"'Fraunces', Georgia, 'Times New Roman', serif","body":"'Newsreader', Georgia, 'Times New Roman', serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"rosequartz","label":"rose quartz","mood":"light","blurb":"Rosé Pine Dawn. Blush and iris on linen, with soft orbs.","decor":"orbs","colors":{"crust":"#f2e9e1","mantle":"#faf4ed","base":"#fffaf3","surface0":"#ece0d8","overlay1":"#7d7791","subtext1":"#55506e","text":"#423d5c","accent":"#b4637a","accent2":"#907aa9","accent3":"#56949f"},"fonts":{"display":"'Playfair Display', Georgia, 'Times New Roman', serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"swiss","label":"swiss","mood":"light","blurb":"Black on white, one red. Heavy grotesk, tight tracking, hard grid.","decor":"grid","colors":{"crust":"#f0f0f0","mantle":"#f8f8f8","base":"#ffffff","surface0":"#dcdcdc","overlay1":"#5a5a5a","subtext1":"#222222","text":"#0a0a0a","accent":"#e01b24","accent2":"#0a0a0a","accent3":"#5a5a5a"},"fonts":{"display":"'Archivo', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}}],"hljsMap":{"midnight":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css","tokyo":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css","nord":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/nord.min.css","dracula":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/dracula.min.css","gruvbox":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/gruvbox-dark-medium.min.css","rosepine":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/ros-pine.min.css","forest":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css","neon":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/night-owl.min.css","daylight":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","arctic":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","solarized":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/solarized-light.min.css","paper":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","rosequartz":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/ros-pine-dawn.min.css","swiss":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css"},"decorMap":{"midnight":"orbs","tokyo":"grid","nord":"waves","dracula":"mesh","gruvbox":"topo","rosepine":"aurora","forest":"rings","neon":"beams","daylight":"dots","arctic":"waves","solarized":"topo","paper":"rings","rosequartz":"orbs","swiss":"grid"}}</script>
 
 <script>
@@ -5494,6 +5579,36 @@ Milk is not alive, so the existence verb is <code>ある</code>, whose negative 
     transition: opacity 0.15s ease, background 0.15s ease; }
   #deck-home:hover, #deck-home:focus-visible { opacity: 0.95; background: rgba(128,128,128,0.14); }
   @media print { #deck-home { display: none !important; } }
+  #furigana-toggle { position: fixed; bottom: 2.7rem; right: 1.1rem; z-index: 40;
+    font: 500 0.78rem/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+    color: currentColor; opacity: 0.38; cursor: pointer; user-select: none;
+    background: none; border: 1px solid currentColor; border-radius: 4px;
+    padding: 0.38rem 0.6rem;
+    transition: opacity 0.15s ease, background 0.15s ease; }
+  #furigana-toggle:hover, #furigana-toggle:focus-visible { opacity: 0.95; background: rgba(128,128,128,0.14); }
+  @media print { #furigana-toggle { display: none !important; } }
 </style>
+<button id="furigana-toggle" type="button" aria-pressed="true">&#12405;&#12426;&#12364;&#12394; ON</button>
+<script>
+  (function () {
+    // Deliberately click-only: readers who do not want furigana turn it off
+    // once and it sticks, while every key stays free for presenting.
+    var root = document.documentElement, btn = document.getElementById('furigana-toggle');
+    function paint() {
+      var off = root.getAttribute('data-furigana') === 'off';
+      btn.textContent = '\u3075\u308a\u304c\u306a ' + (off ? 'OFF' : 'ON');
+      btn.setAttribute('aria-pressed', String(!off));
+    }
+    btn.addEventListener('click', function () {
+      var off = root.getAttribute('data-furigana') === 'off';
+      if (off) root.removeAttribute('data-furigana');
+      else root.setAttribute('data-furigana', 'off');
+      try { localStorage.setItem('jlpt-furigana', off ? 'on' : 'off'); } catch (e) {}
+      paint();
+      btn.blur();
+    });
+    paint();
+  })();
+</script>
 </body>
 </html>

@@ -2606,6 +2606,13 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
   gap: 0.5rem;
 }
   </style>
+<script>
+  try {
+    if (localStorage.getItem('jlpt-furigana') === 'off') {
+      document.documentElement.setAttribute('data-furigana', 'off');
+    }
+  } catch (e) {}
+</script>
 </head>
 <body>
 
@@ -2614,7 +2621,16 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <div id="presentation">
 <div class="slide" data-index="0">
   
-  <div class="slide__content"><style>html { font-size: 20.0px; }</style>
+  <div class="slide__content"><style>
+  html { font-size: 20.0px; }
+  .slide__content p, .slide__content li,
+  .slide__content td, .slide__content th { line-height: 2.05; }
+  rt { font-size: 0.5em; line-height: 1.1; opacity: 0.72; font-weight: 400; }
+  :root[data-furigana="off"] rt { display: none; }
+  :root[data-furigana="off"] .slide__content p, :root[data-furigana="off"] .slide__content li,
+  :root[data-furigana="off"] .slide__content td, :root[data-furigana="off"] .slide__content th
+    { line-height: 1.5; }
+</style>
 
 <h1>N5 - Pointing at things</h1>
 <ul>
@@ -2659,22 +2675,22 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <tr>
 <td>Nothing</td>
 <td>それ = a thing in the listener&#39;s reach, or one just mentioned</td>
-<td>それを三(みっ)つください</td>
+<td>それを<ruby>三<rt>みっ</rt></ruby>つください</td>
 </tr>
 <tr>
 <td>Nothing</td>
 <td>あれ = a thing away from both of you</td>
-<td>あれは何(なん)ですか</td>
+<td>あれは<ruby>何<rt>なん</rt></ruby>ですか</td>
 </tr>
 <tr>
 <td>Nothing</td>
 <td>どれ = which one, out of <strong>three or more</strong></td>
-<td>どれが安(やす)いですか</td>
+<td>どれが<ruby>安<rt>やす</rt></ruby>いですか</td>
 </tr>
 <tr>
 <td>Particles</td>
 <td>これ／それ／あれ／どれ + は・が・を・に・で・と</td>
-<td>それと同(おな)じものをください</td>
+<td>それと<ruby>同<rt>おな</rt></ruby>じものをください</td>
 </tr>
 <tr>
 <td>A following noun</td>
@@ -2684,7 +2700,12 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <tr>
 <td>Two choices only</td>
 <td>どれ → どちら（casual どっち）</td>
-<td>コーヒーとお茶(ちゃ)、どちらにしますか</td>
+<td>コーヒーとお<ruby>茶<rt>ちゃ</rt></ruby>、どちらにしますか</td>
+</tr>
+<tr>
+<td>Polite equivalent</td>
+<td>これ／それ／あれ／どれ → こちら／そちら／あちら／どちら</td>
+<td>こちらが<ruby>新<rt>あたら</rt></ruby>しいメニューです</td>
 </tr>
 </tbody></table>
 </div>
@@ -2692,20 +2713,6 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <div class="slide" data-index="4">
   
   <div class="slide__content"><h2>これ・それ・あれ・どれ · Formation (cont.)</h2>
-<table>
-<thead>
-<tr>
-<th>Attaches to</th>
-<th>Form</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Polite equivalent</td>
-<td>これ／それ／あれ／どれ → こちら／そちら／あちら／どちら</td>
-<td>こちらが新(あたら)しいメニューです</td>
-</tr>
-</tbody></table>
 <blockquote>
 <p><strong>Rule of thumb</strong> - if a noun follows, you need <code>この・その・あの・どの</code>. If nothing follows, you need <code>これ・それ・あれ・どれ</code>. A word in this series is never sitting directly in front of the thing it points at.</p>
 </blockquote>
@@ -2714,19 +2721,19 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <div class="slide" data-index="5">
   
   <div class="slide__content"><h2>これ・それ・あれ・どれ · Examples</h2>
-<p><strong>これ</strong>は姉(あね)のかさです。<br><em>This is my older sister&#39;s umbrella.</em></p>
-<p><strong>それ</strong>、ちょっと見(み)せてください。<br><em>Could you let me see that for a second?</em></p>
-<p><strong>あれ</strong>は駅(えき)のビルです。<br><em>That building over there is the station.</em></p>
-<p>メニューの中(なか)で<strong>どれ</strong>が一番(いちばん)安(やす)いですか。<br><em>Which is the cheapest thing on the menu?</em></p>
-<p><strong>それ</strong>はいい考(かんが)えですね。<br><em>That&#39;s a good idea.</em></p>
+<p><strong>これ</strong>は<ruby>姉<rt>あね</rt></ruby>のかさです。<br><em>This is my older sister&#39;s umbrella.</em></p>
+<p><strong>それ</strong>、ちょっと<ruby>見<rt>み</rt></ruby>せてください。<br><em>Could you let me see that for a second?</em></p>
+<p><strong>あれ</strong>は<ruby>駅<rt>えき</rt></ruby>のビルです。<br><em>That building over there is the station.</em></p>
+<p>メニューの<ruby>中<rt>なか</rt></ruby>で<strong>どれ</strong>が<ruby>一番<rt>いちばん</rt></ruby><ruby>安<rt>やす</rt></ruby>いですか。<br><em>Which is the cheapest thing on the menu?</em></p>
 </div>
 </div>
 <div class="slide" data-index="6">
   
   <div class="slide__content"><h2>これ・それ・あれ・どれ · Examples (cont.)</h2>
+<p><strong>それ</strong>はいい<ruby>考<rt>かんが</rt></ruby>えですね。<br><em>That&#39;s a good idea.</em></p>
 <p>すみません、<strong>これ</strong>と<strong>それ</strong>をください。<br><em>Excuse me - I&#39;ll take this one and that one.</em></p>
-<p>去年(きょねん)京都(きょうと)で買(か)ったカップ、<strong>あれ</strong>はどこにしまいましたか。<br><em>That cup we bought in Kyoto last year - where did you put it away?</em></p>
-<p>説明(せつめい)は分(わ)かりましたが、<strong>それ</strong>が本当(ほんとう)かどうかは別(べつ)の話(はなし)です。<br><em>I follow the explanation, but whether it is true is another matter.</em></p>
+<p><ruby>去年<rt>きょねん</rt></ruby><ruby>京都<rt>きょうと</rt></ruby>で<ruby>買<rt>か</rt></ruby>ったカップ、<strong>あれ</strong>はどこにしまいましたか。<br><em>That cup we bought in Kyoto last year - where did you put it away?</em></p>
+<p><ruby>説明<rt>せつめい</rt></ruby>は<ruby>分<rt>わ</rt></ruby>かりましたが、<strong>それ</strong>が<ruby>本当<rt>ほんとう</rt></ruby>かどうかは<ruby>別<rt>べつ</rt></ruby>の<ruby>話<rt>はなし</rt></ruby>です。<br><em>I follow the explanation, but whether it is true is another matter.</em></p>
 </div>
 </div>
 <div class="slide" data-index="7">
@@ -2734,13 +2741,13 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
   <div class="slide__content"><h2>これ・それ・あれ・どれ · Nuance &amp; register</h2>
 <p>The series itself is register-neutral. <code>これは…です</code> is the first full sentence most learners ever build, and it stays usable for life.</p>
 <p>Three things are worth knowing before you aim one of these words at a person.</p>
-<p><strong>Never point at a human with これ／それ／あれ.</strong> They are for objects. For people, use <code>この人(ひと)</code> at the blunt end and <code>こちら</code> when you are being polite - <code>こちらは田中(たなか)さんです</code> is the standard way to introduce someone. <code>こいつ</code>／<code>そいつ</code>／<code>あいつ</code> also exist for people and they are rough: tolerable between close friends about an absent third party, insulting anywhere else.</p>
-<p><strong>こちら・そちら・あちら・どちら are the polite upgrade</strong>, and they double as the two-item version of <code>どれ</code>. In a shop you will hear <code>こちら</code> where a friend would say <code>これ</code> - <code>こちらでよろしいでしょうか</code>, &quot;will this one be all right?&quot;</p>
+<p><strong>Never point at a human with これ／それ／あれ.</strong> They are for objects. For people, use <code>この<ruby>人<rt>ひと</rt></ruby></code> at the blunt end and <code>こちら</code> when you are being polite - <code>こちらは<ruby>田中<rt>たなか</rt></ruby>さんです</code> is the standard way to introduce someone. <code>こいつ</code>／<code>そいつ</code>／<code>あいつ</code> also exist for people and they are rough: tolerable between close friends about an absent third party, insulting anywhere else.</p>
 </div>
 </div>
 <div class="slide" data-index="8">
   
   <div class="slide__content"><h2>これ・それ・あれ・どれ · Nuance &amp; register (cont.)</h2>
+<p><strong>こちら・そちら・あちら・どちら are the polite upgrade</strong>, and they double as the two-item version of <code>どれ</code>. In a shop you will hear <code>こちら</code> where a friend would say <code>これ</code> - <code>こちらでよろしいでしょうか</code>, &quot;will this one be all right?&quot;</p>
 <p><strong><code>あれ</code> on its own is also an interjection</strong> meaning &quot;huh?&quot; - the noise you make when something is not where you left it: <code>あれ、かぎがない</code>. Same word on the page, completely different job, and context makes it obvious.</p>
 <p>In speech the particle is routinely dropped: <code>これ、いくら?</code> rather than <code>これはいくらですか</code>. Keep the particle in writing and in ます-speech.</p>
 </div>
@@ -2752,14 +2759,14 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <p><strong>Rule of thumb</strong> - the れ-series replaces the noun; the の-series introduces it. <code>これ</code> = &quot;this one&quot;. <code>この</code> = &quot;this ___&quot;, and the blank is compulsory.</p>
 </blockquote>
 <p>This is the commonest error in the whole topic, because English uses one word - &quot;this&quot; - for both jobs.</p>
-<p><strong>これ</strong>は重(おも)いです。<br><em>This one is heavy.</em></p>
-<p><strong>この</strong>はこは重(おも)いです。<br><em>This box is heavy.</em></p>
+<p><strong>これ</strong>は<ruby>重<rt>おも</rt></ruby>いです。<br><em>This one is heavy.</em></p>
+<p><strong>この</strong>はこは<ruby>重<rt>おも</rt></ruby>いです。<br><em>This box is heavy.</em></p>
 </div>
 </div>
 <div class="slide" data-index="10">
   
   <div class="slide__content"><h2>これ・それ・あれ・どれ vs この・その・あの・どの (cont.)</h2>
-<p>You cannot mix them: ❌<code>これはこ</code> and ❌<code>このは重(おも)いです</code> are both broken. And unlike the place words, the れ-series does not take <code>の</code> in front of a noun either - ❌<code>これの本(ほん)</code> is not how you say &quot;this book&quot;; <code>この本(ほん)</code> is.</p>
+<p>You cannot mix them: ❌<code>これはこ</code> and ❌<code>このは<ruby>重<rt>おも</rt></ruby>いです</code> are both broken. And unlike the place words, the れ-series does not take <code>の</code> in front of a noun either - ❌<code>これの<ruby>本<rt>ほん</rt></ruby></code> is not how you say &quot;this book&quot;; <code>この<ruby>本<rt>ほん</rt></ruby></code> is.</p>
 </div>
 </div>
 <div class="slide" data-index="11">
@@ -2769,14 +2776,14 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <p><strong>Rule of thumb</strong> - for something <em>said</em> rather than seen: <code>それ</code> picks up what one of you has just mentioned; <code>あれ</code> picks up something you both already know.</p>
 </blockquote>
 <p>Once nothing is physically in the room, distance stops being about metres. <code>それ</code> handles information that has only just entered the conversation, from one side or the other.</p>
-<p>「来週(らいしゅう)、試験(しけん)があるよ。」「えっ、<strong>それ</strong>、本当(ほんとう)?」<br><em>&quot;There&#39;s an exam next week.&quot; &quot;Wait - is that true?&quot;</em></p>
+<p>「<ruby>来週<rt>らいしゅう</rt></ruby>、<ruby>試験<rt>しけん</rt></ruby>があるよ。」「えっ、<strong>それ</strong>、<ruby>本当<rt>ほんとう</rt></ruby>?」<br><em>&quot;There&#39;s an exam next week.&quot; &quot;Wait - is that true?&quot;</em></p>
 <p><code>あれ</code> reaches instead for shared memory: something you have both experienced, which is why it can turn up with no antecedent in the sentence at all.</p>
-<p>去年(きょねん)二人(ふたり)で見(み)た映画(えいが)、<strong>あれ</strong>はよかったね。<br><em>That film the two of us saw last year - that was a good one, wasn&#39;t it.</em></p>
 </div>
 </div>
 <div class="slide" data-index="12">
   
   <div class="slide__content"><h2>それ vs あれ - pointing back at the conversation (cont.)</h2>
+<p><ruby>去年<rt>きょねん</rt></ruby><ruby>二人<rt>ふたり</rt></ruby>で<ruby>見<rt>み</rt></ruby>た<ruby>映画<rt>えいが</rt></ruby>、<strong>あれ</strong>はよかったね。<br><em>That film the two of us saw last year - that was a good one, wasn&#39;t it.</em></p>
 <p>Use <code>あれ</code> when the listener does <em>not</em> share the memory and you will sound as if you are talking to yourself.</p>
 </div>
 </div>
@@ -2787,8 +2794,8 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <p><strong>Rule of thumb</strong> - <code>どれ</code> needs <strong>three or more</strong> candidates. With exactly two, Japanese switches to <code>どちら</code>, or <code>どっち</code> in casual speech.</p>
 </blockquote>
 <p>English &quot;which&quot; does not care how many there are, so this has to be learned on purpose.</p>
-<p>この三(みっ)つのうち、<strong>どれ</strong>にしますか。<br><em>Which of these three will you have?</em></p>
-<p>赤(あか)と青(あお)、<strong>どちら</strong>がいいですか。<br><em>Red or blue - which would you prefer?</em></p>
+<p>この<ruby>三<rt>みっ</rt></ruby>つのうち、<strong>どれ</strong>にしますか。<br><em>Which of these three will you have?</em></p>
+<p><ruby>赤<rt>あか</rt></ruby>と<ruby>青<rt>あお</rt></ruby>、<strong>どちら</strong>がいいですか。<br><em>Red or blue - which would you prefer?</em></p>
 <p><code>どちら</code> is also simply the polite form of <code>どれ</code>, so a shop assistant may use it even facing a whole shelf of options. <code>どっち</code> is casual and extremely frequent in speech; keep it out of email.</p>
 </div>
 </div>
@@ -2796,15 +2803,13 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
   
   <div class="slide__content"><h2>これ・それ・あれ・どれ · Common mistakes</h2>
 <ul>
-<li><p>❌ <strong>これ</strong>かばんは私(わたし)のです。 → ✅ <strong>この</strong>かばんは私(わたし)のです。<br><em>A noun follows, so the の-series is required. <code>これ</code> can only stand alone.</em></p>
+<li><p>❌ <strong>これ</strong>かばんは<ruby>私<rt>わたし</rt></ruby>のです。 → ✅ <strong>この</strong>かばんは<ruby>私<rt>わたし</rt></ruby>のです。<br><em>A noun follows, so the の-series is required. <code>これ</code> can only stand alone.</em></p>
 </li>
-<li><p>❌ <strong>これの</strong>本(ほん)を読(よ)みました。 → ✅ <strong>この</strong>本(ほん)を読(よ)みました。<br><em><code>の</code> does not rescue it. Unlike <code>ここの店(みせ)</code>, which is perfectly normal, <code>これの本(ほん)</code> is not a thing.</em></p>
+<li><p>❌ <strong>これの</strong><ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>みました。 → ✅ <strong>この</strong><ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>みました。<br><em><code>の</code> does not rescue it. Unlike <code>ここの<ruby>店<rt>みせ</rt></ruby></code>, which is perfectly normal, <code>これの<ruby>本<rt>ほん</rt></ruby></code> is not a thing.</em></p>
 </li>
-<li><p>❌ 紅茶(こうちゃ)とコーヒー、<strong>どれ</strong>がいいですか。 → ✅ 紅茶(こうちゃ)とコーヒー、<strong>どちら</strong>がいいですか。<br><em>Two candidates means <code>どちら</code>／<code>どっち</code>. <code>どれ</code> starts at three.</em></p>
+<li><p>❌ <ruby>紅茶<rt>こうちゃ</rt></ruby>とコーヒー、<strong>どれ</strong>がいいですか。 → ✅ <ruby>紅茶<rt>こうちゃ</rt></ruby>とコーヒー、<strong>どちら</strong>がいいですか。<br><em>Two candidates means <code>どちら</code>／<code>どっち</code>. <code>どれ</code> starts at three.</em></p>
 </li>
-<li><p>❌ <strong>あれ</strong>は山田(やまだ)さんです。 → ✅ <strong>あちら</strong>は山田(やまだ)さんです。<br><em><code>あれ</code> is for objects. Aimed at a person it is genuinely rude; <code>あちら</code></em></p>
-</li>
-<li><p>or <code>あの人(ひと)</code> among friends - is what you want.</p>
+<li><p>❌ <strong>あれ</strong>は<ruby>山田<rt>やまだ</rt></ruby>さんです。 → ✅ <strong>あちら</strong>は<ruby>山田<rt>やまだ</rt></ruby>さんです。<br><em><code>あれ</code> is for objects. Aimed at a person it is genuinely rude; <code>あちら</code></em></p>
 </li>
 </ul>
 </div>
@@ -2813,7 +2818,10 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
   
   <div class="slide__content"><h2>これ・それ・あれ・どれ · Common mistakes (cont.)</h2>
 <ul>
-<li>❌ 「これは何(なん)ですか。」「はい、<strong>これ</strong>はペンです。」 → ✅ 「…」「<strong>それ</strong>はペンです。」<br><em>Once the object is in your <em>listener&#39;s</em> hands it has moved into their sphere, so the answer flips to <code>それ</code>. Replying with <code>これ</code> claims you are the one holding it.</em></li>
+<li><p>or <code>あの<ruby>人<rt>ひと</rt></ruby></code> among friends - is what you want.</p>
+</li>
+<li><p>❌ 「これは<ruby>何<rt>なん</rt></ruby>ですか。」「はい、<strong>これ</strong>はペンです。」 → ✅ 「…」「<strong>それ</strong>はペンです。」<br><em>Once the object is in your <em>listener&#39;s</em> hands it has moved into their sphere, so the answer flips to <code>それ</code>. Replying with <code>これ</code> claims you are the one holding it.</em></p>
+</li>
 </ul>
 </div>
 </div>
@@ -2830,9 +2838,9 @@ The cake is behind glass, away from both you and the shop assistant, so it sits 
 <div class="slide" data-index="17">
   
   <div class="slide__content"><h2>これ・それ・あれ・どれ · Practice 2</h2>
-<p><strong>2.</strong> 靴(くつ)が四(よん)足(そく)並(なら)んでいます。（どれ・どちら）が好(す)きですか。</p>
+<p><strong>2.</strong> <ruby>靴<rt>くつ</rt></ruby>が<ruby>四<rt>よん</rt></ruby><ruby>足<rt>そく</rt></ruby><ruby>並<rt>なら</rt></ruby>んでいます。（どれ・どちら）が<ruby>好<rt>す</rt></ruby>きですか。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<strong>どれ</strong>が好(す)きですか。</p>
+<strong>どれ</strong>が<ruby>好<rt>す</rt></ruby>きですか。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 Four pairs means three or more candidates, so <code>どれ</code>. <code>どちら</code> would tell the listener you are offering a choice between exactly two - or that you are being markedly polite.</p>
 </div>
@@ -2842,7 +2850,7 @@ Four pairs means three or more candidates, so <code>どれ</code>. <code>どち�
   <div class="slide__content"><h2>これ・それ・あれ・どれ · Practice 3</h2>
 <p><strong>3.</strong> Translate into Japanese: &quot;Is that yours? - No, this one is mine.&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<strong>それ</strong>はあなたのですか。 - いいえ、<strong>これ</strong>が私(わたし)のです。</p>
+<strong>それ</strong>はあなたのですか。 - いいえ、<strong>これ</strong>が<ruby>私<rt>わたし</rt></ruby>のです。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 The thing asked about is near the listener, hence <code>それ</code>; the speaker then points at the one in their own reach, hence <code>これ</code>. The answer uses <code>が</code> because &quot;this one&quot; is being singled out as the correct one among several.</p>
 </div>
@@ -2850,9 +2858,9 @@ The thing asked about is near the listener, hence <code>それ</code>; the speak
 <div class="slide" data-index="19">
   
   <div class="slide__content"><h2>これ・それ・あれ・どれ · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: これのシャツは小(ちい)さいですから、大(おお)きいのをください。</p>
+<p><strong>4.</strong> Find and fix the error: これのシャツは<ruby>小<rt>ちい</rt></ruby>さいですから、<ruby>大<rt>おお</rt></ruby>きいのをください。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ <strong>この</strong>シャツは小(ちい)さいですから、大(おお)きいのをください。 &quot;This shirt is too small, so please give me a bigger one.&quot;</p>
+✅ <strong>この</strong>シャツは<ruby>小<rt>ちい</rt></ruby>さいですから、<ruby>大<rt>おお</rt></ruby>きいのをください。 &quot;This shirt is too small, so please give me a bigger one.&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 <code>これの</code> is not a possible modifier. When a noun follows, switch to the の-series. The <code>の</code> later in the sentence is a different <code>の</code> - the pronoun &quot;one&quot;, standing in for シャツ.</p>
 </div>
@@ -2860,7 +2868,7 @@ The thing asked about is near the listener, hence <code>それ</code>; the speak
 <div class="slide" data-index="20">
   
   <div class="slide__content"><h2>これ・それ・あれ・どれ · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 昨日(きのう)の話(はなし)、<strong>それ</strong>はもう終(お)わりました。 (b) 昨日(きのう)の話(はなし)、<strong>あれ</strong>はもう終(お)わりました。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>昨日<rt>きのう</rt></ruby>の<ruby>話<rt>はなし</rt></ruby>、<strong>それ</strong>はもう<ruby>終<rt>お</rt></ruby>わりました。 (b) <ruby>昨日<rt>きのう</rt></ruby>の<ruby>話<rt>はなし</rt></ruby>、<strong>あれ</strong>はもう<ruby>終<rt>お</rt></ruby>わりました。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) treats yesterday&#39;s matter as something that has just been raised in this conversation - typically the listener brought it up and you are answering their words. It is the neutral, businesslike choice.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
@@ -2871,7 +2879,7 @@ The thing asked about is near the listener, hence <code>それ</code>; the speak
   
   <div class="slide__content"><h1>この・その・あの・どの</h1>
 <p><strong>Meaning</strong> · this ~ / that ~ / that ~ over there / which ~ - pointing words that modify a noun instead of replacing it</p>
-<p><code>この</code> and its siblings are <strong>adnominals</strong>: they do nothing on their own and must be followed immediately by a noun. <code>この本(ほん)</code> is &quot;this book&quot;, never &quot;this&quot;. The こ／そ／あ／ど split is the same one the rest of the series uses - the speaker&#39;s side, the listener&#39;s side, away from both, and the question.</p>
+<p><code>この</code> and its siblings are <strong>adnominals</strong>: they do nothing on their own and must be followed immediately by a noun. <code>この<ruby>本<rt>ほん</rt></ruby></code> is &quot;this book&quot;, never &quot;this&quot;. The こ／そ／あ／ど split is the same one the rest of the series uses - the speaker&#39;s side, the listener&#39;s side, away from both, and the question.</p>
 </div>
 </div>
 <div class="slide" data-index="22">
@@ -2894,42 +2902,47 @@ The thing asked about is near the listener, hence <code>それ</code>; the speak
 <tbody><tr>
 <td>Noun</td>
 <td>この + Noun - in the speaker&#39;s territory</td>
-<td>この傘(かさ)</td>
+<td>この<ruby>傘<rt>かさ</rt></ruby></td>
 </tr>
 <tr>
 <td>Noun</td>
 <td>その + Noun - in the listener&#39;s territory, or just mentioned</td>
-<td>その話(はなし)</td>
+<td>その<ruby>話<rt>はなし</rt></ruby></td>
 </tr>
 <tr>
 <td>Noun</td>
 <td>あの + Noun - away from both, or shared memory</td>
-<td>あの店(みせ)</td>
+<td>あの<ruby>店<rt>みせ</rt></ruby></td>
 </tr>
 <tr>
 <td>Noun</td>
 <td>どの + Noun - which ~, out of <strong>three or more</strong></td>
-<td>どの電車(でんしゃ)</td>
+<td>どの<ruby>電車<rt>でんしゃ</rt></ruby></td>
 </tr>
 <tr>
 <td>Adjective + Noun</td>
 <td>この + Adj + Noun</td>
-<td>この赤(あか)いくつ</td>
+<td>この<ruby>赤<rt>あか</rt></ruby>いくつ</td>
 </tr>
 <tr>
 <td>The particle</td>
 <td>この + Noun <strong>+ particle</strong> - never この + particle</td>
-<td>この傘(かさ)は私(わたし)のです</td>
+<td>この<ruby>傘<rt>かさ</rt></ruby>は<ruby>私<rt>わたし</rt></ruby>のです</td>
 </tr>
 <tr>
 <td>Nothing</td>
 <td>❌ この on its own → use これ</td>
-<td>❌ このは大(おお)きい → ✅ これは大(おお)きい</td>
+<td>❌ このは<ruby>大<rt>おお</rt></ruby>きい → ✅ これは<ruby>大<rt>おお</rt></ruby>きい</td>
 </tr>
 <tr>
 <td>Two choices only</td>
 <td>どの → どちらの（casual どっちの）</td>
-<td>どちらの席(せき)がいいですか</td>
+<td>どちらの<ruby>席<rt>せき</rt></ruby>がいいですか</td>
+</tr>
+<tr>
+<td>Polite equivalent</td>
+<td>この／その／あの → こちらの／そちらの／あちらの</td>
+<td>そちらの<ruby>方<rt>かた</rt></ruby>にお<ruby>聞<rt>き</rt></ruby>きください</td>
 </tr>
 </tbody></table>
 </div>
@@ -2937,20 +2950,6 @@ The thing asked about is near the listener, hence <code>それ</code>; the speak
 <div class="slide" data-index="24">
   
   <div class="slide__content"><h2>この・その・あの・どの · Formation (cont.)</h2>
-<table>
-<thead>
-<tr>
-<th>Attaches to</th>
-<th>Form</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Polite equivalent</td>
-<td>この／その／あの → こちらの／そちらの／あちらの</td>
-<td>そちらの方(かた)にお聞(き)きください</td>
-</tr>
-</tbody></table>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>この</code> is a hook with nothing on it. Something must hang from it, and that something is a noun. If you have no noun to supply, you wanted <code>これ・それ・あれ・どれ</code> instead.</p>
 </blockquote>
@@ -2959,19 +2958,19 @@ The thing asked about is near the listener, hence <code>それ</code>; the speak
 <div class="slide" data-index="25">
   
   <div class="slide__content"><h2>この・その・あの・どの · Examples</h2>
-<p><strong>この</strong>ペンは父(ちち)のです。<br><em>This pen is my father&#39;s.</em></p>
-<p><strong>その</strong>いすに座(すわ)ってください。<br><em>Please sit on that chair.</em></p>
-<p><strong>あの</strong>白(しろ)い建物(たてもの)は図書館(としょかん)です。<br><em>That white building over there is the library.</em></p>
-<p><strong>どの</strong>バスが空港(くうこう)へ行(い)きますか。<br><em>Which bus goes to the airport?</em></p>
-<p><strong>その</strong>話(はなし)はもう聞(き)きました。<br><em>I have already heard that story.</em></p>
+<p><strong>この</strong>ペンは<ruby>父<rt>ちち</rt></ruby>のです。<br><em>This pen is my father&#39;s.</em></p>
+<p><strong>その</strong>いすに<ruby>座<rt>すわ</rt></ruby>ってください。<br><em>Please sit on that chair.</em></p>
+<p><strong>あの</strong><ruby>白<rt>しろ</rt></ruby>い<ruby>建物<rt>たてもの</rt></ruby>は<ruby>図書館<rt>としょかん</rt></ruby>です。<br><em>That white building over there is the library.</em></p>
+<p><strong>どの</strong>バスが<ruby>空港<rt>くうこう</rt></ruby>へ<ruby>行<rt>い</rt></ruby>きますか。<br><em>Which bus goes to the airport?</em></p>
 </div>
 </div>
 <div class="slide" data-index="26">
   
   <div class="slide__content"><h2>この・その・あの・どの · Examples (cont.)</h2>
-<p><strong>あの</strong>とき、もっと早(はや)く出(で)ればよかった。<br><em>I should have left earlier that time.</em></p>
-<p><strong>この</strong>辺(へん)は夜(よる)になると静(しず)かですから、勉強(べんきょう)するのにいいですよ。<br><em>This area goes quiet after dark, so it&#39;s a good place to study.</em></p>
-<p>注文(ちゅうもん)は<strong>あの</strong>背(せ)の高(たか)い店員(てんいん)さんにお願(ねが)いしました。<br><em>I gave my order to that tall member of staff over there.</em></p>
+<p><strong>その</strong><ruby>話<rt>はなし</rt></ruby>はもう<ruby>聞<rt>き</rt></ruby>きました。<br><em>I have already heard that story.</em></p>
+<p><strong>あの</strong>とき、もっと<ruby>早<rt>はや</rt></ruby>く<ruby>出<rt>で</rt></ruby>ればよかった。<br><em>I should have left earlier that time.</em></p>
+<p><strong>この</strong><ruby>辺<rt>へん</rt></ruby>は<ruby>夜<rt>よる</rt></ruby>になると<ruby>静<rt>しず</rt></ruby>かですから、<ruby>勉強<rt>べんきょう</rt></ruby>するのにいいですよ。<br><em>This area goes quiet after dark, so it&#39;s a good place to study.</em></p>
+<p><ruby>注文<rt>ちゅうもん</rt></ruby>は<strong>あの</strong><ruby>背<rt>せ</rt></ruby>の<ruby>高<rt>たか</rt></ruby>い<ruby>店員<rt>てんいん</rt></ruby>さんにお<ruby>願<rt>ねが</rt></ruby>いしました。<br><em>I gave my order to that tall member of staff over there.</em></p>
 </div>
 </div>
 <div class="slide" data-index="27">
@@ -2979,14 +2978,14 @@ The thing asked about is near the listener, hence <code>それ</code>; the speak
   <div class="slide__content"><h2>この・その・あの・どの · Nuance &amp; register</h2>
 <p>Neutral in itself, and unavoidable - you cannot get through a paragraph of Japanese without it.</p>
 <p><strong><code>あの</code> is also the standard hesitation noise</strong>, usually stretched to <code>あのう</code>. It opens a request to a stranger the way &quot;excuse me…&quot; does in English: <code>あのう、すみません、ちょっとよろしいですか</code>. Beginners hear it constantly and assume it is the demonstrative; it is not, and it points at nothing.</p>
-<p><strong><code>その</code> is the workhorse of written and business Japanese.</strong> In an email, <code>その件(けん)について</code> (&quot;regarding that matter&quot;) refers back to whatever the previous sentence or the previous email established. Anaphoric <code>その</code> is far more common in writing than the physical &quot;near you&quot; sense you learn first.</p>
-<p><strong>Politeness rises through <code>こちらの</code>.</strong> <code>あの人(ひと)</code> is fine among friends but too blunt about a customer or a superior; <code>あちらの方(かた)</code> is the safe formal version. <code>あいつ</code> and friends are the rough end of the same scale and take a <code>の</code> too: <code>あいつの</code> - avoid in polite company.</p>
+<p><strong><code>その</code> is the workhorse of written and business Japanese.</strong> In an email, <code>その<ruby>件<rt>けん</rt></ruby>について</code> (&quot;regarding that matter&quot;) refers back to whatever the previous sentence or the previous email established. Anaphoric <code>その</code> is far more common in writing than the physical &quot;near you&quot; sense you learn first.</p>
 </div>
 </div>
 <div class="slide" data-index="28">
   
   <div class="slide__content"><h2>この・その・あの・どの · Nuance &amp; register (cont.)</h2>
-<p><strong>Casual speech shortens <code>どの</code> to <code>どっちの</code> when there are two</strong>, and drops the noun altogether when it can be guessed: 「どっち?」rather than <code>どちらの席(せき)がいいですか</code>.</p>
+<p><strong>Politeness rises through <code>こちらの</code>.</strong> <code>あの<ruby>人<rt>ひと</rt></ruby></code> is fine among friends but too blunt about a customer or a superior; <code>あちらの<ruby>方<rt>かた</rt></ruby></code> is the safe formal version. <code>あいつ</code> and friends are the rough end of the same scale and take a <code>の</code> too: <code>あいつの</code> - avoid in polite company.</p>
+<p><strong>Casual speech shortens <code>どの</code> to <code>どっちの</code> when there are two</strong>, and drops the noun altogether when it can be guessed: 「どっち?」rather than <code>どちらの<ruby>席<rt>せき</rt></ruby>がいいですか</code>.</p>
 </div>
 </div>
 <div class="slide" data-index="29">
@@ -2996,15 +2995,15 @@ The thing asked about is near the listener, hence <code>それ</code>; the speak
 <p><strong>Rule of thumb</strong> - <code>この</code> modifies, <code>これ</code> replaces. <code>この</code> must be followed by a noun; <code>これ</code> must <strong>not</strong> be.</p>
 </blockquote>
 <p>They are the same four distances packaged for two different grammatical slots, and mixing them up is the single most frequent mistake in this topic.</p>
-<p><strong>その</strong>時計(とけい)はいくらですか。<br><em>How much is that watch?</em></p>
+<p><strong>その</strong><ruby>時計<rt>とけい</rt></ruby>はいくらですか。<br><em>How much is that watch?</em></p>
 <p>それはいくらですか。<br><em>How much is that one?</em></p>
-<p>Both are correct; the first names the object, the second assumes you can see which object is meant. What you may never write is ❌<code>それ時計(とけい)</code> or ❌<code>この、いくらですか</code>.</p>
 </div>
 </div>
 <div class="slide" data-index="30">
   
   <div class="slide__content"><h2>この・その・あの・どの vs これ・それ・あれ・どれ (cont.)</h2>
-<p>There is one asymmetry worth memorising: the place words <em>do</em> take <code>の</code> before a noun (<code>ここの店(みせ)</code>, &quot;the shop here&quot;), but the thing pronouns do not. ❌<code>これの店(みせ)</code> is wrong; <code>この店(みせ)</code> is right.</p>
+<p>Both are correct; the first names the object, the second assumes you can see which object is meant. What you may never write is ❌<code>それ<ruby>時計<rt>とけい</rt></ruby></code> or ❌<code>この、いくらですか</code>.</p>
+<p>There is one asymmetry worth memorising: the place words <em>do</em> take <code>の</code> before a noun (<code>ここの<ruby>店<rt>みせ</rt></ruby></code>, &quot;the shop here&quot;), but the thing pronouns do not. ❌<code>これの<ruby>店<rt>みせ</rt></ruby></code> is wrong; <code>この<ruby>店<rt>みせ</rt></ruby></code> is right.</p>
 </div>
 </div>
 <div class="slide" data-index="31">
@@ -3014,9 +3013,9 @@ The thing asked about is near the listener, hence <code>それ</code>; the speak
 <p><strong>Rule of thumb</strong> - <code>その</code> = it is on your listener&#39;s side, or it entered the conversation a moment ago. <code>あの</code> = it is on nobody&#39;s side, or we both already know it.</p>
 </blockquote>
 <p>Physically the split is easy. In conversation, where nothing is visible, it is about who owns the information.</p>
-<p>「新(あたら)しいカフェができたよ。」「へえ、<strong>その</strong>カフェ、どこ?」<br><em>&quot;A new café has opened.&quot; &quot;Oh - where is that café?&quot;</em></p>
+<p>「<ruby>新<rt>あたら</rt></ruby>しいカフェができたよ。」「へえ、<strong>その</strong>カフェ、どこ?」<br><em>&quot;A new café has opened.&quot; &quot;Oh - where is that café?&quot;</em></p>
 <p>The speaker has never seen it. It exists for them only because the listener just said so, so <code>その</code>.</p>
-<p>学生(がくせい)のとき、よく二人(ふたり)で行(い)ったよね。<strong>あの</strong>カフェ、まだあるかな。<br><em>We used to go together as students, didn&#39;t we. I wonder if that café is still there.</em></p>
+<p><ruby>学生<rt>がくせい</rt></ruby>のとき、よく<ruby>二人<rt>ふたり</rt></ruby>で<ruby>行<rt>い</rt></ruby>ったよね。<strong>あの</strong>カフェ、まだあるかな。<br><em>We used to go together as students, didn&#39;t we. I wonder if that café is still there.</em></p>
 </div>
 </div>
 <div class="slide" data-index="32">
@@ -3032,27 +3031,27 @@ The thing asked about is near the listener, hence <code>それ</code>; the speak
 <p><strong>Rule of thumb</strong> - <code>どの</code> picks one out of a known set. <code>どんな</code> asks what kind of thing it is, with no set in front of you.</p>
 </blockquote>
 <p>Both sit in front of a noun and both come out as &quot;what/which&quot; in English, so they collapse together unless you separate them deliberately.</p>
-<p>棚(たな)の本(ほん)のうち、<strong>どの</strong>本(ほん)が一番(いちばん)役(やく)に立(た)ちますか。<br><em>Of the books on the shelf, which book is the most useful?</em></p>
-<p><strong>どんな</strong>本(ほん)をよく読(よ)みますか。<br><em>What kind of books do you usually read?</em></p>
+<p><ruby>棚<rt>たな</rt></ruby>の<ruby>本<rt>ほん</rt></ruby>のうち、<strong>どの</strong><ruby>本<rt>ほん</rt></ruby>が<ruby>一番<rt>いちばん</rt></ruby><ruby>役<rt>やく</rt></ruby>に<ruby>立<rt>た</rt></ruby>ちますか。<br><em>Of the books on the shelf, which book is the most useful?</em></p>
+<p><strong>どんな</strong><ruby>本<rt>ほん</rt></ruby>をよく<ruby>読<rt>よ</rt></ruby>みますか。<br><em>What kind of books do you usually read?</em></p>
 </div>
 </div>
 <div class="slide" data-index="34">
   
   <div class="slide__content"><h2>この・その・あの・どの · どの vs どんな (cont.)</h2>
-<p>Answer the first with a book you can point at; answer the second with a category - 歴史(れきし)の本(ほん), 小説(しょうせつ). A quick test: if the English is &quot;which of these&quot;, it is <code>どの</code>; if it is &quot;what sort of&quot;, it is <code>どんな</code>.</p>
+<p>Answer the first with a book you can point at; answer the second with a category - <ruby>歴史<rt>れきし</rt></ruby>の<ruby>本<rt>ほん</rt></ruby>, <ruby>小説<rt>しょうせつ</rt></ruby>. A quick test: if the English is &quot;which of these&quot;, it is <code>どの</code>; if it is &quot;what sort of&quot;, it is <code>どんな</code>.</p>
 </div>
 </div>
 <div class="slide" data-index="35">
   
   <div class="slide__content"><h2>この・その・あの・どの · Common mistakes</h2>
 <ul>
-<li><p>❌ <strong>この</strong>は私(わたし)のかばんです。 → ✅ <strong>これ</strong>は私(わたし)のかばんです。<br><em><code>この</code> cannot stand alone. Either supply a noun (<code>このかばんは私(わたし)のです</code>) or switch to <code>これ</code>.</em></p>
+<li><p>❌ <strong>この</strong>は<ruby>私<rt>わたし</rt></ruby>のかばんです。 → ✅ <strong>これ</strong>は<ruby>私<rt>わたし</rt></ruby>のかばんです。<br><em><code>この</code> cannot stand alone. Either supply a noun (<code>このかばんは<ruby>私<rt>わたし</rt></ruby>のです</code>) or switch to <code>これ</code>.</em></p>
 </li>
-<li><p>❌ <strong>それ</strong>本(ほん)を取(と)ってください。 → ✅ <strong>その</strong>本(ほん)を取(と)ってください。<br><em>A noun follows, so the の-series is required. <code>それ</code> never sits in front of a noun.</em></p>
+<li><p>❌ <strong>それ</strong><ruby>本<rt>ほん</rt></ruby>を<ruby>取<rt>と</rt></ruby>ってください。 → ✅ <strong>その</strong><ruby>本<rt>ほん</rt></ruby>を<ruby>取<rt>と</rt></ruby>ってください。<br><em>A noun follows, so the の-series is required. <code>それ</code> never sits in front of a noun.</em></p>
 </li>
-<li><p>❌ <strong>あのの</strong>人(ひと)は先生(せんせい)です。 → ✅ <strong>あの</strong>人(ひと)は先生(せんせい)です。<br><em><code>この・その・あの・どの</code> already end in the <code>の</code> they need. Adding a second one is doubling up.</em></p>
+<li><p>❌ <strong>あのの</strong><ruby>人<rt>ひと</rt></ruby>は<ruby>先生<rt>せんせい</rt></ruby>です。 → ✅ <strong>あの</strong><ruby>人<rt>ひと</rt></ruby>は<ruby>先生<rt>せんせい</rt></ruby>です。<br><em><code>この・その・あの・どの</code> already end in the <code>の</code> they need. Adding a second one is doubling up.</em></p>
 </li>
-<li><p>❌ 肉(にく)と魚(さかな)、<strong>どの</strong>料理(りょうり)にしますか。 → ✅ 肉(にく)と魚(さかな)、<strong>どちらの</strong>料理(りょうり)にしますか。<br><em>Two options means <code>どちらの</code>. <code>どの</code> needs three or more to choose between.</em></p>
+<li><p>❌ <ruby>肉<rt>にく</rt></ruby>と<ruby>魚<rt>さかな</rt></ruby>、<strong>どの</strong><ruby>料理<rt>りょうり</rt></ruby>にしますか。 → ✅ <ruby>肉<rt>にく</rt></ruby>と<ruby>魚<rt>さかな</rt></ruby>、<strong>どちらの</strong><ruby>料理<rt>りょうり</rt></ruby>にしますか。<br><em>Two options means <code>どちらの</code>. <code>どの</code> needs three or more to choose between.</em></p>
 </li>
 </ul>
 </div>
@@ -3061,16 +3060,16 @@ The thing asked about is near the listener, hence <code>それ</code>; the speak
   
   <div class="slide__content"><h2>この・その・あの・どの · Common mistakes (cont.)</h2>
 <ul>
-<li>❌ <strong>どの</strong>音楽(おんがく)が好(す)きですか。（meaning &quot;what kind of music do you like?&quot;）→ ✅ <strong>どんな</strong>音楽(おんがく)が好(す)きですか。<br><em><code>どの</code> would be asking the listener to point at one specific piece of music from a list in front of them. For a genre, you want <code>どんな</code>.</em></li>
+<li>❌ <strong>どの</strong><ruby>音楽<rt>おんがく</rt></ruby>が<ruby>好<rt>す</rt></ruby>きですか。（meaning &quot;what kind of music do you like?&quot;）→ ✅ <strong>どんな</strong><ruby>音楽<rt>おんがく</rt></ruby>が<ruby>好<rt>す</rt></ruby>きですか。<br><em><code>どの</code> would be asking the listener to point at one specific piece of music from a list in front of them. For a genre, you want <code>どんな</code>.</em></li>
 </ul>
 </div>
 </div>
 <div class="slide" data-index="37">
   
   <div class="slide__content"><h2>この・その・あの・どの · Practice 1</h2>
-<p><strong>1.</strong> ____建物(たてもの)は百年(ひゃくねん)前(まえ)に建(た)てられました。（the building is a long way off, visible from where you both stand）</p>
+<p><strong>1.</strong> ____<ruby>建物<rt>たてもの</rt></ruby>は<ruby>百年<rt>ひゃくねん</rt></ruby><ruby>前<rt>まえ</rt></ruby>に<ruby>建<rt>た</rt></ruby>てられました。（the building is a long way off, visible from where you both stand）</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<strong>あの</strong>建物(たてもの)は百年(ひゃくねん)前(まえ)に建(た)てられました。</p>
+<strong>あの</strong><ruby>建物<rt>たてもの</rt></ruby>は<ruby>百年<rt>ひゃくねん</rt></ruby><ruby>前<rt>まえ</rt></ruby>に<ruby>建<rt>た</rt></ruby>てられました。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 It is away from both of you, so <code>あの</code>. A noun follows, so it must be the の-series and not <code>あれ</code>.</p>
 </div>
@@ -3078,11 +3077,11 @@ It is away from both of you, so <code>あの</code>. A noun follows, so it must 
 <div class="slide" data-index="38">
   
   <div class="slide__content"><h2>この・その・あの・どの · Practice 2</h2>
-<p><strong>2.</strong> 会議室(かいぎしつ)が五(いつ)つあります。（どの・どんな）部屋(へや)を使(つか)いますか。</p>
+<p><strong>2.</strong> <ruby>会議室<rt>かいぎしつ</rt></ruby>が<ruby>五<rt>いつ</rt></ruby>つあります。（どの・どんな）<ruby>部屋<rt>へや</rt></ruby>を<ruby>使<rt>つか</rt></ruby>いますか。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<strong>どの</strong>部屋(へや)を使(つか)いますか。</p>
+<strong>どの</strong><ruby>部屋<rt>へや</rt></ruby>を<ruby>使<rt>つか</rt></ruby>いますか。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-There is a defined set of five rooms and you are asking the listener to pick one out of it. <code>どんな部屋(へや)</code> would be asking what sort of room they want - big, quiet, with a projector - which is a different question.</p>
+There is a defined set of five rooms and you are asking the listener to pick one out of it. <code>どんな<ruby>部屋<rt>へや</rt></ruby></code> would be asking what sort of room they want - big, quiet, with a projector - which is a different question.</p>
 </div>
 </div>
 <div class="slide" data-index="39">
@@ -3090,7 +3089,7 @@ There is a defined set of five rooms and you are asking the listener to pick one
   <div class="slide__content"><h2>この・その・あの・どの · Practice 3</h2>
 <p><strong>3.</strong> Translate into Japanese: &quot;I don&#39;t know that word. Could you write it on the board?&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<strong>その</strong>言葉(ことば)は知(し)りません。ホワイトボードに書(か)いていただけますか。</p>
+<strong>その</strong><ruby>言葉<rt>ことば</rt></ruby>は<ruby>知<rt>し</rt></ruby>りません。ホワイトボードに<ruby>書<rt>か</rt></ruby>いていただけますか。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 The word came from the listener&#39;s mouth, so it belongs to their side of the conversation: <code>その</code>. <code>あの</code> would wrongly imply you both already know it, which is the opposite of what you are saying.</p>
 </div>
@@ -3108,11 +3107,11 @@ The word came from the listener&#39;s mouth, so it belongs to their side of the 
 <div class="slide" data-index="41">
   
   <div class="slide__content"><h2>この・その・あの・どの · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) <strong>その</strong>映画(えいが)は面白(おもしろ)かったですか。 (b) <strong>あの</strong>映画(えいが)は面白(おもしろ)かったですか。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <strong>その</strong><ruby>映画<rt>えいが</rt></ruby>は<ruby>面白<rt>おもしろ</rt></ruby>かったですか。 (b) <strong>あの</strong><ruby>映画<rt>えいが</rt></ruby>は<ruby>面白<rt>おもしろ</rt></ruby>かったですか。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) refers to a film the listener has just brought up, and which the speaker knows nothing about beyond that mention. It is the natural reply to &quot;I went to the cinema yesterday.&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-(b) presupposes that both of you already have a particular film in mind - one you discussed before, or one everybody in the room has heard of. Said out of nowhere it would leave the listener asking 「どの映画(えいが)?」.</p>
+(b) presupposes that both of you already have a particular film in mind - one you discussed before, or one everybody in the room has heard of. Said out of nowhere it would leave the listener asking 「どの<ruby>映画<rt>えいが</rt></ruby>?」.</p>
 </div>
 </div>
 <div class="slide" data-index="42">
@@ -3137,42 +3136,42 @@ The word came from the listener&#39;s mouth, so it belongs to their side of the 
 <tbody><tr>
 <td>Nothing - ここ is itself a noun</td>
 <td>ここ = where the speaker is</td>
-<td>ここで待(ま)ちます</td>
+<td>ここで<ruby>待<rt>ま</rt></ruby>ちます</td>
 </tr>
 <tr>
 <td>Nothing</td>
 <td>そこ = where the listener is, or a place just mentioned</td>
-<td>そこに置(お)いてください</td>
+<td>そこに<ruby>置<rt>お</rt></ruby>いてください</td>
 </tr>
 <tr>
 <td>Nothing</td>
 <td>あそこ = a place away from both of you</td>
-<td>あそこまで歩(ある)きましょう</td>
+<td>あそこまで<ruby>歩<rt>ある</rt></ruby>きましょう</td>
 </tr>
 <tr>
 <td>Nothing</td>
 <td>どこ = where</td>
-<td>どこに住(す)んでいますか</td>
+<td>どこに<ruby>住<rt>す</rt></ruby>んでいますか</td>
 </tr>
 <tr>
 <td>Particle に</td>
 <td>Place + に - existence or destination</td>
-<td>ここに名前(なまえ)を書(か)きます</td>
+<td>ここに<ruby>名前<rt>なまえ</rt></ruby>を<ruby>書<rt>か</rt></ruby>きます</td>
 </tr>
 <tr>
 <td>Particle で</td>
 <td>Place + で - where an action happens</td>
-<td>あそこで会(あ)いましょう</td>
+<td>あそこで<ruby>会<rt>あ</rt></ruby>いましょう</td>
 </tr>
 <tr>
 <td>から／まで</td>
 <td>Place + から／まで - route ends</td>
-<td>ここから駅(えき)まで十分(じゅっぷん)</td>
+<td>ここから<ruby>駅<rt>えき</rt></ruby>まで<ruby>十分<rt>じゅっぷん</rt></ruby></td>
 </tr>
 <tr>
 <td><strong>Noun modification</strong></td>
 <td>ここ／そこ／あそこ／どこ <strong>+ の +</strong> Noun</td>
-<td>ここの水(みず)はおいしい</td>
+<td>ここの<ruby>水<rt>みず</rt></ruby>はおいしい</td>
 </tr>
 </tbody></table>
 </div>
@@ -3191,45 +3190,45 @@ The word came from the listener&#39;s mouth, so it belongs to their side of the 
 <tbody><tr>
 <td>Polite equivalent</td>
 <td>ここ／そこ／あそこ／どこ → こちら／そちら／あちら／どちら</td>
-<td>どちらにお住(す)まいですか</td>
+<td>どちらにお<ruby>住<rt>す</rt></ruby>まいですか</td>
 </tr>
 </tbody></table>
 <blockquote>
-<p><strong>Rule of thumb</strong> - <code>に</code> puts something <em>at</em> the place, <code>で</code> makes something <em>happen</em> at the place. <code>ここに本(ほん)がある</code> versus <code>ここで本(ほん)を読(よ)む</code>. Getting this pair wrong is the single most audible error learners make with place words.</p>
+<p><strong>Rule of thumb</strong> - <code>に</code> puts something <em>at</em> the place, <code>で</code> makes something <em>happen</em> at the place. <code>ここに<ruby>本<rt>ほん</rt></ruby>がある</code> versus <code>ここで<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>む</code>. Getting this pair wrong is the single most audible error learners make with place words.</p>
 </blockquote>
 </div>
 </div>
 <div class="slide" data-index="45">
   
   <div class="slide__content"><h2>ここ・そこ・あそこ・どこ · Examples</h2>
-<p>かばんは<strong>ここ</strong>に置(お)きます。<br><em>I&#39;ll put my bag here.</em></p>
-<p>出口(でぐち)は<strong>どこ</strong>ですか。<br><em>Where is the exit?</em></p>
-<p><strong>そこ</strong>、ちょっと危(あぶ)ないですよ。<br><em>It&#39;s a bit dangerous where you&#39;re standing.</em></p>
-<p><strong>あそこ</strong>の角(かど)を右(みぎ)に曲(ま)がってください。<br><em>Turn right at that corner over there.</em></p>
-<p><strong>ここ</strong>のパンは朝(あさ)六時(ろくじ)に焼(や)き上(あ)がります。<br><em>The bread here comes out of the oven at six in the morning.</em></p>
+<p>かばんは<strong>ここ</strong>に<ruby>置<rt>お</rt></ruby>きます。<br><em>I&#39;ll put my bag here.</em></p>
+<p><ruby>出口<rt>でぐち</rt></ruby>は<strong>どこ</strong>ですか。<br><em>Where is the exit?</em></p>
+<p><strong>そこ</strong>、ちょっと<ruby>危<rt>あぶ</rt></ruby>ないですよ。<br><em>It&#39;s a bit dangerous where you&#39;re standing.</em></p>
+<p><strong>あそこ</strong>の<ruby>角<rt>かど</rt></ruby>を<ruby>右<rt>みぎ</rt></ruby>に<ruby>曲<rt>ま</rt></ruby>がってください。<br><em>Turn right at that corner over there.</em></p>
 </div>
 </div>
 <div class="slide" data-index="46">
   
   <div class="slide__content"><h2>ここ・そこ・あそこ・どこ · Examples (cont.)</h2>
-<p>旅行(りょこう)の写真(しゃしん)、<strong>どこ</strong>でとったんですか。<br><em>Where did you take these holiday photos?</em></p>
-<p>駅(えき)を出(で)たら、<strong>そこ</strong>から三(みっ)つ目(め)の信号(しんごう)を左(ひだり)に曲(ま)がってください。<br><em>Once you leave the station, turn left at the third set of lights from there.</em></p>
-<p>子(こ)どものころ住(す)んでいた町(まち)に戻(もど)ったが、<strong>あそこ</strong>はもうすっかり変(か)わってしまった。<br><em>I went back to the town I lived in as a child, but the place has changed completely.</em></p>
+<p><strong>ここ</strong>のパンは<ruby>朝<rt>あさ</rt></ruby><ruby>六時<rt>ろくじ</rt></ruby>に<ruby>焼<rt>や</rt></ruby>き<ruby>上<rt>あ</rt></ruby>がります。<br><em>The bread here comes out of the oven at six in the morning.</em></p>
+<p><ruby>旅行<rt>りょこう</rt></ruby>の<ruby>写真<rt>しゃしん</rt></ruby>、<strong>どこ</strong>でとったんですか。<br><em>Where did you take these holiday photos?</em></p>
+<p><ruby>駅<rt>えき</rt></ruby>を<ruby>出<rt>で</rt></ruby>たら、<strong>そこ</strong>から<ruby>三<rt>みっ</rt></ruby>つ<ruby>目<rt>め</rt></ruby>の<ruby>信号<rt>しんごう</rt></ruby>を<ruby>左<rt>ひだり</rt></ruby>に<ruby>曲<rt>ま</rt></ruby>がってください。<br><em>Once you leave the station, turn left at the third set of lights from there.</em></p>
+<p><ruby>子<rt>こ</rt></ruby>どものころ<ruby>住<rt>す</rt></ruby>んでいた<ruby>町<rt>まち</rt></ruby>に<ruby>戻<rt>もど</rt></ruby>ったが、<strong>あそこ</strong>はもうすっかり<ruby>変<rt>か</rt></ruby>わってしまった。<br><em>I went back to the town I lived in as a child, but the place has changed completely.</em></p>
 </div>
 </div>
 <div class="slide" data-index="47">
   
   <div class="slide__content"><h2>ここ・そこ・あそこ・どこ · Nuance &amp; register</h2>
 <p>Neutral, and used constantly. Three extensions are worth knowing.</p>
-<p><strong>They point at abstract &quot;places&quot; too.</strong> In an explanation or an argument, <code>ここ</code> means &quot;this point in what I am saying&quot; and <code>そこ</code> means &quot;that point you just made&quot;: <code>ここが大切(たいせつ)です</code> (&quot;this is the important bit&quot;), <code>そこが問題(もんだい)なんです</code> (&quot;that is exactly the problem&quot;). This use is extremely common and completely idiomatic; a learner who only knows the physical sense will misread it.</p>
-<p><strong><code>ここ</code> also stretches over time.</strong> <code>ここ一週間(いっしゅうかん)</code> means &quot;these last/next seven days&quot;, and <code>ここ数年(すうねん)</code> &quot;these past few years&quot;. <code>そこ</code> and <code>あそこ</code> do not do this.</p>
+<p><strong>They point at abstract &quot;places&quot; too.</strong> In an explanation or an argument, <code>ここ</code> means &quot;this point in what I am saying&quot; and <code>そこ</code> means &quot;that point you just made&quot;: <code>ここが<ruby>大切<rt>たいせつ</rt></ruby>です</code> (&quot;this is the important bit&quot;), <code>そこが<ruby>問題<rt>もんだい</rt></ruby>なんです</code> (&quot;that is exactly the problem&quot;). This use is extremely common and completely idiomatic; a learner who only knows the physical sense will misread it.</p>
+<p><strong><code>ここ</code> also stretches over time.</strong> <code>ここ<ruby>一週間<rt>いっしゅうかん</rt></ruby></code> means &quot;these last/next seven days&quot;, and <code>ここ<ruby>数年<rt>すうねん</rt></ruby></code> &quot;these past few years&quot;. <code>そこ</code> and <code>あそこ</code> do not do this.</p>
 </div>
 </div>
 <div class="slide" data-index="48">
   
   <div class="slide__content"><h2>ここ・そこ・あそこ・どこ · Nuance &amp; register (cont.)</h2>
-<p><strong><code>こちら</code>・<code>そちら</code>・<code>あちら</code>・<code>どちら</code> are the polite register</strong>, and in service or business Japanese they replace the plain words wholesale. Asked for your address you will hear <code>どちらにお住(す)まいですか</code>, never <code>どこに住(す)んでいますか</code>. <code>どちら</code> is also how you ask a customer where they are from. Meanwhile <code>ここら</code>／<code>そこら</code> (&quot;round about here / there&quot;) is the casual end of the scale.</p>
-<p>One caution on <code>そこ</code> with people: <code>そこの人(ひと)</code>, shouted, is the Japanese equivalent of &quot;oi, you there&quot; - accurate grammar, terrible manners.</p>
+<p><strong><code>こちら</code>・<code>そちら</code>・<code>あちら</code>・<code>どちら</code> are the polite register</strong>, and in service or business Japanese they replace the plain words wholesale. Asked for your address you will hear <code>どちらにお<ruby>住<rt>す</rt></ruby>まいですか</code>, never <code>どこに<ruby>住<rt>す</rt></ruby>んでいますか</code>. <code>どちら</code> is also how you ask a customer where they are from. Meanwhile <code>ここら</code>／<code>そこら</code> (&quot;round about here / there&quot;) is the casual end of the scale.</p>
+<p>One caution on <code>そこ</code> with people: <code>そこの<ruby>人<rt>ひと</rt></ruby></code>, shouted, is the Japanese equivalent of &quot;oi, you there&quot; - accurate grammar, terrible manners.</p>
 </div>
 </div>
 <div class="slide" data-index="49">
@@ -3239,14 +3238,14 @@ The word came from the listener&#39;s mouth, so it belongs to their side of the 
 <p><strong>Rule of thumb</strong> - three parallel series, three different jobs. <code>これ</code> is a <em>thing</em> standing alone, <code>この</code> modifies a following noun, and <code>ここ</code> is a <em>place</em> standing alone.</p>
 </blockquote>
 <p>Everything in the こそあど system shares the same four-way distance split; the series you pick is decided by what grammatical slot you need to fill.</p>
-<p><strong>ここ</strong>は銀行(ぎんこう)です。<br><em>This place is a bank. (You are standing in it.)</em></p>
-<p>これは銀行(ぎんこう)のかぎです。<br><em>This is the key to the bank. (An object in your hand.)</em></p>
+<p><strong>ここ</strong>は<ruby>銀行<rt>ぎんこう</rt></ruby>です。<br><em>This place is a bank. (You are standing in it.)</em></p>
+<p>これは<ruby>銀行<rt>ぎんこう</rt></ruby>のかぎです。<br><em>This is the key to the bank. (An object in your hand.)</em></p>
 </div>
 </div>
 <div class="slide" data-index="50">
   
   <div class="slide__content"><h2>ここ・そこ・あそこ・どこ vs これ・それ・あれ and この・その・あの (cont.)</h2>
-<p>The place words have one privilege the thing pronouns lack: <strong>they take <code>の</code> before a noun.</strong> <code>ここの店員(てんいん)</code> (&quot;the staff here&quot;) and <code>どこの会社(かいしゃ)</code> (&quot;which company / a company from where&quot;) are both normal, whereas ❌<code>これの店員(てんいん)</code> is impossible - you would have to say <code>この店員(てんいん)</code>. So <code>ここの</code> is a genitive, and <code>この</code> is a demonstrative; they are not interchangeable.</p>
+<p>The place words have one privilege the thing pronouns lack: <strong>they take <code>の</code> before a noun.</strong> <code>ここの<ruby>店員<rt>てんいん</rt></ruby></code> (&quot;the staff here&quot;) and <code>どこの<ruby>会社<rt>かいしゃ</rt></ruby></code> (&quot;which company / a company from where&quot;) are both normal, whereas ❌<code>これの<ruby>店員<rt>てんいん</rt></ruby></code> is impossible - you would have to say <code>この<ruby>店員<rt>てんいん</rt></ruby></code>. So <code>ここの</code> is a genitive, and <code>この</code> is a demonstrative; they are not interchangeable.</p>
 </div>
 </div>
 <div class="slide" data-index="51">
@@ -3256,76 +3255,81 @@ The word came from the listener&#39;s mouth, so it belongs to their side of the 
 <p><strong>Rule of thumb</strong> - <code>に</code> marks the place a thing <em>is</em> or <em>ends up</em>; <code>で</code> marks the stage on which an action is performed.</p>
 </blockquote>
 <p>English &quot;here&quot; and &quot;there&quot; carry no such distinction, so this must be chosen consciously every time.</p>
-<p><strong>ここに</strong>自転車(じてんしゃ)があります。<br><em>There is a bicycle here.</em></p>
-<p><strong>ここで</strong>自転車(じてんしゃ)を直(なお)します。<br><em>I fix bicycles here.</em></p>
-<p>Existence verbs and verbs of arriving or putting take <code>に</code>; everything active takes <code>で</code>. The test that catches most cases: if you can rephrase the English as &quot;there is / it goes onto&quot;, use <code>に</code>; if it is &quot;the activity takes place at&quot;, use <code>で</code>.</p>
+<p><strong>ここに</strong><ruby>自転車<rt>じてんしゃ</rt></ruby>があります。<br><em>There is a bicycle here.</em></p>
+<p><strong>ここで</strong><ruby>自転車<rt>じてんしゃ</rt></ruby>を<ruby>直<rt>なお</rt></ruby>します。<br><em>I fix bicycles here.</em></p>
 </div>
 </div>
 <div class="slide" data-index="52">
+  
+  <div class="slide__content"><h2>ここ・そこ・あそこ・どこ · ここに vs ここで (cont.)</h2>
+<p>Existence verbs and verbs of arriving or putting take <code>に</code>; everything active takes <code>で</code>. The test that catches most cases: if you can rephrase the English as &quot;there is / it goes onto&quot;, use <code>に</code>; if it is &quot;the activity takes place at&quot;, use <code>で</code>.</p>
+</div>
+</div>
+<div class="slide" data-index="53">
   
   <div class="slide__content"><h2>ここ・そこ・あそこ・どこ · どこ vs どちら</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - same question, two registers. <code>どこ</code> is neutral, <code>どちら</code> is polite, and <code>どちら</code> additionally means &quot;which of two&quot;.</p>
 </blockquote>
 <p>トイレは<strong>どこ</strong>ですか。<br><em>Where&#39;s the toilet?</em></p>
-<p>お国(くに)は<strong>どちら</strong>ですか。<br><em>Where are you from? (polite)</em></p>
+<p>お<ruby>国<rt>くに</rt></ruby>は<strong>どちら</strong>ですか。<br><em>Where are you from? (polite)</em></p>
 <p>Asking a customer, a client or an older stranger <code>どこですか</code> is not ungrammatical, just noticeably plain. In the other direction, <code>どっち</code> is the casual contraction and belongs with friends. Note that <code>どちら</code> doing double duty - &quot;where&quot; and &quot;which of two&quot; - is resolved by context alone; nobody finds it ambiguous in practice.</p>
-</div>
-</div>
-<div class="slide" data-index="53">
-  
-  <div class="slide__content"><h2>ここ・そこ・あそこ・どこ · Common mistakes</h2>
-<ul>
-<li><p>❌ <strong>あこ</strong>に公園(こうえん)があります。 → ✅ <strong>あそこ</strong>に公園(こうえん)があります。<br><em>The あ-form of the place series is irregular. <code>これ→あれ</code> and <code>この→あの</code> drop the そ, but <code>ここ→あそこ</code> keeps it.</em></p>
-</li>
-<li><p>❌ <strong>ここで</strong>花(はな)があります。 → ✅ <strong>ここに</strong>花(はな)があります。<br><em><code>で</code> marks the setting of an action. Existing is not an action, so it takes <code>に</code>.</em></p>
-</li>
-<li><p>❌ <strong>ここに</strong>働(はたら)いています。 → ✅ <strong>ここで</strong>働(はたら)いています。<br><em>The mirror image: working <em>is</em> an action, so the place takes <code>で</code>.</em></p>
-</li>
-<li><p>❌ <strong>これ</strong>は入口(いりぐち)です。（pointing at a doorway you are standing in）→ ✅ <strong>ここ</strong>が入口(いりぐち)です。<br><em>A location needs the place series, not the thing series. <code>これ</code> would mean you were holding the entrance.</em></p>
-</li>
-</ul>
 </div>
 </div>
 <div class="slide" data-index="54">
   
-  <div class="slide__content"><h2>ここ・そこ・あそこ・どこ · Common mistakes (cont.)</h2>
+  <div class="slide__content"><h2>ここ・そこ・あそこ・どこ · Common mistakes</h2>
 <ul>
-<li>❌ レストランが三(さん)軒(げん)あります。<strong>どこの</strong>店(みせ)にしますか。 → ✅ <strong>どの</strong>店(みせ)にしますか。<br><em><code>どこの店(みせ)</code> asks which <em>area or chain</em> a shop belongs to. To pick one out of a set in front of you, use <code>どの</code>.</em></li>
+<li><p>❌ <strong>あこ</strong>に<ruby>公園<rt>こうえん</rt></ruby>があります。 → ✅ <strong>あそこ</strong>に<ruby>公園<rt>こうえん</rt></ruby>があります。<br><em>The あ-form of the place series is irregular. <code>これ→あれ</code> and <code>この→あの</code> drop the そ, but <code>ここ→あそこ</code> keeps it.</em></p>
+</li>
+<li><p>❌ <strong>ここで</strong><ruby>花<rt>はな</rt></ruby>があります。 → ✅ <strong>ここに</strong><ruby>花<rt>はな</rt></ruby>があります。<br><em><code>で</code> marks the setting of an action. Existing is not an action, so it takes <code>に</code>.</em></p>
+</li>
+<li><p>❌ <strong>ここに</strong><ruby>働<rt>はたら</rt></ruby>いています。 → ✅ <strong>ここで</strong><ruby>働<rt>はたら</rt></ruby>いています。<br><em>The mirror image: working <em>is</em> an action, so the place takes <code>で</code>.</em></p>
+</li>
+<li><p>❌ <strong>これ</strong>は<ruby>入口<rt>いりぐち</rt></ruby>です。（pointing at a doorway you are standing in）→ ✅ <strong>ここ</strong>が<ruby>入口<rt>いりぐち</rt></ruby>です。<br><em>A location needs the place series, not the thing series. <code>これ</code> would mean you were holding the entrance.</em></p>
+</li>
 </ul>
 </div>
 </div>
 <div class="slide" data-index="55">
   
-  <div class="slide__content"><h2>ここ・そこ・あそこ・どこ · Practice 1</h2>
-<p><strong>1.</strong> すみません、この荷物(にもつ)は____に置(お)けばいいですか。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-すみません、この荷物(にもつ)は<strong>どこ</strong>に置(お)けばいいですか。 &quot;Excuse me, where should I put this luggage?&quot;</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>置(お)く</code> is a verb of putting, so the landing place takes <code>に</code>, not <code>で</code>. The question word for a place is <code>どこ</code>; in a formal setting you could raise it to <code>どちら</code>.</p>
+  <div class="slide__content"><h2>ここ・そこ・あそこ・どこ · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ レストランが<ruby>三<rt>さん</rt></ruby><ruby>軒<rt>げん</rt></ruby>あります。<strong>どこの</strong><ruby>店<rt>みせ</rt></ruby>にしますか。 → ✅ <strong>どの</strong><ruby>店<rt>みせ</rt></ruby>にしますか。<br><em><code>どこの<ruby>店<rt>みせ</rt></ruby></code> asks which <em>area or chain</em> a shop belongs to. To pick one out of a set in front of you, use <code>どの</code>.</em></li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="56">
   
-  <div class="slide__content"><h2>ここ・そこ・あそこ・どこ · Practice 2</h2>
-<p><strong>2.</strong> 図書館(としょかん)（に・で）宿題(しゅくだい)をします。</p>
+  <div class="slide__content"><h2>ここ・そこ・あそこ・どこ · Practice 1</h2>
+<p><strong>1.</strong> すみません、この<ruby>荷物<rt>にもつ</rt></ruby>は____に<ruby>置<rt>お</rt></ruby>けばいいですか。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-図書館(としょかん)<strong>で</strong>宿題(しゅくだい)をします。</p>
+すみません、この<ruby>荷物<rt>にもつ</rt></ruby>は<strong>どこ</strong>に<ruby>置<rt>お</rt></ruby>けばいいですか。 &quot;Excuse me, where should I put this luggage?&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Doing homework is an activity, and the library is the stage it happens on, so <code>で</code>. You would use <code>に</code> only for existence or arrival - for example <code>図書館(としょかん)に行(い)きます</code>.</p>
+<code><ruby>置<rt>お</rt></ruby>く</code> is a verb of putting, so the landing place takes <code>に</code>, not <code>で</code>. The question word for a place is <code>どこ</code>; in a formal setting you could raise it to <code>どちら</code>.</p>
 </div>
 </div>
 <div class="slide" data-index="57">
   
+  <div class="slide__content"><h2>ここ・そこ・あそこ・どこ · Practice 2</h2>
+<p><strong>2.</strong> <ruby>図書館<rt>としょかん</rt></ruby>（に・で）<ruby>宿題<rt>しゅくだい</rt></ruby>をします。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>図書館<rt>としょかん</rt></ruby><strong>で</strong><ruby>宿題<rt>しゅくだい</rt></ruby>をします。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+Doing homework is an activity, and the library is the stage it happens on, so <code>で</code>. You would use <code>に</code> only for existence or arrival - for example <code><ruby>図書館<rt>としょかん</rt></ruby>に<ruby>行<rt>い</rt></ruby>きます</code>.</p>
+</div>
+</div>
+<div class="slide" data-index="58">
+  
   <div class="slide__content"><h2>ここ・そこ・あそこ・どこ · Practice 3</h2>
 <p><strong>3.</strong> Translate into Japanese: &quot;The coffee at that place over there is cheap and good.&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<strong>あそこ</strong>のコーヒーは安(やす)くておいしいです。</p>
+<strong>あそこ</strong>のコーヒーは<ruby>安<rt>やす</rt></ruby>くておいしいです。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 Place words take <code>の</code> to modify a following noun, which is how you say &quot;the coffee of that place&quot;. <code>あそこ</code> because the shop is away from both speaker and listener.</p>
 </div>
 </div>
-<div class="slide" data-index="58">
+<div class="slide" data-index="59">
   
   <div class="slide__content"><h2>ここ・そこ・あそこ・どこ · Practice 4</h2>
 <p><strong>4.</strong> Find and fix the error: パスポートはあこにありますか。</p>
@@ -3335,30 +3339,30 @@ Place words take <code>の</code> to modify a following noun, which is how you s
 The word is <code>あそこ</code>, with そ in the middle. Learners regularise it to ❌<code>あこ</code> by analogy with <code>あれ</code> and <code>あの</code>; the place series is simply irregular here.</p>
 </div>
 </div>
-<div class="slide" data-index="59">
+<div class="slide" data-index="60">
   
   <div class="slide__content"><h2>ここ・そこ・あそこ・どこ · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) <strong>そこ</strong>が一番(いちばん)難(むずか)しいところです。 (b) <strong>ここ</strong>が一番(いちばん)難(むずか)しいところです。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <strong>そこ</strong>が<ruby>一番<rt>いちばん</rt></ruby><ruby>難<rt>むずか</rt></ruby>しいところです。 (b) <strong>ここ</strong>が<ruby>一番<rt>いちばん</rt></ruby><ruby>難<rt>むずか</rt></ruby>しいところです。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 Neither has to involve a physical location. (a) picks up the point the <em>listener</em> has just raised - &quot;that, what you just mentioned, is the hard part&quot; - so it acknowledges their contribution.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (b) points at what the <em>speaker</em> is currently explaining: &quot;this bit here, the bit I am showing you now, is the hard part.&quot; A teacher at a whiteboard uses (b); someone agreeing with a colleague&#39;s diagnosis uses (a).</p>
 </div>
 </div>
-<div class="slide" data-index="60">
+<div class="slide" data-index="61">
   
   <div class="slide__content"><h1>Question words</h1>
 <p><strong>Meaning</strong> · the words that ask what, who, when, where, how, why, what kind and how much</p>
-<p>Japanese does not rearrange a sentence to ask a question. The question word simply occupies the slot the answer will occupy, the word order stays exactly as it was, and <code>か</code> goes on the end. <code>田中(たなか)さんが来(き)ます</code> becomes <code>誰(だれ)が来(き)ますか</code> - one word swapped, nothing moved.</p>
+<p>Japanese does not rearrange a sentence to ask a question. The question word simply occupies the slot the answer will occupy, the word order stays exactly as it was, and <code>か</code> goes on the end. <code><ruby>田中<rt>たなか</rt></ruby>さんが<ruby>来<rt>き</rt></ruby>ます</code> becomes <code><ruby>誰<rt>だれ</rt></ruby>が<ruby>来<rt>き</rt></ruby>ますか</code> - one word swapped, nothing moved.</p>
 </div>
 </div>
-<div class="slide" data-index="61">
+<div class="slide" data-index="62">
   
   <div class="slide__content"><h2>Question words · Formation</h2>
 <p>One row per word. Each sits in the slot its answer would fill.</p>
 </div>
 </div>
-<div class="slide" data-index="62">
+<div class="slide" data-index="63">
   
   <div class="slide__content"><h2>Question words · Formation (cont.)</h2>
 <table>
@@ -3371,23 +3375,23 @@ Neither has to involve a physical location. (a) picks up the point the <em>liste
 </thead>
 <tbody><tr>
 <td>Noun slot</td>
-<td>何(なに)／何(なん) - what</td>
-<td>これは何(なん)ですか</td>
+<td><ruby>何<rt>なに</rt></ruby>／<ruby>何<rt>なん</rt></ruby> - what</td>
+<td>これは<ruby>何<rt>なん</rt></ruby>ですか</td>
 </tr>
 <tr>
 <td>Noun slot</td>
-<td>誰(だれ) - who（polite どなた）</td>
-<td>誰(だれ)が来(き)ますか</td>
+<td><ruby>誰<rt>だれ</rt></ruby> - who（polite どなた）</td>
+<td><ruby>誰<rt>だれ</rt></ruby>が<ruby>来<rt>き</rt></ruby>ますか</td>
 </tr>
 <tr>
 <td>Noun slot</td>
 <td>いつ - when（never takes <code>に</code>）</td>
-<td>試験(しけん)はいつですか</td>
+<td><ruby>試験<rt>しけん</rt></ruby>はいつですか</td>
 </tr>
 <tr>
 <td>Noun slot</td>
 <td>どこ - where（polite どちら）</td>
-<td>受付(うけつけ)はどこですか</td>
+<td><ruby>受付<rt>うけつけ</rt></ruby>はどこですか</td>
 </tr>
 <tr>
 <td>Adverb slot</td>
@@ -3397,17 +3401,17 @@ Neither has to involve a physical location. (a) picks up the point the <em>liste
 <tr>
 <td>Adverb slot</td>
 <td>どうして - why（neutral, spoken and written）</td>
-<td>どうして遅(おく)れたんですか</td>
+<td>どうして<ruby>遅<rt>おく</rt></ruby>れたんですか</td>
 </tr>
 <tr>
 <td>Adverb slot</td>
 <td>なぜ - why（formal, mostly written）</td>
-<td>なぜ人(ひと)は働(はたら)くのか</td>
+<td>なぜ<ruby>人<rt>ひと</rt></ruby>は<ruby>働<rt>はたら</rt></ruby>くのか</td>
 </tr>
 <tr>
 <td><strong>Before a noun</strong></td>
 <td>どんな + Noun - what kind of</td>
-<td>どんな音楽(おんがく)が好(す)きですか</td>
+<td>どんな<ruby>音楽<rt>おんがく</rt></ruby>が<ruby>好<rt>す</rt></ruby>きですか</td>
 </tr>
 <tr>
 <td>Noun slot</td>
@@ -3417,190 +3421,206 @@ Neither has to involve a physical location. (a) picks up the point the <em>liste
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="63">
+<div class="slide" data-index="64">
   
   <div class="slide__content"><h2>Question words · Formation (cont.)</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - a question word that is the subject takes <code>が</code>, never <code>は</code>. <code>は</code> marks something already known, and the whole point of a question word is that it is not known. ✅<code>誰(だれ)が作(つく)りましたか</code> ／ ❌<code>誰(だれ)は作(つく)りましたか</code>. The reply keeps the <code>が</code> too: <code>母(はは)が作(つく)りました</code>.</p>
+<p><strong>Rule of thumb</strong> - a question word that is the subject takes <code>が</code>, never <code>は</code>. <code>は</code> marks something already known, and the whole point of a question word is that it is not known. ✅<code><ruby>誰<rt>だれ</rt></ruby>が<ruby>作<rt>つく</rt></ruby>りましたか</code> ／ ❌<code><ruby>誰<rt>だれ</rt></ruby>は<ruby>作<rt>つく</rt></ruby>りましたか</code>. The reply keeps the <code>が</code> too: <code><ruby>母<rt>はは</rt></ruby>が<ruby>作<rt>つく</rt></ruby>りました</code>.</p>
 </blockquote>
 <blockquote>
-<p><strong>Reading rule for 何(なに)</strong> - it is read <strong>なん</strong> before a sound in the た／だ／な rows (で・と・に・だ・です・の) and before every counter; it is read <strong>なに</strong> everywhere else. So 何(なん)ですか, 何(なん)の本(ほん), 何人(なんにん), 何時(なんじ) - but 何(なに)が, 何(なに)を, 何(なに)か, 何(なに)も.</p>
+<p><strong>Reading rule for <ruby>何<rt>なに</rt></ruby></strong> - it is read <strong>なん</strong> before a sound in the た／だ／な rows (で・と・に・だ・です・の) and before every counter; it is read <strong>なに</strong> everywhere else. So <ruby>何<rt>なん</rt></ruby>ですか, <ruby>何<rt>なん</rt></ruby>の<ruby>本<rt>ほん</rt></ruby>, <ruby>何人<rt>なんにん</rt></ruby>, <ruby>何時<rt>なんじ</rt></ruby> - but <ruby>何<rt>なに</rt></ruby>が, <ruby>何<rt>なに</rt></ruby>を, <ruby>何<rt>なに</rt></ruby>か, <ruby>何<rt>なに</rt></ruby>も.</p>
 </blockquote>
-</div>
-</div>
-<div class="slide" data-index="64">
-  
-  <div class="slide__content"><h2>Question words · Examples</h2>
-<p>このマークは**何(なん)**ですか。<br><em>What is this symbol?</em></p>
-<p>**誰(だれ)**がピアノを弾(ひ)きますか。<br><em>Who is going to play the piano?</em></p>
-<p><strong>いつ</strong>日本(にほん)へ来(き)ましたか。<br><em>When did you come to Japan?</em></p>
-<p>この漢字(かんじ)は<strong>どう</strong>読(よ)みますか。<br><em>How do you read this kanji?</em></p>
-<p><strong>どんな</strong>映画(えいが)をよく見(み)ますか。<br><em>What sort of films do you watch a lot?</em></p>
 </div>
 </div>
 <div class="slide" data-index="65">
   
-  <div class="slide__content"><h2>Question words · Examples (cont.)</h2>
-<p>地下鉄(ちかてつ)の乗(の)り換(か)えは<strong>どこ</strong>でしますか。<br><em>Where do you change subway lines?</em></p>
-<p><strong>どうして</strong>昨日(きのう)学校(がっこう)を休(やす)んだんですか。<br><em>Why were you off school yesterday?</em></p>
-<p>送料(そうりょう)も入(い)れると、全部(ぜんぶ)で<strong>いくら</strong>になりますか。<br><em>Including postage, how much does it come to altogether?</em></p>
-<p>報告書(ほうこくしょ)には、<strong>なぜ</strong>この方法(ほうほう)を選(えら)んだのかを書(か)いてください。<br><em>In the report, please write why you chose this method.</em></p>
+  <div class="slide__content"><h2>Question words · Examples</h2>
+<p>このマークは**<ruby>何<rt>なん</rt></ruby>**ですか。<br><em>What is this symbol?</em></p>
+<p>**<ruby>誰<rt>だれ</rt></ruby>**がピアノを<ruby>弾<rt>ひ</rt></ruby>きますか。<br><em>Who is going to play the piano?</em></p>
+<p><strong>いつ</strong><ruby>日本<rt>にほん</rt></ruby>へ<ruby>来<rt>き</rt></ruby>ましたか。<br><em>When did you come to Japan?</em></p>
+<p>この<ruby>漢字<rt>かんじ</rt></ruby>は<strong>どう</strong><ruby>読<rt>よ</rt></ruby>みますか。<br><em>How do you read this kanji?</em></p>
 </div>
 </div>
 <div class="slide" data-index="66">
   
-  <div class="slide__content"><h2>Question words · Nuance &amp; register</h2>
-<p>The words themselves are neutral; what varies is politeness and how blunt the question sounds.</p>
-<p><strong>Politeness ladder.</strong> <code>誰(だれ)</code> → <code>どなた</code> and <code>どこ</code> → <code>どちら</code> are the two upgrades you will actually need. 「失礼(しつれい)ですが、どなたですか」is how you ask a stranger who they are; <code>誰(だれ)ですか</code> at the same moment is abrupt. <code>いくら</code> has a formal partner too - <code>おいくらですか</code>, and in shops <code>おいくらになりますか</code>.</p>
-<p><strong>Softening with ん／の.</strong> A bare <code>どうして来(こ)なかったんですか</code> is softer than <code>どうして来(こ)ませんでしたか</code>, because the <code>ん</code> frames the question as asking for an explanation you are ready to accept rather than demanding one. Without it, &quot;why&quot; questions can land as accusations in Japanese just as in English.</p>
+  <div class="slide__content"><h2>Question words · Examples (cont.)</h2>
+<p><strong>どんな</strong><ruby>映画<rt>えいが</rt></ruby>をよく<ruby>見<rt>み</rt></ruby>ますか。<br><em>What sort of films do you watch a lot?</em></p>
+<p><ruby>地下鉄<rt>ちかてつ</rt></ruby>の<ruby>乗<rt>の</rt></ruby>り<ruby>換<rt>か</rt></ruby>えは<strong>どこ</strong>でしますか。<br><em>Where do you change subway lines?</em></p>
+<p><strong>どうして</strong><ruby>昨日<rt>きのう</rt></ruby><ruby>学校<rt>がっこう</rt></ruby>を<ruby>休<rt>やす</rt></ruby>んだんですか。<br><em>Why were you off school yesterday?</em></p>
+<p><ruby>送料<rt>そうりょう</rt></ruby>も<ruby>入<rt>い</rt></ruby>れると、<ruby>全部<rt>ぜんぶ</rt></ruby>で<strong>いくら</strong>になりますか。<br><em>Including postage, how much does it come to altogether?</em></p>
 </div>
 </div>
 <div class="slide" data-index="67">
   
-  <div class="slide__content"><h2>Question words · Nuance &amp; register (cont.)</h2>
-<p><strong>Three words for &quot;why&quot;.</strong> <code>なんで</code> is the casual spoken one, <code>どうして</code> the everyday neutral one, <code>なぜ</code> the formal and written one. <code>なんで</code> from a subordinate to a boss sounds childish; <code>なぜ</code> between friends sounds like a lecture.</p>
-<p><strong>Rising intonation replaces <code>か</code> in casual speech</strong>, and the question word carries the stress: 「どこ行(い)くの?」「何(なに)食(た)べる?」 Adding <code>か</code> to a plain form - ❌<code>どこ行(い)くか?</code> - sounds rough or interrogational, so leave <code>か</code> for the ます-form.</p>
-<p>Finally, note that all of these words also serve as the building blocks for indefinites: add <code>か</code> and <code>何(なに)</code> becomes &quot;something&quot;, add <code>も</code> with a negative and it becomes &quot;nothing&quot;. Those are separate patterns with their own pages.</p>
+  <div class="slide__content"><h2>Question words · Examples (cont.)</h2>
+<p><ruby>報告書<rt>ほうこくしょ</rt></ruby>には、<strong>なぜ</strong>この<ruby>方法<rt>ほうほう</rt></ruby>を<ruby>選<rt>えら</rt></ruby>んだのかを<ruby>書<rt>か</rt></ruby>いてください。<br><em>In the report, please write why you chose this method.</em></p>
 </div>
 </div>
 <div class="slide" data-index="68">
+  
+  <div class="slide__content"><h2>Question words · Nuance &amp; register</h2>
+<p>The words themselves are neutral; what varies is politeness and how blunt the question sounds.</p>
+<p><strong>Politeness ladder.</strong> <code><ruby>誰<rt>だれ</rt></ruby></code> → <code>どなた</code> and <code>どこ</code> → <code>どちら</code> are the two upgrades you will actually need. 「<ruby>失礼<rt>しつれい</rt></ruby>ですが、どなたですか」is how you ask a stranger who they are; <code><ruby>誰<rt>だれ</rt></ruby>ですか</code> at the same moment is abrupt. <code>いくら</code> has a formal partner too - <code>おいくらですか</code>, and in shops <code>おいくらになりますか</code>.</p>
+</div>
+</div>
+<div class="slide" data-index="69">
+  
+  <div class="slide__content"><h2>Question words · Nuance &amp; register (cont.)</h2>
+<p><strong>Softening with ん／の.</strong> A bare <code>どうして<ruby>来<rt>こ</rt></ruby>なかったんですか</code> is softer than <code>どうして<ruby>来<rt>こ</rt></ruby>ませんでしたか</code>, because the <code>ん</code> frames the question as asking for an explanation you are ready to accept rather than demanding one. Without it, &quot;why&quot; questions can land as accusations in Japanese just as in English.</p>
+<p><strong>Three words for &quot;why&quot;.</strong> <code>なんで</code> is the casual spoken one, <code>どうして</code> the everyday neutral one, <code>なぜ</code> the formal and written one. <code>なんで</code> from a subordinate to a boss sounds childish; <code>なぜ</code> between friends sounds like a lecture.</p>
+</div>
+</div>
+<div class="slide" data-index="70">
+  
+  <div class="slide__content"><h2>Question words · Nuance &amp; register (cont.)</h2>
+<p><strong>Rising intonation replaces <code>か</code> in casual speech</strong>, and the question word carries the stress: 「どこ<ruby>行<rt>い</rt></ruby>くの?」「<ruby>何<rt>なに</rt></ruby><ruby>食<rt>た</rt></ruby>べる?」 Adding <code>か</code> to a plain form - ❌<code>どこ<ruby>行<rt>い</rt></ruby>くか?</code> - sounds rough or interrogational, so leave <code>か</code> for the ます-form.</p>
+<p>Finally, note that all of these words also serve as the building blocks for indefinites: add <code>か</code> and <code><ruby>何<rt>なに</rt></ruby></code> becomes &quot;something&quot;, add <code>も</code> with a negative and it becomes &quot;nothing&quot;. Those are separate patterns with their own pages.</p>
+</div>
+</div>
+<div class="slide" data-index="71">
   
   <div class="slide__content"><h2>Question words · どうして vs なぜ vs なんで</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - all three mean &quot;why&quot;. <code>なんで</code> is casual speech, <code>どうして</code> is the neutral default, <code>なぜ</code> is formal and belongs mainly to writing.</p>
 </blockquote>
 <p>There is no difference in meaning, only in register, which is why choosing wrongly is so noticeable.</p>
-<p><strong>なんで</strong>遅(おく)れたの?<br><em>How come you&#39;re late?</em></p>
-<p><strong>なぜ</strong>事故(じこ)が起(お)きたのか、まだ分(わ)かっていません。<br><em>It is still not understood why the accident occurred.</em></p>
+<p><strong>なんで</strong><ruby>遅<rt>おく</rt></ruby>れたの?<br><em>How come you&#39;re late?</em></p>
+<p><strong>なぜ</strong><ruby>事故<rt>じこ</rt></ruby>が<ruby>起<rt>お</rt></ruby>きたのか、まだ<ruby>分<rt>わ</rt></ruby>かっていません。<br><em>It is still not understood why the accident occurred.</em></p>
 </div>
 </div>
-<div class="slide" data-index="69">
+<div class="slide" data-index="72">
   
   <div class="slide__content"><h2>Question words · どうして vs なぜ vs なんで (cont.)</h2>
-<p><code>どうして</code> sits comfortably in both of those situations and is the safe choice if you are unsure. One extra wrinkle: <code>どうして</code> can also mean &quot;by what means, how&quot; in older or set expressions, and <code>なんで</code> written in kanji as <code>何(なん)で</code> is ambiguous with &quot;by what means&quot; - see the reading section below.</p>
+<p><code>どうして</code> sits comfortably in both of those situations and is the safe choice if you are unsure. One extra wrinkle: <code>どうして</code> can also mean &quot;by what means, how&quot; in older or set expressions, and <code>なんで</code> written in kanji as <code><ruby>何<rt>なん</rt></ruby>で</code> is ambiguous with &quot;by what means&quot; - see the reading section below.</p>
 </div>
 </div>
-<div class="slide" data-index="70">
+<div class="slide" data-index="73">
   
   <div class="slide__content"><h2>Question words · どう vs どんな</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>どう</code> asks about a state or a manner and stands alone; <code>どんな</code> asks what <em>kind</em> of thing and must be followed by a noun.</p>
 </blockquote>
 <p>Both come out as &quot;how&quot; or &quot;what&quot; in English and both are asking for a description, so they blur together fast.</p>
-<p>新(あたら)しい仕事(しごと)は<strong>どう</strong>ですか。<br><em>How&#39;s the new job?</em></p>
-<p><strong>どんな</strong>仕事(しごと)ですか。<br><em>What kind of job is it?</em></p>
+<p><ruby>新<rt>あたら</rt></ruby>しい<ruby>仕事<rt>しごと</rt></ruby>は<strong>どう</strong>ですか。<br><em>How&#39;s the new job?</em></p>
+<p><strong>どんな</strong><ruby>仕事<rt>しごと</rt></ruby>ですか。<br><em>What kind of job is it?</em></p>
 </div>
 </div>
-<div class="slide" data-index="71">
+<div class="slide" data-index="74">
   
   <div class="slide__content"><h2>Question words · どう vs どんな (cont.)</h2>
-<p>The first invites an evaluation - busy, fun, tiring. The second asks for the category - sales, teaching, night shifts. Grammatically, ❌<code>どう仕事(しごと)</code> is impossible, because <code>どう</code> is an adverb and cannot modify a noun; and ❌<code>仕事(しごと)はどんなですか</code> is impossible, because <code>どんな</code> cannot stand alone. If you want the adjective-like form on its own, it is <code>どんな感(かん)じ</code>.</p>
+<p>The first invites an evaluation - busy, fun, tiring. The second asks for the category - sales, teaching, night shifts. Grammatically, ❌<code>どう<ruby>仕事<rt>しごと</rt></ruby></code> is impossible, because <code>どう</code> is an adverb and cannot modify a noun; and ❌<code><ruby>仕事<rt>しごと</rt></ruby>はどんなですか</code> is impossible, because <code>どんな</code> cannot stand alone. If you want the adjective-like form on its own, it is <code>どんな<ruby>感<rt>かん</rt></ruby>じ</code>.</p>
 </div>
 </div>
-<div class="slide" data-index="72">
+<div class="slide" data-index="75">
   
-  <div class="slide__content"><h2>何(なに) vs 何(なん) - reading the same kanji two ways</h2>
+  <div class="slide__content"><h2>Question words · 何 vs 何 - reading the same kanji two ways</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <strong>なん</strong> before で・と・に・だ・です・の and before any counter; <strong>なに</strong> everywhere else, including on its own.</p>
 </blockquote>
 <p>The kanji never changes, so this is invisible on the page and audible the moment you speak.</p>
-<p>何時(なんじ)に何(なに)を食(た)べましたか。<br><em>What did you eat, and at what time?</em></p>
-<p>Both readings in one sentence: <code>なんじ</code> because a counter follows, <code>なに</code> because <code>を</code> follows. Further examples: 何人(なんにん), 何回(なんかい), 何日(なんにち), 何曜日(なんようび) all take なん - but 何色(なにいろ) (&quot;what colour&quot;) and 何語(なにご) (&quot;what language&quot;) take なに, because those are not counters.</p>
-<p>The pair that actually causes trouble is <code>何(なん)で</code> versus <code>何(なに)で</code>.</p>
+<p><ruby>何時<rt>なんじ</rt></ruby>に<ruby>何<rt>なに</rt></ruby>を<ruby>食<rt>た</rt></ruby>べましたか。<br><em>What did you eat, and at what time?</em></p>
+<p>Both readings in one sentence: <code>なんじ</code> because a counter follows, <code>なに</code> because <code>を</code> follows. Further examples: <ruby>何人<rt>なんにん</rt></ruby>, <ruby>何回<rt>なんかい</rt></ruby>, <ruby>何日<rt>なんにち</rt></ruby>, <ruby>何曜日<rt>なんようび</rt></ruby> all take なん - but <ruby>何色<rt>なにいろ</rt></ruby> (&quot;what colour&quot;) and <ruby>何語<rt>なにご</rt></ruby> (&quot;what language&quot;) take なに, because those are not counters.</p>
 </div>
 </div>
-<div class="slide" data-index="73">
+<div class="slide" data-index="76">
   
-  <div class="slide__content"><h2>何(なに) vs 何(なん) - reading the same kanji two ways (cont.)</h2>
-<p><strong>何(なん)で</strong>会社(かいしゃ)をやめたんですか。<br><em>Why did you quit the company?</em></p>
-<p><strong>何(なに)で</strong>会社(かいしゃ)まで来(き)ましたか。<br><em>What did you come to the office by?</em></p>
-<p>Same three characters, two readings, two meanings: なんで is &quot;why&quot;, なにで is &quot;by what means&quot;. In speech people avoid the ambiguity by saying <code>どうして</code> for the first and <code>何(なに)に乗(の)って</code> for the second.</p>
+  <div class="slide__content"><h2>Question words · 何 vs 何 - reading the same kanji two ways (cont.)</h2>
+<p>The pair that actually causes trouble is <code><ruby>何<rt>なん</rt></ruby>で</code> versus <code><ruby>何<rt>なに</rt></ruby>で</code>.</p>
+<p><strong><ruby>何<rt>なん</rt></ruby>で</strong><ruby>会社<rt>かいしゃ</rt></ruby>をやめたんですか。<br><em>Why did you quit the company?</em></p>
+<p><strong><ruby>何<rt>なに</rt></ruby>で</strong><ruby>会社<rt>かいしゃ</rt></ruby>まで<ruby>来<rt>き</rt></ruby>ましたか。<br><em>What did you come to the office by?</em></p>
+<p>Same three characters, two readings, two meanings: なんで is &quot;why&quot;, なにで is &quot;by what means&quot;. In speech people avoid the ambiguity by saying <code>どうして</code> for the first and <code><ruby>何<rt>なに</rt></ruby>に<ruby>乗<rt>の</rt></ruby>って</code> for the second.</p>
+</div>
+</div>
+<div class="slide" data-index="77">
+  
+  <div class="slide__content"><h2>Question words · 何 vs 何 - reading the same kanji two ways (cont.)</h2>
 <blockquote>
-<p><strong>Note</strong> - <code>何(なに)に</code> is the one place the rule wobbles. Following the な-row rule it should be なんに, and 「何(なん)になさいますか」(&quot;what will you have?&quot;) is indeed なん. But 「何(なに)に使(つか)うの?」(&quot;what&#39;s it for?&quot;) is normally なに. Both readings are heard; treat this cell as genuinely variable rather than as a rule you have got wrong.</p>
+<p><strong>Note</strong> - <code><ruby>何<rt>なに</rt></ruby>に</code> is the one place the rule wobbles. Following the な-row rule it should be なんに, and 「<ruby>何<rt>なん</rt></ruby>になさいますか」(&quot;what will you have?&quot;) is indeed なん. But 「<ruby>何<rt>なに</rt></ruby>に<ruby>使<rt>つか</rt></ruby>うの?」(&quot;what&#39;s it for?&quot;) is normally なに. Both readings are heard; treat this cell as genuinely variable rather than as a rule you have got wrong.</p>
 </blockquote>
 </div>
 </div>
-<div class="slide" data-index="74">
+<div class="slide" data-index="78">
   
   <div class="slide__content"><h2>Question words · Common mistakes</h2>
 <ul>
 <li><p>❌ これは<strong>なに</strong>ですか。 → ✅ これは<strong>なん</strong>ですか。<br><em><code>です</code> begins with a だ-row sound, so the reading is なん. The kanji is identical, which is why this survives for years unnoticed.</em></p>
 </li>
-<li><p>❌ 誰(だれ)<strong>は</strong>この絵(え)をかきましたか。 → ✅ 誰(だれ)<strong>が</strong>この絵(え)をかきましたか。<br><em><code>は</code> presents known information. A question word is by definition unknown, so it takes <code>が</code>.</em></p>
+<li><p>❌ <ruby>誰<rt>だれ</rt></ruby><strong>は</strong>この<ruby>絵<rt>え</rt></ruby>をかきましたか。 → ✅ <ruby>誰<rt>だれ</rt></ruby><strong>が</strong>この<ruby>絵<rt>え</rt></ruby>をかきましたか。<br><em><code>は</code> presents known information. A question word is by definition unknown, so it takes <code>が</code>.</em></p>
 </li>
-<li><p>❌ <strong>どう</strong>人(ひと)が好(す)きですか。 → ✅ <strong>どんな</strong>人(ひと)が好(す)きですか。<br><em><code>どう</code> is an adverb and cannot sit in front of a noun. To ask &quot;what kind of&quot;, you need <code>どんな</code>.</em></p>
-</li>
-<li><p>❌ 駅(えき)まで<strong>いくら</strong>かかりますか。（asking about <em>time</em>）→ ✅ 駅(えき)まで<strong>どのくらい</strong>かかりますか。<br><em><code>いくら</code> asks about money or quantity. For duration and distance the word is <code>どのくらい</code>／<code>どれくらい</code>. With <code>かかる</code> both are possible, so state which you mean.</em></p>
+<li><p>❌ <strong>どう</strong><ruby>人<rt>ひと</rt></ruby>が<ruby>好<rt>す</rt></ruby>きですか。 → ✅ <strong>どんな</strong><ruby>人<rt>ひと</rt></ruby>が<ruby>好<rt>す</rt></ruby>きですか。<br><em><code>どう</code> is an adverb and cannot sit in front of a noun. To ask &quot;what kind of&quot;, you need <code>どんな</code>.</em></p>
 </li>
 </ul>
-</div>
-</div>
-<div class="slide" data-index="75">
-  
-  <div class="slide__content"><h2>Question words · Common mistakes (cont.)</h2>
-<ul>
-<li>❌ 部長(ぶちょう)、<strong>なんで</strong>この案(あん)にしたんですか。 → ✅ 部長(ぶちょう)、<strong>どうして</strong>この案(あん)にされたんですか。<br><em>Not a grammar error but a register one: <code>なんで</code> to a superior sounds like a child demanding an explanation.</em></li>
-</ul>
-</div>
-</div>
-<div class="slide" data-index="76">
-  
-  <div class="slide__content"><h2>Question words · Practice 1</h2>
-<p><strong>1.</strong> ____がこのケーキを作(つく)りましたか。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-**誰(だれ)**がこのケーキを作(つく)りましたか。 &quot;Who made this cake?&quot;</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The missing element is the subject, so the question word goes straight into the subject slot with <code>が</code> - not <code>は</code>, because an unknown person cannot be a known topic.</p>
-</div>
-</div>
-<div class="slide" data-index="77">
-  
-  <div class="slide__content"><h2>Question words · Practice 2</h2>
-<p><strong>2.</strong> 週末(しゅうまつ)は（どう・どんな）でしたか。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-週末(しゅうまつ)は<strong>どう</strong>でしたか。 &quot;How was your weekend?&quot;</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>どんな</code> cannot stand alone in front of <code>です</code>; it always needs a noun after it. To use <code>どんな</code> here you would have to say <code>どんな週末(しゅうまつ)でしたか</code>, which asks what sort of weekend it was rather than how it went.</p>
-</div>
-</div>
-<div class="slide" data-index="78">
-  
-  <div class="slide__content"><h2>Question words · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese, formally, for a written report: &quot;Why did the number of customers fall?&quot;</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<strong>なぜ</strong>お客(きゃく)さんの数(かず)が減(へ)ったのでしょうか。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>なぜ</code> is the register the task asks for - <code>どうして</code> would be acceptable but plainer, and <code>なんで</code> would be wrong in a report. <code>のでしょうか</code> keeps the tone measured rather than accusatory.</p>
 </div>
 </div>
 <div class="slide" data-index="79">
   
-  <div class="slide__content"><h2>Question words · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: すみません、この荷物(にもつ)は何(なに)ですか。何(なん)を入(い)れましたか。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ すみません、この荷物(にもつ)は**何(なん)**ですか。**何(なに)**を入(い)れましたか。 &quot;Excuse me, what is this parcel? What did you put in it?&quot;</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The two readings are swapped. <code>です</code> triggers なん; <code>を</code> triggers なに. The written sentence looks identical either way, so only reading it aloud exposes the error.</p>
+  <div class="slide__content"><h2>Question words · Common mistakes (cont.)</h2>
+<ul>
+<li><p>❌ <ruby>駅<rt>えき</rt></ruby>まで<strong>いくら</strong>かかりますか。（asking about <em>time</em>）→ ✅ <ruby>駅<rt>えき</rt></ruby>まで<strong>どのくらい</strong>かかりますか。<br><em><code>いくら</code> asks about money or quantity. For duration and distance the word is <code>どのくらい</code>／<code>どれくらい</code>. With <code>かかる</code> both are possible, so state which you mean.</em></p>
+</li>
+<li><p>❌ <ruby>部長<rt>ぶちょう</rt></ruby>、<strong>なんで</strong>この<ruby>案<rt>あん</rt></ruby>にしたんですか。 → ✅ <ruby>部長<rt>ぶちょう</rt></ruby>、<strong>どうして</strong>この<ruby>案<rt>あん</rt></ruby>にされたんですか。<br><em>Not a grammar error but a register one: <code>なんで</code> to a superior sounds like a child demanding an explanation.</em></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="80">
   
-  <div class="slide__content"><h2>Question words · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) <strong>何(なん)で</strong>東京(とうきょう)へ行(い)きますか。 (b) <strong>何(なに)で</strong>東京(とうきょう)へ行(い)きますか。</p>
+  <div class="slide__content"><h2>Question words · Practice 1</h2>
+<p><strong>1.</strong> ____がこのケーキを<ruby>作<rt>つく</rt></ruby>りましたか。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-They are the same three characters and differ only in reading. (a), read なんで, asks <em>why</em> you are going to Tokyo - it is the casual equivalent of <code>どうして</code>.</p>
+**<ruby>誰<rt>だれ</rt></ruby>**がこのケーキを<ruby>作<rt>つく</rt></ruby>りましたか。 &quot;Who made this cake?&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-(b), read なにで, asks <em>by what means</em> - train, plane, car. Because writing cannot distinguish them, careful writers avoid <code>何(なん)で</code> altogether and use <code>どうして</code> for the reason and <code>何(なに)に乗(の)って</code> for the method.</p>
+The missing element is the subject, so the question word goes straight into the subject slot with <code>が</code> - not <code>は</code>, because an unknown person cannot be a known topic.</p>
 </div>
 </div>
 <div class="slide" data-index="81">
   
-  <div class="slide__content"><h1>何か・誰か・どこか</h1>
-<p><strong>Meaning</strong> · something / someone / somewhere - an unspecified one of a kind, rather than a request to identify it</p>
-<p>Add <code>か</code> to a question word and it stops asking and starts referring. <code>何(なに)</code> demands &quot;what?&quot;; <code>何(なに)か</code> says &quot;some thing or other, and I am not saying which - possibly because I do not know, possibly because it does not matter&quot;. The reading is <strong>なにか</strong>, not なんか.</p>
+  <div class="slide__content"><h2>Question words · Practice 2</h2>
+<p><strong>2.</strong> <ruby>週末<rt>しゅうまつ</rt></ruby>は（どう・どんな）でしたか。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>週末<rt>しゅうまつ</rt></ruby>は<strong>どう</strong>でしたか。 &quot;How was your weekend?&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code>どんな</code> cannot stand alone in front of <code>です</code>; it always needs a noun after it. To use <code>どんな</code> here you would have to say <code>どんな<ruby>週末<rt>しゅうまつ</rt></ruby>でしたか</code>, which asks what sort of weekend it was rather than how it went.</p>
 </div>
 </div>
 <div class="slide" data-index="82">
+  
+  <div class="slide__content"><h2>Question words · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese, formally, for a written report: &quot;Why did the number of customers fall?&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<strong>なぜ</strong>お<ruby>客<rt>きゃく</rt></ruby>さんの<ruby>数<rt>かず</rt></ruby>が<ruby>減<rt>へ</rt></ruby>ったのでしょうか。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code>なぜ</code> is the register the task asks for - <code>どうして</code> would be acceptable but plainer, and <code>なんで</code> would be wrong in a report. <code>のでしょうか</code> keeps the tone measured rather than accusatory.</p>
+</div>
+</div>
+<div class="slide" data-index="83">
+  
+  <div class="slide__content"><h2>Question words · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the error: すみません、この<ruby>荷物<rt>にもつ</rt></ruby>は<ruby>何<rt>なに</rt></ruby>ですか。<ruby>何<rt>なん</rt></ruby>を<ruby>入<rt>い</rt></ruby>れましたか。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ すみません、この<ruby>荷物<rt>にもつ</rt></ruby>は**<ruby>何<rt>なん</rt></ruby><strong>ですか。</strong><ruby>何<rt>なに</rt></ruby>**を<ruby>入<rt>い</rt></ruby>れましたか。 &quot;Excuse me, what is this parcel? What did you put in it?&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The two readings are swapped. <code>です</code> triggers なん; <code>を</code> triggers なに. The written sentence looks identical either way, so only reading it aloud exposes the error.</p>
+</div>
+</div>
+<div class="slide" data-index="84">
+  
+  <div class="slide__content"><h2>Question words · Practice 5</h2>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <strong><ruby>何<rt>なん</rt></ruby>で</strong><ruby>東京<rt>とうきょう</rt></ruby>へ<ruby>行<rt>い</rt></ruby>きますか。 (b) <strong><ruby>何<rt>なに</rt></ruby>で</strong><ruby>東京<rt>とうきょう</rt></ruby>へ<ruby>行<rt>い</rt></ruby>きますか。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+They are the same three characters and differ only in reading. (a), read なんで, asks <em>why</em> you are going to Tokyo - it is the casual equivalent of <code>どうして</code>.</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+(b), read なにで, asks <em>by what means</em> - train, plane, car. Because writing cannot distinguish them, careful writers avoid <code><ruby>何<rt>なん</rt></ruby>で</code> altogether and use <code>どうして</code> for the reason and <code><ruby>何<rt>なに</rt></ruby>に<ruby>乗<rt>の</rt></ruby>って</code> for the method.</p>
+</div>
+</div>
+<div class="slide" data-index="85">
+  
+  <div class="slide__content"><h1>何か・誰か・どこか</h1>
+<p><strong>Meaning</strong> · something / someone / somewhere - an unspecified one of a kind, rather than a request to identify it</p>
+<p>Add <code>か</code> to a question word and it stops asking and starts referring. <code><ruby>何<rt>なに</rt></ruby></code> demands &quot;what?&quot;; <code><ruby>何<rt>なに</rt></ruby>か</code> says &quot;some thing or other, and I am not saying which - possibly because I do not know, possibly because it does not matter&quot;. The reading is <strong>なにか</strong>, not なんか.</p>
+</div>
+</div>
+<div class="slide" data-index="86">
   
   <div class="slide__content"><h2>何か・誰か・どこか · Formation</h2>
 <p>The <code>か</code> fuses onto the question word. What comes after it is an ordinary predicate.</p>
@@ -3613,221 +3633,228 @@ They are the same three characters and differ only in reading. (a), read なん�
 </tr>
 </thead>
 <tbody><tr>
-<td>何(なに)</td>
-<td>何(なに) + か → 何(なに)か - something, anything</td>
-<td>何(なに)か食(た)べる?</td>
+<td><ruby>何<rt>なに</rt></ruby></td>
+<td><ruby>何<rt>なに</rt></ruby> + か → <ruby>何<rt>なに</rt></ruby>か - something, anything</td>
+<td><ruby>何<rt>なに</rt></ruby>か<ruby>食<rt>た</rt></ruby>べる?</td>
 </tr>
 <tr>
-<td>誰(だれ)</td>
-<td>誰(だれ) + か → 誰(だれ)か - someone（polite どなたか）</td>
-<td>誰(だれ)か呼(よ)んでください</td>
+<td><ruby>誰<rt>だれ</rt></ruby></td>
+<td><ruby>誰<rt>だれ</rt></ruby> + か → <ruby>誰<rt>だれ</rt></ruby>か - someone（polite どなたか）</td>
+<td><ruby>誰<rt>だれ</rt></ruby>か<ruby>呼<rt>よ</rt></ruby>んでください</td>
 </tr>
 <tr>
 <td>どこ</td>
 <td>どこ + か → どこか - somewhere（polite どちらか）</td>
-<td>どこかで休(やす)みましょう</td>
+<td>どこかで<ruby>休<rt>やす</rt></ruby>みましょう</td>
 </tr>
 <tr>
 <td>いつ</td>
 <td>いつ + か → いつか - sometime, one day</td>
-<td>いつか話(はな)します</td>
+<td>いつか<ruby>話<rt>はな</rt></ruby>します</td>
 </tr>
 <tr>
 <td>どれ</td>
 <td>どれ + か → どれか - one of them（three or more）</td>
-<td>どれか選(えら)んでください</td>
+<td>どれか<ruby>選<rt>えら</rt></ruby>んでください</td>
 </tr>
 <tr>
 <td>どちら</td>
 <td>どちら + か → どちらか - one of the two</td>
-<td>どちらかに決(き)めてください</td>
+<td>どちらかに<ruby>決<rt>き</rt></ruby>めてください</td>
 </tr>
 <tr>
 <td>Particles が・を・は</td>
 <td><strong>dropped</strong></td>
-<td>❌何(なに)かを買(か)う → ✅何(なに)か買(か)う</td>
+<td>❌<ruby>何<rt>なに</rt></ruby>かを<ruby>買<rt>か</rt></ruby>う → ✅<ruby>何<rt>なに</rt></ruby>か<ruby>買<rt>か</rt></ruby>う</td>
 </tr>
-</tbody></table>
-</div>
-</div>
-<div class="slide" data-index="83">
-  
-  <div class="slide__content"><h2>何か・誰か・どこか · Formation (cont.)</h2>
-<table>
-<thead>
 <tr>
-<th>Attaches to</th>
-<th>Form</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody><tr>
 <td>Particles に・で・へ・と・から</td>
 <td><strong>kept, after the か</strong></td>
-<td>誰(だれ)かに聞(き)く／どこかで会(あ)った</td>
+<td><ruby>誰<rt>だれ</rt></ruby>かに<ruby>聞<rt>き</rt></ruby>く／どこかで<ruby>会<rt>あ</rt></ruby>った</td>
 </tr>
 </tbody></table>
-<blockquote>
-<p><strong>Rule of thumb</strong> - a <code>か</code>-word makes the sentence a <strong>yes/no</strong> question, not a content question. <code>何(なに)か買(か)いましたか</code> is answered はい or いいえ. <code>何(なに)を買(か)いましたか</code> demands a list of purchases. Same English word &quot;what&quot;, opposite conversations.</p>
-</blockquote>
-</div>
-</div>
-<div class="slide" data-index="84">
-  
-  <div class="slide__content"><h2>何か・誰か・どこか · Examples</h2>
-<p><strong>何(なに)か</strong>飲(の)みますか。<br><em>Would you like something to drink?</em></p>
-<p><strong>誰(だれ)か</strong>いますか。<br><em>Is anybody there?</em></p>
-<p>冷蔵庫(れいぞうこ)に<strong>何(なに)か</strong>残(のこ)っていますか。<br><em>Is there anything left in the fridge?</em></p>
-<p>週末(しゅうまつ)、<strong>どこか</strong>へ行(い)きませんか。<br><em>Shall we go somewhere at the weekend?</em></p>
-<p><strong>誰(だれ)か</strong>に道(みち)を聞(き)いたほうがいいですね。<br><em>We had better ask somebody for directions.</em></p>
-</div>
-</div>
-<div class="slide" data-index="85">
-  
-  <div class="slide__content"><h2>何か・誰か・どこか · Examples (cont.)</h2>
-<p><strong>いつか</strong>北海道(ほっかいどう)で馬(うま)に乗(の)ってみたい。<br><em>One day I want to try riding a horse in Hokkaido.</em></p>
-<p>さっきから<strong>どこか</strong>で電話(でんわ)が鳴(な)っているが、誰(だれ)も出(で)ない。<br><em>A phone has been ringing somewhere for a while now, but nobody is picking up.</em></p>
-<p>会議(かいぎ)の前(まえ)に<strong>何(なに)か</strong>確認(かくにん)しておきたいことはありますか。<br><em>Is there anything you would like to check before the meeting?</em></p>
-</div>
-</div>
-<div class="slide" data-index="86">
-  
-  <div class="slide__content"><h2>何か・誰か・どこか · Nuance &amp; register</h2>
-<p>Register-neutral, and very high frequency in speech, largely because Japanese prefers a vague offer to a specific one.</p>
-<p><strong>The particle drop is the natural form.</strong> <code>何(なに)かを食(た)べる</code> is not exactly ungrammatical, but it is stiff and rarely said; <code>何(なに)か食(た)べる</code> is what people actually produce. The same goes for <code>が</code> - <code>誰(だれ)か来(き)たよ</code>, not <code>誰(だれ)かが来(き)たよ</code> in ordinary speech, although the <code>が</code> version does appear in writing when the subject needs emphasis. <code>は</code> never attaches at all, because <code>は</code> announces a known topic and a <code>か</code>-word is by definition unknown.</p>
-<p><strong>Vagueness is politeness.</strong> Offering <code>何(なに)か飲(の)みますか</code> lets the guest steer, whereas naming a drink pushes them into accepting or refusing that drink. The same softening drives <code>どこか行(い)きたいところある?</code> when planning a day out.</p>
 </div>
 </div>
 <div class="slide" data-index="87">
   
-  <div class="slide__content"><h2>何か・誰か・どこか · Nuance &amp; register (cont.)</h2>
-<p><strong><code>なんか</code> is a different word.</strong> Written the same way in kanji, but <code>なんか</code> functions as &quot;or something / like / kind of&quot;: <code>コーヒーなんかどうですか</code> (&quot;how about a coffee or something?&quot;), or as pure filler - <code>なんか、疲(つか)れた</code>. It is casual and, used as filler, slightly juvenile. Do not read <code>何(なに)か</code> as なんか.</p>
-<p><strong><code>何(なに)か</code> can also mean &quot;somehow, somewhat&quot;</strong> in front of an adjective: <code>何(なに)かおかしい</code>, &quot;something&#39;s not right&quot;. No noun is being referred to at all.</p>
-<p><strong>Polite upgrades</strong> exist and are worth having: <code>どなたか</code> for <code>誰(だれ)か</code>, and <code>どちらか</code> for <code>どこか</code> when you mean a place. On the phone: <code>どなたかいらっしゃいますか</code>.</p>
+  <div class="slide__content"><h2>何か・誰か・どこか · Formation (cont.)</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - a <code>か</code>-word makes the sentence a <strong>yes/no</strong> question, not a content question. <code><ruby>何<rt>なに</rt></ruby>か<ruby>買<rt>か</rt></ruby>いましたか</code> is answered はい or いいえ. <code><ruby>何<rt>なに</rt></ruby>を<ruby>買<rt>か</rt></ruby>いましたか</code> demands a list of purchases. Same English word &quot;what&quot;, opposite conversations.</p>
+</blockquote>
 </div>
 </div>
 <div class="slide" data-index="88">
   
-  <div class="slide__content"><h2>何(なに)か・誰(だれ)か・どこか vs 何(なに)も・誰(だれ)も・どこも</h2>
-<blockquote>
-<p><strong>Rule of thumb</strong> - <code>か</code> is the positive indefinite and works with any predicate; <code>も</code> is the negative one and <strong>requires</strong> a negative verb. They are a matched pair, and a question in <code>か</code> is usually answered in <code>も</code>.</p>
-</blockquote>
-<p>This is the pairing to drill, because the two sets are one syllable apart and mean opposite things.</p>
-<p>昼(ひる)ごはん、<strong>何(なに)か</strong>食(た)べましたか。<br><em>Did you eat anything for lunch?</em></p>
-<p>いいえ、いそがしくて何(なに)も食(た)べませんでした。<br><em>No - I was busy and didn&#39;t eat anything.</em></p>
+  <div class="slide__content"><h2>何か・誰か・どこか · Examples</h2>
+<p><strong><ruby>何<rt>なに</rt></ruby>か</strong><ruby>飲<rt>の</rt></ruby>みますか。<br><em>Would you like something to drink?</em></p>
+<p><strong><ruby>誰<rt>だれ</rt></ruby>か</strong>いますか。<br><em>Is anybody there?</em></p>
+<p><ruby>冷蔵庫<rt>れいぞうこ</rt></ruby>に**<ruby>何<rt>なに</rt></ruby>か**<ruby>残<rt>のこ</rt></ruby>っていますか。<br><em>Is there anything left in the fridge?</em></p>
+<p><ruby>週末<rt>しゅうまつ</rt></ruby>、<strong>どこか</strong>へ<ruby>行<rt>い</rt></ruby>きませんか。<br><em>Shall we go somewhere at the weekend?</em></p>
 </div>
 </div>
 <div class="slide" data-index="89">
   
-  <div class="slide__content"><h2>何(なに)か・誰(だれ)か・どこか vs 何(なに)も・誰(だれ)も・どこも (cont.)</h2>
-<p>Note that the も-answer cannot be positive: ❌<code>何(なに)も食(た)べました</code> is broken Japanese. And the か-question cannot be negated into a &quot;nothing&quot;: ❌<code>誰(だれ)か来(き)ませんでした</code> does not mean &quot;nobody came&quot; - for that you need <code>誰(だれ)も来(こ)ませんでした</code>.</p>
+  <div class="slide__content"><h2>何か・誰か・どこか · Examples (cont.)</h2>
+<p><strong><ruby>誰<rt>だれ</rt></ruby>か</strong>に<ruby>道<rt>みち</rt></ruby>を<ruby>聞<rt>き</rt></ruby>いたほうがいいですね。<br><em>We had better ask somebody for directions.</em></p>
+<p><strong>いつか</strong><ruby>北海道<rt>ほっかいどう</rt></ruby>で<ruby>馬<rt>うま</rt></ruby>に<ruby>乗<rt>の</rt></ruby>ってみたい。<br><em>One day I want to try riding a horse in Hokkaido.</em></p>
+<p>さっきから<strong>どこか</strong>で<ruby>電話<rt>でんわ</rt></ruby>が<ruby>鳴<rt>な</rt></ruby>っているが、<ruby>誰<rt>だれ</rt></ruby>も<ruby>出<rt>で</rt></ruby>ない。<br><em>A phone has been ringing somewhere for a while now, but nobody is picking up.</em></p>
+<p><ruby>会議<rt>かいぎ</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>に**<ruby>何<rt>なに</rt></ruby>か**<ruby>確認<rt>かくにん</rt></ruby>しておきたいことはありますか。<br><em>Is there anything you would like to check before the meeting?</em></p>
 </div>
 </div>
 <div class="slide" data-index="90">
   
-  <div class="slide__content"><h2>何(なに)か食(た)べましたか vs 何(なに)を食(た)べましたか</h2>
-<blockquote>
-<p><strong>Rule of thumb</strong> - with <code>か</code> you are asking <strong>whether</strong>; with <code>を</code> you are asking <strong>what</strong>. The first expects はい／いいえ, the second expects a noun.</p>
-</blockquote>
-<p>English &quot;did you eat something / anything&quot; versus &quot;what did you eat&quot; makes the same split, but learners import the <code>を</code> version by default and end up interrogating people.</p>
-<p>朝(あさ)、<strong>何(なに)か</strong>飲(の)みましたか。<br><em>Did you have anything to drink this morning?</em></p>
-<p>朝(あさ)、何(なに)を飲(の)みましたか。<br><em>What did you drink this morning?</em></p>
-<p>The second presupposes that you drank; it is fine between friends and pushy from a stranger. Use the <code>か</code> form when you do not yet know whether the event happened at all.</p>
+  <div class="slide__content"><h2>何か・誰か・どこか · Nuance &amp; register</h2>
+<p>Register-neutral, and very high frequency in speech, largely because Japanese prefers a vague offer to a specific one.</p>
+<p><strong>The particle drop is the natural form.</strong> <code><ruby>何<rt>なに</rt></ruby>かを<ruby>食<rt>た</rt></ruby>べる</code> is not exactly ungrammatical, but it is stiff and rarely said; <code><ruby>何<rt>なに</rt></ruby>か<ruby>食<rt>た</rt></ruby>べる</code> is what people actually produce. The same goes for <code>が</code> - <code><ruby>誰<rt>だれ</rt></ruby>か<ruby>来<rt>き</rt></ruby>たよ</code>, not <code><ruby>誰<rt>だれ</rt></ruby>かが<ruby>来<rt>き</rt></ruby>たよ</code> in ordinary speech, although the <code>が</code> version does appear in writing when the subject needs emphasis. <code>は</code> never attaches at all, because <code>は</code> announces a known topic and a <code>か</code>-word is by definition unknown.</p>
 </div>
 </div>
 <div class="slide" data-index="91">
   
-  <div class="slide__content"><h2>何か・誰か・どこか · 何(なに)か vs 何(なん)でも</h2>
-<blockquote>
-<p><strong>Rule of thumb</strong> - <code>か</code> means &quot;some one thing, unspecified&quot;. <code>でも</code> means &quot;any at all, take your pick&quot;. <code>か</code> narrows to one; <code>でも</code> opens the whole set.</p>
-</blockquote>
-<p>Both land on English &quot;anything&quot;, which hides the difference completely.</p>
-<p><strong>何(なに)か</strong>質問(しつもん)はありますか。<br><em>Are there any questions?</em></p>
-<p>何(なん)でも聞(き)いてください。<br><em>Ask me anything you like.</em></p>
-<p>The first asks whether at least one question exists. The second grants permission across the entire range. So <code>誰(だれ)か手伝(てつだ)って</code> means &quot;could someone help&quot;, while <code>誰(だれ)でも手伝(てつだ)える</code> means &quot;anyone at all is able to help&quot;.</p>
+  <div class="slide__content"><h2>何か・誰か・どこか · Nuance &amp; register (cont.)</h2>
+<p><strong>Vagueness is politeness.</strong> Offering <code><ruby>何<rt>なに</rt></ruby>か<ruby>飲<rt>の</rt></ruby>みますか</code> lets the guest steer, whereas naming a drink pushes them into accepting or refusing that drink. The same softening drives <code>どこか<ruby>行<rt>い</rt></ruby>きたいところある?</code> when planning a day out.</p>
+<p><strong><code>なんか</code> is a different word.</strong> Written the same way in kanji, but <code>なんか</code> functions as &quot;or something / like / kind of&quot;: <code>コーヒーなんかどうですか</code> (&quot;how about a coffee or something?&quot;), or as pure filler - <code>なんか、<ruby>疲<rt>つか</rt></ruby>れた</code>. It is casual and, used as filler, slightly juvenile. Do not read <code><ruby>何<rt>なに</rt></ruby>か</code> as なんか.</p>
 </div>
 </div>
 <div class="slide" data-index="92">
   
-  <div class="slide__content"><h2>何か・誰か・どこか · Common mistakes</h2>
-<ul>
-<li><p>❌ reading <code>何(なに)か</code> as <strong>なんか</strong> → ✅ <strong>なにか</strong><br><em><code>なんか</code> is a separate colloquial word meaning &quot;or something / kind of&quot;. The indefinite pronoun is なにか, always.</em></p>
-</li>
-<li><p>❌ <strong>誰(だれ)か</strong>来(き)ませんでした。 → ✅ <strong>誰(だれ)も</strong>来(こ)ませんでした。<br><em>Negating a <code>か</code>-word does not give you &quot;nobody&quot;. The か-sentence would mean something closer to &quot;it wasn&#39;t the case that someone came&quot;, which is not what you want; switch to the も-series.</em></p>
-</li>
-<li><p>❌ <strong>誰(だれ)かは</strong>この漢字(かんじ)が読(よ)めますか。 → ✅ <strong>誰(だれ)か</strong>この漢字(かんじ)が読(よ)めますか。<br><em><code>は</code> marks a known topic and cannot attach to an indefinite. <code>が</code> and <code>を</code> are also dropped after a か-word.</em></p>
-</li>
-<li><p>❌ <strong>いつかに</strong>食事(しょくじ)でもしましょう。 → ✅ <strong>いつか</strong>食事(しょくじ)でもしましょう。<br><em><code>いつか</code> is already adverbial, like <code>いつ</code> itself. Time words of this kind take no <code>に</code>.</em></p>
-</li>
-</ul>
+  <div class="slide__content"><h2>何か・誰か・どこか · Nuance &amp; register (cont.)</h2>
+<p><strong><code><ruby>何<rt>なに</rt></ruby>か</code> can also mean &quot;somehow, somewhat&quot;</strong> in front of an adjective: <code><ruby>何<rt>なに</rt></ruby>かおかしい</code>, &quot;something&#39;s not right&quot;. No noun is being referred to at all.</p>
+<p><strong>Polite upgrades</strong> exist and are worth having: <code>どなたか</code> for <code><ruby>誰<rt>だれ</rt></ruby>か</code>, and <code>どちらか</code> for <code>どこか</code> when you mean a place. On the phone: <code>どなたかいらっしゃいますか</code>.</p>
 </div>
 </div>
 <div class="slide" data-index="93">
   
-  <div class="slide__content"><h2>何か・誰か・どこか · Practice 1</h2>
-<p><strong>1.</strong> 部屋(へや)が暗(くら)いですね。____電気(でんき)をつけてくれませんか。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<strong>誰(だれ)か</strong>電気(でんき)をつけてくれませんか。 &quot;Could somebody turn the light on?&quot;</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-You are addressing a room rather than a named person, so you need the indefinite &quot;someone&quot;. No particle follows <code>か</code> here, because the subject marker <code>が</code> drops.</p>
+  <div class="slide__content"><h2>何か・誰か・どこか · 何か・誰か・どこか vs 何も・誰も・どこも</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - <code>か</code> is the positive indefinite and works with any predicate; <code>も</code> is the negative one and <strong>requires</strong> a negative verb. They are a matched pair, and a question in <code>か</code> is usually answered in <code>も</code>.</p>
+</blockquote>
+<p>This is the pairing to drill, because the two sets are one syllable apart and mean opposite things.</p>
+<p><ruby>昼<rt>ひる</rt></ruby>ごはん、<strong><ruby>何<rt>なに</rt></ruby>か</strong><ruby>食<rt>た</rt></ruby>べましたか。<br><em>Did you eat anything for lunch?</em></p>
+<p>いいえ、いそがしくて<ruby>何<rt>なに</rt></ruby>も<ruby>食<rt>た</rt></ruby>べませんでした。<br><em>No - I was busy and didn&#39;t eat anything.</em></p>
 </div>
 </div>
 <div class="slide" data-index="94">
   
-  <div class="slide__content"><h2>何か・誰か・どこか · Practice 2</h2>
-<p><strong>2.</strong> 夏休(なつやす)みに（どこか・どこも）旅行(りょこう)に行(い)きたいです。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-夏休(なつやす)みに<strong>どこか</strong>旅行(りょこう)に行(い)きたいです。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The predicate is positive - you <em>want</em> to go - so the か-series is required. <code>どこも</code> only works with a negative, and would give &quot;I don&#39;t want to travel anywhere&quot;, the opposite meaning.</p>
+  <div class="slide__content"><h2>何か・誰か・どこか · 何か・誰か・どこか vs 何も・誰も・どこも (cont.)</h2>
+<p>Note that the も-answer cannot be positive: ❌<code><ruby>何<rt>なに</rt></ruby>も<ruby>食<rt>た</rt></ruby>べました</code> is broken Japanese. And the か-question cannot be negated into a &quot;nothing&quot;: ❌<code><ruby>誰<rt>だれ</rt></ruby>か<ruby>来<rt>き</rt></ruby>ませんでした</code> does not mean &quot;nobody came&quot; - for that you need <code><ruby>誰<rt>だれ</rt></ruby>も<ruby>来<rt>こ</rt></ruby>ませんでした</code>.</p>
 </div>
 </div>
 <div class="slide" data-index="95">
   
-  <div class="slide__content"><h2>何か・誰か・どこか · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese: &quot;I think I&#39;ve met him somewhere before.&quot;</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-彼(かれ)には前(まえ)に<strong>どこか</strong>で会(あ)ったことがあると思(おも)います。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>どこか</code> supplies the vague place, and <code>で</code> stays on because meeting is an action that happens somewhere. Note the particle sits <em>after</em> the <code>か</code>, never before it.</p>
+  <div class="slide__content"><h2>何か・誰か・どこか · 何か食べましたか vs 何を食べましたか</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - with <code>か</code> you are asking <strong>whether</strong>; with <code>を</code> you are asking <strong>what</strong>. The first expects はい／いいえ, the second expects a noun.</p>
+</blockquote>
+<p>English &quot;did you eat something / anything&quot; versus &quot;what did you eat&quot; makes the same split, but learners import the <code>を</code> version by default and end up interrogating people.</p>
+<p><ruby>朝<rt>あさ</rt></ruby>、<strong><ruby>何<rt>なに</rt></ruby>か</strong><ruby>飲<rt>の</rt></ruby>みましたか。<br><em>Did you have anything to drink this morning?</em></p>
+<p><ruby>朝<rt>あさ</rt></ruby>、<ruby>何<rt>なに</rt></ruby>を<ruby>飲<rt>の</rt></ruby>みましたか。<br><em>What did you drink this morning?</em></p>
 </div>
 </div>
 <div class="slide" data-index="96">
   
-  <div class="slide__content"><h2>何か・誰か・どこか · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: すみません、何(なに)かをお願(ねが)いしたいことがあるんですが。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ すみません、<strong>何(なに)か</strong>お願(ねが)いしたいことがあるんですが。 &quot;Excuse me, there&#39;s something I&#39;d like to ask you to do.&quot;</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The <code>を</code> after <code>か</code> has to go. Object and subject particles are dropped after a か-word; only <code>に</code>, <code>で</code>, <code>へ</code>, <code>と</code> and <code>から</code> survive.</p>
+  <div class="slide__content"><h2>何か・誰か・どこか · 何か食べましたか vs 何を食べましたか (cont.)</h2>
+<p>The second presupposes that you drank; it is fine between friends and pushy from a stranger. Use the <code>か</code> form when you do not yet know whether the event happened at all.</p>
 </div>
 </div>
 <div class="slide" data-index="97">
   
-  <div class="slide__content"><h2>何か・誰か・どこか · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 週末(しゅうまつ)、<strong>何(なに)か</strong>しましたか。 (b) 週末(しゅうまつ)、何(なに)をしましたか。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-(a) is a yes/no question: did anything happen at all? It leaves the listener free to say 「いいえ、何(なに)もしませんでした」without feeling they have failed to answer.</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-(b) assumes the weekend contained activities and asks for them by name. Between friends that is perfectly friendly; asked of someone you barely know it can feel like it is prying. This is why (a) is the safer opener with a new colleague.</p>
+  <div class="slide__content"><h2>何か・誰か・どこか · 何か vs 何でも</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - <code>か</code> means &quot;some one thing, unspecified&quot;. <code>でも</code> means &quot;any at all, take your pick&quot;. <code>か</code> narrows to one; <code>でも</code> opens the whole set.</p>
+</blockquote>
+<p>Both land on English &quot;anything&quot;, which hides the difference completely.</p>
+<p><strong><ruby>何<rt>なに</rt></ruby>か</strong><ruby>質問<rt>しつもん</rt></ruby>はありますか。<br><em>Are there any questions?</em></p>
+<p><ruby>何<rt>なん</rt></ruby>でも<ruby>聞<rt>き</rt></ruby>いてください。<br><em>Ask me anything you like.</em></p>
 </div>
 </div>
 <div class="slide" data-index="98">
   
-  <div class="slide__content"><h1>何も・誰も・どこも</h1>
-<p><strong>Meaning</strong> · nothing / no one / nowhere - a question word plus <code>も</code>, finished off with a <strong>negative</strong> verb</p>
-<p>Japanese builds &quot;nothing&quot; out of two halves. <code>何(なに)も</code> supplies the &quot;any&quot;, and the negative ending on the verb supplies the &quot;not&quot;. Neither half works alone: <code>何(なに)も食(た)べません</code> is &quot;I don&#39;t eat anything&quot;, while ❌<code>何(なに)も食(た)べます</code> is not a sentence. English puts the negation in the pronoun; Japanese puts it in the verb, every time.</p>
+  <div class="slide__content"><h2>何か・誰か・どこか · 何か vs 何でも (cont.)</h2>
+<p>The first asks whether at least one question exists. The second grants permission across the entire range. So <code><ruby>誰<rt>だれ</rt></ruby>か<ruby>手伝<rt>てつだ</rt></ruby>って</code> means &quot;could someone help&quot;, while <code><ruby>誰<rt>だれ</rt></ruby>でも<ruby>手伝<rt>てつだ</rt></ruby>える</code> means &quot;anyone at all is able to help&quot;.</p>
 </div>
 </div>
 <div class="slide" data-index="99">
   
-  <div class="slide__content"><h2>何も・誰も・どこも · Formation</h2>
-<p>The negative sits on the predicate at the end of the clause, however far away that is.</p>
+  <div class="slide__content"><h2>何か・誰か・どこか · Common mistakes</h2>
+<ul>
+<li><p>❌ reading <code><ruby>何<rt>なに</rt></ruby>か</code> as <strong>なんか</strong> → ✅ <strong>なにか</strong><br><em><code>なんか</code> is a separate colloquial word meaning &quot;or something / kind of&quot;. The indefinite pronoun is なにか, always.</em></p>
+</li>
+<li><p>❌ <strong><ruby>誰<rt>だれ</rt></ruby>か</strong><ruby>来<rt>き</rt></ruby>ませんでした。 → ✅ <strong><ruby>誰<rt>だれ</rt></ruby>も</strong><ruby>来<rt>こ</rt></ruby>ませんでした。<br><em>Negating a <code>か</code>-word does not give you &quot;nobody&quot;. The か-sentence would mean something closer to &quot;it wasn&#39;t the case that someone came&quot;, which is not what you want; switch to the も-series.</em></p>
+</li>
+<li><p>❌ <strong><ruby>誰<rt>だれ</rt></ruby>かは</strong>この<ruby>漢字<rt>かんじ</rt></ruby>が<ruby>読<rt>よ</rt></ruby>めますか。 → ✅ <strong><ruby>誰<rt>だれ</rt></ruby>か</strong>この<ruby>漢字<rt>かんじ</rt></ruby>が<ruby>読<rt>よ</rt></ruby>めますか。<br><em><code>は</code> marks a known topic and cannot attach to an indefinite. <code>が</code> and <code>を</code> are also dropped after a か-word.</em></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="100">
   
-  <div class="slide__content"><h2>何も・誰も・どこも · Formation (cont.)</h2>
+  <div class="slide__content"><h2>何か・誰か・どこか · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ <strong>いつかに</strong><ruby>食事<rt>しょくじ</rt></ruby>でもしましょう。 → ✅ <strong>いつか</strong><ruby>食事<rt>しょくじ</rt></ruby>でもしましょう。<br><em><code>いつか</code> is already adverbial, like <code>いつ</code> itself. Time words of this kind take no <code>に</code>.</em></li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="101">
+  
+  <div class="slide__content"><h2>何か・誰か・どこか · Practice 1</h2>
+<p><strong>1.</strong> <ruby>部屋<rt>へや</rt></ruby>が<ruby>暗<rt>くら</rt></ruby>いですね。____<ruby>電気<rt>でんき</rt></ruby>をつけてくれませんか。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<strong><ruby>誰<rt>だれ</rt></ruby>か</strong><ruby>電気<rt>でんき</rt></ruby>をつけてくれませんか。 &quot;Could somebody turn the light on?&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+You are addressing a room rather than a named person, so you need the indefinite &quot;someone&quot;. No particle follows <code>か</code> here, because the subject marker <code>が</code> drops.</p>
+</div>
+</div>
+<div class="slide" data-index="102">
+  
+  <div class="slide__content"><h2>何か・誰か・どこか · Practice 2</h2>
+<p><strong>2.</strong> <ruby>夏休<rt>なつやす</rt></ruby>みに（どこか・どこも）<ruby>旅行<rt>りょこう</rt></ruby>に<ruby>行<rt>い</rt></ruby>きたいです。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>夏休<rt>なつやす</rt></ruby>みに<strong>どこか</strong><ruby>旅行<rt>りょこう</rt></ruby>に<ruby>行<rt>い</rt></ruby>きたいです。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The predicate is positive - you <em>want</em> to go - so the か-series is required. <code>どこも</code> only works with a negative, and would give &quot;I don&#39;t want to travel anywhere&quot;, the opposite meaning.</p>
+</div>
+</div>
+<div class="slide" data-index="103">
+  
+  <div class="slide__content"><h2>何か・誰か・どこか · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese: &quot;I think I&#39;ve met him somewhere before.&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>彼<rt>かれ</rt></ruby>には<ruby>前<rt>まえ</rt></ruby>に<strong>どこか</strong>で<ruby>会<rt>あ</rt></ruby>ったことがあると<ruby>思<rt>おも</rt></ruby>います。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code>どこか</code> supplies the vague place, and <code>で</code> stays on because meeting is an action that happens somewhere. Note the particle sits <em>after</em> the <code>か</code>, never before it.</p>
+</div>
+</div>
+<div class="slide" data-index="104">
+  
+  <div class="slide__content"><h2>何か・誰か・どこか · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the error: すみません、<ruby>何<rt>なに</rt></ruby>かをお<ruby>願<rt>ねが</rt></ruby>いしたいことがあるんですが。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ すみません、<strong><ruby>何<rt>なに</rt></ruby>か</strong>お<ruby>願<rt>ねが</rt></ruby>いしたいことがあるんですが。 &quot;Excuse me, there&#39;s something I&#39;d like to ask you to do.&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The <code>を</code> after <code>か</code> has to go. Object and subject particles are dropped after a か-word; only <code>に</code>, <code>で</code>, <code>へ</code>, <code>と</code> and <code>から</code> survive.</p>
+</div>
+</div>
+<div class="slide" data-index="105">
+  
+  <div class="slide__content"><h2>何か・誰か・どこか · Practice 5</h2>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>週末<rt>しゅうまつ</rt></ruby>、<strong><ruby>何<rt>なに</rt></ruby>か</strong>しましたか。 (b) <ruby>週末<rt>しゅうまつ</rt></ruby>、<ruby>何<rt>なに</rt></ruby>をしましたか。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+(a) is a yes/no question: did anything happen at all? It leaves the listener free to say 「いいえ、<ruby>何<rt>なに</rt></ruby>もしませんでした」without feeling they have failed to answer.</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+(b) assumes the weekend contained activities and asks for them by name. Between friends that is perfectly friendly; asked of someone you barely know it can feel like it is prying. This is why (a) is the safer opener with a new colleague.</p>
+</div>
+</div>
+<div class="slide" data-index="106">
+  
+  <div class="slide__content"><h1>何も・誰も・どこも</h1>
+<p><strong>Meaning</strong> · nothing / no one / nowhere - a question word plus <code>も</code>, finished off with a <strong>negative</strong> verb</p>
+<p>Japanese builds &quot;nothing&quot; out of two halves. <code><ruby>何<rt>なに</rt></ruby>も</code> supplies the &quot;any&quot;, and the negative ending on the verb supplies the &quot;not&quot;. Neither half works alone: <code><ruby>何<rt>なに</rt></ruby>も<ruby>食<rt>た</rt></ruby>べません</code> is &quot;I don&#39;t eat anything&quot;, while ❌<code><ruby>何<rt>なに</rt></ruby>も<ruby>食<rt>た</rt></ruby>べます</code> is not a sentence. English puts the negation in the pronoun; Japanese puts it in the verb, every time.</p>
+</div>
+</div>
+<div class="slide" data-index="107">
+  
+  <div class="slide__content"><h2>何も・誰も・どこも · Formation</h2>
+<p>The negative sits on the predicate at the end of the clause, however far away that is.</p>
 <table>
 <thead>
 <tr>
@@ -3837,203 +3864,223 @@ The <code>を</code> after <code>か</code> has to go. Object and subject partic
 </tr>
 </thead>
 <tbody><tr>
-<td>何(なに)</td>
-<td>何(なに) + も + <strong>negative</strong> - nothing</td>
-<td>何(なに)も見(み)えない</td>
+<td><ruby>何<rt>なに</rt></ruby></td>
+<td><ruby>何<rt>なに</rt></ruby> + も + <strong>negative</strong> - nothing</td>
+<td><ruby>何<rt>なに</rt></ruby>も<ruby>見<rt>み</rt></ruby>えない</td>
 </tr>
 <tr>
-<td>誰(だれ)</td>
-<td>誰(だれ) + も + <strong>negative</strong> - no one</td>
-<td>誰(だれ)も知(し)らない</td>
+<td><ruby>誰<rt>だれ</rt></ruby></td>
+<td><ruby>誰<rt>だれ</rt></ruby> + も + <strong>negative</strong> - no one</td>
+<td><ruby>誰<rt>だれ</rt></ruby>も<ruby>知<rt>し</rt></ruby>らない</td>
 </tr>
 <tr>
 <td>どこ</td>
 <td>どこ + も + <strong>negative</strong> - nowhere</td>
-<td>どこも開(あ)いていない</td>
+<td>どこも<ruby>開<rt>あ</rt></ruby>いていない</td>
 </tr>
 <tr>
 <td>どれ</td>
 <td>どれ + も + <strong>negative</strong> - none of them</td>
-<td>どれも気(き)に入(い)らない</td>
+<td>どれも<ruby>気<rt>き</rt></ruby>に<ruby>入<rt>い</rt></ruby>らない</td>
 </tr>
 <tr>
 <td>Particles が・を・は</td>
 <td><strong>dropped</strong></td>
-<td>❌何(なに)もを → ✅何(なに)も</td>
+<td>❌<ruby>何<rt>なに</rt></ruby>もを → ✅<ruby>何<rt>なに</rt></ruby>も</td>
 </tr>
 <tr>
 <td>Particles に・で・へ・と</td>
 <td><strong>inserted before the も</strong></td>
-<td>誰(だれ)<strong>に</strong>も／どこ<strong>へ</strong>も／誰(だれ)<strong>と</strong>も</td>
+<td><ruby>誰<rt>だれ</rt></ruby><strong>に</strong>も／どこ<strong>へ</strong>も／<ruby>誰<rt>だれ</rt></ruby><strong>と</strong>も</td>
 </tr>
 <tr>
 <td>Emphatic</td>
-<td>何(なに)も → 何(なん)にも（なんにも）</td>
-<td>何(なん)にも残(のこ)っていない</td>
+<td><ruby>何<rt>なに</rt></ruby>も → <ruby>何<rt>なん</rt></ruby>にも（なんにも）</td>
+<td><ruby>何<rt>なん</rt></ruby>にも<ruby>残<rt>のこ</rt></ruby>っていない</td>
 </tr>
 <tr>
 <td>Positive predicate</td>
 <td>どこも／どれも + affirmative = <strong>every</strong></td>
-<td>どこも混(こ)んでいる</td>
+<td>どこも<ruby>混<rt>こ</rt></ruby>んでいる</td>
 </tr>
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="101">
+<div class="slide" data-index="108">
   
   <div class="slide__content"><h2>何も・誰も・どこも · Formation (cont.)</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - the particle goes <strong>inside</strong>, not outside. It is <code>誰(だれ)にも言(い)わない</code>, not ❌<code>誰(だれ)もに言(い)わない</code>. Think of it as <code>question word + particle + も</code>, with <code>が</code>, <code>を</code> and <code>は</code> simply deleted at that first slot.</p>
+<p><strong>Rule of thumb</strong> - the particle goes <strong>inside</strong>, not outside. It is <code><ruby>誰<rt>だれ</rt></ruby>にも<ruby>言<rt>い</rt></ruby>わない</code>, not ❌<code><ruby>誰<rt>だれ</rt></ruby>もに<ruby>言<rt>い</rt></ruby>わない</code>. Think of it as <code>question word + particle + も</code>, with <code>が</code>, <code>を</code> and <code>は</code> simply deleted at that first slot.</p>
 </blockquote>
 </div>
 </div>
-<div class="slide" data-index="102">
+<div class="slide" data-index="109">
   
   <div class="slide__content"><h2>何も・誰も・どこも · Examples</h2>
-<p>朝(あさ)から<strong>何(なに)も</strong>食(た)べていません。<br><em>I haven&#39;t eaten anything since this morning.</em></p>
-<p>教室(きょうしつ)には<strong>誰(だれ)も</strong>いません。<br><em>There is no one in the classroom.</em></p>
-<p>昨日(きのう)は<strong>どこへも</strong>行(い)きませんでした。<br><em>I didn&#39;t go anywhere yesterday.</em></p>
-<p>店(みせ)に入(はい)ったが、<strong>何(なに)も</strong>買(か)わなかった。<br><em>I went into the shop but didn&#39;t buy anything.</em></p>
-<p>この話(はなし)は<strong>誰(だれ)にも</strong>言(い)わないでください。<br><em>Please don&#39;t tell anyone about this.</em></p>
+<p><ruby>朝<rt>あさ</rt></ruby>から**<ruby>何<rt>なに</rt></ruby>も**<ruby>食<rt>た</rt></ruby>べていません。<br><em>I haven&#39;t eaten anything since this morning.</em></p>
+<p><ruby>教室<rt>きょうしつ</rt></ruby>には**<ruby>誰<rt>だれ</rt></ruby>も**いません。<br><em>There is no one in the classroom.</em></p>
+<p><ruby>昨日<rt>きのう</rt></ruby>は<strong>どこへも</strong><ruby>行<rt>い</rt></ruby>きませんでした。<br><em>I didn&#39;t go anywhere yesterday.</em></p>
+<p><ruby>店<rt>みせ</rt></ruby>に<ruby>入<rt>はい</rt></ruby>ったが、<strong><ruby>何<rt>なに</rt></ruby>も</strong><ruby>買<rt>か</rt></ruby>わなかった。<br><em>I went into the shop but didn&#39;t buy anything.</em></p>
 </div>
 </div>
-<div class="slide" data-index="103">
+<div class="slide" data-index="110">
   
   <div class="slide__content"><h2>何も・誰も・どこも · Examples (cont.)</h2>
-<p>三(さん)着(ちゃく)試(ため)してみたが、<strong>どれも</strong>サイズが合(あ)わなかった。<br><em>I tried three of them on, but none of them fitted.</em></p>
-<p><strong>誰(だれ)も</strong>手(て)を上(あ)げなかったので、先生(せんせい)は困(こま)った顔(かお)をしていた。<br><em>Nobody put their hand up, so the teacher looked stuck.</em></p>
-<p>連休(れんきゅう)中(ちゅう)は<strong>どこも</strong>人(ひと)でいっぱいだから、家(いえ)でゆっくりしようと思(おも)う。<br><em>Everywhere is packed over the long weekend, so I think I&#39;ll take it easy at home.</em></p>
-<p>引(ひ)っ越(こ)してきたばかりで、この町(まち)には知(し)り合(あ)いが<strong>誰(だれ)も</strong>いない。<br><em>I&#39;ve only just moved here, so I don&#39;t know a soul in this town.</em></p>
+<p>この<ruby>話<rt>はなし</rt></ruby>は**<ruby>誰<rt>だれ</rt></ruby>にも**<ruby>言<rt>い</rt></ruby>わないでください。<br><em>Please don&#39;t tell anyone about this.</em></p>
+<p><ruby>三<rt>さん</rt></ruby><ruby>着<rt>ちゃく</rt></ruby><ruby>試<rt>ため</rt></ruby>してみたが、<strong>どれも</strong>サイズが<ruby>合<rt>あ</rt></ruby>わなかった。<br><em>I tried three of them on, but none of them fitted.</em></p>
+<p><strong><ruby>誰<rt>だれ</rt></ruby>も</strong><ruby>手<rt>て</rt></ruby>を<ruby>上<rt>あ</rt></ruby>げなかったので、<ruby>先生<rt>せんせい</rt></ruby>は<ruby>困<rt>こま</rt></ruby>った<ruby>顔<rt>かお</rt></ruby>をしていた。<br><em>Nobody put their hand up, so the teacher looked stuck.</em></p>
+<p><ruby>連休<rt>れんきゅう</rt></ruby><ruby>中<rt>ちゅう</rt></ruby>は<strong>どこも</strong><ruby>人<rt>ひと</rt></ruby>でいっぱいだから、<ruby>家<rt>いえ</rt></ruby>でゆっくりしようと<ruby>思<rt>おも</rt></ruby>う。<br><em>Everywhere is packed over the long weekend, so I think I&#39;ll take it easy at home.</em></p>
 </div>
 </div>
-<div class="slide" data-index="104">
+<div class="slide" data-index="111">
+  
+  <div class="slide__content"><h2>何も・誰も・どこも · Examples (cont.)</h2>
+<p><ruby>引<rt>ひ</rt></ruby>っ<ruby>越<rt>こ</rt></ruby>してきたばかりで、この<ruby>町<rt>まち</rt></ruby>には<ruby>知<rt>し</rt></ruby>り<ruby>合<rt>あ</rt></ruby>いが**<ruby>誰<rt>だれ</rt></ruby>も**いない。<br><em>I&#39;ve only just moved here, so I don&#39;t know a soul in this town.</em></p>
+</div>
+</div>
+<div class="slide" data-index="112">
   
   <div class="slide__content"><h2>何も・誰も・どこも · Nuance &amp; register</h2>
 <p>Neutral in register; what varies is force.</p>
-<p><strong><code>なんにも</code> is the emphatic version.</strong> Written <code>何(なん)にも</code>, it is <code>何(なに)も</code> with feeling - <code>冷蔵庫(れいぞうこ)に何(なん)にもない</code> means the fridge is <em>completely</em> empty. Spoken, slightly whiny, very common. Its counterpart for people is <code>誰(だれ)一人(ひとり)…ない</code>, which is the <em>formal</em> intensifier: <code>誰(だれ)一人(ひとり)反対(はんたい)しなかった</code>, &quot;not a single person objected&quot;.</p>
-<p><strong>Not every も-word is negative.</strong> This is the trap. <code>いつも</code> means &quot;always&quot; and takes a positive verb. <code>どこも</code> and <code>どれも</code> swing both ways: with a negative they mean &quot;nowhere&quot; and &quot;none&quot;, with a positive they mean &quot;everywhere&quot; and &quot;every one of them&quot; - <code>どれもおいしかった</code>, &quot;they were all delicious&quot;. Only <code>何(なに)も</code> is reliably negative-only. <code>誰(だれ)も</code> is negative in ordinary sentences, but <code>誰(だれ)もが</code>, with <code>が</code> added, flips to &quot;everyone&quot; and belongs to formal writing: <code>誰(だれ)もが知(し)っている話(はなし)</code>.</p>
+<p><strong><code>なんにも</code> is the emphatic version.</strong> Written <code><ruby>何<rt>なん</rt></ruby>にも</code>, it is <code><ruby>何<rt>なに</rt></ruby>も</code> with feeling - <code><ruby>冷蔵庫<rt>れいぞうこ</rt></ruby>に<ruby>何<rt>なん</rt></ruby>にもない</code> means the fridge is <em>completely</em> empty. Spoken, slightly whiny, very common. Its counterpart for people is <code><ruby>誰<rt>だれ</rt></ruby><ruby>一人<rt>ひとり</rt></ruby>…ない</code>, which is the <em>formal</em> intensifier: <code><ruby>誰<rt>だれ</rt></ruby><ruby>一人<rt>ひとり</rt></ruby><ruby>反対<rt>はんたい</rt></ruby>しなかった</code>, &quot;not a single person objected&quot;.</p>
 </div>
 </div>
-<div class="slide" data-index="105">
+<div class="slide" data-index="113">
   
   <div class="slide__content"><h2>何も・誰も・どこも · Nuance &amp; register (cont.)</h2>
-<p><strong>It is the standard answer to a <code>か</code>-question.</strong> 「何(なに)か買(か)った?」 「ううん、何(なに)も」 - the negative verb can even be left off entirely when the context supplies it, and trailing off after <code>何(なに)も</code> is completely natural in speech.</p>
-<p><strong>Word order is flexible but the negative is not.</strong> You can move <code>誰(だれ)にも</code> around the sentence freely; what you cannot do is let the verb come out positive.</p>
+<p><strong>Not every も-word is negative.</strong> This is the trap. <code>いつも</code> means &quot;always&quot; and takes a positive verb. <code>どこも</code> and <code>どれも</code> swing both ways: with a negative they mean &quot;nowhere&quot; and &quot;none&quot;, with a positive they mean &quot;everywhere&quot; and &quot;every one of them&quot; - <code>どれもおいしかった</code>, &quot;they were all delicious&quot;. Only <code><ruby>何<rt>なに</rt></ruby>も</code> is reliably negative-only. <code><ruby>誰<rt>だれ</rt></ruby>も</code> is negative in ordinary sentences, but <code><ruby>誰<rt>だれ</rt></ruby>もが</code>, with <code>が</code> added, flips to &quot;everyone&quot; and belongs to formal writing: <code><ruby>誰<rt>だれ</rt></ruby>もが<ruby>知<rt>し</rt></ruby>っている<ruby>話<rt>はなし</rt></ruby></code>.</p>
+<p><strong>It is the standard answer to a <code>か</code>-question.</strong> 「<ruby>何<rt>なに</rt></ruby>か<ruby>買<rt>か</rt></ruby>った?」 「ううん、<ruby>何<rt>なに</rt></ruby>も」 - the negative verb can even be left off entirely when the context supplies it, and trailing off after <code><ruby>何<rt>なに</rt></ruby>も</code> is completely natural in speech.</p>
 </div>
 </div>
-<div class="slide" data-index="106">
+<div class="slide" data-index="114">
   
-  <div class="slide__content"><h2>何(なに)も・誰(だれ)も・どこも vs 何(なに)か・誰(だれ)か・どこか</h2>
+  <div class="slide__content"><h2>何も・誰も・どこも · Nuance &amp; register (cont.)</h2>
+<p><strong>Word order is flexible but the negative is not.</strong> You can move <code><ruby>誰<rt>だれ</rt></ruby>にも</code> around the sentence freely; what you cannot do is let the verb come out positive.</p>
+</div>
+</div>
+<div class="slide" data-index="115">
+  
+  <div class="slide__content"><h2>何も・誰も・どこも · 何も・誰も・どこも vs 何か・誰か・どこか</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>か</code> is the positive indefinite, <code>も</code> the negative one. <code>か</code> sentences end in a positive verb; <code>も</code> sentences end in a negative one.</p>
 </blockquote>
 <p>They are the same nine question words wearing opposite hats, and a <code>か</code>-question is normally answered with a <code>も</code>-sentence.</p>
-<p>部屋(へや)に誰(だれ)かいますか。<br><em>Is there anybody in the room?</em></p>
-<p>いいえ、<strong>誰(だれ)も</strong>いません。<br><em>No, there&#39;s no one.</em></p>
-<p>The two cannot be crossed. ❌<code>誰(だれ)かいません</code> does not mean &quot;there is nobody&quot; - it is at best a strange way of denying that someone is present. And ❌<code>誰(だれ)もいます</code> is simply ungrammatical.</p>
+<p><ruby>部屋<rt>へや</rt></ruby>に<ruby>誰<rt>だれ</rt></ruby>かいますか。<br><em>Is there anybody in the room?</em></p>
+<p>いいえ、<strong><ruby>誰<rt>だれ</rt></ruby>も</strong>いません。<br><em>No, there&#39;s no one.</em></p>
 </div>
 </div>
-<div class="slide" data-index="107">
+<div class="slide" data-index="116">
   
-  <div class="slide__content"><h2>何も・誰も・どこも · 何(なに)も vs 何(なん)でも</h2>
+  <div class="slide__content"><h2>何も・誰も・どこも · 何も・誰も・どこも vs 何か・誰か・どこか (cont.)</h2>
+<p>The two cannot be crossed. ❌<code><ruby>誰<rt>だれ</rt></ruby>かいません</code> does not mean &quot;there is nobody&quot; - it is at best a strange way of denying that someone is present. And ❌<code><ruby>誰<rt>だれ</rt></ruby>もいます</code> is simply ungrammatical.</p>
+</div>
+</div>
+<div class="slide" data-index="117">
+  
+  <div class="slide__content"><h2>何も・誰も・どこも · 何も vs 何でも</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>も</code> with a negative = &quot;not any&quot;. <code>でも</code> with a positive = &quot;any at all, whichever&quot;. One closes the set, the other throws it open.</p>
 </blockquote>
 <p>English &quot;anything&quot; covers both, so the two get swapped constantly.</p>
-<p>昨日(きのう)は<strong>何(なに)も</strong>しませんでした。<br><em>I did nothing yesterday.</em></p>
-<p>明日(あした)なら何(なん)でもできます。<br><em>Tomorrow I can do anything you like.</em></p>
-<p>The same split runs through the whole set: <code>誰(だれ)も来(こ)ない</code> (&quot;nobody comes&quot;) versus <code>誰(だれ)でも来(こ)られる</code> (&quot;anybody can come&quot;); <code>どこにも売(う)っていない</code> (&quot;it isn&#39;t sold anywhere&quot;) versus <code>どこでも売(う)っている</code> (&quot;it&#39;s sold everywhere&quot;).</p>
+<p><ruby>昨日<rt>きのう</rt></ruby>は**<ruby>何<rt>なに</rt></ruby>も**しませんでした。<br><em>I did nothing yesterday.</em></p>
+<p><ruby>明日<rt>あした</rt></ruby>なら<ruby>何<rt>なん</rt></ruby>でもできます。<br><em>Tomorrow I can do anything you like.</em></p>
 </div>
 </div>
-<div class="slide" data-index="108">
+<div class="slide" data-index="118">
+  
+  <div class="slide__content"><h2>何も・誰も・どこも · 何も vs 何でも (cont.)</h2>
+<p>The same split runs through the whole set: <code><ruby>誰<rt>だれ</rt></ruby>も<ruby>来<rt>こ</rt></ruby>ない</code> (&quot;nobody comes&quot;) versus <code><ruby>誰<rt>だれ</rt></ruby>でも<ruby>来<rt>こ</rt></ruby>られる</code> (&quot;anybody can come&quot;); <code>どこにも<ruby>売<rt>う</rt></ruby>っていない</code> (&quot;it isn&#39;t sold anywhere&quot;) versus <code>どこでも<ruby>売<rt>う</rt></ruby>っている</code> (&quot;it&#39;s sold everywhere&quot;).</p>
+</div>
+</div>
+<div class="slide" data-index="119">
   
   <div class="slide__content"><h2>何も・誰も・どこも · どこも with a negative vs どこも with a positive</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>どこも</code> and <code>どれも</code> take their meaning from the verb. Negative verb → &quot;nowhere / none&quot;. Positive verb → &quot;everywhere / all of them&quot;.</p>
 </blockquote>
 <p>This is the one place where the &quot;も means negative&quot; shortcut misleads you, and the resulting misreadings are total reversals of meaning.</p>
-<p>正月(しょうがつ)は<strong>どこも</strong>開(あ)いていなかった。<br><em>Nothing was open over New Year.</em></p>
-<p>正月(しょうがつ)は<strong>どこも</strong>静(しず)かだった。<br><em>Everywhere was quiet over New Year.</em></p>
+<p><ruby>正月<rt>しょうがつ</rt></ruby>は<strong>どこも</strong><ruby>開<rt>あ</rt></ruby>いていなかった。<br><em>Nothing was open over New Year.</em></p>
+<p><ruby>正月<rt>しょうがつ</rt></ruby>は<strong>どこも</strong><ruby>静<rt>しず</rt></ruby>かだった。<br><em>Everywhere was quiet over New Year.</em></p>
 </div>
 </div>
-<div class="slide" data-index="109">
+<div class="slide" data-index="120">
   
   <div class="slide__content"><h2>何も・誰も・どこも · どこも with a negative vs どこも with a positive (cont.)</h2>
-<p><code>何(なに)も</code> does not behave this way - it stays negative - and <code>誰(だれ)も</code> only turns positive in the fixed written pattern <code>誰(だれ)もが</code>. So the swing is a property of <code>どこも</code> and <code>どれも</code> specifically. Read to the end of the sentence before deciding what a も-word means.</p>
+<p><code><ruby>何<rt>なに</rt></ruby>も</code> does not behave this way - it stays negative - and <code><ruby>誰<rt>だれ</rt></ruby>も</code> only turns positive in the fixed written pattern <code><ruby>誰<rt>だれ</rt></ruby>もが</code>. So the swing is a property of <code>どこも</code> and <code>どれも</code> specifically. Read to the end of the sentence before deciding what a も-word means.</p>
 </div>
 </div>
-<div class="slide" data-index="110">
+<div class="slide" data-index="121">
   
   <div class="slide__content"><h2>何も・誰も・どこも · Common mistakes</h2>
 <ul>
-<li><p>❌ 昨日(きのう)は<strong>何(なに)も</strong>食(た)べました。 → ✅ 昨日(きのう)は<strong>何(なに)も</strong>食(た)べませんでした。<br><em><code>何(なに)も</code> carries no negation of its own. The verb has to supply it.</em></p>
+<li><p>❌ <ruby>昨日<rt>きのう</rt></ruby>は**<ruby>何<rt>なに</rt></ruby>も**<ruby>食<rt>た</rt></ruby>べました。 → ✅ <ruby>昨日<rt>きのう</rt></ruby>は**<ruby>何<rt>なに</rt></ruby>も**<ruby>食<rt>た</rt></ruby>べませんでした。<br><em><code><ruby>何<rt>なに</rt></ruby>も</code> carries no negation of its own. The verb has to supply it.</em></p>
 </li>
-<li><p>❌ パーティーで<strong>誰(だれ)もと</strong>話(はな)さなかった。 → ✅ パーティーで<strong>誰(だれ)とも</strong>話(はな)さなかった。<br><em>The particle goes between the question word and <code>も</code>, not after it. Likewise <code>誰(だれ)にも</code>, <code>どこへも</code>, <code>どこでも</code>.</em></p>
+<li><p>❌ パーティーで**<ruby>誰<rt>だれ</rt></ruby>もと**<ruby>話<rt>はな</rt></ruby>さなかった。 → ✅ パーティーで**<ruby>誰<rt>だれ</rt></ruby>とも**<ruby>話<rt>はな</rt></ruby>さなかった。<br><em>The particle goes between the question word and <code>も</code>, not after it. Likewise <code><ruby>誰<rt>だれ</rt></ruby>にも</code>, <code>どこへも</code>, <code>どこでも</code>.</em></p>
 </li>
-<li><p>❌ 夏休(なつやす)みは<strong>どこも</strong>行(い)きませんでした。 → ✅ 夏休(なつやす)みは<strong>どこへも</strong>（or <strong>どこにも</strong>）行(い)きませんでした。<br><em>With a verb of motion the destination particle is required. Bare <code>どこも</code> before <code>行(い)く</code> is heard casually but reads as sloppy, and it collides with the &quot;everywhere&quot; sense.</em></p>
+<li><p>❌ <ruby>夏休<rt>なつやす</rt></ruby>みは<strong>どこも</strong><ruby>行<rt>い</rt></ruby>きませんでした。 → ✅ <ruby>夏休<rt>なつやす</rt></ruby>みは<strong>どこへも</strong>（or <strong>どこにも</strong>）<ruby>行<rt>い</rt></ruby>きませんでした。<br><em>With a verb of motion the destination particle is required. Bare <code>どこも</code> before <code><ruby>行<rt>い</rt></ruby>く</code> is heard casually but reads as sloppy, and it collides with the &quot;everywhere&quot; sense.</em></p>
 </li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="111">
+<div class="slide" data-index="122">
   
   <div class="slide__content"><h2>何も・誰も・どこも · Common mistakes (cont.)</h2>
 <ul>
-<li><p>❌ お皿(さら)に<strong>何(なに)もを</strong>残(のこ)さないでください。 → ✅ お皿(さら)に<strong>何(なに)も</strong>残(のこ)さないでください。<br><em><code>を</code>, <code>が</code> and <code>は</code> are all deleted after a も-word. Only <code>に</code>, <code>で</code>, <code>へ</code> and <code>と</code> survive, and they go inside.</em></p>
+<li><p>❌ お<ruby>皿<rt>さら</rt></ruby>に**<ruby>何<rt>なに</rt></ruby>もを**<ruby>残<rt>のこ</rt></ruby>さないでください。 → ✅ お<ruby>皿<rt>さら</rt></ruby>に**<ruby>何<rt>なに</rt></ruby>も**<ruby>残<rt>のこ</rt></ruby>さないでください。<br><em><code>を</code>, <code>が</code> and <code>は</code> are all deleted after a も-word. Only <code>に</code>, <code>で</code>, <code>へ</code> and <code>と</code> survive, and they go inside.</em></p>
 </li>
-<li><p>❌ reading <code>何(なに)も</code> as <strong>なんも</strong> → ✅ <strong>なにも</strong><br><em><code>も</code> is not in the た／だ／な rows, so <code>何(なに)</code> keeps its なに reading. <code>なんも</code> exists in some regional speech but is not standard.</em></p>
+<li><p>❌ reading <code><ruby>何<rt>なに</rt></ruby>も</code> as <strong>なんも</strong> → ✅ <strong>なにも</strong><br><em><code>も</code> is not in the た／だ／な rows, so <code><ruby>何<rt>なに</rt></ruby></code> keeps its なに reading. <code>なんも</code> exists in some regional speech but is not standard.</em></p>
 </li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="112">
+<div class="slide" data-index="123">
   
   <div class="slide__content"><h2>何も・誰も・どこも · Practice 1</h2>
-<p><strong>1.</strong> 財布(さいふ)を開(あ)けたが、中(なか)には____入(はい)っていなかった。</p>
+<p><strong>1.</strong> <ruby>財布<rt>さいふ</rt></ruby>を<ruby>開<rt>あ</rt></ruby>けたが、<ruby>中<rt>なか</rt></ruby>には____<ruby>入<rt>はい</rt></ruby>っていなかった。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-中(なか)には<strong>何(なに)も</strong>入(はい)っていなかった。 &quot;I opened my wallet, but there was nothing in it.&quot;</p>
+<ruby>中<rt>なか</rt></ruby>には**<ruby>何<rt>なに</rt></ruby>も**<ruby>入<rt>はい</rt></ruby>っていなかった。 &quot;I opened my wallet, but there was nothing in it.&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The verb is already negative, so the slot needs the も-series, not the か-series. <code>何(なに)か</code> here would produce a strange denial rather than &quot;nothing&quot;.</p>
+The verb is already negative, so the slot needs the も-series, not the か-series. <code><ruby>何<rt>なに</rt></ruby>か</code> here would produce a strange denial rather than &quot;nothing&quot;.</p>
 </div>
 </div>
-<div class="slide" data-index="113">
+<div class="slide" data-index="124">
   
   <div class="slide__content"><h2>何も・誰も・どこも · Practice 2</h2>
-<p><strong>2.</strong> すみません、この質問(しつもん)について（誰(だれ)か・誰(だれ)も）知(し)っている人(ひと)はいませんか。</p>
+<p><strong>2.</strong> すみません、この<ruby>質問<rt>しつもん</rt></ruby>について（<ruby>誰<rt>だれ</rt></ruby>か・<ruby>誰<rt>だれ</rt></ruby>も）<ruby>知<rt>し</rt></ruby>っている<ruby>人<rt>ひと</rt></ruby>はいませんか。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<strong>誰(だれ)か</strong>知(し)っている人(ひと)はいませんか。</p>
+<strong><ruby>誰<rt>だれ</rt></ruby>か</strong><ruby>知<rt>し</rt></ruby>っている<ruby>人<rt>ひと</rt></ruby>はいませんか。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Although the sentence ends in a negative, that negative belongs to <code>いませんか</code>, which is a polite <em>invitation</em> - &quot;isn&#39;t there anyone who…?&quot; You are hoping the answer is yes, so the positive indefinite <code>か</code> is correct. <code>誰(だれ)も</code> would flatly assert that no such person exists.</p>
+Although the sentence ends in a negative, that negative belongs to <code>いませんか</code>, which is a polite <em>invitation</em> - &quot;isn&#39;t there anyone who…?&quot; You are hoping the answer is yes, so the positive indefinite <code>か</code> is correct. <code><ruby>誰<rt>だれ</rt></ruby>も</code> would flatly assert that no such person exists.</p>
 </div>
 </div>
-<div class="slide" data-index="114">
+<div class="slide" data-index="125">
   
   <div class="slide__content"><h2>何も・誰も・どこも · Practice 3</h2>
 <p><strong>3.</strong> Translate into Japanese: &quot;Don&#39;t say anything to anyone.&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<strong>誰(だれ)にも何(なに)も</strong>言(い)わないでください。</p>
+<strong><ruby>誰<rt>だれ</rt></ruby>にも<ruby>何<rt>なに</rt></ruby>も</strong><ruby>言<rt>い</rt></ruby>わないでください。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Two も-words can share one negative verb without any conflict - Japanese has no double-negative rule. <code>に</code> sits inside <code>誰(だれ)にも</code> because it marks the person spoken to, while <code>何(なに)も</code> drops its <code>を</code>.</p>
+Two も-words can share one negative verb without any conflict - Japanese has no double-negative rule. <code>に</code> sits inside <code><ruby>誰<rt>だれ</rt></ruby>にも</code> because it marks the person spoken to, while <code><ruby>何<rt>なに</rt></ruby>も</code> drops its <code>を</code>.</p>
 </div>
 </div>
-<div class="slide" data-index="115">
+<div class="slide" data-index="126">
   
   <div class="slide__content"><h2>何も・誰も・どこも · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 連休(れんきゅう)に温泉(おんせん)へ行(い)ったが、どれもホテルが空(あ)いていました。</p>
+<p><strong>4.</strong> Find and fix the error: <ruby>連休<rt>れんきゅう</rt></ruby>に<ruby>温泉<rt>おんせん</rt></ruby>へ<ruby>行<rt>い</rt></ruby>ったが、どれもホテルが<ruby>空<rt>あ</rt></ruby>いていました。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 連休(れんきゅう)に温泉(おんせん)へ行(い)ったが、<strong>どのホテルも</strong>空(あ)いていませんでした。 &quot;I went to a hot spring over the long weekend, but none of the hotels had rooms.&quot;</p>
+✅ <ruby>連休<rt>れんきゅう</rt></ruby>に<ruby>温泉<rt>おんせん</rt></ruby>へ<ruby>行<rt>い</rt></ruby>ったが、<strong>どのホテルも</strong><ruby>空<rt>あ</rt></ruby>いていませんでした。 &quot;I went to a hot spring over the long weekend, but none of the hotels had rooms.&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 Two problems. <code>どれも</code> cannot be followed by the noun it refers to - attach <code>も</code> to the noun instead: <code>どのホテルも</code>. And the intended meaning is &quot;none&quot;, so the verb must be negative; as written, the sentence claimed every hotel was free.</p>
 </div>
 </div>
-<div class="slide" data-index="116">
+<div class="slide" data-index="127">
   
   <div class="slide__content"><h2>何も・誰も・どこも · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 店(みせ)は<strong>どこも</strong>込(こ)んでいた。 (b) 店(みせ)は<strong>どこも</strong>込(こ)んでいなかった。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>店<rt>みせ</rt></ruby>は<strong>どこも</strong><ruby>込<rt>こ</rt></ruby>んでいた。 (b) <ruby>店<rt>みせ</rt></ruby>は<strong>どこも</strong><ruby>込<rt>こ</rt></ruby>んでいなかった。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) has a positive verb, so <code>どこも</code> reads as &quot;every one of them&quot;: every shop was crowded. (b) has a negative verb, so the same <code>どこも</code> reads as &quot;not any of them&quot;: no shop was crowded anywhere.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The two sentences are identical up to the ending, which is why you must read a も-word all the way to the verb before deciding what it means. With <code>何(なに)も</code> this ambiguity never arises - it is negative-only.</p>
+The two sentences are identical up to the ending, which is why you must read a も-word all the way to the verb before deciding what it means. With <code><ruby>何<rt>なに</rt></ruby>も</code> this ambiguity never arises - it is negative-only.</p>
 </div>
 </div>
 </div>
@@ -4060,7 +4107,7 @@ The two sentences are identical up to the ending, which is why you must read a �
     </div>
     <div id="hud-right">
       <a href="https://github.com/arpitbbhayani/deckrun" target="_blank" rel="noopener noreferrer" class="hud-brand" id="hud-brand" title="deckrun — Markdown presentations">powered by <span>deckrun</span></a>
-      <div id="slide-counter"><span id="cur">1</span>&nbsp;/&nbsp;<span id="tot">117</span></div>
+      <div id="slide-counter"><span id="cur">1</span>&nbsp;/&nbsp;<span id="tot">128</span></div>
     </div>
   </div>
 </div>
@@ -4113,7 +4160,7 @@ The two sentences are identical up to the ending, which is why you must read a �
 
 
 
-<script id="deck-notes" type="application/json">["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]</script>
+<script id="deck-notes" type="application/json">["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]</script>
 <script id="deck-themes" type="application/json">{"themes":[{"id":"midnight","label":"midnight","mood":"dark","blurb":"Catppuccin Mocha. Violet on deep indigo, drifting orbs.","decor":"orbs","colors":{"crust":"#11111b","mantle":"#181825","base":"#1e1e2e","surface0":"#313244","overlay1":"#7f849c","subtext1":"#bac2de","text":"#cdd6f4","accent":"#cba6f7","accent2":"#89b4fa","accent3":"#89dceb"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"tokyo","label":"tokyo night","mood":"dark","blurb":"Neon cyan over a wireframe grid, lifted from a rainy skyline.","decor":"grid","colors":{"crust":"#16161e","mantle":"#1a1b26","base":"#1f2335","surface0":"#292e42","overlay1":"#7c86ab","subtext1":"#b7c0e0","text":"#c8d3f5","accent":"#2ac3de","accent2":"#bb9af7","accent3":"#73daca"},"fonts":{"display":"'Sora', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"nord","label":"nord","mood":"dark","blurb":"Arctic frost blue on polar slate, with slow contour waves.","decor":"waves","colors":{"crust":"#232831","mantle":"#2e3440","base":"#353c4a","surface0":"#3b4252","overlay1":"#8e9aae","subtext1":"#d8dee9","text":"#eceff4","accent":"#88c0d0","accent2":"#81a1c1","accent3":"#8fbcbb"},"fonts":{"display":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace","body":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"dracula","label":"dracula","mood":"dark","blurb":"Purple and hot pink over charcoal, lit by a gradient mesh.","decor":"mesh","colors":{"crust":"#1a1b23","mantle":"#21222c","base":"#282a36","surface0":"#343746","overlay1":"#7b85b6","subtext1":"#e2e4f0","text":"#f8f8f2","accent":"#bd93f9","accent2":"#ff79c6","accent3":"#8be9fd"},"fonts":{"display":"'Syne', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'Fira Code', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"gruvbox","label":"gruvbox","mood":"dark","blurb":"Warm amber and moss on retro brown, hatched like graph paper.","decor":"topo","colors":{"crust":"#1b1e1f","mantle":"#232728","base":"#282828","surface0":"#32302f","overlay1":"#928374","subtext1":"#d5c4a1","text":"#ebdbb2","accent":"#fabd2f","accent2":"#fe8019","accent3":"#b8bb26"},"fonts":{"display":"'Bricolage Grotesque', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Work Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"rosepine","label":"rosé pine","mood":"dark","blurb":"Muted iris and gold on plum, under a slow aurora.","decor":"aurora","colors":{"crust":"#14121f","mantle":"#191724","base":"#1f1d2e","surface0":"#26233a","overlay1":"#817c9c","subtext1":"#cdc9e6","text":"#e0def4","accent":"#c4a7e7","accent2":"#9ccfd8","accent3":"#f6c177"},"fonts":{"display":"'Fraunces', Georgia, 'Times New Roman', serif","body":"'Newsreader', Georgia, 'Times New Roman', serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"forest","label":"forest","mood":"dark","blurb":"Everforest sage on deep pine, rippling in concentric rings.","decor":"rings","colors":{"crust":"#232a2e","mantle":"#2d353b","base":"#343f44","surface0":"#3d484d","overlay1":"#9da9a0","subtext1":"#d3c6aa","text":"#e5dfd2","accent":"#a7c080","accent2":"#6fb5ac","accent3":"#dbbc7f"},"fonts":{"display":"'Outfit', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"neon","label":"neon","mood":"dark","blurb":"Electric cyan and magenta on true black, raked by light beams.","decor":"beams","colors":{"crust":"#050509","mantle":"#0a0a12","base":"#0e0e1a","surface0":"#16162a","overlay1":"#6a6a96","subtext1":"#c8c8e4","text":"#f0f0ff","accent":"#22d3ee","accent2":"#ff5cc8","accent3":"#38e8ff"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'Space Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"daylight","label":"daylight","mood":"light","blurb":"Catppuccin Latte, contrast-tuned for a projector. Dot matrix.","decor":"dots","colors":{"crust":"#ebebeb","mantle":"#f5f5f5","base":"#fafaf8","surface0":"#ccd0da","overlay1":"#5c5f77","subtext1":"#3a3c52","text":"#1e2030","accent":"#8839ef","accent2":"#1e66f5","accent3":"#179299"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"arctic","label":"arctic","mood":"light","blurb":"Nord inverted. Frost blue on cool paper, with contour waves.","decor":"waves","colors":{"crust":"#e3e8ef","mantle":"#eceff4","base":"#f7f9fc","surface0":"#dbe1ea","overlay1":"#5f6b7c","subtext1":"#364150","text":"#2e3440","accent":"#2f7d94","accent2":"#4a7ba7","accent3":"#3b8b8a"},"fonts":{"display":"'Manrope', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"solarized","label":"solarized","mood":"light","blurb":"The classic low-glare cream, paired with Lora for long prose.","decor":"topo","colors":{"crust":"#eee8d5","mantle":"#f5efdc","base":"#fdf6e3","surface0":"#e3ddc8","overlay1":"#657b83","subtext1":"#3f5b62","text":"#073642","accent":"#268bd2","accent2":"#6c71c4","accent3":"#21958c"},"fonts":{"display":"'Outfit', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Lora', Georgia, 'Times New Roman', serif","mono":"'Source Code Pro', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"paper","label":"paper","mood":"light","blurb":"Crimson serif on warm cream. Editorial, print-first, very legible.","decor":"rings","colors":{"crust":"#efe8dc","mantle":"#f7f2e9","base":"#fdfbf5","surface0":"#e4dccc","overlay1":"#6e6553","subtext1":"#38311f","text":"#211c11","accent":"#a81f2c","accent2":"#1f7f96","accent3":"#9a6c12"},"fonts":{"display":"'Fraunces', Georgia, 'Times New Roman', serif","body":"'Newsreader', Georgia, 'Times New Roman', serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"rosequartz","label":"rose quartz","mood":"light","blurb":"Rosé Pine Dawn. Blush and iris on linen, with soft orbs.","decor":"orbs","colors":{"crust":"#f2e9e1","mantle":"#faf4ed","base":"#fffaf3","surface0":"#ece0d8","overlay1":"#7d7791","subtext1":"#55506e","text":"#423d5c","accent":"#b4637a","accent2":"#907aa9","accent3":"#56949f"},"fonts":{"display":"'Playfair Display', Georgia, 'Times New Roman', serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"swiss","label":"swiss","mood":"light","blurb":"Black on white, one red. Heavy grotesk, tight tracking, hard grid.","decor":"grid","colors":{"crust":"#f0f0f0","mantle":"#f8f8f8","base":"#ffffff","surface0":"#dcdcdc","overlay1":"#5a5a5a","subtext1":"#222222","text":"#0a0a0a","accent":"#e01b24","accent2":"#0a0a0a","accent3":"#5a5a5a"},"fonts":{"display":"'Archivo', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}}],"hljsMap":{"midnight":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css","tokyo":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css","nord":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/nord.min.css","dracula":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/dracula.min.css","gruvbox":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/gruvbox-dark-medium.min.css","rosepine":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/ros-pine.min.css","forest":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css","neon":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/night-owl.min.css","daylight":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","arctic":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","solarized":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/solarized-light.min.css","paper":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","rosequartz":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/ros-pine-dawn.min.css","swiss":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css"},"decorMap":{"midnight":"orbs","tokyo":"grid","nord":"waves","dracula":"mesh","gruvbox":"topo","rosepine":"aurora","forest":"rings","neon":"beams","daylight":"dots","arctic":"waves","solarized":"topo","paper":"rings","rosequartz":"orbs","swiss":"grid"}}</script>
 
 <script>
@@ -5301,6 +5348,36 @@ The two sentences are identical up to the ending, which is why you must read a �
     transition: opacity 0.15s ease, background 0.15s ease; }
   #deck-home:hover, #deck-home:focus-visible { opacity: 0.95; background: rgba(128,128,128,0.14); }
   @media print { #deck-home { display: none !important; } }
+  #furigana-toggle { position: fixed; bottom: 2.7rem; right: 1.1rem; z-index: 40;
+    font: 500 0.78rem/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+    color: currentColor; opacity: 0.38; cursor: pointer; user-select: none;
+    background: none; border: 1px solid currentColor; border-radius: 4px;
+    padding: 0.38rem 0.6rem;
+    transition: opacity 0.15s ease, background 0.15s ease; }
+  #furigana-toggle:hover, #furigana-toggle:focus-visible { opacity: 0.95; background: rgba(128,128,128,0.14); }
+  @media print { #furigana-toggle { display: none !important; } }
 </style>
+<button id="furigana-toggle" type="button" aria-pressed="true">&#12405;&#12426;&#12364;&#12394; ON</button>
+<script>
+  (function () {
+    // Deliberately click-only: readers who do not want furigana turn it off
+    // once and it sticks, while every key stays free for presenting.
+    var root = document.documentElement, btn = document.getElementById('furigana-toggle');
+    function paint() {
+      var off = root.getAttribute('data-furigana') === 'off';
+      btn.textContent = '\u3075\u308a\u304c\u306a ' + (off ? 'OFF' : 'ON');
+      btn.setAttribute('aria-pressed', String(!off));
+    }
+    btn.addEventListener('click', function () {
+      var off = root.getAttribute('data-furigana') === 'off';
+      if (off) root.removeAttribute('data-furigana');
+      else root.setAttribute('data-furigana', 'off');
+      try { localStorage.setItem('jlpt-furigana', off ? 'on' : 'off'); } catch (e) {}
+      paint();
+      btn.blur();
+    });
+    paint();
+  })();
+</script>
 </body>
 </html>

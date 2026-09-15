@@ -2606,6 +2606,13 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
   gap: 0.5rem;
 }
   </style>
+<script>
+  try {
+    if (localStorage.getItem('jlpt-furigana') === 'off') {
+      document.documentElement.setAttribute('data-furigana', 'off');
+    }
+  } catch (e) {}
+</script>
 </head>
 <body>
 
@@ -2614,7 +2621,16 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <div id="presentation">
 <div class="slide" data-index="0">
   
-  <div class="slide__content"><style>html { font-size: 20.0px; }</style>
+  <div class="slide__content"><style>
+  html { font-size: 20.0px; }
+  .slide__content p, .slide__content li,
+  .slide__content td, .slide__content th { line-height: 2.05; }
+  rt { font-size: 0.5em; line-height: 1.1; opacity: 0.72; font-weight: 400; }
+  :root[data-furigana="off"] rt { display: none; }
+  :root[data-furigana="off"] .slide__content p, :root[data-furigana="off"] .slide__content li,
+  :root[data-furigana="off"] .slide__content td, :root[data-furigana="off"] .slide__content th
+    { line-height: 1.5; }
+</style>
 
 <h1>N3 - Habits, and how things used to be</h1>
 <ul>
@@ -2632,7 +2648,7 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
   
   <div class="slide__content"><h1>～ものだ</h1>
 <p><strong>Meaning</strong> · says how things generally are, or how people generally ought to behave - a step back from the case in front of you to the rule behind it</p>
-<p><code>もの</code> starts life as the plain noun &quot;thing&quot;, and at the end of a sentence it keeps just enough of that meaning to turn a statement into a statement about a <em>category</em>. <code>忘(わす)れるものだ</code> is not &quot;he forgot&quot;; it is &quot;forgetting is the kind of thing that happens.&quot; Everything on this page follows from that one move: a general truth, a social norm (&quot;that is what one does&quot;), and an exclamation at how strongly something is so.</p>
+<p><code>もの</code> starts life as the plain noun &quot;thing&quot;, and at the end of a sentence it keeps just enough of that meaning to turn a statement into a statement about a <em>category</em>. <code><ruby>忘<rt>わす</rt></ruby>れるものだ</code> is not &quot;he forgot&quot;; it is &quot;forgetting is the kind of thing that happens.&quot; Everything on this page follows from that one move: a general truth, a social norm (&quot;that is what one does&quot;), and an exclamation at how strongly something is so.</p>
 </div>
 </div>
 <div class="slide" data-index="2">
@@ -2655,47 +2671,47 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <tbody><tr>
 <td>Verb</td>
 <td>dictionary form + ものだ</td>
-<td>変(か)わる → 変(か)わるものだ</td>
+<td><ruby>変<rt>か</rt></ruby>わる → <ruby>変<rt>か</rt></ruby>わるものだ</td>
 </tr>
 <tr>
 <td>Verb (prohibition)</td>
 <td>dictionary form + ものではない</td>
-<td>言(い)う → 言(い)うものではない</td>
+<td><ruby>言<rt>い</rt></ruby>う → <ruby>言<rt>い</rt></ruby>うものではない</td>
 </tr>
 <tr>
 <td>Verb (wish)</td>
 <td>～たい + ものだ</td>
-<td>会(あ)いたい → 会(あ)いたいものだ</td>
+<td><ruby>会<rt>あ</rt></ruby>いたい → <ruby>会<rt>あ</rt></ruby>いたいものだ</td>
 </tr>
 <tr>
 <td>Verb (recollection)</td>
 <td>た-form + ものだ</td>
-<td>遊(あそ)んだ → 遊(あそ)んだものだ</td>
+<td><ruby>遊<rt>あそ</rt></ruby>んだ → <ruby>遊<rt>あそ</rt></ruby>んだものだ</td>
 </tr>
 <tr>
 <td>い-adjective</td>
 <td>plain form + ものだ</td>
-<td>早(はや)い → 早(はや)いものだ</td>
+<td><ruby>早<rt>はや</rt></ruby>い → <ruby>早<rt>はや</rt></ruby>いものだ</td>
 </tr>
 <tr>
 <td>な-adjective</td>
 <td>な + ものだ</td>
-<td>勝手(かって) → 勝手(かって)なものだ</td>
+<td><ruby>勝手<rt>かって</rt></ruby> → <ruby>勝手<rt>かって</rt></ruby>なものだ</td>
 </tr>
 <tr>
 <td>Noun</td>
 <td>does not attach</td>
-<td>❌学生(がくせい)なものだ</td>
+<td>❌<ruby>学生<rt>がくせい</rt></ruby>なものだ</td>
 </tr>
 <tr>
 <td>Casual</td>
 <td>ものだ → もんだ</td>
-<td>大変(たいへん)なもんだ</td>
+<td><ruby>大変<rt>たいへん</rt></ruby>なもんだ</td>
 </tr>
 <tr>
 <td>Polite / written</td>
 <td>ものです ／ ものである</td>
-<td>変(か)わるものです</td>
+<td><ruby>変<rt>か</rt></ruby>わるものです</td>
 </tr>
 </tbody></table>
 </div>
@@ -2704,7 +2720,7 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
   
   <div class="slide__content"><h2>～ものだ · Formation (cont.)</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - where you put the <code>ない</code> changes the meaning. On the <strong>verb</strong> you get a negative general truth: <code>人(ひと)は変(か)わらないものだ</code>, &quot;people don&#39;t change, as a rule.&quot; On <strong>もの</strong> you get a prohibition: <code>人(ひと)を笑(わら)うものではない</code>, &quot;you don&#39;t laugh at people.&quot;</p>
+<p><strong>Rule of thumb</strong> - where you put the <code>ない</code> changes the meaning. On the <strong>verb</strong> you get a negative general truth: <code><ruby>人<rt>ひと</rt></ruby>は<ruby>変<rt>か</rt></ruby>わらないものだ</code>, &quot;people don&#39;t change, as a rule.&quot; On <strong>もの</strong> you get a prohibition: <code><ruby>人<rt>ひと</rt></ruby>を<ruby>笑<rt>わら</rt></ruby>うものではない</code>, &quot;you don&#39;t laugh at people.&quot;</p>
 </blockquote>
 <blockquote>
 <p><strong>Note</strong> - the past form <code>～たものだ</code> does not mean &quot;it used to be a general truth&quot;. It is a separate, warmly nostalgic use - looking back on something you did over and over - and it behaves differently enough to be treated on its own.</p>
@@ -2714,33 +2730,33 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <div class="slide" data-index="5">
   
   <div class="slide__content"><h2>～ものだ · Examples</h2>
-<p>人(ひと)の名前(なまえ)は<strong>忘(わす)れるものだ</strong>。<br><em>Names are the sort of thing you forget.</em></p>
-<p>子(こ)どもは外(そと)で<strong>遊(あそ)ぶものだ</strong>。<br><em>Children are meant to play outside.</em></p>
-<p>人(ひと)の日記(にっき)を勝手(かって)に<strong>読(よ)むものではない</strong>。<br><em>You don&#39;t go reading other people&#39;s diaries.</em></p>
-<p>山(やま)の天気(てんき)は<strong>変(か)わりやすいものだ</strong>。<br><em>Mountain weather is a changeable thing.</em></p>
-<p>いつか北海道(ほっかいどう)の流氷(りゅうひょう)を<strong>見(み)てみたいものだ</strong>。<br><em>I&#39;d love to see the drift ice in Hokkaido one day.</em></p>
+<p><ruby>人<rt>ひと</rt></ruby>の<ruby>名前<rt>なまえ</rt></ruby>は**<ruby>忘<rt>わす</rt></ruby>れるものだ**。<br><em>Names are the sort of thing you forget.</em></p>
+<p><ruby>子<rt>こ</rt></ruby>どもは<ruby>外<rt>そと</rt></ruby>で**<ruby>遊<rt>あそ</rt></ruby>ぶものだ**。<br><em>Children are meant to play outside.</em></p>
+<p><ruby>人<rt>ひと</rt></ruby>の<ruby>日記<rt>にっき</rt></ruby>を<ruby>勝手<rt>かって</rt></ruby>に**<ruby>読<rt>よ</rt></ruby>むものではない**。<br><em>You don&#39;t go reading other people&#39;s diaries.</em></p>
+<p><ruby>山<rt>やま</rt></ruby>の<ruby>天気<rt>てんき</rt></ruby>は**<ruby>変<rt>か</rt></ruby>わりやすいものだ**。<br><em>Mountain weather is a changeable thing.</em></p>
 </div>
 </div>
 <div class="slide" data-index="6">
   
   <div class="slide__content"><h2>～ものだ · Examples (cont.)</h2>
-<p>年(とし)を取(と)ると、昔(むかし)のことを<strong>よく覚(おぼ)えているものです</strong>。<br><em>Once you get older, it&#39;s the old things you remember clearly.</em></p>
-<p>世話(せわ)になった人(ひと)には、きちんとお礼(れい)を<strong>言(い)うものだよ</strong>。<br><em>When someone&#39;s gone out of their way for you, you thank them properly.</em></p>
-<p>どんなに準備(じゅんび)をしても、本番(ほんばん)では思(おも)いがけないことが<strong>起(お)こるものだ</strong>。<br><em>However much you prepare, something you didn&#39;t see coming happens on the day.</em></p>
+<p>いつか<ruby>北海道<rt>ほっかいどう</rt></ruby>の<ruby>流氷<rt>りゅうひょう</rt></ruby>を**<ruby>見<rt>み</rt></ruby>てみたいものだ**。<br><em>I&#39;d love to see the drift ice in Hokkaido one day.</em></p>
+<p><ruby>年<rt>とし</rt></ruby>を<ruby>取<rt>と</rt></ruby>ると、<ruby>昔<rt>むかし</rt></ruby>のことを<strong>よく<ruby>覚<rt>おぼ</rt></ruby>えているものです</strong>。<br><em>Once you get older, it&#39;s the old things you remember clearly.</em></p>
+<p><ruby>世話<rt>せわ</rt></ruby>になった<ruby>人<rt>ひと</rt></ruby>には、きちんとお<ruby>礼<rt>れい</rt></ruby>を**<ruby>言<rt>い</rt></ruby>うものだよ**。<br><em>When someone&#39;s gone out of their way for you, you thank them properly.</em></p>
+<p>どんなに<ruby>準備<rt>じゅんび</rt></ruby>をしても、<ruby>本番<rt>ほんばん</rt></ruby>では<ruby>思<rt>おも</rt></ruby>いがけないことが**<ruby>起<rt>お</rt></ruby>こるものだ**。<br><em>However much you prepare, something you didn&#39;t see coming happens on the day.</em></p>
 </div>
 </div>
 <div class="slide" data-index="7">
   
   <div class="slide__content"><h2>～ものだ · Nuance &amp; register</h2>
 <p>The form itself is neutral - <code>ものだ</code> plain, <code>ものです</code> polite, <code>ものである</code> in essays and editorials, <code>もんだ</code> in relaxed speech. What is <em>not</em> neutral is the stance. Ending a sentence with <code>ものだ</code> claims to speak for common sense, and a listener who does not share your common sense hears a small lecture. That is exactly why the &quot;should&quot; use turns up so often from parents, teachers and older colleagues, and why it can sound presumptuous coming from a junior. If you want to tell your boss what to do, <code>ものだ</code> is not the tool.</p>
-<p>The exclamation use is the friendliest of the three. <code>よく</code> plus a past verb plus <code>ものだ</code> expresses amazement rather than instruction - <code>よくあんな狭(せま)い道(みち)を通(とお)れたものだ</code>, &quot;how on earth did they get down that narrow road.&quot; Said of your own past it becomes rueful; said of someone else&#39;s it can be admiring or sarcastic, and only tone tells you which.</p>
+<p>The exclamation use is the friendliest of the three. <code>よく</code> plus a past verb plus <code>ものだ</code> expresses amazement rather than instruction - <code>よくあんな<ruby>狭<rt>せま</rt></ruby>い<ruby>道<rt>みち</rt></ruby>を<ruby>通<rt>とお</rt></ruby>れたものだ</code>, &quot;how on earth did they get down that narrow road.&quot; Said of your own past it becomes rueful; said of someone else&#39;s it can be admiring or sarcastic, and only tone tells you which.</p>
 </div>
 </div>
 <div class="slide" data-index="8">
   
   <div class="slide__content"><h2>～ものだ · Nuance &amp; register (cont.)</h2>
 <p><code>～たいものだ</code> is a wistful &quot;I do wish I could&quot;, noticeably more literary than a bare <code>～たい</code>. Sentence-final <code>ものね</code> and <code>ものよ</code> lean feminine and a little old-fashioned in speech; <code>もんだな</code> leans the other way. These are tendencies, not rules - plenty of speakers use all of them.</p>
-<p>Two neighbours to keep separate, because they share the syllable and mean nothing like it. Sentence-final <code>もの</code> or <code>もん</code> as an excuse - <code>だって知(し)らなかった んだもん</code>, &quot;but I <em>didn&#39;t know</em>&quot; - is casual and reads as sulky or childish. And <code>ものだから</code> is a causal conjunction, &quot;because&quot;, with no generalising force at all.</p>
+<p>Two neighbours to keep separate, because they share the syllable and mean nothing like it. Sentence-final <code>もの</code> or <code>もん</code> as an excuse - <code>だって<ruby>知<rt>し</rt></ruby>らなかった んだもん</code>, &quot;but I <em>didn&#39;t know</em>&quot; - is casual and reads as sulky or childish. And <code>ものだから</code> is a causal conjunction, &quot;because&quot;, with no generalising force at all.</p>
 </div>
 </div>
 <div class="slide" data-index="9">
@@ -2749,106 +2765,122 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>ものだ</code> says <em>that is how it is done</em>; <code>べきだ</code> says <em>you are obliged to do it, here, now</em>. One describes the custom, the other issues the obligation.</p>
 </blockquote>
-<p>人(ひと)に物(もの)を借(か)りたら、きちんと返(かえ)す<strong>ものだ</strong>。<br><em>You give back what you borrow - that&#39;s how it works.</em></p>
-<p>借(か)りた傘(かさ)は明日(あした)返(かえ)す<strong>べきだ</strong>。<br><em>You ought to give that umbrella back tomorrow.</em></p>
-<p>Because <code>ものだ</code> generalises, it cannot carry the particulars: no deadline, no named person, no <em>this</em> umbrella. The moment a sentence contains <code>明日(あした)までに</code> or <code>君(きみ)は</code>, <code>ものだ</code> starts to sound wrong and <code>べきだ</code> takes over. <code>べきだ</code> also turns on the speaker - <code>私(わたし)が謝(あやま)るべきだ</code>, &quot;I&#39;m the one who should apologise&quot; - and <code>ものだ</code> cannot single anybody out that way.</p>
+<p><ruby>人<rt>ひと</rt></ruby>に<ruby>物<rt>もの</rt></ruby>を<ruby>借<rt>か</rt></ruby>りたら、きちんと<ruby>返<rt>かえ</rt></ruby>す<strong>ものだ</strong>。<br><em>You give back what you borrow - that&#39;s how it works.</em></p>
+<p><ruby>借<rt>か</rt></ruby>りた<ruby>傘<rt>かさ</rt></ruby>は<ruby>明日<rt>あした</rt></ruby><ruby>返<rt>かえ</rt></ruby>す<strong>べきだ</strong>。<br><em>You ought to give that umbrella back tomorrow.</em></p>
 </div>
 </div>
 <div class="slide" data-index="10">
+  
+  <div class="slide__content"><h2>～ものだ · ～ものだ vs ～べきだ (cont.)</h2>
+<p>Because <code>ものだ</code> generalises, it cannot carry the particulars: no deadline, no named person, no <em>this</em> umbrella. The moment a sentence contains <code><ruby>明日<rt>あした</rt></ruby>までに</code> or <code><ruby>君<rt>きみ</rt></ruby>は</code>, <code>ものだ</code> starts to sound wrong and <code>べきだ</code> takes over. <code>べきだ</code> also turns on the speaker - <code><ruby>私<rt>わたし</rt></ruby>が<ruby>謝<rt>あやま</rt></ruby>るべきだ</code>, &quot;I&#39;m the one who should apologise&quot; - and <code>ものだ</code> cannot single anybody out that way.</p>
+</div>
+</div>
+<div class="slide" data-index="11">
   
   <div class="slide__content"><h2>～ものだ · ～ものだ vs ～ことだ</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>ことだ</code> is advice pointed at the listener: <em>what you need to do is…</em>. <code>ものだ</code> is a remark about people in general, and any advice in it arrives sideways.</p>
 </blockquote>
-<p>風邪(かぜ)のときは、とにかく寝(ね)る<strong>ことだ</strong>。<br><em>When you&#39;ve got a cold, the thing to do is sleep.</em></p>
-<p>風邪(かぜ)は寝(ね)ていれば治(なお)る<strong>ものだ</strong>。<br><em>A cold clears up if you stay in bed - that&#39;s colds for you.</em></p>
+<p><ruby>風邪<rt>かぜ</rt></ruby>のときは、とにかく<ruby>寝<rt>ね</rt></ruby>る<strong>ことだ</strong>。<br><em>When you&#39;ve got a cold, the thing to do is sleep.</em></p>
+<p><ruby>風邪<rt>かぜ</rt></ruby>は<ruby>寝<rt>ね</rt></ruby>ていれば<ruby>治<rt>なお</rt></ruby>る<strong>ものだ</strong>。<br><em>A cold clears up if you stay in bed - that&#39;s colds for you.</em></p>
 <p>The first sentence has a listener in it even though no listener is named; it is a recommendation and can sound blunt from someone junior. The second names nobody and commits to nothing about <em>your</em> cold. That indirectness is its whole value: you can correct someone&#39;s behaviour with <code>ものだ</code> without ever saying &quot;you&quot;.</p>
 </div>
 </div>
-<div class="slide" data-index="11">
+<div class="slide" data-index="12">
   
   <div class="slide__content"><h2>～ものだ · ～ものだ vs ～のだ（んだ）</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>んだ</code> explains <strong>this</strong> situation. <code>ものだ</code> states what is true of the <strong>type</strong>.</p>
 </blockquote>
-<p>沖縄(おきなわ)の冬(ふゆ)は暖(あたた)かい<strong>んです</strong>。<br><em>Winter in Okinawa is warm, you see. (that&#39;s why I&#39;m dressed like this)</em></p>
-<p>南(みなみ)へ行(い)けば行(い)くほど、冬(ふゆ)は暖(あたた)かい<strong>ものです</strong>。<br><em>The further south you go, the milder the winter - that&#39;s simply how it goes.</em></p>
-<p>Both endings are built on a noun, both feel &quot;explanatory&quot;, and learners reach for whichever they met first. The test is whether the sentence would still be true in a conversation about somewhere else entirely. If yes, it is <code>ものだ</code>. Note that <code>ものだ</code> therefore refuses a one-off subject: ❌<code>昨日(きのう)のテストは難(むずか)しい ものだ</code> is broken, because one particular test is not a category.</p>
-</div>
-</div>
-<div class="slide" data-index="12">
-  
-  <div class="slide__content"><h2>～ものだ · Common mistakes</h2>
-<ul>
-<li><p>❌ 明日(あした)は早(はや)く来(く)るものだ。 → ✅ 明日(あした)は早(はや)く<strong>来(き)てください</strong>。<br><em><code>ものだ</code> generalises, so it cannot deliver a one-off instruction to one person. Use a request, or <code>べきだ</code> if you want the weight of an obligation.</em></p>
-</li>
-<li><p>❌ 汚(きたな)い言葉(ことば)を使(つか)わないものだ。 → ✅ 汚(きたな)い言葉(ことば)を<strong>使(つか)うものではない</strong>。<br><em>For a prohibition the <code>ない</code> goes on <code>もの</code>. With <code>ない</code> on the verb the sentence becomes a claim that people generally don&#39;t swear, which is not what you meant.</em></p>
-</li>
-<li><p>❌ 彼(かれ)は正直(しょうじき)な人(ひと)なものだ。 → ✅ 彼(かれ)は正直(しょうじき)な人(ひと)だ。<br><em>Nouns do not take <code>ものだ</code>. The pattern needs a verb or an adjective in front of it.</em></p>
-</li>
-<li><p>❌ 私(わたし)は毎朝(まいあさ)走(はし)るものだ。 → ✅ 私(わたし)は毎朝(まいあさ)<strong>走(はし)ることにしている</strong>。<br><em>Your own routine is not a truth about humanity. <code>ものだ</code> would read as &quot;running every morning is what people do.&quot;</em></p>
-</li>
-</ul>
+<p><ruby>沖縄<rt>おきなわ</rt></ruby>の<ruby>冬<rt>ふゆ</rt></ruby>は<ruby>暖<rt>あたた</rt></ruby>かい<strong>んです</strong>。<br><em>Winter in Okinawa is warm, you see. (that&#39;s why I&#39;m dressed like this)</em></p>
+<p><ruby>南<rt>みなみ</rt></ruby>へ<ruby>行<rt>い</rt></ruby>けば<ruby>行<rt>い</rt></ruby>くほど、<ruby>冬<rt>ふゆ</rt></ruby>は<ruby>暖<rt>あたた</rt></ruby>かい<strong>ものです</strong>。<br><em>The further south you go, the milder the winter - that&#39;s simply how it goes.</em></p>
 </div>
 </div>
 <div class="slide" data-index="13">
   
-  <div class="slide__content"><h2>～ものだ · Practice 1</h2>
-<p><strong>1.</strong> 失敗(しっぱい)は誰(だれ)にでもある____。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-失敗(しっぱい)は誰(だれ)にでもある<strong>ものだ</strong>。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The sentence is consoling someone by widening the frame from their mistake to mistakes in general - &quot;everybody slips up sometimes.&quot; That widening is precisely what <code>ものだ</code> does, and it is why the sentence comforts rather than judges.</p>
+  <div class="slide__content"><h2>～ものだ · ～ものだ vs ～のだ（んだ） (cont.)</h2>
+<p>Both endings are built on a noun, both feel &quot;explanatory&quot;, and learners reach for whichever they met first. The test is whether the sentence would still be true in a conversation about somewhere else entirely. If yes, it is <code>ものだ</code>. Note that <code>ものだ</code> therefore refuses a one-off subject: ❌<code><ruby>昨日<rt>きのう</rt></ruby>のテストは<ruby>難<rt>むずか</rt></ruby>しい ものだ</code> is broken, because one particular test is not a category.</p>
 </div>
 </div>
 <div class="slide" data-index="14">
   
-  <div class="slide__content"><h2>～ものだ · Practice 2</h2>
-<p><strong>2.</strong> Choose: この資料(しりょう)は今日(きょう)中(じゅう)に出(だ)す（ものだ・べきだ）。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-この資料(しりょう)は今日(きょう)中(じゅう)に出(だ)す<strong>べきだ</strong>。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-There is a specific document and a specific deadline in the sentence, so it is an obligation in one particular case, not a custom. <code>ものだ</code> needs a statement that would still hold in somebody else&#39;s office next year.</p>
+  <div class="slide__content"><h2>～ものだ · Common mistakes</h2>
+<ul>
+<li><p>❌ <ruby>明日<rt>あした</rt></ruby>は<ruby>早<rt>はや</rt></ruby>く<ruby>来<rt>く</rt></ruby>るものだ。 → ✅ <ruby>明日<rt>あした</rt></ruby>は<ruby>早<rt>はや</rt></ruby>く**<ruby>来<rt>き</rt></ruby>てください**。<br><em><code>ものだ</code> generalises, so it cannot deliver a one-off instruction to one person. Use a request, or <code>べきだ</code> if you want the weight of an obligation.</em></p>
+</li>
+<li><p>❌ <ruby>汚<rt>きたな</rt></ruby>い<ruby>言葉<rt>ことば</rt></ruby>を<ruby>使<rt>つか</rt></ruby>わないものだ。 → ✅ <ruby>汚<rt>きたな</rt></ruby>い<ruby>言葉<rt>ことば</rt></ruby>を**<ruby>使<rt>つか</rt></ruby>うものではない**。<br><em>For a prohibition the <code>ない</code> goes on <code>もの</code>. With <code>ない</code> on the verb the sentence becomes a claim that people generally don&#39;t swear, which is not what you meant.</em></p>
+</li>
+<li><p>❌ <ruby>彼<rt>かれ</rt></ruby>は<ruby>正直<rt>しょうじき</rt></ruby>な<ruby>人<rt>ひと</rt></ruby>なものだ。 → ✅ <ruby>彼<rt>かれ</rt></ruby>は<ruby>正直<rt>しょうじき</rt></ruby>な<ruby>人<rt>ひと</rt></ruby>だ。<br><em>Nouns do not take <code>ものだ</code>. The pattern needs a verb or an adjective in front of it.</em></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="15">
   
-  <div class="slide__content"><h2>～ものだ · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese: &quot;Children don&#39;t listen to their parents - that&#39;s just how it is.&quot;</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-子(こ)どもは親(おや)の言(い)うことを<strong>聞(き)かないものだ</strong>。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The <code>ない</code> belongs on the verb here, because this is a negative <em>generalisation</em>, not a prohibition. Putting it on <code>もの</code> would give <code>聞(き)くものではない</code> - &quot;one shouldn&#39;t listen to one&#39;s parents&quot; - which is a rather different piece of parenting advice.</p>
+  <div class="slide__content"><h2>～ものだ · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ <ruby>私<rt>わたし</rt></ruby>は<ruby>毎朝<rt>まいあさ</rt></ruby><ruby>走<rt>はし</rt></ruby>るものだ。 → ✅ <ruby>私<rt>わたし</rt></ruby>は<ruby>毎朝<rt>まいあさ</rt></ruby><strong><ruby>走<rt>はし</rt></ruby>ることにしている</strong>。<br><em>Your own routine is not a truth about humanity. <code>ものだ</code> would read as &quot;running every morning is what people do.&quot;</em></li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="16">
   
-  <div class="slide__content"><h2>～ものだ · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 人(ひと)の失敗(しっぱい)を笑(わら)わないものだ。</p>
+  <div class="slide__content"><h2>～ものだ · Practice 1</h2>
+<p><strong>1.</strong> <ruby>失敗<rt>しっぱい</rt></ruby>は<ruby>誰<rt>だれ</rt></ruby>にでもある____。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 人(ひと)の失敗(しっぱい)を<strong>笑(わら)うものではない</strong>。</p>
+<ruby>失敗<rt>しっぱい</rt></ruby>は<ruby>誰<rt>だれ</rt></ruby>にでもある<strong>ものだ</strong>。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The speaker is telling someone off, and a telling-off takes <code>ものではない</code>. As written, the sentence claims that people generally refrain from laughing at others&#39; mistakes - a claim the world does not support.</p>
+The sentence is consoling someone by widening the frame from their mistake to mistakes in general - &quot;everybody slips up sometimes.&quot; That widening is precisely what <code>ものだ</code> does, and it is why the sentence comforts rather than judges.</p>
 </div>
 </div>
 <div class="slide" data-index="17">
   
+  <div class="slide__content"><h2>～ものだ · Practice 2</h2>
+<p><strong>2.</strong> Choose: この<ruby>資料<rt>しりょう</rt></ruby>は<ruby>今日<rt>きょう</rt></ruby><ruby>中<rt>じゅう</rt></ruby>に<ruby>出<rt>だ</rt></ruby>す（ものだ・べきだ）。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+この<ruby>資料<rt>しりょう</rt></ruby>は<ruby>今日<rt>きょう</rt></ruby><ruby>中<rt>じゅう</rt></ruby>に<ruby>出<rt>だ</rt></ruby>す<strong>べきだ</strong>。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+There is a specific document and a specific deadline in the sentence, so it is an obligation in one particular case, not a custom. <code>ものだ</code> needs a statement that would still hold in somebody else&#39;s office next year.</p>
+</div>
+</div>
+<div class="slide" data-index="18">
+  
+  <div class="slide__content"><h2>～ものだ · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese: &quot;Children don&#39;t listen to their parents - that&#39;s just how it is.&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>子<rt>こ</rt></ruby>どもは<ruby>親<rt>おや</rt></ruby>の<ruby>言<rt>い</rt></ruby>うことを**<ruby>聞<rt>き</rt></ruby>かないものだ**。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The <code>ない</code> belongs on the verb here, because this is a negative <em>generalisation</em>, not a prohibition. Putting it on <code>もの</code> would give <code><ruby>聞<rt>き</rt></ruby>くものではない</code> - &quot;one shouldn&#39;t listen to one&#39;s parents&quot; - which is a rather different piece of parenting advice.</p>
+</div>
+</div>
+<div class="slide" data-index="19">
+  
+  <div class="slide__content"><h2>～ものだ · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the error: <ruby>人<rt>ひと</rt></ruby>の<ruby>失敗<rt>しっぱい</rt></ruby>を<ruby>笑<rt>わら</rt></ruby>わないものだ。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ <ruby>人<rt>ひと</rt></ruby>の<ruby>失敗<rt>しっぱい</rt></ruby>を**<ruby>笑<rt>わら</rt></ruby>うものではない**。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The speaker is telling someone off, and a telling-off takes <code>ものではない</code>. As written, the sentence claims that people generally refrain from laughing at others&#39; mistakes - a claim the world does not support.</p>
+</div>
+</div>
+<div class="slide" data-index="20">
+  
   <div class="slide__content"><h2>～ものだ · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 時間(じかん)が経(た)つのは早(はや)い<strong>ものだ</strong>。 (b) 時間(じかん)が経(た)つのは早(はや)い<strong>です</strong>。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>時間<rt>じかん</rt></ruby>が<ruby>経<rt>た</rt></ruby>つのは<ruby>早<rt>はや</rt></ruby>い<strong>ものだ</strong>。 (b) <ruby>時間<rt>じかん</rt></ruby>が<ruby>経<rt>た</rt></ruby>つのは<ruby>早<rt>はや</rt></ruby>い<strong>です</strong>。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) is the speaker stepping back and marvelling - &quot;how quickly time goes.&quot; The <code>ものだ</code> frames it as a truth about time itself rather than about today, and it carries feeling: it is what you say at a reunion or on a birthday.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (b) is a flat report. Grammatically fine, but it lands like a line from a survey result, with no speaker attitude in it at all. Where English would put a sigh, (a) is the sentence you want.</p>
 </div>
 </div>
-<div class="slide" data-index="18">
+<div class="slide" data-index="21">
   
   <div class="slide__content"><h1>～たものだ</h1>
 <p><strong>Meaning</strong> · looking back on something you used to do again and again, with feeling - &quot;we&#39;d always…&quot;, &quot;I used to…&quot;</p>
 <p>This is the past-tense face of <code>ものだ</code>, and it is not simply &quot;<code>ものだ</code> in the past&quot;. The general-truth <code>ものだ</code> steps back from one case to the category; <code>たものだ</code> steps back from now to <em>then</em>. It reports a repeated past habit and, in the same breath, marks it as gone. That is why the natural English is not &quot;I did&quot; but &quot;I used to&quot; or &quot;we&#39;d always&quot; - and why the sentence usually arrives with a little warmth on it.</p>
 </div>
 </div>
-<div class="slide" data-index="19">
+<div class="slide" data-index="22">
   
   <div class="slide__content"><h2>～たものだ · Formation</h2>
 <table>
@@ -2862,183 +2894,209 @@ The speaker is telling someone off, and a telling-off takes <code>ものでは�
 <tbody><tr>
 <td>Verb</td>
 <td>た-form + ものだ</td>
-<td>通(かよ)う → 通(かよ)ったものだ</td>
+<td><ruby>通<rt>かよ</rt></ruby>う → <ruby>通<rt>かよ</rt></ruby>ったものだ</td>
 </tr>
 <tr>
 <td>Verb (habit in progress)</td>
 <td>ていた + ものだ</td>
-<td>読(よ)む → 読(よ)んでいたものだ</td>
+<td><ruby>読<rt>よ</rt></ruby>む → <ruby>読<rt>よ</rt></ruby>んでいたものだ</td>
 </tr>
 <tr>
 <td>Verb (negative)</td>
 <td>なかった + ものだ</td>
-<td>食(た)べる → 食(た)べなかったものだ</td>
+<td><ruby>食<rt>た</rt></ruby>べる → <ruby>食<rt>た</rt></ruby>べなかったものだ</td>
 </tr>
 <tr>
 <td>い-adjective</td>
 <td>かった + ものだ</td>
-<td>寒(さむ)い → 寒(さむ)かったものだ</td>
+<td><ruby>寒<rt>さむ</rt></ruby>い → <ruby>寒<rt>さむ</rt></ruby>かったものだ</td>
 </tr>
 <tr>
 <td>Polite</td>
 <td>たものです</td>
-<td>遊(あそ)んだものです</td>
+<td><ruby>遊<rt>あそ</rt></ruby>んだものです</td>
 </tr>
 <tr>
 <td>Casual</td>
 <td>たもんだ</td>
-<td>遊(あそ)んだもんだ</td>
+<td><ruby>遊<rt>あそ</rt></ruby>んだもんだ</td>
 </tr>
 <tr>
 <td>Usual company</td>
-<td>よく・昔(むかし)・～ころ + たものだ</td>
-<td>昔(むかし)はよく叱(しか)られたものだ</td>
+<td>よく・<ruby>昔<rt>むかし</rt></ruby>・～ころ + たものだ</td>
+<td><ruby>昔<rt>むかし</rt></ruby>はよく<ruby>叱<rt>しか</rt></ruby>られたものだ</td>
 </tr>
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="20">
+<div class="slide" data-index="23">
   
   <div class="slide__content"><h2>～たものだ · Formation (cont.)</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - the past sits on the <strong>verb</strong>, and <code>ものだ</code> stays in the non-past. ✅<code>行(い)ったものだ</code>, not ❌<code>行(い)ったものだった</code>. The polite form is <code>たものです</code>, never <code>たものでした</code>.</p>
+<p><strong>Rule of thumb</strong> - the past sits on the <strong>verb</strong>, and <code>ものだ</code> stays in the non-past. ✅<code><ruby>行<rt>い</rt></ruby>ったものだ</code>, not ❌<code><ruby>行<rt>い</rt></ruby>ったものだった</code>. The polite form is <code>たものです</code>, never <code>たものでした</code>.</p>
 </blockquote>
 <blockquote>
-<p><strong>Note</strong> - verbs are this pattern&#39;s home ground. い-adjectives work when you are describing how things used to be - <code>安(やす)かったものだ</code> - but nouns and な-adjectives sit awkwardly with it, and a plain <code>昔(むかし)は～だった</code> is the safer sentence.</p>
+<p><strong>Note</strong> - verbs are this pattern&#39;s home ground. い-adjectives work when you are describing how things used to be - <code><ruby>安<rt>やす</rt></ruby>かったものだ</code> - but nouns and な-adjectives sit awkwardly with it, and a plain <code><ruby>昔<rt>むかし</rt></ruby>は～だった</code> is the safer sentence.</p>
 </blockquote>
-</div>
-</div>
-<div class="slide" data-index="21">
-  
-  <div class="slide__content"><h2>～たものだ · Examples</h2>
-<p>子(こ)どものころは、この川(かわ)でザリガニを<strong>とったものだ</strong>。<br><em>As a kid I used to catch crayfish in this river.</em></p>
-<p>昔(むかし)はよく父(ちち)に<strong>叱(しか)られたものだ</strong>。<br><em>My father used to tell me off a lot back then.</em></p>
-<p>学生(がくせい)のころは、一日(いちにち)に三本(さんぼん)も映画(えいが)を<strong>見(み)たものです</strong>。<br><em>When I was a student I&#39;d watch three films in a day.</em></p>
-<p>昔(むかし)のパソコンは動(うご)き出(だ)すまでに時間(じかん)が<strong>かかったものだ</strong>。<br><em>Computers back then took an age just to start up.</em></p>
-<p>この辺(へん)も昔(むかし)は夜(よる)になると本当(ほんとう)に<strong>暗(くら)かったものだ</strong>。<br><em>This area used to go properly dark at night.</em></p>
-</div>
-</div>
-<div class="slide" data-index="22">
-  
-  <div class="slide__content"><h2>～たものだ · Examples (cont.)</h2>
-<p>祖母(そぼ)は毎年(まいとし)この時期(じき)になると梅(うめ)を<strong>漬(つ)けていたものだ</strong>。<br><em>Every year around this time my grandmother would pickle plums.</em></p>
-<p>高校(こうこう)のときは、終電(しゅうでん)を逃(のが)してよく友(とも)だちの家(いえ)に<strong>泊(と)まったものです</strong>。<br><em>In high school I was always missing the last train and ending up at a friend&#39;s place.</em></p>
-<p>給料(きゅうりょう)は安(やす)かったが、あのころは毎晩(まいばん)のように同僚(どうりょう)と飲(の)みに<strong>行(い)ったものだ</strong>。<br><em>The pay was terrible, but back then we&#39;d go out drinking with colleagues nearly every night.</em></p>
-</div>
-</div>
-<div class="slide" data-index="23">
-  
-  <div class="slide__content"><h2>～たものだ · Nuance &amp; register</h2>
-<p><code>たものだ</code> is the voice of reminiscence. It belongs to anecdotes, to essays, to the part of a conversation that begins <code>昔(むかし)はねえ</code>. Because of that it carries an age signal: a speaker in their twenties using it about last year sounds like they are doing an impression of someone older, while the same form from a grandparent about the 1970s is completely at home. It is common in writing - memoirs and personal columns lean on it heavily - and in speech it usually comes with <code>よく</code>, <code>昔(むかし)</code>, <code>あのころ</code> or <code>～のころは</code> propping it up.</p>
-<p><code>たもんだ</code> is the casual contraction and is very frequent in spoken reminiscence, often with a sigh attached: <code>よく歩(ある)いたもんだ</code>. <code>たものです</code> is the polite version and keeps the same warmth; it does not become stiff.</p>
 </div>
 </div>
 <div class="slide" data-index="24">
   
-  <div class="slide__content"><h2>～たものだ · Nuance &amp; register (cont.)</h2>
-<p>Two limits are worth learning as facts about the pattern rather than as style advice. First, it needs <strong>repetition</strong>. One trip, one accident, one meeting cannot take <code>たものだ</code>. Second, it wants to be <strong>your own memory</strong>. Reaching for it about a historical period you only read about - say <code>江戸(えど)時代(じだい)の人(ひと)はよく歩(ある)いたものだ</code> - sounds off, and a reported form such as <code>歩(ある)いていたそうだ</code> is what you want there.</p>
-<p>Finally, <code>よく</code> plus <code>たものだ</code> is genuinely two-way. <code>よく遊(あそ)んだものだ</code> is nostalgia, &quot;we played a lot.&quot; <code>よくあんな所(ところ)に住(す)めたものだ</code> is astonishment, &quot;how did anyone manage to live there.&quot; The astonished reading tends to come with a potential verb or with <code>よくもまあ</code>, and the context decides the rest.</p>
+  <div class="slide__content"><h2>～たものだ · Examples</h2>
+<p><ruby>子<rt>こ</rt></ruby>どものころは、この<ruby>川<rt>かわ</rt></ruby>でザリガニを<strong>とったものだ</strong>。<br><em>As a kid I used to catch crayfish in this river.</em></p>
+<p><ruby>昔<rt>むかし</rt></ruby>はよく<ruby>父<rt>ちち</rt></ruby>に**<ruby>叱<rt>しか</rt></ruby>られたものだ**。<br><em>My father used to tell me off a lot back then.</em></p>
+<p><ruby>学生<rt>がくせい</rt></ruby>のころは、<ruby>一日<rt>いちにち</rt></ruby>に<ruby>三本<rt>さんぼん</rt></ruby>も<ruby>映画<rt>えいが</rt></ruby>を**<ruby>見<rt>み</rt></ruby>たものです**。<br><em>When I was a student I&#39;d watch three films in a day.</em></p>
+<p><ruby>昔<rt>むかし</rt></ruby>のパソコンは<ruby>動<rt>うご</rt></ruby>き<ruby>出<rt>だ</rt></ruby>すまでに<ruby>時間<rt>じかん</rt></ruby>が<strong>かかったものだ</strong>。<br><em>Computers back then took an age just to start up.</em></p>
 </div>
 </div>
 <div class="slide" data-index="25">
+  
+  <div class="slide__content"><h2>～たものだ · Examples (cont.)</h2>
+<p>この<ruby>辺<rt>へん</rt></ruby>も<ruby>昔<rt>むかし</rt></ruby>は<ruby>夜<rt>よる</rt></ruby>になると<ruby>本当<rt>ほんとう</rt></ruby>に**<ruby>暗<rt>くら</rt></ruby>かったものだ**。<br><em>This area used to go properly dark at night.</em></p>
+<p><ruby>祖母<rt>そぼ</rt></ruby>は<ruby>毎年<rt>まいとし</rt></ruby>この<ruby>時期<rt>じき</rt></ruby>になると<ruby>梅<rt>うめ</rt></ruby>を**<ruby>漬<rt>つ</rt></ruby>けていたものだ**。<br><em>Every year around this time my grandmother would pickle plums.</em></p>
+<p><ruby>高校<rt>こうこう</rt></ruby>のときは、<ruby>終電<rt>しゅうでん</rt></ruby>を<ruby>逃<rt>のが</rt></ruby>してよく<ruby>友<rt>とも</rt></ruby>だちの<ruby>家<rt>いえ</rt></ruby>に**<ruby>泊<rt>と</rt></ruby>まったものです**。<br><em>In high school I was always missing the last train and ending up at a friend&#39;s place.</em></p>
+<p><ruby>給料<rt>きゅうりょう</rt></ruby>は<ruby>安<rt>やす</rt></ruby>かったが、あのころは<ruby>毎晩<rt>まいばん</rt></ruby>のように<ruby>同僚<rt>どうりょう</rt></ruby>と<ruby>飲<rt>の</rt></ruby>みに**<ruby>行<rt>い</rt></ruby>ったものだ**。<br><em>The pay was terrible, but back then we&#39;d go out drinking with colleagues nearly every night.</em></p>
+</div>
+</div>
+<div class="slide" data-index="26">
+  
+  <div class="slide__content"><h2>～たものだ · Nuance &amp; register</h2>
+<p><code>たものだ</code> is the voice of reminiscence. It belongs to anecdotes, to essays, to the part of a conversation that begins <code><ruby>昔<rt>むかし</rt></ruby>はねえ</code>. Because of that it carries an age signal: a speaker in their twenties using it about last year sounds like they are doing an impression of someone older, while the same form from a grandparent about the 1970s is completely at home. It is common in writing - memoirs and personal columns lean on it heavily - and in speech it usually comes with <code>よく</code>, <code><ruby>昔<rt>むかし</rt></ruby></code>, <code>あのころ</code> or <code>～のころは</code> propping it up.</p>
+</div>
+</div>
+<div class="slide" data-index="27">
+  
+  <div class="slide__content"><h2>～たものだ · Nuance &amp; register (cont.)</h2>
+<p><code>たもんだ</code> is the casual contraction and is very frequent in spoken reminiscence, often with a sigh attached: <code>よく<ruby>歩<rt>ある</rt></ruby>いたもんだ</code>. <code>たものです</code> is the polite version and keeps the same warmth; it does not become stiff.</p>
+<p>Two limits are worth learning as facts about the pattern rather than as style advice. First, it needs <strong>repetition</strong>. One trip, one accident, one meeting cannot take <code>たものだ</code>. Second, it wants to be <strong>your own memory</strong>. Reaching for it about a historical period you only read about - say <code><ruby>江戸<rt>えど</rt></ruby><ruby>時代<rt>じだい</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>はよく<ruby>歩<rt>ある</rt></ruby>いたものだ</code> - sounds off, and a reported form such as <code><ruby>歩<rt>ある</rt></ruby>いていたそうだ</code> is what you want there.</p>
+</div>
+</div>
+<div class="slide" data-index="28">
+  
+  <div class="slide__content"><h2>～たものだ · Nuance &amp; register (cont.)</h2>
+<p>Finally, <code>よく</code> plus <code>たものだ</code> is genuinely two-way. <code>よく<ruby>遊<rt>あそ</rt></ruby>んだものだ</code> is nostalgia, &quot;we played a lot.&quot; <code>よくあんな<ruby>所<rt>ところ</rt></ruby>に<ruby>住<rt>す</rt></ruby>めたものだ</code> is astonishment, &quot;how did anyone manage to live there.&quot; The astonished reading tends to come with a potential verb or with <code>よくもまあ</code>, and the context decides the rest.</p>
+</div>
+</div>
+<div class="slide" data-index="29">
   
   <div class="slide__content"><h2>～たものだ · ～たものだ vs the plain past</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - the plain past <strong>reports</strong> an event. <code>たものだ</code> <strong>recalls</strong> a habit. If you could put &quot;once&quot; in the English, <code>たものだ</code> is wrong.</p>
 </blockquote>
-<p>去年(きょねん)、家族(かぞく)で北海道(ほっかいどう)へ<strong>行(い)った</strong>。<br><em>Last year we went to Hokkaido as a family.</em></p>
-<p>夏(なつ)になると、家族(かぞく)で北海道(ほっかいどう)へ<strong>行(い)ったものだ</strong>。<br><em>Come summer, we&#39;d go up to Hokkaido as a family.</em></p>
-<p>The first is one trip and takes a date. The second is a pattern of trips and takes a recurring time expression instead - <code>夏(なつ)になると</code>, <code>毎年(まいとし)</code>, <code>よく</code>. Note also what the second adds that the first does not: an implied &quot;and we don&#39;t any more.&quot; A plain past says nothing about whether the thing still happens; <code>たものだ</code> quietly closes the door on it.</p>
+<p><ruby>去年<rt>きょねん</rt></ruby>、<ruby>家族<rt>かぞく</rt></ruby>で<ruby>北海道<rt>ほっかいどう</rt></ruby>へ**<ruby>行<rt>い</rt></ruby>った**。<br><em>Last year we went to Hokkaido as a family.</em></p>
+<p><ruby>夏<rt>なつ</rt></ruby>になると、<ruby>家族<rt>かぞく</rt></ruby>で<ruby>北海道<rt>ほっかいどう</rt></ruby>へ**<ruby>行<rt>い</rt></ruby>ったものだ**。<br><em>Come summer, we&#39;d go up to Hokkaido as a family.</em></p>
 </div>
 </div>
-<div class="slide" data-index="26">
+<div class="slide" data-index="30">
+  
+  <div class="slide__content"><h2>～たものだ · ～たものだ vs the plain past (cont.)</h2>
+<p>The first is one trip and takes a date. The second is a pattern of trips and takes a recurring time expression instead - <code><ruby>夏<rt>なつ</rt></ruby>になると</code>, <code><ruby>毎年<rt>まいとし</rt></ruby></code>, <code>よく</code>. Note also what the second adds that the first does not: an implied &quot;and we don&#39;t any more.&quot; A plain past says nothing about whether the thing still happens; <code>たものだ</code> quietly closes the door on it.</p>
+</div>
+</div>
+<div class="slide" data-index="31">
   
   <div class="slide__content"><h2>～たものだ · ～たものだ vs ～ていた</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>ていた</code> describes a past habit <strong>neutrally</strong>, from outside. <code>たものだ</code> describes the same habit <strong>from inside the memory</strong>, with the speaker&#39;s feeling attached.</p>
 </blockquote>
-<p>父(ちち)は毎朝(まいあさ)六時(ろくじ)に<strong>起(お)きていた</strong>。<br><em>My father got up at six every morning.</em></p>
-<p>父(ちち)は毎朝(まいあさ)六時(ろくじ)に<strong>起(お)きたものだ</strong>。<br><em>My father would be up at six every morning, without fail.</em></p>
-<p>Where a form is required rather than optional, <code>ていた</code> is the one that works: a police statement, a résumé, a lab notebook. <code>たものだ</code> in any of those reads as sentimental. The two combine happily as <code>起(お)きていたものだ</code>, which spells out both the duration and the fondness, and that combination is very common with <code>ていた</code>-friendly verbs of state.</p>
+<p><ruby>父<rt>ちち</rt></ruby>は<ruby>毎朝<rt>まいあさ</rt></ruby><ruby>六時<rt>ろくじ</rt></ruby>に**<ruby>起<rt>お</rt></ruby>きていた**。<br><em>My father got up at six every morning.</em></p>
+<p><ruby>父<rt>ちち</rt></ruby>は<ruby>毎朝<rt>まいあさ</rt></ruby><ruby>六時<rt>ろくじ</rt></ruby>に**<ruby>起<rt>お</rt></ruby>きたものだ**。<br><em>My father would be up at six every morning, without fail.</em></p>
 </div>
 </div>
-<div class="slide" data-index="27">
+<div class="slide" data-index="32">
+  
+  <div class="slide__content"><h2>～たものだ · ～たものだ vs ～ていた (cont.)</h2>
+<p>Where a form is required rather than optional, <code>ていた</code> is the one that works: a police statement, a résumé, a lab notebook. <code>たものだ</code> in any of those reads as sentimental. The two combine happily as <code><ruby>起<rt>お</rt></ruby>きていたものだ</code>, which spells out both the duration and the fondness, and that combination is very common with <code>ていた</code>-friendly verbs of state.</p>
+</div>
+</div>
+<div class="slide" data-index="33">
   
   <div class="slide__content"><h2>～たものだ · ～たものだ vs ～ものだ</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - same ending, two different jobs. Non-past <code>ものだ</code> says <em>this is how the world is</em>. Past <code>たものだ</code> says <em>this is how my life used to be</em>.</p>
 </blockquote>
-<p>試験(しけん)の前(まえ)は誰(だれ)でも<strong>不安(ふあん)になるものだ</strong>。<br><em>Everyone gets anxious before an exam - that&#39;s normal.</em></p>
-<p>試験(しけん)の前(まえ)はいつも<strong>眠(ねむ)れなかったものだ</strong>。<br><em>I could never sleep before an exam, back in the day.</em></p>
-<p>The first makes a claim about people at large and would be equally true said by a stranger. The second makes no claim about anyone but the speaker. This is also why the &quot;should&quot; sense never appears in the past form: you cannot instruct anyone about what to have done in 1995, so ❌<code>挨拶(あいさつ)したものだ</code> as advice is simply not available.</p>
+<p><ruby>試験<rt>しけん</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>は<ruby>誰<rt>だれ</rt></ruby>でも**<ruby>不安<rt>ふあん</rt></ruby>になるものだ**。<br><em>Everyone gets anxious before an exam - that&#39;s normal.</em></p>
+<p><ruby>試験<rt>しけん</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>はいつも**<ruby>眠<rt>ねむ</rt></ruby>れなかったものだ**。<br><em>I could never sleep before an exam, back in the day.</em></p>
 </div>
 </div>
-<div class="slide" data-index="28">
+<div class="slide" data-index="34">
+  
+  <div class="slide__content"><h2>～たものだ · ～たものだ vs ～ものだ (cont.)</h2>
+<p>The first makes a claim about people at large and would be equally true said by a stranger. The second makes no claim about anyone but the speaker. This is also why the &quot;should&quot; sense never appears in the past form: you cannot instruct anyone about what to have done in 1995, so ❌<code><ruby>挨拶<rt>あいさつ</rt></ruby>したものだ</code> as advice is simply not available.</p>
+</div>
+</div>
+<div class="slide" data-index="35">
   
   <div class="slide__content"><h2>～たものだ · Common mistakes</h2>
 <ul>
-<li><p>❌ 先週(せんしゅう)、沖縄(おきなわ)へ行(い)ったものだ。 → ✅ 先週(せんしゅう)、沖縄(おきなわ)へ<strong>行(い)った</strong>。<br><em>One trip on one date. <code>たものだ</code> needs something that happened over and over.</em></p>
+<li><p>❌ <ruby>先週<rt>せんしゅう</rt></ruby>、<ruby>沖縄<rt>おきなわ</rt></ruby>へ<ruby>行<rt>い</rt></ruby>ったものだ。 → ✅ <ruby>先週<rt>せんしゅう</rt></ruby>、<ruby>沖縄<rt>おきなわ</rt></ruby>へ**<ruby>行<rt>い</rt></ruby>った**。<br><em>One trip on one date. <code>たものだ</code> needs something that happened over and over.</em></p>
 </li>
-<li><p>❌ 昔(むかし)はよく海(うみ)で泳(およ)いだものでした。 → ✅ 昔(むかし)はよく海(うみ)で<strong>泳(およ)いだものです</strong>。<br><em>The tense is already carried by <code>泳(およ)いだ</code>. <code>ものだ</code> itself stays non-past; doubling the past is a very common slip.</em></p>
+<li><p>❌ <ruby>昔<rt>むかし</rt></ruby>はよく<ruby>海<rt>うみ</rt></ruby>で<ruby>泳<rt>およ</rt></ruby>いだものでした。 → ✅ <ruby>昔<rt>むかし</rt></ruby>はよく<ruby>海<rt>うみ</rt></ruby>で**<ruby>泳<rt>およ</rt></ruby>いだものです**。<br><em>The tense is already carried by <code><ruby>泳<rt>およ</rt></ruby>いだ</code>. <code>ものだ</code> itself stays non-past; doubling the past is a very common slip.</em></p>
 </li>
-<li><p>❌ 来年(らいねん)から毎朝(まいあさ)走(はし)るものだ。（meaning &quot;I used to run&quot;）→ ✅ 昔(むかし)は毎朝(まいあさ)<strong>走(はし)ったものだ</strong>。<br><em>Recollection lives in the た-form. The dictionary form gives you a general truth about the world instead, which is not what the sentence was trying to say.</em></p>
-</li>
-<li><p>❌ 明治(めいじ)時代(じだい)の人(ひと)は着物(きもの)を着(き)たものだ。 → ✅ 明治(めいじ)時代(じだい)の人(ひと)は着物(きもの)を<strong>着(き)ていたそうだ</strong>。<br><em>You did not live through it, so it is not your memory to be nostalgic about. Report it instead.</em></p>
+<li><p>❌ <ruby>来年<rt>らいねん</rt></ruby>から<ruby>毎朝<rt>まいあさ</rt></ruby><ruby>走<rt>はし</rt></ruby>るものだ。（meaning &quot;I used to run&quot;）→ ✅ <ruby>昔<rt>むかし</rt></ruby>は<ruby>毎朝<rt>まいあさ</rt></ruby><strong><ruby>走<rt>はし</rt></ruby>ったものだ</strong>。<br><em>Recollection lives in the た-form. The dictionary form gives you a general truth about the world instead, which is not what the sentence was trying to say.</em></p>
 </li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="29">
+<div class="slide" data-index="36">
+  
+  <div class="slide__content"><h2>～たものだ · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ <ruby>明治<rt>めいじ</rt></ruby><ruby>時代<rt>じだい</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>は<ruby>着物<rt>きもの</rt></ruby>を<ruby>着<rt>き</rt></ruby>たものだ。 → ✅ <ruby>明治<rt>めいじ</rt></ruby><ruby>時代<rt>じだい</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>は<ruby>着物<rt>きもの</rt></ruby>を**<ruby>着<rt>き</rt></ruby>ていたそうだ**。<br><em>You did not live through it, so it is not your memory to be nostalgic about. Report it instead.</em></li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="37">
   
   <div class="slide__content"><h2>～たものだ · Practice 1</h2>
-<p><strong>1.</strong> 学生(がくせい)のころは、お金(かね)がなくて、よく歩(ある)いて帰(かえ)っ____。</p>
+<p><strong>1.</strong> <ruby>学生<rt>がくせい</rt></ruby>のころは、お<ruby>金<rt>かね</rt></ruby>がなくて、よく<ruby>歩<rt>ある</rt></ruby>いて<ruby>帰<rt>かえ</rt></ruby>っ____。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-よく歩(ある)いて<strong>帰(かえ)ったものだ</strong>（or 帰(かえ)ったものです）</p>
+よく<ruby>歩<rt>ある</rt></ruby>いて**<ruby>帰<rt>かえ</rt></ruby>ったものだ**（or <ruby>帰<rt>かえ</rt></ruby>ったものです）</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>学生(がくせい)のころは</code> and <code>よく</code> together announce a repeated past habit that is over, which is exactly the slot <code>たものだ</code> fills. A plain <code>帰(かえ)った</code> would be grammatical but would lose the &quot;those were the days&quot; colouring the rest of the sentence has set up.</p>
+<code><ruby>学生<rt>がくせい</rt></ruby>のころは</code> and <code>よく</code> together announce a repeated past habit that is over, which is exactly the slot <code>たものだ</code> fills. A plain <code><ruby>帰<rt>かえ</rt></ruby>った</code> would be grammatical but would lose the &quot;those were the days&quot; colouring the rest of the sentence has set up.</p>
 </div>
 </div>
-<div class="slide" data-index="30">
+<div class="slide" data-index="38">
   
   <div class="slide__content"><h2>～たものだ · Practice 2</h2>
-<p><strong>2.</strong> Choose: 去年(きょねん)の夏(なつ)、一度(いちど)だけ富士山(ふじさん)に（登(のぼ)った・登(のぼ)ったものだ）。</p>
+<p><strong>2.</strong> Choose: <ruby>去年<rt>きょねん</rt></ruby>の<ruby>夏<rt>なつ</rt></ruby>、<ruby>一度<rt>いちど</rt></ruby>だけ<ruby>富士山<rt>ふじさん</rt></ruby>に（<ruby>登<rt>のぼ</rt></ruby>った・<ruby>登<rt>のぼ</rt></ruby>ったものだ）。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-去年(きょねん)の夏(なつ)、一度(いちど)だけ富士山(ふじさん)に<strong>登(のぼ)った</strong>。</p>
+<ruby>去年<rt>きょねん</rt></ruby>の<ruby>夏<rt>なつ</rt></ruby>、<ruby>一度<rt>いちど</rt></ruby>だけ<ruby>富士山<rt>ふじさん</rt></ruby>に**<ruby>登<rt>のぼ</rt></ruby>った**。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>一度(いちど)だけ</code> settles it. <code>たものだ</code> reports a habit, and a habit cannot happen exactly once. The plain past is the only option for a single event, however memorable it was.</p>
+<code><ruby>一度<rt>いちど</rt></ruby>だけ</code> settles it. <code>たものだ</code> reports a habit, and a habit cannot happen exactly once. The plain past is the only option for a single event, however memorable it was.</p>
 </div>
 </div>
-<div class="slide" data-index="31">
+<div class="slide" data-index="39">
   
   <div class="slide__content"><h2>～たものだ · Practice 3</h2>
 <p><strong>3.</strong> Translate into Japanese: &quot;When I was little, my grandfather would often take me fishing.&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-小(ちい)さいころ、祖父(そふ)がよく釣(つ)りに<strong>連(つ)れていってくれたものだ</strong>。</p>
+<ruby>小<rt>ちい</rt></ruby>さいころ、<ruby>祖父<rt>そふ</rt></ruby>がよく<ruby>釣<rt>つ</rt></ruby>りに**<ruby>連<rt>つ</rt></ruby>れていってくれたものだ**。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 &quot;Would often&quot; plus a childhood frame is the core <code>たものだ</code> situation. Keeping <code>くれた</code> in the sentence matters too: the memory is of something done for you, and dropping it would flatten a warm sentence into a schedule.</p>
 </div>
 </div>
-<div class="slide" data-index="32">
+<div class="slide" data-index="40">
   
   <div class="slide__content"><h2>～たものだ · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 昔(むかし)はこの町(まち)にも映画館(えいがかん)があったものでした。</p>
+<p><strong>4.</strong> Find and fix the error: <ruby>昔<rt>むかし</rt></ruby>はこの<ruby>町<rt>まち</rt></ruby>にも<ruby>映画館<rt>えいがかん</rt></ruby>があったものでした。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 昔(むかし)はこの町(まち)にも映画館(えいがかん)が<strong>あったものです</strong>。</p>
+✅ <ruby>昔<rt>むかし</rt></ruby>はこの<ruby>町<rt>まち</rt></ruby>にも<ruby>映画館<rt>えいがかん</rt></ruby>が<strong>あったものです</strong>。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 <code>ものだ</code> does not conjugate into the past here - <code>あった</code> is already doing that work. Learners produce <code>ものでした</code> by analogy with <code>でした</code> endings elsewhere; the fix is simply to leave <code>ものです</code> alone.</p>
 </div>
 </div>
-<div class="slide" data-index="33">
+<div class="slide" data-index="41">
   
   <div class="slide__content"><h2>～たものだ · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 母(はは)は毎晩(まいばん)本(ほん)を<strong>読(よ)んでくれていた</strong>。 (b) 母(はは)は毎晩(まいばん)本(ほん)を<strong>読(よ)んでくれたものだ</strong>。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>母<rt>はは</rt></ruby>は<ruby>毎晩<rt>まいばん</rt></ruby><ruby>本<rt>ほん</rt></ruby>を**<ruby>読<rt>よ</rt></ruby>んでくれていた**。 (b) <ruby>母<rt>はは</rt></ruby>は<ruby>毎晩<rt>まいばん</rt></ruby><ruby>本<rt>ほん</rt></ruby>を**<ruby>読<rt>よ</rt></ruby>んでくれたものだ**。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) states the fact of the habit. It is the sentence you would write in an account of your childhood routine, and it would sit comfortably in a form or an interview transcript.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (b) states the same fact and adds the speaker standing in the present looking back at it fondly. It implies the nights of reading are over, and it invites the listener to feel something about that. Only (b) would be odd in a neutral report.</p>
 </div>
 </div>
-<div class="slide" data-index="34">
+<div class="slide" data-index="42">
   
   <div class="slide__content"><h1>～ことがある</h1>
 <p><strong>Meaning</strong> · there are times when it happens - occasionally, not as a rule</p>
@@ -3046,7 +3104,7 @@ The speaker is telling someone off, and a telling-off takes <code>ものでは�
 <p>Two neighbours share the shape and mean something else entirely. <code>たことがある</code> with a past verb is <em>experience</em> - &quot;I have done it before&quot; - and <code>ことができる</code> is <em>ability</em>. Both are covered earlier in the book; this page is only about the dictionary form.</p>
 </div>
 </div>
-<div class="slide" data-index="35">
+<div class="slide" data-index="43">
   
   <div class="slide__content"><h2>～ことがある · Formation</h2>
 <table>
@@ -3060,201 +3118,218 @@ The speaker is telling someone off, and a telling-off takes <code>ものでは�
 <tbody><tr>
 <td>Verb</td>
 <td>dictionary form + ことがある</td>
-<td>遅(おく)れる → 遅(おく)れることがある</td>
+<td><ruby>遅<rt>おく</rt></ruby>れる → <ruby>遅<rt>おく</rt></ruby>れることがある</td>
 </tr>
 <tr>
 <td>Verb (negative)</td>
 <td>ない-form + ことがある</td>
-<td>来(こ)ない → 来(こ)ないことがある</td>
+<td><ruby>来<rt>こ</rt></ruby>ない → <ruby>来<rt>こ</rt></ruby>ないことがある</td>
 </tr>
 <tr>
 <td>い-adjective</td>
 <td>plain form + ことがある</td>
-<td>寒(さむ)い → 寒(さむ)いことがある</td>
+<td><ruby>寒<rt>さむ</rt></ruby>い → <ruby>寒<rt>さむ</rt></ruby>いことがある</td>
 </tr>
 <tr>
 <td>な-adjective</td>
 <td>な + ことがある</td>
-<td>不便(ふべん) → 不便(ふべん)なことがある</td>
+<td><ruby>不便<rt>ふべん</rt></ruby> → <ruby>不便<rt>ふべん</rt></ruby>なことがある</td>
 </tr>
 <tr>
 <td>Noun</td>
 <td>recast with なる or だ</td>
-<td>中止(ちゅうし) → 中止(ちゅうし)になることがある</td>
+<td><ruby>中止<rt>ちゅうし</rt></ruby> → <ruby>中止<rt>ちゅうし</rt></ruby>になることがある</td>
 </tr>
 <tr>
 <td>Past (&quot;there used to be times&quot;)</td>
 <td>dictionary form + ことがあった</td>
-<td>泣(な)く → 泣(な)くことがあった</td>
+<td><ruby>泣<rt>な</rt></ruby>く → <ruby>泣<rt>な</rt></ruby>くことがあった</td>
 </tr>
 <tr>
 <td>Polite</td>
 <td>ことがあります</td>
-<td>迷(まよ)うことがあります</td>
+<td><ruby>迷<rt>まよ</rt></ruby>うことがあります</td>
 </tr>
 <tr>
 <td>Softened</td>
 <td>ことも + ある</td>
-<td>一人(ひとり)で行(い)くこともある</td>
+<td><ruby>一人<rt>ひとり</rt></ruby>で<ruby>行<rt>い</rt></ruby>くこともある</td>
 </tr>
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="36">
+<div class="slide" data-index="44">
   
   <div class="slide__content"><h2>～ことがある · Formation (cont.)</h2>
 <blockquote>
-<p><strong>Note</strong> - the frequency adverbs that go with this are <code>ときどき</code>, <code>たまに</code>, <code>まれに</code>, <code>年(ねん)に数回(すうかい)</code>. They make explicit what the pattern only implies. Adverbs of <em>constancy</em> - <code>いつも</code>, <code>毎日(まいにち)</code>, <code>必(かなら)ず</code> - contradict it and produce a broken sentence.</p>
+<p><strong>Note</strong> - the frequency adverbs that go with this are <code>ときどき</code>, <code>たまに</code>, <code>まれに</code>, <code><ruby>年<rt>ねん</rt></ruby>に<ruby>数回<rt>すうかい</rt></ruby></code>. They make explicit what the pattern only implies. Adverbs of <em>constancy</em> - <code>いつも</code>, <code><ruby>毎日<rt>まいにち</rt></ruby></code>, <code><ruby>必<rt>かなら</rt></ruby>ず</code> - contradict it and produce a broken sentence.</p>
 </blockquote>
 </div>
 </div>
-<div class="slide" data-index="37">
+<div class="slide" data-index="45">
   
   <div class="slide__content"><h2>～ことがある · Examples</h2>
-<p>この道(みち)は朝(あさ)とても<strong>混(こ)むことがある</strong>。<br><em>This road sometimes gets badly congested in the morning.</em></p>
-<p>夏(なつ)でも山(やま)の上(うえ)は<strong>寒(さむ)いことがあります</strong>。<br><em>Even in summer it can be cold at the top of the mountain.</em></p>
-<p>たまに電車(でんしゃ)が<strong>来(こ)ないことがある</strong>。<br><em>Every so often the train just doesn&#39;t come.</em></p>
-<p>父(ちち)は忙(いそが)しくて、夕飯(ゆうはん)に<strong>間(ま)に合(あ)わないことがある</strong>。<br><em>My father is busy, and there are times he doesn&#39;t make it back for dinner.</em></p>
-<p>台風(たいふう)の日(ひ)は、試合(しあい)が<strong>中止(ちゅうし)になることがあります</strong>。<br><em>On typhoon days the match is sometimes called off.</em></p>
+<p>この<ruby>道<rt>みち</rt></ruby>は<ruby>朝<rt>あさ</rt></ruby>とても**<ruby>混<rt>こ</rt></ruby>むことがある**。<br><em>This road sometimes gets badly congested in the morning.</em></p>
+<p><ruby>夏<rt>なつ</rt></ruby>でも<ruby>山<rt>やま</rt></ruby>の<ruby>上<rt>うえ</rt></ruby>は**<ruby>寒<rt>さむ</rt></ruby>いことがあります**。<br><em>Even in summer it can be cold at the top of the mountain.</em></p>
+<p>たまに<ruby>電車<rt>でんしゃ</rt></ruby>が**<ruby>来<rt>こ</rt></ruby>ないことがある**。<br><em>Every so often the train just doesn&#39;t come.</em></p>
+<p><ruby>父<rt>ちち</rt></ruby>は<ruby>忙<rt>いそが</rt></ruby>しくて、<ruby>夕飯<rt>ゆうはん</rt></ruby>に**<ruby>間<rt>ま</rt></ruby>に<ruby>合<rt>あ</rt></ruby>わないことがある**。<br><em>My father is busy, and there are times he doesn&#39;t make it back for dinner.</em></p>
 </div>
 </div>
-<div class="slide" data-index="38">
+<div class="slide" data-index="46">
   
   <div class="slide__content"><h2>～ことがある · Examples (cont.)</h2>
-<p>子(こ)どものころは、緊張(きんちょう)して声(こえ)が<strong>出(で)ないことがあった</strong>。<br><em>As a child there were times when I got so nervous no voice came out.</em></p>
-<p>この薬(くすり)は人(ひと)によって<strong>眠(ねむ)くなることがある</strong>ので、運転(うんてん)する前(まえ)には飲(の)まないでください。<br><em>This medicine can make some people drowsy, so don&#39;t take it before driving.</em></p>
-<p>年(ねん)に一(いち)、二度(にど)、海外(かいがい)の工場(こうじょう)まで<strong>出張(しゅっちょう)することがあります</strong>。<br><em>Once or twice a year I have occasion to travel out to the overseas plant.</em></p>
+<p><ruby>台風<rt>たいふう</rt></ruby>の<ruby>日<rt>ひ</rt></ruby>は、<ruby>試合<rt>しあい</rt></ruby>が**<ruby>中止<rt>ちゅうし</rt></ruby>になることがあります**。<br><em>On typhoon days the match is sometimes called off.</em></p>
+<p><ruby>子<rt>こ</rt></ruby>どものころは、<ruby>緊張<rt>きんちょう</rt></ruby>して<ruby>声<rt>こえ</rt></ruby>が**<ruby>出<rt>で</rt></ruby>ないことがあった**。<br><em>As a child there were times when I got so nervous no voice came out.</em></p>
+<p>この<ruby>薬<rt>くすり</rt></ruby>は<ruby>人<rt>ひと</rt></ruby>によって**<ruby>眠<rt>ねむ</rt></ruby>くなることがある**ので、<ruby>運転<rt>うんてん</rt></ruby>する<ruby>前<rt>まえ</rt></ruby>には<ruby>飲<rt>の</rt></ruby>まないでください。<br><em>This medicine can make some people drowsy, so don&#39;t take it before driving.</em></p>
+<p><ruby>年<rt>ねん</rt></ruby>に<ruby>一<rt>いち</rt></ruby>、<ruby>二度<rt>にど</rt></ruby>、<ruby>海外<rt>かいがい</rt></ruby>の<ruby>工場<rt>こうじょう</rt></ruby>まで**<ruby>出張<rt>しゅっちょう</rt></ruby>することがあります**。<br><em>Once or twice a year I have occasion to travel out to the overseas plant.</em></p>
 </div>
 </div>
-<div class="slide" data-index="39">
+<div class="slide" data-index="47">
   
   <div class="slide__content"><h2>～ことがある · Nuance &amp; register</h2>
 <p>The pattern is register-neutral and conjugates like any <code>ある</code> sentence: <code>ことがある</code> plain, <code>ことがあります</code> polite, <code>ことがございます</code> in service language. Nothing about choosing it makes you sound formal or casual.</p>
-<p>Where it <em>is</em> strongly marked is by <strong>genre</strong>. Instructions, warnings and manuals live on it, because it is the natural way to state a possible but non-routine outcome without alarming anyone: <code>まれに故障(こしょう)することがあります</code> on an appliance leaflet, <code>副作用(ふくさよう)が出(で)ることがあります</code> on a medicine insert. If you read Japanese product documentation you will meet it constantly.</p>
-<p>In conversation it does a quieter job: it hedges. Answering <code>自炊(じすい)しますか</code> with <code>することがあります</code> concedes that you do, sometimes, while refusing to claim a habit. Swapping <code>が</code> for <code>も</code> - <code>することもあります</code> - softens it further and adds an explicit &quot;and other times I don&#39;t&quot;, which is why <code>も</code> is so common when you are being modest or non-committal about your own behaviour.</p>
+<p>Where it <em>is</em> strongly marked is by <strong>genre</strong>. Instructions, warnings and manuals live on it, because it is the natural way to state a possible but non-routine outcome without alarming anyone: <code>まれに<ruby>故障<rt>こしょう</rt></ruby>することがあります</code> on an appliance leaflet, <code><ruby>副作用<rt>ふくさよう</rt></ruby>が<ruby>出<rt>で</rt></ruby>ることがあります</code> on a medicine insert. If you read Japanese product documentation you will meet it constantly.</p>
 </div>
 </div>
-<div class="slide" data-index="40">
+<div class="slide" data-index="48">
   
   <div class="slide__content"><h2>～ことがある · Nuance &amp; register (cont.)</h2>
+<p>In conversation it does a quieter job: it hedges. Answering <code><ruby>自炊<rt>じすい</rt></ruby>しますか</code> with <code>することがあります</code> concedes that you do, sometimes, while refusing to claim a habit. Swapping <code>が</code> for <code>も</code> - <code>することもあります</code> - softens it further and adds an explicit &quot;and other times I don&#39;t&quot;, which is why <code>も</code> is so common when you are being modest or non-committal about your own behaviour.</p>
 <p>One structural point that trips people up: <code>ある</code> here is a genuine verb of existence and <code>こと</code> is its subject. That is why the particle on <code>こと</code> can change - <code>ことも</code> for &quot;there are also times when&quot;, <code>ことは</code> when the phrase is negated or contrasted - and why frequency adverbs such as <code>めったに</code> and <code>ほとんど</code> attach to <code>ある</code> rather than to the main verb: <code>まちがえることはめったにない</code>, &quot;I hardly ever get it wrong.&quot; Keep in mind that <code>～ことはない</code> is also a separate pattern meaning &quot;there&#39;s no need to ～&quot;; the frequency adverb is usually what tells you which one you are looking at.</p>
 </div>
 </div>
-<div class="slide" data-index="41">
+<div class="slide" data-index="49">
   
   <div class="slide__content"><h2>～ことがある · ～ことがある vs ～たことがある</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - dictionary form = <strong>sometimes it happens</strong>, an ongoing pattern. た-form = <strong>I have done it</strong>, an experience in your past. The tense of the verb before <code>こと</code> carries the entire difference.</p>
 </blockquote>
-<p>会議(かいぎ)が夜(よる)まで<strong>続(つづ)くことがある</strong>。<br><em>Meetings sometimes run into the evening.</em></p>
-<p>会議(かいぎ)が夜(よる)まで<strong>続(つづ)いたことがある</strong>。<br><em>There was a time when a meeting ran into the evening.</em></p>
-<p>The first is a standing fact about how meetings go here; it says nothing about whether one has actually run late this month. The second reports that at least one such meeting has occurred and stops there. Because they answer different questions, the adverbs differ too: <code>ときどき</code> fits the first, <code>一度(いちど)だけ</code> the second.</p>
+<p><ruby>会議<rt>かいぎ</rt></ruby>が<ruby>夜<rt>よる</rt></ruby>まで**<ruby>続<rt>つづ</rt></ruby>くことがある**。<br><em>Meetings sometimes run into the evening.</em></p>
+<p><ruby>会議<rt>かいぎ</rt></ruby>が<ruby>夜<rt>よる</rt></ruby>まで**<ruby>続<rt>つづ</rt></ruby>いたことがある**。<br><em>There was a time when a meeting ran into the evening.</em></p>
 </div>
 </div>
-<div class="slide" data-index="42">
+<div class="slide" data-index="50">
+  
+  <div class="slide__content"><h2>～ことがある · ～ことがある vs ～たことがある (cont.)</h2>
+<p>The first is a standing fact about how meetings go here; it says nothing about whether one has actually run late this month. The second reports that at least one such meeting has occurred and stops there. Because they answer different questions, the adverbs differ too: <code>ときどき</code> fits the first, <code><ruby>一度<rt>いちど</rt></ruby>だけ</code> the second.</p>
+</div>
+</div>
+<div class="slide" data-index="51">
   
   <div class="slide__content"><h2>～ことがある · ～ことがある vs a bare adverb</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - <code>ときどき遅(おく)れる</code> says the delays are part of the picture. <code>遅(おく)れることがある</code> says they are the exception, and often carries a warning or an excuse with it.</p>
+<p><strong>Rule of thumb</strong> - <code>ときどき<ruby>遅<rt>おく</rt></ruby>れる</code> says the delays are part of the picture. <code><ruby>遅<rt>おく</rt></ruby>れることがある</code> says they are the exception, and often carries a warning or an excuse with it.</p>
 </blockquote>
-<p>このバスは<strong>ときどき遅(おく)れます</strong>。<br><em>This bus runs late from time to time.</em></p>
-<p>このバスは<strong>遅(おく)れることがあります</strong>。<br><em>This bus is sometimes late. (so leave yourself a margin)</em></p>
-<p>Both are true of the same bus timetable, but the second frames lateness as a possibility you should be aware of rather than a property of the route. That framing is why the <code>ことがある</code> version is what a station announcement or a guidebook uses. The two can of course stack - <code>ときどき遅(おく)れることがあります</code> - and this is common; the adverb pins down how often, the pattern keeps the &quot;not normally&quot; tone.</p>
+<p>このバスは<strong>ときどき<ruby>遅<rt>おく</rt></ruby>れます</strong>。<br><em>This bus runs late from time to time.</em></p>
+<p>このバスは**<ruby>遅<rt>おく</rt></ruby>れることがあります**。<br><em>This bus is sometimes late. (so leave yourself a margin)</em></p>
 </div>
 </div>
-<div class="slide" data-index="43">
+<div class="slide" data-index="52">
+  
+  <div class="slide__content"><h2>～ことがある · ～ことがある vs a bare adverb (cont.)</h2>
+<p>Both are true of the same bus timetable, but the second frames lateness as a possibility you should be aware of rather than a property of the route. That framing is why the <code>ことがある</code> version is what a station announcement or a guidebook uses. The two can of course stack - <code>ときどき<ruby>遅<rt>おく</rt></ruby>れることがあります</code> - and this is common; the adverb pins down how often, the pattern keeps the &quot;not normally&quot; tone.</p>
+</div>
+</div>
+<div class="slide" data-index="53">
   
   <div class="slide__content"><h2>～ことがある · ～ことがある vs ～かもしれない</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>ことがある</code> reports what <strong>does</strong> happen, from experience. <code>かもしれない</code> guesses about what <strong>may</strong> happen, on this occasion.</p>
 </blockquote>
-<p>冬(ふゆ)は水道(すいどう)が<strong>凍(こお)ることがある</strong>。<br><em>The pipes do freeze here in winter.</em></p>
-<p>今夜(こんや)は水道(すいどう)が<strong>凍(こお)るかもしれない</strong>。<br><em>The pipes might freeze tonight.</em></p>
-<p><code>ことがある</code> is a claim about a track record, so it needs more than one occasion behind it and cannot be used about a single future event: ❌<code>明日(あした)雨(あめ)が降(ふ)ることがある</code> is wrong for &quot;it might rain tomorrow.&quot; Conversely <code>かもしれない</code> cannot summarise a pattern - it always leaves the outcome open, so it is useless for explaining what winters are like around here.</p>
+<p><ruby>冬<rt>ふゆ</rt></ruby>は<ruby>水道<rt>すいどう</rt></ruby>が**<ruby>凍<rt>こお</rt></ruby>ることがある**。<br><em>The pipes do freeze here in winter.</em></p>
+<p><ruby>今夜<rt>こんや</rt></ruby>は<ruby>水道<rt>すいどう</rt></ruby>が**<ruby>凍<rt>こお</rt></ruby>るかもしれない**。<br><em>The pipes might freeze tonight.</em></p>
 </div>
 </div>
-<div class="slide" data-index="44">
+<div class="slide" data-index="54">
+  
+  <div class="slide__content"><h2>～ことがある · ～ことがある vs ～かもしれない (cont.)</h2>
+<p><code>ことがある</code> is a claim about a track record, so it needs more than one occasion behind it and cannot be used about a single future event: ❌<code><ruby>明日<rt>あした</rt></ruby><ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>ることがある</code> is wrong for &quot;it might rain tomorrow.&quot; Conversely <code>かもしれない</code> cannot summarise a pattern - it always leaves the outcome open, so it is useless for explaining what winters are like around here.</p>
+</div>
+</div>
+<div class="slide" data-index="55">
   
   <div class="slide__content"><h2>～ことがある · Common mistakes</h2>
 <ul>
-<li><p>❌ 毎日(まいにち)残業(ざんぎょう)することがあります。 → ✅ ときどき<strong>残業(ざんぎょう)することがあります</strong>。<br><em>&quot;Every day&quot; and &quot;sometimes&quot; cannot share a sentence. Either drop <code>ことがある</code> and say <code>毎日(まいにち)残業(ざんぎょう)します</code>, or keep the pattern and use an adverb that matches it.</em></p>
+<li><p>❌ <ruby>毎日<rt>まいにち</rt></ruby><ruby>残業<rt>ざんぎょう</rt></ruby>することがあります。 → ✅ ときどき**<ruby>残業<rt>ざんぎょう</rt></ruby>することがあります**。<br><em>&quot;Every day&quot; and &quot;sometimes&quot; cannot share a sentence. Either drop <code>ことがある</code> and say <code><ruby>毎日<rt>まいにち</rt></ruby><ruby>残業<rt>ざんぎょう</rt></ruby>します</code>, or keep the pattern and use an adverb that matches it.</em></p>
 </li>
-<li><p>❌ 富士山(ふじさん)に登(のぼ)ることがあります。（meaning &quot;I have climbed Fuji&quot;）→ ✅ 富士山(ふじさん)に<strong>登(のぼ)ったことがあります</strong>。<br><em>Experience needs the た-form. As written, the sentence claims you climb Fuji from time to time, which is a very different life.</em></p>
-</li>
-<li><p>❌ 日本語(にほんご)を話(はな)すことがあります。（meaning &quot;I can speak Japanese&quot;）→ ✅ 日本語(にほんご)を<strong>話(はな)すことができます</strong>。<br><em>Ability is <code>ことができる</code>. <code>ことがある</code> never means &quot;can&quot;; the two are separated only by the verb at the end.</em></p>
-</li>
-<li><p>❌ 寒(さむ)いなことがある。 → ✅ <strong>寒(さむ)いことがある</strong>。<br><em>Only な-adjectives take <code>な</code> before <code>こと</code>. い-adjectives attach in their plain form, exactly as they do before any other noun.</em></p>
+<li><p>❌ <ruby>富士山<rt>ふじさん</rt></ruby>に<ruby>登<rt>のぼ</rt></ruby>ることがあります。（meaning &quot;I have climbed Fuji&quot;）→ ✅ <ruby>富士山<rt>ふじさん</rt></ruby>に**<ruby>登<rt>のぼ</rt></ruby>ったことがあります**。<br><em>Experience needs the た-form. As written, the sentence claims you climb Fuji from time to time, which is a very different life.</em></p>
 </li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="45">
+<div class="slide" data-index="56">
+  
+  <div class="slide__content"><h2>～ことがある · Common mistakes (cont.)</h2>
+<ul>
+<li><p>❌ <ruby>日本語<rt>にほんご</rt></ruby>を<ruby>話<rt>はな</rt></ruby>すことがあります。（meaning &quot;I can speak Japanese&quot;）→ ✅ <ruby>日本語<rt>にほんご</rt></ruby>を**<ruby>話<rt>はな</rt></ruby>すことができます**。<br><em>Ability is <code>ことができる</code>. <code>ことがある</code> never means &quot;can&quot;; the two are separated only by the verb at the end.</em></p>
+</li>
+<li><p>❌ <ruby>寒<rt>さむ</rt></ruby>いなことがある。 → ✅ <strong><ruby>寒<rt>さむ</rt></ruby>いことがある</strong>。<br><em>Only な-adjectives take <code>な</code> before <code>こと</code>. い-adjectives attach in their plain form, exactly as they do before any other noun.</em></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="57">
   
   <div class="slide__content"><h2>～ことがある · Practice 1</h2>
-<p><strong>1.</strong> この辺(へん)は夏(なつ)でも夜(よる)は____ことがあります。（涼(すず)しい）</p>
+<p><strong>1.</strong> この<ruby>辺<rt>へん</rt></ruby>は<ruby>夏<rt>なつ</rt></ruby>でも<ruby>夜<rt>よる</rt></ruby>は____ことがあります。（<ruby>涼<rt>すず</rt></ruby>しい）</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-この辺(へん)は夏(なつ)でも夜(よる)は<strong>涼(すず)しいことがあります</strong>。</p>
+この<ruby>辺<rt>へん</rt></ruby>は<ruby>夏<rt>なつ</rt></ruby>でも<ruby>夜<rt>よる</rt></ruby>は**<ruby>涼<rt>すず</rt></ruby>しいことがあります**。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-い-adjectives go in front of <code>こと</code> unchanged - no <code>な</code>, no <code>の</code>. The sentence works because coolness in summer is presented as an occasional exception, which is what <code>夏(なつ)でも</code> has already set up.</p>
+い-adjectives go in front of <code>こと</code> unchanged - no <code>な</code>, no <code>の</code>. The sentence works because coolness in summer is presented as an occasional exception, which is what <code><ruby>夏<rt>なつ</rt></ruby>でも</code> has already set up.</p>
 </div>
 </div>
-<div class="slide" data-index="46">
+<div class="slide" data-index="58">
   
   <div class="slide__content"><h2>～ことがある · Practice 2</h2>
-<p><strong>2.</strong> Choose: 海外(かいがい)のホテルではお湯(ゆ)が出(で)ない（ことがある・ことがあった）。</p>
+<p><strong>2.</strong> Choose: <ruby>海外<rt>かいがい</rt></ruby>のホテルではお<ruby>湯<rt>ゆ</rt></ruby>が<ruby>出<rt>で</rt></ruby>ない（ことがある・ことがあった）。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-海外(かいがい)のホテルではお湯(ゆ)が出(で)ない<strong>ことがある</strong>。</p>
+<ruby>海外<rt>かいがい</rt></ruby>のホテルではお<ruby>湯<rt>ゆ</rt></ruby>が<ruby>出<rt>で</rt></ruby>ない<strong>ことがある</strong>。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 The sentence is a general warning about hotels abroad, valid now, so the non-past <code>ある</code> is right. <code>ことがあった</code> would narrow it to something that used to happen, or to a specific stay in the past - and a warning about a trip already over helps nobody.</p>
 </div>
 </div>
-<div class="slide" data-index="47">
+<div class="slide" data-index="59">
   
   <div class="slide__content"><h2>～ことがある · Practice 3</h2>
 <p><strong>3.</strong> Translate into Japanese: &quot;The printer sometimes stops working, so please check it before the meeting.&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-プリンターが<strong>動(うご)かなくなることがある</strong>ので、会議(かいぎ)の前(まえ)に確認(かくにん)してください。</p>
+プリンターが**<ruby>動<rt>うご</rt></ruby>かなくなることがある**ので、<ruby>会議<rt>かいぎ</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>に<ruby>確認<rt>かくにん</rt></ruby>してください。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The negative goes on the main verb - <code>動(うご)かなくなる</code> - and <code>ことがある</code> then wraps the whole situation. This is the classic instruction-manual shape: report the occasional failure, then say what to do about it.</p>
+The negative goes on the main verb - <code><ruby>動<rt>うご</rt></ruby>かなくなる</code> - and <code>ことがある</code> then wraps the whole situation. This is the classic instruction-manual shape: report the occasional failure, then say what to do about it.</p>
 </div>
 </div>
-<div class="slide" data-index="48">
+<div class="slide" data-index="60">
   
   <div class="slide__content"><h2>～ことがある · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 去年(きょねん)、一度(いちど)だけ会社(かいしゃ)に遅刻(ちこく)することがあります。</p>
+<p><strong>4.</strong> Find and fix the error: <ruby>去年<rt>きょねん</rt></ruby>、<ruby>一度<rt>いちど</rt></ruby>だけ<ruby>会社<rt>かいしゃ</rt></ruby>に<ruby>遅刻<rt>ちこく</rt></ruby>することがあります。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 去年(きょねん)、一度(いちど)だけ会社(かいしゃ)に<strong>遅刻(ちこく)したことがあります</strong>。</p>
+✅ <ruby>去年<rt>きょねん</rt></ruby>、<ruby>一度<rt>いちど</rt></ruby>だけ<ruby>会社<rt>かいしゃ</rt></ruby>に**<ruby>遅刻<rt>ちこく</rt></ruby>したことがあります**。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>一度(いちど)だけ</code> plus a past year describes an experience, not a recurring pattern, so the verb before <code>こと</code> has to be in the た-form. Left as it stands, the sentence says you are occasionally late - and dates it to last year, which makes no sense.</p>
+<code><ruby>一度<rt>いちど</rt></ruby>だけ</code> plus a past year describes an experience, not a recurring pattern, so the verb before <code>こと</code> has to be in the た-form. Left as it stands, the sentence says you are occasionally late - and dates it to last year, which makes no sense.</p>
 </div>
 </div>
-<div class="slide" data-index="49">
+<div class="slide" data-index="61">
   
   <div class="slide__content"><h2>～ことがある · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 電車(でんしゃ)が止(と)まる<strong>ことがあります</strong>。 (b) 電車(でんしゃ)が止(と)まる<strong>かもしれません</strong>。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>電車<rt>でんしゃ</rt></ruby>が<ruby>止<rt>と</rt></ruby>まる<strong>ことがあります</strong>。 (b) <ruby>電車<rt>でんしゃ</rt></ruby>が<ruby>止<rt>と</rt></ruby>まる<strong>かもしれません</strong>。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) is a statement about the line&#39;s history: stoppages happen here from time to time. It is the sentence for explaining the route to someone new, and it says nothing at all about today.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (b) is a prediction about the situation at hand - the wind is picking up, so the trains may well stop. It carries no claim that this has ever happened before, and it would be strange as a general description of the line.</p>
 </div>
 </div>
-<div class="slide" data-index="50">
+<div class="slide" data-index="62">
   
   <div class="slide__content"><h1>～ように - in order to</h1>
 <p><strong>Meaning</strong> · so that something will be the case - you act now with an eye on a result you cannot simply perform yourself</p>
-<p>The clause in front of <code>ように</code> is not another thing you do. It is a <strong>state you are aiming at</strong>: something becoming possible, something not happening, something turning out right. You then do whatever the main clause says in the hope of getting there. <code>見(み)えるように前(まえ)に座(すわ)る</code> - &quot;sit at the front so I can see.&quot; Sitting is the action; being able to see is the target.</p>
+<p>The clause in front of <code>ように</code> is not another thing you do. It is a <strong>state you are aiming at</strong>: something becoming possible, something not happening, something turning out right. You then do whatever the main clause says in the hope of getting there. <code><ruby>見<rt>み</rt></ruby>えるように<ruby>前<rt>まえ</rt></ruby>に<ruby>座<rt>すわ</rt></ruby>る</code> - &quot;sit at the front so I can see.&quot; Sitting is the action; being able to see is the target.</p>
 <p>That is the whole of it, and it is also what separates <code>ように</code> from <code>ために</code>, which takes an action you fully control.</p>
 </div>
 </div>
-<div class="slide" data-index="51">
+<div class="slide" data-index="63">
   
   <div class="slide__content"><h2>～ように - in order to · Formation</h2>
 <p>The clause before <code>ように</code> describes a result, so it is built from verbs that are not straightforwardly willed: potentials, negatives, and intransitives.</p>
-</div>
-</div>
-<div class="slide" data-index="52">
-  
-  <div class="slide__content"><h2>～ように - in order to · Formation (cont.)</h2>
 <table>
 <thead>
 <tr>
@@ -3266,204 +3341,209 @@ The negative goes on the main verb - <code>動(うご)かなくなる</code> - a
 <tbody><tr>
 <td>Verb (potential)</td>
 <td>potential form + ように</td>
-<td>聞(き)こえる → 聞(き)こえるように</td>
+<td><ruby>聞<rt>き</rt></ruby>こえる → <ruby>聞<rt>き</rt></ruby>こえるように</td>
 </tr>
 <tr>
 <td>Verb (intransitive / uncontrollable)</td>
 <td>dictionary form + ように</td>
-<td>間(ま)に合(あ)う → 間(ま)に合(あ)うように</td>
+<td><ruby>間<rt>ま</rt></ruby>に<ruby>合<rt>あ</rt></ruby>う → <ruby>間<rt>ま</rt></ruby>に<ruby>合<rt>あ</rt></ruby>うように</td>
 </tr>
 <tr>
 <td>Verb (negative)</td>
 <td>ない-form + ように</td>
-<td>忘(わす)れない → 忘(わす)れないように</td>
+<td><ruby>忘<rt>わす</rt></ruby>れない → <ruby>忘<rt>わす</rt></ruby>れないように</td>
 </tr>
 <tr>
 <td>As an instruction</td>
 <td>ように + してください</td>
-<td>遅(おく)れないようにしてください</td>
+<td><ruby>遅<rt>おく</rt></ruby>れないようにしてください</td>
 </tr>
 <tr>
 <td>As a wish or prayer</td>
 <td>ますように（sentence-final）</td>
-<td>受(う)かる → 受(う)かりますように</td>
+<td><ruby>受<rt>う</rt></ruby>かる → <ruby>受<rt>う</rt></ruby>かりますように</td>
 </tr>
 <tr>
 <td>Reporting an instruction</td>
-<td>ようにと + 言(い)う・伝(つた)える</td>
-<td>休(やす)むようにと伝(つた)える</td>
+<td>ようにと + <ruby>言<rt>い</rt></ruby>う・<ruby>伝<rt>つた</rt></ruby>える</td>
+<td><ruby>休<rt>やす</rt></ruby>むようにと<ruby>伝<rt>つた</rt></ruby>える</td>
 </tr>
 <tr>
 <td>Formal written</td>
 <td>ように → よう</td>
-<td>注意(ちゅうい)なさいますよう</td>
+<td><ruby>注意<rt>ちゅうい</rt></ruby>なさいますよう</td>
 </tr>
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="53">
+<div class="slide" data-index="64">
   
   <div class="slide__content"><h2>～ように - in order to · Formation (cont.)</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - nouns and adjectives cannot sit in front of purpose <code>ように</code>. Turn the goal into a verb first: not ❌<code>静(しず)かなように</code> but <code>静(しず)かになるように</code> or <code>静(しず)かにするように</code>.</p>
+<p><strong>Rule of thumb</strong> - nouns and adjectives cannot sit in front of purpose <code>ように</code>. Turn the goal into a verb first: not ❌<code><ruby>静<rt>しず</rt></ruby>かなように</code> but <code><ruby>静<rt>しず</rt></ruby>かになるように</code> or <code><ruby>静<rt>しず</rt></ruby>かにするように</code>.</p>
 </blockquote>
 <blockquote>
-<p><strong>Note</strong> - a <code>ように</code> you meet after a noun plus <code>の</code>, or after a verb meaning &quot;as I said&quot;, is the <em>comparison</em> <code>ように</code> from N4: <code>鳥(とり)のように</code>, &quot;like a bird&quot;. Same syllables, unrelated job. Purpose <code>ように</code> always has a full clause in front of it and a second clause after it.</p>
+<p><strong>Note</strong> - a <code>ように</code> you meet after a noun plus <code>の</code>, or after a verb meaning &quot;as I said&quot;, is the <em>comparison</em> <code>ように</code> from N4: <code><ruby>鳥<rt>とり</rt></ruby>のように</code>, &quot;like a bird&quot;. Same syllables, unrelated job. Purpose <code>ように</code> always has a full clause in front of it and a second clause after it.</p>
 </blockquote>
 </div>
 </div>
-<div class="slide" data-index="54">
+<div class="slide" data-index="65">
   
   <div class="slide__content"><h2>～ように - in order to · Examples</h2>
-<p>みんなに<strong>聞(き)こえるように</strong>大(おお)きな声(こえ)で話(はな)した。<br><em>I spoke up so that everyone could hear.</em></p>
-<p><strong>忘(わす)れないように</strong>メモしておきます。<br><em>I&#39;ll make a note of it so I don&#39;t forget.</em></p>
-<p>風邪(かぜ)を<strong>ひかないように</strong>、上着(うわぎ)を持(も)っていきなさい。<br><em>Take a jacket so you don&#39;t catch cold.</em></p>
-<p>子(こ)どもでも<strong>使(つか)えるように</strong>、ボタンを大(おお)きくしました。<br><em>We made the buttons big so that even a child can use it.</em></p>
-<p>どうか明日(あした)<strong>晴(は)れますように</strong>。<br><em>Please let it be fine tomorrow.</em></p>
+<p>みんなに**<ruby>聞<rt>き</rt></ruby>こえるように**<ruby>大<rt>おお</rt></ruby>きな<ruby>声<rt>こえ</rt></ruby>で<ruby>話<rt>はな</rt></ruby>した。<br><em>I spoke up so that everyone could hear.</em></p>
+<p><strong><ruby>忘<rt>わす</rt></ruby>れないように</strong>メモしておきます。<br><em>I&#39;ll make a note of it so I don&#39;t forget.</em></p>
+<p><ruby>風邪<rt>かぜ</rt></ruby>を<strong>ひかないように</strong>、<ruby>上着<rt>うわぎ</rt></ruby>を<ruby>持<rt>も</rt></ruby>っていきなさい。<br><em>Take a jacket so you don&#39;t catch cold.</em></p>
+<p><ruby>子<rt>こ</rt></ruby>どもでも**<ruby>使<rt>つか</rt></ruby>えるように**、ボタンを<ruby>大<rt>おお</rt></ruby>きくしました。<br><em>We made the buttons big so that even a child can use it.</em></p>
 </div>
 </div>
-<div class="slide" data-index="55">
+<div class="slide" data-index="66">
   
   <div class="slide__content"><h2>～ように - in order to · Examples (cont.)</h2>
-<p>朝(あさ)の会議(かいぎ)に<strong>間(ま)に合(あ)うように</strong>、一本(いっぽん)早(はや)い電車(でんしゃ)に乗(の)った。<br><em>I caught a train one earlier so I&#39;d make the morning meeting.</em></p>
-<p>後(あと)で誰(だれ)が見(み)ても<strong>分(わ)かるように</strong>、ファイルの名前(なまえ)に日付(ひづけ)を入(い)れています。<br><em>I put the date in the file names so that anyone can make sense of them later.</em></p>
-<p>祖父(そふ)が<strong>転(ころ)ばないように</strong>、廊下(ろうか)に手(て)すりをつけてもらった。<br><em>We had a handrail fitted in the hallway so my grandfather wouldn&#39;t fall.</em></p>
+<p>どうか<ruby>明日<rt>あした</rt></ruby><strong><ruby>晴<rt>は</rt></ruby>れますように</strong>。<br><em>Please let it be fine tomorrow.</em></p>
+<p><ruby>朝<rt>あさ</rt></ruby>の<ruby>会議<rt>かいぎ</rt></ruby>に**<ruby>間<rt>ま</rt></ruby>に<ruby>合<rt>あ</rt></ruby>うように**、<ruby>一本<rt>いっぽん</rt></ruby><ruby>早<rt>はや</rt></ruby>い<ruby>電車<rt>でんしゃ</rt></ruby>に<ruby>乗<rt>の</rt></ruby>った。<br><em>I caught a train one earlier so I&#39;d make the morning meeting.</em></p>
+<p><ruby>後<rt>あと</rt></ruby>で<ruby>誰<rt>だれ</rt></ruby>が<ruby>見<rt>み</rt></ruby>ても**<ruby>分<rt>わ</rt></ruby>かるように**、ファイルの<ruby>名前<rt>なまえ</rt></ruby>に<ruby>日付<rt>ひづけ</rt></ruby>を<ruby>入<rt>い</rt></ruby>れています。<br><em>I put the date in the file names so that anyone can make sense of them later.</em></p>
+<p><ruby>祖父<rt>そふ</rt></ruby>が**<ruby>転<rt>ころ</rt></ruby>ばないように**、<ruby>廊下<rt>ろうか</rt></ruby>に<ruby>手<rt>て</rt></ruby>すりをつけてもらった。<br><em>We had a handrail fitted in the hallway so my grandfather wouldn&#39;t fall.</em></p>
 </div>
 </div>
-<div class="slide" data-index="56">
+<div class="slide" data-index="67">
   
   <div class="slide__content"><h2>～ように - in order to · Nuance &amp; register</h2>
 <p><code>ように</code> itself is neutral, but it turns up in three settings often enough to be worth recognising.</p>
-<p><strong>Instructions and notices.</strong> Written Japanese drops the <code>に</code> and uses bare <code>よう</code>: <code>足元(あしもと)にご注意(ちゅうい)くださいますよう、お願(ねが)い申(もう)し上(あ)げます</code>. That <code>よう</code> is stiff and formal, and it is everywhere in announcements, signs and business letters. Learners often read it as a typo for <code>ように</code>; it is not.</p>
-<p><strong>A softened order.</strong> A sentence can stop at <code>ように</code> and let the verb be understood: <code>明日(あした)は遅(おく)れないように。</code> - &quot;Don&#39;t be late tomorrow, now.&quot; This is common from teachers and supervisors and lands rather more gently than <code>～ないでください</code>, because grammatically it is a statement of the goal rather than a command aimed at a person.</p>
+<p><strong>Instructions and notices.</strong> Written Japanese drops the <code>に</code> and uses bare <code>よう</code>: <code><ruby>足元<rt>あしもと</rt></ruby>にご<ruby>注意<rt>ちゅうい</rt></ruby>くださいますよう、お<ruby>願<rt>ねが</rt></ruby>い<ruby>申<rt>もう</rt></ruby>し<ruby>上<rt>あ</rt></ruby>げます</code>. That <code>よう</code> is stiff and formal, and it is everywhere in announcements, signs and business letters. Learners often read it as a typo for <code>ように</code>; it is not.</p>
+<p><strong>A softened order.</strong> A sentence can stop at <code>ように</code> and let the verb be understood: <code><ruby>明日<rt>あした</rt></ruby>は<ruby>遅<rt>おく</rt></ruby>れないように。</code> - &quot;Don&#39;t be late tomorrow, now.&quot; This is common from teachers and supervisors and lands rather more gently than <code>～ないでください</code>, because grammatically it is a statement of the goal rather than a command aimed at a person.</p>
 </div>
 </div>
-<div class="slide" data-index="57">
+<div class="slide" data-index="68">
   
   <div class="slide__content"><h2>～ように - in order to · Nuance &amp; register (cont.)</h2>
-<p><strong>Wishes.</strong> The prayer form is fixed as <code>～ますように</code> and keeps its <code>ます</code> even in the most casual speech: <code>元気(げんき)で過(す)ごせますように</code> written on a shrine tablet, or muttered while crossing your fingers. Note that it has no main clause at all - the sentence simply ends there, which is why it feels like a prayer rather than a plan.</p>
-<p>Finally, <code>ように</code> inside reported speech becomes <code>ようにと</code> before verbs of saying, asking and hoping: <code>早(はや)く治(なお)るようにと祈(いの)っている</code>. The <code>と</code> is optional in speech and usual in writing.</p>
+<p><strong>Wishes.</strong> The prayer form is fixed as <code>～ますように</code> and keeps its <code>ます</code> even in the most casual speech: <code><ruby>元気<rt>げんき</rt></ruby>で<ruby>過<rt>す</rt></ruby>ごせますように</code> written on a shrine tablet, or muttered while crossing your fingers. Note that it has no main clause at all - the sentence simply ends there, which is why it feels like a prayer rather than a plan.</p>
+<p>Finally, <code>ように</code> inside reported speech becomes <code>ようにと</code> before verbs of saying, asking and hoping: <code><ruby>早<rt>はや</rt></ruby>く<ruby>治<rt>なお</rt></ruby>るようにと<ruby>祈<rt>いの</rt></ruby>っている</code>. The <code>と</code> is optional in speech and usual in writing.</p>
 </div>
 </div>
-<div class="slide" data-index="58">
+<div class="slide" data-index="69">
   
   <div class="slide__content"><h2>～ように - in order to · ～ように vs ～ために</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>ために</code> takes a goal <strong>you can simply go and do</strong>, and the two clauses share a subject. <code>ように</code> takes a goal <strong>that has to come about</strong>, and the subjects may differ.</p>
 </blockquote>
-<p>留学(りゅうがく)<strong>するために</strong>、お金(かね)をためています。<br><em>I&#39;m saving up in order to study abroad.</em></p>
-<p>息子(むすこ)が留学(りゅうがく)<strong>できるように</strong>、お金(かね)をためています。<br><em>I&#39;m saving up so that my son can study abroad.</em></p>
-<p>In the first, going abroad is an act the saver will perform: same person, fully volitional, so <code>ために</code>. In the second the goal belongs to somebody else and is phrased as a possibility - hence the potential form and <code>ように</code>. Notice that changing the verb to a potential is often all it takes to move a sentence from one pattern to the other: <code>読(よ)むために</code> versus <code>読(よ)めるように</code>.</p>
+<p><ruby>留学<rt>りゅうがく</rt></ruby><strong>するために</strong>、お<ruby>金<rt>かね</rt></ruby>をためています。<br><em>I&#39;m saving up in order to study abroad.</em></p>
+<p><ruby>息子<rt>むすこ</rt></ruby>が<ruby>留学<rt>りゅうがく</rt></ruby><strong>できるように</strong>、お<ruby>金<rt>かね</rt></ruby>をためています。<br><em>I&#39;m saving up so that my son can study abroad.</em></p>
 </div>
 </div>
-<div class="slide" data-index="59">
+<div class="slide" data-index="70">
   
   <div class="slide__content"><h2>～ように - in order to · ～ように vs ～ために (cont.)</h2>
+<p>In the first, going abroad is an act the saver will perform: same person, fully volitional, so <code>ために</code>. In the second the goal belongs to somebody else and is phrased as a possibility - hence the potential form and <code>ように</code>. Notice that changing the verb to a potential is often all it takes to move a sentence from one pattern to the other: <code><ruby>読<rt>よ</rt></ruby>むために</code> versus <code><ruby>読<rt>よ</rt></ruby>めるように</code>.</p>
 <p>A useful side effect: because <code>ために</code> promises a deliberate act, it sounds purposeful and even a little formal in a plan or a proposal. <code>ように</code> sounds considerate, because it usually has someone else&#39;s convenience in it.</p>
 </div>
 </div>
-<div class="slide" data-index="60">
+<div class="slide" data-index="71">
   
   <div class="slide__content"><h2>～ように - in order to · ～ないように vs ～ないために</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - for a <strong>negative</strong> purpose, use <code>ないように</code>. <code>ないために</code> normally gets read as a <em>cause</em> - &quot;because ～ not&quot; - which is not what you meant.</p>
 </blockquote>
-<p>遅(おく)れ<strong>ないように</strong>、三十分(さんじゅっぷん)早(はや)く家(いえ)を出(で)た。<br><em>I left half an hour early so as not to be late.</em></p>
-<p>雨(あめ)が降(ふ)ら<strong>ないために</strong>、野菜(やさい)の値段(ねだん)が上(あ)がっている。<br><em>Vegetable prices are rising because there has been no rain.</em></p>
-<p>The asymmetry is easy to explain: &quot;not doing something&quot; is not an act you perform, so it fails <code>ために</code>&#39;s volitional test from the start. Learners who translate &quot;in order not to&quot; word by word land on ❌<code>忘(わす)れないために</code> almost every time. The fix is mechanical - any English &quot;so as not to&quot; or &quot;in order not to&quot; becomes <code>ないように</code>.</p>
+<p><ruby>遅<rt>おく</rt></ruby>れ<strong>ないように</strong>、<ruby>三十分<rt>さんじゅっぷん</rt></ruby><ruby>早<rt>はや</rt></ruby>く<ruby>家<rt>いえ</rt></ruby>を<ruby>出<rt>で</rt></ruby>た。<br><em>I left half an hour early so as not to be late.</em></p>
+<p><ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>ら<strong>ないために</strong>、<ruby>野菜<rt>やさい</rt></ruby>の<ruby>値段<rt>ねだん</rt></ruby>が<ruby>上<rt>あ</rt></ruby>がっている。<br><em>Vegetable prices are rising because there has been no rain.</em></p>
 </div>
 </div>
-<div class="slide" data-index="61">
+<div class="slide" data-index="72">
+  
+  <div class="slide__content"><h2>～ように - in order to · ～ないように vs ～ないために (cont.)</h2>
+<p>The asymmetry is easy to explain: &quot;not doing something&quot; is not an act you perform, so it fails <code>ために</code>&#39;s volitional test from the start. Learners who translate &quot;in order not to&quot; word by word land on ❌<code><ruby>忘<rt>わす</rt></ruby>れないために</code> almost every time. The fix is mechanical - any English &quot;so as not to&quot; or &quot;in order not to&quot; becomes <code>ないように</code>.</p>
+</div>
+</div>
+<div class="slide" data-index="73">
   
   <div class="slide__content"><h2>～ように - in order to · purpose ～ように vs ～のに</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>ように</code> sets a <strong>goal for an action</strong>. <code>のに</code> names the <strong>task a thing is for</strong>, and the clause after it judges that thing: it is useful, it takes time, it costs money, you need one.</p>
 </blockquote>
-<p>野菜(やさい)を<strong>切(き)るのに</strong>、この包丁(ほうちょう)が便利(べんり)です。<br><em>This knife is handy for cutting vegetables.</em></p>
-<p>野菜(やさい)が早(はや)く<strong>切(き)れるように</strong>、包丁(ほうちょう)を研(と)いだ。<br><em>I sharpened the knife so the vegetables would cut quickly.</em></p>
+<p><ruby>野菜<rt>やさい</rt></ruby>を**<ruby>切<rt>き</rt></ruby>るのに**、この<ruby>包丁<rt>ほうちょう</rt></ruby>が<ruby>便利<rt>べんり</rt></ruby>です。<br><em>This knife is handy for cutting vegetables.</em></p>
+<p><ruby>野菜<rt>やさい</rt></ruby>が<ruby>早<rt>はや</rt></ruby>く**<ruby>切<rt>き</rt></ruby>れるように**、<ruby>包丁<rt>ほうちょう</rt></ruby>を<ruby>研<rt>と</rt></ruby>いだ。<br><em>I sharpened the knife so the vegetables would cut quickly.</em></p>
 <p>The <code>のに</code> sentence is an evaluation - what follows is an adjective or a verb of needing, taking or costing. The <code>ように</code> sentence is an action taken with an outcome in mind. If you can put &quot;for the job of ～ing&quot; in the English, it is <code>のに</code>; if you can put &quot;so that&quot;, it is <code>ように</code>.</p>
 </div>
 </div>
-<div class="slide" data-index="62">
+<div class="slide" data-index="74">
   
   <div class="slide__content"><h2>～ように - in order to · Common mistakes</h2>
 <ul>
-<li><p>❌ 日本(にほん)へ行(い)くように、お金(かね)をためています。 → ✅ 日本(にほん)へ<strong>行(い)くために</strong>、お金(かね)をためています。<br><em>Going to Japan is something the speaker will simply do. A controllable act with the same subject takes <code>ために</code>.</em></p>
+<li><p>❌ <ruby>日本<rt>にほん</rt></ruby>へ<ruby>行<rt>い</rt></ruby>くように、お<ruby>金<rt>かね</rt></ruby>をためています。 → ✅ <ruby>日本<rt>にほん</rt></ruby>へ**<ruby>行<rt>い</rt></ruby>くために**、お<ruby>金<rt>かね</rt></ruby>をためています。<br><em>Going to Japan is something the speaker will simply do. A controllable act with the same subject takes <code>ために</code>.</em></p>
 </li>
-<li><p>❌ 忘(わす)れないために、カレンダーに書(か)いた。 → ✅ <strong>忘(わす)れないように</strong>、カレンダーに書(か)いた。<br><em>Negative purpose is always <code>ないように</code>. <code>ないために</code> would be heard as &quot;because I didn&#39;t forget&quot;.</em></p>
+<li><p>❌ <ruby>忘<rt>わす</rt></ruby>れないために、カレンダーに<ruby>書<rt>か</rt></ruby>いた。 → ✅ <strong><ruby>忘<rt>わす</rt></ruby>れないように</strong>、カレンダーに<ruby>書<rt>か</rt></ruby>いた。<br><em>Negative purpose is always <code>ないように</code>. <code>ないために</code> would be heard as &quot;because I didn&#39;t forget&quot;.</em></p>
 </li>
-<li><p>❌ 部屋(へや)が静(しず)かなように、ドアを閉(し)めた。 → ✅ 部屋(へや)が<strong>静(しず)かになるように</strong>、ドアを閉(し)めた。<br><em>A な-adjective cannot stand in front of purpose <code>ように</code>. Give the goal a verb - <code>なる</code> or <code>する</code> - and the sentence works.</em></p>
+<li><p>❌ <ruby>部屋<rt>へや</rt></ruby>が<ruby>静<rt>しず</rt></ruby>かなように、ドアを<ruby>閉<rt>し</rt></ruby>めた。 → ✅ <ruby>部屋<rt>へや</rt></ruby>が**<ruby>静<rt>しず</rt></ruby>かになるように**、ドアを<ruby>閉<rt>し</rt></ruby>めた。<br><em>A な-adjective cannot stand in front of purpose <code>ように</code>. Give the goal a verb - <code>なる</code> or <code>する</code> - and the sentence works.</em></p>
 </li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="63">
+<div class="slide" data-index="75">
   
   <div class="slide__content"><h2>～ように - in order to · Common mistakes (cont.)</h2>
 <ul>
-<li>❌ 明日(あした)晴(は)れるようにします。 → ✅ 明日(あした)<strong>晴(は)れますように</strong>。<br><em>You cannot undertake to make the weather behave. When the goal is entirely out of your hands, the sentence is a wish, not a plan.</em></li>
+<li>❌ <ruby>明日<rt>あした</rt></ruby><ruby>晴<rt>は</rt></ruby>れるようにします。 → ✅ <ruby>明日<rt>あした</rt></ruby><strong><ruby>晴<rt>は</rt></ruby>れますように</strong>。<br><em>You cannot undertake to make the weather behave. When the goal is entirely out of your hands, the sentence is a wish, not a plan.</em></li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="64">
+<div class="slide" data-index="76">
   
   <div class="slide__content"><h2>～ように - in order to · Practice 1</h2>
-<p><strong>1.</strong> 後(うし)ろの席(せき)からも____ように、スクリーンを高(たか)くしました。（見(み)える）</p>
+<p><strong>1.</strong> <ruby>後<rt>うし</rt></ruby>ろの<ruby>席<rt>せき</rt></ruby>からも____ように、スクリーンを<ruby>高<rt>たか</rt></ruby>くしました。（<ruby>見<rt>み</rt></ruby>える）</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-後(うし)ろの席(せき)からも<strong>見(み)えるように</strong>、スクリーンを高(たか)くしました。</p>
+<ruby>後<rt>うし</rt></ruby>ろの<ruby>席<rt>せき</rt></ruby>からも**<ruby>見<rt>み</rt></ruby>えるように**、スクリーンを<ruby>高<rt>たか</rt></ruby>くしました。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 The goal is that the screen <em>be visible</em> to other people - a state, not an act the speaker performs - so the potential form plus <code>ように</code> is correct. Raising the screen is the action, and it goes in the main clause.</p>
 </div>
 </div>
-<div class="slide" data-index="65">
+<div class="slide" data-index="77">
   
   <div class="slide__content"><h2>～ように - in order to · Practice 2</h2>
-<p><strong>2.</strong> Choose: 医者(いしゃ)に（なるように・なるために）、毎日(まいにち)遅(おそ)くまで勉強(べんきょう)している。</p>
+<p><strong>2.</strong> Choose: <ruby>医者<rt>いしゃ</rt></ruby>に（なるように・なるために）、<ruby>毎日<rt>まいにち</rt></ruby><ruby>遅<rt>おそ</rt></ruby>くまで<ruby>勉強<rt>べんきょう</rt></ruby>している。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-医者(いしゃ)に<strong>なるために</strong>、毎日(まいにち)遅(おそ)くまで勉強(べんきょう)している。</p>
+<ruby>医者<rt>いしゃ</rt></ruby>に<strong>なるために</strong>、<ruby>毎日<rt>まいにち</rt></ruby><ruby>遅<rt>おそ</rt></ruby>くまで<ruby>勉強<rt>べんきょう</rt></ruby>している。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 Becoming a doctor is the speaker&#39;s own deliberate aim, and both clauses have the same subject, so it takes <code>ために</code>. <code>ように</code> would suggest the outcome were somehow out of the speaker&#39;s hands, which sits oddly with studying every night to achieve it.</p>
 </div>
 </div>
-<div class="slide" data-index="66">
+<div class="slide" data-index="78">
   
   <div class="slide__content"><h2>～ように - in order to · Practice 3</h2>
 <p><strong>3.</strong> Translate into Japanese: &quot;Please write your name clearly so the staff can read it.&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-係(かかり)の人(ひと)が<strong>読(よ)めるように</strong>、名前(なまえ)をはっきり書(か)いてください。</p>
+<ruby>係<rt>かかり</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>が**<ruby>読<rt>よ</rt></ruby>めるように**、<ruby>名前<rt>なまえ</rt></ruby>をはっきり<ruby>書<rt>か</rt></ruby>いてください。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 The person who reads and the person who writes are different, and &quot;can read&quot; is a potential - both signals point to <code>ように</code>. The polite request then goes on the main verb, where it belongs.</p>
 </div>
 </div>
-<div class="slide" data-index="67">
+<div class="slide" data-index="79">
   
   <div class="slide__content"><h2>～ように - in order to · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 風邪(かぜ)をひかないために、マスクをしています。</p>
+<p><strong>4.</strong> Find and fix the error: <ruby>風邪<rt>かぜ</rt></ruby>をひかないために、マスクをしています。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 風邪(かぜ)を<strong>ひかないように</strong>、マスクをしています。</p>
+✅ <ruby>風邪<rt>かぜ</rt></ruby>を<strong>ひかないように</strong>、マスクをしています。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 &quot;In order not to&quot; is <code>ないように</code> without exception. Catching a cold is not something you choose to do, so the negative goal fails <code>ために</code>&#39;s requirement of a willed action twice over.</p>
 </div>
 </div>
-<div class="slide" data-index="68">
+<div class="slide" data-index="80">
   
   <div class="slide__content"><h2>～ように - in order to · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 子(こ)どもが<strong>寝(ね)られるように</strong>、テレビを消(け)した。 (b) 子(こ)どもを<strong>寝(ね)かせるために</strong>、テレビを消(け)した。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>子<rt>こ</rt></ruby>どもが**<ruby>寝<rt>ね</rt></ruby>られるように**、テレビを<ruby>消<rt>け</rt></ruby>した。 (b) <ruby>子<rt>こ</rt></ruby>どもを**<ruby>寝<rt>ね</rt></ruby>かせるために**、テレビを<ruby>消<rt>け</rt></ruby>した。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) puts the child&#39;s sleep in the position of a hoped-for outcome: the speaker removes an obstacle and the child, one hopes, drops off. It sounds considerate, and it leaves room for the child to stay awake anyway.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-(b) makes it the speaker&#39;s project. The causative <code>寝(ね)かせる</code> is something the parent actively does, so <code>ために</code> fits, and the sentence sounds more like a plan being carried out than a kindness being offered.</p>
+(b) makes it the speaker&#39;s project. The causative <code><ruby>寝<rt>ね</rt></ruby>かせる</code> is something the parent actively does, so <code>ために</code> fits, and the sentence sounds more like a plan being carried out than a kindness being offered.</p>
 </div>
 </div>
-<div class="slide" data-index="69">
+<div class="slide" data-index="81">
   
   <div class="slide__content"><h1>～ようにしている</h1>
 <p><strong>Meaning</strong> · to make a continuing effort to do (or avoid) something - you are trying, as a standing policy, without claiming you always succeed</p>
 <p>N4 gave you <code>ようにする</code>: steering your own behaviour towards some result. Put it in the <code>ている</code> form and the steering becomes <strong>ongoing</strong>. The speaker is not reporting a decision taken this morning, nor a fact about what they do - they are reporting an effort that has been running for a while and is still running.</p>
-<p>That built-in modesty is the point of the pattern. <code>歩(ある)くようにしています</code> means &quot;I try to walk&quot;; it politely declines to promise that you walked yesterday.</p>
+<p>That built-in modesty is the point of the pattern. <code><ruby>歩<rt>ある</rt></ruby>くようにしています</code> means &quot;I try to walk&quot;; it politely declines to promise that you walked yesterday.</p>
 </div>
 </div>
-<div class="slide" data-index="70">
+<div class="slide" data-index="82">
   
   <div class="slide__content"><h2>～ようにしている · Formation</h2>
 <table>
@@ -3477,197 +3557,207 @@ The person who reads and the person who writes are different, and &quot;can read
 <tbody><tr>
 <td>Verb</td>
 <td>dictionary form + ようにしている</td>
-<td>歩(ある)く → 歩(ある)くようにしている</td>
+<td><ruby>歩<rt>ある</rt></ruby>く → <ruby>歩<rt>ある</rt></ruby>くようにしている</td>
 </tr>
 <tr>
 <td>Verb (negative)</td>
 <td>ない-form + ようにしている</td>
-<td>残(のこ)さない → 残(のこ)さないようにしている</td>
+<td><ruby>残<rt>のこ</rt></ruby>さない → <ruby>残<rt>のこ</rt></ruby>さないようにしている</td>
 </tr>
 <tr>
 <td>Verb (potential)</td>
 <td>potential form + ようにしている</td>
-<td>取(と)れる → 連絡(れんらく)が取(と)れるようにしている</td>
+<td><ruby>取<rt>と</rt></ruby>れる → <ruby>連絡<rt>れんらく</rt></ruby>が<ruby>取<rt>と</rt></ruby>れるようにしている</td>
 </tr>
 <tr>
 <td>Polite</td>
 <td>ようにしています</td>
-<td>歩(ある)くようにしています</td>
+<td><ruby>歩<rt>ある</rt></ruby>くようにしています</td>
 </tr>
 <tr>
 <td>Effort beginning now</td>
 <td>ようにする／ようにします</td>
-<td>これから歩(ある)くようにします</td>
+<td>これから<ruby>歩<rt>ある</rt></ruby>くようにします</td>
 </tr>
 <tr>
 <td>Effort that has lapsed</td>
 <td>ようにしていた</td>
-<td>去年(きょねん)までは歩(ある)くようにしていた</td>
+<td><ruby>去年<rt>きょねん</rt></ruby>までは<ruby>歩<rt>ある</rt></ruby>くようにしていた</td>
 </tr>
 <tr>
 <td>Casual speech</td>
 <td>ようにしてる</td>
-<td>歩(ある)くようにしてる</td>
+<td><ruby>歩<rt>ある</rt></ruby>くようにしてる</td>
 </tr>
 <tr>
 <td>Business / humble</td>
 <td>ようにしております</td>
-<td>ご連絡(れんらく)するようにしております</td>
+<td>ご<ruby>連絡<rt>れんらく</rt></ruby>するようにしております</td>
 </tr>
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="71">
+<div class="slide" data-index="83">
   
   <div class="slide__content"><h2>～ようにしている · Formation (cont.)</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - the <code>ない</code> belongs to the <strong>main verb</strong>, never to <code>する</code>. <code>食(た)べないようにしている</code> = &quot;I&#39;m trying not to eat it.&quot; ❌<code>食(た)べるようにしていない</code> says you are not making the effort, which is a confession, not a policy.</p>
+<p><strong>Rule of thumb</strong> - the <code>ない</code> belongs to the <strong>main verb</strong>, never to <code>する</code>. <code><ruby>食<rt>た</rt></ruby>べないようにしている</code> = &quot;I&#39;m trying not to eat it.&quot; ❌<code><ruby>食<rt>た</rt></ruby>べるようにしていない</code> says you are not making the effort, which is a confession, not a policy.</p>
 </blockquote>
 </div>
 </div>
-<div class="slide" data-index="72">
+<div class="slide" data-index="84">
   
   <div class="slide__content"><h2>～ようにしている · Examples</h2>
-<p>毎朝(まいあさ)、コップ一杯(いっぱい)の水(みず)を<strong>飲(の)むようにしている</strong>。<br><em>I try to drink a glass of water every morning.</em></p>
-<p>エレベーターは<strong>使(つか)わないようにしています</strong>。<br><em>I try not to use the lift.</em></p>
-<p>夜(よる)遅(おそ)くはコーヒーを<strong>飲(の)まないようにしている</strong>。<br><em>I try to stay off coffee late at night.</em></p>
-<p>人(ひと)の話(はなし)は最後(さいご)まで<strong>聞(き)くようにしています</strong>。<br><em>I try to hear people out to the end.</em></p>
-<p>机(つくえ)の上(うえ)には物(もの)を<strong>置(お)かないようにしている</strong>。<br><em>I try to keep the desktop clear.</em></p>
+<p><ruby>毎朝<rt>まいあさ</rt></ruby>、コップ<ruby>一杯<rt>いっぱい</rt></ruby>の<ruby>水<rt>みず</rt></ruby>を**<ruby>飲<rt>の</rt></ruby>むようにしている**。<br><em>I try to drink a glass of water every morning.</em></p>
+<p>エレベーターは**<ruby>使<rt>つか</rt></ruby>わないようにしています**。<br><em>I try not to use the lift.</em></p>
+<p><ruby>夜<rt>よる</rt></ruby><ruby>遅<rt>おそ</rt></ruby>くはコーヒーを**<ruby>飲<rt>の</rt></ruby>まないようにしている**。<br><em>I try to stay off coffee late at night.</em></p>
+<p><ruby>人<rt>ひと</rt></ruby>の<ruby>話<rt>はなし</rt></ruby>は<ruby>最後<rt>さいご</rt></ruby>まで**<ruby>聞<rt>き</rt></ruby>くようにしています**。<br><em>I try to hear people out to the end.</em></p>
 </div>
 </div>
-<div class="slide" data-index="73">
+<div class="slide" data-index="85">
   
   <div class="slide__content"><h2>～ようにしている · Examples (cont.)</h2>
-<p>去年(きょねん)までは自転車(じてんしゃ)で<strong>通(かよ)うようにしていた</strong>が、今(いま)は電車(でんしゃ)だ。<br><em>Up to last year I made a point of trying to cycle in, but now I take the train.</em></p>
-<p>家族(かぞく)と食(た)べるときは、テレビを消(け)して<strong>話(はな)すようにしています</strong>。<br><em>When we eat as a family I try to switch the television off and talk.</em></p>
-<p>返事(へんじ)が遅(おそ)くなりそうなときは、一言(ひとこと)だけでも先(さき)に<strong>返(かえ)すようにしている</strong>。<br><em>When I know a proper reply will take a while, I try to send at least a line back first.</em></p>
+<p><ruby>机<rt>つくえ</rt></ruby>の<ruby>上<rt>うえ</rt></ruby>には<ruby>物<rt>もの</rt></ruby>を**<ruby>置<rt>お</rt></ruby>かないようにしている**。<br><em>I try to keep the desktop clear.</em></p>
+<p><ruby>去年<rt>きょねん</rt></ruby>までは<ruby>自転車<rt>じてんしゃ</rt></ruby>で**<ruby>通<rt>かよ</rt></ruby>うようにしていた**が、<ruby>今<rt>いま</rt></ruby>は<ruby>電車<rt>でんしゃ</rt></ruby>だ。<br><em>Up to last year I made a point of trying to cycle in, but now I take the train.</em></p>
+<p><ruby>家族<rt>かぞく</rt></ruby>と<ruby>食<rt>た</rt></ruby>べるときは、テレビを<ruby>消<rt>け</rt></ruby>して**<ruby>話<rt>はな</rt></ruby>すようにしています**。<br><em>When we eat as a family I try to switch the television off and talk.</em></p>
+<p><ruby>返事<rt>へんじ</rt></ruby>が<ruby>遅<rt>おそ</rt></ruby>くなりそうなときは、<ruby>一言<rt>ひとこと</rt></ruby>だけでも<ruby>先<rt>さき</rt></ruby>に**<ruby>返<rt>かえ</rt></ruby>すようにしている**。<br><em>When I know a proper reply will take a while, I try to send at least a line back first.</em></p>
 </div>
 </div>
-<div class="slide" data-index="74">
+<div class="slide" data-index="86">
   
   <div class="slide__content"><h2>～ようにしている · Nuance &amp; register</h2>
-<p>The pattern is register-neutral in form - <code>ようにしています</code> polite, <code>ようにしてる</code> in relaxed speech, <code>ようにしております</code> in business - but it is strongly marked in <strong>attitude</strong>. It presents you as someone who is working at something, which is why it is the default answer to questions about health, study and self-improvement: <code>健康(けんこう)のために何(なに)かしていますか</code> almost invites it.</p>
-<p>Its social value is that it claims effort rather than achievement. Saying <code>毎日(まいにち)勉強(べんきょう)しています</code> can sound like a boast, and it commits you: skip a day and you have misspoken. <code>勉強(べんきょう)するようにしています</code> commits you to nothing but trying, which is both humbler and safer. Japanese conversation about one&#39;s own habits leans heavily on that hedge.</p>
+<p>The pattern is register-neutral in form - <code>ようにしています</code> polite, <code>ようにしてる</code> in relaxed speech, <code>ようにしております</code> in business - but it is strongly marked in <strong>attitude</strong>. It presents you as someone who is working at something, which is why it is the default answer to questions about health, study and self-improvement: <code><ruby>健康<rt>けんこう</rt></ruby>のために<ruby>何<rt>なに</rt></ruby>かしていますか</code> almost invites it.</p>
+<p>Its social value is that it claims effort rather than achievement. Saying <code><ruby>毎日<rt>まいにち</rt></ruby><ruby>勉強<rt>べんきょう</rt></ruby>しています</code> can sound like a boast, and it commits you: skip a day and you have misspoken. <code><ruby>勉強<rt>べんきょう</rt></ruby>するようにしています</code> commits you to nothing but trying, which is both humbler and safer. Japanese conversation about one&#39;s own habits leans heavily on that hedge.</p>
 </div>
 </div>
-<div class="slide" data-index="75">
+<div class="slide" data-index="87">
   
   <div class="slide__content"><h2>～ようにしている · Nuance &amp; register (cont.)</h2>
-<p>The same modesty makes it awkward in the wrong slot. Reporting a company rule with it sounds like you personally are having a go at complying; <code>ことになっています</code> is what you want there. And promising a superior <code>明日(あした)までにやるようにします</code> is weaker than it looks - it offers effort where a commitment was expected. <code>やります</code> or <code>やっておきます</code> is the reassuring answer.</p>
-<p>There is a second, less-taught use worth recognising: setting things up so a state holds. <code>いつでも連絡(れんらく)が取(と)れるようにしている</code> is not about willpower at all - it means &quot;I keep it arranged so that I can be reached.&quot; When the verb before <code>ように</code> is a potential and the object is a thing rather than your own behaviour, this is usually the reading.</p>
+<p>The same modesty makes it awkward in the wrong slot. Reporting a company rule with it sounds like you personally are having a go at complying; <code>ことになっています</code> is what you want there. And promising a superior <code><ruby>明日<rt>あした</rt></ruby>までにやるようにします</code> is weaker than it looks - it offers effort where a commitment was expected. <code>やります</code> or <code>やっておきます</code> is the reassuring answer.</p>
+<p>There is a second, less-taught use worth recognising: setting things up so a state holds. <code>いつでも<ruby>連絡<rt>れんらく</rt></ruby>が<ruby>取<rt>と</rt></ruby>れるようにしている</code> is not about willpower at all - it means &quot;I keep it arranged so that I can be reached.&quot; When the verb before <code>ように</code> is a potential and the object is a thing rather than your own behaviour, this is usually the reading.</p>
 </div>
 </div>
-<div class="slide" data-index="76">
+<div class="slide" data-index="88">
   
   <div class="slide__content"><h2>～ようにしている · ～ようにしている vs ～ことにしている</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>ことにしている</code> is a <strong>rule you keep</strong>; <code>ようにしている</code> is an <strong>effort you make</strong>. Only the second one survives a bad week.</p>
 </blockquote>
-<p>日曜日(にちようび)は仕事(しごと)を<strong>しないことにしている</strong>。<br><em>I don&#39;t work on Sundays - that&#39;s my rule.</em></p>
-<p>日曜日(にちようび)は仕事(しごと)を<strong>しないようにしている</strong>。<br><em>I try not to work on Sundays.</em></p>
+<p><ruby>日曜日<rt>にちようび</rt></ruby>は<ruby>仕事<rt>しごと</rt></ruby>を<strong>しないことにしている</strong>。<br><em>I don&#39;t work on Sundays - that&#39;s my rule.</em></p>
+<p><ruby>日曜日<rt>にちようび</rt></ruby>は<ruby>仕事<rt>しごと</rt></ruby>を<strong>しないようにしている</strong>。<br><em>I try not to work on Sundays.</em></p>
 <p>The first speaker has decided, and the decision holds: if a job comes in on Sunday, it waits. The second speaker is aiming at the same thing and would not be contradicting themselves by working this Sunday. That is why <code>ようにしているが、なかなかできない</code> is a perfectly coherent sentence while <code>ことにしているが、なかなかできない</code> sounds like someone who does not keep their own rules.</p>
 </div>
 </div>
-<div class="slide" data-index="77">
+<div class="slide" data-index="89">
   
   <div class="slide__content"><h2>～ようにしている · ～ようにしている vs ～ことにしている (cont.)</h2>
-<p>There is a grammatical consequence too. Because <code>ようにしている</code> only claims effort, it accepts goals you cannot fully control - <code>早(はや)く寝(ね)る</code>, <code>太(ふと)らない</code>, <code>忘(わす)れない</code>. <code>ことにしている</code> needs something you can simply decide to do, so ❌<code>太(ふと)らないことにしている</code> is odd: you cannot resolve your way out of gaining weight.</p>
+<p>There is a grammatical consequence too. Because <code>ようにしている</code> only claims effort, it accepts goals you cannot fully control - <code><ruby>早<rt>はや</rt></ruby>く<ruby>寝<rt>ね</rt></ruby>る</code>, <code><ruby>太<rt>ふと</rt></ruby>らない</code>, <code><ruby>忘<rt>わす</rt></ruby>れない</code>. <code>ことにしている</code> needs something you can simply decide to do, so ❌<code><ruby>太<rt>ふと</rt></ruby>らないことにしている</code> is odd: you cannot resolve your way out of gaining weight.</p>
 </div>
 </div>
-<div class="slide" data-index="78">
+<div class="slide" data-index="90">
   
   <div class="slide__content"><h2>～ようにしている · ～ようにしている vs ～ようにする</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>ようにする</code> is the effort <strong>starting now</strong>; <code>ようにしている</code> is the effort <strong>already under way</strong>.</p>
 </blockquote>
-<p>明日(あした)から野菜(やさい)を<strong>食(た)べるようにします</strong>。<br><em>From tomorrow I&#39;m going to try to eat vegetables.</em></p>
-<p>このごろ野菜(やさい)を<strong>食(た)べるようにしています</strong>。<br><em>Lately I&#39;ve been trying to eat vegetables.</em></p>
-<p>The non-past form is a resolution or a promise, and it is what you say when someone has just pointed out a problem: <code>気(き)をつけるようにします</code>, &quot;I&#39;ll be more careful.&quot; The <code>ている</code> form is a report on how you have been living, and it needs some past behind it - using it about a plan you formed five minutes ago is wrong.</p>
+<p><ruby>明日<rt>あした</rt></ruby>から<ruby>野菜<rt>やさい</rt></ruby>を**<ruby>食<rt>た</rt></ruby>べるようにします**。<br><em>From tomorrow I&#39;m going to try to eat vegetables.</em></p>
+<p>このごろ<ruby>野菜<rt>やさい</rt></ruby>を**<ruby>食<rt>た</rt></ruby>べるようにしています**。<br><em>Lately I&#39;ve been trying to eat vegetables.</em></p>
 </div>
 </div>
-<div class="slide" data-index="79">
+<div class="slide" data-index="91">
+  
+  <div class="slide__content"><h2>～ようにしている · ～ようにしている vs ～ようにする (cont.)</h2>
+<p>The non-past form is a resolution or a promise, and it is what you say when someone has just pointed out a problem: <code><ruby>気<rt>き</rt></ruby>をつけるようにします</code>, &quot;I&#39;ll be more careful.&quot; The <code>ている</code> form is a report on how you have been living, and it needs some past behind it - using it about a plan you formed five minutes ago is wrong.</p>
+</div>
+</div>
+<div class="slide" data-index="92">
   
   <div class="slide__content"><h2>～ようにしている · ～ようにしている vs plain ～ている</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - plain <code>ている</code> states the habit. <code>ようにしている</code> states the intention behind the habit, and quietly admits it may not always hold.</p>
 </blockquote>
-<p>毎朝(まいあさ)六時(ろくじ)に<strong>起(お)きています</strong>。<br><em>I get up at six every morning.</em></p>
-<p>毎朝(まいあさ)六時(ろくじ)に<strong>起(お)きるようにしています</strong>。<br><em>I try to get up at six every morning.</em></p>
-<p>Use the plain form for facts - a timetable, a medical questionnaire, an account of what actually happens. Use <code>ようにしている</code> when the behaviour is deliberate and you want that showing: it tells the listener there is a reason behind the six o&#39;clock, and that you are the one who chose it. Note also that a plain <code>ている</code> habit can be involuntary - <code>よく忘(わす)れています</code> - while <code>ようにしている</code> never can.</p>
+<p><ruby>毎朝<rt>まいあさ</rt></ruby><ruby>六時<rt>ろくじ</rt></ruby>に**<ruby>起<rt>お</rt></ruby>きています**。<br><em>I get up at six every morning.</em></p>
+<p><ruby>毎朝<rt>まいあさ</rt></ruby><ruby>六時<rt>ろくじ</rt></ruby>に**<ruby>起<rt>お</rt></ruby>きるようにしています**。<br><em>I try to get up at six every morning.</em></p>
 </div>
 </div>
-<div class="slide" data-index="80">
+<div class="slide" data-index="93">
+  
+  <div class="slide__content"><h2>～ようにしている · ～ようにしている vs plain ～ている (cont.)</h2>
+<p>Use the plain form for facts - a timetable, a medical questionnaire, an account of what actually happens. Use <code>ようにしている</code> when the behaviour is deliberate and you want that showing: it tells the listener there is a reason behind the six o&#39;clock, and that you are the one who chose it. Note also that a plain <code>ている</code> habit can be involuntary - <code>よく<ruby>忘<rt>わす</rt></ruby>れています</code> - while <code>ようにしている</code> never can.</p>
+</div>
+</div>
+<div class="slide" data-index="94">
   
   <div class="slide__content"><h2>～ようにしている · Common mistakes</h2>
 <ul>
-<li><p>❌ 毎日(まいにち)走(はし)るのようにしている。 → ✅ 毎日(まいにち)<strong>走(はし)るようにしている</strong>。<br><em><code>よう</code> follows the plain form directly. There is no <code>の</code> and no <code>こと</code> in front of it - that shape belongs to the <code>こと</code> patterns.</em></p>
+<li><p>❌ <ruby>毎日<rt>まいにち</rt></ruby><ruby>走<rt>はし</rt></ruby>るのようにしている。 → ✅ <ruby>毎日<rt>まいにち</rt></ruby><strong><ruby>走<rt>はし</rt></ruby>るようにしている</strong>。<br><em><code>よう</code> follows the plain form directly. There is no <code>の</code> and no <code>こと</code> in front of it - that shape belongs to the <code>こと</code> patterns.</em></p>
 </li>
-<li><p>❌ 甘(あま)い物(もの)を食(た)べるようにしていません。 → ✅ 甘(あま)い物(もの)を<strong>食(た)べないようにしています</strong>。<br><em>Negating <code>する</code> says you have given up trying. To try <em>not</em> to do something, the <code>ない</code> goes on the main verb.</em></p>
+<li><p>❌ <ruby>甘<rt>あま</rt></ruby>い<ruby>物<rt>もの</rt></ruby>を<ruby>食<rt>た</rt></ruby>べるようにしていません。 → ✅ <ruby>甘<rt>あま</rt></ruby>い<ruby>物<rt>もの</rt></ruby>を**<ruby>食<rt>た</rt></ruby>べないようにしています**。<br><em>Negating <code>する</code> says you have given up trying. To try <em>not</em> to do something, the <code>ない</code> goes on the main verb.</em></p>
 </li>
-<li><p>❌ 昨日(きのう)は早(はや)く寝(ね)るようにしました。 → ✅ 昨日(きのう)は早(はや)く<strong>寝(ね)ました</strong>。<br><em>One night is not a policy. <code>ようにする</code> describes how you intend to behave from now on, so it cannot report a single completed evening.</em></p>
+<li><p>❌ <ruby>昨日<rt>きのう</rt></ruby>は<ruby>早<rt>はや</rt></ruby>く<ruby>寝<rt>ね</rt></ruby>るようにしました。 → ✅ <ruby>昨日<rt>きのう</rt></ruby>は<ruby>早<rt>はや</rt></ruby>く**<ruby>寝<rt>ね</rt></ruby>ました**。<br><em>One night is not a policy. <code>ようにする</code> describes how you intend to behave from now on, so it cannot report a single completed evening.</em></p>
 </li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="81">
+<div class="slide" data-index="95">
   
   <div class="slide__content"><h2>～ようにしている · Common mistakes (cont.)</h2>
 <ul>
-<li>❌ 会社(かいしゃ)では制服(せいふく)を着(き)るようにしています。（describing a company rule）→ ✅ 会社(かいしゃ)では制服(せいふく)を<strong>着(き)ることになっています</strong>。<br><em>A rule imposed on you is not an effort you are making. <code>ようにしている</code> here would suggest the uniform is your own private initiative.</em></li>
+<li>❌ <ruby>会社<rt>かいしゃ</rt></ruby>では<ruby>制服<rt>せいふく</rt></ruby>を<ruby>着<rt>き</rt></ruby>るようにしています。（describing a company rule）→ ✅ <ruby>会社<rt>かいしゃ</rt></ruby>では<ruby>制服<rt>せいふく</rt></ruby>を**<ruby>着<rt>き</rt></ruby>ることになっています**。<br><em>A rule imposed on you is not an effort you are making. <code>ようにしている</code> here would suggest the uniform is your own private initiative.</em></li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="82">
+<div class="slide" data-index="96">
   
   <div class="slide__content"><h2>～ようにしている · Practice 1</h2>
-<p><strong>1.</strong> 階段(かいだん)を使(つか)うと体(からだ)にいいので、エスカレーターには____ようにしています。（乗(の)る）</p>
+<p><strong>1.</strong> <ruby>階段<rt>かいだん</rt></ruby>を<ruby>使<rt>つか</rt></ruby>うと<ruby>体<rt>からだ</rt></ruby>にいいので、エスカレーターには____ようにしています。（<ruby>乗<rt>の</rt></ruby>る）</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-エスカレーターには<strong>乗(の)らないようにしています</strong>。</p>
+エスカレーターには**<ruby>乗<rt>の</rt></ruby>らないようにしています**。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Stairs are good for you, so the escalator is what you avoid - that makes this a negative effort, and the <code>ない</code> attaches to <code>乗(の)る</code>. Putting it on <code>する</code> instead would say you have stopped bothering.</p>
+Stairs are good for you, so the escalator is what you avoid - that makes this a negative effort, and the <code>ない</code> attaches to <code><ruby>乗<rt>の</rt></ruby>る</code>. Putting it on <code>する</code> instead would say you have stopped bothering.</p>
 </div>
 </div>
-<div class="slide" data-index="83">
+<div class="slide" data-index="97">
   
   <div class="slide__content"><h2>～ようにしている · Practice 2</h2>
-<p><strong>2.</strong> Choose: 毎年(まいとし)、父(ちち)の誕生日(たんじょうび)には必(かなら)ず電話(でんわ)をする（ようにしている・ことにしている）。</p>
+<p><strong>2.</strong> Choose: <ruby>毎年<rt>まいとし</rt></ruby>、<ruby>父<rt>ちち</rt></ruby>の<ruby>誕生日<rt>たんじょうび</rt></ruby>には<ruby>必<rt>かなら</rt></ruby>ず<ruby>電話<rt>でんわ</rt></ruby>をする（ようにしている・ことにしている）。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-必(かなら)ず電話(でんわ)を<strong>することにしている</strong>。</p>
+<ruby>必<rt>かなら</rt></ruby>ず<ruby>電話<rt>でんわ</rt></ruby>を<strong>することにしている</strong>。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>必(かなら)ず</code> is the deciding word: it says the call always happens, which is a rule kept rather than an effort made. <code>ようにしている</code> would clash with it, since the whole point of that pattern is to leave room for the times it does not come off.</p>
+<code><ruby>必<rt>かなら</rt></ruby>ず</code> is the deciding word: it says the call always happens, which is a rule kept rather than an effort made. <code>ようにしている</code> would clash with it, since the whole point of that pattern is to leave room for the times it does not come off.</p>
 </div>
 </div>
-<div class="slide" data-index="84">
+<div class="slide" data-index="98">
   
   <div class="slide__content"><h2>～ようにしている · Practice 3</h2>
 <p><strong>3.</strong> Translate into Japanese: &quot;Since I got sick, I&#39;ve been trying not to eat out too often.&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-病気(びょうき)をしてから、あまり外食(がいしょく)を<strong>しないようにしています</strong>。</p>
+<ruby>病気<rt>びょうき</rt></ruby>をしてから、あまり<ruby>外食<rt>がいしょく</rt></ruby>を<strong>しないようにしています</strong>。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-&quot;Have been trying&quot; is exactly the <code>ている</code> form of the pattern, and &quot;not to&quot; puts the <code>ない</code> on <code>する</code> of <code>外食(がいしょく)する</code>. Note that <code>あまり</code> pairs naturally with it - the effort is to reduce, not to eliminate.</p>
+&quot;Have been trying&quot; is exactly the <code>ている</code> form of the pattern, and &quot;not to&quot; puts the <code>ない</code> on <code>する</code> of <code><ruby>外食<rt>がいしょく</rt></ruby>する</code>. Note that <code>あまり</code> pairs naturally with it - the effort is to reduce, not to eliminate.</p>
 </div>
 </div>
-<div class="slide" data-index="85">
+<div class="slide" data-index="99">
   
   <div class="slide__content"><h2>～ようにしている · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 来週(らいしゅう)の会議(かいぎ)には遅(おく)れないようにしています。</p>
+<p><strong>4.</strong> Find and fix the error: <ruby>来週<rt>らいしゅう</rt></ruby>の<ruby>会議<rt>かいぎ</rt></ruby>には<ruby>遅<rt>おく</rt></ruby>れないようにしています。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 来週(らいしゅう)の会議(かいぎ)には<strong>遅(おく)れないようにします</strong>。</p>
+✅ <ruby>来週<rt>らいしゅう</rt></ruby>の<ruby>会議<rt>かいぎ</rt></ruby>には**<ruby>遅<rt>おく</rt></ruby>れないようにします**。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 One named meeting in the future cannot be an ongoing effort. The <code>ている</code> form reports a policy you have been keeping up; for a commitment about a single occasion, use the plain <code>ようにします</code>.</p>
 </div>
 </div>
-<div class="slide" data-index="86">
+<div class="slide" data-index="100">
   
   <div class="slide__content"><h2>～ようにしている · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 私(わたし)は朝食(ちょうしょく)を<strong>食(た)べています</strong>。 (b) 私(わたし)は朝食(ちょうしょく)を<strong>食(た)べるようにしています</strong>。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>私<rt>わたし</rt></ruby>は<ruby>朝食<rt>ちょうしょく</rt></ruby>を**<ruby>食<rt>た</rt></ruby>べています**。 (b) <ruby>私<rt>わたし</rt></ruby>は<ruby>朝食<rt>ちょうしょく</rt></ruby>を**<ruby>食<rt>た</rt></ruby>べるようにしています**。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) simply reports the habit. It is the right answer on a health questionnaire, and it implies nothing about why - breakfast is just what happens in this house.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (b) adds the speaker&#39;s intention and a hint of the struggle behind it: mornings are busy, breakfast is easy to skip, and the speaker has made a point of trying. It also leaves the door open for the mornings when it does not happen, which (a) does not.</p>
 </div>
 </div>
-<div class="slide" data-index="87">
+<div class="slide" data-index="101">
   
   <div class="slide__content"><h1>～ことにしている</h1>
 <p><strong>Meaning</strong> · to make a point of doing something - a rule you set for yourself once and have kept ever since</p>
@@ -3675,7 +3765,7 @@ One named meeting in the future cannot be an ongoing effort. The <code>ている
 <p>The English that fits is &quot;I make a point of ～&quot;, &quot;I always ～&quot;, &quot;I make it a rule to ～&quot;. The crucial word is <em>rule</em>: the speaker set it, and the speaker keeps it.</p>
 </div>
 </div>
-<div class="slide" data-index="88">
+<div class="slide" data-index="102">
   
   <div class="slide__content"><h2>～ことにしている · Formation</h2>
 <table>
@@ -3689,190 +3779,196 @@ One named meeting in the future cannot be an ongoing effort. The <code>ている
 <tbody><tr>
 <td>Verb</td>
 <td>dictionary form + ことにしている</td>
-<td>断(ことわ)る → 断(ことわ)ることにしている</td>
+<td><ruby>断<rt>ことわ</rt></ruby>る → <ruby>断<rt>ことわ</rt></ruby>ることにしている</td>
 </tr>
 <tr>
 <td>Verb (negative)</td>
 <td>ない-form + ことにしている</td>
-<td>飲(の)まない → 飲(の)まないことにしている</td>
+<td><ruby>飲<rt>の</rt></ruby>まない → <ruby>飲<rt>の</rt></ruby>まないことにしている</td>
 </tr>
 <tr>
 <td>Verb (treating as true)</td>
 <td>た-form + ことにしている</td>
-<td>聞(き)かなかった → 聞(き)かなかったことにしている</td>
+<td><ruby>聞<rt>き</rt></ruby>かなかった → <ruby>聞<rt>き</rt></ruby>かなかったことにしている</td>
 </tr>
 <tr>
 <td>Polite</td>
 <td>ことにしています</td>
-<td>断(ことわ)ることにしています</td>
+<td><ruby>断<rt>ことわ</rt></ruby>ることにしています</td>
 </tr>
 <tr>
 <td>Business / humble</td>
 <td>ことにしております</td>
-<td>ご案内(あんない)することにしております</td>
+<td>ご<ruby>案内<rt>あんない</rt></ruby>することにしております</td>
 </tr>
 <tr>
 <td>The moment of deciding</td>
 <td>ことにする／ことにした</td>
-<td>断(ことわ)ることにした</td>
+<td><ruby>断<rt>ことわ</rt></ruby>ることにした</td>
 </tr>
 <tr>
 <td>A rule no longer kept</td>
 <td>ことにしていた</td>
-<td>以前(いぜん)は断(ことわ)ることにしていた</td>
+<td><ruby>以前<rt>いぜん</rt></ruby>は<ruby>断<rt>ことわ</rt></ruby>ることにしていた</td>
 </tr>
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="89">
+<div class="slide" data-index="103">
   
   <div class="slide__content"><h2>～ことにしている · Formation (cont.)</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - <code>こと</code> is a noun being modified, so the verb in front of it is <strong>plain</strong>: ✅<code>断(ことわ)ることにしている</code>, ❌<code>断(ことわ)りますことにしている</code>. The politeness lives on <code>する</code> at the end of the sentence, and nowhere else.</p>
+<p><strong>Rule of thumb</strong> - <code>こと</code> is a noun being modified, so the verb in front of it is <strong>plain</strong>: ✅<code><ruby>断<rt>ことわ</rt></ruby>ることにしている</code>, ❌<code><ruby>断<rt>ことわ</rt></ruby>りますことにしている</code>. The politeness lives on <code>する</code> at the end of the sentence, and nowhere else.</p>
 </blockquote>
 <blockquote>
-<p><strong>Note</strong> - the subject does not have to be one person. A shop, a household or a team can set its own policy, and then <code>ことにしている</code> is still correct because the deciding was done by the speaker&#39;s own side: <code>当店(とうてん)では…使(つか)うことにしております</code>.</p>
+<p><strong>Note</strong> - the subject does not have to be one person. A shop, a household or a team can set its own policy, and then <code>ことにしている</code> is still correct because the deciding was done by the speaker&#39;s own side: <code><ruby>当店<rt>とうてん</rt></ruby>では…<ruby>使<rt>つか</rt></ruby>うことにしております</code>.</p>
 </blockquote>
 </div>
 </div>
-<div class="slide" data-index="90">
+<div class="slide" data-index="104">
   
   <div class="slide__content"><h2>～ことにしている · Examples</h2>
-<p>日曜日(にちようび)は仕事(しごと)を<strong>しないことにしている</strong>。<br><em>I make a point of not working on Sundays.</em></p>
-<p>寝(ね)る前(まえ)に必(かなら)ず歯(は)を<strong>磨(みが)くことにしています</strong>。<br><em>I always brush my teeth before bed, without fail.</em></p>
-<p>初対面(しょたいめん)の人(ひと)には年(とし)を<strong>聞(き)かないことにしている</strong>。<br><em>I make it a rule not to ask people I&#39;ve just met their age.</em></p>
-<p>お酒(さけ)は週末(しゅうまつ)だけと決(き)めて、平日(へいじつ)は<strong>飲(の)まないことにしています</strong>。<br><em>I&#39;ve settled on weekends only for alcohol, so I don&#39;t drink on weekdays.</em></p>
-<p>夫(おっと)の誕生日(たんじょうび)には、必(かなら)ず手紙(てがみ)を<strong>書(か)くことにしている</strong>。<br><em>On my husband&#39;s birthday I always write him a letter.</em></p>
+<p><ruby>日曜日<rt>にちようび</rt></ruby>は<ruby>仕事<rt>しごと</rt></ruby>を<strong>しないことにしている</strong>。<br><em>I make a point of not working on Sundays.</em></p>
+<p><ruby>寝<rt>ね</rt></ruby>る<ruby>前<rt>まえ</rt></ruby>に<ruby>必<rt>かなら</rt></ruby>ず<ruby>歯<rt>は</rt></ruby>を**<ruby>磨<rt>みが</rt></ruby>くことにしています**。<br><em>I always brush my teeth before bed, without fail.</em></p>
+<p><ruby>初対面<rt>しょたいめん</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>には<ruby>年<rt>とし</rt></ruby>を**<ruby>聞<rt>き</rt></ruby>かないことにしている**。<br><em>I make it a rule not to ask people I&#39;ve just met their age.</em></p>
+<p>お<ruby>酒<rt>さけ</rt></ruby>は<ruby>週末<rt>しゅうまつ</rt></ruby>だけと<ruby>決<rt>き</rt></ruby>めて、<ruby>平日<rt>へいじつ</rt></ruby>は**<ruby>飲<rt>の</rt></ruby>まないことにしています**。<br><em>I&#39;ve settled on weekends only for alcohol, so I don&#39;t drink on weekdays.</em></p>
 </div>
 </div>
-<div class="slide" data-index="91">
+<div class="slide" data-index="105">
   
   <div class="slide__content"><h2>～ことにしている · Examples (cont.)</h2>
-<p>当店(とうてん)では、材料(ざいりょう)は地元(じもと)のものを<strong>使(つか)うことにしております</strong>。<br><em>Here at the shop we make a point of using local ingredients.</em></p>
-<p>時間(じかん)がない朝(あさ)でも、朝食(ちょうしょく)だけは<strong>抜(ぬ)かないことにしています</strong>。<br><em>Even on mornings when I&#39;m short of time, breakfast is the one thing I never skip.</em></p>
-<p>誘(さそ)われても、翌日(よくじつ)が早(はや)い日(ひ)は二次会(にじかい)には<strong>行(い)かないことにしている</strong>。<br><em>Even when I&#39;m invited, if I have an early start the next day I don&#39;t go on to the second round.</em></p>
+<p><ruby>夫<rt>おっと</rt></ruby>の<ruby>誕生日<rt>たんじょうび</rt></ruby>には、<ruby>必<rt>かなら</rt></ruby>ず<ruby>手紙<rt>てがみ</rt></ruby>を**<ruby>書<rt>か</rt></ruby>くことにしている**。<br><em>On my husband&#39;s birthday I always write him a letter.</em></p>
+<p><ruby>当店<rt>とうてん</rt></ruby>では、<ruby>材料<rt>ざいりょう</rt></ruby>は<ruby>地元<rt>じもと</rt></ruby>のものを**<ruby>使<rt>つか</rt></ruby>うことにしております**。<br><em>Here at the shop we make a point of using local ingredients.</em></p>
+<p><ruby>時間<rt>じかん</rt></ruby>がない<ruby>朝<rt>あさ</rt></ruby>でも、<ruby>朝食<rt>ちょうしょく</rt></ruby>だけは**<ruby>抜<rt>ぬ</rt></ruby>かないことにしています**。<br><em>Even on mornings when I&#39;m short of time, breakfast is the one thing I never skip.</em></p>
+<p><ruby>誘<rt>さそ</rt></ruby>われても、<ruby>翌日<rt>よくじつ</rt></ruby>が<ruby>早<rt>はや</rt></ruby>い<ruby>日<rt>ひ</rt></ruby>は<ruby>二次会<rt>にじかい</rt></ruby>には**<ruby>行<rt>い</rt></ruby>かないことにしている**。<br><em>Even when I&#39;m invited, if I have an early start the next day I don&#39;t go on to the second round.</em></p>
 </div>
 </div>
-<div class="slide" data-index="92">
+<div class="slide" data-index="106">
   
   <div class="slide__content"><h2>～ことにしている · Nuance &amp; register</h2>
-<p>The form is neutral - <code>ことにしている</code> plain, <code>ことにしています</code> polite, <code>ことにしております</code> in business - but the content is not. The pattern announces that you are a person with principles, so it carries a faint weight of self-discipline that a plain habit sentence does not have. Used about something trivial it can sound slightly self-important: <code>毎朝(まいあさ)コーヒーを飲(の)むことにしています</code> is grammatical but makes an oddly solemn announcement out of a cup of coffee.</p>
+<p>The form is neutral - <code>ことにしている</code> plain, <code>ことにしています</code> polite, <code>ことにしております</code> in business - but the content is not. The pattern announces that you are a person with principles, so it carries a faint weight of self-discipline that a plain habit sentence does not have. Used about something trivial it can sound slightly self-important: <code><ruby>毎朝<rt>まいあさ</rt></ruby>コーヒーを<ruby>飲<rt>の</rt></ruby>むことにしています</code> is grammatical but makes an oddly solemn announcement out of a cup of coffee.</p>
 <p>Its most useful job in real conversation is <strong>declining</strong>. Because the sentence attributes the refusal to a rule that predates the invitation, it takes the sting out:</p>
-<p>すみません、平日(へいじつ)は飲(の)まない<strong>ことにしている</strong>んです。<br><em>Sorry - I have a rule about not drinking on weeknights.</em></p>
+<p>すみません、<ruby>平日<rt>へいじつ</rt></ruby>は<ruby>飲<rt>の</rt></ruby>まない<strong>ことにしている</strong>んです。<br><em>Sorry - I have a rule about not drinking on weeknights.</em></p>
 </div>
 </div>
-<div class="slide" data-index="93">
+<div class="slide" data-index="107">
   
   <div class="slide__content"><h2>～ことにしている · Nuance &amp; register (cont.)</h2>
-<p>Nothing there judges the invitation or the person offering, which is precisely why it works. The business register does the same thing at a counter: <code>お受(う)けしないことにしております</code> is a firm refusal that no one can take personally.</p>
-<p>Two smaller points. The <code>た-form + ことにしている</code> variant means treating something as though it were so, as a standing arrangement: <code>見(み)なかったことにしている</code>, &quot;I make a policy of pretending I didn&#39;t see.&quot; And <code>ことにしていた</code> puts the rule in the past and implies it lapsed - useful, but be careful not to use it for a rule you still keep.</p>
+<p>Nothing there judges the invitation or the person offering, which is precisely why it works. The business register does the same thing at a counter: <code>お<ruby>受<rt>う</rt></ruby>けしないことにしております</code> is a firm refusal that no one can take personally.</p>
+<p>Two smaller points. The <code>た-form + ことにしている</code> variant means treating something as though it were so, as a standing arrangement: <code><ruby>見<rt>み</rt></ruby>なかったことにしている</code>, &quot;I make a policy of pretending I didn&#39;t see.&quot; And <code>ことにしていた</code> puts the rule in the past and implies it lapsed - useful, but be careful not to use it for a rule you still keep.</p>
 </div>
 </div>
-<div class="slide" data-index="94">
+<div class="slide" data-index="108">
   
   <div class="slide__content"><h2>～ことにしている · ～ことにしている vs ～ことになっている</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - one letter, two worlds. <code>ことにしている</code> is <strong>my</strong> rule. <code>ことになっている</code> is a rule <strong>I am subject to</strong> - the company&#39;s, the school&#39;s, the custom&#39;s.</p>
 </blockquote>
-<p>会議(かいぎ)の前(まえ)には必(かなら)ず資料(しりょう)を読(よ)んでおく<strong>ことにしている</strong>。<br><em>I make a point of reading the documents before a meeting.</em></p>
-<p>会議(かいぎ)の前(まえ)には資料(しりょう)を読(よ)んでおく<strong>ことになっている</strong>。<br><em>You&#39;re expected to read the documents before a meeting.</em></p>
+<p><ruby>会議<rt>かいぎ</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>には<ruby>必<rt>かなら</rt></ruby>ず<ruby>資料<rt>しりょう</rt></ruby>を<ruby>読<rt>よ</rt></ruby>んでおく<strong>ことにしている</strong>。<br><em>I make a point of reading the documents before a meeting.</em></p>
+<p><ruby>会議<rt>かいぎ</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>には<ruby>資料<rt>しりょう</rt></ruby>を<ruby>読<rt>よ</rt></ruby>んでおく<strong>ことになっている</strong>。<br><em>You&#39;re expected to read the documents before a meeting.</em></p>
 <p>The first speaker could stop tomorrow and answer to nobody. The second speaker cannot, because the arrangement is not theirs to change. This is why explaining a workplace rule with <code>ことにしている</code> sounds strange - it claims authorship of something you were handed - and why explaining a private habit with <code>ことになっている</code> sounds evasive, as though you were blaming a rulebook that does not exist.</p>
 </div>
 </div>
-<div class="slide" data-index="95">
+<div class="slide" data-index="109">
   
   <div class="slide__content"><h2>～ことにしている · ～ことにしている vs ～ことにした</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>ことにした</code> is the <strong>moment</strong> of deciding, and it is news. <code>ことにしている</code> is the <strong>state</strong> of the decision holding, and it is background.</p>
 </blockquote>
-<p>来月(らいげつ)から車(くるま)に乗(の)るのを<strong>やめることにしました</strong>。<br><em>I&#39;ve decided to stop driving from next month.</em></p>
-<p>近(ちか)い所(ところ)へは車(くるま)を<strong>使(つか)わないことにしています</strong>。<br><em>I make a point of not taking the car anywhere nearby.</em></p>
+<p><ruby>来月<rt>らいげつ</rt></ruby>から<ruby>車<rt>くるま</rt></ruby>に<ruby>乗<rt>の</rt></ruby>るのを<strong>やめることにしました</strong>。<br><em>I&#39;ve decided to stop driving from next month.</em></p>
+<p><ruby>近<rt>ちか</rt></ruby>い<ruby>所<rt>ところ</rt></ruby>へは<ruby>車<rt>くるま</rt></ruby>を**<ruby>使<rt>つか</rt></ruby>わないことにしています**。<br><em>I make a point of not taking the car anywhere nearby.</em></p>
 <p>The past form answers &quot;what&#39;s new?&quot; and expects a reaction. The <code>ている</code> form answers &quot;what are you like?&quot; and expects none. Saying <code>ことにしました</code> about a rule you have kept for ten years makes it sound like this morning&#39;s resolution, and saying <code>ことにしています</code> about a decision you reached an hour ago is simply not yet true.</p>
 </div>
 </div>
-<div class="slide" data-index="96">
+<div class="slide" data-index="110">
   
   <div class="slide__content"><h2>～ことにしている · ～ことにしている vs ～ようにしている</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>ことにしている</code> says the thing <strong>happens</strong>. <code>ようにしている</code> says you <strong>try</strong> to make it happen. The gap between them is where all the honesty lives.</p>
 </blockquote>
-<p>毎月(まいつき)一万円(いちまんえん)ずつ<strong>貯金(ちょきん)することにしている</strong>。<br><em>I put ten thousand yen aside every month, as a rule.</em></p>
-<p>毎月(まいつき)少(すこ)しずつ<strong>貯金(ちょきん)するようにしている</strong>。<br><em>I try to save a little each month.</em></p>
-<p>The first is a commitment with a number on it and no room to fail; the second is an intention with a hedge built in. Adverbs sort them: <code>必(かなら)ず</code> and <code>どんなときも</code> belong to <code>ことにしている</code>, while <code>なるべく</code> and <code>できるだけ</code> belong to <code>ようにしている</code>.</p>
+<p><ruby>毎月<rt>まいつき</rt></ruby><ruby>一万円<rt>いちまんえん</rt></ruby>ずつ**<ruby>貯金<rt>ちょきん</rt></ruby>することにしている**。<br><em>I put ten thousand yen aside every month, as a rule.</em></p>
+<p><ruby>毎月<rt>まいつき</rt></ruby><ruby>少<rt>すこ</rt></ruby>しずつ**<ruby>貯金<rt>ちょきん</rt></ruby>するようにしている**。<br><em>I try to save a little each month.</em></p>
 </div>
 </div>
-<div class="slide" data-index="97">
+<div class="slide" data-index="111">
   
   <div class="slide__content"><h2>～ことにしている · ～ことにしている vs ～ようにしている (cont.)</h2>
-<p>The other difference is what each can take as its verb. <code>ことにする</code> needs an action you can simply perform, so ❌<code>風邪(かぜ)をひかないことにしている</code> is nonsense - you cannot resolve not to fall ill. <code>ようにしている</code> accepts it happily, because trying is always possible.</p>
+<p>The first is a commitment with a number on it and no room to fail; the second is an intention with a hedge built in. Adverbs sort them: <code><ruby>必<rt>かなら</rt></ruby>ず</code> and <code>どんなときも</code> belong to <code>ことにしている</code>, while <code>なるべく</code> and <code>できるだけ</code> belong to <code>ようにしている</code>.</p>
+<p>The other difference is what each can take as its verb. <code>ことにする</code> needs an action you can simply perform, so ❌<code><ruby>風邪<rt>かぜ</rt></ruby>をひかないことにしている</code> is nonsense - you cannot resolve not to fall ill. <code>ようにしている</code> accepts it happily, because trying is always possible.</p>
 </div>
 </div>
-<div class="slide" data-index="98">
+<div class="slide" data-index="112">
   
   <div class="slide__content"><h2>～ことにしている · Common mistakes</h2>
 <ul>
-<li><p>❌ 会社(かいしゃ)の規則(きそく)で、残業(ざんぎょう)をしないことにしています。 → ✅ 会社(かいしゃ)の規則(きそく)で、残業(ざんぎょう)を<strong>しないことになっています</strong>。<br><em><code>規則(きそく)で</code> already tells us somebody else decided. A rule handed down to you takes <code>ことになっている</code>.</em></p>
+<li><p>❌ <ruby>会社<rt>かいしゃ</rt></ruby>の<ruby>規則<rt>きそく</rt></ruby>で、<ruby>残業<rt>ざんぎょう</rt></ruby>をしないことにしています。 → ✅ <ruby>会社<rt>かいしゃ</rt></ruby>の<ruby>規則<rt>きそく</rt></ruby>で、<ruby>残業<rt>ざんぎょう</rt></ruby>を<strong>しないことになっています</strong>。<br><em><code><ruby>規則<rt>きそく</rt></ruby>で</code> already tells us somebody else decided. A rule handed down to you takes <code>ことになっている</code>.</em></p>
 </li>
-<li><p>❌ 日本語(にほんご)が上手(じょうず)になることにしている。 → ✅ 日本語(にほんご)が上手(じょうず)に<strong>なるようにしている</strong>。<br><em>Getting good at something is not an act you can decide to perform on a given day. <code>ことにする</code> needs a controllable action; for a goal, use <code>ようにする</code>.</em></p>
+<li><p>❌ <ruby>日本語<rt>にほんご</rt></ruby>が<ruby>上手<rt>じょうず</rt></ruby>になることにしている。 → ✅ <ruby>日本語<rt>にほんご</rt></ruby>が<ruby>上手<rt>じょうず</rt></ruby>に<strong>なるようにしている</strong>。<br><em>Getting good at something is not an act you can decide to perform on a given day. <code>ことにする</code> needs a controllable action; for a goal, use <code>ようにする</code>.</em></p>
 </li>
-<li><p>❌ 毎朝(まいあさ)散歩(さんぽ)しますことにしています。 → ✅ 毎朝(まいあさ)<strong>散歩(さんぽ)することにしています</strong>。<br><em>The verb before <code>こと</code> is plain. Only the final <code>する</code> carries the politeness.</em></p>
-</li>
-<li><p>❌ 今(いま)でも毎日(まいにち)日記(にっき)を書(か)くことにしていました。 → ✅ 今(いま)でも毎日(まいにち)日記(にっき)を<strong>書(か)くことにしています</strong>。<br><em><code>ことにしていた</code> implies the rule has since been dropped, which contradicts <code>今(いま)でも</code>.</em></p>
+<li><p>❌ <ruby>毎朝<rt>まいあさ</rt></ruby><ruby>散歩<rt>さんぽ</rt></ruby>しますことにしています。 → ✅ <ruby>毎朝<rt>まいあさ</rt></ruby><strong><ruby>散歩<rt>さんぽ</rt></ruby>することにしています</strong>。<br><em>The verb before <code>こと</code> is plain. Only the final <code>する</code> carries the politeness.</em></p>
 </li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="99">
+<div class="slide" data-index="113">
+  
+  <div class="slide__content"><h2>～ことにしている · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ <ruby>今<rt>いま</rt></ruby>でも<ruby>毎日<rt>まいにち</rt></ruby><ruby>日記<rt>にっき</rt></ruby>を<ruby>書<rt>か</rt></ruby>くことにしていました。 → ✅ <ruby>今<rt>いま</rt></ruby>でも<ruby>毎日<rt>まいにち</rt></ruby><ruby>日記<rt>にっき</rt></ruby>を**<ruby>書<rt>か</rt></ruby>くことにしています**。<br><em><code>ことにしていた</code> implies the rule has since been dropped, which contradicts <code><ruby>今<rt>いま</rt></ruby>でも</code>.</em></li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="114">
   
   <div class="slide__content"><h2>～ことにしている · Practice 1</h2>
-<p><strong>1.</strong> 健康(けんこう)のために、エレベーターは使(つか)わないで階段(かいだん)を使(つか)う____。</p>
+<p><strong>1.</strong> <ruby>健康<rt>けんこう</rt></ruby>のために、エレベーターは<ruby>使<rt>つか</rt></ruby>わないで<ruby>階段<rt>かいだん</rt></ruby>を<ruby>使<rt>つか</rt></ruby>う____。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-階段(かいだん)を<strong>使(つか)うことにしている</strong>（or 使(つか)うことにしています）</p>
+<ruby>階段<rt>かいだん</rt></ruby>を**<ruby>使<rt>つか</rt></ruby>うことにしている**（or <ruby>使<rt>つか</rt></ruby>うことにしています）</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 The sentence describes something the speaker decided for themselves and has kept up, with a reason attached - the classic shape of a personal rule. <code>ことにした</code> would turn it into a fresh announcement, which the reason clause does not fit.</p>
 </div>
 </div>
-<div class="slide" data-index="100">
+<div class="slide" data-index="115">
   
   <div class="slide__content"><h2>～ことにしている · Practice 2</h2>
-<p><strong>2.</strong> Choose: この学校(がっこう)では、生徒(せいと)は昼食(ちゅうしょく)を教室(きょうしつ)で食(た)べる（ことにしています・ことになっています）。</p>
+<p><strong>2.</strong> Choose: この<ruby>学校<rt>がっこう</rt></ruby>では、<ruby>生徒<rt>せいと</rt></ruby>は<ruby>昼食<rt>ちゅうしょく</rt></ruby>を<ruby>教室<rt>きょうしつ</rt></ruby>で<ruby>食<rt>た</rt></ruby>べる（ことにしています・ことになっています）。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-この学校(がっこう)では、生徒(せいと)は昼食(ちゅうしょく)を教室(きょうしつ)で食(た)べる<strong>ことになっています</strong>。</p>
+この<ruby>学校<rt>がっこう</rt></ruby>では、<ruby>生徒<rt>せいと</rt></ruby>は<ruby>昼食<rt>ちゅうしょく</rt></ruby>を<ruby>教室<rt>きょうしつ</rt></ruby>で<ruby>食<rt>た</rt></ruby>べる<strong>ことになっています</strong>。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The subject is <code>生徒(せいと)</code> and the rule belongs to the school, not to the students. Whenever the sentence explains what an institution requires of people, it is <code>ことになっている</code>.</p>
+The subject is <code><ruby>生徒<rt>せいと</rt></ruby></code> and the rule belongs to the school, not to the students. Whenever the sentence explains what an institution requires of people, it is <code>ことになっている</code>.</p>
 </div>
 </div>
-<div class="slide" data-index="101">
+<div class="slide" data-index="116">
   
   <div class="slide__content"><h2>～ことにしている · Practice 3</h2>
 <p><strong>3.</strong> Translate into Japanese: &quot;I make a point of replying to email the same day.&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-メールにはその日(ひ)のうちに<strong>返事(へんじ)をすることにしています</strong>。</p>
+メールにはその<ruby>日<rt>ひ</rt></ruby>のうちに**<ruby>返事<rt>へんじ</rt></ruby>をすることにしています**。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 &quot;Make a point of&quot; is the standard English for this pattern, and same-day replying is fully within the speaker&#39;s control, so <code>ことにしている</code> rather than <code>ようにしている</code>. Choosing <code>ようにしています</code> would be the modest version - true, but a weaker promise.</p>
 </div>
 </div>
-<div class="slide" data-index="102">
+<div class="slide" data-index="117">
   
   <div class="slide__content"><h2>～ことにしている · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 私(わたし)は来年(らいねん)から大学院(だいがくいん)に行(い)くことにしています。（announcing a decision just reached）</p>
+<p><strong>4.</strong> Find and fix the error: <ruby>私<rt>わたし</rt></ruby>は<ruby>来年<rt>らいねん</rt></ruby>から<ruby>大学院<rt>だいがくいん</rt></ruby>に<ruby>行<rt>い</rt></ruby>くことにしています。（announcing a decision just reached）</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 私(わたし)は来年(らいねん)から大学院(だいがくいん)に<strong>行(い)くことにしました</strong>。</p>
+✅ <ruby>私<rt>わたし</rt></ruby>は<ruby>来年<rt>らいねん</rt></ruby>から<ruby>大学院<rt>だいがくいん</rt></ruby>に**<ruby>行<rt>い</rt></ruby>くことにしました**。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 A decision you are announcing for the first time takes the past form - it is news. The <code>ている</code> form reports a policy that has been in place for a while, and a plan for next year cannot yet be that.</p>
 </div>
 </div>
-<div class="slide" data-index="103">
+<div class="slide" data-index="118">
   
   <div class="slide__content"><h2>～ことにしている · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 肉(にく)は<strong>食(た)べないことにしています</strong>。 (b) 肉(にく)は<strong>食(た)べないようにしています</strong>。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>肉<rt>にく</rt></ruby>は**<ruby>食<rt>た</rt></ruby>べないことにしています**。 (b) <ruby>肉<rt>にく</rt></ruby>は**<ruby>食<rt>た</rt></ruby>べないようにしています**。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) is a rule, and it is absolute: the speaker does not eat meat. A host hearing it will plan the menu around it, because there is nothing to negotiate.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (b) is an effort. The speaker is cutting down and would rather not, but a plate with meat on it is not a crisis. Say (b) when you mean &quot;I&#39;m trying to&quot;, and (a) only when you really mean never - the two get very different reactions at a dinner table.</p>
 </div>
 </div>
-<div class="slide" data-index="104">
+<div class="slide" data-index="119">
   
   <div class="slide__content"><h1>～ことになっている</h1>
 <p><strong>Meaning</strong> · the standing arrangement is that ～ - a rule, a custom or a schedule that someone other than you has settled, and that you are subject to</p>
@@ -3880,7 +3976,7 @@ A decision you are announcing for the first time takes the past form - it is new
 <p>The speaker&#39;s own will is absent by design. That is the pattern&#39;s whole character: it reports an arrangement without taking responsibility for it.</p>
 </div>
 </div>
-<div class="slide" data-index="105">
+<div class="slide" data-index="120">
   
   <div class="slide__content"><h2>～ことになっている · Formation</h2>
 <table>
@@ -3894,191 +3990,187 @@ A decision you are announcing for the first time takes the past form - it is new
 <tbody><tr>
 <td>Verb</td>
 <td>dictionary form + ことになっている</td>
-<td>提出(ていしゅつ)する → 提出(ていしゅつ)することになっている</td>
+<td><ruby>提出<rt>ていしゅつ</rt></ruby>する → <ruby>提出<rt>ていしゅつ</rt></ruby>することになっている</td>
 </tr>
 <tr>
 <td>Verb (negative)</td>
 <td>ない-form + ことになっている</td>
-<td>持(も)ち込(こ)まない → 持(も)ち込(こ)まないことになっている</td>
+<td><ruby>持<rt>も</rt></ruby>ち<ruby>込<rt>こ</rt></ruby>まない → <ruby>持<rt>も</rt></ruby>ち<ruby>込<rt>こ</rt></ruby>まないことになっている</td>
 </tr>
 <tr>
 <td>Noun / whole statement</td>
 <td>ということになっている</td>
-<td>休(やす)み → 明日(あした)は休(やす)みということになっている</td>
+<td><ruby>休<rt>やす</rt></ruby>み → <ruby>明日<rt>あした</rt></ruby>は<ruby>休<rt>やす</rt></ruby>みということになっている</td>
 </tr>
 <tr>
 <td>Polite</td>
 <td>ことになっています</td>
-<td>集(あつ)まることになっています</td>
+<td><ruby>集<rt>あつ</rt></ruby>まることになっています</td>
 </tr>
 <tr>
 <td>Business / humble</td>
 <td>ことになっております</td>
-<td>お預(あず)かりすることになっております</td>
+<td>お<ruby>預<rt>あず</rt></ruby>かりすることになっております</td>
 </tr>
 <tr>
 <td>The rule at the time</td>
 <td>ことになっていた</td>
-<td>着(き)ることになっていた</td>
+<td><ruby>着<rt>き</rt></ruby>ることになっていた</td>
 </tr>
-</tbody></table>
-</div>
-</div>
-<div class="slide" data-index="106">
-  
-  <div class="slide__content"><h2>～ことになっている · Formation (cont.)</h2>
-<table>
-<thead>
 <tr>
-<th>Attaches to</th>
-<th>Form</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody><tr>
 <td>The moment it was settled</td>
 <td>ことになった</td>
-<td>転勤(てんきん)することになった</td>
+<td><ruby>転勤<rt>てんきん</rt></ruby>することになった</td>
 </tr>
 </tbody></table>
+</div>
+</div>
+<div class="slide" data-index="121">
+  
+  <div class="slide__content"><h2>～ことになっている · Formation (cont.)</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>ことになっている</code> and <code>ことにしている</code> differ by one syllable and by who decided. <code>なっている</code> = the rule came to you. <code>している</code> = you made the rule.</p>
 </blockquote>
 <blockquote>
-<p><strong>Note</strong> - for a schedule involving other people, this is the natural pattern even without a formal rule: <code>三時(さんじ)に会(あ)うことになっている</code> means the meeting has been arranged between you and someone else. A plan you formed alone takes <code>つもりだ</code> or a plain future instead.</p>
+<p><strong>Note</strong> - for a schedule involving other people, this is the natural pattern even without a formal rule: <code><ruby>三時<rt>さんじ</rt></ruby>に<ruby>会<rt>あ</rt></ruby>うことになっている</code> means the meeting has been arranged between you and someone else. A plan you formed alone takes <code>つもりだ</code> or a plain future instead.</p>
 </blockquote>
 </div>
 </div>
-<div class="slide" data-index="107">
+<div class="slide" data-index="122">
   
   <div class="slide__content"><h2>～ことになっている · Examples</h2>
-<p>ここでは靴(くつ)を<strong>脱(ぬ)ぐことになっている</strong>。<br><em>You take your shoes off here - that&#39;s the rule.</em></p>
-<p>会議(かいぎ)は毎週(まいしゅう)月曜日(げつようび)に<strong>開(ひら)くことになっています</strong>。<br><em>The meeting is held every Monday.</em></p>
-<p>寮(りょう)では夜(よる)十一時(じゅういちじ)までに<strong>帰(かえ)ることになっています</strong>。<br><em>In the dormitory you&#39;re expected to be back by eleven at night.</em></p>
-<p>来週(らいしゅう)の金曜日(きんようび)に健康(けんこう)診断(しんだん)を<strong>受(う)けることになっている</strong>。<br><em>I&#39;m down for a health check next Friday.</em></p>
-<p>図書館(としょかん)の本(ほん)は外(そと)へ<strong>持(も)ち出(だ)さないことになっています</strong>。<br><em>Library books aren&#39;t to be taken outside.</em></p>
+<p>ここでは<ruby>靴<rt>くつ</rt></ruby>を**<ruby>脱<rt>ぬ</rt></ruby>ぐことになっている**。<br><em>You take your shoes off here - that&#39;s the rule.</em></p>
+<p><ruby>会議<rt>かいぎ</rt></ruby>は<ruby>毎週<rt>まいしゅう</rt></ruby><ruby>月曜日<rt>げつようび</rt></ruby>に**<ruby>開<rt>ひら</rt></ruby>くことになっています**。<br><em>The meeting is held every Monday.</em></p>
+<p><ruby>寮<rt>りょう</rt></ruby>では<ruby>夜<rt>よる</rt></ruby><ruby>十一時<rt>じゅういちじ</rt></ruby>までに**<ruby>帰<rt>かえ</rt></ruby>ることになっています**。<br><em>In the dormitory you&#39;re expected to be back by eleven at night.</em></p>
+<p><ruby>来週<rt>らいしゅう</rt></ruby>の<ruby>金曜日<rt>きんようび</rt></ruby>に<ruby>健康<rt>けんこう</rt></ruby><ruby>診断<rt>しんだん</rt></ruby>を**<ruby>受<rt>う</rt></ruby>けることになっている**。<br><em>I&#39;m down for a health check next Friday.</em></p>
 </div>
 </div>
-<div class="slide" data-index="108">
+<div class="slide" data-index="123">
   
   <div class="slide__content"><h2>～ことになっている · Examples (cont.)</h2>
-<p>表向(おもてむ)きは誰(だれ)も知(し)らなかった<strong>ということになっている</strong>。<br><em>Officially, nobody knew a thing.</em></p>
-<p>規則(きそく)では、領収書(りょうしゅうしょ)がないと経費(けいひ)として<strong>落(お)とせないことになっております</strong>。<br><em>Under the rules, we&#39;re unable to put it through as an expense without a receipt.</em></p>
-<p>担当者(たんとうしゃ)が不在(ふざい)のときは、私(わたし)が代(か)わりに<strong>対応(たいおう)することになっています</strong>。<br><em>When the person in charge is away, I&#39;m the one who deals with it.</em></p>
+<p><ruby>図書館<rt>としょかん</rt></ruby>の<ruby>本<rt>ほん</rt></ruby>は<ruby>外<rt>そと</rt></ruby>へ**<ruby>持<rt>も</rt></ruby>ち<ruby>出<rt>だ</rt></ruby>さないことになっています**。<br><em>Library books aren&#39;t to be taken outside.</em></p>
+<p><ruby>表向<rt>おもてむ</rt></ruby>きは<ruby>誰<rt>だれ</rt></ruby>も<ruby>知<rt>し</rt></ruby>らなかった<strong>ということになっている</strong>。<br><em>Officially, nobody knew a thing.</em></p>
+<p><ruby>規則<rt>きそく</rt></ruby>では、<ruby>領収書<rt>りょうしゅうしょ</rt></ruby>がないと<ruby>経費<rt>けいひ</rt></ruby>として**<ruby>落<rt>お</rt></ruby>とせないことになっております**。<br><em>Under the rules, we&#39;re unable to put it through as an expense without a receipt.</em></p>
+<p><ruby>担当者<rt>たんとうしゃ</rt></ruby>が<ruby>不在<rt>ふざい</rt></ruby>のときは、<ruby>私<rt>わたし</rt></ruby>が<ruby>代<rt>か</rt></ruby>わりに**<ruby>対応<rt>たいおう</rt></ruby>することになっています**。<br><em>When the person in charge is away, I&#39;m the one who deals with it.</em></p>
 </div>
 </div>
-<div class="slide" data-index="109">
+<div class="slide" data-index="124">
   
   <div class="slide__content"><h2>～ことになっている · Nuance &amp; register</h2>
 <p>Neutral in form, institutional in flavour. <code>ことになっています</code> is the ordinary way to explain how an office, a school, a club or a country does things, and <code>ことになっております</code> is its business-humble twin - you will hear it across counters, on the phone and in customer-facing email constantly.</p>
-<p>Its social function is worth spelling out, because it is the reason the pattern survives. It removes the speaker from the decision. Compare a flat <code>規則(きそく)ですから</code>, &quot;it&#39;s the rules&quot;, which puts a wall in front of the customer, with <code>～ことになっておりまして</code>, which reports the same wall while implying the speaker did not build it and is sorry it is there. Refusing with it is polite precisely because it is impersonal.</p>
+<p>Its social function is worth spelling out, because it is the reason the pattern survives. It removes the speaker from the decision. Compare a flat <code><ruby>規則<rt>きそく</rt></ruby>ですから</code>, &quot;it&#39;s the rules&quot;, which puts a wall in front of the customer, with <code>～ことになっておりまして</code>, which reports the same wall while implying the speaker did not build it and is sorry it is there. Refusing with it is polite precisely because it is impersonal.</p>
 </div>
 </div>
-<div class="slide" data-index="110">
+<div class="slide" data-index="125">
   
   <div class="slide__content"><h2>～ことになっている · Nuance &amp; register (cont.)</h2>
-<p>The <code>ということになっている</code> variant adds a further layer: <em>officially</em>, as opposed to actually. <code>この話(はなし)はなかったということになっている</code> - &quot;as far as anyone is concerned, this conversation never happened.&quot; That &quot;on paper&quot; reading is common in fiction and in workplace gossip, and it is not always cynical; it can simply mean &quot;that is the version of record.&quot;</p>
+<p>The <code>ということになっている</code> variant adds a further layer: <em>officially</em>, as opposed to actually. <code>この<ruby>話<rt>はなし</rt></ruby>はなかったということになっている</code> - &quot;as far as anyone is concerned, this conversation never happened.&quot; That &quot;on paper&quot; reading is common in fiction and in workplace gossip, and it is not always cynical; it can simply mean &quot;that is the version of record.&quot;</p>
 <p>One more thing to notice. Because the pattern describes a state, it does not announce change. Use <code>ことになりました</code> for news - a transfer, a new policy, a wedding - and switch to <code>ことになっています</code> once the thing has settled into being how it is. Reversing the two is a very audible mistake: announcing a rule from 1958 with <code>ことになりました</code> makes it sound like this morning&#39;s memo.</p>
 </div>
 </div>
-<div class="slide" data-index="111">
+<div class="slide" data-index="126">
   
   <div class="slide__content"><h2>～ことになっている · ～ことになっている vs ～ことにしている</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - ask who could cancel it. If only you could, it is <code>ことにしている</code>. If you would have to ask someone, it is <code>ことになっている</code>.</p>
 </blockquote>
-<p>うちの課(か)では水曜日(すいようび)は残業(ざんぎょう)を<strong>しないことになっている</strong>。<br><em>In our section we don&#39;t do overtime on Wednesdays.</em></p>
-<p>私(わたし)は水曜日(すいようび)は残業(ざんぎょう)を<strong>しないことにしている</strong>。<br><em>I make a point of not working late on Wednesdays.</em></p>
+<p>うちの<ruby>課<rt>か</rt></ruby>では<ruby>水曜日<rt>すいようび</rt></ruby>は<ruby>残業<rt>ざんぎょう</rt></ruby>を<strong>しないことになっている</strong>。<br><em>In our section we don&#39;t do overtime on Wednesdays.</em></p>
+<p><ruby>私<rt>わたし</rt></ruby>は<ruby>水曜日<rt>すいようび</rt></ruby>は<ruby>残業<rt>ざんぎょう</rt></ruby>を<strong>しないことにしている</strong>。<br><em>I make a point of not working late on Wednesdays.</em></p>
 <p>The first is departmental policy and applies to everyone, including people who would rather stay. The second is one person&#39;s rule and binds nobody else. Learners tend to overuse <code>ことにしている</code> when explaining their workplace, which quietly claims they invented the policy; the reverse error, using <code>ことになっている</code> for a personal habit, sounds like hiding behind a rulebook.</p>
 </div>
 </div>
-<div class="slide" data-index="112">
+<div class="slide" data-index="127">
   
   <div class="slide__content"><h2>～ことになっている · ～ことになっている vs ～ことになった</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>ことになった</code> is the <strong>moment</strong> the arrangement was made, and it is news. <code>ことになっている</code> is the arrangement <strong>standing</strong>, and it is background.</p>
 </blockquote>
-<p>四月(しがつ)から大阪(おおさか)の支店(してん)で<strong>働(はたら)くことになりました</strong>。<br><em>It&#39;s been settled that I&#39;ll be working at the Osaka branch from April.</em></p>
-<p>新入社員(しんにゅうしゃいん)は一年目(いちねんめ)に支店(してん)で<strong>働(はたら)くことになっています</strong>。<br><em>New employees spend their first year at a branch office.</em></p>
+<p><ruby>四月<rt>しがつ</rt></ruby>から<ruby>大阪<rt>おおさか</rt></ruby>の<ruby>支店<rt>してん</rt></ruby>で**<ruby>働<rt>はたら</rt></ruby>くことになりました**。<br><em>It&#39;s been settled that I&#39;ll be working at the Osaka branch from April.</em></p>
+<p><ruby>新入社員<rt>しんにゅうしゃいん</rt></ruby>は<ruby>一年目<rt>いちねんめ</rt></ruby>に<ruby>支店<rt>してん</rt></ruby>で**<ruby>働<rt>はたら</rt></ruby>くことになっています**。<br><em>New employees spend their first year at a branch office.</em></p>
 <p>The past form is what you say when you tell people; the <code>ている</code> form is what you say when you explain the system. A useful test: if the sentence would naturally be followed by <code>おめでとう</code> or <code>そうなんですか</code>, it is <code>ことになった</code>.</p>
 </div>
 </div>
-<div class="slide" data-index="113">
+<div class="slide" data-index="128">
   
-  <div class="slide__content"><h2>～ことになっている · ～ことになっている vs ～予定(よてい)だ・～はずだ</h2>
+  <div class="slide__content"><h2>～ことになっている · ～ことになっている vs ～予定だ・～はずだ</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - <code>ことになっている</code> = the arrangement is on the books. <code>予定(よてい)だ</code> = it is on the schedule. <code>はずだ</code> = I reason that it should be so.</p>
+<p><strong>Rule of thumb</strong> - <code>ことになっている</code> = the arrangement is on the books. <code><ruby>予定<rt>よてい</rt></ruby>だ</code> = it is on the schedule. <code>はずだ</code> = I reason that it should be so.</p>
 </blockquote>
-<p>社長(しゃちょう)は三時(さんじ)に到着(とうちゃく)する<strong>ことになっています</strong>。<br><em>The president is due to arrive at three. (that&#39;s the arrangement)</em></p>
-<p>社長(しゃちょう)は三時(さんじ)に到着(とうちゃく)する<strong>はずです</strong>。<br><em>The president should be arriving at three. (as far as I can work out)</em></p>
-<p><code>はずだ</code> reports the speaker&#39;s inference and therefore admits doubt; <code>ことになっている</code> reports an external fact and does not. <code>予定(よてい)だ</code> sits between them - it states the plan without the flavour of obligation that <code>ことになっている</code> carries, which is why a timetable takes <code>予定(よてい)</code> and a company regulation does not. Note the adverb here is <code>予定(よてい)どおり</code>, &quot;as planned&quot;, with <code>どおり</code> rather than <code>とおり</code> after a noun.</p>
+<p><ruby>社長<rt>しゃちょう</rt></ruby>は<ruby>三時<rt>さんじ</rt></ruby>に<ruby>到着<rt>とうちゃく</rt></ruby>する<strong>ことになっています</strong>。<br><em>The president is due to arrive at three. (that&#39;s the arrangement)</em></p>
+<p><ruby>社長<rt>しゃちょう</rt></ruby>は<ruby>三時<rt>さんじ</rt></ruby>に<ruby>到着<rt>とうちゃく</rt></ruby>する<strong>はずです</strong>。<br><em>The president should be arriving at three. (as far as I can work out)</em></p>
 </div>
 </div>
-<div class="slide" data-index="114">
+<div class="slide" data-index="129">
+  
+  <div class="slide__content"><h2>～ことになっている · ～ことになっている vs ～予定だ・～はずだ (cont.)</h2>
+<p><code>はずだ</code> reports the speaker&#39;s inference and therefore admits doubt; <code>ことになっている</code> reports an external fact and does not. <code><ruby>予定<rt>よてい</rt></ruby>だ</code> sits between them - it states the plan without the flavour of obligation that <code>ことになっている</code> carries, which is why a timetable takes <code><ruby>予定<rt>よてい</rt></ruby></code> and a company regulation does not. Note the adverb here is <code><ruby>予定<rt>よてい</rt></ruby>どおり</code>, &quot;as planned&quot;, with <code>どおり</code> rather than <code>とおり</code> after a noun.</p>
+</div>
+</div>
+<div class="slide" data-index="130">
   
   <div class="slide__content"><h2>～ことになっている · Common mistakes</h2>
 <ul>
-<li><p>❌ うちの会社(かいしゃ)では制服(せいふく)を着(き)ることにしています。（describing the company&#39;s rule）→ ✅ うちの会社(かいしゃ)では制服(せいふく)を<strong>着(き)ることになっています</strong>。<br><em>You did not write the staff handbook. A rule imposed on you takes <code>なっている</code>.</em></p>
+<li><p>❌ うちの<ruby>会社<rt>かいしゃ</rt></ruby>では<ruby>制服<rt>せいふく</rt></ruby>を<ruby>着<rt>き</rt></ruby>ることにしています。（describing the company&#39;s rule）→ ✅ うちの<ruby>会社<rt>かいしゃ</rt></ruby>では<ruby>制服<rt>せいふく</rt></ruby>を**<ruby>着<rt>き</rt></ruby>ることになっています**。<br><em>You did not write the staff handbook. A rule imposed on you takes <code>なっている</code>.</em></p>
 </li>
-<li><p>❌ 明日(あした)は一人(ひとり)で映画(えいが)を見(み)ることになっています。 → ✅ 明日(あした)は一人(ひとり)で映画(えいが)を<strong>見(み)るつもりです</strong>。<br><em>Nobody arranged this with you. The pattern implies an agreement or a rule, so a private plan needs <code>つもり</code> or a plain future.</em></p>
+<li><p>❌ <ruby>明日<rt>あした</rt></ruby>は<ruby>一人<rt>ひとり</rt></ruby>で<ruby>映画<rt>えいが</rt></ruby>を<ruby>見<rt>み</rt></ruby>ることになっています。 → ✅ <ruby>明日<rt>あした</rt></ruby>は<ruby>一人<rt>ひとり</rt></ruby>で<ruby>映画<rt>えいが</rt></ruby>を**<ruby>見<rt>み</rt></ruby>るつもりです**。<br><em>Nobody arranged this with you. The pattern implies an agreement or a rule, so a private plan needs <code>つもり</code> or a plain future.</em></p>
 </li>
-<li><p>❌ 明日(あした)は雨(あめ)が降(ふ)ることになっています。 → ✅ 明日(あした)は雨(あめ)が<strong>降(ふ)るそうです</strong>。<br><em>Weather is not an arrangement. <code>ことになっている</code> is only for things human beings have settled.</em></p>
+<li><p>❌ <ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>ることになっています。 → ✅ <ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>が**<ruby>降<rt>ふ</rt></ruby>るそうです**。<br><em>Weather is not an arrangement. <code>ことになっている</code> is only for things human beings have settled.</em></p>
 </li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="115">
+<div class="slide" data-index="131">
   
   <div class="slide__content"><h2>～ことになっている · Common mistakes (cont.)</h2>
 <ul>
-<li>❌ 受付(うけつけ)で名前(なまえ)を書(か)きますことになっています。 → ✅ 受付(うけつけ)で名前(なまえ)を<strong>書(か)くことになっています</strong>。<br><em><code>こと</code> modifies a plain verb. The politeness belongs on <code>なる</code> at the end.</em></li>
+<li>❌ <ruby>受付<rt>うけつけ</rt></ruby>で<ruby>名前<rt>なまえ</rt></ruby>を<ruby>書<rt>か</rt></ruby>きますことになっています。 → ✅ <ruby>受付<rt>うけつけ</rt></ruby>で<ruby>名前<rt>なまえ</rt></ruby>を**<ruby>書<rt>か</rt></ruby>くことになっています**。<br><em><code>こと</code> modifies a plain verb. The politeness belongs on <code>なる</code> at the end.</em></li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="116">
+<div class="slide" data-index="132">
   
   <div class="slide__content"><h2>～ことになっている · Practice 1</h2>
-<p><strong>1.</strong> この会社(かいしゃ)では、会議(かいぎ)の記録(きろく)は新人(しんじん)が____ことになっています。（とる）</p>
+<p><strong>1.</strong> この<ruby>会社<rt>かいしゃ</rt></ruby>では、<ruby>会議<rt>かいぎ</rt></ruby>の<ruby>記録<rt>きろく</rt></ruby>は<ruby>新人<rt>しんじん</rt></ruby>が____ことになっています。（とる）</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-会議(かいぎ)の記録(きろく)は新人(しんじん)が<strong>とることになっています</strong>。</p>
+<ruby>会議<rt>かいぎ</rt></ruby>の<ruby>記録<rt>きろく</rt></ruby>は<ruby>新人<rt>しんじん</rt></ruby>が<strong>とることになっています</strong>。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 The verb goes in its plain dictionary form directly in front of <code>こと</code>, and the sentence explains a company practice that applies to whoever the newest person happens to be - nobody in particular decided it this morning, which is exactly the <code>ことになっている</code> situation.</p>
 </div>
 </div>
-<div class="slide" data-index="117">
+<div class="slide" data-index="133">
   
   <div class="slide__content"><h2>～ことになっている · Practice 2</h2>
-<p><strong>2.</strong> Choose: 私(わたし)は毎朝(まいあさ)六時(ろくじ)に起(お)きる（ことにしています・ことになっています）。</p>
+<p><strong>2.</strong> Choose: <ruby>私<rt>わたし</rt></ruby>は<ruby>毎朝<rt>まいあさ</rt></ruby><ruby>六時<rt>ろくじ</rt></ruby>に<ruby>起<rt>お</rt></ruby>きる（ことにしています・ことになっています）。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-私(わたし)は毎朝(まいあさ)六時(ろくじ)に起(お)きる<strong>ことにしています</strong>。</p>
+<ruby>私<rt>わたし</rt></ruby>は<ruby>毎朝<rt>まいあさ</rt></ruby><ruby>六時<rt>ろくじ</rt></ruby>に<ruby>起<rt>お</rt></ruby>きる<strong>ことにしています</strong>。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 Getting up at six is the speaker&#39;s own rule, kept by the speaker alone, so it takes <code>にしている</code>. <code>になっている</code> would imply some external authority requires it, which would be a strange thing to say about your own alarm clock.</p>
 </div>
 </div>
-<div class="slide" data-index="118">
+<div class="slide" data-index="134">
   
   <div class="slide__content"><h2>～ことになっている · Practice 3</h2>
 <p><strong>3.</strong> Translate into Japanese: &quot;Guests are asked to leave their luggage at the front desk.&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-お荷物(にもつ)はフロントで<strong>お預(あず)かりすることになっております</strong>。</p>
+お<ruby>荷物<rt>にもつ</rt></ruby>はフロントで<strong>お<ruby>預<rt>あず</rt></ruby>かりすることになっております</strong>。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The humble <code>ことになっております</code> is the hotel register: it states the arrangement without any individual taking credit or blame for it, which is why it sounds courteous rather than bossy. A plain <code>預(あず)けてください</code> would be an order.</p>
+The humble <code>ことになっております</code> is the hotel register: it states the arrangement without any individual taking credit or blame for it, which is why it sounds courteous rather than bossy. A plain <code><ruby>預<rt>あず</rt></ruby>けてください</code> would be an order.</p>
 </div>
 </div>
-<div class="slide" data-index="119">
+<div class="slide" data-index="135">
   
   <div class="slide__content"><h2>～ことになっている · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 来月(らいげつ)、東京(とうきょう)へ転勤(てんきん)することになっています。（telling a colleague the news for the first time）</p>
+<p><strong>4.</strong> Find and fix the error: <ruby>来月<rt>らいげつ</rt></ruby>、<ruby>東京<rt>とうきょう</rt></ruby>へ<ruby>転勤<rt>てんきん</rt></ruby>することになっています。（telling a colleague the news for the first time）</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 来月(らいげつ)、東京(とうきょう)へ<strong>転勤(てんきん)することになりました</strong>。</p>
+✅ <ruby>来月<rt>らいげつ</rt></ruby>、<ruby>東京<rt>とうきょう</rt></ruby>へ**<ruby>転勤<rt>てんきん</rt></ruby>することになりました**。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 News takes the past form. The <code>ている</code> form presents the transfer as long-established background, so as an announcement it would puzzle the listener - they would wonder why you were only mentioning it now.</p>
 </div>
 </div>
-<div class="slide" data-index="120">
+<div class="slide" data-index="136">
   
   <div class="slide__content"><h2>～ことになっている · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 会議(かいぎ)は三時(さんじ)に始(はじ)まる<strong>ことになっています</strong>。 (b) 会議(かいぎ)は三時(さんじ)に始(はじ)まる<strong>はずです</strong>。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>会議<rt>かいぎ</rt></ruby>は<ruby>三時<rt>さんじ</rt></ruby>に<ruby>始<rt>はじ</rt></ruby>まる<strong>ことになっています</strong>。 (b) <ruby>会議<rt>かいぎ</rt></ruby>は<ruby>三時<rt>さんじ</rt></ruby>に<ruby>始<rt>はじ</rt></ruby>まる<strong>はずです</strong>。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) states the arrangement as a fact of the schedule. The speaker is passing on what was fixed by someone with the authority to fix it, and takes no position on whether it will actually happen on time.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
@@ -4109,7 +4201,7 @@ News takes the past form. The <code>ている</code> form presents the transfer 
     </div>
     <div id="hud-right">
       <a href="https://github.com/arpitbbhayani/deckrun" target="_blank" rel="noopener noreferrer" class="hud-brand" id="hud-brand" title="deckrun — Markdown presentations">powered by <span>deckrun</span></a>
-      <div id="slide-counter"><span id="cur">1</span>&nbsp;/&nbsp;<span id="tot">121</span></div>
+      <div id="slide-counter"><span id="cur">1</span>&nbsp;/&nbsp;<span id="tot">137</span></div>
     </div>
   </div>
 </div>
@@ -4162,7 +4254,7 @@ News takes the past form. The <code>ている</code> form presents the transfer 
 
 
 
-<script id="deck-notes" type="application/json">["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]</script>
+<script id="deck-notes" type="application/json">["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]</script>
 <script id="deck-themes" type="application/json">{"themes":[{"id":"midnight","label":"midnight","mood":"dark","blurb":"Catppuccin Mocha. Violet on deep indigo, drifting orbs.","decor":"orbs","colors":{"crust":"#11111b","mantle":"#181825","base":"#1e1e2e","surface0":"#313244","overlay1":"#7f849c","subtext1":"#bac2de","text":"#cdd6f4","accent":"#cba6f7","accent2":"#89b4fa","accent3":"#89dceb"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"tokyo","label":"tokyo night","mood":"dark","blurb":"Neon cyan over a wireframe grid, lifted from a rainy skyline.","decor":"grid","colors":{"crust":"#16161e","mantle":"#1a1b26","base":"#1f2335","surface0":"#292e42","overlay1":"#7c86ab","subtext1":"#b7c0e0","text":"#c8d3f5","accent":"#2ac3de","accent2":"#bb9af7","accent3":"#73daca"},"fonts":{"display":"'Sora', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"nord","label":"nord","mood":"dark","blurb":"Arctic frost blue on polar slate, with slow contour waves.","decor":"waves","colors":{"crust":"#232831","mantle":"#2e3440","base":"#353c4a","surface0":"#3b4252","overlay1":"#8e9aae","subtext1":"#d8dee9","text":"#eceff4","accent":"#88c0d0","accent2":"#81a1c1","accent3":"#8fbcbb"},"fonts":{"display":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace","body":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"dracula","label":"dracula","mood":"dark","blurb":"Purple and hot pink over charcoal, lit by a gradient mesh.","decor":"mesh","colors":{"crust":"#1a1b23","mantle":"#21222c","base":"#282a36","surface0":"#343746","overlay1":"#7b85b6","subtext1":"#e2e4f0","text":"#f8f8f2","accent":"#bd93f9","accent2":"#ff79c6","accent3":"#8be9fd"},"fonts":{"display":"'Syne', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'Fira Code', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"gruvbox","label":"gruvbox","mood":"dark","blurb":"Warm amber and moss on retro brown, hatched like graph paper.","decor":"topo","colors":{"crust":"#1b1e1f","mantle":"#232728","base":"#282828","surface0":"#32302f","overlay1":"#928374","subtext1":"#d5c4a1","text":"#ebdbb2","accent":"#fabd2f","accent2":"#fe8019","accent3":"#b8bb26"},"fonts":{"display":"'Bricolage Grotesque', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Work Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"rosepine","label":"rosé pine","mood":"dark","blurb":"Muted iris and gold on plum, under a slow aurora.","decor":"aurora","colors":{"crust":"#14121f","mantle":"#191724","base":"#1f1d2e","surface0":"#26233a","overlay1":"#817c9c","subtext1":"#cdc9e6","text":"#e0def4","accent":"#c4a7e7","accent2":"#9ccfd8","accent3":"#f6c177"},"fonts":{"display":"'Fraunces', Georgia, 'Times New Roman', serif","body":"'Newsreader', Georgia, 'Times New Roman', serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"forest","label":"forest","mood":"dark","blurb":"Everforest sage on deep pine, rippling in concentric rings.","decor":"rings","colors":{"crust":"#232a2e","mantle":"#2d353b","base":"#343f44","surface0":"#3d484d","overlay1":"#9da9a0","subtext1":"#d3c6aa","text":"#e5dfd2","accent":"#a7c080","accent2":"#6fb5ac","accent3":"#dbbc7f"},"fonts":{"display":"'Outfit', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"neon","label":"neon","mood":"dark","blurb":"Electric cyan and magenta on true black, raked by light beams.","decor":"beams","colors":{"crust":"#050509","mantle":"#0a0a12","base":"#0e0e1a","surface0":"#16162a","overlay1":"#6a6a96","subtext1":"#c8c8e4","text":"#f0f0ff","accent":"#22d3ee","accent2":"#ff5cc8","accent3":"#38e8ff"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'Space Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"daylight","label":"daylight","mood":"light","blurb":"Catppuccin Latte, contrast-tuned for a projector. Dot matrix.","decor":"dots","colors":{"crust":"#ebebeb","mantle":"#f5f5f5","base":"#fafaf8","surface0":"#ccd0da","overlay1":"#5c5f77","subtext1":"#3a3c52","text":"#1e2030","accent":"#8839ef","accent2":"#1e66f5","accent3":"#179299"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"arctic","label":"arctic","mood":"light","blurb":"Nord inverted. Frost blue on cool paper, with contour waves.","decor":"waves","colors":{"crust":"#e3e8ef","mantle":"#eceff4","base":"#f7f9fc","surface0":"#dbe1ea","overlay1":"#5f6b7c","subtext1":"#364150","text":"#2e3440","accent":"#2f7d94","accent2":"#4a7ba7","accent3":"#3b8b8a"},"fonts":{"display":"'Manrope', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"solarized","label":"solarized","mood":"light","blurb":"The classic low-glare cream, paired with Lora for long prose.","decor":"topo","colors":{"crust":"#eee8d5","mantle":"#f5efdc","base":"#fdf6e3","surface0":"#e3ddc8","overlay1":"#657b83","subtext1":"#3f5b62","text":"#073642","accent":"#268bd2","accent2":"#6c71c4","accent3":"#21958c"},"fonts":{"display":"'Outfit', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Lora', Georgia, 'Times New Roman', serif","mono":"'Source Code Pro', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"paper","label":"paper","mood":"light","blurb":"Crimson serif on warm cream. Editorial, print-first, very legible.","decor":"rings","colors":{"crust":"#efe8dc","mantle":"#f7f2e9","base":"#fdfbf5","surface0":"#e4dccc","overlay1":"#6e6553","subtext1":"#38311f","text":"#211c11","accent":"#a81f2c","accent2":"#1f7f96","accent3":"#9a6c12"},"fonts":{"display":"'Fraunces', Georgia, 'Times New Roman', serif","body":"'Newsreader', Georgia, 'Times New Roman', serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"rosequartz","label":"rose quartz","mood":"light","blurb":"Rosé Pine Dawn. Blush and iris on linen, with soft orbs.","decor":"orbs","colors":{"crust":"#f2e9e1","mantle":"#faf4ed","base":"#fffaf3","surface0":"#ece0d8","overlay1":"#7d7791","subtext1":"#55506e","text":"#423d5c","accent":"#b4637a","accent2":"#907aa9","accent3":"#56949f"},"fonts":{"display":"'Playfair Display', Georgia, 'Times New Roman', serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"swiss","label":"swiss","mood":"light","blurb":"Black on white, one red. Heavy grotesk, tight tracking, hard grid.","decor":"grid","colors":{"crust":"#f0f0f0","mantle":"#f8f8f8","base":"#ffffff","surface0":"#dcdcdc","overlay1":"#5a5a5a","subtext1":"#222222","text":"#0a0a0a","accent":"#e01b24","accent2":"#0a0a0a","accent3":"#5a5a5a"},"fonts":{"display":"'Archivo', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}}],"hljsMap":{"midnight":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css","tokyo":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css","nord":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/nord.min.css","dracula":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/dracula.min.css","gruvbox":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/gruvbox-dark-medium.min.css","rosepine":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/ros-pine.min.css","forest":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css","neon":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/night-owl.min.css","daylight":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","arctic":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","solarized":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/solarized-light.min.css","paper":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","rosequartz":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/ros-pine-dawn.min.css","swiss":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css"},"decorMap":{"midnight":"orbs","tokyo":"grid","nord":"waves","dracula":"mesh","gruvbox":"topo","rosepine":"aurora","forest":"rings","neon":"beams","daylight":"dots","arctic":"waves","solarized":"topo","paper":"rings","rosequartz":"orbs","swiss":"grid"}}</script>
 
 <script>
@@ -5350,6 +5442,36 @@ News takes the past form. The <code>ている</code> form presents the transfer 
     transition: opacity 0.15s ease, background 0.15s ease; }
   #deck-home:hover, #deck-home:focus-visible { opacity: 0.95; background: rgba(128,128,128,0.14); }
   @media print { #deck-home { display: none !important; } }
+  #furigana-toggle { position: fixed; bottom: 2.7rem; right: 1.1rem; z-index: 40;
+    font: 500 0.78rem/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+    color: currentColor; opacity: 0.38; cursor: pointer; user-select: none;
+    background: none; border: 1px solid currentColor; border-radius: 4px;
+    padding: 0.38rem 0.6rem;
+    transition: opacity 0.15s ease, background 0.15s ease; }
+  #furigana-toggle:hover, #furigana-toggle:focus-visible { opacity: 0.95; background: rgba(128,128,128,0.14); }
+  @media print { #furigana-toggle { display: none !important; } }
 </style>
+<button id="furigana-toggle" type="button" aria-pressed="true">&#12405;&#12426;&#12364;&#12394; ON</button>
+<script>
+  (function () {
+    // Deliberately click-only: readers who do not want furigana turn it off
+    // once and it sticks, while every key stays free for presenting.
+    var root = document.documentElement, btn = document.getElementById('furigana-toggle');
+    function paint() {
+      var off = root.getAttribute('data-furigana') === 'off';
+      btn.textContent = '\u3075\u308a\u304c\u306a ' + (off ? 'OFF' : 'ON');
+      btn.setAttribute('aria-pressed', String(!off));
+    }
+    btn.addEventListener('click', function () {
+      var off = root.getAttribute('data-furigana') === 'off';
+      if (off) root.removeAttribute('data-furigana');
+      else root.setAttribute('data-furigana', 'off');
+      try { localStorage.setItem('jlpt-furigana', off ? 'on' : 'off'); } catch (e) {}
+      paint();
+      btn.blur();
+    });
+    paint();
+  })();
+</script>
 </body>
 </html>

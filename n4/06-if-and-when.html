@@ -2606,6 +2606,13 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
   gap: 0.5rem;
 }
   </style>
+<script>
+  try {
+    if (localStorage.getItem('jlpt-furigana') === 'off') {
+      document.documentElement.setAttribute('data-furigana', 'off');
+    }
+  } catch (e) {}
+</script>
 </head>
 <body>
 
@@ -2614,7 +2621,16 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <div id="presentation">
 <div class="slide" data-index="0">
   
-  <div class="slide__content"><style>html { font-size: 20.0px; }</style>
+  <div class="slide__content"><style>
+  html { font-size: 20.0px; }
+  .slide__content p, .slide__content li,
+  .slide__content td, .slide__content th { line-height: 2.05; }
+  rt { font-size: 0.5em; line-height: 1.1; opacity: 0.72; font-weight: 400; }
+  :root[data-furigana="off"] rt { display: none; }
+  :root[data-furigana="off"] .slide__content p, :root[data-furigana="off"] .slide__content li,
+  :root[data-furigana="off"] .slide__content td, :root[data-furigana="off"] .slide__content th
+    { line-height: 1.5; }
+</style>
 
 <h1>N4 - If and when</h1>
 <ul>
@@ -2650,37 +2666,37 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <tbody><tr>
 <td>Verb</td>
 <td>dictionary form + と</td>
-<td>押(お)す → 押(お)すと</td>
+<td><ruby>押<rt>お</rt></ruby>す → <ruby>押<rt>お</rt></ruby>すと</td>
 </tr>
 <tr>
 <td>Verb (negative)</td>
 <td>ない-form + と</td>
-<td>押(お)さない → 押(お)さないと</td>
+<td><ruby>押<rt>お</rt></ruby>さない → <ruby>押<rt>お</rt></ruby>さないと</td>
 </tr>
 <tr>
 <td>い-adjective</td>
 <td>plain form + と</td>
-<td>安(やす)い → 安(やす)いと</td>
+<td><ruby>安<rt>やす</rt></ruby>い → <ruby>安<rt>やす</rt></ruby>いと</td>
 </tr>
 <tr>
 <td>い-adjective (negative)</td>
 <td>くない + と</td>
-<td>安(やす)くない → 安(やす)くないと</td>
+<td><ruby>安<rt>やす</rt></ruby>くない → <ruby>安<rt>やす</rt></ruby>くないと</td>
 </tr>
 <tr>
 <td>な-adjective</td>
 <td>stem + <strong>だ</strong> + と</td>
-<td>静(しず)か → 静(しず)かだと</td>
+<td><ruby>静<rt>しず</rt></ruby>か → <ruby>静<rt>しず</rt></ruby>かだと</td>
 </tr>
 <tr>
 <td>Noun</td>
 <td>Noun + <strong>だ</strong> + と</td>
-<td>冬(ふゆ) → 冬(ふゆ)だと</td>
+<td><ruby>冬<rt>ふゆ</rt></ruby> → <ruby>冬<rt>ふゆ</rt></ruby>だと</td>
 </tr>
 <tr>
 <td>Polite (announcements)</td>
 <td>ます-form + と</td>
-<td>押(お)します → 押(お)しますと</td>
+<td><ruby>押<rt>お</rt></ruby>します → <ruby>押<rt>お</rt></ruby>しますと</td>
 </tr>
 </tbody></table>
 </div>
@@ -2692,161 +2708,166 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <p><strong>Rule of thumb</strong> - nothing that expresses the <strong>speaker&#39;s will</strong> may stand in the result clause. No ～ましょう, no ～てください, no ～たい, no ～たほうがいい, no command, no invitation. <code>と</code> reports what <em>happens</em>, never what anyone decides to do.</p>
 </blockquote>
 <blockquote>
-<p><strong>Note</strong> - the <code>だ</code> in front of <code>と</code> is not optional for nouns and な-adjectives. 学生(がくせい)<strong>だ</strong>と is &quot;if you&#39;re a student&quot;; bare 学生(がくせい)と is &quot;with a student&quot; - the N5 particle, and a completely different sentence.</p>
+<p><strong>Note</strong> - the <code>だ</code> in front of <code>と</code> is not optional for nouns and な-adjectives. <ruby>学生<rt>がくせい</rt></ruby><strong>だ</strong>と is &quot;if you&#39;re a student&quot;; bare <ruby>学生<rt>がくせい</rt></ruby>と is &quot;with a student&quot; - the N5 particle, and a completely different sentence.</p>
 </blockquote>
 </div>
 </div>
 <div class="slide" data-index="4">
   
   <div class="slide__content"><h2>と - conditional · Examples</h2>
-<p>ここを<strong>押(お)すと</strong>、音(おと)が出(で)ます。<br><em>Press here and it makes a sound.</em></p>
-<p>春(はる)に<strong>なると</strong>、この山(やま)は緑(みどり)になります。<br><em>When spring comes, this mountain turns green.</em></p>
-<p>3に5を<strong>足(た)すと</strong>、8になります。<br><em>Three plus five is eight.</em></p>
-<p>早(はや)く<strong>出(で)ないと</strong>、電車(でんしゃ)に間(ま)に合(あ)いません。<br><em>If we don&#39;t leave soon, we won&#39;t make the train.</em></p>
-<p>父(ちち)は酒(さけ)を<strong>飲(の)むと</strong>、いつも同(おな)じ話(はなし)を始(はじ)めます。<br><em>Whenever my father drinks, he starts telling the same story.</em></p>
+<p>ここを**<ruby>押<rt>お</rt></ruby>すと**、<ruby>音<rt>おと</rt></ruby>が<ruby>出<rt>で</rt></ruby>ます。<br><em>Press here and it makes a sound.</em></p>
+<p><ruby>春<rt>はる</rt></ruby>に<strong>なると</strong>、この<ruby>山<rt>やま</rt></ruby>は<ruby>緑<rt>みどり</rt></ruby>になります。<br><em>When spring comes, this mountain turns green.</em></p>
+<p>3に5を**<ruby>足<rt>た</rt></ruby>すと**、8になります。<br><em>Three plus five is eight.</em></p>
+<p><ruby>早<rt>はや</rt></ruby>く**<ruby>出<rt>で</rt></ruby>ないと**、<ruby>電車<rt>でんしゃ</rt></ruby>に<ruby>間<rt>ま</rt></ruby>に<ruby>合<rt>あ</rt></ruby>いません。<br><em>If we don&#39;t leave soon, we won&#39;t make the train.</em></p>
 </div>
 </div>
 <div class="slide" data-index="5">
   
   <div class="slide__content"><h2>と - conditional · Examples (cont.)</h2>
-<p>この角(かど)を右(みぎ)に<strong>曲(ま)がると</strong>、左側(ひだりがわ)に小(ちい)さな花屋(はなや)があります。<br><em>Turn right at this corner and there&#39;s a little flower shop on your left.</em></p>
-<p>部屋(へや)に<strong>入(はい)ると</strong>、誰(だれ)もいませんでした。<br><em>When I went into the room, there was nobody there.</em></p>
-<p>この店(みせ)は週末(しゅうまつ)に<strong>なると</strong>急(きゅう)に込(こ)んで、一時間(いちじかん)ぐらい待(ま)つことになります。<br><em>This place suddenly fills up at weekends, and you end up waiting about an hour.</em></p>
-<p>窓(まど)を<strong>開(あ)けると</strong>、遠(とお)くで祭(まつ)りの太鼓(たいこ)の音(おと)が聞(き)こえた。<br><em>When I opened the window, I could hear festival drums somewhere far off.</em></p>
+<p><ruby>父<rt>ちち</rt></ruby>は<ruby>酒<rt>さけ</rt></ruby>を**<ruby>飲<rt>の</rt></ruby>むと**、いつも<ruby>同<rt>おな</rt></ruby>じ<ruby>話<rt>はなし</rt></ruby>を<ruby>始<rt>はじ</rt></ruby>めます。<br><em>Whenever my father drinks, he starts telling the same story.</em></p>
+<p>この<ruby>角<rt>かど</rt></ruby>を<ruby>右<rt>みぎ</rt></ruby>に**<ruby>曲<rt>ま</rt></ruby>がると**、<ruby>左側<rt>ひだりがわ</rt></ruby>に<ruby>小<rt>ちい</rt></ruby>さな<ruby>花屋<rt>はなや</rt></ruby>があります。<br><em>Turn right at this corner and there&#39;s a little flower shop on your left.</em></p>
+<p><ruby>部屋<rt>へや</rt></ruby>に**<ruby>入<rt>はい</rt></ruby>ると**、<ruby>誰<rt>だれ</rt></ruby>もいませんでした。<br><em>When I went into the room, there was nobody there.</em></p>
+<p>この<ruby>店<rt>みせ</rt></ruby>は<ruby>週末<rt>しゅうまつ</rt></ruby>に<strong>なると</strong><ruby>急<rt>きゅう</rt></ruby>に<ruby>込<rt>こ</rt></ruby>んで、<ruby>一時間<rt>いちじかん</rt></ruby>ぐらい<ruby>待<rt>ま</rt></ruby>つことになります。<br><em>This place suddenly fills up at weekends, and you end up waiting about an hour.</em></p>
 </div>
 </div>
 <div class="slide" data-index="6">
   
-  <div class="slide__content"><h2>と - conditional · Nuance &amp; register</h2>
-<p><code>と</code> is register-neutral. It sounds the same in speech and in writing, and the clause before it stays plain even in the politest sentence: 押(お)すと開(ひら)き<strong>ます</strong> - the politeness lives on the final verb only. The one polite variant worth recognising is <code>ますと</code>, which turns up in announcements, instruction manuals and careful business speech: こちらのボタンを押(お)し<strong>ますと</strong>、扉(とびら)が開(ひら)きます。</p>
-<p>Where <code>と</code> really lives is anywhere a fixed procedure is being described: recipes, machine instructions, road directions, arithmetic, seasons, and habits. If you can put &quot;every time&quot; in front of the English and it still makes sense, <code>と</code> is probably right.</p>
-<p>Two things learners are blindsided by:</p>
+  <div class="slide__content"><h2>と - conditional · Examples (cont.)</h2>
+<p><ruby>窓<rt>まど</rt></ruby>を**<ruby>開<rt>あ</rt></ruby>けると**、<ruby>遠<rt>とお</rt></ruby>くで<ruby>祭<rt>まつ</rt></ruby>りの<ruby>太鼓<rt>たいこ</rt></ruby>の<ruby>音<rt>おと</rt></ruby>が<ruby>聞<rt>き</rt></ruby>こえた。<br><em>When I opened the window, I could hear festival drums somewhere far off.</em></p>
 </div>
 </div>
 <div class="slide" data-index="7">
   
+  <div class="slide__content"><h2>と - conditional · Nuance &amp; register</h2>
+<p><code>と</code> is register-neutral. It sounds the same in speech and in writing, and the clause before it stays plain even in the politest sentence: <ruby>押<rt>お</rt></ruby>すと<ruby>開<rt>ひら</rt></ruby>き<strong>ます</strong> - the politeness lives on the final verb only. The one polite variant worth recognising is <code>ますと</code>, which turns up in announcements, instruction manuals and careful business speech: こちらのボタンを<ruby>押<rt>お</rt></ruby>し<strong>ますと</strong>、<ruby>扉<rt>とびら</rt></ruby>が<ruby>開<rt>ひら</rt></ruby>きます。</p>
+<p>Where <code>と</code> really lives is anywhere a fixed procedure is being described: recipes, machine instructions, road directions, arithmetic, seasons, and habits. If you can put &quot;every time&quot; in front of the English and it still makes sense, <code>と</code> is probably right.</p>
+<p>Two things learners are blindsided by:</p>
+</div>
+</div>
+<div class="slide" data-index="8">
+  
   <div class="slide__content"><h2>と - conditional · Nuance &amp; register (cont.)</h2>
 <ul>
-<li><strong><code>もし</code> and <code>と</code> do not go together.</strong> <code>もし</code> announces a hypothesis; <code>と</code><br><em>announces a regularity. もし雨(あめ)が降(ふ)ると… is odd. Use たら or ば after <code>もし</code>.</em></li>
-<li><strong><code>～ないと</code> on its own means &quot;I have to&quot;.</strong> The consequence is simply left<br><em>unsaid, and everybody fills it in: もう行(い)かないと。 - &quot;I&#39;ve got to go.&quot; これ、今日(きょう)中(じゅう)に出(だ)さないと。 - &quot;I have to hand this in today.&quot; Extremely common in casual speech.</em></li>
+<li><strong><code>もし</code> and <code>と</code> do not go together.</strong> <code>もし</code> announces a hypothesis; <code>と</code><br><em>announces a regularity. もし<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>ると… is odd. Use たら or ば after <code>もし</code>.</em></li>
+<li><strong><code>～ないと</code> on its own means &quot;I have to&quot;.</strong> The consequence is simply left<br><em>unsaid, and everybody fills it in: もう<ruby>行<rt>い</rt></ruby>かないと。 - &quot;I&#39;ve got to go.&quot; これ、<ruby>今日<rt>きょう</rt></ruby><ruby>中<rt>じゅう</rt></ruby>に<ruby>出<rt>だ</rt></ruby>さないと。 - &quot;I have to hand this in today.&quot; Extremely common in casual speech.</em></li>
 </ul>
 <p>Finally, <code>と</code> with a <strong>past-tense main clause</strong> is not a conditional at all. It is the narrative &quot;upon doing X, …&quot;, used for something the speaker then discovered or witnessed. Novels and travel diaries are full of it, and it is the one place a <code>と</code> sentence describes a single occasion rather than a rule.</p>
 </div>
 </div>
-<div class="slide" data-index="8">
+<div class="slide" data-index="9">
   
   <div class="slide__content"><h2>と - conditional · と vs たら</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>と</code> says <em>every time, automatically</em>. <code>たら</code> says <em>on the occasion that this happens</em>. Only <code>たら</code> can be followed by a request, an invitation, or a plan.</p>
 </blockquote>
 <p>This is the difference that gets sentences rejected, because the ban on will-expressing main clauses after <code>と</code> is absolute. Compare:</p>
-<p>駅(えき)に<strong>着(つ)いたら</strong>、電話(でんわ)してください。<br><em>Call me when you get to the station.</em></p>
-<p>❌駅(えき)に着(つ)くと、電話(でんわ)してください is wrong, and not mildly so - it is asking the listener to do something as an automatic physical consequence of arriving, which is not a thing you can ask.</p>
-</div>
-</div>
-<div class="slide" data-index="9">
-  
-  <div class="slide__content"><h2>と - conditional · と vs たら (cont.)</h2>
-<p>この自動販売機(じどうはんばいき)は、お金(かね)を<strong>入(い)れると</strong>ランプがつきます。<br><em>On this vending machine, a light comes on when you put money in.</em></p>
-<p>That is a property of the machine - invariable, no speaker in it. Switch to <code>たら</code> and it becomes a report of one particular time you fed it a coin.</p>
+<p><ruby>駅<rt>えき</rt></ruby>に**<ruby>着<rt>つ</rt></ruby>いたら**、<ruby>電話<rt>でんわ</rt></ruby>してください。<br><em>Call me when you get to the station.</em></p>
+<p>❌<ruby>駅<rt>えき</rt></ruby>に<ruby>着<rt>つ</rt></ruby>くと、<ruby>電話<rt>でんわ</rt></ruby>してください is wrong, and not mildly so - it is asking the listener to do something as an automatic physical consequence of arriving, which is not a thing you can ask.</p>
 </div>
 </div>
 <div class="slide" data-index="10">
+  
+  <div class="slide__content"><h2>と - conditional · と vs たら (cont.)</h2>
+<p>この<ruby>自動販売機<rt>じどうはんばいき</rt></ruby>は、お<ruby>金<rt>かね</rt></ruby>を**<ruby>入<rt>い</rt></ruby>れると**ランプがつきます。<br><em>On this vending machine, a light comes on when you put money in.</em></p>
+<p>That is a property of the machine - invariable, no speaker in it. Switch to <code>たら</code> and it becomes a report of one particular time you fed it a coin.</p>
+</div>
+</div>
+<div class="slide" data-index="11">
   
   <div class="slide__content"><h2>と - conditional · と vs ば</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>と</code> states a link the speaker treats as <strong>actual and invariable</strong>. <code>ば</code> puts a condition up as a <strong>premise</strong> and reasons from it.</p>
 </blockquote>
 <p>Both handle general rules, so they overlap widely, and in many sentences either is fine. Where they part company is attitude. <code>と</code> has no speaker in it; <code>ば</code> is the form you use when you are weighing something up.</p>
-<p>値段(ねだん)が<strong>安(やす)いと</strong>、すぐ売(う)り切(き)れます。<br><em>When something is cheap, it sells out straight away.</em></p>
-<p>値段(ねだん)が<strong>安(やす)ければ</strong>、買(か)います。<br><em>If it&#39;s cheap, I&#39;ll buy it.</em></p>
+<p><ruby>値段<rt>ねだん</rt></ruby>が**<ruby>安<rt>やす</rt></ruby>いと**、すぐ<ruby>売<rt>う</rt></ruby>り<ruby>切<rt>き</rt></ruby>れます。<br><em>When something is cheap, it sells out straight away.</em></p>
+<p><ruby>値段<rt>ねだん</rt></ruby>が**<ruby>安<rt>やす</rt></ruby>ければ**、<ruby>買<rt>か</rt></ruby>います。<br><em>If it&#39;s cheap, I&#39;ll buy it.</em></p>
 </div>
 </div>
-<div class="slide" data-index="11">
+<div class="slide" data-index="12">
   
   <div class="slide__content"><h2>と - conditional · と vs ば (cont.)</h2>
 <p>The first is an observation about how this shop behaves. The second is my decision procedure - and a decision is exactly what <code>と</code> cannot host. Two more consequences of this: <code>ば</code> is the form that takes <code>もし</code> comfortably, and <code>ば</code> builds the regret pattern ～ばよかった, for which there is no ～とよかった.</p>
 </div>
 </div>
-<div class="slide" data-index="12">
+<div class="slide" data-index="13">
   
   <div class="slide__content"><h2>と - conditional · と vs なら</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>なら</code> picks up a <strong>premise someone has just supplied</strong>, usually the other person. <code>と</code> connects two events with nobody supplying anything.</p>
 </blockquote>
 <p><code>なら</code> is a reply; <code>と</code> is a description. This shows up most clearly in conversation, where <code>なら</code> can also put its main clause <strong>earlier in time</strong> than its condition - something <code>と</code> can never do.</p>
-<p>「北海道(ほっかいどう)へ行(い)くんです。」「北海道(ほっかいどう)<strong>なら</strong>、六月(ろくがつ)がいいですよ。」<br><em>&quot;I&#39;m going to Hokkaido.&quot; &quot;Hokkaido? June&#39;s the time to go.&quot;</em></p>
-<p>❌北海道(ほっかいどう)へ行(い)くと、六月(ろくがつ)がいいですよ is impossible: going to Hokkaido does not cause June to be good, and the speaker is giving advice, not reporting a mechanism.</p>
-</div>
-</div>
-<div class="slide" data-index="13">
-  
-  <div class="slide__content"><h2>と - conditional · Common mistakes</h2>
-<ul>
-<li><p>❌ 駅(えき)に着(つ)くと、電話(でんわ)してください。 → ✅ 駅(えき)に着(つ)い<strong>たら</strong>、電話(でんわ)してください。<br><em>The clause after <code>と</code> is an automatic result, so no request, command, invitation or wish can stand there. This is the single most common <code>と</code> error.</em></p>
-</li>
-<li><p>❌ 天気(てんき)がいいと、散歩(さんぽ)しましょう。 → ✅ 天気(てんき)が<strong>よかったら</strong>、散歩(さんぽ)しましょう。<br><em>Same rule. <code>～ましょう</code> is a proposal - the speaker&#39;s will - and <code>と</code> has no room for it.</em></p>
-</li>
-<li><p>❌ 雨(あめ)が降(ふ)ったと、試合(しあい)は中止(ちゅうし)です。 → ✅ 雨(あめ)が降(ふ)る<strong>と</strong>／降(ふ)っ<strong>たら</strong>、試合(しあい)は中止(ちゅうし)です。<br><em>Nothing past ever stands in front of <code>と</code>. The tense is carried by the main clause.</em></p>
-</li>
-</ul>
+<p>「<ruby>北海道<rt>ほっかいどう</rt></ruby>へ<ruby>行<rt>い</rt></ruby>くんです。」「<ruby>北海道<rt>ほっかいどう</rt></ruby><strong>なら</strong>、<ruby>六月<rt>ろくがつ</rt></ruby>がいいですよ。」<br><em>&quot;I&#39;m going to Hokkaido.&quot; &quot;Hokkaido? June&#39;s the time to go.&quot;</em></p>
+<p>❌<ruby>北海道<rt>ほっかいどう</rt></ruby>へ<ruby>行<rt>い</rt></ruby>くと、<ruby>六月<rt>ろくがつ</rt></ruby>がいいですよ is impossible: going to Hokkaido does not cause June to be good, and the speaker is giving advice, not reporting a mechanism.</p>
 </div>
 </div>
 <div class="slide" data-index="14">
   
-  <div class="slide__content"><h2>と - conditional · Common mistakes (cont.)</h2>
+  <div class="slide__content"><h2>と - conditional · Common mistakes</h2>
 <ul>
-<li><p>❌ もし時間(じかん)があると、手伝(てつだ)います。 → ✅ もし時間(じかん)が<strong>あれば</strong>／<strong>あったら</strong>、手伝(てつだ)います。<br><em>Two problems at once: <code>もし</code> flags a hypothesis, and 手伝(てつだ)います is an offer. <code>と</code> wants neither.</em></p>
+<li><p>❌ <ruby>駅<rt>えき</rt></ruby>に<ruby>着<rt>つ</rt></ruby>くと、<ruby>電話<rt>でんわ</rt></ruby>してください。 → ✅ <ruby>駅<rt>えき</rt></ruby>に<ruby>着<rt>つ</rt></ruby>い<strong>たら</strong>、<ruby>電話<rt>でんわ</rt></ruby>してください。<br><em>The clause after <code>と</code> is an automatic result, so no request, command, invitation or wish can stand there. This is the single most common <code>と</code> error.</em></p>
 </li>
-<li><p>❌ 学生(がくせい)と安(やす)くなります。 → ✅ 学生(がくせい)<strong>だ</strong>と安(やす)くなります。<br><em>Without <code>だ</code>, this is the N5 particle: &quot;it gets cheaper with a student.&quot;</em></p>
+<li><p>❌ <ruby>天気<rt>てんき</rt></ruby>がいいと、<ruby>散歩<rt>さんぽ</rt></ruby>しましょう。 → ✅ <ruby>天気<rt>てんき</rt></ruby>が<strong>よかったら</strong>、<ruby>散歩<rt>さんぽ</rt></ruby>しましょう。<br><em>Same rule. <code>～ましょう</code> is a proposal - the speaker&#39;s will - and <code>と</code> has no room for it.</em></p>
+</li>
+<li><p>❌ <ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>ったと、<ruby>試合<rt>しあい</rt></ruby>は<ruby>中止<rt>ちゅうし</rt></ruby>です。 → ✅ <ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>る<strong>と</strong>／<ruby>降<rt>ふ</rt></ruby>っ<strong>たら</strong>、<ruby>試合<rt>しあい</rt></ruby>は<ruby>中止<rt>ちゅうし</rt></ruby>です。<br><em>Nothing past ever stands in front of <code>と</code>. The tense is carried by the main clause.</em></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="slide" data-index="15">
   
-  <div class="slide__content"><h2>と - conditional · Practice 1</h2>
-<p><strong>1.</strong> 秋(あき)になる____、この公園(こうえん)の木(き)が赤(あか)くなります。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-秋(あき)になる<strong>と</strong>、この公園(こうえん)の木(き)が赤(あか)くなります。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Every autumn, without fail, with nobody deciding anything - that is the definition of a <code>と</code> sentence. Note the plain non-past form <code>なる</code> in front of it even though the main clause is polite.</p>
+  <div class="slide__content"><h2>と - conditional · Common mistakes (cont.)</h2>
+<ul>
+<li><p>❌ もし<ruby>時間<rt>じかん</rt></ruby>があると、<ruby>手伝<rt>てつだ</rt></ruby>います。 → ✅ もし<ruby>時間<rt>じかん</rt></ruby>が<strong>あれば</strong>／<strong>あったら</strong>、<ruby>手伝<rt>てつだ</rt></ruby>います。<br><em>Two problems at once: <code>もし</code> flags a hypothesis, and <ruby>手伝<rt>てつだ</rt></ruby>います is an offer. <code>と</code> wants neither.</em></p>
+</li>
+<li><p>❌ <ruby>学生<rt>がくせい</rt></ruby>と<ruby>安<rt>やす</rt></ruby>くなります。 → ✅ <ruby>学生<rt>がくせい</rt></ruby><strong>だ</strong>と<ruby>安<rt>やす</rt></ruby>くなります。<br><em>Without <code>だ</code>, this is the N5 particle: &quot;it gets cheaper with a student.&quot;</em></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="16">
   
-  <div class="slide__content"><h2>と - conditional · Practice 2</h2>
-<p><strong>2.</strong> 家(いえ)に（着(つ)くと・着(つ)いたら）、メールをください。</p>
+  <div class="slide__content"><h2>と - conditional · Practice 1</h2>
+<p><strong>1.</strong> <ruby>秋<rt>あき</rt></ruby>になる____、この<ruby>公園<rt>こうえん</rt></ruby>の<ruby>木<rt>き</rt></ruby>が<ruby>赤<rt>あか</rt></ruby>くなります。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-家(いえ)に<strong>着(つ)いたら</strong>、メールをください。</p>
+<ruby>秋<rt>あき</rt></ruby>になる<strong>と</strong>、この<ruby>公園<rt>こうえん</rt></ruby>の<ruby>木<rt>き</rt></ruby>が<ruby>赤<rt>あか</rt></ruby>くなります。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The main clause is a request. <code>と</code> forbids requests outright because its result clause reports an automatic consequence, and you cannot ask someone to do something automatically. <code>たら</code> has no such restriction.</p>
+Every autumn, without fail, with nobody deciding anything - that is the definition of a <code>と</code> sentence. Note the plain non-past form <code>なる</code> in front of it even though the main clause is polite.</p>
 </div>
 </div>
 <div class="slide" data-index="17">
   
-  <div class="slide__content"><h2>と - conditional · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese: &quot;When it gets cold, my grandmother&#39;s legs hurt.&quot;</p>
+  <div class="slide__content"><h2>と - conditional · Practice 2</h2>
+<p><strong>2.</strong> <ruby>家<rt>いえ</rt></ruby>に（<ruby>着<rt>つ</rt></ruby>くと・<ruby>着<rt>つ</rt></ruby>いたら）、メールをください。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-寒(さむ)く<strong>なると</strong>、祖母(そぼ)は足(あし)が痛(いた)くなります。</p>
+<ruby>家<rt>いえ</rt></ruby>に**<ruby>着<rt>つ</rt></ruby>いたら**、メールをください。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-A recurring, involuntary consequence - nobody&#39;s choice, every time. <code>と</code> is the natural form. <code>たら</code> would push it towards one specific cold day.</p>
+The main clause is a request. <code>と</code> forbids requests outright because its result clause reports an automatic consequence, and you cannot ask someone to do something automatically. <code>たら</code> has no such restriction.</p>
 </div>
 </div>
 <div class="slide" data-index="18">
   
-  <div class="slide__content"><h2>と - conditional · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 時間(じかん)があると、映画(えいが)を見(み)に行(い)きませんか。</p>
+  <div class="slide__content"><h2>と - conditional · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese: &quot;When it gets cold, my grandmother&#39;s legs hurt.&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 時間(じかん)が<strong>あったら</strong>（or <strong>あれば</strong>）、映画(えいが)を見(み)に行(い)きませんか。</p>
+<ruby>寒<rt>さむ</rt></ruby>く<strong>なると</strong>、<ruby>祖母<rt>そぼ</rt></ruby>は<ruby>足<rt>あし</rt></ruby>が<ruby>痛<rt>いた</rt></ruby>くなります。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>～ませんか</code> is an invitation, so the sentence ends with the speaker&#39;s will. <code>と</code> cannot carry that. Both <code>たら</code> and <code>ば</code> work here, because the condition is a state (<code>ある</code>) rather than an action.</p>
+A recurring, involuntary consequence - nobody&#39;s choice, every time. <code>と</code> is the natural form. <code>たら</code> would push it towards one specific cold day.</p>
 </div>
 </div>
 <div class="slide" data-index="19">
   
+  <div class="slide__content"><h2>と - conditional · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the error: <ruby>時間<rt>じかん</rt></ruby>があると、<ruby>映画<rt>えいが</rt></ruby>を<ruby>見<rt>み</rt></ruby>に<ruby>行<rt>い</rt></ruby>きませんか。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ <ruby>時間<rt>じかん</rt></ruby>が<strong>あったら</strong>（or <strong>あれば</strong>）、<ruby>映画<rt>えいが</rt></ruby>を<ruby>見<rt>み</rt></ruby>に<ruby>行<rt>い</rt></ruby>きませんか。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code>～ませんか</code> is an invitation, so the sentence ends with the speaker&#39;s will. <code>と</code> cannot carry that. Both <code>たら</code> and <code>ば</code> work here, because the condition is a state (<code>ある</code>) rather than an action.</p>
+</div>
+</div>
+<div class="slide" data-index="20">
+  
   <div class="slide__content"><h2>と - conditional · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 窓(まど)を開(あ)けると、雪(ゆき)が降(ふ)っていた。 (b) 窓(まど)を開(あ)けると、部屋(へや)が寒(さむ)くなる。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>窓<rt>まど</rt></ruby>を<ruby>開<rt>あ</rt></ruby>けると、<ruby>雪<rt>ゆき</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>っていた。 (b) <ruby>窓<rt>まど</rt></ruby>を<ruby>開<rt>あ</rt></ruby>けると、<ruby>部屋<rt>へや</rt></ruby>が<ruby>寒<rt>さむ</rt></ruby>くなる。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) has a <strong>past</strong> main clause, so it is not a conditional at all. It narrates one occasion: &quot;I opened the window, and - snow.&quot; The speaker is reporting a discovery, and this is the standard way to write that in Japanese.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
@@ -2855,76 +2876,17 @@ A recurring, involuntary consequence - nobody&#39;s choice, every time. <code>�
 Same <code>と</code>, and the tense of the <em>main</em> clause is what decides which reading you get.</p>
 </div>
 </div>
-<div class="slide" data-index="20">
+<div class="slide" data-index="21">
   
   <div class="slide__content"><h1>～ば</h1>
 <p><strong>Meaning</strong> · if A, then B - A offered as the condition that would bring B about</p>
 <p><code>～ば</code> is the conditional of <strong>reasoning</strong>. It puts a premise on the table and follows it to its consequence, which is why it dominates written Japanese, instructions, arguments - and regrets about what you should have done.</p>
 </div>
 </div>
-<div class="slide" data-index="21">
+<div class="slide" data-index="22">
   
   <div class="slide__content"><h2>～ば · Formation</h2>
 <p>Every ば-form ends in <strong>-eba</strong>. For verbs, change the final <code>-u</code> of the dictionary form to <code>-e</code> and add <code>ば</code>.</p>
-</div>
-</div>
-<div class="slide" data-index="22">
-  
-  <div class="slide__content"><h2>～ば · Formation (cont.)</h2>
-<table>
-<thead>
-<tr>
-<th>Attaches to</th>
-<th>Form</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Verb (う-verb)</td>
-<td>final -u → -e + ば</td>
-<td>書(か)く → 書(か)けば</td>
-</tr>
-<tr>
-<td>Verb (う-verb)</td>
-<td>final -u → -e + ば</td>
-<td>急(いそ)ぐ → 急(いそ)げば</td>
-</tr>
-<tr>
-<td>Verb (る-verb)</td>
-<td>る → れば</td>
-<td>見(み)る → 見(み)れば</td>
-</tr>
-<tr>
-<td>Verb (する)</td>
-<td>する → すれば</td>
-<td>練習(れんしゅう)する → 練習(れんしゅう)すれば</td>
-</tr>
-<tr>
-<td>Verb (来(く)る)</td>
-<td>irregular</td>
-<td>来(く)る → 来(く)れば</td>
-</tr>
-<tr>
-<td>Verb (negative)</td>
-<td>ない → なければ</td>
-<td>行(い)かない → 行(い)かなければ</td>
-</tr>
-<tr>
-<td>い-adjective</td>
-<td>い → ければ</td>
-<td>忙(いそが)しい → 忙(いそが)しければ</td>
-</tr>
-<tr>
-<td>いい</td>
-<td>irregular</td>
-<td>いい → よければ</td>
-</tr>
-<tr>
-<td>い-adjective (negative)</td>
-<td>くない → くなければ</td>
-<td>高(たか)くない → 高(たか)くなければ</td>
-</tr>
-</tbody></table>
 </div>
 </div>
 <div class="slide" data-index="23">
@@ -2939,19 +2901,78 @@ Same <code>と</code>, and the tense of the <em>main</em> clause is what decides
 </tr>
 </thead>
 <tbody><tr>
+<td>Verb (う-verb)</td>
+<td>final -u → -e + ば</td>
+<td><ruby>書<rt>か</rt></ruby>く → <ruby>書<rt>か</rt></ruby>けば</td>
+</tr>
+<tr>
+<td>Verb (う-verb)</td>
+<td>final -u → -e + ば</td>
+<td><ruby>急<rt>いそ</rt></ruby>ぐ → <ruby>急<rt>いそ</rt></ruby>げば</td>
+</tr>
+<tr>
+<td>Verb (る-verb)</td>
+<td>る → れば</td>
+<td><ruby>見<rt>み</rt></ruby>る → <ruby>見<rt>み</rt></ruby>れば</td>
+</tr>
+<tr>
+<td>Verb (する)</td>
+<td>する → すれば</td>
+<td><ruby>練習<rt>れんしゅう</rt></ruby>する → <ruby>練習<rt>れんしゅう</rt></ruby>すれば</td>
+</tr>
+<tr>
+<td>Verb (<ruby>来<rt>く</rt></ruby>る)</td>
+<td>irregular</td>
+<td><ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>く</rt></ruby>れば</td>
+</tr>
+<tr>
+<td>Verb (negative)</td>
+<td>ない → なければ</td>
+<td><ruby>行<rt>い</rt></ruby>かない → <ruby>行<rt>い</rt></ruby>かなければ</td>
+</tr>
+<tr>
+<td>い-adjective</td>
+<td>い → ければ</td>
+<td><ruby>忙<rt>いそが</rt></ruby>しい → <ruby>忙<rt>いそが</rt></ruby>しければ</td>
+</tr>
+<tr>
+<td>いい</td>
+<td>irregular</td>
+<td>いい → よければ</td>
+</tr>
+<tr>
+<td>い-adjective (negative)</td>
+<td>くない → くなければ</td>
+<td><ruby>高<rt>たか</rt></ruby>くない → <ruby>高<rt>たか</rt></ruby>くなければ</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+<div class="slide" data-index="24">
+  
+  <div class="slide__content"><h2>～ば · Formation (cont.)</h2>
+<table>
+<thead>
+<tr>
+<th>Attaches to</th>
+<th>Form</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
 <td>な-adjective</td>
 <td>stem + なら(ば)</td>
-<td>便利(べんり) → 便利(べんり)なら(ば)</td>
+<td><ruby>便利<rt>べんり</rt></ruby> → <ruby>便利<rt>べんり</rt></ruby>なら(ば)</td>
 </tr>
 <tr>
 <td>Noun</td>
 <td>Noun + なら(ば)</td>
-<td>雨(あめ) → 雨(あめ)なら(ば)</td>
+<td><ruby>雨<rt>あめ</rt></ruby> → <ruby>雨<rt>あめ</rt></ruby>なら(ば)</td>
 </tr>
 <tr>
 <td>Noun / な-adj (formal)</td>
 <td>+ であれば</td>
-<td>学生(がくせい) → 学生(がくせい)であれば</td>
+<td><ruby>学生<rt>がくせい</rt></ruby> → <ruby>学生<rt>がくせい</rt></ruby>であれば</td>
 </tr>
 </tbody></table>
 <blockquote>
@@ -2959,200 +2980,200 @@ Same <code>と</code>, and the tense of the <em>main</em> clause is what decides
 </blockquote>
 </div>
 </div>
-<div class="slide" data-index="24">
+<div class="slide" data-index="25">
   
   <div class="slide__content"><h2>～ば · Formation (cont.)</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - if the ば-clause is an <strong>action verb with the same subject</strong> as the main clause, you cannot end the sentence with a request, a command, an invitation or a statement of intention. Switch to <code>たら</code>. The restriction lifts when the ば-clause is a <strong>state</strong>: an adjective, <code>ある</code>／<code>いる</code>, a potential form, or a negative.</p>
 </blockquote>
-<p>That single rule explains why 分(わ)からなければ聞(き)いてください is perfectly idiomatic while ❌東京(とうきょう)に着(つ)けば連絡(れんらく)してください is not.</p>
-</div>
-</div>
-<div class="slide" data-index="25">
-  
-  <div class="slide__content"><h2>～ば · Examples</h2>
-<p><strong>急(いそ)げば</strong>、間(ま)に合(あ)いますよ。<br><em>If we hurry, we&#39;ll make it.</em></p>
-<p>天気(てんき)が<strong>よければ</strong>、山(やま)が見(み)えます。<br><em>If the weather&#39;s good, you can see the mountains.</em></p>
-<p>時間(じかん)が<strong>あれば</strong>、手伝(てつだ)ってください。<br><em>If you have time, please give me a hand.</em></p>
-<p>もっと<strong>練習(れんしゅう)すれば</strong>、うまくなりますよ。<br><em>You&#39;ll get better if you practise more.</em></p>
-<p>説明書(せつめいしょ)を<strong>読(よ)まなければ</strong>、使(つか)い方(かた)が分(わ)かりません。<br><em>You won&#39;t know how to use it unless you read the manual.</em></p>
+<p>That single rule explains why <ruby>分<rt>わ</rt></ruby>からなければ<ruby>聞<rt>き</rt></ruby>いてください is perfectly idiomatic while ❌<ruby>東京<rt>とうきょう</rt></ruby>に<ruby>着<rt>つ</rt></ruby>けば<ruby>連絡<rt>れんらく</rt></ruby>してください is not.</p>
 </div>
 </div>
 <div class="slide" data-index="26">
   
-  <div class="slide__content"><h2>～ば · Examples (cont.)</h2>
-<p>もう少(すこ)し早(はや)く家(いえ)を<strong>出(で)れば</strong>よかった。<br><em>I should have left home a bit earlier.</em></p>
-<p>明日(あした)雨(あめ)が<strong>降(ふ)らなければ</strong>、川(かわ)でバーベキューをする予定(よてい)です。<br><em>If it doesn&#39;t rain tomorrow, we&#39;re planning to have a barbecue by the river.</em></p>
-<p>この地図(ちず)を<strong>見(み)れば</strong>、どこに駐車場(ちゅうしゃじょう)があるかすぐ分(わ)かります。<br><em>One look at this map and you&#39;ll see straight away where the car parks are.</em></p>
+  <div class="slide__content"><h2>～ば · Examples</h2>
+<p><strong><ruby>急<rt>いそ</rt></ruby>げば</strong>、<ruby>間<rt>ま</rt></ruby>に<ruby>合<rt>あ</rt></ruby>いますよ。<br><em>If we hurry, we&#39;ll make it.</em></p>
+<p><ruby>天気<rt>てんき</rt></ruby>が<strong>よければ</strong>、<ruby>山<rt>やま</rt></ruby>が<ruby>見<rt>み</rt></ruby>えます。<br><em>If the weather&#39;s good, you can see the mountains.</em></p>
+<p><ruby>時間<rt>じかん</rt></ruby>が<strong>あれば</strong>、<ruby>手伝<rt>てつだ</rt></ruby>ってください。<br><em>If you have time, please give me a hand.</em></p>
+<p>もっと**<ruby>練習<rt>れんしゅう</rt></ruby>すれば**、うまくなりますよ。<br><em>You&#39;ll get better if you practise more.</em></p>
 </div>
 </div>
 <div class="slide" data-index="27">
+  
+  <div class="slide__content"><h2>～ば · Examples (cont.)</h2>
+<p><ruby>説明書<rt>せつめいしょ</rt></ruby>を**<ruby>読<rt>よ</rt></ruby>まなければ**、<ruby>使<rt>つか</rt></ruby>い<ruby>方<rt>かた</rt></ruby>が<ruby>分<rt>わ</rt></ruby>かりません。<br><em>You won&#39;t know how to use it unless you read the manual.</em></p>
+<p>もう<ruby>少<rt>すこ</rt></ruby>し<ruby>早<rt>はや</rt></ruby>く<ruby>家<rt>いえ</rt></ruby>を**<ruby>出<rt>で</rt></ruby>れば**よかった。<br><em>I should have left home a bit earlier.</em></p>
+<p><ruby>明日<rt>あした</rt></ruby><ruby>雨<rt>あめ</rt></ruby>が**<ruby>降<rt>ふ</rt></ruby>らなければ**、<ruby>川<rt>かわ</rt></ruby>でバーベキューをする<ruby>予定<rt>よてい</rt></ruby>です。<br><em>If it doesn&#39;t rain tomorrow, we&#39;re planning to have a barbecue by the river.</em></p>
+<p>この<ruby>地図<rt>ちず</rt></ruby>を**<ruby>見<rt>み</rt></ruby>れば**、どこに<ruby>駐車場<rt>ちゅうしゃじょう</rt></ruby>があるかすぐ<ruby>分<rt>わ</rt></ruby>かります。<br><em>One look at this map and you&#39;ll see straight away where the car parks are.</em></p>
+</div>
+</div>
+<div class="slide" data-index="28">
   
   <div class="slide__content"><h2>～ば · Nuance &amp; register</h2>
 <p><code>ば</code> itself is neither polite nor casual, but it leans <strong>written and considered</strong>. Notices, manuals, instructions, mathematical and legal prose, and any sentence that is doing a piece of reasoning all reach for it. In relaxed conversation <code>たら</code> is more frequent - except in the fixed patterns below, which are everywhere in speech.</p>
 <p>Patterns built on <code>ば</code> that you will meet constantly:</p>
 </div>
 </div>
-<div class="slide" data-index="28">
+<div class="slide" data-index="29">
   
   <div class="slide__content"><h2>～ば · Nuance &amp; register (cont.)</h2>
 <ul>
-<li><strong>～ばいい</strong> - &quot;you just have to…&quot;, &quot;it&#39;d be good if…&quot;:<br><em>この紙(かみ)に名前(なまえ)を書(か)けばいいですか。</em></li>
-<li><strong>～ばよかった</strong> - regret about the road not taken:<br><em>もっと早(はや)く言(い)えばよかった。 There is no <code>～とよかった</code>.</em></li>
-<li><strong>～ば～ほど</strong> - &quot;the more…, the more…&quot;:<br><em>考(かんが)えれば考(かんが)えるほど分(わ)からなくなる。</em></li>
+<li><strong>～ばいい</strong> - &quot;you just have to…&quot;, &quot;it&#39;d be good if…&quot;:<br><em>この<ruby>紙<rt>かみ</rt></ruby>に<ruby>名前<rt>なまえ</rt></ruby>を<ruby>書<rt>か</rt></ruby>けばいいですか。</em></li>
+<li><strong>～ばよかった</strong> - regret about the road not taken:<br><em>もっと<ruby>早<rt>はや</rt></ruby>く<ruby>言<rt>い</rt></ruby>えばよかった。 There is no <code>～とよかった</code>.</em></li>
+<li><strong>～ば～ほど</strong> - &quot;the more…, the more…&quot;:<br><em><ruby>考<rt>かんが</rt></ruby>えれば<ruby>考<rt>かんが</rt></ruby>えるほど<ruby>分<rt>わ</rt></ruby>からなくなる。</em></li>
 <li><strong>～なければならない／なければいけない</strong> - the written sibling of the N5<br><em><code>～なくてはいけない</code>. Same meaning, stiffer feel.</em></li>
 </ul>
 <p>The casual contractions are the part that catches learners out in real conversation:</p>
 </div>
 </div>
-<div class="slide" data-index="29">
+<div class="slide" data-index="30">
   
   <div class="slide__content"><h2>～ば · Nuance &amp; register (cont.)</h2>
 <ul>
-<li><code>なければ</code> → <strong>なきゃ</strong>: 帰(かえ)ら<strong>なきゃ</strong>。 - &quot;I&#39;ve got to go home.&quot;<br><em>Very common, all ages, both genders.</em></li>
+<li><code>なければ</code> → <strong>なきゃ</strong>: <ruby>帰<rt>かえ</rt></ruby>ら<strong>なきゃ</strong>。 - &quot;I&#39;ve got to go home.&quot;<br><em>Very common, all ages, both genders.</em></li>
 <li><code>なければならない</code> → <strong>なきゃ</strong> on its own, with the rest swallowed.</li>
-<li><code>～れば</code> → <strong>～りゃ</strong>: 見(み)りゃ分(わ)かる。 - blunt, older, and<br><em>male-sounding. Recognise it; don&#39;t produce it.</em></li>
+<li><code>～れば</code> → <strong>～りゃ</strong>: <ruby>見<rt>み</rt></ruby>りゃ<ruby>分<rt>わ</rt></ruby>かる。 - blunt, older, and<br><em>male-sounding. Recognise it; don&#39;t produce it.</em></li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="30">
+<div class="slide" data-index="31">
   
   <div class="slide__content"><h2>～ば · ～ば vs ～と</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>と</code> reports an <strong>actual, invariable</strong> link. <code>ば</code> floats a <strong>premise</strong> and reasons from it, which is why only <code>ば</code> can end in a wish, an offer or a request.</p>
 </blockquote>
-<p>春(はる)になる<strong>と</strong>、この池(いけ)の氷(こおり)が溶(と)けます。<br><em>Every spring the ice on this pond melts.</em></p>
-<p>春(はる)に<strong>なれば</strong>、この池(いけ)の氷(こおり)も溶(と)けるでしょう。<br><em>Once spring comes, the ice on this pond should melt too.</em></p>
+<p><ruby>春<rt>はる</rt></ruby>になる<strong>と</strong>、この<ruby>池<rt>いけ</rt></ruby>の<ruby>氷<rt>こおり</rt></ruby>が<ruby>溶<rt>と</rt></ruby>けます。<br><em>Every spring the ice on this pond melts.</em></p>
+<p><ruby>春<rt>はる</rt></ruby>に<strong>なれば</strong>、この<ruby>池<rt>いけ</rt></ruby>の<ruby>氷<rt>こおり</rt></ruby>も<ruby>溶<rt>と</rt></ruby>けるでしょう。<br><em>Once spring comes, the ice on this pond should melt too.</em></p>
 <p>The <code>と</code> version is a fact about how the pond behaves. The <code>ば</code> version is the speaker working forward from a supposition about <em>this</em> year - note that it needs <code>でしょう</code>, because a prediction is a judgement, and <code>と</code> has no room for judgements.</p>
 </div>
 </div>
-<div class="slide" data-index="31">
+<div class="slide" data-index="32">
   
   <div class="slide__content"><h2>～ば · ～ば vs ～と (cont.)</h2>
-<p>Two more <code>ば</code>-only territories: <code>もし</code> sits comfortably in front of it (もし間違(まちが)っていれば直(なお)してください), and counterfactual regret belongs to it alone (～ばよかった, ～ばよかったのに).</p>
+<p>Two more <code>ば</code>-only territories: <code>もし</code> sits comfortably in front of it (もし<ruby>間違<rt>まちが</rt></ruby>っていれば<ruby>直<rt>なお</rt></ruby>してください), and counterfactual regret belongs to it alone (～ばよかった, ～ばよかったのに).</p>
 </div>
 </div>
-<div class="slide" data-index="32">
+<div class="slide" data-index="33">
   
   <div class="slide__content"><h2>～ば · ～ば vs ～たら</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - where <code>ば</code> is blocked, <code>たら</code> steps in: before requests and commands after an action verb, and for anything that actually happened once.</p>
 </blockquote>
-<p>会社(かいしゃ)に<strong>着(つ)いたら</strong>、すぐ報告(ほうこく)してください。<br><em>Report in as soon as you get to the office.</em></p>
-<p>❌会社(かいしゃ)に着(つ)けば、すぐ報告(ほうこく)してください is rejected: 着(つ)く is an action the listener performs, and the main clause is a command aimed at the same person. But make the condition a state and <code>ば</code> returns:</p>
-<p>分(わ)から<strong>なければ</strong>、いつでも聞(き)いてください。<br><em>If you don&#39;t understand, ask me any time.</em></p>
-</div>
-</div>
-<div class="slide" data-index="33">
-  
-  <div class="slide__content"><h2>～ば · ～ば vs ～たら (cont.)</h2>
-<p>The other gap is the past. <code>たら</code> can narrate a one-off sequence that really happened - 薬(くすり)を飲(の)んだら熱(ねつ)が下(さ)がった - and <code>ば</code> cannot. A <code>ば</code> sentence ending in the past tense is read as counterfactual instead: 聞(き)けばよかった means &quot;I should have asked&quot;, i.e. I didn&#39;t.</p>
+<p><ruby>会社<rt>かいしゃ</rt></ruby>に**<ruby>着<rt>つ</rt></ruby>いたら**、すぐ<ruby>報告<rt>ほうこく</rt></ruby>してください。<br><em>Report in as soon as you get to the office.</em></p>
+<p>❌<ruby>会社<rt>かいしゃ</rt></ruby>に<ruby>着<rt>つ</rt></ruby>けば、すぐ<ruby>報告<rt>ほうこく</rt></ruby>してください is rejected: <ruby>着<rt>つ</rt></ruby>く is an action the listener performs, and the main clause is a command aimed at the same person. But make the condition a state and <code>ば</code> returns:</p>
+<p><ruby>分<rt>わ</rt></ruby>から<strong>なければ</strong>、いつでも<ruby>聞<rt>き</rt></ruby>いてください。<br><em>If you don&#39;t understand, ask me any time.</em></p>
 </div>
 </div>
 <div class="slide" data-index="34">
+  
+  <div class="slide__content"><h2>～ば · ～ば vs ～たら (cont.)</h2>
+<p>The other gap is the past. <code>たら</code> can narrate a one-off sequence that really happened - <ruby>薬<rt>くすり</rt></ruby>を<ruby>飲<rt>の</rt></ruby>んだら<ruby>熱<rt>ねつ</rt></ruby>が<ruby>下<rt>さ</rt></ruby>がった - and <code>ば</code> cannot. A <code>ば</code> sentence ending in the past tense is read as counterfactual instead: <ruby>聞<rt>き</rt></ruby>けばよかった means &quot;I should have asked&quot;, i.e. I didn&#39;t.</p>
+</div>
+</div>
+<div class="slide" data-index="35">
   
   <div class="slide__content"><h2>～ば · ～ば vs ～なら</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>ば</code> conditions on the event <strong>happening</strong>; <code>なら</code> conditions on a supposition <strong>being true</strong>. So <code>ば</code>&#39;s main clause follows in time, while <code>なら</code>&#39;s can come first.</p>
 </blockquote>
-<p>沖縄(おきなわ)に<strong>行(い)けば</strong>、12月(がつ)でも泳(およ)げますよ。<br><em>If you go to Okinawa, you can swim even in December.</em></p>
-<p>沖縄(おきなわ)に行(い)く<strong>なら</strong>、飛行機(ひこうき)を早(はや)めに予約(よやく)したほうがいいですよ。<br><em>If you&#39;re going to Okinawa, you should book your flight early.</em></p>
+<p><ruby>沖縄<rt>おきなわ</rt></ruby>に**<ruby>行<rt>い</rt></ruby>けば**、12<ruby>月<rt>がつ</rt></ruby>でも<ruby>泳<rt>およ</rt></ruby>げますよ。<br><em>If you go to Okinawa, you can swim even in December.</em></p>
+<p><ruby>沖縄<rt>おきなわ</rt></ruby>に<ruby>行<rt>い</rt></ruby>く<strong>なら</strong>、<ruby>飛行機<rt>ひこうき</rt></ruby>を<ruby>早<rt>はや</rt></ruby>めに<ruby>予約<rt>よやく</rt></ruby>したほうがいいですよ。<br><em>If you&#39;re going to Okinawa, you should book your flight early.</em></p>
 <p>In the first, the swimming happens once you are there. In the second, the booking happens <em>before</em> you go - the trip is a premise the listener has just announced, and the speaker responds to it. <code>ば</code> cannot reverse the order like that.</p>
-</div>
-</div>
-<div class="slide" data-index="35">
-  
-  <div class="slide__content"><h2>～ば · ～ば vs ～なら (cont.)</h2>
-<p>The second difference is mechanical: <code>なら</code> attaches straight to a bare noun and picks it up as a topic - コーヒー<strong>なら</strong>台所(だいどころ)にありますよ - a job no ば-form can do.</p>
 </div>
 </div>
 <div class="slide" data-index="36">
   
-  <div class="slide__content"><h2>～ば · Common mistakes</h2>
-<ul>
-<li><p>❌ 買(か)う<strong>ば</strong> → ✅ 買(か)<strong>えば</strong><br>*The ば-form ends in <strong>-eba</strong>. For a う-verb the final vowel changes: ka-<strong>u</strong> → ka-<strong>e</strong>ba.*</p>
-</li>
-<li><p>❌ 高(たか)<strong>いければ</strong> → ✅ 高(たか)<strong>ければ</strong><br><em>The final <code>い</code> of an い-adjective is <em>replaced</em> by <code>ければ</code>, not kept in front of it.</em></p>
-</li>
-<li><p>❌ <strong>いければ</strong>／<strong>いいば</strong> → ✅ <strong>よければ</strong><br><em><code>いい</code> borrows every conjugated form from <code>よい</code>, here as elsewhere.</em></p>
-</li>
-<li><p>❌ 学生(がくせい)<strong>ければ</strong> → ✅ 学生(がくせい)<strong>なら(ば)</strong>／学生(がくせい)<strong>であれば</strong><br><em><code>ければ</code> belongs to い-adjectives only. Nouns and な-adjectives take <code>なら(ば)</code>, or <code>であれば</code> in formal writing.</em></p>
-</li>
-</ul>
+  <div class="slide__content"><h2>～ば · ～ば vs ～なら (cont.)</h2>
+<p>The second difference is mechanical: <code>なら</code> attaches straight to a bare noun and picks it up as a topic - コーヒー<strong>なら</strong><ruby>台所<rt>だいどころ</rt></ruby>にありますよ - a job no ば-form can do.</p>
 </div>
 </div>
 <div class="slide" data-index="37">
   
-  <div class="slide__content"><h2>～ば · Common mistakes (cont.)</h2>
+  <div class="slide__content"><h2>～ば · Common mistakes</h2>
 <ul>
-<li>❌ 国(くに)に帰(かえ)<strong>れば</strong>、写真(しゃしん)を送(おく)ってください。 → ✅ 国(くに)に帰(かえ)っ<strong>たら</strong>、写真(しゃしん)を送(おく)ってください。<br><em>Action verb plus a request aimed at the same person - the one configuration <code>ば</code> refuses.</em></li>
+<li><p>❌ <ruby>買<rt>か</rt></ruby>う<strong>ば</strong> → ✅ <ruby>買<rt>か</rt></ruby><strong>えば</strong><br>*The ば-form ends in <strong>-eba</strong>. For a う-verb the final vowel changes: ka-<strong>u</strong> → ka-<strong>e</strong>ba.*</p>
+</li>
+<li><p>❌ <ruby>高<rt>たか</rt></ruby><strong>いければ</strong> → ✅ <ruby>高<rt>たか</rt></ruby><strong>ければ</strong><br><em>The final <code>い</code> of an い-adjective is <em>replaced</em> by <code>ければ</code>, not kept in front of it.</em></p>
+</li>
+<li><p>❌ <strong>いければ</strong>／<strong>いいば</strong> → ✅ <strong>よければ</strong><br><em><code>いい</code> borrows every conjugated form from <code>よい</code>, here as elsewhere.</em></p>
+</li>
+<li><p>❌ <ruby>学生<rt>がくせい</rt></ruby><strong>ければ</strong> → ✅ <ruby>学生<rt>がくせい</rt></ruby><strong>なら(ば)</strong>／<ruby>学生<rt>がくせい</rt></ruby><strong>であれば</strong><br><em><code>ければ</code> belongs to い-adjectives only. Nouns and な-adjectives take <code>なら(ば)</code>, or <code>であれば</code> in formal writing.</em></p>
+</li>
 </ul>
 </div>
 </div>
 <div class="slide" data-index="38">
   
-  <div class="slide__content"><h2>～ば · Practice 1</h2>
-<p><strong>1.</strong> もっと野菜(やさい)を食(た)べ____、健康(けんこう)になりますよ。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-もっと野菜(やさい)を食(た)べ<strong>れば</strong>、健康(けんこう)になりますよ。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-食(た)べる is a る-verb, so the <code>る</code> is replaced by <code>れば</code>. The sentence is a piece of reasoning - eat more vegetables and health follows - which is exactly what <code>ば</code> is for.</p>
+  <div class="slide__content"><h2>～ば · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ <ruby>国<rt>くに</rt></ruby>に<ruby>帰<rt>かえ</rt></ruby><strong>れば</strong>、<ruby>写真<rt>しゃしん</rt></ruby>を<ruby>送<rt>おく</rt></ruby>ってください。 → ✅ <ruby>国<rt>くに</rt></ruby>に<ruby>帰<rt>かえ</rt></ruby>っ<strong>たら</strong>、<ruby>写真<rt>しゃしん</rt></ruby>を<ruby>送<rt>おく</rt></ruby>ってください。<br><em>Action verb plus a request aimed at the same person - the one configuration <code>ば</code> refuses.</em></li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="39">
   
-  <div class="slide__content"><h2>～ば · Practice 2</h2>
-<p><strong>2.</strong> 空港(くうこう)に（着(つ)けば・着(つ)いたら）、メールしてください。</p>
+  <div class="slide__content"><h2>～ば · Practice 1</h2>
+<p><strong>1.</strong> もっと<ruby>野菜<rt>やさい</rt></ruby>を<ruby>食<rt>た</rt></ruby>べ____、<ruby>健康<rt>けんこう</rt></ruby>になりますよ。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-空港(くうこう)に<strong>着(つ)いたら</strong>、メールしてください。</p>
+もっと<ruby>野菜<rt>やさい</rt></ruby>を<ruby>食<rt>た</rt></ruby>べ<strong>れば</strong>、<ruby>健康<rt>けんこう</rt></ruby>になりますよ。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The condition is an action the listener performs, and the main clause is a request to that same listener. <code>ば</code> is blocked in exactly that configuration. Had the condition been a state - 時間(じかん)があれば - <code>ば</code> would have been fine.</p>
+<ruby>食<rt>た</rt></ruby>べる is a る-verb, so the <code>る</code> is replaced by <code>れば</code>. The sentence is a piece of reasoning - eat more vegetables and health follows - which is exactly what <code>ば</code> is for.</p>
 </div>
 </div>
 <div class="slide" data-index="40">
   
-  <div class="slide__content"><h2>～ば · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese: &quot;If it&#39;s cheap, I&#39;ll buy two.&quot;</p>
+  <div class="slide__content"><h2>～ば · Practice 2</h2>
+<p><strong>2.</strong> <ruby>空港<rt>くうこう</rt></ruby>に（<ruby>着<rt>つ</rt></ruby>けば・<ruby>着<rt>つ</rt></ruby>いたら）、メールしてください。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-安(やす)<strong>ければ</strong>、2つ買(か)います。</p>
+<ruby>空港<rt>くうこう</rt></ruby>に**<ruby>着<rt>つ</rt></ruby>いたら**、メールしてください。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-い-adjective: 安(やす)い → 安(やす)ければ. The main clause is the speaker&#39;s own decision, not a request to anyone, and the condition is a state - so <code>ば</code> is comfortable here even though the sentence expresses an intention.</p>
+The condition is an action the listener performs, and the main clause is a request to that same listener. <code>ば</code> is blocked in exactly that configuration. Had the condition been a state - <ruby>時間<rt>じかん</rt></ruby>があれば - <code>ば</code> would have been fine.</p>
 </div>
 </div>
 <div class="slide" data-index="41">
   
-  <div class="slide__content"><h2>～ば · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: この本(ほん)が高(たか)いければ、図書館(としょかん)で借(か)ります。</p>
+  <div class="slide__content"><h2>～ば · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese: &quot;If it&#39;s cheap, I&#39;ll buy two.&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ この本(ほん)が高(たか)<strong>ければ</strong>、図書館(としょかん)で借(か)ります。</p>
+<ruby>安<rt>やす</rt></ruby><strong>ければ</strong>、2つ<ruby>買<rt>か</rt></ruby>います。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-い-adjectives lose their final <code>い</code> before <code>ければ</code>. Keeping it produces a form that does not exist. The same trap catches 安(やす)ければ, 寒(さむ)ければ, 忙(いそが)しければ.</p>
+い-adjective: <ruby>安<rt>やす</rt></ruby>い → <ruby>安<rt>やす</rt></ruby>ければ. The main clause is the speaker&#39;s own decision, not a request to anyone, and the condition is a state - so <code>ば</code> is comfortable here even though the sentence expresses an intention.</p>
 </div>
 </div>
 <div class="slide" data-index="42">
   
+  <div class="slide__content"><h2>～ば · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the error: この<ruby>本<rt>ほん</rt></ruby>が<ruby>高<rt>たか</rt></ruby>いければ、<ruby>図書館<rt>としょかん</rt></ruby>で<ruby>借<rt>か</rt></ruby>ります。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ この<ruby>本<rt>ほん</rt></ruby>が<ruby>高<rt>たか</rt></ruby><strong>ければ</strong>、<ruby>図書館<rt>としょかん</rt></ruby>で<ruby>借<rt>か</rt></ruby>ります。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+い-adjectives lose their final <code>い</code> before <code>ければ</code>. Keeping it produces a form that does not exist. The same trap catches <ruby>安<rt>やす</rt></ruby>ければ, <ruby>寒<rt>さむ</rt></ruby>ければ, <ruby>忙<rt>いそが</rt></ruby>しければ.</p>
+</div>
+</div>
+<div class="slide" data-index="43">
+  
   <div class="slide__content"><h2>～ば · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 窓(まど)を開(あ)ければ、涼(すず)しくなりますよ。 (b) 窓(まど)を開(あ)けると、涼(すず)しくなります。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>窓<rt>まど</rt></ruby>を<ruby>開<rt>あ</rt></ruby>ければ、<ruby>涼<rt>すず</rt></ruby>しくなりますよ。 (b) <ruby>窓<rt>まど</rt></ruby>を<ruby>開<rt>あ</rt></ruby>けると、<ruby>涼<rt>すず</rt></ruby>しくなります。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (b) is a statement about how this room works: open the window and it cools down, every time. There is no speaker in it - it could be printed on a sign.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) presents opening the window as a <strong>solution</strong> the listener might adopt. The speaker is reasoning from a premise and offering the result, which is why the <code>よ</code> fits so naturally on the end. In practice you would say (a) to someone who has just complained about the heat, and (b) to someone asking how the room behaves.</p>
 </div>
 </div>
-<div class="slide" data-index="43">
+<div class="slide" data-index="44">
   
   <div class="slide__content"><h1>～たら</h1>
 <p><strong>Meaning</strong> · if / when / after - the all-purpose conditional</p>
 <p><code>～たら</code> is the one you reach for when you are not sure which conditional you want, and you will usually be right. It takes any kind of main clause, it handles both &quot;if&quot; and &quot;when&quot;, and it is the everyday spoken default.</p>
 </div>
 </div>
-<div class="slide" data-index="44">
+<div class="slide" data-index="45">
   
   <div class="slide__content"><h2>～たら · Formation</h2>
 <p>Take the <strong>plain past</strong> of anything at all and add <code>ら</code>. That is the entire rule, which is a large part of why <code>たら</code> is so easy to use.</p>
 </div>
 </div>
-<div class="slide" data-index="45">
+<div class="slide" data-index="46">
   
   <div class="slide__content"><h2>～たら · Formation (cont.)</h2>
 <table>
@@ -3166,47 +3187,47 @@ The condition is an action the listener performs, and the main clause is a reque
 <tbody><tr>
 <td>Verb</td>
 <td>plain past + ら</td>
-<td>飲(の)む → 飲(の)んだ → 飲(の)んだら</td>
+<td><ruby>飲<rt>の</rt></ruby>む → <ruby>飲<rt>の</rt></ruby>んだ → <ruby>飲<rt>の</rt></ruby>んだら</td>
 </tr>
 <tr>
 <td>Verb (る-verb)</td>
 <td>plain past + ら</td>
-<td>届(とど)ける → 届(とど)けた → 届(とど)けたら</td>
+<td><ruby>届<rt>とど</rt></ruby>ける → <ruby>届<rt>とど</rt></ruby>けた → <ruby>届<rt>とど</rt></ruby>けたら</td>
 </tr>
 <tr>
 <td>Verb (negative)</td>
 <td>なかった + ら</td>
-<td>飲(の)まない → 飲(の)まなかったら</td>
+<td><ruby>飲<rt>の</rt></ruby>まない → <ruby>飲<rt>の</rt></ruby>まなかったら</td>
 </tr>
 <tr>
 <td>い-adjective</td>
 <td>かった + ら</td>
-<td>寒(さむ)い → 寒(さむ)かったら</td>
+<td><ruby>寒<rt>さむ</rt></ruby>い → <ruby>寒<rt>さむ</rt></ruby>かったら</td>
 </tr>
 <tr>
 <td>い-adjective (negative)</td>
 <td>くなかった + ら</td>
-<td>寒(さむ)くない → 寒(さむ)くなかったら</td>
+<td><ruby>寒<rt>さむ</rt></ruby>くない → <ruby>寒<rt>さむ</rt></ruby>くなかったら</td>
 </tr>
 <tr>
 <td>な-adjective</td>
 <td>だった + ら</td>
-<td>不便(ふべん) → 不便(ふべん)だったら</td>
+<td><ruby>不便<rt>ふべん</rt></ruby> → <ruby>不便<rt>ふべん</rt></ruby>だったら</td>
 </tr>
 <tr>
 <td>Noun</td>
 <td>だった + ら</td>
-<td>雨(あめ) → 雨(あめ)だったら</td>
+<td><ruby>雨<rt>あめ</rt></ruby> → <ruby>雨<rt>あめ</rt></ruby>だったら</td>
 </tr>
 <tr>
 <td>Polite (formal)</td>
 <td>ました + ら</td>
-<td>届(とど)きます → 届(とど)きましたら</td>
+<td><ruby>届<rt>とど</rt></ruby>きます → <ruby>届<rt>とど</rt></ruby>きましたら</td>
 </tr>
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="46">
+<div class="slide" data-index="47">
   
   <div class="slide__content"><h2>～たら · Formation (cont.)</h2>
 <blockquote>
@@ -3214,161 +3235,172 @@ The condition is an action the listener performs, and the main clause is a reque
 </blockquote>
 <p><code>たら</code> does three jobs, and it is worth naming them separately:</p>
 <ol>
-<li><strong>If</strong> - a genuine condition: 雨(あめ)だったら中止(ちゅうし)です。 2. <strong>When / after</strong> - for something certain to happen, where English would not say &quot;if&quot;: 20歳(さい)になったら… 3. <strong>Discovery</strong> - with a <strong>past</strong> main clause, no conditional meaning survives at all. See the last two examples.</li>
+<li><strong>If</strong> - a genuine condition: <ruby>雨<rt>あめ</rt></ruby>だったら<ruby>中止<rt>ちゅうし</rt></ruby>です。 2. <strong>When / after</strong> - for something certain to happen, where English would not say &quot;if&quot;: 20<ruby>歳<rt>さい</rt></ruby>になったら… 3. <strong>Discovery</strong> - with a <strong>past</strong> main clause, no conditional meaning survives at all. See the last two examples.</li>
 </ol>
-</div>
-</div>
-<div class="slide" data-index="47">
-  
-  <div class="slide__content"><h2>～たら · Examples</h2>
-<p><strong>寒(さむ)かったら</strong>、エアコンを消(け)してください。<br><em>If you&#39;re cold, turn the air conditioning off.</em></p>
-<p>明日(あした)<strong>晴(は)れたら</strong>、海(うみ)に行(い)こう。<br><em>If it&#39;s clear tomorrow, let&#39;s go to the sea.</em></p>
-<p>仕事(しごと)が<strong>終(お)わったら</strong>、飲(の)みに行(い)きませんか。<br><em>Shall we go for a drink after work?</em></p>
-<p>20歳(さい)に<strong>なったら</strong>、一人(ひとり)で暮(く)らしたいです。<br><em>When I turn twenty, I want to live on my own.</em></p>
-<p>薬(くすり)を<strong>飲(の)んだら</strong>、熱(ねつ)が下(さ)がりました。<br><em>I took the medicine and my fever went down.</em></p>
 </div>
 </div>
 <div class="slide" data-index="48">
   
-  <div class="slide__content"><h2>～たら · Examples (cont.)</h2>
-<p>窓(まど)を<strong>開(あ)けたら</strong>、小(ちい)さな鳥(とり)が入(はい)ってきた。<br><em>I opened the window and a little bird flew in.</em></p>
-<p>もし財布(さいふ)を<strong>落(お)としたら</strong>、すぐ交番(こうばん)に届(とど)けてください。<br><em>If you drop your wallet, take it straight to a police box.</em></p>
-<p>来週(らいしゅう)の会議(かいぎ)の資料(しりょう)が<strong>できたら</strong>、部長(ぶちょう)に見(み)せてから、みんなに送(おく)ってください。<br><em>Once next week&#39;s meeting materials are ready, show them to the manager and then send them round.</em></p>
-<p>もし道(みち)に<strong>迷(まよ)ったら</strong>、遠慮(えんりょ)しないで近(ちか)くの人(ひと)に聞(き)いてみてください。<br><em>If you get lost, don&#39;t hesitate - just ask someone nearby.</em></p>
+  <div class="slide__content"><h2>～たら · Examples</h2>
+<p><strong><ruby>寒<rt>さむ</rt></ruby>かったら</strong>、エアコンを<ruby>消<rt>け</rt></ruby>してください。<br><em>If you&#39;re cold, turn the air conditioning off.</em></p>
+<p><ruby>明日<rt>あした</rt></ruby><strong><ruby>晴<rt>は</rt></ruby>れたら</strong>、<ruby>海<rt>うみ</rt></ruby>に<ruby>行<rt>い</rt></ruby>こう。<br><em>If it&#39;s clear tomorrow, let&#39;s go to the sea.</em></p>
+<p><ruby>仕事<rt>しごと</rt></ruby>が**<ruby>終<rt>お</rt></ruby>わったら**、<ruby>飲<rt>の</rt></ruby>みに<ruby>行<rt>い</rt></ruby>きませんか。<br><em>Shall we go for a drink after work?</em></p>
+<p>20<ruby>歳<rt>さい</rt></ruby>に<strong>なったら</strong>、<ruby>一人<rt>ひとり</rt></ruby>で<ruby>暮<rt>く</rt></ruby>らしたいです。<br><em>When I turn twenty, I want to live on my own.</em></p>
 </div>
 </div>
 <div class="slide" data-index="49">
   
-  <div class="slide__content"><h2>～たら · Nuance &amp; register</h2>
-<p><code>たら</code> is the spoken workhorse. In ordinary conversation it outnumbers <code>と</code>, <code>ば</code> and <code>なら</code> put together; in formal writing it thins out and <code>場合(ばあい)</code> and <code>ば</code> take over. It is not casual in itself - the politeness sits on the final verb, and <code>ましたら</code> exists for genuinely formal contexts: 荷物(にもつ)が届(とど)きましたら、ご連絡(れんらく)します。</p>
-<p><code>もし</code> pairs with <code>たら</code> more naturally than with anything else. <code>もし</code> is optional and only reinforces the &quot;this may not happen&quot; reading; it never replaces the <code>たら</code>.</p>
-<p>Two constructions built on <code>たら</code> that you meet immediately:</p>
-<ul>
-<li><strong>～たらいい／～たらいいですか</strong> - &quot;it&#39;d be good if…&quot;, &quot;what should I…&quot;.</li>
-<li><strong>～たらどうですか／～たら?</strong> - a suggestion aimed at the listener. Both have<br><em>their own pages; note only that the suggestion reading comes from <code>どう</code>, not from <code>たら</code>.</em></li>
-</ul>
+  <div class="slide__content"><h2>～たら · Examples (cont.)</h2>
+<p><ruby>薬<rt>くすり</rt></ruby>を**<ruby>飲<rt>の</rt></ruby>んだら**、<ruby>熱<rt>ねつ</rt></ruby>が<ruby>下<rt>さ</rt></ruby>がりました。<br><em>I took the medicine and my fever went down.</em></p>
+<p><ruby>窓<rt>まど</rt></ruby>を**<ruby>開<rt>あ</rt></ruby>けたら**、<ruby>小<rt>ちい</rt></ruby>さな<ruby>鳥<rt>とり</rt></ruby>が<ruby>入<rt>はい</rt></ruby>ってきた。<br><em>I opened the window and a little bird flew in.</em></p>
+<p>もし<ruby>財布<rt>さいふ</rt></ruby>を**<ruby>落<rt>お</rt></ruby>としたら**、すぐ<ruby>交番<rt>こうばん</rt></ruby>に<ruby>届<rt>とど</rt></ruby>けてください。<br><em>If you drop your wallet, take it straight to a police box.</em></p>
+<p><ruby>来週<rt>らいしゅう</rt></ruby>の<ruby>会議<rt>かいぎ</rt></ruby>の<ruby>資料<rt>しりょう</rt></ruby>が<strong>できたら</strong>、<ruby>部長<rt>ぶちょう</rt></ruby>に<ruby>見<rt>み</rt></ruby>せてから、みんなに<ruby>送<rt>おく</rt></ruby>ってください。<br><em>Once next week&#39;s meeting materials are ready, show them to the manager and then send them round.</em></p>
 </div>
 </div>
 <div class="slide" data-index="50">
   
-  <div class="slide__content"><h2>～たら · Nuance &amp; register (cont.)</h2>
-<p>The <strong>discovery</strong> use deserves its own paragraph, because it is the one that makes learners think they have misread the sentence. With a past-tense main clause, <code>たら</code> means &quot;I did X, and then - as it turned out - Y&quot;. There is no condition anywhere in it. The Y part has to be something outside the speaker&#39;s control: a discovery, a surprise, an event that simply occurred. A <em>planned</em> next action is not allowed there, and needs <code>～てから</code> instead.</p>
+  <div class="slide__content"><h2>～たら · Examples (cont.)</h2>
+<p>もし<ruby>道<rt>みち</rt></ruby>に**<ruby>迷<rt>まよ</rt></ruby>ったら**、<ruby>遠慮<rt>えんりょ</rt></ruby>しないで<ruby>近<rt>ちか</rt></ruby>くの<ruby>人<rt>ひと</rt></ruby>に<ruby>聞<rt>き</rt></ruby>いてみてください。<br><em>If you get lost, don&#39;t hesitate - just ask someone nearby.</em></p>
 </div>
 </div>
 <div class="slide" data-index="51">
+  
+  <div class="slide__content"><h2>～たら · Nuance &amp; register</h2>
+<p><code>たら</code> is the spoken workhorse. In ordinary conversation it outnumbers <code>と</code>, <code>ば</code> and <code>なら</code> put together; in formal writing it thins out and <code><ruby>場合<rt>ばあい</rt></ruby></code> and <code>ば</code> take over. It is not casual in itself - the politeness sits on the final verb, and <code>ましたら</code> exists for genuinely formal contexts: <ruby>荷物<rt>にもつ</rt></ruby>が<ruby>届<rt>とど</rt></ruby>きましたら、ご<ruby>連絡<rt>れんらく</rt></ruby>します。</p>
+<p><code>もし</code> pairs with <code>たら</code> more naturally than with anything else. <code>もし</code> is optional and only reinforces the &quot;this may not happen&quot; reading; it never replaces the <code>たら</code>.</p>
+<p>Two constructions built on <code>たら</code> that you meet immediately:</p>
+</div>
+</div>
+<div class="slide" data-index="52">
+  
+  <div class="slide__content"><h2>～たら · Nuance &amp; register (cont.)</h2>
+<ul>
+<li><strong>～たらいい／～たらいいですか</strong> - &quot;it&#39;d be good if…&quot;, &quot;what should I…&quot;.</li>
+<li><strong>～たらどうですか／～たら?</strong> - a suggestion aimed at the listener. Both have<br><em>their own pages; note only that the suggestion reading comes from <code>どう</code>, not from <code>たら</code>.</em></li>
+</ul>
+<p>The <strong>discovery</strong> use deserves its own paragraph, because it is the one that makes learners think they have misread the sentence. With a past-tense main clause, <code>たら</code> means &quot;I did X, and then - as it turned out - Y&quot;. There is no condition anywhere in it. The Y part has to be something outside the speaker&#39;s control: a discovery, a surprise, an event that simply occurred. A <em>planned</em> next action is not allowed there, and needs <code>～てから</code> instead.</p>
+</div>
+</div>
+<div class="slide" data-index="53">
   
   <div class="slide__content"><h2>～たら · ～たら vs ～と</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>と</code> needs the link to be automatic and repeatable, and bans any main clause expressing the speaker&#39;s will. <code>たら</code> accepts single occasions and every kind of ending.</p>
 </blockquote>
-<p>この窓(まど)を開(あ)ける<strong>と</strong>、海(うみ)が見(み)えます。<br><em>Open this window and you can see the sea.</em></p>
-<p>窓(まど)を開(あ)け<strong>たら</strong>、海(うみ)が見(み)えました。<br><em>I opened the window, and there was the sea.</em></p>
-<p>The first is a permanent property of the window; the second is one morning. And where <code>と</code> would refuse outright - ❌窓(まど)を開(あ)けると、写真(しゃしん)を撮(と)りましょう - <code>たら</code> is fine: 窓(まど)を開(あ)けたら、写真(しゃしん)を撮(と)りましょう。</p>
+<p>この<ruby>窓<rt>まど</rt></ruby>を<ruby>開<rt>あ</rt></ruby>ける<strong>と</strong>、<ruby>海<rt>うみ</rt></ruby>が<ruby>見<rt>み</rt></ruby>えます。<br><em>Open this window and you can see the sea.</em></p>
+<p><ruby>窓<rt>まど</rt></ruby>を<ruby>開<rt>あ</rt></ruby>け<strong>たら</strong>、<ruby>海<rt>うみ</rt></ruby>が<ruby>見<rt>み</rt></ruby>えました。<br><em>I opened the window, and there was the sea.</em></p>
 </div>
 </div>
-<div class="slide" data-index="52">
+<div class="slide" data-index="54">
   
   <div class="slide__content"><h2>～たら · ～たら vs ～と (cont.)</h2>
+<p>The first is a permanent property of the window; the second is one morning. And where <code>と</code> would refuse outright - ❌<ruby>窓<rt>まど</rt></ruby>を<ruby>開<rt>あ</rt></ruby>けると、<ruby>写真<rt>しゃしん</rt></ruby>を<ruby>撮<rt>と</rt></ruby>りましょう - <code>たら</code> is fine: <ruby>窓<rt>まど</rt></ruby>を<ruby>開<rt>あ</rt></ruby>けたら、<ruby>写真<rt>しゃしん</rt></ruby>を<ruby>撮<rt>と</rt></ruby>りましょう。</p>
 <p>Note the shapes too: <code>と</code> takes the plain <strong>non-past</strong>, <code>たら</code> the plain <strong>past</strong>. If you find yourself writing a past form in front of <code>と</code>, you have picked the wrong one.</p>
 </div>
 </div>
-<div class="slide" data-index="53">
+<div class="slide" data-index="55">
   
   <div class="slide__content"><h2>～たら · ～たら vs ～ば</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - after an <strong>action verb</strong>, only <code>たら</code> can be followed by a request or a command. And only <code>たら</code> narrates something that actually happened once.</p>
 </blockquote>
-<p>田中(たなか)さんが<strong>来(き)たら</strong>、教(おし)えてください。<br><em>Let me know when Tanaka gets here.</em></p>
-<p>❌田中(たなか)さんが来(く)れば、教(おし)えてください is wrong. Both work, though, once the condition is a state rather than an action: 分(わ)からなかったら／分(わ)からなければ、聞(き)いてください are equally good.</p>
-<p>The second gap is the past. A <code>たら</code> clause with a past main clause reports a real sequence; the <code>ば</code> equivalent flips into counterfactual regret (聞(き)けばよかった = &quot;I should have asked, and didn&#39;t&quot;). If you want to say what happened, <code>ば</code> is not available.</p>
+<p><ruby>田中<rt>たなか</rt></ruby>さんが**<ruby>来<rt>き</rt></ruby>たら**、<ruby>教<rt>おし</rt></ruby>えてください。<br><em>Let me know when Tanaka gets here.</em></p>
+<p>❌<ruby>田中<rt>たなか</rt></ruby>さんが<ruby>来<rt>く</rt></ruby>れば、<ruby>教<rt>おし</rt></ruby>えてください is wrong. Both work, though, once the condition is a state rather than an action: <ruby>分<rt>わ</rt></ruby>からなかったら／<ruby>分<rt>わ</rt></ruby>からなければ、<ruby>聞<rt>き</rt></ruby>いてください are equally good.</p>
 </div>
 </div>
-<div class="slide" data-index="54">
+<div class="slide" data-index="56">
+  
+  <div class="slide__content"><h2>～たら · ～たら vs ～ば (cont.)</h2>
+<p>The second gap is the past. A <code>たら</code> clause with a past main clause reports a real sequence; the <code>ば</code> equivalent flips into counterfactual regret (<ruby>聞<rt>き</rt></ruby>けばよかった = &quot;I should have asked, and didn&#39;t&quot;). If you want to say what happened, <code>ば</code> is not available.</p>
+</div>
+</div>
+<div class="slide" data-index="57">
   
   <div class="slide__content"><h2>～たら · ～たら vs ～なら</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - a <code>たら</code> clause always happens <strong>before</strong> its main clause. A <code>なら</code> clause need not: <code>なら</code> takes up a supposition, and the main clause can be carried out first.</p>
 </blockquote>
 <p>The clearest illustration is a road-safety slogan you see on posters all over Japan, which uses both in one breath:</p>
-<p><strong>飲(の)んだら</strong>乗(の)るな、乗(の)る<strong>なら</strong>飲(の)むな。<br><em>If you&#39;ve drunk, don&#39;t drive; if you&#39;re going to drive, don&#39;t drink.</em></p>
-<p><code>飲(の)んだら</code> = the drinking is finished, and the driving would come after it. <code>乗(の)るなら</code> = driving is a plan you are entertaining, and the instruction applies <em>beforehand</em>. Swap the two and the slogan collapses.</p>
-<p>The same split in a plain sentence:</p>
-</div>
-</div>
-<div class="slide" data-index="55">
-  
-  <div class="slide__content"><h2>～たら · ～たら vs ～なら (cont.)</h2>
-<p>日本(にほん)に行(い)っ<strong>たら</strong>、温泉(おんせん)に入(はい)りたい。<br><em>When I get to Japan, I want to go to a hot spring.</em></p>
-<p>日本(にほん)に行(い)く<strong>なら</strong>、春(はる)がいちばんいいですよ。<br><em>If you&#39;re going to Japan, spring is the best time.</em></p>
-</div>
-</div>
-<div class="slide" data-index="56">
-  
-  <div class="slide__content"><h2>～たら · Common mistakes</h2>
-<ul>
-<li><p>❌ 行(い)く<strong>たら</strong> → ✅ 行(い)っ<strong>たら</strong><br><em><code>たら</code> is built on the <strong>past</strong> form, never the dictionary form. 行(い)く → 行(い)った → 行(い)ったら.</em></p>
-</li>
-<li><p>❌ 高(たか)い<strong>たら</strong> → ✅ 高(たか)<strong>かったら</strong><br><em>い-adjectives go through their past form first: 高(たか)い → 高(たか)かった → 高(たか)かったら.</em></p>
-</li>
-<li><p>❌ 日本(にほん)に行(い)ったら、ビザを取(と)ります。 → ✅ 日本(にほん)に行(い)く<strong>なら</strong>、ビザを取(と)ります。<br><em>A <code>たら</code> clause must come first in time, and you get the visa before you fly. For a plan you are reacting to, <code>なら</code>.</em></p>
-</li>
-<li><p>❌ 窓(まど)を開(あ)けたら、部屋(へや)を掃除(そうじ)しました。 → ✅ 窓(まど)を開(あ)け<strong>てから</strong>、部屋(へや)を掃除(そうじ)しました。<br><em>With a past main clause, <code>たら</code> means the speaker <em>discovered</em> something. A deliberate next action needs <code>～てから</code>.</em></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="slide" data-index="57">
-  
-  <div class="slide__content"><h2>～たら · Common mistakes (cont.)</h2>
-<ul>
-<li>❌ このボタンを押(お)したら、お湯(ゆ)が出(で)ます。 → ✅ このボタンを押(お)す<strong>と</strong>、お湯(ゆ)が出(で)ます。<br><em>Not ungrammatical, but wrong for a manual: <code>たら</code> frames it as one occasion, while a machine&#39;s fixed behaviour calls for <code>と</code>.</em></li>
-</ul>
+<p><strong><ruby>飲<rt>の</rt></ruby>んだら</strong><ruby>乗<rt>の</rt></ruby>るな、<ruby>乗<rt>の</rt></ruby>る<strong>なら</strong><ruby>飲<rt>の</rt></ruby>むな。<br><em>If you&#39;ve drunk, don&#39;t drive; if you&#39;re going to drive, don&#39;t drink.</em></p>
+<p><code><ruby>飲<rt>の</rt></ruby>んだら</code> = the drinking is finished, and the driving would come after it. <code><ruby>乗<rt>の</rt></ruby>るなら</code> = driving is a plan you are entertaining, and the instruction applies <em>beforehand</em>. Swap the two and the slogan collapses.</p>
 </div>
 </div>
 <div class="slide" data-index="58">
   
-  <div class="slide__content"><h2>～たら · Practice 1</h2>
-<p><strong>1.</strong> 安(やす)____、もう一(ひと)つ買(か)います。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-安(やす)<strong>かったら</strong>、もう一(ひと)つ買(か)います。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-An い-adjective forms <code>たら</code> through its past: 安(やす)い → 安(やす)かった → 安(やす)かったら. ❌安(やす)いたら does not exist.</p>
+  <div class="slide__content"><h2>～たら · ～たら vs ～なら (cont.)</h2>
+<p>The same split in a plain sentence:</p>
+<p><ruby>日本<rt>にほん</rt></ruby>に<ruby>行<rt>い</rt></ruby>っ<strong>たら</strong>、<ruby>温泉<rt>おんせん</rt></ruby>に<ruby>入<rt>はい</rt></ruby>りたい。<br><em>When I get to Japan, I want to go to a hot spring.</em></p>
+<p><ruby>日本<rt>にほん</rt></ruby>に<ruby>行<rt>い</rt></ruby>く<strong>なら</strong>、<ruby>春<rt>はる</rt></ruby>がいちばんいいですよ。<br><em>If you&#39;re going to Japan, spring is the best time.</em></p>
 </div>
 </div>
 <div class="slide" data-index="59">
   
-  <div class="slide__content"><h2>～たら · Practice 2</h2>
-<p><strong>2.</strong> 大学(だいがく)を（出(で)ると・出(で)たら）、国(くに)に帰(かえ)るつもりです。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-大学(だいがく)を<strong>出(で)たら</strong>、国(くに)に帰(かえ)るつもりです。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>つもり</code> states the speaker&#39;s intention, and <code>と</code> cannot host anything that expresses the speaker&#39;s will. <code>たら</code> has no such limit - and here it carries the &quot;when&quot;, not &quot;if&quot;: graduating is going to happen.</p>
+  <div class="slide__content"><h2>～たら · Common mistakes</h2>
+<ul>
+<li><p>❌ <ruby>行<rt>い</rt></ruby>く<strong>たら</strong> → ✅ <ruby>行<rt>い</rt></ruby>っ<strong>たら</strong><br><em><code>たら</code> is built on the <strong>past</strong> form, never the dictionary form. <ruby>行<rt>い</rt></ruby>く → <ruby>行<rt>い</rt></ruby>った → <ruby>行<rt>い</rt></ruby>ったら.</em></p>
+</li>
+<li><p>❌ <ruby>高<rt>たか</rt></ruby>い<strong>たら</strong> → ✅ <ruby>高<rt>たか</rt></ruby><strong>かったら</strong><br><em>い-adjectives go through their past form first: <ruby>高<rt>たか</rt></ruby>い → <ruby>高<rt>たか</rt></ruby>かった → <ruby>高<rt>たか</rt></ruby>かったら.</em></p>
+</li>
+<li><p>❌ <ruby>日本<rt>にほん</rt></ruby>に<ruby>行<rt>い</rt></ruby>ったら、ビザを<ruby>取<rt>と</rt></ruby>ります。 → ✅ <ruby>日本<rt>にほん</rt></ruby>に<ruby>行<rt>い</rt></ruby>く<strong>なら</strong>、ビザを<ruby>取<rt>と</rt></ruby>ります。<br><em>A <code>たら</code> clause must come first in time, and you get the visa before you fly. For a plan you are reacting to, <code>なら</code>.</em></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="60">
   
-  <div class="slide__content"><h2>～たら · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese: &quot;When the rain stops, let&#39;s go for a walk.&quot;</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-雨(あめ)が<strong>やんだら</strong>、散歩(さんぽ)に行(い)きましょう。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>～ましょう</code> is a proposal, so <code>と</code> is out. The event is expected rather than doubtful, which is why English says &quot;when&quot; and Japanese still uses <code>たら</code> - the same form covers both.</p>
+  <div class="slide__content"><h2>～たら · Common mistakes (cont.)</h2>
+<ul>
+<li><p>❌ <ruby>窓<rt>まど</rt></ruby>を<ruby>開<rt>あ</rt></ruby>けたら、<ruby>部屋<rt>へや</rt></ruby>を<ruby>掃除<rt>そうじ</rt></ruby>しました。 → ✅ <ruby>窓<rt>まど</rt></ruby>を<ruby>開<rt>あ</rt></ruby>け<strong>てから</strong>、<ruby>部屋<rt>へや</rt></ruby>を<ruby>掃除<rt>そうじ</rt></ruby>しました。<br><em>With a past main clause, <code>たら</code> means the speaker <em>discovered</em> something. A deliberate next action needs <code>～てから</code>.</em></p>
+</li>
+<li><p>❌ このボタンを<ruby>押<rt>お</rt></ruby>したら、お<ruby>湯<rt>ゆ</rt></ruby>が<ruby>出<rt>で</rt></ruby>ます。 → ✅ このボタンを<ruby>押<rt>お</rt></ruby>す<strong>と</strong>、お<ruby>湯<rt>ゆ</rt></ruby>が<ruby>出<rt>で</rt></ruby>ます。<br><em>Not ungrammatical, but wrong for a manual: <code>たら</code> frames it as one occasion, while a machine&#39;s fixed behaviour calls for <code>と</code>.</em></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="61">
   
-  <div class="slide__content"><h2>～たら · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 来週(らいしゅう)京都(きょうと)に行(い)ったら、ホテルを予約(よやく)しておきます。</p>
+  <div class="slide__content"><h2>～たら · Practice 1</h2>
+<p><strong>1.</strong> <ruby>安<rt>やす</rt></ruby>____、もう<ruby>一<rt>ひと</rt></ruby>つ<ruby>買<rt>か</rt></ruby>います。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 来週(らいしゅう)京都(きょうと)に行(い)く<strong>なら</strong>、ホテルを予約(よやく)しておきます。</p>
+<ruby>安<rt>やす</rt></ruby><strong>かったら</strong>、もう<ruby>一<rt>ひと</rt></ruby>つ<ruby>買<rt>か</rt></ruby>います。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-You book the hotel <em>before</em> leaving, and a <code>たら</code> clause is always the earlier event. <code>なら</code> is the one conditional that lets the main clause come first in time.</p>
+An い-adjective forms <code>たら</code> through its past: <ruby>安<rt>やす</rt></ruby>い → <ruby>安<rt>やす</rt></ruby>かった → <ruby>安<rt>やす</rt></ruby>かったら. ❌<ruby>安<rt>やす</rt></ruby>いたら does not exist.</p>
 </div>
 </div>
 <div class="slide" data-index="62">
   
+  <div class="slide__content"><h2>～たら · Practice 2</h2>
+<p><strong>2.</strong> <ruby>大学<rt>だいがく</rt></ruby>を（<ruby>出<rt>で</rt></ruby>ると・<ruby>出<rt>で</rt></ruby>たら）、<ruby>国<rt>くに</rt></ruby>に<ruby>帰<rt>かえ</rt></ruby>るつもりです。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>大学<rt>だいがく</rt></ruby>を**<ruby>出<rt>で</rt></ruby>たら**、<ruby>国<rt>くに</rt></ruby>に<ruby>帰<rt>かえ</rt></ruby>るつもりです。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code>つもり</code> states the speaker&#39;s intention, and <code>と</code> cannot host anything that expresses the speaker&#39;s will. <code>たら</code> has no such limit - and here it carries the &quot;when&quot;, not &quot;if&quot;: graduating is going to happen.</p>
+</div>
+</div>
+<div class="slide" data-index="63">
+  
+  <div class="slide__content"><h2>～たら · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese: &quot;When the rain stops, let&#39;s go for a walk.&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>雨<rt>あめ</rt></ruby>が<strong>やんだら</strong>、<ruby>散歩<rt>さんぽ</rt></ruby>に<ruby>行<rt>い</rt></ruby>きましょう。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code>～ましょう</code> is a proposal, so <code>と</code> is out. The event is expected rather than doubtful, which is why English says &quot;when&quot; and Japanese still uses <code>たら</code> - the same form covers both.</p>
+</div>
+</div>
+<div class="slide" data-index="64">
+  
+  <div class="slide__content"><h2>～たら · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the error: <ruby>来週<rt>らいしゅう</rt></ruby><ruby>京都<rt>きょうと</rt></ruby>に<ruby>行<rt>い</rt></ruby>ったら、ホテルを<ruby>予約<rt>よやく</rt></ruby>しておきます。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ <ruby>来週<rt>らいしゅう</rt></ruby><ruby>京都<rt>きょうと</rt></ruby>に<ruby>行<rt>い</rt></ruby>く<strong>なら</strong>、ホテルを<ruby>予約<rt>よやく</rt></ruby>しておきます。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+You book the hotel <em>before</em> leaving, and a <code>たら</code> clause is always the earlier event. <code>なら</code> is the one conditional that lets the main clause come first in time.</p>
+</div>
+</div>
+<div class="slide" data-index="65">
+  
   <div class="slide__content"><h2>～たら · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 彼(かれ)に電話(でんわ)したら、留守(るす)でした。 (b) 彼(かれ)に電話(でんわ)したら、教(おし)えてください。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>彼<rt>かれ</rt></ruby>に<ruby>電話<rt>でんわ</rt></ruby>したら、<ruby>留守<rt>るす</rt></ruby>でした。 (b) <ruby>彼<rt>かれ</rt></ruby>に<ruby>電話<rt>でんわ</rt></ruby>したら、<ruby>教<rt>おし</rt></ruby>えてください。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) has a <strong>past</strong> main clause, so there is no condition in it at all: &quot;I phoned him, and he was out.&quot; The <code>たら</code> clause just sets the scene, and what follows is something the speaker found out.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
@@ -3377,14 +3409,14 @@ You book the hotel <em>before</em> leaving, and a <code>たら</code> clause is 
 The <code>たら</code> is identical in both. The tense of the main clause decides whether you are reading a report or a condition - and this is the single most useful thing to know about <code>たら</code>.</p>
 </div>
 </div>
-<div class="slide" data-index="63">
+<div class="slide" data-index="66">
   
   <div class="slide__content"><h1>～なら</h1>
 <p><strong>Meaning</strong> · if that&#39;s the case - taking up something just said, and replying to it</p>
 <p><code>～なら</code> is the conditional that <strong>answers</strong>. It picks up a premise - nearly always one the other person has just handed you - and builds the speaker&#39;s judgement on top of it: advice, an offer, an opinion, a decision. Nothing about <code>なら</code> reports what will happen; it reports what the speaker thinks about it.</p>
 </div>
 </div>
-<div class="slide" data-index="64">
+<div class="slide" data-index="67">
   
   <div class="slide__content"><h2>～なら · Formation</h2>
 <table>
@@ -3398,209 +3430,209 @@ The <code>たら</code> is identical in both. The tense of the main clause decid
 <tbody><tr>
 <td>Noun</td>
 <td>Noun + なら (<strong>no</strong> だ)</td>
-<td>明日(あした) → 明日(あした)なら</td>
+<td><ruby>明日<rt>あした</rt></ruby> → <ruby>明日<rt>あした</rt></ruby>なら</td>
 </tr>
 <tr>
 <td>な-adjective</td>
 <td>stem + なら (<strong>no</strong> だ)</td>
-<td>静(しず)か → 静(しず)かなら</td>
+<td><ruby>静<rt>しず</rt></ruby>か → <ruby>静<rt>しず</rt></ruby>かなら</td>
 </tr>
 <tr>
 <td>い-adjective</td>
 <td>plain form + なら</td>
-<td>忙(いそが)しい → 忙(いそが)しいなら</td>
+<td><ruby>忙<rt>いそが</rt></ruby>しい → <ruby>忙<rt>いそが</rt></ruby>しいなら</td>
 </tr>
 <tr>
 <td>Verb</td>
 <td>plain non-past + なら</td>
-<td>行(い)く → 行(い)くなら</td>
+<td><ruby>行<rt>い</rt></ruby>く → <ruby>行<rt>い</rt></ruby>くなら</td>
 </tr>
 <tr>
 <td>Verb (negative)</td>
 <td>ない-form + なら</td>
-<td>要(い)らない → 要(い)らないなら</td>
+<td><ruby>要<rt>い</rt></ruby>らない → <ruby>要<rt>い</rt></ruby>らないなら</td>
 </tr>
 <tr>
 <td>Verb (past)</td>
 <td>plain past + なら</td>
-<td>終(お)わった → 終(お)わったなら</td>
+<td><ruby>終<rt>お</rt></ruby>わった → <ruby>終<rt>お</rt></ruby>わったなら</td>
 </tr>
 <tr>
 <td>With の</td>
 <td>plain form + のなら／んなら</td>
-<td>行(い)く → 行(い)くのなら／行(い)くんなら</td>
+<td><ruby>行<rt>い</rt></ruby>く → <ruby>行<rt>い</rt></ruby>くのなら／<ruby>行<rt>い</rt></ruby>くんなら</td>
 </tr>
 <tr>
 <td>Formal</td>
 <td>+ であれば／でしたら</td>
-<td>学生(がくせい) → 学生(がくせい)であれば</td>
+<td><ruby>学生<rt>がくせい</rt></ruby> → <ruby>学生<rt>がくせい</rt></ruby>であれば</td>
 </tr>
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="65">
+<div class="slide" data-index="68">
   
   <div class="slide__content"><h2>～なら · Formation (cont.)</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - <code>だ</code> never appears in front of <code>なら</code>. ❌静(しず)かだなら, ❌雨(あめ)だなら. Compare <code>と</code>, which <strong>requires</strong> it (雨(あめ)だと). Getting these two the wrong way round is the commonest form error at N4.</p>
+<p><strong>Rule of thumb</strong> - <code>だ</code> never appears in front of <code>なら</code>. ❌<ruby>静<rt>しず</rt></ruby>かだなら, ❌<ruby>雨<rt>あめ</rt></ruby>だなら. Compare <code>と</code>, which <strong>requires</strong> it (<ruby>雨<rt>あめ</rt></ruby>だと). Getting these two the wrong way round is the commonest form error at N4.</p>
 </blockquote>
 <blockquote>
-<p><strong>Note</strong> - <code>だったら</code>, <code>でしたら</code> and <code>それなら</code> are the everyday cousins of this pattern. <code>だったら</code> is the casual &quot;in that case&quot;; <code>でしたら</code> is the polite version you hear across a counter: 明日(あした)でしたら、お席(せき)がございます。</p>
+<p><strong>Note</strong> - <code>だったら</code>, <code>でしたら</code> and <code>それなら</code> are the everyday cousins of this pattern. <code>だったら</code> is the casual &quot;in that case&quot;; <code>でしたら</code> is the polite version you hear across a counter: <ruby>明日<rt>あした</rt></ruby>でしたら、お<ruby>席<rt>せき</rt></ruby>がございます。</p>
 </blockquote>
-</div>
-</div>
-<div class="slide" data-index="66">
-  
-  <div class="slide__content"><h2>～なら · Examples</h2>
-<p>ビール<strong>なら</strong>冷蔵庫(れいぞうこ)にありますよ。<br><em>Beer? There&#39;s some in the fridge.</em></p>
-<p>土曜日(どようび)は無理(むり)だけど、日曜日(にちようび)<strong>なら</strong>空(あ)いているよ。<br><em>Saturday&#39;s no good, but Sunday I&#39;m free.</em></p>
-<p>頭(あたま)が痛(いた)い<strong>なら</strong>、早(はや)く帰(かえ)ったほうがいいですよ。<br><em>If your head hurts, you should go home early.</em></p>
-<p>お寿司(すし)<strong>なら</strong>、駅前(えきまえ)の店(みせ)がおいしいですよ。<br><em>For sushi, the place in front of the station is good.</em></p>
-<p>君(きみ)が行(い)かない<strong>なら</strong>、私(わたし)も行(い)かない。<br><em>If you&#39;re not going, I&#39;m not going either.</em></p>
-</div>
-</div>
-<div class="slide" data-index="67">
-  
-  <div class="slide__content"><h2>～なら · Examples (cont.)</h2>
-<p>宿題(しゅくだい)が終(お)わった<strong>なら</strong>、遊(あそ)びに行(い)ってもいいよ。<br><em>If you&#39;ve finished your homework, you can go out and play.</em></p>
-<p>山(やま)に登(のぼ)る<strong>なら</strong>、いい靴(くつ)を買(か)っておいたほうがいいですよ。<br><em>If you&#39;re going to climb a mountain, you&#39;d better buy proper boots first.</em></p>
-<p>中古(ちゅうこ)の車(くるま)を買(か)う<strong>なら</strong>、一度(いちど)専門(せんもん)の人(ひと)に見(み)てもらったほうが安心(あんしん)です。<br><em>If you&#39;re buying a used car, it&#39;s safer to have a specialist look at it first.</em></p>
-</div>
-</div>
-<div class="slide" data-index="68">
-  
-  <div class="slide__content"><h2>～なら · Nuance &amp; register</h2>
-<p><code>なら</code> is conversational glue, and its natural habitat is the second turn of a dialogue. Someone says something; you take their words and hand back a judgement. That is why so many <code>なら</code> sentences begin by repeating a noun the other person just used - ビール<strong>なら</strong>, 京都(きょうと)<strong>なら</strong>, その本(ほん)<strong>なら</strong>. In that use it behaves almost like a topic marker, and it is the only conditional that can attach to a bare noun this way.</p>
-<p>The main clause is always the speaker: <code>～たほうがいい</code>, <code>～てあげる</code>, <code>～てください</code>, <code>～つもりだ</code>, an opinion, an offer. It is never a natural consequence - that is <code>と</code>&#39;s territory.</p>
-<p><code>のなら</code>（casual <code>んなら</code>）adds a shade of &quot;given that you&#39;re telling me this&quot;, which can read as sympathetic or as slightly pointed depending on the tone: そんなに嫌(きら)いなのなら、食(た)べなくていいよ。 Used that way, <code>なら</code> carries a real edge - you are throwing the listener&#39;s own premise back at them.</p>
 </div>
 </div>
 <div class="slide" data-index="69">
   
-  <div class="slide__content"><h2>～なら · Nuance &amp; register (cont.)</h2>
-<p>In writing, <code>なら</code> is replaced by <code>であれば</code> or by <code>場合(ばあい)は</code>; the stiff <code>ならば</code> survives in formal prose (必要(ひつよう)ならば再度(さいど)ご連絡(れんらく)ください). In speech, <code>ならば</code> sounds bookish.</p>
+  <div class="slide__content"><h2>～なら · Examples</h2>
+<p>ビール<strong>なら</strong><ruby>冷蔵庫<rt>れいぞうこ</rt></ruby>にありますよ。<br><em>Beer? There&#39;s some in the fridge.</em></p>
+<p><ruby>土曜日<rt>どようび</rt></ruby>は<ruby>無理<rt>むり</rt></ruby>だけど、<ruby>日曜日<rt>にちようび</rt></ruby><strong>なら</strong><ruby>空<rt>あ</rt></ruby>いているよ。<br><em>Saturday&#39;s no good, but Sunday I&#39;m free.</em></p>
+<p><ruby>頭<rt>あたま</rt></ruby>が<ruby>痛<rt>いた</rt></ruby>い<strong>なら</strong>、<ruby>早<rt>はや</rt></ruby>く<ruby>帰<rt>かえ</rt></ruby>ったほうがいいですよ。<br><em>If your head hurts, you should go home early.</em></p>
+<p>お<ruby>寿司<rt>すし</rt></ruby><strong>なら</strong>、<ruby>駅前<rt>えきまえ</rt></ruby>の<ruby>店<rt>みせ</rt></ruby>がおいしいですよ。<br><em>For sushi, the place in front of the station is good.</em></p>
 </div>
 </div>
 <div class="slide" data-index="70">
+  
+  <div class="slide__content"><h2>～なら · Examples (cont.)</h2>
+<p><ruby>君<rt>きみ</rt></ruby>が<ruby>行<rt>い</rt></ruby>かない<strong>なら</strong>、<ruby>私<rt>わたし</rt></ruby>も<ruby>行<rt>い</rt></ruby>かない。<br><em>If you&#39;re not going, I&#39;m not going either.</em></p>
+<p><ruby>宿題<rt>しゅくだい</rt></ruby>が<ruby>終<rt>お</rt></ruby>わった<strong>なら</strong>、<ruby>遊<rt>あそ</rt></ruby>びに<ruby>行<rt>い</rt></ruby>ってもいいよ。<br><em>If you&#39;ve finished your homework, you can go out and play.</em></p>
+<p><ruby>山<rt>やま</rt></ruby>に<ruby>登<rt>のぼ</rt></ruby>る<strong>なら</strong>、いい<ruby>靴<rt>くつ</rt></ruby>を<ruby>買<rt>か</rt></ruby>っておいたほうがいいですよ。<br><em>If you&#39;re going to climb a mountain, you&#39;d better buy proper boots first.</em></p>
+<p><ruby>中古<rt>ちゅうこ</rt></ruby>の<ruby>車<rt>くるま</rt></ruby>を<ruby>買<rt>か</rt></ruby>う<strong>なら</strong>、<ruby>一度<rt>いちど</rt></ruby><ruby>専門<rt>せんもん</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>に<ruby>見<rt>み</rt></ruby>てもらったほうが<ruby>安心<rt>あんしん</rt></ruby>です。<br><em>If you&#39;re buying a used car, it&#39;s safer to have a specialist look at it first.</em></p>
+</div>
+</div>
+<div class="slide" data-index="71">
+  
+  <div class="slide__content"><h2>～なら · Nuance &amp; register</h2>
+<p><code>なら</code> is conversational glue, and its natural habitat is the second turn of a dialogue. Someone says something; you take their words and hand back a judgement. That is why so many <code>なら</code> sentences begin by repeating a noun the other person just used - ビール<strong>なら</strong>, <ruby>京都<rt>きょうと</rt></ruby><strong>なら</strong>, その<ruby>本<rt>ほん</rt></ruby><strong>なら</strong>. In that use it behaves almost like a topic marker, and it is the only conditional that can attach to a bare noun this way.</p>
+<p>The main clause is always the speaker: <code>～たほうがいい</code>, <code>～てあげる</code>, <code>～てください</code>, <code>～つもりだ</code>, an opinion, an offer. It is never a natural consequence - that is <code>と</code>&#39;s territory.</p>
+</div>
+</div>
+<div class="slide" data-index="72">
+  
+  <div class="slide__content"><h2>～なら · Nuance &amp; register (cont.)</h2>
+<p><code>のなら</code>（casual <code>んなら</code>）adds a shade of &quot;given that you&#39;re telling me this&quot;, which can read as sympathetic or as slightly pointed depending on the tone: そんなに<ruby>嫌<rt>きら</rt></ruby>いなのなら、<ruby>食<rt>た</rt></ruby>べなくていいよ。 Used that way, <code>なら</code> carries a real edge - you are throwing the listener&#39;s own premise back at them.</p>
+<p>In writing, <code>なら</code> is replaced by <code>であれば</code> or by <code><ruby>場合<rt>ばあい</rt></ruby>は</code>; the stiff <code>ならば</code> survives in formal prose (<ruby>必要<rt>ひつよう</rt></ruby>ならば<ruby>再度<rt>さいど</rt></ruby>ご<ruby>連絡<rt>れんらく</rt></ruby>ください). In speech, <code>ならば</code> sounds bookish.</p>
+</div>
+</div>
+<div class="slide" data-index="73">
   
   <div class="slide__content"><h2>～なら · ～なら vs ～たら</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - with <code>たら</code>, the main clause comes <strong>after</strong> the condition in time. With <code>なら</code>, it can come <strong>before</strong>. And <code>たら</code> reports events, while <code>なら</code> responds to premises.</p>
 </blockquote>
-<p>旅行(りょこう)に行(い)く<strong>なら</strong>、カメラを貸(か)してあげるよ。<br><em>If you&#39;re going on a trip, I&#39;ll lend you my camera.</em></p>
-<p>旅行(りょこう)に行(い)っ<strong>たら</strong>、写真(しゃしん)をたくさん撮(と)りたい。<br><em>When I go on the trip, I want to take lots of photos.</em></p>
+<p><ruby>旅行<rt>りょこう</rt></ruby>に<ruby>行<rt>い</rt></ruby>く<strong>なら</strong>、カメラを<ruby>貸<rt>か</rt></ruby>してあげるよ。<br><em>If you&#39;re going on a trip, I&#39;ll lend you my camera.</em></p>
+<p><ruby>旅行<rt>りょこう</rt></ruby>に<ruby>行<rt>い</rt></ruby>っ<strong>たら</strong>、<ruby>写真<rt>しゃしん</rt></ruby>をたくさん<ruby>撮<rt>と</rt></ruby>りたい。<br><em>When I go on the trip, I want to take lots of photos.</em></p>
 <p>The camera is lent <strong>before</strong> the trip - the trip is only a plan the listener has mentioned. The photos are taken <strong>during</strong> it. <code>たら</code> can never do what the first sentence does; that inversion is <code>なら</code>&#39;s alone.</p>
 </div>
 </div>
-<div class="slide" data-index="71">
+<div class="slide" data-index="74">
   
   <div class="slide__content"><h2>～なら · ～なら vs ～たら (cont.)</h2>
 <p>The second half of the difference is where the condition comes from. <code>たら</code> supposes something itself; <code>なら</code> accepts something already on the table. So <code>なら</code> is at home in replies, and slightly odd as the opening line of a conversation.</p>
 </div>
 </div>
-<div class="slide" data-index="72">
+<div class="slide" data-index="75">
   
   <div class="slide__content"><h2>～なら · ～なら vs ～と</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>と</code> is a mechanism with no speaker in it. <code>なら</code> is nothing <em>but</em> the speaker, reacting to a premise.</p>
 </blockquote>
-<p>このボタンを押(お)す<strong>と</strong>、お湯(ゆ)が出(で)ます。<br><em>Press this button and hot water comes out.</em></p>
-<p>❌このボタンを押(お)すなら、お湯(ゆ)が出(で)ます is wrong: the water coming out is a fact about the machine, not the speaker&#39;s opinion about a supposition. Conversely:</p>
-<p>このボタンを押(お)す<strong>なら</strong>、先(さき)に説明書(せつめいしょ)を読(よ)んでください。<br><em>If you&#39;re going to press this button, read the manual first.</em></p>
-<p>Now there is a speaker with an instruction, and the instruction applies <em>before</em> the button is pressed - both hallmarks of <code>なら</code>, both impossible for <code>と</code>.</p>
+<p>このボタンを<ruby>押<rt>お</rt></ruby>す<strong>と</strong>、お<ruby>湯<rt>ゆ</rt></ruby>が<ruby>出<rt>で</rt></ruby>ます。<br><em>Press this button and hot water comes out.</em></p>
+<p>❌このボタンを<ruby>押<rt>お</rt></ruby>すなら、お<ruby>湯<rt>ゆ</rt></ruby>が<ruby>出<rt>で</rt></ruby>ます is wrong: the water coming out is a fact about the machine, not the speaker&#39;s opinion about a supposition. Conversely:</p>
+<p>このボタンを<ruby>押<rt>お</rt></ruby>す<strong>なら</strong>、<ruby>先<rt>さき</rt></ruby>に<ruby>説明書<rt>せつめいしょ</rt></ruby>を<ruby>読<rt>よ</rt></ruby>んでください。<br><em>If you&#39;re going to press this button, read the manual first.</em></p>
 </div>
 </div>
-<div class="slide" data-index="73">
+<div class="slide" data-index="76">
   
   <div class="slide__content"><h2>～なら · ～なら vs ～と (cont.)</h2>
-<p><code>なら</code> also cannot express a certain future &quot;when&quot;: ❌春(はる)になるなら, ❌夜(よる)になるなら. Something guaranteed to occur is not a premise anyone needs to entertain; use <code>と</code> or <code>たら</code>.</p>
+<p>Now there is a speaker with an instruction, and the instruction applies <em>before</em> the button is pressed - both hallmarks of <code>なら</code>, both impossible for <code>と</code>.</p>
+<p><code>なら</code> also cannot express a certain future &quot;when&quot;: ❌<ruby>春<rt>はる</rt></ruby>になるなら, ❌<ruby>夜<rt>よる</rt></ruby>になるなら. Something guaranteed to occur is not a premise anyone needs to entertain; use <code>と</code> or <code>たら</code>.</p>
 </div>
 </div>
-<div class="slide" data-index="74">
+<div class="slide" data-index="77">
   
   <div class="slide__content"><h2>～なら · ～なら vs ～ば</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>なら(ば)</code> is literally the ば-form of the copula, which is why they blur. Separate them by what the condition is <em>about</em>: <code>ば</code> conditions on an event <strong>occurring</strong>, <code>なら</code> on a supposition <strong>being true</strong>.</p>
 </blockquote>
-<p>部長(ぶちょう)に<strong>聞(き)けば</strong>、すぐ分(わ)かりますよ。<br><em>Ask the manager and you&#39;ll know right away.</em></p>
-<p>部長(ぶちょう)に聞(き)く<strong>なら</strong>、午前中(ごぜんちゅう)がいいですよ。<br><em>If you&#39;re going to ask the manager, the morning is a good time.</em></p>
+<p><ruby>部長<rt>ぶちょう</rt></ruby>に**<ruby>聞<rt>き</rt></ruby>けば**、すぐ<ruby>分<rt>わ</rt></ruby>かりますよ。<br><em>Ask the manager and you&#39;ll know right away.</em></p>
+<p><ruby>部長<rt>ぶちょう</rt></ruby>に<ruby>聞<rt>き</rt></ruby>く<strong>なら</strong>、<ruby>午前中<rt>ごぜんちゅう</rt></ruby>がいいですよ。<br><em>If you&#39;re going to ask the manager, the morning is a good time.</em></p>
 <p>In the first, the asking produces the result. In the second, the asking is a plan the listener has announced, and the advice is about <em>how</em> to carry it out. Note again that the advice applies before the asking happens.</p>
-</div>
-</div>
-<div class="slide" data-index="75">
-  
-  <div class="slide__content"><h2>～なら · ～なら vs ～ば (cont.)</h2>
-<p>The other split is mechanical. <code>ば</code> needs a predicate to attach to; <code>なら</code> fastens straight onto a bare noun and lifts it out as a topic - その辞書(じしょ)<strong>なら</strong>机(つくえ)の上(うえ)にあります - and no ば-form can do that.</p>
-</div>
-</div>
-<div class="slide" data-index="76">
-  
-  <div class="slide__content"><h2>～なら · Common mistakes</h2>
-<ul>
-<li><p>❌ 静(しず)か<strong>だなら</strong> → ✅ 静(しず)か<strong>なら</strong><br><em><code>だ</code> disappears before <code>なら</code>. The same for nouns: ❌雨(あめ)だなら → ✅ 雨(あめ)なら／雨(あめ)だったら.</em></p>
-</li>
-<li><p>❌ 家(いえ)に帰(かえ)る<strong>なら</strong>、シャワーを浴(あ)びます。 → ✅ 家(いえ)に帰(かえ)っ<strong>たら</strong>、シャワーを浴(あ)びます。<br><em>A plain sequence of your own actions is not a premise you are responding to, and the shower comes after you get home. That is a <code>たら</code> sentence.</em></p>
-</li>
-<li><p>❌ 春(はる)になる<strong>なら</strong>、暖(あたた)かくなります。 → ✅ 春(はる)になる<strong>と</strong>、暖(あたた)かくなります。<br><em>Spring is not a supposition, and warming up is not the speaker&#39;s judgement. Natural consequences belong to <code>と</code>.</em></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="slide" data-index="77">
-  
-  <div class="slide__content"><h2>～なら · Common mistakes (cont.)</h2>
-<ul>
-<li><p>❌ 明日(あした)雨(あめ)が降(ふ)る<strong>なら</strong>、試合(しあい)は中止(ちゅうし)です。 → ✅ 明日(あした)雨(あめ)が降(ふ)っ<strong>たら</strong>／降(ふ)れ<strong>ば</strong>…<br><em>If <em>you</em> are the one supposing the rain, use <code>たら</code> or <code>ば</code>. <code>降るなら</code> becomes correct the moment somebody else says it is going to rain and you reply to them.</em></p>
-</li>
-<li><p>❌ 学生(がくせい)<strong>の</strong>なら割引(わりびき)があります。 → ✅ 学生(がくせい)なら割引(わりびき)があります。<br><em>A noun takes <code>なら</code> directly. The <code>の</code> belongs with <code>場合(ばあい)</code>, not with <code>なら</code>.</em></p>
-</li>
-</ul>
 </div>
 </div>
 <div class="slide" data-index="78">
   
-  <div class="slide__content"><h2>～なら · Practice 1</h2>
-<p><strong>1.</strong> 「傘(かさ)を忘(わす)れました。」「傘(かさ)____、私(わたし)のを貸(か)しますよ。」</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-「傘(かさ)<strong>なら</strong>、私(わたし)のを貸(か)しますよ。」</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The second speaker picks up the exact noun the first one used and replies to it with an offer. That is <code>なら</code> at its most typical - attached to a bare noun, no <code>だ</code>, and a main clause that is purely the speaker&#39;s own decision.</p>
+  <div class="slide__content"><h2>～なら · ～なら vs ～ば (cont.)</h2>
+<p>The other split is mechanical. <code>ば</code> needs a predicate to attach to; <code>なら</code> fastens straight onto a bare noun and lifts it out as a topic - その<ruby>辞書<rt>じしょ</rt></ruby><strong>なら</strong><ruby>机<rt>つくえ</rt></ruby>の<ruby>上<rt>うえ</rt></ruby>にあります - and no ば-form can do that.</p>
 </div>
 </div>
 <div class="slide" data-index="79">
   
-  <div class="slide__content"><h2>～なら · Practice 2</h2>
-<p><strong>2.</strong> 温泉(おんせん)に（行(い)くなら・行(い)ったら）、平日(へいじつ)のほうがすいていますよ。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-温泉(おんせん)に<strong>行(い)くなら</strong>、平日(へいじつ)のほうがすいていますよ。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The advice is about <em>which day to choose</em>, so it has to reach the listener before the trip. <code>たら</code> would put the advice after arrival, which makes no sense - you cannot pick a weekday once you are already there.</p>
+  <div class="slide__content"><h2>～なら · Common mistakes</h2>
+<ul>
+<li><p>❌ <ruby>静<rt>しず</rt></ruby>か<strong>だなら</strong> → ✅ <ruby>静<rt>しず</rt></ruby>か<strong>なら</strong><br><em><code>だ</code> disappears before <code>なら</code>. The same for nouns: ❌<ruby>雨<rt>あめ</rt></ruby>だなら → ✅ <ruby>雨<rt>あめ</rt></ruby>なら／<ruby>雨<rt>あめ</rt></ruby>だったら.</em></p>
+</li>
+<li><p>❌ <ruby>家<rt>いえ</rt></ruby>に<ruby>帰<rt>かえ</rt></ruby>る<strong>なら</strong>、シャワーを<ruby>浴<rt>あ</rt></ruby>びます。 → ✅ <ruby>家<rt>いえ</rt></ruby>に<ruby>帰<rt>かえ</rt></ruby>っ<strong>たら</strong>、シャワーを<ruby>浴<rt>あ</rt></ruby>びます。<br><em>A plain sequence of your own actions is not a premise you are responding to, and the shower comes after you get home. That is a <code>たら</code> sentence.</em></p>
+</li>
+<li><p>❌ <ruby>春<rt>はる</rt></ruby>になる<strong>なら</strong>、<ruby>暖<rt>あたた</rt></ruby>かくなります。 → ✅ <ruby>春<rt>はる</rt></ruby>になる<strong>と</strong>、<ruby>暖<rt>あたた</rt></ruby>かくなります。<br><em>Spring is not a supposition, and warming up is not the speaker&#39;s judgement. Natural consequences belong to <code>と</code>.</em></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="80">
   
-  <div class="slide__content"><h2>～なら · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese: &quot;If you&#39;re not going to use it, could you lend it to me?&quot;</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-使(つか)わない<strong>なら</strong>、貸(か)してくれませんか。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-You are responding to something the other person has implied or said, and the main clause is a request - both squarely <code>なら</code>. <code>たら</code> would be understood, but it would frame not-using as an event that happens first, which is not the point.</p>
+  <div class="slide__content"><h2>～なら · Common mistakes (cont.)</h2>
+<ul>
+<li><p>❌ <ruby>明日<rt>あした</rt></ruby><ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>る<strong>なら</strong>、<ruby>試合<rt>しあい</rt></ruby>は<ruby>中止<rt>ちゅうし</rt></ruby>です。 → ✅ <ruby>明日<rt>あした</rt></ruby><ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>っ<strong>たら</strong>／<ruby>降<rt>ふ</rt></ruby>れ<strong>ば</strong>…<br><em>If <em>you</em> are the one supposing the rain, use <code>たら</code> or <code>ば</code>. <code>降るなら</code> becomes correct the moment somebody else says it is going to rain and you reply to them.</em></p>
+</li>
+<li><p>❌ <ruby>学生<rt>がくせい</rt></ruby><strong>の</strong>なら<ruby>割引<rt>わりびき</rt></ruby>があります。 → ✅ <ruby>学生<rt>がくせい</rt></ruby>なら<ruby>割引<rt>わりびき</rt></ruby>があります。<br><em>A noun takes <code>なら</code> directly. The <code>の</code> belongs with <code><ruby>場合<rt>ばあい</rt></ruby></code>, not with <code>なら</code>.</em></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="81">
   
-  <div class="slide__content"><h2>～なら · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 大学(だいがく)を卒業(そつぎょう)するなら、国(くに)に帰(かえ)ります。</p>
+  <div class="slide__content"><h2>～なら · Practice 1</h2>
+<p><strong>1.</strong> 「<ruby>傘<rt>かさ</rt></ruby>を<ruby>忘<rt>わす</rt></ruby>れました。」「<ruby>傘<rt>かさ</rt></ruby>____、<ruby>私<rt>わたし</rt></ruby>のを<ruby>貸<rt>か</rt></ruby>しますよ。」</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 大学(だいがく)を卒業(そつぎょう)し<strong>たら</strong>、国(くに)に帰(かえ)ります。</p>
+「<ruby>傘<rt>かさ</rt></ruby><strong>なら</strong>、<ruby>私<rt>わたし</rt></ruby>のを<ruby>貸<rt>か</rt></ruby>しますよ。」</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Graduating is a scheduled certainty and the return happens afterwards, so this is &quot;when&quot;, not &quot;if it&#39;s the case that&quot; - <code>たら</code>. <code>卒業するなら</code> would only work as a reply to someone else raising the possibility, with advice attached: 卒業(そつぎょう)するなら、早(はや)めに仕事(しごと)を探(さが)したほうがいい。</p>
+The second speaker picks up the exact noun the first one used and replies to it with an offer. That is <code>なら</code> at its most typical - attached to a bare noun, no <code>だ</code>, and a main clause that is purely the speaker&#39;s own decision.</p>
 </div>
 </div>
 <div class="slide" data-index="82">
   
+  <div class="slide__content"><h2>～なら · Practice 2</h2>
+<p><strong>2.</strong> <ruby>温泉<rt>おんせん</rt></ruby>に（<ruby>行<rt>い</rt></ruby>くなら・<ruby>行<rt>い</rt></ruby>ったら）、<ruby>平日<rt>へいじつ</rt></ruby>のほうがすいていますよ。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>温泉<rt>おんせん</rt></ruby>に**<ruby>行<rt>い</rt></ruby>くなら**、<ruby>平日<rt>へいじつ</rt></ruby>のほうがすいていますよ。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The advice is about <em>which day to choose</em>, so it has to reach the listener before the trip. <code>たら</code> would put the advice after arrival, which makes no sense - you cannot pick a weekday once you are already there.</p>
+</div>
+</div>
+<div class="slide" data-index="83">
+  
+  <div class="slide__content"><h2>～なら · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese: &quot;If you&#39;re not going to use it, could you lend it to me?&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>使<rt>つか</rt></ruby>わない<strong>なら</strong>、<ruby>貸<rt>か</rt></ruby>してくれませんか。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+You are responding to something the other person has implied or said, and the main clause is a request - both squarely <code>なら</code>. <code>たら</code> would be understood, but it would frame not-using as an event that happens first, which is not the point.</p>
+</div>
+</div>
+<div class="slide" data-index="84">
+  
+  <div class="slide__content"><h2>～なら · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the error: <ruby>大学<rt>だいがく</rt></ruby>を<ruby>卒業<rt>そつぎょう</rt></ruby>するなら、<ruby>国<rt>くに</rt></ruby>に<ruby>帰<rt>かえ</rt></ruby>ります。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ <ruby>大学<rt>だいがく</rt></ruby>を<ruby>卒業<rt>そつぎょう</rt></ruby>し<strong>たら</strong>、<ruby>国<rt>くに</rt></ruby>に<ruby>帰<rt>かえ</rt></ruby>ります。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+Graduating is a scheduled certainty and the return happens afterwards, so this is &quot;when&quot;, not &quot;if it&#39;s the case that&quot; - <code>たら</code>. <code>卒業するなら</code> would only work as a reply to someone else raising the possibility, with advice attached: <ruby>卒業<rt>そつぎょう</rt></ruby>するなら、<ruby>早<rt>はや</rt></ruby>めに<ruby>仕事<rt>しごと</rt></ruby>を<ruby>探<rt>さが</rt></ruby>したほうがいい。</p>
+</div>
+</div>
+<div class="slide" data-index="85">
+  
   <div class="slide__content"><h2>～なら · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 引(ひ)っ越(こ)すなら、手伝(てつだ)うよ。 (b) 引(ひ)っ越(こ)したら、新(あたら)しい住所(じゅうしょ)を教(おし)えてね。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>引<rt>ひ</rt></ruby>っ<ruby>越<rt>こ</rt></ruby>すなら、<ruby>手伝<rt>てつだ</rt></ruby>うよ。 (b) <ruby>引<rt>ひ</rt></ruby>っ<ruby>越<rt>こ</rt></ruby>したら、<ruby>新<rt>あたら</rt></ruby>しい<ruby>住所<rt>じゅうしょ</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えてね。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) responds to news: you have just said you are moving, and the speaker offers help - help that will be given <strong>during</strong> the move, not after it. That before-or-during timing is only possible with <code>なら</code>.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
@@ -3609,17 +3641,17 @@ Graduating is a scheduled certainty and the return happens afterwards, so this i
 Both sentences are about the same move. <code>なら</code> reacts to the plan; <code>たら</code> waits for the event.</p>
 </div>
 </div>
-<div class="slide" data-index="83">
+<div class="slide" data-index="86">
   
   <div class="slide__content"><h1>場合は</h1>
 <p><strong>Meaning</strong> · in the event that X - one case picked out, with the rule that applies to it</p>
-<p><code>場合(ばあい)</code> (read ばあい) is an ordinary noun meaning &quot;case, occasion&quot;. Used as a conditional it sets out one possible situation among several and states what applies in it. It is the language of notices, manuals and rules, not of conversation.</p>
+<p><code><ruby>場合<rt>ばあい</rt></ruby></code> (read ばあい) is an ordinary noun meaning &quot;case, occasion&quot;. Used as a conditional it sets out one possible situation among several and states what applies in it. It is the language of notices, manuals and rules, not of conversation.</p>
 </div>
 </div>
-<div class="slide" data-index="84">
+<div class="slide" data-index="87">
   
   <div class="slide__content"><h2>場合は · Formation</h2>
-<p>Everything in front of <code>場合(ばあい)</code> is a noun-modifying clause - exactly the N5 pattern - because <code>場合(ばあい)</code> is just a noun.</p>
+<p>Everything in front of <code><ruby>場合<rt>ばあい</rt></ruby></code> is a noun-modifying clause - exactly the N5 pattern - because <code><ruby>場合<rt>ばあい</rt></ruby></code> is just a noun.</p>
 <table>
 <thead>
 <tr>
@@ -3630,192 +3662,197 @@ Both sentences are about the same move. <code>なら</code> reacts to the plan; 
 </thead>
 <tbody><tr>
 <td>Verb</td>
-<td>dictionary form + 場合(ばあい)は</td>
-<td>遅(おく)れる → 遅(おく)れる場合(ばあい)は</td>
+<td>dictionary form + <ruby>場合<rt>ばあい</rt></ruby>は</td>
+<td><ruby>遅<rt>おく</rt></ruby>れる → <ruby>遅<rt>おく</rt></ruby>れる<ruby>場合<rt>ばあい</rt></ruby>は</td>
 </tr>
 <tr>
 <td>Verb (past)</td>
-<td>た-form + 場合(ばあい)は</td>
-<td>忘(わす)れた → 忘(わす)れた場合(ばあい)は</td>
+<td>た-form + <ruby>場合<rt>ばあい</rt></ruby>は</td>
+<td><ruby>忘<rt>わす</rt></ruby>れた → <ruby>忘<rt>わす</rt></ruby>れた<ruby>場合<rt>ばあい</rt></ruby>は</td>
 </tr>
 <tr>
 <td>Verb (negative)</td>
-<td>ない-form + 場合(ばあい)は</td>
-<td>届(とど)かない → 届(とど)かない場合(ばあい)は</td>
+<td>ない-form + <ruby>場合<rt>ばあい</rt></ruby>は</td>
+<td><ruby>届<rt>とど</rt></ruby>かない → <ruby>届<rt>とど</rt></ruby>かない<ruby>場合<rt>ばあい</rt></ruby>は</td>
 </tr>
 <tr>
 <td>い-adjective</td>
-<td>plain form + 場合(ばあい)は</td>
-<td>忙(いそが)しい → 忙(いそが)しい場合(ばあい)は</td>
+<td>plain form + <ruby>場合<rt>ばあい</rt></ruby>は</td>
+<td><ruby>忙<rt>いそが</rt></ruby>しい → <ruby>忙<rt>いそが</rt></ruby>しい<ruby>場合<rt>ばあい</rt></ruby>は</td>
 </tr>
 <tr>
 <td>な-adjective</td>
-<td>stem + <strong>な</strong> + 場合(ばあい)は</td>
-<td>必要(ひつよう) → 必要(ひつよう)な場合(ばあい)は</td>
+<td>stem + <strong>な</strong> + <ruby>場合<rt>ばあい</rt></ruby>は</td>
+<td><ruby>必要<rt>ひつよう</rt></ruby> → <ruby>必要<rt>ひつよう</rt></ruby>な<ruby>場合<rt>ばあい</rt></ruby>は</td>
 </tr>
 <tr>
 <td>Noun</td>
-<td>Noun + <strong>の</strong> + 場合(ばあい)は</td>
-<td>雨(あめ) → 雨(あめ)の場合(ばあい)は</td>
+<td>Noun + <strong>の</strong> + <ruby>場合<rt>ばあい</rt></ruby>は</td>
+<td><ruby>雨<rt>あめ</rt></ruby> → <ruby>雨<rt>あめ</rt></ruby>の<ruby>場合<rt>ばあい</rt></ruby>は</td>
 </tr>
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="85">
+<div class="slide" data-index="88">
   
   <div class="slide__content"><h2>場合は · Formation (cont.)</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - if you can put it in front of a noun, you can put it in front of <code>場合(ばあい)</code>, using exactly the same shape. That is why な-adjectives take <code>な</code> and nouns take <code>の</code> here, while <code>と</code> demands <code>だ</code> and <code>なら</code> demands nothing at all.</p>
+<p><strong>Rule of thumb</strong> - if you can put it in front of a noun, you can put it in front of <code><ruby>場合<rt>ばあい</rt></ruby></code>, using exactly the same shape. That is why な-adjectives take <code>な</code> and nouns take <code>の</code> here, while <code>と</code> demands <code>だ</code> and <code>なら</code> demands nothing at all.</p>
 </blockquote>
 <blockquote>
-<p><strong>Note</strong> - the <code>は</code> is the contrast particle doing its usual job: &quot;in <em>this</em> case (as opposed to the others)&quot;. Drop it - 雨(あめ)の場合(ばあい)、中止(ちゅうし)します - and the sentence is flatter and slightly more written. <code>には</code> makes the contrast heavier still. On forms and in headings you often see the bare noun phrase alone: 「団体(だんたい)の場合(ばあい)」.</p>
+<p><strong>Note</strong> - the <code>は</code> is the contrast particle doing its usual job: &quot;in <em>this</em> case (as opposed to the others)&quot;. Drop it - <ruby>雨<rt>あめ</rt></ruby>の<ruby>場合<rt>ばあい</rt></ruby>、<ruby>中止<rt>ちゅうし</rt></ruby>します - and the sentence is flatter and slightly more written. <code>には</code> makes the contrast heavier still. On forms and in headings you often see the bare noun phrase alone: 「<ruby>団体<rt>だんたい</rt></ruby>の<ruby>場合<rt>ばあい</rt></ruby>」.</p>
 </blockquote>
-</div>
-</div>
-<div class="slide" data-index="86">
-  
-  <div class="slide__content"><h2>場合は · Examples</h2>
-<p>雨(あめ)の<strong>場合(ばあい)は</strong>、体育館(たいいくかん)で行(おこな)います。<br><em>In the event of rain, it will be held in the gym.</em></p>
-<p>遅(おく)れる<strong>場合(ばあい)は</strong>、必(かなら)ず連絡(れんらく)してください。<br><em>If you are going to be late, be sure to get in touch.</em></p>
-<p>時間(じかん)がない<strong>場合(ばあい)は</strong>、メールでも大丈夫(だいじょうぶ)です。<br><em>If you don&#39;t have time, email is fine too.</em></p>
-<p>パスワードを忘(わす)れた<strong>場合(ばあい)は</strong>、こちらのボタンを押(お)してください。<br><em>If you have forgotten your password, press this button.</em></p>
-<p>火事(かじ)の<strong>場合(ばあい)は</strong>、この階段(かいだん)をお使(つか)いください。<br><em>In case of fire, please use these stairs.</em></p>
-</div>
-</div>
-<div class="slide" data-index="87">
-  
-  <div class="slide__content"><h2>場合は · Examples (cont.)</h2>
-<p>説明(せつめい)が必要(ひつよう)な<strong>場合(ばあい)は</strong>、いつでもお呼(よ)びください。<br><em>If you need an explanation, call me any time.</em></p>
-<p>荷物(にもつ)が1週間(しゅうかん)以内(いない)に届(とど)かない<strong>場合(ばあい)は</strong>、こちらの番号(ばんごう)までお電話(でんわ)ください。<br><em>If your parcel has not arrived within a week, please call this number.</em></p>
-<p>キャンセルは前日(ぜんじつ)まで無料(むりょう)ですが、当日(とうじつ)の<strong>場合(ばあい)は</strong>料金(りょうきん)の半分(はんぶん)をいただきます。<br><em>Cancellation is free up to the day before; on the day itself we charge half the fee.</em></p>
-</div>
-</div>
-<div class="slide" data-index="88">
-  
-  <div class="slide__content"><h2>場合は · Nuance &amp; register</h2>
-<p>This is the <strong>formal, written</strong> conditional. Signs at stations, safety notices, insurance documents, school regulations, software error messages, business email - that is where <code>場合(ばあい)は</code> lives. It has a bureaucratic steadiness to it: here is a contingency, here is the procedure.</p>
-<p>Because <code>場合(ばあい)</code> is a noun, it behaves like one. It takes demonstratives (その場合(ばあい)は - &quot;in that case&quot;), it appears in fixed expressions (場合(ばあい)によって - &quot;depending on the case&quot;; 場合(ばあい)によっては - &quot;in some cases&quot;), and it can head a column on a form. None of the other conditionals can do any of that.</p>
-<p>The flip side is that using it with a friend sounds like reading aloud from a manual. ❌お腹(なか)がすいた場合(ばあい)は、何(なに)か作(つく)るよ is grammatical and comic; say お腹(なか)がすいたら、何(なに)か作(つく)るよ. A rough guide: if the sentence could plausibly be printed and laminated, use <code>場合(ばあい)は</code>; otherwise use <code>たら</code>.</p>
 </div>
 </div>
 <div class="slide" data-index="89">
   
-  <div class="slide__content"><h2>場合は · Nuance &amp; register (cont.)</h2>
-<p>One more consequence of its formality: the main clause is almost always an instruction, a rule, or a consequence stated impersonally - <code>～てください</code>, <code>お～ください</code>, <code>～ことになっています</code>, <code>～ます</code>. You will rarely see it with a casual ending.</p>
+  <div class="slide__content"><h2>場合は · Examples</h2>
+<p><ruby>雨<rt>あめ</rt></ruby>の**<ruby>場合<rt>ばあい</rt></ruby>は**、<ruby>体育館<rt>たいいくかん</rt></ruby>で<ruby>行<rt>おこな</rt></ruby>います。<br><em>In the event of rain, it will be held in the gym.</em></p>
+<p><ruby>遅<rt>おく</rt></ruby>れる**<ruby>場合<rt>ばあい</rt></ruby>は**、<ruby>必<rt>かなら</rt></ruby>ず<ruby>連絡<rt>れんらく</rt></ruby>してください。<br><em>If you are going to be late, be sure to get in touch.</em></p>
+<p><ruby>時間<rt>じかん</rt></ruby>がない**<ruby>場合<rt>ばあい</rt></ruby>は**、メールでも<ruby>大丈夫<rt>だいじょうぶ</rt></ruby>です。<br><em>If you don&#39;t have time, email is fine too.</em></p>
+<p>パスワードを<ruby>忘<rt>わす</rt></ruby>れた**<ruby>場合<rt>ばあい</rt></ruby>は**、こちらのボタンを<ruby>押<rt>お</rt></ruby>してください。<br><em>If you have forgotten your password, press this button.</em></p>
 </div>
 </div>
 <div class="slide" data-index="90">
   
-  <div class="slide__content"><h2>場合は · 場合(ばあい)は vs ときは</h2>
-<blockquote>
-<p><strong>Rule of thumb</strong> - <code>とき</code> locates an event <strong>in time</strong> and takes for granted that it happens. <code>場合(ばあい)</code> presents it as <strong>one possibility among others</strong>, and usually leads to an instruction.</p>
-</blockquote>
-<p>This is the pair that matters, because both translate as &quot;when&quot;.</p>
-<p>子(こ)どもの<strong>ときは</strong>、よく川(かわ)で泳(およ)ぎました。<br><em>When I was a child, I often swam in the river.</em></p>
-<p>❌子(こ)どもの場合(ばあい)は、よく川(かわ)で泳(およ)ぎました is not a sentence about the speaker&#39;s childhood at all - it says &quot;in the case of children…&quot;, i.e. as opposed to adults. Childhood is a period of time, not a contingency.</p>
-<p>地震(じしん)の<strong>場合(ばあい)は</strong>、エレベーターを使(つか)わないでください。<br><em>In the event of an earthquake, do not use the lift.</em></p>
+  <div class="slide__content"><h2>場合は · Examples (cont.)</h2>
+<p><ruby>火事<rt>かじ</rt></ruby>の**<ruby>場合<rt>ばあい</rt></ruby>は**、この<ruby>階段<rt>かいだん</rt></ruby>をお<ruby>使<rt>つか</rt></ruby>いください。<br><em>In case of fire, please use these stairs.</em></p>
+<p><ruby>説明<rt>せつめい</rt></ruby>が<ruby>必要<rt>ひつよう</rt></ruby>な**<ruby>場合<rt>ばあい</rt></ruby>は**、いつでもお<ruby>呼<rt>よ</rt></ruby>びください。<br><em>If you need an explanation, call me any time.</em></p>
+<p><ruby>荷物<rt>にもつ</rt></ruby>が1<ruby>週間<rt>しゅうかん</rt></ruby><ruby>以内<rt>いない</rt></ruby>に<ruby>届<rt>とど</rt></ruby>かない**<ruby>場合<rt>ばあい</rt></ruby>は**、こちらの<ruby>番号<rt>ばんごう</rt></ruby>までお<ruby>電話<rt>でんわ</rt></ruby>ください。<br><em>If your parcel has not arrived within a week, please call this number.</em></p>
+<p>キャンセルは<ruby>前日<rt>ぜんじつ</rt></ruby>まで<ruby>無料<rt>むりょう</rt></ruby>ですが、<ruby>当日<rt>とうじつ</rt></ruby>の**<ruby>場合<rt>ばあい</rt></ruby>は**<ruby>料金<rt>りょうきん</rt></ruby>の<ruby>半分<rt>はんぶん</rt></ruby>をいただきます。<br><em>Cancellation is free up to the day before; on the day itself we charge half the fee.</em></p>
 </div>
 </div>
 <div class="slide" data-index="91">
   
-  <div class="slide__content"><h2>場合は · 場合(ばあい)は vs ときは (cont.)</h2>
-<p>Here <code>場合(ばあい)</code> is right precisely because the earthquake may never come, and because the sentence sits in a list beside 火事(かじ)の場合(ばあい)は… and 停電(ていでん)の場合(ばあい)は….</p>
+  <div class="slide__content"><h2>場合は · Nuance &amp; register</h2>
+<p>This is the <strong>formal, written</strong> conditional. Signs at stations, safety notices, insurance documents, school regulations, software error messages, business email - that is where <code><ruby>場合<rt>ばあい</rt></ruby>は</code> lives. It has a bureaucratic steadiness to it: here is a contingency, here is the procedure.</p>
+<p>Because <code><ruby>場合<rt>ばあい</rt></ruby></code> is a noun, it behaves like one. It takes demonstratives (その<ruby>場合<rt>ばあい</rt></ruby>は - &quot;in that case&quot;), it appears in fixed expressions (<ruby>場合<rt>ばあい</rt></ruby>によって - &quot;depending on the case&quot;; <ruby>場合<rt>ばあい</rt></ruby>によっては - &quot;in some cases&quot;), and it can head a column on a form. None of the other conditionals can do any of that.</p>
 </div>
 </div>
 <div class="slide" data-index="92">
   
-  <div class="slide__content"><h2>場合は · 場合(ばあい)は vs ～たら</h2>
-<blockquote>
-<p><strong>Rule of thumb</strong> - same meaning, different room. <code>たら</code> is what you say; <code>場合(ばあい)は</code> is what the sign says.</p>
-</blockquote>
-<p>熱(ねつ)が下(さ)がらない<strong>場合(ばあい)は</strong>、もう一度(いちど)ご来院(らいいん)ください。<br><em>If your temperature does not come down, please come in again.</em></p>
-<p>熱(ねつ)が下(さ)がらな<strong>かったら</strong>、もう一度(いちど)来(き)てくださいね。<br><em>If your fever doesn&#39;t go down, come back in again, all right?</em></p>
-<p>Identical content; the first is the printed instruction slip, the second is the doctor speaking. Note also that <code>場合(ばあい)</code> being a noun lets a notice enumerate cases in parallel, each on its own line - a structure <code>たら</code> handles clumsily.</p>
+  <div class="slide__content"><h2>場合は · Nuance &amp; register (cont.)</h2>
+<p>The flip side is that using it with a friend sounds like reading aloud from a manual. ❌お<ruby>腹<rt>なか</rt></ruby>がすいた<ruby>場合<rt>ばあい</rt></ruby>は、<ruby>何<rt>なに</rt></ruby>か<ruby>作<rt>つく</rt></ruby>るよ is grammatical and comic; say お<ruby>腹<rt>なか</rt></ruby>がすいたら、<ruby>何<rt>なに</rt></ruby>か<ruby>作<rt>つく</rt></ruby>るよ. A rough guide: if the sentence could plausibly be printed and laminated, use <code><ruby>場合<rt>ばあい</rt></ruby>は</code>; otherwise use <code>たら</code>.</p>
+<p>One more consequence of its formality: the main clause is almost always an instruction, a rule, or a consequence stated impersonally - <code>～てください</code>, <code>お～ください</code>, <code>～ことになっています</code>, <code>～ます</code>. You will rarely see it with a casual ending.</p>
 </div>
 </div>
 <div class="slide" data-index="93">
   
-  <div class="slide__content"><h2>場合は · 場合(ばあい)は vs ～と</h2>
+  <div class="slide__content"><h2>場合は · 場合は vs ときは</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - in a manual the two divide the labour: <code>と</code> says what the machine normally <strong>does</strong>; <code>場合(ばあい)は</code> introduces the exception and tells you what <strong>you</strong> should do.</p>
+<p><strong>Rule of thumb</strong> - <code>とき</code> locates an event <strong>in time</strong> and takes for granted that it happens. <code><ruby>場合<rt>ばあい</rt></ruby></code> presents it as <strong>one possibility among others</strong>, and usually leads to an instruction.</p>
 </blockquote>
-<p>ボタンを押(お)す<strong>と</strong>、ランプが光(ひか)ります。光(ひか)らない<strong>場合(ばあい)は</strong>、電池(でんち)を確(たし)かめてください。<br><em>Press the button and the lamp lights up. If it does not light up, check the batteries.</em></p>
-<p>The first half is an automatic consequence with no speaker in it, which is <code>と</code>&#39;s whole job - and <code>と</code> cannot be followed by an instruction. The second half needs one, so it switches to <code>場合(ばあい)は</code>. Almost every instruction manual in Japanese alternates between exactly these two.</p>
+<p>This is the pair that matters, because both translate as &quot;when&quot;.</p>
+<p><ruby>子<rt>こ</rt></ruby>どもの<strong>ときは</strong>、よく<ruby>川<rt>かわ</rt></ruby>で<ruby>泳<rt>およ</rt></ruby>ぎました。<br><em>When I was a child, I often swam in the river.</em></p>
+<p>❌<ruby>子<rt>こ</rt></ruby>どもの<ruby>場合<rt>ばあい</rt></ruby>は、よく<ruby>川<rt>かわ</rt></ruby>で<ruby>泳<rt>およ</rt></ruby>ぎました is not a sentence about the speaker&#39;s childhood at all - it says &quot;in the case of children…&quot;, i.e. as opposed to adults. Childhood is a period of time, not a contingency.</p>
 </div>
 </div>
 <div class="slide" data-index="94">
   
-  <div class="slide__content"><h2>場合は · Common mistakes</h2>
-<ul>
-<li><p>❌ 子(こ)どもの場合(ばあい)、よく山(やま)に登(のぼ)りました。 → ✅ 子(こ)どもの<strong>とき</strong>、よく山(やま)に登(のぼ)りました。<br><em>A stretch of past time is <code>とき</code>. <code>場合(ばあい)</code> would mean &quot;as for children (as opposed to adults)&quot;.</em></p>
-</li>
-<li><p>❌ 必要(ひつよう)<strong>だ</strong>場合(ばあい) → ✅ 必要(ひつよう)<strong>な</strong>場合(ばあい)<br><em><code>場合(ばあい)</code> is a noun, so a な-adjective in front of it takes <code>な</code> - the ordinary noun-modifying rule from N5.</em></p>
-</li>
-<li><p>❌ 病気(びょうき)場合(ばあい)は → ✅ 病気(びょうき)<strong>の</strong>場合(ばあい)は<br><em>A noun needs <code>の</code> to modify another noun. Compare <code>と</code>, which wants <code>だ</code>, and <code>なら</code>, which wants nothing.</em></p>
-</li>
-<li><p>❌ 友(とも)だちと会(あ)う場合(ばあい)は、いつも駅(えき)で待(ま)ちます。 → ✅ 友(とも)だちと会(あ)う<strong>ときは</strong>、いつも駅(えき)で待(ま)ちます。<br><em>A regular habit is not a contingency. <code>場合(ばあい)</code> needs something that might or might not arise.</em></p>
-</li>
-</ul>
+  <div class="slide__content"><h2>場合は · 場合は vs ときは (cont.)</h2>
+<p><ruby>地震<rt>じしん</rt></ruby>の**<ruby>場合<rt>ばあい</rt></ruby>は**、エレベーターを<ruby>使<rt>つか</rt></ruby>わないでください。<br><em>In the event of an earthquake, do not use the lift.</em></p>
+<p>Here <code><ruby>場合<rt>ばあい</rt></ruby></code> is right precisely because the earthquake may never come, and because the sentence sits in a list beside <ruby>火事<rt>かじ</rt></ruby>の<ruby>場合<rt>ばあい</rt></ruby>は… and <ruby>停電<rt>ていでん</rt></ruby>の<ruby>場合<rt>ばあい</rt></ruby>は….</p>
 </div>
 </div>
 <div class="slide" data-index="95">
   
-  <div class="slide__content"><h2>場合は · Practice 1</h2>
-<p><strong>1.</strong> 都合(つごう)が悪(わる)い____は、前(まえ)の日(ひ)までにお知(し)らせください。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-都合(つごう)が悪(わる)い**場合(ばあい)**は、前(まえ)の日(ひ)までにお知(し)らせください。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-An い-adjective attaches in its plain form, with nothing in between. The polite <code>お～ください</code> ending confirms the register: this is a written notice, which is where <code>場合(ばあい)は</code> belongs.</p>
+  <div class="slide__content"><h2>場合は · 場合は vs ～たら</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - same meaning, different room. <code>たら</code> is what you say; <code><ruby>場合<rt>ばあい</rt></ruby>は</code> is what the sign says.</p>
+</blockquote>
+<p><ruby>熱<rt>ねつ</rt></ruby>が<ruby>下<rt>さ</rt></ruby>がらない**<ruby>場合<rt>ばあい</rt></ruby>は**、もう<ruby>一度<rt>いちど</rt></ruby>ご<ruby>来院<rt>らいいん</rt></ruby>ください。<br><em>If your temperature does not come down, please come in again.</em></p>
+<p><ruby>熱<rt>ねつ</rt></ruby>が<ruby>下<rt>さ</rt></ruby>がらな<strong>かったら</strong>、もう<ruby>一度<rt>いちど</rt></ruby><ruby>来<rt>き</rt></ruby>てくださいね。<br><em>If your fever doesn&#39;t go down, come back in again, all right?</em></p>
 </div>
 </div>
 <div class="slide" data-index="96">
   
-  <div class="slide__content"><h2>場合は · Practice 2</h2>
-<p><strong>2.</strong> 学生(がくせい)の（場合(ばあい)は・ときは）、料金(りょうきん)が半額(はんがく)になります。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-学生(がくせい)の<strong>場合(ばあい)は</strong>、料金(りょうきん)が半額(はんがく)になります。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The sentence sorts customers into categories - students as against everybody else - which is what <code>場合(ばあい)</code> does. 学生(がくせい)のときは would mean &quot;back when I was a student&quot;, a period of the speaker&#39;s life.</p>
+  <div class="slide__content"><h2>場合は · 場合は vs ～たら (cont.)</h2>
+<p>Identical content; the first is the printed instruction slip, the second is the doctor speaking. Note also that <code><ruby>場合<rt>ばあい</rt></ruby></code> being a noun lets a notice enumerate cases in parallel, each on its own line - a structure <code>たら</code> handles clumsily.</p>
 </div>
 </div>
 <div class="slide" data-index="97">
   
-  <div class="slide__content"><h2>場合は · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese: &quot;If the machine does not start, please contact the office.&quot;</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-機械(きかい)が動(うご)かない<strong>場合(ばあい)は</strong>、事務所(じむしょ)に連絡(れんらく)してください。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-A negative verb attaches in its plain ない-form. This is a printed-notice sentence, so <code>場合(ばあい)は</code> is the natural choice; 動(うご)かなかったら would be the spoken version.</p>
+  <div class="slide__content"><h2>場合は · 場合は vs ～と</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - in a manual the two divide the labour: <code>と</code> says what the machine normally <strong>does</strong>; <code><ruby>場合<rt>ばあい</rt></ruby>は</code> introduces the exception and tells you what <strong>you</strong> should do.</p>
+</blockquote>
+<p>ボタンを<ruby>押<rt>お</rt></ruby>す<strong>と</strong>、ランプが<ruby>光<rt>ひか</rt></ruby>ります。<ruby>光<rt>ひか</rt></ruby>らない**<ruby>場合<rt>ばあい</rt></ruby>は**、<ruby>電池<rt>でんち</rt></ruby>を<ruby>確<rt>たし</rt></ruby>かめてください。<br><em>Press the button and the lamp lights up. If it does not light up, check the batteries.</em></p>
+<p>The first half is an automatic consequence with no speaker in it, which is <code>と</code>&#39;s whole job - and <code>と</code> cannot be followed by an instruction. The second half needs one, so it switches to <code><ruby>場合<rt>ばあい</rt></ruby>は</code>. Almost every instruction manual in Japanese alternates between exactly these two.</p>
 </div>
 </div>
 <div class="slide" data-index="98">
   
-  <div class="slide__content"><h2>場合は · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 大学生(だいがくせい)だ場合(ばあい)は、この申(もう)し込(こ)み書(しょ)を使(つか)ってください。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 大学生(だいがくせい)<strong>の</strong>場合(ばあい)は、この申(もう)し込(こ)み書(しょ)を使(つか)ってください。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-A noun modifying another noun takes <code>の</code>, never <code>だ</code>. The <code>だ</code> version is interference from <code>～だと</code>, where <code>だ</code> really is required.</p>
+  <div class="slide__content"><h2>場合は · Common mistakes</h2>
+<ul>
+<li><p>❌ <ruby>子<rt>こ</rt></ruby>どもの<ruby>場合<rt>ばあい</rt></ruby>、よく<ruby>山<rt>やま</rt></ruby>に<ruby>登<rt>のぼ</rt></ruby>りました。 → ✅ <ruby>子<rt>こ</rt></ruby>どもの<strong>とき</strong>、よく<ruby>山<rt>やま</rt></ruby>に<ruby>登<rt>のぼ</rt></ruby>りました。<br><em>A stretch of past time is <code>とき</code>. <code><ruby>場合<rt>ばあい</rt></ruby></code> would mean &quot;as for children (as opposed to adults)&quot;.</em></p>
+</li>
+<li><p>❌ <ruby>必要<rt>ひつよう</rt></ruby><strong>だ</strong><ruby>場合<rt>ばあい</rt></ruby> → ✅ <ruby>必要<rt>ひつよう</rt></ruby><strong>な</strong><ruby>場合<rt>ばあい</rt></ruby><br><em><code><ruby>場合<rt>ばあい</rt></ruby></code> is a noun, so a な-adjective in front of it takes <code>な</code> - the ordinary noun-modifying rule from N5.</em></p>
+</li>
+<li><p>❌ <ruby>病気<rt>びょうき</rt></ruby><ruby>場合<rt>ばあい</rt></ruby>は → ✅ <ruby>病気<rt>びょうき</rt></ruby><strong>の</strong><ruby>場合<rt>ばあい</rt></ruby>は<br><em>A noun needs <code>の</code> to modify another noun. Compare <code>と</code>, which wants <code>だ</code>, and <code>なら</code>, which wants nothing.</em></p>
+</li>
+<li><p>❌ <ruby>友<rt>とも</rt></ruby>だちと<ruby>会<rt>あ</rt></ruby>う<ruby>場合<rt>ばあい</rt></ruby>は、いつも<ruby>駅<rt>えき</rt></ruby>で<ruby>待<rt>ま</rt></ruby>ちます。 → ✅ <ruby>友<rt>とも</rt></ruby>だちと<ruby>会<rt>あ</rt></ruby>う<strong>ときは</strong>、いつも<ruby>駅<rt>えき</rt></ruby>で<ruby>待<rt>ま</rt></ruby>ちます。<br><em>A regular habit is not a contingency. <code><ruby>場合<rt>ばあい</rt></ruby></code> needs something that might or might not arise.</em></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="99">
   
-  <div class="slide__content"><h2>場合は · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 地震(じしん)のときは、エレベーターを使(つか)わないでください。 (b) 地震(じしん)の場合(ばあい)は、エレベーターを使(つか)わないでください。</p>
+  <div class="slide__content"><h2>場合は · Practice 1</h2>
+<p><strong>1.</strong> <ruby>都合<rt>つごう</rt></ruby>が<ruby>悪<rt>わる</rt></ruby>い____は、<ruby>前<rt>まえ</rt></ruby>の<ruby>日<rt>ひ</rt></ruby>までにお<ruby>知<rt>し</rt></ruby>らせください。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Both are correct and you will see both on the same building&#39;s signage. (a) frames the earthquake as a moment in time - <em>while</em> it is happening, do not use the lift. (b) frames it as one entry in a list of emergencies, alongside fire and power cuts, and reads more like a clause in a set of regulations.</p>
+<ruby>都合<rt>つごう</rt></ruby>が<ruby>悪<rt>わる</rt></ruby>い**<ruby>場合<rt>ばあい</rt></ruby>**は、<ruby>前<rt>まえ</rt></ruby>の<ruby>日<rt>ひ</rt></ruby>までにお<ruby>知<rt>し</rt></ruby>らせください。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-(b) is the more bureaucratic of the two, and the one that invites a parallel sentence beginning 火事(かじ)の場合(ばあい)は.</p>
+An い-adjective attaches in its plain form, with nothing in between. The polite <code>お～ください</code> ending confirms the register: this is a written notice, which is where <code><ruby>場合<rt>ばあい</rt></ruby>は</code> belongs.</p>
 </div>
 </div>
 <div class="slide" data-index="100">
+  
+  <div class="slide__content"><h2>場合は · Practice 2</h2>
+<p><strong>2.</strong> <ruby>学生<rt>がくせい</rt></ruby>の（<ruby>場合<rt>ばあい</rt></ruby>は・ときは）、<ruby>料金<rt>りょうきん</rt></ruby>が<ruby>半額<rt>はんがく</rt></ruby>になります。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>学生<rt>がくせい</rt></ruby>の**<ruby>場合<rt>ばあい</rt></ruby>は**、<ruby>料金<rt>りょうきん</rt></ruby>が<ruby>半額<rt>はんがく</rt></ruby>になります。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The sentence sorts customers into categories - students as against everybody else - which is what <code><ruby>場合<rt>ばあい</rt></ruby></code> does. <ruby>学生<rt>がくせい</rt></ruby>のときは would mean &quot;back when I was a student&quot;, a period of the speaker&#39;s life.</p>
+</div>
+</div>
+<div class="slide" data-index="101">
+  
+  <div class="slide__content"><h2>場合は · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese: &quot;If the machine does not start, please contact the office.&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>機械<rt>きかい</rt></ruby>が<ruby>動<rt>うご</rt></ruby>かない**<ruby>場合<rt>ばあい</rt></ruby>は**、<ruby>事務所<rt>じむしょ</rt></ruby>に<ruby>連絡<rt>れんらく</rt></ruby>してください。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+A negative verb attaches in its plain ない-form. This is a printed-notice sentence, so <code><ruby>場合<rt>ばあい</rt></ruby>は</code> is the natural choice; <ruby>動<rt>うご</rt></ruby>かなかったら would be the spoken version.</p>
+</div>
+</div>
+<div class="slide" data-index="102">
+  
+  <div class="slide__content"><h2>場合は · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the error: <ruby>大学生<rt>だいがくせい</rt></ruby>だ<ruby>場合<rt>ばあい</rt></ruby>は、この<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>み<ruby>書<rt>しょ</rt></ruby>を<ruby>使<rt>つか</rt></ruby>ってください。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ <ruby>大学生<rt>だいがくせい</rt></ruby><strong>の</strong><ruby>場合<rt>ばあい</rt></ruby>は、この<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>み<ruby>書<rt>しょ</rt></ruby>を<ruby>使<rt>つか</rt></ruby>ってください。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+A noun modifying another noun takes <code>の</code>, never <code>だ</code>. The <code>だ</code> version is interference from <code>～だと</code>, where <code>だ</code> really is required.</p>
+</div>
+</div>
+<div class="slide" data-index="103">
+  
+  <div class="slide__content"><h2>場合は · Practice 5</h2>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>地震<rt>じしん</rt></ruby>のときは、エレベーターを<ruby>使<rt>つか</rt></ruby>わないでください。 (b) <ruby>地震<rt>じしん</rt></ruby>の<ruby>場合<rt>ばあい</rt></ruby>は、エレベーターを<ruby>使<rt>つか</rt></ruby>わないでください。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+Both are correct and you will see both on the same building&#39;s signage. (a) frames the earthquake as a moment in time - <em>while</em> it is happening, do not use the lift. (b) frames it as one entry in a list of emergencies, alongside fire and power cuts, and reads more like a clause in a set of regulations.</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+(b) is the more bureaucratic of the two, and the one that invites a parallel sentence beginning <ruby>火事<rt>かじ</rt></ruby>の<ruby>場合<rt>ばあい</rt></ruby>は.</p>
+</div>
+</div>
+<div class="slide" data-index="104">
   
   <div class="slide__content"><h1>～たらどうですか</h1>
 <p><strong>Meaning</strong> · why don&#39;t you…? - putting an action to the listener as a suggestion</p>
 <p>Literally &quot;if you did X, how would that be?&quot; - the <code>たら</code> is the ordinary conditional and <code>どうですか</code> is the N5 &quot;how about it?&quot;. Put together they make a suggestion aimed squarely at the other person, and that aim is what makes the pattern touchier than it looks.</p>
 </div>
 </div>
-<div class="slide" data-index="101">
+<div class="slide" data-index="105">
   
   <div class="slide__content"><h2>～たらどうですか · Formation</h2>
 <table>
@@ -3829,209 +3866,215 @@ Both are correct and you will see both on the same building&#39;s signage. (a) f
 <tbody><tr>
 <td>Verb</td>
 <td>た-form + らどうですか</td>
-<td>休(やす)む → 休(やす)んだらどうですか</td>
+<td><ruby>休<rt>やす</rt></ruby>む → <ruby>休<rt>やす</rt></ruby>んだらどうですか</td>
 </tr>
 <tr>
 <td>Verb (negative)</td>
 <td>なかった + らどうですか</td>
-<td>行(い)かない → 行(い)かなかったらどうですか</td>
+<td><ruby>行<rt>い</rt></ruby>かない → <ruby>行<rt>い</rt></ruby>かなかったらどうですか</td>
 </tr>
 <tr>
 <td>Casual</td>
 <td>た-form + ら?</td>
-<td>休(やす)む → 休(やす)んだら?</td>
+<td><ruby>休<rt>やす</rt></ruby>む → <ruby>休<rt>やす</rt></ruby>んだら?</td>
 </tr>
 <tr>
 <td>Softer</td>
 <td>た-form + らどうでしょうか</td>
-<td>休(やす)む → 休(やす)んだらどうでしょうか</td>
+<td><ruby>休<rt>やす</rt></ruby>む → <ruby>休<rt>やす</rt></ruby>んだらどうでしょうか</td>
 </tr>
 <tr>
 <td>Politer</td>
 <td>た-form + らいかがですか</td>
-<td>休(やす)む → 休(やす)んだらいかがですか</td>
+<td><ruby>休<rt>やす</rt></ruby>む → <ruby>休<rt>やす</rt></ruby>んだらいかがですか</td>
 </tr>
 <tr>
 <td>Politest (upward)</td>
 <td>て-form + はいかがでしょうか</td>
-<td>休(やす)む → お休(やす)みになってはいかがでしょうか</td>
+<td><ruby>休<rt>やす</rt></ruby>む → お<ruby>休<rt>やす</rt></ruby>みになってはいかがでしょうか</td>
 </tr>
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="102">
+<div class="slide" data-index="106">
   
   <div class="slide__content"><h2>～たらどうですか · Formation (cont.)</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - the suggestion lives in <code>どう</code>, not in <code>たら</code>. Change <code>どう</code> and you change the sentence completely: <code>～たらどうですか</code> = &quot;why don&#39;t you…?&quot;, but <code>～たらどうしますか</code> = &quot;what will you do if…?&quot; - a real question about a real condition.</p>
 </blockquote>
 <blockquote>
-<p><strong>Note</strong> - inserting <code>～てみる</code> softens the whole thing, because it proposes a <em>trial</em> rather than a course of action: 聞(き)いてみたらどうですか lands much more gently than 聞(き)いたらどうですか. This is the single easiest way to take the edge off.</p>
+<p><strong>Note</strong> - inserting <code>～てみる</code> softens the whole thing, because it proposes a <em>trial</em> rather than a course of action: <ruby>聞<rt>き</rt></ruby>いてみたらどうですか lands much more gently than <ruby>聞<rt>き</rt></ruby>いたらどうですか. This is the single easiest way to take the edge off.</p>
 </blockquote>
 </div>
 </div>
-<div class="slide" data-index="103">
+<div class="slide" data-index="107">
   
   <div class="slide__content"><h2>～たらどうですか · Examples</h2>
-<p>もう少(すこ)し<strong>待(ま)ったらどうですか</strong>。<br><em>Why don&#39;t you wait a bit longer?</em></p>
-<p>先生(せんせい)に<strong>聞(き)いてみたらどう</strong>?<br><em>Why not try asking the teacher?</em></p>
-<p>熱(ねつ)があるなら、今日(きょう)は早(はや)く<strong>帰(かえ)ったらどうですか</strong>。<br><em>If you&#39;ve got a fever, why don&#39;t you go home early today?</em></p>
-<p>時間(じかん)がないなら、タクシーで<strong>行(い)ったらどうでしょうか</strong>。<br><em>If you&#39;re short of time, how about taking a taxi?</em></p>
-<p>そんなに心配(しんぱい)なら、自分(じぶん)で<strong>確(たし)かめたらどう</strong>?<br><em>If you&#39;re that worried, why don&#39;t you go and check it yourself?</em></p>
+<p>もう<ruby>少<rt>すこ</rt></ruby>し**<ruby>待<rt>ま</rt></ruby>ったらどうですか**。<br><em>Why don&#39;t you wait a bit longer?</em></p>
+<p><ruby>先生<rt>せんせい</rt></ruby>に**<ruby>聞<rt>き</rt></ruby>いてみたらどう**?<br><em>Why not try asking the teacher?</em></p>
+<p><ruby>熱<rt>ねつ</rt></ruby>があるなら、<ruby>今日<rt>きょう</rt></ruby>は<ruby>早<rt>はや</rt></ruby>く**<ruby>帰<rt>かえ</rt></ruby>ったらどうですか**。<br><em>If you&#39;ve got a fever, why don&#39;t you go home early today?</em></p>
+<p><ruby>時間<rt>じかん</rt></ruby>がないなら、タクシーで**<ruby>行<rt>い</rt></ruby>ったらどうでしょうか**。<br><em>If you&#39;re short of time, how about taking a taxi?</em></p>
 </div>
 </div>
-<div class="slide" data-index="104">
+<div class="slide" data-index="108">
   
   <div class="slide__content"><h2>～たらどうですか · Examples (cont.)</h2>
-<p>部長(ぶちょう)、こちらの案(あん)も一度(いちど)ご覧(らん)に<strong>なってはいかがでしょうか</strong>。<br><em>Might I suggest you also take a look at this proposal?</em></p>
-<p>毎日(まいにち)コンビニのお弁当(べんとう)ばかりじゃなくて、たまには自分(じぶん)で<strong>作(つく)ってみたらどうですか</strong>。<br><em>Instead of convenience-store bentos every single day, why not cook for yourself once in a while?</em></p>
-<p>一人(ひとり)で悩(なや)んでいないで、一度(いちど)ご両親(りょうしん)に<strong>相談(そうだん)してみたらいかがですか</strong>。<br><em>Rather than worrying about it alone, why not talk it over with your parents?</em></p>
+<p>そんなに<ruby>心配<rt>しんぱい</rt></ruby>なら、<ruby>自分<rt>じぶん</rt></ruby>で**<ruby>確<rt>たし</rt></ruby>かめたらどう**?<br><em>If you&#39;re that worried, why don&#39;t you go and check it yourself?</em></p>
+<p><ruby>部長<rt>ぶちょう</rt></ruby>、こちらの<ruby>案<rt>あん</rt></ruby>も<ruby>一度<rt>いちど</rt></ruby>ご<ruby>覧<rt>らん</rt></ruby>に<strong>なってはいかがでしょうか</strong>。<br><em>Might I suggest you also take a look at this proposal?</em></p>
+<p><ruby>毎日<rt>まいにち</rt></ruby>コンビニのお<ruby>弁当<rt>べんとう</rt></ruby>ばかりじゃなくて、たまには<ruby>自分<rt>じぶん</rt></ruby>で**<ruby>作<rt>つく</rt></ruby>ってみたらどうですか**。<br><em>Instead of convenience-store bentos every single day, why not cook for yourself once in a while?</em></p>
+<p><ruby>一人<rt>ひとり</rt></ruby>で<ruby>悩<rt>なや</rt></ruby>んでいないで、<ruby>一度<rt>いちど</rt></ruby>ご<ruby>両親<rt>りょうしん</rt></ruby>に**<ruby>相談<rt>そうだん</rt></ruby>してみたらいかがですか**。<br><em>Rather than worrying about it alone, why not talk it over with your parents?</em></p>
 </div>
 </div>
-<div class="slide" data-index="105">
+<div class="slide" data-index="109">
   
   <div class="slide__content"><h2>～たらどうですか · Nuance &amp; register</h2>
 <p>This is <strong>not</strong> a neutral pattern, and the polite <code>ですか</code> does not make it safe. <code>～たらどうですか</code> carries an unstated &quot;you are not doing the obvious thing&quot;, which is fine from a friend and grating from anyone else. Repeated, it is nagging; delivered flatly, it is criticism.</p>
 <p>The register scale, roughly:</p>
 </div>
 </div>
-<div class="slide" data-index="106">
+<div class="slide" data-index="110">
   
   <div class="slide__content"><h2>～たらどうですか · Nuance &amp; register (cont.)</h2>
 <ul>
-<li><strong>休(やす)んだら?</strong> - casual, friendly with rising intonation. With<br><em><em>falling</em> intonation it is openly annoyed: 自分(じぶん)でやったら? = &quot;then do it yourself.&quot;</em></li>
-<li><strong>休(やす)んだらどうですか</strong> - polite in form; use downward or sideways, not<br><em>upward.</em></li>
-<li><strong>休(やす)んだらどうでしょうか</strong> - hedged, noticeably softer.</li>
-<li><strong>休(やす)んだらいかがですか</strong> - polite vocabulary, safe with customers and<br><em>acquaintances.</em></li>
-<li><strong>お休(やす)みになってはいかがでしょうか</strong> - the form to use with a superior.<br><em>Notice it abandons <code>たら</code> entirely for <code>～ては</code>.</em></li>
+<li><strong><ruby>休<rt>やす</rt></ruby>んだら?</strong> - casual, friendly with rising intonation. With<br><em><em>falling</em> intonation it is openly annoyed: <ruby>自分<rt>じぶん</rt></ruby>でやったら? = &quot;then do it yourself.&quot;</em></li>
+<li><strong><ruby>休<rt>やす</rt></ruby>んだらどうですか</strong> - polite in form; use downward or sideways, not<br><em>upward.</em></li>
+<li><strong><ruby>休<rt>やす</rt></ruby>んだらどうでしょうか</strong> - hedged, noticeably softer.</li>
+<li><strong><ruby>休<rt>やす</rt></ruby>んだらいかがですか</strong> - polite vocabulary, safe with customers and<br><em>acquaintances.</em></li>
+<li><strong>お<ruby>休<rt>やす</rt></ruby>みになってはいかがでしょうか</strong> - the form to use with a superior.<br><em>Notice it abandons <code>たら</code> entirely for <code>～ては</code>.</em></li>
 </ul>
+</div>
+</div>
+<div class="slide" data-index="111">
+  
+  <div class="slide__content"><h2>～たらどうですか · Nuance &amp; register (cont.)</h2>
 <p>It is a spoken pattern. In writing you would use <code>～てはいかがでしょうか</code> or <code>～ことをおすすめします</code>.</p>
 <p>Two traps worth keeping apart, both hinging on what follows <code>たら</code>:</p>
-</div>
-</div>
-<div class="slide" data-index="107">
-  
-  <div class="slide__content"><h2>～たらどうですか · Nuance &amp; register (cont.)</h2>
 <ul>
 <li><strong>～たらどうですか</strong> = a suggestion.</li>
-<li><strong>～たらどうしますか</strong> = &quot;what will you do if…?&quot; -<br><em>終電(しゅうでん)を逃(のが)したらどうしますか。</em></li>
+<li><strong>～たらどうしますか</strong> = &quot;what will you do if…?&quot; -<br><em><ruby>終電<rt>しゅうでん</rt></ruby>を<ruby>逃<rt>のが</rt></ruby>したらどうしますか。</em></li>
 <li><strong>～たらどうなりますか</strong> = &quot;what happens if…?&quot; - about consequences, not<br><em>people.</em></li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="108">
+<div class="slide" data-index="112">
   
   <div class="slide__content"><h2>～たらどうですか · ～たらどうですか vs ～ほうがいい</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>～たらどうですか</code> <strong>asks</strong>; <code>～ほうがいい</code> <strong>tells</strong>.</p>
 </blockquote>
 <p><code>～ほうがいい</code> (N5) weighs one option against the alternative and comes down on one side, often with an unspoken warning attached. <code>～たらどうですか</code> floats an action and hands the decision back to the listener - formally, at least. It ends in a question, and an answer is expected.</p>
-<p>病院(びょういん)に<strong>行(い)ったらどうですか</strong>。<br><em>Why don&#39;t you go to the doctor?</em></p>
-<p>病院(びょういん)に<strong>行(い)ったほうがいいですよ</strong>。<br><em>You&#39;d better go to the doctor.</em></p>
+<p><ruby>病院<rt>びょういん</rt></ruby>に**<ruby>行<rt>い</rt></ruby>ったらどうですか**。<br><em>Why don&#39;t you go to the doctor?</em></p>
+<p><ruby>病院<rt>びょういん</rt></ruby>に**<ruby>行<rt>い</rt></ruby>ったほうがいいですよ**。<br><em>You&#39;d better go to the doctor.</em></p>
 </div>
 </div>
-<div class="slide" data-index="109">
+<div class="slide" data-index="113">
   
   <div class="slide__content"><h2>～たらどうですか · ～たらどうですか vs ～ほうがいい (cont.)</h2>
 <p>The second is stronger and implies a consequence if you don&#39;t. The first is softer on the surface - but because it points at something the listener has visibly failed to do, it can end up sounding more pointed. Neither is safe to aim at a superior.</p>
 </div>
 </div>
-<div class="slide" data-index="110">
+<div class="slide" data-index="114">
   
   <div class="slide__content"><h2>～たらどうですか · ～たらどうですか vs ～ませんか／～ましょう</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>～ませんか</code> and <code>～ましょう</code> include the speaker. <code>～たらどうですか</code> is for the listener <strong>alone</strong>.</p>
 </blockquote>
-<p>一緒(いっしょ)に昼(ひる)ご飯(はん)を<strong>食(た)べませんか</strong>。<br><em>Shall we have lunch together?</em></p>
-<p>昼(ひる)ご飯(はん)くらい<strong>食(た)べたらどうですか</strong>。<br><em>Why don&#39;t you at least eat some lunch?</em></p>
+<p><ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>昼<rt>ひる</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>を**<ruby>食<rt>た</rt></ruby>べませんか**。<br><em>Shall we have lunch together?</em></p>
+<p><ruby>昼<rt>ひる</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>くらい**<ruby>食<rt>た</rt></ruby>べたらどうですか**。<br><em>Why don&#39;t you at least eat some lunch?</em></p>
 <p>The second explicitly excludes the speaker: you are telling someone else to eat. Using <code>～たらどうですか</code> when you mean to come along is one of the more embarrassing N4 errors, because it turns an invitation into a criticism of the listener&#39;s habits.</p>
 </div>
 </div>
-<div class="slide" data-index="111">
+<div class="slide" data-index="115">
   
   <div class="slide__content"><h2>～たらどうですか · ～たらどうですか vs ～たらいいですよ</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>～たらいいですよ</code> <strong>answers</strong> a request for advice. <code>～たらどうですか</code> <strong>offers</strong> advice nobody asked for.</p>
 </blockquote>
-<p>「どこで買(か)えますか。」「駅前(えきまえ)の店(みせ)で<strong>買(か)ったらいいですよ</strong>。」<br><em>&quot;Where can I buy one?&quot; &quot;You could buy one at the shop by the station.&quot;</em></p>
-<p><code>～たらいい</code> states the good option as information - no question, no pressure. It is the natural reply to どうしたらいいですか. Swapping in 買(か)ったらどうですか would be odd there, because the listener has already asked; suggesting it back at them implies they should have thought of it themselves.</p>
-</div>
-</div>
-<div class="slide" data-index="112">
-  
-  <div class="slide__content"><h2>～たらどうですか · Common mistakes</h2>
-<ul>
-<li><p>❌ 休(やす)む<strong>たらどうですか</strong> → ✅ 休(やす)<strong>んだら</strong>どうですか<br><em><code>たら</code> is built on the past form: 休(やす)む → 休(やす)んだ → 休(やす)んだら.</em></p>
-</li>
-<li><p>❌ 社長(しゃちょう)、少(すこ)し休(やす)んだらどうですか。 → ✅ 社長(しゃちょう)、少(すこ)しお休(やす)みに<strong>なってはいかがでしょうか</strong>。<br><em>Grammatical, and rude upward. Telling a superior what they ought to be doing needs the <code>～てはいかがでしょうか</code> frame and an honorific verb.</em></p>
-</li>
-<li><p>❌ 一緒(いっしょ)にコンサートに行(い)ったらどうですか。（meaning &quot;shall we go together?&quot;）→ ✅ 一緒(いっしょ)にコンサートに行(い)き<strong>ませんか</strong>。<br><em><code>～たらどうですか</code> never includes the speaker.</em></p>
-</li>
-<li><p>❌ Reading 台風(たいふう)が来(き)たらどうしますか as a suggestion → it<br><em>means &quot;what will you do if a typhoon comes?&quot; <code>どうですか</code> suggests; <code>どうしますか</code> asks.</em></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="slide" data-index="113">
-  
-  <div class="slide__content"><h2>～たらどうですか · Practice 1</h2>
-<p><strong>1.</strong> 眠(ねむ)そうですね。コーヒーでも飲(の)____どうですか。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-コーヒーでも飲(の)<strong>んだら</strong>どうですか。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The pattern is built on the plain past: 飲(の)む → 飲(の)んだ → 飲(の)んだら. The <code>でも</code> softens it further by making the coffee an example rather than a demand.</p>
-</div>
-</div>
-<div class="slide" data-index="114">
-  
-  <div class="slide__content"><h2>～たらどうですか · Practice 2</h2>
-<p><strong>2.</strong> 明日(あした)一緒(いっしょ)にテニスを（しませんか・したらどうですか）。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-明日(あした)一緒(いっしょ)にテニスを<strong>しませんか</strong>。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-一緒(いっしょ)に puts the speaker in the picture, and <code>～たらどうですか</code> is strictly about what the <em>listener</em> should do. With <code>したらどうですか</code> the sentence would mean &quot;why don&#39;t you play tennis with someone tomorrow&quot; - and would sound faintly critical of how they spend their time.</p>
-</div>
-</div>
-<div class="slide" data-index="115">
-  
-  <div class="slide__content"><h2>～たらどうですか · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese: &quot;Why don&#39;t you try asking the station staff?&quot;</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-駅(えき)の人(ひと)に<strong>聞(き)いてみたらどうですか</strong>。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>～てみる</code> inside the pattern turns it into &quot;why not give it a try&quot;, which is the friendliest version available. Without it, 聞(き)いたらどうですか sounds more like &quot;you should have asked already&quot;.</p>
+<p>「どこで<ruby>買<rt>か</rt></ruby>えますか。」「<ruby>駅前<rt>えきまえ</rt></ruby>の<ruby>店<rt>みせ</rt></ruby>で**<ruby>買<rt>か</rt></ruby>ったらいいですよ**。」<br><em>&quot;Where can I buy one?&quot; &quot;You could buy one at the shop by the station.&quot;</em></p>
+<p><code>～たらいい</code> states the good option as information - no question, no pressure. It is the natural reply to どうしたらいいですか. Swapping in <ruby>買<rt>か</rt></ruby>ったらどうですか would be odd there, because the listener has already asked; suggesting it back at them implies they should have thought of it themselves.</p>
 </div>
 </div>
 <div class="slide" data-index="116">
   
-  <div class="slide__content"><h2>～たらどうですか · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 先生(せんせい)、この本(ほん)を読(よ)んだらどうですか。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 先生(せんせい)、この本(ほん)をお読(よ)みに<strong>なってはいかがでしょうか</strong>。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The grammar of the original is fine; the problem is direction. Suggesting an action to a teacher, boss or customer needs <code>～てはいかがでしょうか</code> with an honorific verb. A slightly lighter option is 読(よ)まれてはいかがでしょうか.</p>
+  <div class="slide__content"><h2>～たらどうですか · Common mistakes</h2>
+<ul>
+<li><p>❌ <ruby>休<rt>やす</rt></ruby>む<strong>たらどうですか</strong> → ✅ <ruby>休<rt>やす</rt></ruby><strong>んだら</strong>どうですか<br><em><code>たら</code> is built on the past form: <ruby>休<rt>やす</rt></ruby>む → <ruby>休<rt>やす</rt></ruby>んだ → <ruby>休<rt>やす</rt></ruby>んだら.</em></p>
+</li>
+<li><p>❌ <ruby>社長<rt>しゃちょう</rt></ruby>、<ruby>少<rt>すこ</rt></ruby>し<ruby>休<rt>やす</rt></ruby>んだらどうですか。 → ✅ <ruby>社長<rt>しゃちょう</rt></ruby>、<ruby>少<rt>すこ</rt></ruby>しお<ruby>休<rt>やす</rt></ruby>みに<strong>なってはいかがでしょうか</strong>。<br><em>Grammatical, and rude upward. Telling a superior what they ought to be doing needs the <code>～てはいかがでしょうか</code> frame and an honorific verb.</em></p>
+</li>
+<li><p>❌ <ruby>一緒<rt>いっしょ</rt></ruby>にコンサートに<ruby>行<rt>い</rt></ruby>ったらどうですか。（meaning &quot;shall we go together?&quot;）→ ✅ <ruby>一緒<rt>いっしょ</rt></ruby>にコンサートに<ruby>行<rt>い</rt></ruby>き<strong>ませんか</strong>。<br><em><code>～たらどうですか</code> never includes the speaker.</em></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="117">
   
+  <div class="slide__content"><h2>～たらどうですか · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ Reading <ruby>台風<rt>たいふう</rt></ruby>が<ruby>来<rt>き</rt></ruby>たらどうしますか as a suggestion → it<br><em>means &quot;what will you do if a typhoon comes?&quot; <code>どうですか</code> suggests; <code>どうしますか</code> asks.</em></li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="118">
+  
+  <div class="slide__content"><h2>～たらどうですか · Practice 1</h2>
+<p><strong>1.</strong> <ruby>眠<rt>ねむ</rt></ruby>そうですね。コーヒーでも<ruby>飲<rt>の</rt></ruby>____どうですか。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+コーヒーでも<ruby>飲<rt>の</rt></ruby><strong>んだら</strong>どうですか。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The pattern is built on the plain past: <ruby>飲<rt>の</rt></ruby>む → <ruby>飲<rt>の</rt></ruby>んだ → <ruby>飲<rt>の</rt></ruby>んだら. The <code>でも</code> softens it further by making the coffee an example rather than a demand.</p>
+</div>
+</div>
+<div class="slide" data-index="119">
+  
+  <div class="slide__content"><h2>～たらどうですか · Practice 2</h2>
+<p><strong>2.</strong> <ruby>明日<rt>あした</rt></ruby><ruby>一緒<rt>いっしょ</rt></ruby>にテニスを（しませんか・したらどうですか）。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>明日<rt>あした</rt></ruby><ruby>一緒<rt>いっしょ</rt></ruby>にテニスを<strong>しませんか</strong>。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>一緒<rt>いっしょ</rt></ruby>に puts the speaker in the picture, and <code>～たらどうですか</code> is strictly about what the <em>listener</em> should do. With <code>したらどうですか</code> the sentence would mean &quot;why don&#39;t you play tennis with someone tomorrow&quot; - and would sound faintly critical of how they spend their time.</p>
+</div>
+</div>
+<div class="slide" data-index="120">
+  
+  <div class="slide__content"><h2>～たらどうですか · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese: &quot;Why don&#39;t you try asking the station staff?&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>駅<rt>えき</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>に**<ruby>聞<rt>き</rt></ruby>いてみたらどうですか**。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code>～てみる</code> inside the pattern turns it into &quot;why not give it a try&quot;, which is the friendliest version available. Without it, <ruby>聞<rt>き</rt></ruby>いたらどうですか sounds more like &quot;you should have asked already&quot;.</p>
+</div>
+</div>
+<div class="slide" data-index="121">
+  
+  <div class="slide__content"><h2>～たらどうですか · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the error: <ruby>先生<rt>せんせい</rt></ruby>、この<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>んだらどうですか。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ <ruby>先生<rt>せんせい</rt></ruby>、この<ruby>本<rt>ほん</rt></ruby>をお<ruby>読<rt>よ</rt></ruby>みに<strong>なってはいかがでしょうか</strong>。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The grammar of the original is fine; the problem is direction. Suggesting an action to a teacher, boss or customer needs <code>～てはいかがでしょうか</code> with an honorific verb. A slightly lighter option is <ruby>読<rt>よ</rt></ruby>まれてはいかがでしょうか.</p>
+</div>
+</div>
+<div class="slide" data-index="122">
+  
   <div class="slide__content"><h2>～たらどうですか · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 医者(いしゃ)に行(い)ったらどうですか。 (b) 医者(いしゃ)に行(い)ったほうがいいですよ。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>医者<rt>いしゃ</rt></ruby>に<ruby>行<rt>い</rt></ruby>ったらどうですか。 (b) <ruby>医者<rt>いしゃ</rt></ruby>に<ruby>行<rt>い</rt></ruby>ったほうがいいですよ。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) is shaped as a question and formally leaves the choice open - but it also points out that the listener has not gone yet, so depending on tone it can come across as impatient: &quot;why don&#39;t you just go?&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (b) is a straight recommendation with the speaker&#39;s judgement behind it, and the <code>よ</code> adds a note of concern. It is stronger, but paradoxically often kinder, because it reads as looking out for the listener rather than commenting on their inaction.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Neither is appropriate upward; to a superior you would say 一度(いちど)病院(びょういん)へ行(い)かれてはいかがでしょうか.</p>
+Neither is appropriate upward; to a superior you would say <ruby>一度<rt>いちど</rt></ruby><ruby>病院<rt>びょういん</rt></ruby>へ<ruby>行<rt>い</rt></ruby>かれてはいかがでしょうか.</p>
 </div>
 </div>
-<div class="slide" data-index="118">
+<div class="slide" data-index="123">
   
   <div class="slide__content"><h1>どうしたらいいですか</h1>
 <p><strong>Meaning</strong> · what should I do? - asking someone to tell you the right course of action</p>
-<p>This is a frame, not a single word: a <strong>question word</strong> + a <strong>conditional</strong> + <code>いい</code>. &quot;If I did what, would it be good?&quot; Swap the question word and the verb and you can build the whole family - どこに出(だ)せばいいですか, 何時(なんじ)に来(き)たらいいですか - which is why it is worth learning as a shape rather than as a phrase.</p>
+<p>This is a frame, not a single word: a <strong>question word</strong> + a <strong>conditional</strong> + <code>いい</code>. &quot;If I did what, would it be good?&quot; Swap the question word and the verb and you can build the whole family - どこに<ruby>出<rt>だ</rt></ruby>せばいいですか, <ruby>何時<rt>なんじ</rt></ruby>に<ruby>来<rt>き</rt></ruby>たらいいですか - which is why it is worth learning as a shape rather than as a phrase.</p>
 </div>
 </div>
-<div class="slide" data-index="119">
+<div class="slide" data-index="124">
   
   <div class="slide__content"><h2>どうしたらいいですか · Formation</h2>
 <p>The <code>たら</code> and <code>ば</code> versions are interchangeable in almost every sentence.</p>
@@ -4046,12 +4089,12 @@ Neither is appropriate upward; to a superior you would say 一度(いちど)病�
 <tbody><tr>
 <td>Verb (たら)</td>
 <td>た-form + らいいですか</td>
-<td>出(だ)す → 出(だ)したらいいですか</td>
+<td><ruby>出<rt>だ</rt></ruby>す → <ruby>出<rt>だ</rt></ruby>したらいいですか</td>
 </tr>
 <tr>
 <td>Verb (ば)</td>
 <td>ば-form + いいですか</td>
-<td>出(だ)す → 出(だ)せばいいですか</td>
+<td><ruby>出<rt>だ</rt></ruby>す → <ruby>出<rt>だ</rt></ruby>せばいいですか</td>
 </tr>
 <tr>
 <td>する (fixed frame)</td>
@@ -4060,8 +4103,8 @@ Neither is appropriate upward; to a superior you would say 一度(いちど)病�
 </tr>
 <tr>
 <td>Other question words</td>
-<td>何(なに)／どこ／いつ／どう + …たらいいですか</td>
-<td>どこ → どこで買(か)えばいいですか</td>
+<td><ruby>何<rt>なに</rt></ruby>／どこ／いつ／どう + …たらいいですか</td>
+<td>どこ → どこで<ruby>買<rt>か</rt></ruby>えばいいですか</td>
 </tr>
 <tr>
 <td>Softened</td>
@@ -4070,8 +4113,8 @@ Neither is appropriate upward; to a superior you would say 一度(いちど)病�
 </tr>
 <tr>
 <td>Embedded (no ですか)</td>
-<td>…らいい<strong>か</strong> + 分(わ)からない</td>
-<td>どうしたらいいか分(わ)かりません</td>
+<td>…らいい<strong>か</strong> + <ruby>分<rt>わ</rt></ruby>からない</td>
+<td>どうしたらいいか<ruby>分<rt>わ</rt></ruby>かりません</td>
 </tr>
 <tr>
 <td>Formal / to a superior</td>
@@ -4081,36 +4124,36 @@ Neither is appropriate upward; to a superior you would say 一度(いちど)病�
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="120">
+<div class="slide" data-index="125">
   
   <div class="slide__content"><h2>どうしたらいいですか · Formation (cont.)</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - when the question is embedded inside a larger sentence, the <code>ですか</code> disappears and a bare <code>か</code> holds the question together: どうしたらいい<strong>か</strong>教(おし)えてください. Never ❌どうしたらいいですかを教(おし)えてください.</p>
+<p><strong>Rule of thumb</strong> - when the question is embedded inside a larger sentence, the <code>ですか</code> disappears and a bare <code>か</code> holds the question together: どうしたらいい<strong>か</strong><ruby>教<rt>おし</rt></ruby>えてください. Never ❌どうしたらいいですかを<ruby>教<rt>おし</rt></ruby>えてください.</p>
 </blockquote>
 <blockquote>
-<p><strong>Note</strong> - the <code>いい</code> here is an ordinary い-adjective, so it conjugates: どうしたらよかったんですか (&quot;what should I have done?&quot;), どうしたらいいのか分(わ)かりません, どうしたらよろしいでしょうか (formal, <code>いい</code> → <code>よろしい</code>).</p>
+<p><strong>Note</strong> - the <code>いい</code> here is an ordinary い-adjective, so it conjugates: どうしたらよかったんですか (&quot;what should I have done?&quot;), どうしたらいいのか<ruby>分<rt>わ</rt></ruby>かりません, どうしたらよろしいでしょうか (formal, <code>いい</code> → <code>よろしい</code>).</p>
 </blockquote>
 </div>
 </div>
-<div class="slide" data-index="121">
+<div class="slide" data-index="126">
   
   <div class="slide__content"><h2>どうしたらいいですか · Examples</h2>
-<p>切符(きっぷ)をなくしました。<strong>どうしたらいいですか</strong>。<br><em>I&#39;ve lost my ticket. What should I do?</em></p>
-<p>この書類(しょるい)はどこに<strong>出(だ)したらいいですか</strong>。<br><em>Where should I hand in these documents?</em></p>
-<p>靴(くつ)はここで<strong>脱(ぬ)げばいいですか</strong>。<br><em>Should I take my shoes off here?</em></p>
-<p>漢字(かんじ)がなかなか覚(おぼ)えられません。<strong>どうすればいいですか</strong>。<br><em>I just can&#39;t seem to memorise kanji. What should I do?</em></p>
-<p>次(つぎ)は<strong>どうしたらいいか</strong>、教(おし)えてください。<br><em>Please tell me what I should do next.</em></p>
+<p><ruby>切符<rt>きっぷ</rt></ruby>をなくしました。<strong>どうしたらいいですか</strong>。<br><em>I&#39;ve lost my ticket. What should I do?</em></p>
+<p>この<ruby>書類<rt>しょるい</rt></ruby>はどこに**<ruby>出<rt>だ</rt></ruby>したらいいですか**。<br><em>Where should I hand in these documents?</em></p>
+<p><ruby>靴<rt>くつ</rt></ruby>はここで**<ruby>脱<rt>ぬ</rt></ruby>げばいいですか**。<br><em>Should I take my shoes off here?</em></p>
+<p><ruby>漢字<rt>かんじ</rt></ruby>がなかなか<ruby>覚<rt>おぼ</rt></ruby>えられません。<strong>どうすればいいですか</strong>。<br><em>I just can&#39;t seem to memorise kanji. What should I do?</em></p>
 </div>
 </div>
-<div class="slide" data-index="122">
+<div class="slide" data-index="127">
   
   <div class="slide__content"><h2>どうしたらいいですか · Examples (cont.)</h2>
-<p>パソコンが急(きゅう)に動(うご)かなくなったんですが、<strong>どうしたらいいでしょうか</strong>。<br><em>My computer&#39;s suddenly stopped working - what would you suggest I do?</em></p>
-<p>初(はじ)めての出張(しゅっちょう)で、何(なに)を<strong>準備(じゅんび)したらいいか</strong>全(まった)く分(わ)かりません。<br><em>It&#39;s my first business trip and I have no idea what I should be getting ready.</em></p>
-<p>保証書(ほしょうしょ)をなくしてしまった場合(ばあい)は、<strong>どうしたらよろしいでしょうか</strong>。<br><em>In the event that the warranty card has been lost, how should we proceed?</em></p>
+<p><ruby>次<rt>つぎ</rt></ruby>は<strong>どうしたらいいか</strong>、<ruby>教<rt>おし</rt></ruby>えてください。<br><em>Please tell me what I should do next.</em></p>
+<p>パソコンが<ruby>急<rt>きゅう</rt></ruby>に<ruby>動<rt>うご</rt></ruby>かなくなったんですが、<strong>どうしたらいいでしょうか</strong>。<br><em>My computer&#39;s suddenly stopped working - what would you suggest I do?</em></p>
+<p><ruby>初<rt>はじ</rt></ruby>めての<ruby>出張<rt>しゅっちょう</rt></ruby>で、<ruby>何<rt>なに</rt></ruby>を**<ruby>準備<rt>じゅんび</rt></ruby>したらいいか**<ruby>全<rt>まった</rt></ruby>く<ruby>分<rt>わ</rt></ruby>かりません。<br><em>It&#39;s my first business trip and I have no idea what I should be getting ready.</em></p>
+<p><ruby>保証書<rt>ほしょうしょ</rt></ruby>をなくしてしまった<ruby>場合<rt>ばあい</rt></ruby>は、<strong>どうしたらよろしいでしょうか</strong>。<br><em>In the event that the warranty card has been lost, how should we proceed?</em></p>
 </div>
 </div>
-<div class="slide" data-index="123">
+<div class="slide" data-index="128">
   
   <div class="slide__content"><h2>どうしたらいいですか · Nuance &amp; register</h2>
 <p><code>どうしたらいいですか</code> is the standard polite way to ask for guidance, and it is safe with strangers, shop staff, teachers and colleagues. It is neither stiff nor casual on its own; the register is set by the ending you attach.</p>
@@ -4123,46 +4166,46 @@ Neither is appropriate upward; to a superior you would say 一度(いちど)病�
 </ul>
 </div>
 </div>
-<div class="slide" data-index="124">
+<div class="slide" data-index="129">
   
   <div class="slide__content"><h2>どうしたらいいですか · Nuance &amp; register (cont.)</h2>
-<p><code>たら</code> versus <code>ば</code> in this frame: they are close to interchangeable, and no native speaker will correct you either way. <code>どうすればいいですか</code> leans a touch more procedural and written - it fits &quot;what is the correct procedure&quot; - while <code>どうしたらいいですか</code> is marginally more common in speech and a little softer. With other question words the same holds: どこに置(お)いたらいいですか and どこに置(お)けばいいですか are both fine.</p>
+<p><code>たら</code> versus <code>ば</code> in this frame: they are close to interchangeable, and no native speaker will correct you either way. <code>どうすればいいですか</code> leans a touch more procedural and written - it fits &quot;what is the correct procedure&quot; - while <code>どうしたらいいですか</code> is marginally more common in speech and a little softer. With other question words the same holds: どこに<ruby>置<rt>お</rt></ruby>いたらいいですか and どこに<ruby>置<rt>お</rt></ruby>けばいいですか are both fine.</p>
 <p>One keigo distinction worth knowing early: if you are offering to act <em>for</em> someone - a shop assistant, say - the humble <code>いかがいたしましょうか</code> (&quot;how would you like me to…?&quot;) replaces this pattern entirely. <code>どうしたらいいですか</code> asks for instructions; <code>いかがいたしましょうか</code> offers service.</p>
 </div>
 </div>
-<div class="slide" data-index="125">
+<div class="slide" data-index="130">
   
   <div class="slide__content"><h2>どうしたらいいですか · どうしたらいいですか vs どうしますか</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>どうしたらいいですか</code> asks for <strong>advice</strong>; <code>どうしますか</code> asks about <strong>intention</strong>.</p>
 </blockquote>
-<p>雨(あめ)が降(ふ)ってきました。<strong>どうしますか</strong>。<br><em>It&#39;s started raining. What do you want to do?</em></p>
-<p>雨(あめ)が降(ふ)ってきました。<strong>どうしたらいいですか</strong>。<br><em>It&#39;s started raining. What should we do?</em></p>
+<p><ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>ってきました。<strong>どうしますか</strong>。<br><em>It&#39;s started raining. What do you want to do?</em></p>
+<p><ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>ってきました。<strong>どうしたらいいですか</strong>。<br><em>It&#39;s started raining. What should we do?</em></p>
 <p>The first hands the decision to the listener and expects them to state their own plan; a waiter or a travel agent would use it of you. The second admits you do not know the right answer and asks to be told. Asking a superior <code>どうしますか</code> when you meant &quot;what should I do?&quot; is a small but real workplace mistake - it sounds like you are asking about <em>their</em> plans.</p>
 </div>
 </div>
-<div class="slide" data-index="126">
+<div class="slide" data-index="131">
   
   <div class="slide__content"><h2>どうしたらいいですか · どうしたらいいですか vs どうしたんですか</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - these look alike and share nothing. <code>どうしたんですか</code> = &quot;what happened? / what&#39;s wrong?&quot;</p>
 </blockquote>
-<p>顔色(かおいろ)が悪(わる)いですね。<strong>どうしたんですか</strong>。<br><em>You look pale. What&#39;s the matter?</em></p>
+<p><ruby>顔色<rt>かおいろ</rt></ruby>が<ruby>悪<rt>わる</rt></ruby>いですね。<strong>どうしたんですか</strong>。<br><em>You look pale. What&#39;s the matter?</em></p>
 <p><code>どうしたんですか</code> is <code>どうした</code> (past of する) plus the N5 explanatory <code>んです</code> - it looks backwards at a situation. <code>どうしたらいいですか</code> looks forwards at an action. The same trap catches <code>どうしましたか</code>, which a doctor uses to mean &quot;what seems to be the problem?&quot; - never &quot;what should I do?&quot;</p>
 </div>
 </div>
-<div class="slide" data-index="127">
+<div class="slide" data-index="132">
   
   <div class="slide__content"><h2>どうしたらいいですか · どうしたらいいですか vs ～たほうがいいですか</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>どうしたらいいですか</code> is an <strong>open</strong> question. <code>～たほうがいいですか</code> names one action and asks yes or no.</p>
 </blockquote>
-<p>この紙(かみ)は捨(す)て<strong>たほうがいいですか</strong>。<br><em>Should I throw this paper away?</em></p>
-<p>この紙(かみ)は<strong>どうしたらいいですか</strong>。<br><em>What should I do with this paper?</em></p>
+<p>この<ruby>紙<rt>かみ</rt></ruby>は<ruby>捨<rt>す</rt></ruby>て<strong>たほうがいいですか</strong>。<br><em>Should I throw this paper away?</em></p>
+<p>この<ruby>紙<rt>かみ</rt></ruby>は<strong>どうしたらいいですか</strong>。<br><em>What should I do with this paper?</em></p>
 <p>Use the first when you already have a candidate action in mind and want it confirmed; use the second when you have nothing. The answer you get back will often be <code>～たらいいですよ</code> or <code>～たらどうですか</code> - the mirror image of this pattern, and the reason the two sit next to each other in this book.</p>
 </div>
 </div>
-<div class="slide" data-index="128">
+<div class="slide" data-index="133">
   
   <div class="slide__content"><h2>どうしたらいいですか · Common mistakes</h2>
 <ul>
@@ -4170,32 +4213,32 @@ Neither is appropriate upward; to a superior you would say 一度(いちど)病�
 </li>
 <li><p>❌ どうしたらいい<strong>ますか</strong> → ✅ どうしたらいい<strong>ですか</strong><br><em><code>いい</code> is an い-adjective, so it takes <code>です</code>, not <code>ます</code>.</em></p>
 </li>
-<li><p>❌ 財布(さいふ)をなくしました。<strong>どうしましたか</strong>。 → ✅ 財布(さいふ)をなくしました。<strong>どうしたらいいですか</strong>。<br><em><code>どうしましたか</code> asks what happened - which you have just said. It cannot mean &quot;what should I do?&quot;</em></p>
+<li><p>❌ <ruby>財布<rt>さいふ</rt></ruby>をなくしました。<strong>どうしましたか</strong>。 → ✅ <ruby>財布<rt>さいふ</rt></ruby>をなくしました。<strong>どうしたらいいですか</strong>。<br><em><code>どうしましたか</code> asks what happened - which you have just said. It cannot mean &quot;what should I do?&quot;</em></p>
 </li>
-<li><p>❌ どうすればいいですか<strong>を</strong>教(おし)えてください。 → ✅ どうすればいい<strong>か</strong>教(おし)えてください。<br><em>An embedded question drops <code>ですか</code> and ends in bare <code>か</code>. It is not a noun and cannot take <code>を</code>.</em></p>
+<li><p>❌ どうすればいいですか<strong>を</strong><ruby>教<rt>おし</rt></ruby>えてください。 → ✅ どうすればいい<strong>か</strong><ruby>教<rt>おし</rt></ruby>えてください。<br><em>An embedded question drops <code>ですか</code> and ends in bare <code>か</code>. It is not a noun and cannot take <code>を</code>.</em></p>
 </li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="129">
+<div class="slide" data-index="134">
   
   <div class="slide__content"><h2>どうしたらいいですか · Common mistakes (cont.)</h2>
 <ul>
-<li>❌ 部長(ぶちょう)、この件(けん)はどうしますか。（meaning &quot;what should I do?&quot;）→ ✅ 部長(ぶちょう)、この件(けん)はどうしたら<strong>よろしいでしょうか</strong>。<br><em>Asking upward for instructions needs the advice frame, and <code>よろしいでしょうか</code> for the register.</em></li>
+<li>❌ <ruby>部長<rt>ぶちょう</rt></ruby>、この<ruby>件<rt>けん</rt></ruby>はどうしますか。（meaning &quot;what should I do?&quot;）→ ✅ <ruby>部長<rt>ぶちょう</rt></ruby>、この<ruby>件<rt>けん</rt></ruby>はどうしたら<strong>よろしいでしょうか</strong>。<br><em>Asking upward for instructions needs the advice frame, and <code>よろしいでしょうか</code> for the register.</em></li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="130">
+<div class="slide" data-index="135">
   
   <div class="slide__content"><h2>どうしたらいいですか · Practice 1</h2>
-<p><strong>1.</strong> この申込書(もうしこみしょ)は、どこに出(だ)____いいですか。</p>
+<p><strong>1.</strong> この<ruby>申込書<rt>もうしこみしょ</rt></ruby>は、どこに<ruby>出<rt>だ</rt></ruby>____いいですか。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-どこに出(だ)<strong>したら</strong>いいですか。（or どこに出(だ)<strong>せば</strong>いいですか）</p>
+どこに<ruby>出<rt>だ</rt></ruby><strong>したら</strong>いいですか。（or どこに<ruby>出<rt>だ</rt></ruby><strong>せば</strong>いいですか）</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 Either conditional works in this frame. <code>出したら</code> is the past form plus <code>ら</code>; <code>出せば</code> is the ば-form. The question word <code>どこ</code> simply replaces <code>どう</code> - the shape of the sentence is unchanged.</p>
 </div>
 </div>
-<div class="slide" data-index="131">
+<div class="slide" data-index="136">
   
   <div class="slide__content"><h2>どうしたらいいですか · Practice 2</h2>
 <p><strong>2.</strong> パスポートをなくしてしまいました。（どうしましたか・どうしたらいいですか）</p>
@@ -4205,32 +4248,32 @@ Either conditional works in this frame. <code>出したら</code> is the past fo
 You have already said what happened, so <code>どうしましたか</code> - &quot;what happened?&quot; - would be asking your listener to tell you your own news. The advice frame is the only one that fits.</p>
 </div>
 </div>
-<div class="slide" data-index="132">
+<div class="slide" data-index="137">
   
   <div class="slide__content"><h2>どうしたらいいですか · Practice 3</h2>
 <p><strong>3.</strong> Translate into Japanese: &quot;What time should I come tomorrow?&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-明日(あした)は何時(なんじ)に<strong>来(き)たらいいですか</strong>。（or 来(く)ればいいですか）</p>
+<ruby>明日<rt>あした</rt></ruby>は<ruby>何時<rt>なんじ</rt></ruby>に**<ruby>来<rt>き</rt></ruby>たらいいですか**。（or <ruby>来<rt>く</rt></ruby>ればいいですか）</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Question word + conditional + <code>いい</code>. Note the readings of the irregular verb: 来(く)る → 来(き)た → 来(き)たら, but the ば-form is 来(く)る → 来(く)れば.</p>
+Question word + conditional + <code>いい</code>. Note the readings of the irregular verb: <ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>き</rt></ruby>た → <ruby>来<rt>き</rt></ruby>たら, but the ば-form is <ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>く</rt></ruby>れば.</p>
 </div>
 </div>
-<div class="slide" data-index="133">
+<div class="slide" data-index="138">
   
   <div class="slide__content"><h2>どうしたらいいですか · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: どうすればいいですかを教(おし)えてください。</p>
+<p><strong>4.</strong> Find and fix the error: どうすればいいですかを<ruby>教<rt>おし</rt></ruby>えてください。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ どうすればいい<strong>か</strong>教(おし)えてください。</p>
+✅ どうすればいい<strong>か</strong><ruby>教<rt>おし</rt></ruby>えてください。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Once the question is embedded in a bigger sentence it loses <code>ですか</code> and keeps only <code>か</code>. The politeness moves to the outer verb, which is already 教(おし)えてください. Adding <code>を</code> treats the question as a noun, which it is not.</p>
+Once the question is embedded in a bigger sentence it loses <code>ですか</code> and keeps only <code>か</code>. The politeness moves to the outer verb, which is already <ruby>教<rt>おし</rt></ruby>えてください. Adding <code>を</code> treats the question as a noun, which it is not.</p>
 </div>
 </div>
-<div class="slide" data-index="134">
+<div class="slide" data-index="139">
   
   <div class="slide__content"><h2>どうしたらいいですか · Practice 5</h2>
 <p><strong>5.</strong> Explain the difference in nuance: (a) どうしたらいいですか。 (b) どうしますか。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-(a) says &quot;I don&#39;t know the right thing to do - please tell me.&quot; The speaker is asking to be given a course of action, and the answer is expected to be advice: 係(かかり)の人(ひと)に聞(き)いたらいいですよ.</p>
+(a) says &quot;I don&#39;t know the right thing to do - please tell me.&quot; The speaker is asking to be given a course of action, and the answer is expected to be advice: <ruby>係<rt>かかり</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>に<ruby>聞<rt>き</rt></ruby>いたらいいですよ.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (b) says &quot;what are you going to do?&quot; The decision belongs to the listener, and the answer will be a plan, not advice. Said to a customer it is a polite &quot;what would you like to do?&quot;; said upward to a boss when you meant (a), it lands as though you were querying their intentions rather than asking for instructions.</p>
 </div>
@@ -4259,7 +4302,7 @@ Once the question is embedded in a bigger sentence it loses <code>ですか</cod
     </div>
     <div id="hud-right">
       <a href="https://github.com/arpitbbhayani/deckrun" target="_blank" rel="noopener noreferrer" class="hud-brand" id="hud-brand" title="deckrun — Markdown presentations">powered by <span>deckrun</span></a>
-      <div id="slide-counter"><span id="cur">1</span>&nbsp;/&nbsp;<span id="tot">135</span></div>
+      <div id="slide-counter"><span id="cur">1</span>&nbsp;/&nbsp;<span id="tot">140</span></div>
     </div>
   </div>
 </div>
@@ -4312,7 +4355,7 @@ Once the question is embedded in a bigger sentence it loses <code>ですか</cod
 
 
 
-<script id="deck-notes" type="application/json">["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]</script>
+<script id="deck-notes" type="application/json">["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]</script>
 <script id="deck-themes" type="application/json">{"themes":[{"id":"midnight","label":"midnight","mood":"dark","blurb":"Catppuccin Mocha. Violet on deep indigo, drifting orbs.","decor":"orbs","colors":{"crust":"#11111b","mantle":"#181825","base":"#1e1e2e","surface0":"#313244","overlay1":"#7f849c","subtext1":"#bac2de","text":"#cdd6f4","accent":"#cba6f7","accent2":"#89b4fa","accent3":"#89dceb"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"tokyo","label":"tokyo night","mood":"dark","blurb":"Neon cyan over a wireframe grid, lifted from a rainy skyline.","decor":"grid","colors":{"crust":"#16161e","mantle":"#1a1b26","base":"#1f2335","surface0":"#292e42","overlay1":"#7c86ab","subtext1":"#b7c0e0","text":"#c8d3f5","accent":"#2ac3de","accent2":"#bb9af7","accent3":"#73daca"},"fonts":{"display":"'Sora', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"nord","label":"nord","mood":"dark","blurb":"Arctic frost blue on polar slate, with slow contour waves.","decor":"waves","colors":{"crust":"#232831","mantle":"#2e3440","base":"#353c4a","surface0":"#3b4252","overlay1":"#8e9aae","subtext1":"#d8dee9","text":"#eceff4","accent":"#88c0d0","accent2":"#81a1c1","accent3":"#8fbcbb"},"fonts":{"display":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace","body":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"dracula","label":"dracula","mood":"dark","blurb":"Purple and hot pink over charcoal, lit by a gradient mesh.","decor":"mesh","colors":{"crust":"#1a1b23","mantle":"#21222c","base":"#282a36","surface0":"#343746","overlay1":"#7b85b6","subtext1":"#e2e4f0","text":"#f8f8f2","accent":"#bd93f9","accent2":"#ff79c6","accent3":"#8be9fd"},"fonts":{"display":"'Syne', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'Fira Code', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"gruvbox","label":"gruvbox","mood":"dark","blurb":"Warm amber and moss on retro brown, hatched like graph paper.","decor":"topo","colors":{"crust":"#1b1e1f","mantle":"#232728","base":"#282828","surface0":"#32302f","overlay1":"#928374","subtext1":"#d5c4a1","text":"#ebdbb2","accent":"#fabd2f","accent2":"#fe8019","accent3":"#b8bb26"},"fonts":{"display":"'Bricolage Grotesque', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Work Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"rosepine","label":"rosé pine","mood":"dark","blurb":"Muted iris and gold on plum, under a slow aurora.","decor":"aurora","colors":{"crust":"#14121f","mantle":"#191724","base":"#1f1d2e","surface0":"#26233a","overlay1":"#817c9c","subtext1":"#cdc9e6","text":"#e0def4","accent":"#c4a7e7","accent2":"#9ccfd8","accent3":"#f6c177"},"fonts":{"display":"'Fraunces', Georgia, 'Times New Roman', serif","body":"'Newsreader', Georgia, 'Times New Roman', serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"forest","label":"forest","mood":"dark","blurb":"Everforest sage on deep pine, rippling in concentric rings.","decor":"rings","colors":{"crust":"#232a2e","mantle":"#2d353b","base":"#343f44","surface0":"#3d484d","overlay1":"#9da9a0","subtext1":"#d3c6aa","text":"#e5dfd2","accent":"#a7c080","accent2":"#6fb5ac","accent3":"#dbbc7f"},"fonts":{"display":"'Outfit', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"neon","label":"neon","mood":"dark","blurb":"Electric cyan and magenta on true black, raked by light beams.","decor":"beams","colors":{"crust":"#050509","mantle":"#0a0a12","base":"#0e0e1a","surface0":"#16162a","overlay1":"#6a6a96","subtext1":"#c8c8e4","text":"#f0f0ff","accent":"#22d3ee","accent2":"#ff5cc8","accent3":"#38e8ff"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'Space Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"daylight","label":"daylight","mood":"light","blurb":"Catppuccin Latte, contrast-tuned for a projector. Dot matrix.","decor":"dots","colors":{"crust":"#ebebeb","mantle":"#f5f5f5","base":"#fafaf8","surface0":"#ccd0da","overlay1":"#5c5f77","subtext1":"#3a3c52","text":"#1e2030","accent":"#8839ef","accent2":"#1e66f5","accent3":"#179299"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"arctic","label":"arctic","mood":"light","blurb":"Nord inverted. Frost blue on cool paper, with contour waves.","decor":"waves","colors":{"crust":"#e3e8ef","mantle":"#eceff4","base":"#f7f9fc","surface0":"#dbe1ea","overlay1":"#5f6b7c","subtext1":"#364150","text":"#2e3440","accent":"#2f7d94","accent2":"#4a7ba7","accent3":"#3b8b8a"},"fonts":{"display":"'Manrope', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"solarized","label":"solarized","mood":"light","blurb":"The classic low-glare cream, paired with Lora for long prose.","decor":"topo","colors":{"crust":"#eee8d5","mantle":"#f5efdc","base":"#fdf6e3","surface0":"#e3ddc8","overlay1":"#657b83","subtext1":"#3f5b62","text":"#073642","accent":"#268bd2","accent2":"#6c71c4","accent3":"#21958c"},"fonts":{"display":"'Outfit', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Lora', Georgia, 'Times New Roman', serif","mono":"'Source Code Pro', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"paper","label":"paper","mood":"light","blurb":"Crimson serif on warm cream. Editorial, print-first, very legible.","decor":"rings","colors":{"crust":"#efe8dc","mantle":"#f7f2e9","base":"#fdfbf5","surface0":"#e4dccc","overlay1":"#6e6553","subtext1":"#38311f","text":"#211c11","accent":"#a81f2c","accent2":"#1f7f96","accent3":"#9a6c12"},"fonts":{"display":"'Fraunces', Georgia, 'Times New Roman', serif","body":"'Newsreader', Georgia, 'Times New Roman', serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"rosequartz","label":"rose quartz","mood":"light","blurb":"Rosé Pine Dawn. Blush and iris on linen, with soft orbs.","decor":"orbs","colors":{"crust":"#f2e9e1","mantle":"#faf4ed","base":"#fffaf3","surface0":"#ece0d8","overlay1":"#7d7791","subtext1":"#55506e","text":"#423d5c","accent":"#b4637a","accent2":"#907aa9","accent3":"#56949f"},"fonts":{"display":"'Playfair Display', Georgia, 'Times New Roman', serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"swiss","label":"swiss","mood":"light","blurb":"Black on white, one red. Heavy grotesk, tight tracking, hard grid.","decor":"grid","colors":{"crust":"#f0f0f0","mantle":"#f8f8f8","base":"#ffffff","surface0":"#dcdcdc","overlay1":"#5a5a5a","subtext1":"#222222","text":"#0a0a0a","accent":"#e01b24","accent2":"#0a0a0a","accent3":"#5a5a5a"},"fonts":{"display":"'Archivo', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}}],"hljsMap":{"midnight":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css","tokyo":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css","nord":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/nord.min.css","dracula":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/dracula.min.css","gruvbox":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/gruvbox-dark-medium.min.css","rosepine":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/ros-pine.min.css","forest":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css","neon":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/night-owl.min.css","daylight":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","arctic":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","solarized":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/solarized-light.min.css","paper":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","rosequartz":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/ros-pine-dawn.min.css","swiss":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css"},"decorMap":{"midnight":"orbs","tokyo":"grid","nord":"waves","dracula":"mesh","gruvbox":"topo","rosepine":"aurora","forest":"rings","neon":"beams","daylight":"dots","arctic":"waves","solarized":"topo","paper":"rings","rosequartz":"orbs","swiss":"grid"}}</script>
 
 <script>
@@ -5500,6 +5543,36 @@ Once the question is embedded in a bigger sentence it loses <code>ですか</cod
     transition: opacity 0.15s ease, background 0.15s ease; }
   #deck-home:hover, #deck-home:focus-visible { opacity: 0.95; background: rgba(128,128,128,0.14); }
   @media print { #deck-home { display: none !important; } }
+  #furigana-toggle { position: fixed; bottom: 2.7rem; right: 1.1rem; z-index: 40;
+    font: 500 0.78rem/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+    color: currentColor; opacity: 0.38; cursor: pointer; user-select: none;
+    background: none; border: 1px solid currentColor; border-radius: 4px;
+    padding: 0.38rem 0.6rem;
+    transition: opacity 0.15s ease, background 0.15s ease; }
+  #furigana-toggle:hover, #furigana-toggle:focus-visible { opacity: 0.95; background: rgba(128,128,128,0.14); }
+  @media print { #furigana-toggle { display: none !important; } }
 </style>
+<button id="furigana-toggle" type="button" aria-pressed="true">&#12405;&#12426;&#12364;&#12394; ON</button>
+<script>
+  (function () {
+    // Deliberately click-only: readers who do not want furigana turn it off
+    // once and it sticks, while every key stays free for presenting.
+    var root = document.documentElement, btn = document.getElementById('furigana-toggle');
+    function paint() {
+      var off = root.getAttribute('data-furigana') === 'off';
+      btn.textContent = '\u3075\u308a\u304c\u306a ' + (off ? 'OFF' : 'ON');
+      btn.setAttribute('aria-pressed', String(!off));
+    }
+    btn.addEventListener('click', function () {
+      var off = root.getAttribute('data-furigana') === 'off';
+      if (off) root.removeAttribute('data-furigana');
+      else root.setAttribute('data-furigana', 'off');
+      try { localStorage.setItem('jlpt-furigana', off ? 'on' : 'off'); } catch (e) {}
+      paint();
+      btn.blur();
+    });
+    paint();
+  })();
+</script>
 </body>
 </html>

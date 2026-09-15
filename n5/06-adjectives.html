@@ -2606,6 +2606,13 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
   gap: 0.5rem;
 }
   </style>
+<script>
+  try {
+    if (localStorage.getItem('jlpt-furigana') === 'off') {
+      document.documentElement.setAttribute('data-furigana', 'off');
+    }
+  } catch (e) {}
+</script>
 </head>
 <body>
 
@@ -2614,7 +2621,16 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <div id="presentation">
 <div class="slide" data-index="0">
   
-  <div class="slide__content"><style>html { font-size: 20.0px; }</style>
+  <div class="slide__content"><style>
+  html { font-size: 20.0px; }
+  .slide__content p, .slide__content li,
+  .slide__content td, .slide__content th { line-height: 2.05; }
+  rt { font-size: 0.5em; line-height: 1.1; opacity: 0.72; font-weight: 400; }
+  :root[data-furigana="off"] rt { display: none; }
+  :root[data-furigana="off"] .slide__content p, :root[data-furigana="off"] .slide__content li,
+  :root[data-furigana="off"] .slide__content td, :root[data-furigana="off"] .slide__content th
+    { line-height: 1.5; }
+</style>
 
 <h1>N5 - Adjectives</h1>
 <ul>
@@ -2627,7 +2643,7 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
   
   <div class="slide__content"><h1>い-adjective conjugation</h1>
 <p><strong>Meaning</strong> · how い-adjectives change for negative, past, and linking - くない, かった, くなかった, くて</p>
-<p>An い-adjective is a word like 高(たか)い, 新(あたら)しい or 楽(たの)しい: it ends in い in its dictionary form, and - this is the point - it <strong>conjugates by itself</strong>. It does not lean on the copula the way a noun does. 高(たか)い carries its own past tense, 高(たか)かった, with no <code>でした</code> anywhere in sight. Learners who treat an い-adjective like a noun produce ❌高(たか)いでした, and it is the single most recognisable beginner error in the language.</p>
+<p>An い-adjective is a word like <ruby>高<rt>たか</rt></ruby>い, <ruby>新<rt>あたら</rt></ruby>しい or <ruby>楽<rt>たの</rt></ruby>しい: it ends in い in its dictionary form, and - this is the point - it <strong>conjugates by itself</strong>. It does not lean on the copula the way a noun does. <ruby>高<rt>たか</rt></ruby>い carries its own past tense, <ruby>高<rt>たか</rt></ruby>かった, with no <code>でした</code> anywhere in sight. Learners who treat an い-adjective like a noun produce ❌<ruby>高<rt>たか</rt></ruby>いでした, and it is the single most recognisable beginner error in the language.</p>
 </div>
 </div>
 <div class="slide" data-index="2">
@@ -2645,42 +2661,42 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <tbody><tr>
 <td>い-adjective (plain non-past)</td>
 <td>～い</td>
-<td>安(やす)い</td>
+<td><ruby>安<rt>やす</rt></ruby>い</td>
 </tr>
 <tr>
 <td>い-adjective (polite non-past)</td>
 <td>～い + です</td>
-<td>安(やす)いです</td>
+<td><ruby>安<rt>やす</rt></ruby>いです</td>
 </tr>
 <tr>
 <td>い-adjective (negative)</td>
 <td>い → くない</td>
-<td>安(やす)くない</td>
+<td><ruby>安<rt>やす</rt></ruby>くない</td>
 </tr>
 <tr>
 <td>い-adjective (past)</td>
 <td>い → かった</td>
-<td>安(やす)かった</td>
+<td><ruby>安<rt>やす</rt></ruby>かった</td>
 </tr>
 <tr>
 <td>い-adjective (past negative)</td>
 <td>い → くなかった</td>
-<td>安(やす)くなかった</td>
+<td><ruby>安<rt>やす</rt></ruby>くなかった</td>
 </tr>
 <tr>
 <td>い-adjective (て-form)</td>
 <td>い → くて</td>
-<td>安(やす)くて</td>
+<td><ruby>安<rt>やす</rt></ruby>くて</td>
 </tr>
 <tr>
 <td>い-adjective (adverb)</td>
 <td>い → く</td>
-<td>安(やす)く買(か)う</td>
+<td><ruby>安<rt>やす</rt></ruby>く<ruby>買<rt>か</rt></ruby>う</td>
 </tr>
 <tr>
 <td>い-adjective (before a noun)</td>
 <td>～い + Noun</td>
-<td>安(やす)い店(みせ)</td>
+<td><ruby>安<rt>やす</rt></ruby>い<ruby>店<rt>みせ</rt></ruby></td>
 </tr>
 </tbody></table>
 </div>
@@ -2698,24 +2714,24 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 </tr>
 </thead>
 <tbody><tr>
-<td>寒(さむ)い</td>
-<td>寒(さむ)いです</td>
-<td>寒(さむ)いです</td>
+<td><ruby>寒<rt>さむ</rt></ruby>い</td>
+<td><ruby>寒<rt>さむ</rt></ruby>いです</td>
+<td><ruby>寒<rt>さむ</rt></ruby>いです</td>
 </tr>
 <tr>
-<td>寒(さむ)くない</td>
-<td>寒(さむ)くないです</td>
-<td>寒(さむ)くありません</td>
+<td><ruby>寒<rt>さむ</rt></ruby>くない</td>
+<td><ruby>寒<rt>さむ</rt></ruby>くないです</td>
+<td><ruby>寒<rt>さむ</rt></ruby>くありません</td>
 </tr>
 <tr>
-<td>寒(さむ)かった</td>
-<td>寒(さむ)かったです</td>
-<td>寒(さむ)かったです</td>
+<td><ruby>寒<rt>さむ</rt></ruby>かった</td>
+<td><ruby>寒<rt>さむ</rt></ruby>かったです</td>
+<td><ruby>寒<rt>さむ</rt></ruby>かったです</td>
 </tr>
 <tr>
-<td>寒(さむ)くなかった</td>
-<td>寒(さむ)くなかったです</td>
-<td>寒(さむ)くありませんでした</td>
+<td><ruby>寒<rt>さむ</rt></ruby>くなかった</td>
+<td><ruby>寒<rt>さむ</rt></ruby>くなかったです</td>
+<td><ruby>寒<rt>さむ</rt></ruby>くありませんでした</td>
 </tr>
 </tbody></table>
 </div>
@@ -2724,7 +2740,7 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
   
   <div class="slide__content"><h2>い-adjective conjugation · Formation (cont.)</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - the past tense lives <strong>inside the adjective</strong>, never on <code>です</code>. 寒(さむ)かったです is correct; ❌寒(さむ)いでした is not. <code>です</code> here is a politeness marker only, and it does not inflect.</p>
+<p><strong>Rule of thumb</strong> - the past tense lives <strong>inside the adjective</strong>, never on <code>です</code>. <ruby>寒<rt>さむ</rt></ruby>かったです is correct; ❌<ruby>寒<rt>さむ</rt></ruby>いでした is not. <code>です</code> here is a politeness marker only, and it does not inflect.</p>
 </blockquote>
 <p><strong>いい is irregular.</strong> It is the one い-adjective that does not conjugate on its own stem: every form except the dictionary form is built on its older shape <strong>よい</strong>.</p>
 </div>
@@ -2773,158 +2789,179 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <div class="slide" data-index="6">
   
   <div class="slide__content"><h2>い-adjective conjugation · Formation (cont.)</h2>
-<p>There is no ❌いくない and no ❌いかった. The irregularity spreads to every compound built on いい: かっこいい → かっこよかった, ちょうどいい → ちょうどよくない, 都合(つごう)がいい → 都合(つごう)がよかった.</p>
+<p>There is no ❌いくない and no ❌いかった. The irregularity spreads to every compound built on いい: かっこいい → かっこよかった, ちょうどいい → ちょうどよくない, <ruby>都合<rt>つごう</rt></ruby>がいい → <ruby>都合<rt>つごう</rt></ruby>がよかった.</p>
 <blockquote>
-<p><strong>Note</strong> - a handful of words end in い but are <strong>not</strong> い-adjectives. きれい, 有名(ゆうめい), 嫌(きら)い are な-adjectives; the negative of きれい is きれいじゃない, not ❌きれくない. One partial test: a genuine い-adjective never ends in <strong>えい</strong>, so きれい and 有名(ゆうめい) are ruled out on sight. 嫌(きら)い ends in あい and passes the test, so that one simply has to be memorised. Going the other way, 大(おお)きい and 小(ちい)さい really are い-adjectives, though they also have the special prenominal forms 大(おお)きな and 小(ちい)さな.</p>
+<p><strong>Note</strong> - a handful of words end in い but are <strong>not</strong> い-adjectives. きれい, <ruby>有名<rt>ゆうめい</rt></ruby>, <ruby>嫌<rt>きら</rt></ruby>い are な-adjectives; the negative of きれい is きれいじゃない, not ❌きれくない. One partial test: a genuine い-adjective never ends in <strong>えい</strong>, so きれい and <ruby>有名<rt>ゆうめい</rt></ruby> are ruled out on sight. <ruby>嫌<rt>きら</rt></ruby>い ends in あい and passes the test, so that one simply has to be memorised. Going the other way, <ruby>大<rt>おお</rt></ruby>きい and <ruby>小<rt>ちい</rt></ruby>さい really are い-adjectives, though they also have the special prenominal forms <ruby>大<rt>おお</rt></ruby>きな and <ruby>小<rt>ちい</rt></ruby>さな.</p>
 </blockquote>
 </div>
 </div>
 <div class="slide" data-index="7">
   
   <div class="slide__content"><h2>い-adjective conjugation · Examples</h2>
-<p>このスープは<strong>熱(あつ)くない</strong>。<br><em>This soup isn&#39;t hot.</em></p>
-<p>昨日(きのう)の映画(えいが)は<strong>面白(おもしろ)かった</strong>。<br><em>Yesterday&#39;s film was good.</em></p>
-<p>この店(みせ)のパンは<strong>安(やす)くて</strong>おいしいです。<br><em>The bread at this shop is cheap and tasty.</em></p>
-<p>去年(きょねん)より野菜(やさい)が<strong>高(たか)く</strong>なりました。<br><em>Vegetables have got more expensive than last year.</em></p>
-<p>天気(てんき)が<strong>よくなかった</strong>ので、山(やま)に登(のぼ)りませんでした。<br><em>The weather wasn&#39;t good, so we didn&#39;t climb the mountain.</em></p>
+<p>このスープは**<ruby>熱<rt>あつ</rt></ruby>くない**。<br><em>This soup isn&#39;t hot.</em></p>
+<p><ruby>昨日<rt>きのう</rt></ruby>の<ruby>映画<rt>えいが</rt></ruby>は**<ruby>面白<rt>おもしろ</rt></ruby>かった**。<br><em>Yesterday&#39;s film was good.</em></p>
+<p>この<ruby>店<rt>みせ</rt></ruby>のパンは**<ruby>安<rt>やす</rt></ruby>くて**おいしいです。<br><em>The bread at this shop is cheap and tasty.</em></p>
+<p><ruby>去年<rt>きょねん</rt></ruby>より<ruby>野菜<rt>やさい</rt></ruby>が**<ruby>高<rt>たか</rt></ruby>く**なりました。<br><em>Vegetables have got more expensive than last year.</em></p>
 </div>
 </div>
 <div class="slide" data-index="8">
   
   <div class="slide__content"><h2>い-adjective conjugation · Examples (cont.)</h2>
-<p>今日(きょう)は朝(あさ)から<strong>忙(いそが)しくて</strong>、昼(ひる)ご飯(はん)を食(た)べる時間(じかん)もなかった。<br><em>I&#39;ve been busy since the morning and didn&#39;t even have time for lunch.</em></p>
-<p>試験(しけん)は思(おも)っていたほど<strong>難(むずか)しくなかった</strong>です。<br><em>The exam wasn&#39;t as hard as I&#39;d been expecting.</em></p>
-<p>子(こ)どものころは夏休(なつやす)みが<strong>長(なが)かった</strong>のに、今(いま)は1週間(しゅうかん)しか休(やす)めない。<br><em>The summer holidays were so long when I was a child, and now I only get a week off.</em></p>
+<p><ruby>天気<rt>てんき</rt></ruby>が<strong>よくなかった</strong>ので、<ruby>山<rt>やま</rt></ruby>に<ruby>登<rt>のぼ</rt></ruby>りませんでした。<br><em>The weather wasn&#39;t good, so we didn&#39;t climb the mountain.</em></p>
+<p><ruby>今日<rt>きょう</rt></ruby>は<ruby>朝<rt>あさ</rt></ruby>から**<ruby>忙<rt>いそが</rt></ruby>しくて**、<ruby>昼<rt>ひる</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>を<ruby>食<rt>た</rt></ruby>べる<ruby>時間<rt>じかん</rt></ruby>もなかった。<br><em>I&#39;ve been busy since the morning and didn&#39;t even have time for lunch.</em></p>
+<p><ruby>試験<rt>しけん</rt></ruby>は<ruby>思<rt>おも</rt></ruby>っていたほど**<ruby>難<rt>むずか</rt></ruby>しくなかった**です。<br><em>The exam wasn&#39;t as hard as I&#39;d been expecting.</em></p>
+<p><ruby>子<rt>こ</rt></ruby>どものころは<ruby>夏休<rt>なつやす</rt></ruby>みが**<ruby>長<rt>なが</rt></ruby>かった**のに、<ruby>今<rt>いま</rt></ruby>は1<ruby>週間<rt>しゅうかん</rt></ruby>しか<ruby>休<rt>やす</rt></ruby>めない。<br><em>The summer holidays were so long when I was a child, and now I only get a week off.</em></p>
 </div>
 </div>
 <div class="slide" data-index="9">
   
   <div class="slide__content"><h2>い-adjective conjugation · Nuance &amp; register</h2>
-<p>い-adjectives are register-neutral in themselves; the register is set by what you put after them. Plain 寒(さむ)い to a friend, 寒(さむ)いです to anyone else.</p>
-<p>The negative has a genuine register split that learners are rarely told about. <code>～くないです</code> and <code>～くありません</code> mean the same thing, but <code>～くありません</code> sounds noticeably more formal and a little stiff - it belongs to announcements, written notices, and careful speech. In ordinary conversation 高(たか)くないです is what people actually say. The past is more lopsided still: 高(たか)くなかったです is normal speech, while 高(たか)くありませんでした sounds like a customer-service script.</p>
-<p>A bare い-adjective is a complete sentence, and Japanese uses them that way constantly: 寒(さむ)い! 痛(いた)い! おいしい! Adding <code>です</code> to these exclamations makes them oddly formal - nobody yelps ❌痛(いた)いです when they stub a toe.</p>
-<p>Two things to be careful of:</p>
+<p>い-adjectives are register-neutral in themselves; the register is set by what you put after them. Plain <ruby>寒<rt>さむ</rt></ruby>い to a friend, <ruby>寒<rt>さむ</rt></ruby>いです to anyone else.</p>
+<p>The negative has a genuine register split that learners are rarely told about. <code>～くないです</code> and <code>～くありません</code> mean the same thing, but <code>～くありません</code> sounds noticeably more formal and a little stiff - it belongs to announcements, written notices, and careful speech. In ordinary conversation <ruby>高<rt>たか</rt></ruby>くないです is what people actually say. The past is more lopsided still: <ruby>高<rt>たか</rt></ruby>くなかったです is normal speech, while <ruby>高<rt>たか</rt></ruby>くありませんでした sounds like a customer-service script.</p>
 </div>
 </div>
 <div class="slide" data-index="10">
   
   <div class="slide__content"><h2>い-adjective conjugation · Nuance &amp; register (cont.)</h2>
+<p>A bare い-adjective is a complete sentence, and Japanese uses them that way constantly: <ruby>寒<rt>さむ</rt></ruby>い! <ruby>痛<rt>いた</rt></ruby>い! おいしい! Adding <code>です</code> to these exclamations makes them oddly formal - nobody yelps ❌<ruby>痛<rt>いた</rt></ruby>いです when they stub a toe.</p>
+<p>Two things to be careful of:</p>
 <ul>
-<li><code>です</code> after an い-adjective is <strong>not</strong> the copula doing its usual work; it is<br><em>purely a politeness ending. That is why it cannot inflect for tense, and why ❌高(たか)いでした fails.</em></li>
-<li>Adjectives describing another person&#39;s inner state - 寂(さび)しい,<br><em>欲(ほ)しい, 痛(いた)い - cannot be asserted flatly about a third person. You need そう, ようだ, or <code>～がる</code>: 弟(おとうと)は寂(さび)しがっている.</em></li>
+<li><code>です</code> after an い-adjective is <strong>not</strong> the copula doing its usual work; it is<br><em>purely a politeness ending. That is why it cannot inflect for tense, and why ❌<ruby>高<rt>たか</rt></ruby>いでした fails.</em></li>
+<li>Adjectives describing another person&#39;s inner state - <ruby>寂<rt>さび</rt></ruby>しい,<br><em><ruby>欲<rt>ほ</rt></ruby>しい, <ruby>痛<rt>いた</rt></ruby>い - cannot be asserted flatly about a third person. You need そう, ようだ, or <code>～がる</code>: <ruby>弟<rt>おとうと</rt></ruby>は<ruby>寂<rt>さび</rt></ruby>しがっている.</em></li>
 </ul>
-<p>Finally, <code>～く</code> is the adverb, and it does far more work than English learners expect: 早(はや)く起(お)きる &quot;get up early&quot;, 大(おお)きく書(か)く &quot;write it big&quot;, よく寝(ね)た &quot;slept well&quot;.</p>
 </div>
 </div>
 <div class="slide" data-index="11">
   
-  <div class="slide__content"><h2>い-adjective conjugation · い-adjective vs な-adjective</h2>
-<blockquote>
-<p><strong>Rule of thumb</strong> - an い-adjective inflects <strong>itself</strong>; a な-adjective leaves the work to the copula. So the tense marker moves: 高(たか)かった against 静(しず)かだった.</p>
-</blockquote>
-<p>去年(きょねん)のアパートは<strong>狭(せま)かった</strong>。<br><em>Last year&#39;s flat was cramped.</em></p>
-<p>去年(きょねん)のアパートは<strong>静(しず)かだった</strong>。<br><em>Last year&#39;s flat was quiet.</em></p>
-<p>Both sentences are past tense; the machinery differs completely. In the first, い became かった inside the word. In the second, the adjective did not change at all and <code>だ</code> became <code>だった</code>. This is why the negatives are also 狭(せま)くない against 静(しず)かじゃない - and why mixing them up gives ❌狭(せま)いじゃない or ❌静(しず)かくない.</p>
+  <div class="slide__content"><h2>い-adjective conjugation · Nuance &amp; register (cont.)</h2>
+<p>Finally, <code>～く</code> is the adverb, and it does far more work than English learners expect: <ruby>早<rt>はや</rt></ruby>く<ruby>起<rt>お</rt></ruby>きる &quot;get up early&quot;, <ruby>大<rt>おお</rt></ruby>きく<ruby>書<rt>か</rt></ruby>く &quot;write it big&quot;, よく<ruby>寝<rt>ね</rt></ruby>た &quot;slept well&quot;.</p>
 </div>
 </div>
 <div class="slide" data-index="12">
+  
+  <div class="slide__content"><h2>い-adjective conjugation · い-adjective vs な-adjective</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - an い-adjective inflects <strong>itself</strong>; a な-adjective leaves the work to the copula. So the tense marker moves: <ruby>高<rt>たか</rt></ruby>かった against <ruby>静<rt>しず</rt></ruby>かだった.</p>
+</blockquote>
+<p><ruby>去年<rt>きょねん</rt></ruby>のアパートは**<ruby>狭<rt>せま</rt></ruby>かった**。<br><em>Last year&#39;s flat was cramped.</em></p>
+<p><ruby>去年<rt>きょねん</rt></ruby>のアパートは**<ruby>静<rt>しず</rt></ruby>かだった**。<br><em>Last year&#39;s flat was quiet.</em></p>
+</div>
+</div>
+<div class="slide" data-index="13">
+  
+  <div class="slide__content"><h2>い-adjective conjugation · い-adjective vs な-adjective (cont.)</h2>
+<p>Both sentences are past tense; the machinery differs completely. In the first, い became かった inside the word. In the second, the adjective did not change at all and <code>だ</code> became <code>だった</code>. This is why the negatives are also <ruby>狭<rt>せま</rt></ruby>くない against <ruby>静<rt>しず</rt></ruby>かじゃない - and why mixing them up gives ❌<ruby>狭<rt>せま</rt></ruby>いじゃない or ❌<ruby>静<rt>しず</rt></ruby>かくない.</p>
+</div>
+</div>
+<div class="slide" data-index="14">
   
   <div class="slide__content"><h2>い-adjective conjugation · ～く vs ～に</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - both make an adverb, but the ending follows the adjective&#39;s class: い-adjectives take <strong>く</strong>, な-adjectives take <strong>に</strong>.</p>
 </blockquote>
-<p>字(じ)をもっと<strong>大(おお)きく</strong>書(か)いてください。<br><em>Please write the characters bigger.</em></p>
-<p>もう少(すこ)し<strong>静(しず)かに</strong>話(はな)してください。<br><em>Please speak a bit more quietly.</em></p>
-<p>The same split covers &quot;becoming&quot;: 暖(あたた)かくなる against 元気(げんき)になる, and &quot;making&quot;: 短(みじか)くする against きれいにする. Get into the habit of storing every new adjective together with its adverb form - it removes the guesswork permanently.</p>
+<p><ruby>字<rt>じ</rt></ruby>をもっと**<ruby>大<rt>おお</rt></ruby>きく**<ruby>書<rt>か</rt></ruby>いてください。<br><em>Please write the characters bigger.</em></p>
+<p>もう<ruby>少<rt>すこ</rt></ruby>し**<ruby>静<rt>しず</rt></ruby>かに**<ruby>話<rt>はな</rt></ruby>してください。<br><em>Please speak a bit more quietly.</em></p>
 </div>
 </div>
-<div class="slide" data-index="13">
+<div class="slide" data-index="15">
+  
+  <div class="slide__content"><h2>い-adjective conjugation · ～く vs ～に (cont.)</h2>
+<p>The same split covers &quot;becoming&quot;: <ruby>暖<rt>あたた</rt></ruby>かくなる against <ruby>元気<rt>げんき</rt></ruby>になる, and &quot;making&quot;: <ruby>短<rt>みじか</rt></ruby>くする against きれいにする. Get into the habit of storing every new adjective together with its adverb form - it removes the guesswork permanently.</p>
+</div>
+</div>
+<div class="slide" data-index="16">
   
   <div class="slide__content"><h2>い-adjective conjugation · ～くないです vs ～くありません</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - identical meaning. <code>くないです</code> is conversational, <code>くありません</code> is formal and a bit starchy. Neither is wrong; the mismatch is with the situation, not the grammar.</p>
 </blockquote>
-<p>この問題(もんだい)はそんなに<strong>難(むずか)しくないです</strong>。<br><em>This question isn&#39;t all that hard. (talking to a classmate)</em></p>
-<p>当店(とうてん)のサービスは決(けっ)して<strong>高(たか)くありません</strong>。<br><em>Our service is by no means expensive. (a shop&#39;s notice)</em></p>
+<p>この<ruby>問題<rt>もんだい</rt></ruby>はそんなに**<ruby>難<rt>むずか</rt></ruby>しくないです**。<br><em>This question isn&#39;t all that hard. (talking to a classmate)</em></p>
+<p><ruby>当店<rt>とうてん</rt></ruby>のサービスは<ruby>決<rt>けっ</rt></ruby>して**<ruby>高<rt>たか</rt></ruby>くありません**。<br><em>Our service is by no means expensive. (a shop&#39;s notice)</em></p>
 <p>The rule extends to the past: <code>くなかったです</code> in speech, <code>くありませんでした</code> in formal contexts. If you only want to remember one column, remember the <code>です</code> one - it is never wrong, only occasionally casual.</p>
-</div>
-</div>
-<div class="slide" data-index="14">
-  
-  <div class="slide__content"><h2>い-adjective conjugation · Common mistakes</h2>
-<ul>
-<li><p>❌ 寒(さむ)いでした → ✅ <strong>寒(さむ)かったです</strong><br><em>The past tense goes inside the adjective. <code>です</code> never inflects after an い-adjective.</em></p>
-</li>
-<li><p>❌ 寒(さむ)いじゃない → ✅ <strong>寒(さむ)くない</strong><br><em><code>じゃない</code> is the negative for nouns and な-adjectives. い-adjectives swap い for くない.</em></p>
-</li>
-<li><p>❌ いくない／いかった → ✅ <strong>よくない</strong>／<strong>よかった</strong><br><em>いい is irregular: everything except the dictionary form is built on よ. The same applies to かっこいい → かっこよかった.</em></p>
-</li>
-<li><p>❌ 新(あたら)しいの車(くるま) → ✅ <strong>新(あたら)しい車(くるま)</strong><br><em>An い-adjective attaches straight to the noun. No <code>の</code>, and no <code>な</code> either.</em></p>
-</li>
-<li><p>❌ 高(たか)いくない → ✅ <strong>高(たか)くない</strong><br><em>Remove the い before adding くない. Keeping both is the same slip as ❌食(た)べるない with verbs.</em></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="slide" data-index="15">
-  
-  <div class="slide__content"><h2>い-adjective conjugation · Practice 1</h2>
-<p><strong>1.</strong> 昨日(きのう)のパーティーはとても楽(たの)し____です。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-楽(たの)<strong>しかった</strong>です</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-昨日(きのう) puts the sentence in the past, and an い-adjective carries its own past tense: い → かった. <code>です</code> is then added unchanged, purely for politeness.</p>
-</div>
-</div>
-<div class="slide" data-index="16">
-  
-  <div class="slide__content"><h2>い-adjective conjugation · Practice 2</h2>
-<p><strong>2.</strong> この部屋(へや)は（きれくない・きれいじゃない）。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-この部屋(へや)は<strong>きれいじゃない</strong>。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-きれい ends in い but is a な-adjective, so it negates with <code>じゃない</code>. The giveaway is that it ends in <strong>えい</strong>, a shape no genuine い-adjective has.</p>
 </div>
 </div>
 <div class="slide" data-index="17">
   
-  <div class="slide__content"><h2>い-adjective conjugation · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese: &quot;The film wasn&#39;t interesting, but the music was good.&quot;</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-映画(えいが)は<strong>面白(おもしろ)くなかった</strong>けど、音楽(おんがく)は<strong>よかった</strong>です。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Two い-adjectives, both carrying their own tense. Note that いい becomes よかった - never ❌いかった - and that only the last clause takes <code>です</code>.</p>
+  <div class="slide__content"><h2>い-adjective conjugation · Common mistakes</h2>
+<ul>
+<li><p>❌ <ruby>寒<rt>さむ</rt></ruby>いでした → ✅ <strong><ruby>寒<rt>さむ</rt></ruby>かったです</strong><br><em>The past tense goes inside the adjective. <code>です</code> never inflects after an い-adjective.</em></p>
+</li>
+<li><p>❌ <ruby>寒<rt>さむ</rt></ruby>いじゃない → ✅ <strong><ruby>寒<rt>さむ</rt></ruby>くない</strong><br><em><code>じゃない</code> is the negative for nouns and な-adjectives. い-adjectives swap い for くない.</em></p>
+</li>
+<li><p>❌ いくない／いかった → ✅ <strong>よくない</strong>／<strong>よかった</strong><br><em>いい is irregular: everything except the dictionary form is built on よ. The same applies to かっこいい → かっこよかった.</em></p>
+</li>
+<li><p>❌ <ruby>新<rt>あたら</rt></ruby>しいの<ruby>車<rt>くるま</rt></ruby> → ✅ <strong><ruby>新<rt>あたら</rt></ruby>しい<ruby>車<rt>くるま</rt></ruby></strong><br><em>An い-adjective attaches straight to the noun. No <code>の</code>, and no <code>な</code> either.</em></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="18">
   
-  <div class="slide__content"><h2>い-adjective conjugation · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: この町(まち)は昔(むかし)、あまり大(おお)きいじゃなかったです。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ この町(まち)は昔(むかし)、あまり<strong>大(おお)きくなかった</strong>です。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-大(おお)きい is an い-adjective despite looking like it might be a な-adjective, so the past negative is built by stacking い-adjective endings: い → くない → くなかった.</p>
+  <div class="slide__content"><h2>い-adjective conjugation · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ <ruby>高<rt>たか</rt></ruby>いくない → ✅ <strong><ruby>高<rt>たか</rt></ruby>くない</strong><br><em>Remove the い before adding くない. Keeping both is the same slip as ❌<ruby>食<rt>た</rt></ruby>べるない with verbs.</em></li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="19">
   
+  <div class="slide__content"><h2>い-adjective conjugation · Practice 1</h2>
+<p><strong>1.</strong> <ruby>昨日<rt>きのう</rt></ruby>のパーティーはとても<ruby>楽<rt>たの</rt></ruby>し____です。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>楽<rt>たの</rt></ruby><strong>しかった</strong>です</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>昨日<rt>きのう</rt></ruby> puts the sentence in the past, and an い-adjective carries its own past tense: い → かった. <code>です</code> is then added unchanged, purely for politeness.</p>
+</div>
+</div>
+<div class="slide" data-index="20">
+  
+  <div class="slide__content"><h2>い-adjective conjugation · Practice 2</h2>
+<p><strong>2.</strong> この<ruby>部屋<rt>へや</rt></ruby>は（きれくない・きれいじゃない）。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+この<ruby>部屋<rt>へや</rt></ruby>は<strong>きれいじゃない</strong>。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+きれい ends in い but is a な-adjective, so it negates with <code>じゃない</code>. The giveaway is that it ends in <strong>えい</strong>, a shape no genuine い-adjective has.</p>
+</div>
+</div>
+<div class="slide" data-index="21">
+  
+  <div class="slide__content"><h2>い-adjective conjugation · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese: &quot;The film wasn&#39;t interesting, but the music was good.&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>映画<rt>えいが</rt></ruby>は**<ruby>面白<rt>おもしろ</rt></ruby>くなかった<strong>けど、<ruby>音楽<rt>おんがく</rt></ruby>は</strong>よかった**です。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+Two い-adjectives, both carrying their own tense. Note that いい becomes よかった - never ❌いかった - and that only the last clause takes <code>です</code>.</p>
+</div>
+</div>
+<div class="slide" data-index="22">
+  
+  <div class="slide__content"><h2>い-adjective conjugation · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the error: この<ruby>町<rt>まち</rt></ruby>は<ruby>昔<rt>むかし</rt></ruby>、あまり<ruby>大<rt>おお</rt></ruby>きいじゃなかったです。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ この<ruby>町<rt>まち</rt></ruby>は<ruby>昔<rt>むかし</rt></ruby>、あまり**<ruby>大<rt>おお</rt></ruby>きくなかった**です。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>大<rt>おお</rt></ruby>きい is an い-adjective despite looking like it might be a な-adjective, so the past negative is built by stacking い-adjective endings: い → くない → くなかった.</p>
+</div>
+</div>
+<div class="slide" data-index="23">
+  
   <div class="slide__content"><h2>い-adjective conjugation · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) この辺(へん)は夜(よる)、あまり明(あか)るくないです。 (b) この辺(へん)は夜(よる)、あまり明(あか)るくありません。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) この<ruby>辺<rt>へん</rt></ruby>は<ruby>夜<rt>よる</rt></ruby>、あまり<ruby>明<rt>あか</rt></ruby>るくないです。 (b) この<ruby>辺<rt>へん</rt></ruby>は<ruby>夜<rt>よる</rt></ruby>、あまり<ruby>明<rt>あか</rt></ruby>るくありません。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 The meaning is the same: neither area is well lit. What differs is how formal the speaker is being. (a) is the everyday polite negative - what you would say to a neighbour or a colleague.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (b) is the older, more formal construction. It sounds appropriate in a written notice, a news report, or an official explanation, and slightly starchy in casual conversation.</p>
 </div>
 </div>
-<div class="slide" data-index="20">
+<div class="slide" data-index="24">
   
   <div class="slide__content"><h1>な-adjective conjugation</h1>
 <p><strong>Meaning</strong> · how な-adjectives work - the な before a noun, and じゃない, だった, で</p>
-<p>A な-adjective is a word like 静(しず)か, 便利(べんり), 好(す)き or きれい. The name comes from the one place it differs visibly from a noun: put it in front of a noun and it needs a な: <strong>静(しず)かな町(まち)</strong> &quot;a quiet town&quot;.</p>
-<p>The important structural fact is what な-adjectives <em>don&#39;t</em> do: they do not conjugate. The word itself never changes. All the tense and negation happens on the copula behind it - 静(しず)かだ → 静(しず)かだった → 静(しず)かじゃない. If you can handle 学生(がくせい)だった, you can already handle 静(しず)かだった, because they are the same machinery.</p>
+<p>A な-adjective is a word like <ruby>静<rt>しず</rt></ruby>か, <ruby>便利<rt>べんり</rt></ruby>, <ruby>好<rt>す</rt></ruby>き or きれい. The name comes from the one place it differs visibly from a noun: put it in front of a noun and it needs a な: <strong><ruby>静<rt>しず</rt></ruby>かな<ruby>町<rt>まち</rt></ruby></strong> &quot;a quiet town&quot;.</p>
+<p>The important structural fact is what な-adjectives <em>don&#39;t</em> do: they do not conjugate. The word itself never changes. All the tense and negation happens on the copula behind it - <ruby>静<rt>しず</rt></ruby>かだ → <ruby>静<rt>しず</rt></ruby>かだった → <ruby>静<rt>しず</rt></ruby>かじゃない. If you can handle <ruby>学生<rt>がくせい</rt></ruby>だった, you can already handle <ruby>静<rt>しず</rt></ruby>かだった, because they are the same machinery.</p>
 </div>
 </div>
-<div class="slide" data-index="21">
+<div class="slide" data-index="25">
   
   <div class="slide__content"><h2>な-adjective conjugation · Formation</h2>
 <table>
@@ -2938,48 +2975,48 @@ The meaning is the same: neither area is well lit. What differs is how formal th
 <tbody><tr>
 <td>な-adjective (before a noun)</td>
 <td>～な + Noun</td>
-<td>便利(べんり)な店(みせ)</td>
+<td><ruby>便利<rt>べんり</rt></ruby>な<ruby>店<rt>みせ</rt></ruby></td>
 </tr>
 <tr>
 <td>な-adjective (plain non-past)</td>
 <td>～だ</td>
-<td>便利(べんり)だ</td>
+<td><ruby>便利<rt>べんり</rt></ruby>だ</td>
 </tr>
 <tr>
 <td>な-adjective (polite non-past)</td>
 <td>～です</td>
-<td>便利(べんり)です</td>
+<td><ruby>便利<rt>べんり</rt></ruby>です</td>
 </tr>
 <tr>
 <td>な-adjective (negative)</td>
 <td>～じゃない／ではない</td>
-<td>便利(べんり)じゃない</td>
+<td><ruby>便利<rt>べんり</rt></ruby>じゃない</td>
 </tr>
 <tr>
 <td>な-adjective (past)</td>
 <td>～だった</td>
-<td>便利(べんり)だった</td>
+<td><ruby>便利<rt>べんり</rt></ruby>だった</td>
 </tr>
 <tr>
 <td>な-adjective (past negative)</td>
 <td>～じゃなかった</td>
-<td>便利(べんり)じゃなかった</td>
+<td><ruby>便利<rt>べんり</rt></ruby>じゃなかった</td>
 </tr>
 <tr>
 <td>な-adjective (て-form)</td>
 <td>～で</td>
-<td>便利(べんり)で</td>
+<td><ruby>便利<rt>べんり</rt></ruby>で</td>
 </tr>
 <tr>
 <td>な-adjective (adverb)</td>
 <td>～に</td>
-<td>便利(べんり)になる</td>
+<td><ruby>便利<rt>べんり</rt></ruby>になる</td>
 </tr>
 </tbody></table>
 <p>Politeness, as with nouns, is a separate layer:</p>
 </div>
 </div>
-<div class="slide" data-index="22">
+<div class="slide" data-index="26">
   
   <div class="slide__content"><h2>な-adjective conjugation · Formation (cont.)</h2>
 <table>
@@ -2991,239 +3028,255 @@ The meaning is the same: neither area is well lit. What differs is how formal th
 </tr>
 </thead>
 <tbody><tr>
-<td>元気(げんき)だ</td>
-<td>元気(げんき)です</td>
-<td>元気(げんき)です</td>
+<td><ruby>元気<rt>げんき</rt></ruby>だ</td>
+<td><ruby>元気<rt>げんき</rt></ruby>です</td>
+<td><ruby>元気<rt>げんき</rt></ruby>です</td>
 </tr>
 <tr>
-<td>元気(げんき)じゃない</td>
-<td>元気(げんき)じゃないです</td>
-<td>元気(げんき)ではありません</td>
+<td><ruby>元気<rt>げんき</rt></ruby>じゃない</td>
+<td><ruby>元気<rt>げんき</rt></ruby>じゃないです</td>
+<td><ruby>元気<rt>げんき</rt></ruby>ではありません</td>
 </tr>
 <tr>
-<td>元気(げんき)だった</td>
-<td>元気(げんき)でした</td>
-<td>元気(げんき)でした</td>
+<td><ruby>元気<rt>げんき</rt></ruby>だった</td>
+<td><ruby>元気<rt>げんき</rt></ruby>でした</td>
+<td><ruby>元気<rt>げんき</rt></ruby>でした</td>
 </tr>
 <tr>
-<td>元気(げんき)じゃなかった</td>
-<td>元気(げんき)じゃなかったです</td>
-<td>元気(げんき)ではありませんでした</td>
+<td><ruby>元気<rt>げんき</rt></ruby>じゃなかった</td>
+<td><ruby>元気<rt>げんき</rt></ruby>じゃなかったです</td>
+<td><ruby>元気<rt>げんき</rt></ruby>ではありませんでした</td>
 </tr>
 </tbody></table>
 <blockquote>
-<p><strong>Rule of thumb</strong> - <code>な</code> appears <strong>only</strong> directly before a noun. Everywhere else it is not there. So 静(しず)かな部屋(へや) but 部屋(へや)は 静(しず)かです - never ❌静(しず)かなです.</p>
+<p><strong>Rule of thumb</strong> - <code>な</code> appears <strong>only</strong> directly before a noun. Everywhere else it is not there. So <ruby>静<rt>しず</rt></ruby>かな<ruby>部屋<rt>へや</rt></ruby> but <ruby>部屋<rt>へや</rt></ruby>は <ruby>静<rt>しず</rt></ruby>かです - never ❌<ruby>静<rt>しず</rt></ruby>かなです.</p>
 </blockquote>
-<p>Set the two adjective classes side by side and the whole system falls out of one question: does the word inflect, or does the copula do it for you?</p>
-</div>
-</div>
-<div class="slide" data-index="23">
-  
-  <div class="slide__content"><h2>な-adjective conjugation · Formation (cont.)</h2>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>い-adjective (高(たか)い)</th>
-<th>な-adjective (静(しず)か)</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Before a noun</td>
-<td>高(たか)い山(やま)</td>
-<td>静(しず)かな山(やま)</td>
-</tr>
-<tr>
-<td>Plain non-past</td>
-<td>高(たか)い</td>
-<td>静(しず)かだ</td>
-</tr>
-<tr>
-<td>Negative</td>
-<td>高(たか)くない</td>
-<td>静(しず)かじゃない</td>
-</tr>
-<tr>
-<td>Past</td>
-<td>高(たか)かった</td>
-<td>静(しず)かだった</td>
-</tr>
-<tr>
-<td>Past negative</td>
-<td>高(たか)くなかった</td>
-<td>静(しず)かじゃなかった</td>
-</tr>
-<tr>
-<td>て-form</td>
-<td>高(たか)くて</td>
-<td>静(しず)かで</td>
-</tr>
-<tr>
-<td>Adverb</td>
-<td>高(たか)く</td>
-<td>静(しず)かに</td>
-</tr>
-</tbody></table>
-</div>
-</div>
-<div class="slide" data-index="24">
-  
-  <div class="slide__content"><h2>な-adjective conjugation · Formation (cont.)</h2>
-<blockquote>
-<p><strong>Note</strong> - な-adjectives behave almost exactly like nouns, and historically that is what many of them are. 元気(げんき), 親切(しんせつ) and 健康(けんこう) can all appear as nouns in their own right. The <strong>only</strong> systematic difference is what goes in front of a noun: a な-adjective takes <code>な</code>, a noun takes <code>の</code>. 病気(びょうき)の人(ひと) &quot;a sick person&quot; (noun), 元気(げんき)な人(ひと) &quot;a lively person&quot; (な-adjective). Everything else - だ, だった, じゃない, で, でした - is shared.</p>
-</blockquote>
-<p>Words that catch people out:</p>
-</div>
-</div>
-<div class="slide" data-index="25">
-  
-  <div class="slide__content"><h2>な-adjective conjugation · Formation (cont.)</h2>
-<ul>
-<li>Ending in い but な-adjectives: きれい, 嫌(きら)い, 有名(ゆうめい),<br><em>嫌(いや), 得意(とくい). きれいじゃない, not ❌きれくない.</em></li>
-<li>同(おな)じ is a な-adjective that drops the な before a noun:<br><em>同(おな)じ人(ひと), never ❌同(おな)じな人(ひと). But the な comes back before ので and のに: 同(おな)じなので.</em></li>
-<li>好(す)き, 嫌(きら)い, 上手(じょうず), 下手(へた) are adjectives in<br><em>Japanese although they translate as English verbs, and their object takes <code>が</code>: 魚(さかな)が好(す)きです.</em></li>
-</ul>
-</div>
-</div>
-<div class="slide" data-index="26">
-  
-  <div class="slide__content"><h2>な-adjective conjugation · Examples</h2>
-<p>この町(まち)はとても<strong>静(しず)かです</strong>。<br><em>This town is very quiet.</em></p>
-<p>わたしは魚(さかな)が<strong>好(す)きじゃない</strong>。<br><em>I don&#39;t like fish.</em></p>
-<p>ここは交通(こうつう)が<strong>便利(べんり)な</strong>場所(ばしょ)です。<br><em>This is a spot with good transport links.</em></p>
-<p>昔(むかし)、この辺(へん)は<strong>にぎやかだった</strong>。<br><em>This area used to be lively.</em></p>
-<p>試験(しけん)の前(まえ)の日(ひ)は全然(ぜんぜん)<strong>元気(げんき)じゃなかった</strong>。<br><em>The day before the exam I wasn&#39;t well at all.</em></p>
 </div>
 </div>
 <div class="slide" data-index="27">
   
-  <div class="slide__content"><h2>な-adjective conjugation · Examples (cont.)</h2>
-<p>姉(あね)は料理(りょうり)が<strong>上手(じょうず)で</strong>、いつもおいしいケーキを作(つく)ってくれる。<br><em>My sister is a good cook and always makes me lovely cakes.</em></p>
-<p>新(あたら)しい事務所(じむしょ)は<strong>きれいで</strong>明(あか)るいですが、駅(えき)から遠(とお)いです。<br><em>The new office is bright and clean, but it&#39;s a long way from the station.</em></p>
-<p>息子(むすこ)は小(ちい)さいころ野菜(やさい)が<strong>嫌(きら)いでした</strong>が、今(いま)は何(なん)でも食(た)べます。<br><em>My son hated vegetables when he was small, but now he&#39;ll eat anything.</em></p>
+  <div class="slide__content"><h2>な-adjective conjugation · Formation (cont.)</h2>
+<p>Set the two adjective classes side by side and the whole system falls out of one question: does the word inflect, or does the copula do it for you?</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>い-adjective (<ruby>高<rt>たか</rt></ruby>い)</th>
+<th>な-adjective (<ruby>静<rt>しず</rt></ruby>か)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Before a noun</td>
+<td><ruby>高<rt>たか</rt></ruby>い<ruby>山<rt>やま</rt></ruby></td>
+<td><ruby>静<rt>しず</rt></ruby>かな<ruby>山<rt>やま</rt></ruby></td>
+</tr>
+<tr>
+<td>Plain non-past</td>
+<td><ruby>高<rt>たか</rt></ruby>い</td>
+<td><ruby>静<rt>しず</rt></ruby>かだ</td>
+</tr>
+<tr>
+<td>Negative</td>
+<td><ruby>高<rt>たか</rt></ruby>くない</td>
+<td><ruby>静<rt>しず</rt></ruby>かじゃない</td>
+</tr>
+<tr>
+<td>Past</td>
+<td><ruby>高<rt>たか</rt></ruby>かった</td>
+<td><ruby>静<rt>しず</rt></ruby>かだった</td>
+</tr>
+<tr>
+<td>Past negative</td>
+<td><ruby>高<rt>たか</rt></ruby>くなかった</td>
+<td><ruby>静<rt>しず</rt></ruby>かじゃなかった</td>
+</tr>
+<tr>
+<td>て-form</td>
+<td><ruby>高<rt>たか</rt></ruby>くて</td>
+<td><ruby>静<rt>しず</rt></ruby>かで</td>
+</tr>
+<tr>
+<td>Adverb</td>
+<td><ruby>高<rt>たか</rt></ruby>く</td>
+<td><ruby>静<rt>しず</rt></ruby>かに</td>
+</tr>
+</tbody></table>
 </div>
 </div>
 <div class="slide" data-index="28">
   
+  <div class="slide__content"><h2>な-adjective conjugation · Formation (cont.)</h2>
+<blockquote>
+<p><strong>Note</strong> - な-adjectives behave almost exactly like nouns, and historically that is what many of them are. <ruby>元気<rt>げんき</rt></ruby>, <ruby>親切<rt>しんせつ</rt></ruby> and <ruby>健康<rt>けんこう</rt></ruby> can all appear as nouns in their own right. The <strong>only</strong> systematic difference is what goes in front of a noun: a な-adjective takes <code>な</code>, a noun takes <code>の</code>. <ruby>病気<rt>びょうき</rt></ruby>の<ruby>人<rt>ひと</rt></ruby> &quot;a sick person&quot; (noun), <ruby>元気<rt>げんき</rt></ruby>な<ruby>人<rt>ひと</rt></ruby> &quot;a lively person&quot; (な-adjective). Everything else - だ, だった, じゃない, で, でした - is shared.</p>
+</blockquote>
+<p>Words that catch people out:</p>
+</div>
+</div>
+<div class="slide" data-index="29">
+  
+  <div class="slide__content"><h2>な-adjective conjugation · Formation (cont.)</h2>
+<ul>
+<li>Ending in い but な-adjectives: きれい, <ruby>嫌<rt>きら</rt></ruby>い, <ruby>有名<rt>ゆうめい</rt></ruby>,<br><em><ruby>嫌<rt>いや</rt></ruby>, <ruby>得意<rt>とくい</rt></ruby>. きれいじゃない, not ❌きれくない.</em></li>
+<li><ruby>同<rt>おな</rt></ruby>じ is a な-adjective that drops the な before a noun:<br><em><ruby>同<rt>おな</rt></ruby>じ<ruby>人<rt>ひと</rt></ruby>, never ❌<ruby>同<rt>おな</rt></ruby>じな<ruby>人<rt>ひと</rt></ruby>. But the な comes back before ので and のに: <ruby>同<rt>おな</rt></ruby>じなので.</em></li>
+<li><ruby>好<rt>す</rt></ruby>き, <ruby>嫌<rt>きら</rt></ruby>い, <ruby>上手<rt>じょうず</rt></ruby>, <ruby>下手<rt>へた</rt></ruby> are adjectives in<br><em>Japanese although they translate as English verbs, and their object takes <code>が</code>: <ruby>魚<rt>さかな</rt></ruby>が<ruby>好<rt>す</rt></ruby>きです.</em></li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="30">
+  
+  <div class="slide__content"><h2>な-adjective conjugation · Examples</h2>
+<p>この<ruby>町<rt>まち</rt></ruby>はとても**<ruby>静<rt>しず</rt></ruby>かです**。<br><em>This town is very quiet.</em></p>
+<p>わたしは<ruby>魚<rt>さかな</rt></ruby>が**<ruby>好<rt>す</rt></ruby>きじゃない**。<br><em>I don&#39;t like fish.</em></p>
+<p>ここは<ruby>交通<rt>こうつう</rt></ruby>が**<ruby>便利<rt>べんり</rt></ruby>な**<ruby>場所<rt>ばしょ</rt></ruby>です。<br><em>This is a spot with good transport links.</em></p>
+<p><ruby>昔<rt>むかし</rt></ruby>、この<ruby>辺<rt>へん</rt></ruby>は<strong>にぎやかだった</strong>。<br><em>This area used to be lively.</em></p>
+</div>
+</div>
+<div class="slide" data-index="31">
+  
+  <div class="slide__content"><h2>な-adjective conjugation · Examples (cont.)</h2>
+<p><ruby>試験<rt>しけん</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>の<ruby>日<rt>ひ</rt></ruby>は<ruby>全然<rt>ぜんぜん</rt></ruby><strong><ruby>元気<rt>げんき</rt></ruby>じゃなかった</strong>。<br><em>The day before the exam I wasn&#39;t well at all.</em></p>
+<p><ruby>姉<rt>あね</rt></ruby>は<ruby>料理<rt>りょうり</rt></ruby>が**<ruby>上手<rt>じょうず</rt></ruby>で**、いつもおいしいケーキを<ruby>作<rt>つく</rt></ruby>ってくれる。<br><em>My sister is a good cook and always makes me lovely cakes.</em></p>
+<p><ruby>新<rt>あたら</rt></ruby>しい<ruby>事務所<rt>じむしょ</rt></ruby>は<strong>きれいで</strong><ruby>明<rt>あか</rt></ruby>るいですが、<ruby>駅<rt>えき</rt></ruby>から<ruby>遠<rt>とお</rt></ruby>いです。<br><em>The new office is bright and clean, but it&#39;s a long way from the station.</em></p>
+<p><ruby>息子<rt>むすこ</rt></ruby>は<ruby>小<rt>ちい</rt></ruby>さいころ<ruby>野菜<rt>やさい</rt></ruby>が**<ruby>嫌<rt>きら</rt></ruby>いでした**が、<ruby>今<rt>いま</rt></ruby>は<ruby>何<rt>なん</rt></ruby>でも<ruby>食<rt>た</rt></ruby>べます。<br><em>My son hated vegetables when he was small, but now he&#39;ll eat anything.</em></p>
+</div>
+</div>
+<div class="slide" data-index="32">
+  
   <div class="slide__content"><h2>な-adjective conjugation · Nuance &amp; register</h2>
-<p>The word itself is register-neutral; the copula after it is where register lives. <code>だ</code> is plain and slightly assertive, <code>です</code> is polite, and in casual speech <code>だ</code> is very often dropped altogether: この店(みせ)、静(しず)か - a complete, natural sentence. Women&#39;s casual speech in particular tends to omit <code>だ</code>; keeping it can sound blunt or declamatory.</p>
+<p>The word itself is register-neutral; the copula after it is where register lives. <code>だ</code> is plain and slightly assertive, <code>です</code> is polite, and in casual speech <code>だ</code> is very often dropped altogether: この<ruby>店<rt>みせ</rt></ruby>、<ruby>静<rt>しず</rt></ruby>か - a complete, natural sentence. Women&#39;s casual speech in particular tends to omit <code>だ</code>; keeping it can sound blunt or declamatory.</p>
 <p>The negative comes in three shapes, and they form a clear ladder:</p>
 <ul>
 <li><strong>じゃない</strong> - casual, spoken. A contraction of ではない.</li>
 <li><strong>じゃないです／じゃありません</strong> - polite, everyday.</li>
 <li><strong>ではありません／ではございません</strong> - formal, written, and service Japanese.</li>
 </ul>
-<p><code>ではない</code> in speech sounds like a lecture or a debate; <code>じゃない</code> in a written report looks careless. That mismatch, rather than any grammatical error, is what makes learners&#39; Japanese sound off.</p>
 </div>
 </div>
-<div class="slide" data-index="29">
+<div class="slide" data-index="33">
   
   <div class="slide__content"><h2>な-adjective conjugation · Nuance &amp; register (cont.)</h2>
+<p><code>ではない</code> in speech sounds like a lecture or a debate; <code>じゃない</code> in a written report looks careless. That mismatch, rather than any grammatical error, is what makes learners&#39; Japanese sound off.</p>
 <p>One more thing worth knowing early: <code>じゃない</code> with rising intonation is a tag question, not a negative - きれいじゃない？ means &quot;isn&#39;t it pretty?&quot;, the opposite of what the words look like. Context and intonation carry it.</p>
-<p>Some な-adjectives are almost never used about oneself. Saying わたしは上手(じょうず)です about your own Japanese is boastful; the modest answer is まだまだです. And 大丈夫(だいじょうぶ) has drifted in modern speech into a soft refusal - offered a plastic bag, 大丈夫(だいじょうぶ)です means &quot;no thanks&quot;, not &quot;that&#39;s fine&quot;.</p>
+<p>Some な-adjectives are almost never used about oneself. Saying わたしは<ruby>上手<rt>じょうず</rt></ruby>です about your own Japanese is boastful; the modest answer is まだまだです. And <ruby>大丈夫<rt>だいじょうぶ</rt></ruby> has drifted in modern speech into a soft refusal - offered a plastic bag, <ruby>大丈夫<rt>だいじょうぶ</rt></ruby>です means &quot;no thanks&quot;, not &quot;that&#39;s fine&quot;.</p>
 </div>
 </div>
-<div class="slide" data-index="30">
+<div class="slide" data-index="34">
   
   <div class="slide__content"><h2>な-adjective vs い-adjective - telling them apart</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - ignore the last letter and look at the <strong>negative</strong>. If it takes じゃない, it is a な-adjective. If it takes くない, it is an い-adjective. The dictionary form lies; the negative never does.</p>
 </blockquote>
-<p>この部屋(へや)は<strong>きれいじゃない</strong>。<br><em>This room isn&#39;t clean.</em></p>
-<p>この部屋(へや)は<strong>汚(きたな)くない</strong>。<br><em>This room isn&#39;t dirty.</em></p>
+<p>この<ruby>部屋<rt>へや</rt></ruby>は<strong>きれいじゃない</strong>。<br><em>This room isn&#39;t clean.</em></p>
+<p>この<ruby>部屋<rt>へや</rt></ruby>は**<ruby>汚<rt>きたな</rt></ruby>くない**。<br><em>This room isn&#39;t dirty.</em></p>
 </div>
 </div>
-<div class="slide" data-index="31">
+<div class="slide" data-index="35">
   
   <div class="slide__content"><h2>な-adjective vs い-adjective - telling them apart (cont.)</h2>
-<p>きれい and 汚(きたな)い both end in い, and they belong to different classes. The reliable signal is the syllable before the final い: an い-adjective never ends in <strong>えい</strong>, so きれい (kirei) and 有名(ゆうめい) (yuumei) give themselves away. 嫌(きら)い does not, and just has to be learned. When you meet a new adjective, learn it with its な attached - きれいな, 好(す)きな - and the problem disappears.</p>
+<p>きれい and <ruby>汚<rt>きたな</rt></ruby>い both end in い, and they belong to different classes. The reliable signal is the syllable before the final い: an い-adjective never ends in <strong>えい</strong>, so きれい (kirei) and <ruby>有名<rt>ゆうめい</rt></ruby> (yuumei) give themselves away. <ruby>嫌<rt>きら</rt></ruby>い does not, and just has to be learned. When you meet a new adjective, learn it with its な attached - きれいな, <ruby>好<rt>す</rt></ruby>きな - and the problem disappears.</p>
 </div>
 </div>
-<div class="slide" data-index="32">
+<div class="slide" data-index="36">
   
   <div class="slide__content"><h2>な-adjective conjugation · な vs の before a noun</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - な-adjectives take <code>な</code>; nouns take <code>の</code>. Everything after the noun is identical, so this one particle is the whole visible difference between the two word classes.</p>
 </blockquote>
-<p>親切(しんせつ)な**店員(てんいん)**さんに道(みち)を教(おし)えてもらった。<br><em>A kind shop assistant gave me directions.</em></p>
-<p>日本語(にほんご)の**先生(せんせい)**に手紙(てがみ)を書(か)きました。<br><em>I wrote a letter to my Japanese teacher.</em></p>
-<p>A few words sit in both camps and change meaning accordingly. 病気(びょうき)の人(ひと) is &quot;a person with an illness&quot; (noun +の); 元気(げんき)な人(ひと) is &quot;a lively person&quot; (な-adjective). If you are unsure which class a word is in, <code>の</code> is the safer guess for anything that names a thing, and <code>な</code> for anything that describes a quality.</p>
+<p><ruby>親切<rt>しんせつ</rt></ruby>な**<ruby>店員<rt>てんいん</rt></ruby>**さんに<ruby>道<rt>みち</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えてもらった。<br><em>A kind shop assistant gave me directions.</em></p>
+<p><ruby>日本語<rt>にほんご</rt></ruby>の**<ruby>先生<rt>せんせい</rt></ruby>**に<ruby>手紙<rt>てがみ</rt></ruby>を<ruby>書<rt>か</rt></ruby>きました。<br><em>I wrote a letter to my Japanese teacher.</em></p>
 </div>
 </div>
-<div class="slide" data-index="33">
+<div class="slide" data-index="37">
+  
+  <div class="slide__content"><h2>な-adjective conjugation · な vs の before a noun (cont.)</h2>
+<p>A few words sit in both camps and change meaning accordingly. <ruby>病気<rt>びょうき</rt></ruby>の<ruby>人<rt>ひと</rt></ruby> is &quot;a person with an illness&quot; (noun +の); <ruby>元気<rt>げんき</rt></ruby>な<ruby>人<rt>ひと</rt></ruby> is &quot;a lively person&quot; (な-adjective). If you are unsure which class a word is in, <code>の</code> is the safer guess for anything that names a thing, and <code>な</code> for anything that describes a quality.</p>
+</div>
+</div>
+<div class="slide" data-index="38">
   
   <div class="slide__content"><h2>な-adjective conjugation · ～な vs ～に</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>な</code> modifies a <strong>noun</strong>; <code>に</code> modifies a <strong>verb</strong>. Same adjective, two different jobs.</p>
 </blockquote>
-<p><strong>静(しず)かな</strong>人(ひと)が好(す)きです。<br><em>I like quiet people.</em></p>
-<p>ドアを<strong>静(しず)かに</strong>閉(し)めてください。<br><em>Please close the door quietly.</em></p>
-<p><code>に</code> is also the form used with なる and する: 上手(じょうず)になる &quot;get good at something&quot;, きれいにする &quot;make something clean&quot;. This <code>に</code> is the な-adjective&#39;s equivalent of the い-adjective&#39;s <code>く</code>, and the two never cross over: ❌静(しず)かくする, ❌安(やす)にする.</p>
-</div>
-</div>
-<div class="slide" data-index="34">
-  
-  <div class="slide__content"><h2>な-adjective conjugation · Common mistakes</h2>
-<ul>
-<li><p>❌ 静(しず)かの部屋(へや) → ✅ <strong>静(しず)かな部屋(へや)</strong><br><em>静(しず)か is a な-adjective, so it takes <code>な</code> before a noun. <code>の</code> is for nouns modifying nouns.</em></p>
-</li>
-<li><p>❌ きれいくない → ✅ <strong>きれいじゃない</strong><br><em>きれい ends in い but is a な-adjective. It negates with <code>じゃない</code>, like a noun.</em></p>
-</li>
-<li><p>❌ 元気(げんき)なです → ✅ <strong>元気(げんき)です</strong><br><em>The <code>な</code> only appears immediately before a noun. Before <code>です</code> there is nothing.</em></p>
-</li>
-<li><p>❌ 有名(ゆうめい)かった → ✅ <strong>有名(ゆうめい)でした</strong>／<strong>有名(ゆうめい)だった</strong><br><em>な-adjectives have no past tense of their own; the copula supplies it. <code>かった</code> belongs to い-adjectives.</em></p>
-</li>
-<li><p>❌ 上手(じょうず)に人(ひと) → ✅ <strong>上手(じょうず)な人(ひと)</strong><br><em><code>に</code> goes with verbs, <code>な</code> with nouns. 上手(じょうず)に話(はな)す is fine; 上手(じょうず)な人(ひと) is the noun version.</em></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="slide" data-index="35">
-  
-  <div class="slide__content"><h2>な-adjective conjugation · Practice 1</h2>
-<p><strong>1.</strong> 田中(たなか)さんは____人(ひと)です。（しんせつ）</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-田中(たなか)さんは<strong>親切(しんせつ)な</strong>人(ひと)です。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-親切(しんせつ) is a な-adjective, and it is standing directly in front of the noun 人(ひと), which is exactly the environment that requires <code>な</code>.</p>
-</div>
-</div>
-<div class="slide" data-index="36">
-  
-  <div class="slide__content"><h2>な-adjective conjugation · Practice 2</h2>
-<p><strong>2.</strong> この問題(もんだい)は（簡単(かんたん)くない・簡単(かんたん)じゃない）。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-この問題(もんだい)は<strong>簡単(かんたん)じゃない</strong>。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-簡単(かんたん) is a な-adjective, so its negative is made with the copula: じゃない (or the more formal ではありません). <code>くない</code> is reserved for い-adjectives.</p>
-</div>
-</div>
-<div class="slide" data-index="37">
-  
-  <div class="slide__content"><h2>な-adjective conjugation · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese: &quot;The hotel was clean and quiet, but it wasn&#39;t cheap.&quot;</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-ホテルは<strong>きれいで</strong>静(しず)かでしたが、安(やす)くなかったです。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Two な-adjectives linked by the て-form, which for a な-adjective is simply <code>で</code>. Only the last one carries tense. The final adjective 安(やす)い is an い-adjective, so it makes its own past negative.</p>
-</div>
-</div>
-<div class="slide" data-index="38">
-  
-  <div class="slide__content"><h2>な-adjective conjugation · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 昨日(きのう)のコンサートはとてもすてきかったです。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 昨日(きのう)のコンサートはとても<strong>すてきでした</strong>。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-すてき is a な-adjective, and な-adjectives never take <code>かった</code>. The past is carried by the copula: だった in plain style, でした in polite style.</p>
+<p><strong><ruby>静<rt>しず</rt></ruby>かな</strong><ruby>人<rt>ひと</rt></ruby>が<ruby>好<rt>す</rt></ruby>きです。<br><em>I like quiet people.</em></p>
+<p>ドアを**<ruby>静<rt>しず</rt></ruby>かに**<ruby>閉<rt>し</rt></ruby>めてください。<br><em>Please close the door quietly.</em></p>
 </div>
 </div>
 <div class="slide" data-index="39">
   
-  <div class="slide__content"><h2>な-adjective conjugation · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 彼(かれ)はギターが上手(じょうず)です。 (b) 彼(かれ)はギターを上手(じょうず)に弾(ひ)きます。</p>
+  <div class="slide__content"><h2>な-adjective conjugation · ～な vs ～に (cont.)</h2>
+<p><code>に</code> is also the form used with なる and する: <ruby>上手<rt>じょうず</rt></ruby>になる &quot;get good at something&quot;, きれいにする &quot;make something clean&quot;. This <code>に</code> is the な-adjective&#39;s equivalent of the い-adjective&#39;s <code>く</code>, and the two never cross over: ❌<ruby>静<rt>しず</rt></ruby>かくする, ❌<ruby>安<rt>やす</rt></ruby>にする.</p>
+</div>
+</div>
+<div class="slide" data-index="40">
+  
+  <div class="slide__content"><h2>な-adjective conjugation · Common mistakes</h2>
+<ul>
+<li><p>❌ <ruby>静<rt>しず</rt></ruby>かの<ruby>部屋<rt>へや</rt></ruby> → ✅ <strong><ruby>静<rt>しず</rt></ruby>かな<ruby>部屋<rt>へや</rt></ruby></strong><br><em><ruby>静<rt>しず</rt></ruby>か is a な-adjective, so it takes <code>な</code> before a noun. <code>の</code> is for nouns modifying nouns.</em></p>
+</li>
+<li><p>❌ きれいくない → ✅ <strong>きれいじゃない</strong><br><em>きれい ends in い but is a な-adjective. It negates with <code>じゃない</code>, like a noun.</em></p>
+</li>
+<li><p>❌ <ruby>元気<rt>げんき</rt></ruby>なです → ✅ <strong><ruby>元気<rt>げんき</rt></ruby>です</strong><br><em>The <code>な</code> only appears immediately before a noun. Before <code>です</code> there is nothing.</em></p>
+</li>
+<li><p>❌ <ruby>有名<rt>ゆうめい</rt></ruby>かった → ✅ <strong><ruby>有名<rt>ゆうめい</rt></ruby>でした</strong>／<strong><ruby>有名<rt>ゆうめい</rt></ruby>だった</strong><br><em>な-adjectives have no past tense of their own; the copula supplies it. <code>かった</code> belongs to い-adjectives.</em></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="41">
+  
+  <div class="slide__content"><h2>な-adjective conjugation · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ <ruby>上手<rt>じょうず</rt></ruby>に<ruby>人<rt>ひと</rt></ruby> → ✅ <strong><ruby>上手<rt>じょうず</rt></ruby>な<ruby>人<rt>ひと</rt></ruby></strong><br><em><code>に</code> goes with verbs, <code>な</code> with nouns. <ruby>上手<rt>じょうず</rt></ruby>に<ruby>話<rt>はな</rt></ruby>す is fine; <ruby>上手<rt>じょうず</rt></ruby>な<ruby>人<rt>ひと</rt></ruby> is the noun version.</em></li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="42">
+  
+  <div class="slide__content"><h2>な-adjective conjugation · Practice 1</h2>
+<p><strong>1.</strong> <ruby>田中<rt>たなか</rt></ruby>さんは____<ruby>人<rt>ひと</rt></ruby>です。（しんせつ）</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-(a) uses 上手(じょうず) as an adjective describing him, so the guitar is marked with <code>が</code> - it is a statement about what kind of player he is.</p>
+<ruby>田中<rt>たなか</rt></ruby>さんは**<ruby>親切<rt>しんせつ</rt></ruby>な**<ruby>人<rt>ひと</rt></ruby>です。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>親切<rt>しんせつ</rt></ruby> is a な-adjective, and it is standing directly in front of the noun <ruby>人<rt>ひと</rt></ruby>, which is exactly the environment that requires <code>な</code>.</p>
+</div>
+</div>
+<div class="slide" data-index="43">
+  
+  <div class="slide__content"><h2>な-adjective conjugation · Practice 2</h2>
+<p><strong>2.</strong> この<ruby>問題<rt>もんだい</rt></ruby>は（<ruby>簡単<rt>かんたん</rt></ruby>くない・<ruby>簡単<rt>かんたん</rt></ruby>じゃない）。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+この<ruby>問題<rt>もんだい</rt></ruby>は**<ruby>簡単<rt>かんたん</rt></ruby>じゃない**。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>簡単<rt>かんたん</rt></ruby> is a な-adjective, so its negative is made with the copula: じゃない (or the more formal ではありません). <code>くない</code> is reserved for い-adjectives.</p>
+</div>
+</div>
+<div class="slide" data-index="44">
+  
+  <div class="slide__content"><h2>な-adjective conjugation · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese: &quot;The hotel was clean and quiet, but it wasn&#39;t cheap.&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+ホテルは<strong>きれいで</strong><ruby>静<rt>しず</rt></ruby>かでしたが、<ruby>安<rt>やす</rt></ruby>くなかったです。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+Two な-adjectives linked by the て-form, which for a な-adjective is simply <code>で</code>. Only the last one carries tense. The final adjective <ruby>安<rt>やす</rt></ruby>い is an い-adjective, so it makes its own past negative.</p>
+</div>
+</div>
+<div class="slide" data-index="45">
+  
+  <div class="slide__content"><h2>な-adjective conjugation · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the error: <ruby>昨日<rt>きのう</rt></ruby>のコンサートはとてもすてきかったです。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ <ruby>昨日<rt>きのう</rt></ruby>のコンサートはとても<strong>すてきでした</strong>。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+すてき is a な-adjective, and な-adjectives never take <code>かった</code>. The past is carried by the copula: だった in plain style, でした in polite style.</p>
+</div>
+</div>
+<div class="slide" data-index="46">
+  
+  <div class="slide__content"><h2>な-adjective conjugation · Practice 5</h2>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>彼<rt>かれ</rt></ruby>はギターが<ruby>上手<rt>じょうず</rt></ruby>です。 (b) <ruby>彼<rt>かれ</rt></ruby>はギターを<ruby>上手<rt>じょうず</rt></ruby>に<ruby>弾<rt>ひ</rt></ruby>きます。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+(a) uses <ruby>上手<rt>じょうず</rt></ruby> as an adjective describing him, so the guitar is marked with <code>が</code> - it is a statement about what kind of player he is.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (b) uses the adverbial <code>に</code> form to describe how he performs the action of playing, so the guitar returns to being an ordinary object with <code>を</code>. (a) is a judgement about ability; (b) is a description of a performance.</p>
 </div>
@@ -3252,7 +3305,7 @@ Two な-adjectives linked by the て-form, which for a な-adjective is simply <
     </div>
     <div id="hud-right">
       <a href="https://github.com/arpitbbhayani/deckrun" target="_blank" rel="noopener noreferrer" class="hud-brand" id="hud-brand" title="deckrun — Markdown presentations">powered by <span>deckrun</span></a>
-      <div id="slide-counter"><span id="cur">1</span>&nbsp;/&nbsp;<span id="tot">40</span></div>
+      <div id="slide-counter"><span id="cur">1</span>&nbsp;/&nbsp;<span id="tot">47</span></div>
     </div>
   </div>
 </div>
@@ -3305,7 +3358,7 @@ Two な-adjectives linked by the て-form, which for a な-adjective is simply <
 
 
 
-<script id="deck-notes" type="application/json">["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]</script>
+<script id="deck-notes" type="application/json">["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]</script>
 <script id="deck-themes" type="application/json">{"themes":[{"id":"midnight","label":"midnight","mood":"dark","blurb":"Catppuccin Mocha. Violet on deep indigo, drifting orbs.","decor":"orbs","colors":{"crust":"#11111b","mantle":"#181825","base":"#1e1e2e","surface0":"#313244","overlay1":"#7f849c","subtext1":"#bac2de","text":"#cdd6f4","accent":"#cba6f7","accent2":"#89b4fa","accent3":"#89dceb"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"tokyo","label":"tokyo night","mood":"dark","blurb":"Neon cyan over a wireframe grid, lifted from a rainy skyline.","decor":"grid","colors":{"crust":"#16161e","mantle":"#1a1b26","base":"#1f2335","surface0":"#292e42","overlay1":"#7c86ab","subtext1":"#b7c0e0","text":"#c8d3f5","accent":"#2ac3de","accent2":"#bb9af7","accent3":"#73daca"},"fonts":{"display":"'Sora', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"nord","label":"nord","mood":"dark","blurb":"Arctic frost blue on polar slate, with slow contour waves.","decor":"waves","colors":{"crust":"#232831","mantle":"#2e3440","base":"#353c4a","surface0":"#3b4252","overlay1":"#8e9aae","subtext1":"#d8dee9","text":"#eceff4","accent":"#88c0d0","accent2":"#81a1c1","accent3":"#8fbcbb"},"fonts":{"display":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace","body":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"dracula","label":"dracula","mood":"dark","blurb":"Purple and hot pink over charcoal, lit by a gradient mesh.","decor":"mesh","colors":{"crust":"#1a1b23","mantle":"#21222c","base":"#282a36","surface0":"#343746","overlay1":"#7b85b6","subtext1":"#e2e4f0","text":"#f8f8f2","accent":"#bd93f9","accent2":"#ff79c6","accent3":"#8be9fd"},"fonts":{"display":"'Syne', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'Fira Code', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"gruvbox","label":"gruvbox","mood":"dark","blurb":"Warm amber and moss on retro brown, hatched like graph paper.","decor":"topo","colors":{"crust":"#1b1e1f","mantle":"#232728","base":"#282828","surface0":"#32302f","overlay1":"#928374","subtext1":"#d5c4a1","text":"#ebdbb2","accent":"#fabd2f","accent2":"#fe8019","accent3":"#b8bb26"},"fonts":{"display":"'Bricolage Grotesque', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Work Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"rosepine","label":"rosé pine","mood":"dark","blurb":"Muted iris and gold on plum, under a slow aurora.","decor":"aurora","colors":{"crust":"#14121f","mantle":"#191724","base":"#1f1d2e","surface0":"#26233a","overlay1":"#817c9c","subtext1":"#cdc9e6","text":"#e0def4","accent":"#c4a7e7","accent2":"#9ccfd8","accent3":"#f6c177"},"fonts":{"display":"'Fraunces', Georgia, 'Times New Roman', serif","body":"'Newsreader', Georgia, 'Times New Roman', serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"forest","label":"forest","mood":"dark","blurb":"Everforest sage on deep pine, rippling in concentric rings.","decor":"rings","colors":{"crust":"#232a2e","mantle":"#2d353b","base":"#343f44","surface0":"#3d484d","overlay1":"#9da9a0","subtext1":"#d3c6aa","text":"#e5dfd2","accent":"#a7c080","accent2":"#6fb5ac","accent3":"#dbbc7f"},"fonts":{"display":"'Outfit', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"neon","label":"neon","mood":"dark","blurb":"Electric cyan and magenta on true black, raked by light beams.","decor":"beams","colors":{"crust":"#050509","mantle":"#0a0a12","base":"#0e0e1a","surface0":"#16162a","overlay1":"#6a6a96","subtext1":"#c8c8e4","text":"#f0f0ff","accent":"#22d3ee","accent2":"#ff5cc8","accent3":"#38e8ff"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'Space Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"daylight","label":"daylight","mood":"light","blurb":"Catppuccin Latte, contrast-tuned for a projector. Dot matrix.","decor":"dots","colors":{"crust":"#ebebeb","mantle":"#f5f5f5","base":"#fafaf8","surface0":"#ccd0da","overlay1":"#5c5f77","subtext1":"#3a3c52","text":"#1e2030","accent":"#8839ef","accent2":"#1e66f5","accent3":"#179299"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"arctic","label":"arctic","mood":"light","blurb":"Nord inverted. Frost blue on cool paper, with contour waves.","decor":"waves","colors":{"crust":"#e3e8ef","mantle":"#eceff4","base":"#f7f9fc","surface0":"#dbe1ea","overlay1":"#5f6b7c","subtext1":"#364150","text":"#2e3440","accent":"#2f7d94","accent2":"#4a7ba7","accent3":"#3b8b8a"},"fonts":{"display":"'Manrope', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"solarized","label":"solarized","mood":"light","blurb":"The classic low-glare cream, paired with Lora for long prose.","decor":"topo","colors":{"crust":"#eee8d5","mantle":"#f5efdc","base":"#fdf6e3","surface0":"#e3ddc8","overlay1":"#657b83","subtext1":"#3f5b62","text":"#073642","accent":"#268bd2","accent2":"#6c71c4","accent3":"#21958c"},"fonts":{"display":"'Outfit', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Lora', Georgia, 'Times New Roman', serif","mono":"'Source Code Pro', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"paper","label":"paper","mood":"light","blurb":"Crimson serif on warm cream. Editorial, print-first, very legible.","decor":"rings","colors":{"crust":"#efe8dc","mantle":"#f7f2e9","base":"#fdfbf5","surface0":"#e4dccc","overlay1":"#6e6553","subtext1":"#38311f","text":"#211c11","accent":"#a81f2c","accent2":"#1f7f96","accent3":"#9a6c12"},"fonts":{"display":"'Fraunces', Georgia, 'Times New Roman', serif","body":"'Newsreader', Georgia, 'Times New Roman', serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"rosequartz","label":"rose quartz","mood":"light","blurb":"Rosé Pine Dawn. Blush and iris on linen, with soft orbs.","decor":"orbs","colors":{"crust":"#f2e9e1","mantle":"#faf4ed","base":"#fffaf3","surface0":"#ece0d8","overlay1":"#7d7791","subtext1":"#55506e","text":"#423d5c","accent":"#b4637a","accent2":"#907aa9","accent3":"#56949f"},"fonts":{"display":"'Playfair Display', Georgia, 'Times New Roman', serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"swiss","label":"swiss","mood":"light","blurb":"Black on white, one red. Heavy grotesk, tight tracking, hard grid.","decor":"grid","colors":{"crust":"#f0f0f0","mantle":"#f8f8f8","base":"#ffffff","surface0":"#dcdcdc","overlay1":"#5a5a5a","subtext1":"#222222","text":"#0a0a0a","accent":"#e01b24","accent2":"#0a0a0a","accent3":"#5a5a5a"},"fonts":{"display":"'Archivo', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}}],"hljsMap":{"midnight":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css","tokyo":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css","nord":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/nord.min.css","dracula":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/dracula.min.css","gruvbox":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/gruvbox-dark-medium.min.css","rosepine":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/ros-pine.min.css","forest":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css","neon":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/night-owl.min.css","daylight":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","arctic":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","solarized":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/solarized-light.min.css","paper":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","rosequartz":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/ros-pine-dawn.min.css","swiss":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css"},"decorMap":{"midnight":"orbs","tokyo":"grid","nord":"waves","dracula":"mesh","gruvbox":"topo","rosepine":"aurora","forest":"rings","neon":"beams","daylight":"dots","arctic":"waves","solarized":"topo","paper":"rings","rosequartz":"orbs","swiss":"grid"}}</script>
 
 <script>
@@ -4493,6 +4546,36 @@ Two な-adjectives linked by the て-form, which for a な-adjective is simply <
     transition: opacity 0.15s ease, background 0.15s ease; }
   #deck-home:hover, #deck-home:focus-visible { opacity: 0.95; background: rgba(128,128,128,0.14); }
   @media print { #deck-home { display: none !important; } }
+  #furigana-toggle { position: fixed; bottom: 2.7rem; right: 1.1rem; z-index: 40;
+    font: 500 0.78rem/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+    color: currentColor; opacity: 0.38; cursor: pointer; user-select: none;
+    background: none; border: 1px solid currentColor; border-radius: 4px;
+    padding: 0.38rem 0.6rem;
+    transition: opacity 0.15s ease, background 0.15s ease; }
+  #furigana-toggle:hover, #furigana-toggle:focus-visible { opacity: 0.95; background: rgba(128,128,128,0.14); }
+  @media print { #furigana-toggle { display: none !important; } }
 </style>
+<button id="furigana-toggle" type="button" aria-pressed="true">&#12405;&#12426;&#12364;&#12394; ON</button>
+<script>
+  (function () {
+    // Deliberately click-only: readers who do not want furigana turn it off
+    // once and it sticks, while every key stays free for presenting.
+    var root = document.documentElement, btn = document.getElementById('furigana-toggle');
+    function paint() {
+      var off = root.getAttribute('data-furigana') === 'off';
+      btn.textContent = '\u3075\u308a\u304c\u306a ' + (off ? 'OFF' : 'ON');
+      btn.setAttribute('aria-pressed', String(!off));
+    }
+    btn.addEventListener('click', function () {
+      var off = root.getAttribute('data-furigana') === 'off';
+      if (off) root.removeAttribute('data-furigana');
+      else root.setAttribute('data-furigana', 'off');
+      try { localStorage.setItem('jlpt-furigana', off ? 'on' : 'off'); } catch (e) {}
+      paint();
+      btn.blur();
+    });
+    paint();
+  })();
+</script>
 </body>
 </html>

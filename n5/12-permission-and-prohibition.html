@@ -2606,6 +2606,13 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
   gap: 0.5rem;
 }
   </style>
+<script>
+  try {
+    if (localStorage.getItem('jlpt-furigana') === 'off') {
+      document.documentElement.setAttribute('data-furigana', 'off');
+    }
+  } catch (e) {}
+</script>
 </head>
 <body>
 
@@ -2614,7 +2621,16 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <div id="presentation">
 <div class="slide" data-index="0">
   
-  <div class="slide__content"><style>html { font-size: 20.0px; }</style>
+  <div class="slide__content"><style>
+  html { font-size: 20.0px; }
+  .slide__content p, .slide__content li,
+  .slide__content td, .slide__content th { line-height: 2.05; }
+  rt { font-size: 0.5em; line-height: 1.1; opacity: 0.72; font-weight: 400; }
+  :root[data-furigana="off"] rt { display: none; }
+  :root[data-furigana="off"] .slide__content p, :root[data-furigana="off"] .slide__content li,
+  :root[data-furigana="off"] .slide__content td, :root[data-furigana="off"] .slide__content th
+    { line-height: 1.5; }
+</style>
 
 <h1>N5 - Permission and prohibition</h1>
 <ul>
@@ -2652,42 +2668,42 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <tbody><tr>
 <td>Verb</td>
 <td>て-form + もいい</td>
-<td>使(つか)う → 使(つか)ってもいい</td>
+<td><ruby>使<rt>つか</rt></ruby>う → <ruby>使<rt>つか</rt></ruby>ってもいい</td>
 </tr>
 <tr>
 <td>Verb (negative)</td>
 <td>ない-form → なくて + もいい</td>
-<td>使(つか)う → 使(つか)わなくてもいい</td>
+<td><ruby>使<rt>つか</rt></ruby>う → <ruby>使<rt>つか</rt></ruby>わなくてもいい</td>
 </tr>
 <tr>
 <td>い-adjective</td>
 <td>drop い + くて + もいい</td>
-<td>古(ふる)い → 古(ふる)くてもいい</td>
+<td><ruby>古<rt>ふる</rt></ruby>い → <ruby>古<rt>ふる</rt></ruby>くてもいい</td>
 </tr>
 <tr>
 <td>な-adjective</td>
 <td>drop だ + でもいい</td>
-<td>静(しず)かだ → 静(しず)かでもいい</td>
+<td><ruby>静<rt>しず</rt></ruby>かだ → <ruby>静<rt>しず</rt></ruby>かでもいい</td>
 </tr>
 <tr>
 <td>Noun</td>
 <td>noun + でもいい</td>
-<td>お茶(ちゃ) → お茶(ちゃ)でもいい</td>
+<td>お<ruby>茶<rt>ちゃ</rt></ruby> → お<ruby>茶<rt>ちゃ</rt></ruby>でもいい</td>
 </tr>
 <tr>
 <td>Polite</td>
 <td>いい → いいです</td>
-<td>使(つか)ってもいいです</td>
+<td><ruby>使<rt>つか</rt></ruby>ってもいいです</td>
 </tr>
 <tr>
 <td>Asking permission</td>
 <td>～てもいいですか</td>
-<td>使(つか)ってもいいですか</td>
+<td><ruby>使<rt>つか</rt></ruby>ってもいいですか</td>
 </tr>
 <tr>
 <td>Softer / politer</td>
 <td>いい → かまいません, よろしいでしょうか</td>
-<td>使(つか)ってもよろしいでしょうか</td>
+<td><ruby>使<rt>つか</rt></ruby>ってもよろしいでしょうか</td>
 </tr>
 </tbody></table>
 </div>
@@ -2696,26 +2712,26 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
   
   <div class="slide__content"><h2>～てもいい - it&#39;s okay to · Formation (cont.)</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - verbs join with <code>て</code>, everything else joins with <code>で</code>. The <code>で</code> in <code>お茶(ちゃ)でもいい</code> is the て-form of <code>です</code>, not the particle <code>で</code>.</p>
+<p><strong>Rule of thumb</strong> - verbs join with <code>て</code>, everything else joins with <code>で</code>. The <code>で</code> in <code>お<ruby>茶<rt>ちゃ</rt></ruby>でもいい</code> is the て-form of <code>です</code>, not the particle <code>で</code>.</p>
 </blockquote>
 </div>
 </div>
 <div class="slide" data-index="5">
   
   <div class="slide__content"><h2>～てもいい - it&#39;s okay to · Examples</h2>
-<p>ここに<strong>座(すわ)ってもいい</strong>ですか。<br><em>May I sit here?</em></p>
-<p>その本(ほん)、<strong>読(よ)んでもいい</strong>よ。<br><em>Go ahead and read that book.</em></p>
-<p>暑(あつ)いので、窓(まど)を<strong>開(あ)けてもいい</strong>ですか。<br><em>It&#39;s hot, so is it all right if I open the window?</em></p>
-<p>ペンを一本(いっぽん)<strong>借(か)りてもいい</strong>？<br><em>Can I borrow a pen?</em></p>
-<p>支払(しはら)いはカード<strong>でもいい</strong>ですか。<br><em>Is it okay to pay by card?</em></p>
+<p>ここに**<ruby>座<rt>すわ</rt></ruby>ってもいい**ですか。<br><em>May I sit here?</em></p>
+<p>その<ruby>本<rt>ほん</rt></ruby>、<strong><ruby>読<rt>よ</rt></ruby>んでもいい</strong>よ。<br><em>Go ahead and read that book.</em></p>
+<p><ruby>暑<rt>あつ</rt></ruby>いので、<ruby>窓<rt>まど</rt></ruby>を**<ruby>開<rt>あ</rt></ruby>けてもいい**ですか。<br><em>It&#39;s hot, so is it all right if I open the window?</em></p>
+<p>ペンを<ruby>一本<rt>いっぽん</rt></ruby><strong><ruby>借<rt>か</rt></ruby>りてもいい</strong>？<br><em>Can I borrow a pen?</em></p>
 </div>
 </div>
 <div class="slide" data-index="6">
   
   <div class="slide__content"><h2>～てもいい - it&#39;s okay to · Examples (cont.)</h2>
-<p>仕事(しごと)が終(お)わったら、先(さき)に<strong>帰(かえ)ってもいい</strong>ですよ。<br><em>Once you&#39;ve finished, you&#39;re welcome to head home ahead of me.</em></p>
-<p>明日(あした)の会議(かいぎ)には<strong>来(こ)なくてもいい</strong>ですよ。資料(しりょう)だけ送(おく)ってください。<br><em>You don&#39;t have to come to tomorrow&#39;s meeting - just send me the documents.</em></p>
-<p>この写真(しゃしん)、ブログに<strong>載(の)せてもいい</strong>でしょうか。<br><em>Would it be all right if I put this photo up on my blog?</em></p>
+<p><ruby>支払<rt>しはら</rt></ruby>いはカード<strong>でもいい</strong>ですか。<br><em>Is it okay to pay by card?</em></p>
+<p><ruby>仕事<rt>しごと</rt></ruby>が<ruby>終<rt>お</rt></ruby>わったら、<ruby>先<rt>さき</rt></ruby>に**<ruby>帰<rt>かえ</rt></ruby>ってもいい**ですよ。<br><em>Once you&#39;ve finished, you&#39;re welcome to head home ahead of me.</em></p>
+<p><ruby>明日<rt>あした</rt></ruby>の<ruby>会議<rt>かいぎ</rt></ruby>には**<ruby>来<rt>こ</rt></ruby>なくてもいい**ですよ。<ruby>資料<rt>しりょう</rt></ruby>だけ<ruby>送<rt>おく</rt></ruby>ってください。<br><em>You don&#39;t have to come to tomorrow&#39;s meeting - just send me the documents.</em></p>
+<p>この<ruby>写真<rt>しゃしん</rt></ruby>、ブログに**<ruby>載<rt>の</rt></ruby>せてもいい**でしょうか。<br><em>Would it be all right if I put this photo up on my blog?</em></p>
 </div>
 </div>
 <div class="slide" data-index="7">
@@ -2723,123 +2739,128 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
   <div class="slide__content"><h2>～てもいい - it&#39;s okay to · Nuance &amp; register</h2>
 <p>Permission has a direction, and <code>～てもいい</code> is sensitive to it. <strong>Asking</strong> goes in any direction; <strong>granting</strong> normally goes downward, from the person with authority to the person without it. That asymmetry causes more trouble for learners than the grammar does.</p>
 <p><strong>Asking upward.</strong> <code>～てもいいですか</code> is perfectly polite to a classmate, a colleague or a shop assistant. To a customer, a client or a senior manager it is a little bare, and Japanese reaches for something longer: <code>～てもよろしいでしょうか</code>, or the humble <code>～させていただけますか</code>. The extra length <em>is</em> the politeness.</p>
-<p><strong>Granting upward is the mistake.</strong> <code>部長(ぶちょう)、もう帰(かえ)ってもいいですよ</code> is flawless grammar and socially impossible - you have just given your boss permission to leave. When someone senior asks <em>you</em>, agree instead of authorising: <code>どうぞ</code>, <code>もちろんです</code>, <code>はい、大丈夫(だいじょうぶ)です</code>.</p>
+<p><strong>Granting upward is the mistake.</strong> <code><ruby>部長<rt>ぶちょう</rt></ruby>、もう<ruby>帰<rt>かえ</rt></ruby>ってもいいですよ</code> is flawless grammar and socially impossible - you have just given your boss permission to leave. When someone senior asks <em>you</em>, agree instead of authorising: <code>どうぞ</code>, <code>もちろんです</code>, <code>はい、<ruby>大丈夫<rt>だいじょうぶ</rt></ruby>です</code>.</p>
 </div>
 </div>
 <div class="slide" data-index="8">
   
   <div class="slide__content"><h2>～てもいい - it&#39;s okay to · Nuance &amp; register (cont.)</h2>
-<p><strong>In casual speech <code>も</code> disappears.</strong> <code>見(み)ていい？</code>, <code>入(はい)っていい？</code> - the shortened form is what you will actually hear between friends, and it is not sloppy, just spoken. <code>～たっていい</code> is another casual variant (<code>食(た)べたっていいよ</code>), slightly more argumentative in tone: &quot;you <em>could</em> eat it, you know.&quot;</p>
-<p><strong>Refusals almost never use <code>いけません</code>.</strong> Answering <code>写真(しゃしん)を撮(と)ってもいいですか</code> with <code>いいえ、いけません</code> sounds like a teacher scolding a child. Adults say <code>すみません、ちょっと…</code>, or state the rule impersonally: <code>館内(かんない)は撮影(さつえい)禁止(きんし)となっております</code>.</p>
-<p><strong>A second, quieter use: offering.</strong> <code>私(わたし)が行(い)ってもいいよ</code> is not permission at all - it means &quot;I&#39;m willing to go&quot; / &quot;I don&#39;t mind going.&quot; Said flatly it can sound grudging, as though you are doing everyone a favour, so it usually comes with <code>よ</code> and a warm tone.</p>
+<p><strong>In casual speech <code>も</code> disappears.</strong> <code><ruby>見<rt>み</rt></ruby>ていい？</code>, <code><ruby>入<rt>はい</rt></ruby>っていい？</code> - the shortened form is what you will actually hear between friends, and it is not sloppy, just spoken. <code>～たっていい</code> is another casual variant (<code><ruby>食<rt>た</rt></ruby>べたっていいよ</code>), slightly more argumentative in tone: &quot;you <em>could</em> eat it, you know.&quot;</p>
+<p><strong>Refusals almost never use <code>いけません</code>.</strong> Answering <code><ruby>写真<rt>しゃしん</rt></ruby>を<ruby>撮<rt>と</rt></ruby>ってもいいですか</code> with <code>いいえ、いけません</code> sounds like a teacher scolding a child. Adults say <code>すみません、ちょっと…</code>, or state the rule impersonally: <code><ruby>館内<rt>かんない</rt></ruby>は<ruby>撮影<rt>さつえい</rt></ruby><ruby>禁止<rt>きんし</rt></ruby>となっております</code>.</p>
 </div>
 </div>
 <div class="slide" data-index="9">
+  
+  <div class="slide__content"><h2>～てもいい - it&#39;s okay to · Nuance &amp; register (cont.)</h2>
+<p><strong>A second, quieter use: offering.</strong> <code><ruby>私<rt>わたし</rt></ruby>が<ruby>行<rt>い</rt></ruby>ってもいいよ</code> is not permission at all - it means &quot;I&#39;m willing to go&quot; / &quot;I don&#39;t mind going.&quot; Said flatly it can sound grudging, as though you are doing everyone a favour, so it usually comes with <code>よ</code> and a warm tone.</p>
+</div>
+</div>
+<div class="slide" data-index="10">
   
   <div class="slide__content"><h2>～てもいい - it&#39;s okay to · ～てもいい vs ～てはいけない</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>～てもいい</code> opens the door; <code>～てはいけない</code> shuts it. They are the two ends of the same axis, but they are not used with the same freedom: permission is offered constantly, prohibition mostly by rules and by adults talking to children.</p>
 </blockquote>
-<p>ここで写真(しゃしん)を<strong>撮(と)ってもいい</strong>ですか。<br><em>May I take photographs here?</em></p>
-<p>ここで写真(しゃしん)を<strong>撮(と)ってはいけません</strong>。<br><em>You must not take photographs here.</em></p>
+<p>ここで<ruby>写真<rt>しゃしん</rt></ruby>を**<ruby>撮<rt>と</rt></ruby>ってもいい**ですか。<br><em>May I take photographs here?</em></p>
+<p>ここで<ruby>写真<rt>しゃしん</rt></ruby>を**<ruby>撮<rt>と</rt></ruby>ってはいけません**。<br><em>You must not take photographs here.</em></p>
 <p>The second sentence is what a sign says, or what a guard says. Between equals it lands hard, which is why a refused request usually gets softened into an apology instead.</p>
 </div>
 </div>
-<div class="slide" data-index="10">
+<div class="slide" data-index="11">
   
   <div class="slide__content"><h2>～てもいい - it&#39;s okay to · ～てもいい vs ～なくてもいい</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>～てもいい</code> permits the <strong>doing</strong>. <code>～なくてもいい</code> permits the <strong>not doing</strong>. Both are permission; they release you from opposite things.</p>
 </blockquote>
-<p>全部(ぜんぶ)<strong>食(た)べてもいい</strong>ですよ。<br><em>You can eat all of it. (help yourself)</em></p>
-<p>全部(ぜんぶ)<strong>食(た)べなくてもいい</strong>ですよ。<br><em>You don&#39;t have to eat all of it. (stop whenever you like)</em></p>
+<p><ruby>全部<rt>ぜんぶ</rt></ruby><strong><ruby>食<rt>た</rt></ruby>べてもいい</strong>ですよ。<br><em>You can eat all of it. (help yourself)</em></p>
+<p><ruby>全部<rt>ぜんぶ</rt></ruby><strong><ruby>食<rt>た</rt></ruby>べなくてもいい</strong>ですよ。<br><em>You don&#39;t have to eat all of it. (stop whenever you like)</em></p>
 <p>These two complete the square with obligation: <code>～なくてはいけない</code> says you must, <code>～なくてもいい</code> says you needn&#39;t, <code>～てはいけない</code> says you mustn&#39;t, <code>～てもいい</code> says you may.</p>
 </div>
 </div>
-<div class="slide" data-index="11">
+<div class="slide" data-index="12">
   
   <div class="slide__content"><h2>～てもいい - it&#39;s okay to · ～てもいいですか vs ～てくれませんか</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>～てもいいですか</code> asks about <strong>my</strong> action. <code>～てくれませんか</code> asks <strong>you</strong> to act. English &quot;can I / can you&quot; blurs this; Japanese does not.</p>
 </blockquote>
-<p>窓(まど)を<strong>閉(し)めてもいい</strong>ですか。<br><em>May I close the window? (I will close it)</em></p>
-<p>窓(まど)を閉(し)めてくれませんか。<br><em>Could you close the window? (you close it)</em></p>
+<p><ruby>窓<rt>まど</rt></ruby>を**<ruby>閉<rt>し</rt></ruby>めてもいい**ですか。<br><em>May I close the window? (I will close it)</em></p>
+<p><ruby>窓<rt>まど</rt></ruby>を<ruby>閉<rt>し</rt></ruby>めてくれませんか。<br><em>Could you close the window? (you close it)</em></p>
 <p>Getting these backwards produces a genuinely confusing sentence, because the listener cannot tell whose hand is meant to move. If you are reaching for the handle yourself, it is always <code>～てもいいですか</code>.</p>
-</div>
-</div>
-<div class="slide" data-index="12">
-  
-  <div class="slide__content"><h2>～てもいい - it&#39;s okay to · Common mistakes</h2>
-<ul>
-<li><p>❌ この席(せき)に座(すわ)<strong>るもいい</strong>ですか。 → ✅ この席(せき)に座(すわ)<strong>ってもいい</strong>ですか。<br><em><code>もいい</code> attaches to the て-form, never to the dictionary form.</em></p>
-</li>
-<li><p>❌ ペンはこれ<strong>もいい</strong>ですか。 → ✅ ペンはこれ<strong>でもいい</strong>ですか。<br><em>Nouns and な-adjectives need <code>で</code> before <code>もいい</code>. Only verbs and い-adjectives supply their own て/くて.</em></p>
-</li>
-<li><p>❌ 部長(ぶちょう)、もう帰(かえ)ってもいいですよ。 → ✅ 部長(ぶちょう)、あとは私(わたし)がやりますので、どうぞお先(さき)に。<br><em>The grammar is fine and the direction is not. You do not grant a superior permission; you offer to take over.</em></p>
-</li>
-<li><p>❌ ここで写真(しゃしん)を撮(と)っても<strong>よくないです</strong>。 → ✅ ここで写真(しゃしん)を撮(と)っては<strong>いけません</strong>。<br><em>Negating <code>いい</code> does not produce prohibition. &quot;May not&quot; has its own pattern.</em></p>
-</li>
-</ul>
 </div>
 </div>
 <div class="slide" data-index="13">
   
-  <div class="slide__content"><h2>～てもいい - it&#39;s okay to · Practice 1</h2>
-<p><strong>1.</strong> すみません、この席(せき)に座(すわ)____いいですか。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-この席(せき)に座(すわ)<strong>ってもいい</strong>ですか。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>座(すわ)る</code> is an う-verb in る, so its て-form is <code>座(すわ)って</code>, and <code>もいい</code> attaches to that. Asking permission about your own action is exactly what this pattern is for.</p>
+  <div class="slide__content"><h2>～てもいい - it&#39;s okay to · Common mistakes</h2>
+<ul>
+<li><p>❌ この<ruby>席<rt>せき</rt></ruby>に<ruby>座<rt>すわ</rt></ruby><strong>るもいい</strong>ですか。 → ✅ この<ruby>席<rt>せき</rt></ruby>に<ruby>座<rt>すわ</rt></ruby><strong>ってもいい</strong>ですか。<br><em><code>もいい</code> attaches to the て-form, never to the dictionary form.</em></p>
+</li>
+<li><p>❌ ペンはこれ<strong>もいい</strong>ですか。 → ✅ ペンはこれ<strong>でもいい</strong>ですか。<br><em>Nouns and な-adjectives need <code>で</code> before <code>もいい</code>. Only verbs and い-adjectives supply their own て/くて.</em></p>
+</li>
+<li><p>❌ <ruby>部長<rt>ぶちょう</rt></ruby>、もう<ruby>帰<rt>かえ</rt></ruby>ってもいいですよ。 → ✅ <ruby>部長<rt>ぶちょう</rt></ruby>、あとは<ruby>私<rt>わたし</rt></ruby>がやりますので、どうぞお<ruby>先<rt>さき</rt></ruby>に。<br><em>The grammar is fine and the direction is not. You do not grant a superior permission; you offer to take over.</em></p>
+</li>
+<li><p>❌ ここで<ruby>写真<rt>しゃしん</rt></ruby>を<ruby>撮<rt>と</rt></ruby>っても<strong>よくないです</strong>。 → ✅ ここで<ruby>写真<rt>しゃしん</rt></ruby>を<ruby>撮<rt>と</rt></ruby>っては<strong>いけません</strong>。<br><em>Negating <code>いい</code> does not produce prohibition. &quot;May not&quot; has its own pattern.</em></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="14">
   
-  <div class="slide__content"><h2>～てもいい - it&#39;s okay to · Practice 2</h2>
-<p><strong>2.</strong> 明日(あした)は休(やす)みですから、（来(き)てもいい・来(こ)なくてもいい）ですよ。 - meaning &quot;you don&#39;t need to come&quot;.</p>
+  <div class="slide__content"><h2>～てもいい - it&#39;s okay to · Practice 1</h2>
+<p><strong>1.</strong> すみません、この<ruby>席<rt>せき</rt></ruby>に<ruby>座<rt>すわ</rt></ruby>____いいですか。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-明日(あした)は休(やす)みですから、<strong>来(こ)なくてもいい</strong>ですよ。</p>
+この<ruby>席<rt>せき</rt></ruby>に<ruby>座<rt>すわ</rt></ruby><strong>ってもいい</strong>ですか。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>～てもいい</code> would give them permission to come, which is the opposite of the intended message. Releasing someone from an obligation needs the negative stem: <code>来(く)る → 来(こ)ない → 来(こ)なくてもいい</code>. Note the reading change - こ, not き.</p>
+<code><ruby>座<rt>すわ</rt></ruby>る</code> is an う-verb in る, so its て-form is <code><ruby>座<rt>すわ</rt></ruby>って</code>, and <code>もいい</code> attaches to that. Asking permission about your own action is exactly what this pattern is for.</p>
 </div>
 </div>
 <div class="slide" data-index="15">
   
-  <div class="slide__content"><h2>～てもいい - it&#39;s okay to · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese: &quot;Can I ask one more question?&quot;</p>
+  <div class="slide__content"><h2>～てもいい - it&#39;s okay to · Practice 2</h2>
+<p><strong>2.</strong> <ruby>明日<rt>あした</rt></ruby>は<ruby>休<rt>やす</rt></ruby>みですから、（<ruby>来<rt>き</rt></ruby>てもいい・<ruby>来<rt>こ</rt></ruby>なくてもいい）ですよ。 - meaning &quot;you don&#39;t need to come&quot;.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-もう一(ひと)つ<strong>質問(しつもん)してもいい</strong>ですか。 （politer: もう一(ひと)つ質問(しつもん)してもよろしいでしょうか。）</p>
+<ruby>明日<rt>あした</rt></ruby>は<ruby>休<rt>やす</rt></ruby>みですから、<strong><ruby>来<rt>こ</rt></ruby>なくてもいい</strong>ですよ。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The action is yours, so permission is the right frame rather than a request. In a meeting or to a customer, stretch it to <code>よろしいでしょうか</code> - the longer ending is what carries the deference.</p>
+<code>～てもいい</code> would give them permission to come, which is the opposite of the intended message. Releasing someone from an obligation needs the negative stem: <code><ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby>ない → <ruby>来<rt>こ</rt></ruby>なくてもいい</code>. Note the reading change - こ, not き.</p>
 </div>
 </div>
 <div class="slide" data-index="16">
   
-  <div class="slide__content"><h2>～てもいい - it&#39;s okay to · Practice 4</h2>
-<p><strong>4.</strong> A student says to their teacher: 先生(せんせい)、もう帰(かえ)ってもいいですよ。 They mean &quot;may I go home now?&quot; Fix it.</p>
+  <div class="slide__content"><h2>～てもいい - it&#39;s okay to · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese: &quot;Can I ask one more question?&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 先生(せんせい)、そろそろ帰(かえ)ってもよろしいでしょうか。</p>
+もう<ruby>一<rt>ひと</rt></ruby>つ**<ruby>質問<rt>しつもん</rt></ruby>してもいい**ですか。 （politer: もう<ruby>一<rt>ひと</rt></ruby>つ<ruby>質問<rt>しつもん</rt></ruby>してもよろしいでしょうか。）</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Two problems. <code>よ</code> turns the sentence into a statement that <em>grants</em> permission, so the student has dismissed the teacher. And a plain question needs to be a question: <code>～てもいいですか</code>, or upward, <code>～てもよろしいでしょうか</code>.</p>
+The action is yours, so permission is the right frame rather than a request. In a meeting or to a customer, stretch it to <code>よろしいでしょうか</code> - the longer ending is what carries the deference.</p>
 </div>
 </div>
 <div class="slide" data-index="17">
   
+  <div class="slide__content"><h2>～てもいい - it&#39;s okay to · Practice 4</h2>
+<p><strong>4.</strong> A student says to their teacher: <ruby>先生<rt>せんせい</rt></ruby>、もう<ruby>帰<rt>かえ</rt></ruby>ってもいいですよ。 They mean &quot;may I go home now?&quot; Fix it.</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ <ruby>先生<rt>せんせい</rt></ruby>、そろそろ<ruby>帰<rt>かえ</rt></ruby>ってもよろしいでしょうか。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+Two problems. <code>よ</code> turns the sentence into a statement that <em>grants</em> permission, so the student has dismissed the teacher. And a plain question needs to be a question: <code>～てもいいですか</code>, or upward, <code>～てもよろしいでしょうか</code>.</p>
+</div>
+</div>
+<div class="slide" data-index="18">
+  
   <div class="slide__content"><h2>～てもいい - it&#39;s okay to · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 明日(あした)は来(こ)なくてもいいです。 (b) 明日(あした)は来(こ)ないでください。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>明日<rt>あした</rt></ruby>は<ruby>来<rt>こ</rt></ruby>なくてもいいです。 (b) <ruby>明日<rt>あした</rt></ruby>は<ruby>来<rt>こ</rt></ruby>ないでください。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) releases the listener from an obligation: coming is now optional, and if they turn up anyway nothing is wrong.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (b) asks them not to come. It is a request with a reason behind it - the office is closed, the room is being used - and turning up anyway would go against what was asked. (a) is generous; (b) is restrictive.</p>
 </div>
 </div>
-<div class="slide" data-index="18">
+<div class="slide" data-index="19">
   
   <div class="slide__content"><h1>～てはいけない - must not</h1>
 <p><strong>Meaning</strong> · you must not do it; doing it is not allowed</p>
 <p><code>～てはいけない</code> is prohibition. Broken apart it says &quot;as for doing it - that won&#39;t do&quot;: <code>は</code> puts the action up as a topic and <code>いけない</code> (literally &quot;it cannot go&quot;) passes judgement on it. Because the judgement comes from a rule or from someone with authority, the pattern always sounds like it is being handed down from above.</p>
 </div>
 </div>
-<div class="slide" data-index="19">
+<div class="slide" data-index="20">
   
   <div class="slide__content"><h2>～てはいけない - must not · Formation</h2>
 <table>
@@ -2853,17 +2874,17 @@ Two problems. <code>よ</code> turns the sentence into a statement that <em>gran
 <tbody><tr>
 <td>Verb</td>
 <td>て-form + はいけない</td>
-<td>入(はい)る → 入(はい)ってはいけない</td>
+<td><ruby>入<rt>はい</rt></ruby>る → <ruby>入<rt>はい</rt></ruby>ってはいけない</td>
 </tr>
 <tr>
 <td>い-adjective</td>
 <td>drop い + くて + はいけない</td>
-<td>遅(おそ)い → 遅(おそ)くてはいけない</td>
+<td><ruby>遅<rt>おそ</rt></ruby>い → <ruby>遅<rt>おそ</rt></ruby>くてはいけない</td>
 </tr>
 <tr>
 <td>な-adjective</td>
 <td>drop だ + で + はいけない</td>
-<td>不便(ふべん)だ → 不便(ふべん)ではいけない</td>
+<td><ruby>不便<rt>ふべん</rt></ruby>だ → <ruby>不便<rt>ふべん</rt></ruby>ではいけない</td>
 </tr>
 <tr>
 <td>Noun</td>
@@ -2873,180 +2894,191 @@ Two problems. <code>よ</code> turns the sentence into a statement that <em>gran
 <tr>
 <td>Polite</td>
 <td>いけない → いけません</td>
-<td>入(はい)ってはいけません</td>
+<td><ruby>入<rt>はい</rt></ruby>ってはいけません</td>
 </tr>
 <tr>
 <td>Casual contraction</td>
 <td>ては → ちゃ</td>
-<td>入(はい)っちゃいけない</td>
+<td><ruby>入<rt>はい</rt></ruby>っちゃいけない</td>
 </tr>
 <tr>
 <td>Casual contraction (で-form)</td>
 <td>では → じゃ</td>
-<td>読(よ)んじゃいけない</td>
+<td><ruby>読<rt>よ</rt></ruby>んじゃいけない</td>
 </tr>
 <tr>
 <td>Written, rules and law</td>
 <td>いけない → ならない</td>
-<td>入(はい)ってはならない</td>
+<td><ruby>入<rt>はい</rt></ruby>ってはならない</td>
 </tr>
 <tr>
 <td>Blunt spoken</td>
 <td>いけない → だめ</td>
-<td>入(はい)っちゃだめ</td>
+<td><ruby>入<rt>はい</rt></ruby>っちゃだめ</td>
 </tr>
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="20">
+<div class="slide" data-index="21">
   
   <div class="slide__content"><h2>～てはいけない - must not · Formation (cont.)</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - the て/で of the verb decides the contraction. <code>書(か)いて</code> → <code>書(か)いちゃ</code>, but <code>読(よ)んで</code> → <code>読(よ)んじゃ</code>. There is no ❌<code>読(よ)んでちゃ</code>.</p>
+<p><strong>Rule of thumb</strong> - the て/で of the verb decides the contraction. <code><ruby>書<rt>か</rt></ruby>いて</code> → <code><ruby>書<rt>か</rt></ruby>いちゃ</code>, but <code><ruby>読<rt>よ</rt></ruby>んで</code> → <code><ruby>読<rt>よ</rt></ruby>んじゃ</code>. There is no ❌<code><ruby>読<rt>よ</rt></ruby>んでちゃ</code>.</p>
 </blockquote>
-</div>
-</div>
-<div class="slide" data-index="21">
-  
-  <div class="slide__content"><h2>～てはいけない - must not · Examples</h2>
-<p>ここでたばこを<strong>吸(す)ってはいけません</strong>。<br><em>You must not smoke here.</em></p>
-<p>授業中(じゅぎょうちゅう)にスマホを<strong>見(み)てはいけません</strong>。<br><em>You mustn&#39;t look at your phone during class.</em></p>
-<p>そんなことを<strong>言(い)っちゃいけない</strong>よ。<br><em>You shouldn&#39;t say things like that.</em></p>
-<p>芝生(しばふ)に<strong>入(はい)ってはいけません</strong>。<br><em>Keep off the grass.</em></p>
-<p>日本(にほん)では、二十歳(はたち)になるまでお酒(さけ)を<strong>飲(の)んではいけません</strong>。<br><em>In Japan you may not drink alcohol until you turn twenty.</em></p>
 </div>
 </div>
 <div class="slide" data-index="22">
   
-  <div class="slide__content"><h2>～てはいけない - must not · Examples (cont.)</h2>
-<p>試験中(しけんちゅう)は辞書(じしょ)を<strong>使(つか)ってはいけません</strong>。机(つくえ)の下(した)に置(お)いてください。<br><em>You may not use a dictionary during the exam - please put it under your desk.</em></p>
-<p>約束(やくそく)を<strong>忘(わす)れてはいけない</strong>ので、カレンダーに書(か)いておきました。<br><em>It wouldn&#39;t do to forget the appointment, so I wrote it on the calendar.</em></p>
-<p>この建物(たてもの)の中(なか)で大(おお)きな声(こえ)を<strong>出(だ)してはならない</strong>。<br><em>No loud voices are permitted inside this building.</em></p>
+  <div class="slide__content"><h2>～てはいけない - must not · Examples</h2>
+<p>ここでたばこを**<ruby>吸<rt>す</rt></ruby>ってはいけません**。<br><em>You must not smoke here.</em></p>
+<p><ruby>授業中<rt>じゅぎょうちゅう</rt></ruby>にスマホを**<ruby>見<rt>み</rt></ruby>てはいけません**。<br><em>You mustn&#39;t look at your phone during class.</em></p>
+<p>そんなことを**<ruby>言<rt>い</rt></ruby>っちゃいけない**よ。<br><em>You shouldn&#39;t say things like that.</em></p>
+<p><ruby>芝生<rt>しばふ</rt></ruby>に**<ruby>入<rt>はい</rt></ruby>ってはいけません**。<br><em>Keep off the grass.</em></p>
 </div>
 </div>
 <div class="slide" data-index="23">
   
-  <div class="slide__content"><h2>～てはいけない - must not · Nuance &amp; register</h2>
-<p><code>～てはいけない</code> is <strong>strong and top-down</strong>. It is the voice of a rule, a teacher, a parent, a sign, a manual. That is not a matter of politeness level - putting it in <code>ません</code> form makes it polite prohibition, not gentle prohibition.</p>
-<p><strong>Who says it to whom.</strong> Adults say it to children, teachers to students, staff to visitors. Between colleagues and friends it is jarring, and upward it is unthinkable. If you need to stop a superior or a customer doing something, the language goes impersonal and passive-aggressive on purpose: <code>申(もう)し訳(わけ)ございませんが、こちらは禁煙(きんえん)となっております</code>, or <code>ご遠慮(えんりょ)ください</code> (&quot;please refrain&quot;). Nobody is <em>told</em> anything; a rule simply exists.</p>
+  <div class="slide__content"><h2>～てはいけない - must not · Examples (cont.)</h2>
+<p><ruby>日本<rt>にほん</rt></ruby>では、<ruby>二十歳<rt>はたち</rt></ruby>になるまでお<ruby>酒<rt>さけ</rt></ruby>を**<ruby>飲<rt>の</rt></ruby>んではいけません**。<br><em>In Japan you may not drink alcohol until you turn twenty.</em></p>
+<p><ruby>試験中<rt>しけんちゅう</rt></ruby>は<ruby>辞書<rt>じしょ</rt></ruby>を**<ruby>使<rt>つか</rt></ruby>ってはいけません**。<ruby>机<rt>つくえ</rt></ruby>の<ruby>下<rt>した</rt></ruby>に<ruby>置<rt>お</rt></ruby>いてください。<br><em>You may not use a dictionary during the exam - please put it under your desk.</em></p>
+<p><ruby>約束<rt>やくそく</rt></ruby>を**<ruby>忘<rt>わす</rt></ruby>れてはいけない**ので、カレンダーに<ruby>書<rt>か</rt></ruby>いておきました。<br><em>It wouldn&#39;t do to forget the appointment, so I wrote it on the calendar.</em></p>
+<p>この<ruby>建物<rt>たてもの</rt></ruby>の<ruby>中<rt>なか</rt></ruby>で<ruby>大<rt>おお</rt></ruby>きな<ruby>声<rt>こえ</rt></ruby>を**<ruby>出<rt>だ</rt></ruby>してはならない**。<br><em>No loud voices are permitted inside this building.</em></p>
 </div>
 </div>
 <div class="slide" data-index="24">
   
-  <div class="slide__content"><h2>～てはいけない - must not · Nuance &amp; register (cont.)</h2>
-<p><strong>Contractions belong to speech.</strong> <code>走(はし)っちゃだめ</code> is what a parent actually shouts in a car park; <code>～てはいけません</code> is what the sign on the wall says. <code>ちゃ</code> and <code>じゃ</code> are casual but not rude - they are the everyday shape of this pattern among family and friends. <code>だめ</code> for <code>いけない</code> is blunter still and very common with children.</p>
-<p><strong><code>～てはならない</code> is written.</strong> You meet it in laws, contracts, school rules and formal notices, rarely in conversation. <code>いけない</code> covers the individual case; <code>ならない</code> states a standing prohibition.</p>
-<p><strong>It can point at yourself.</strong> <code>遅(おく)れてはいけないので、早(はや)めに出(で)ます</code> - &quot;since it would be bad to be late, I&#39;ll leave early.&quot; Here nobody is forbidding anything; the speaker is judging an outcome as unacceptable. This use is common and often missed by learners who only learn the pattern as &quot;must not&quot;.</p>
+  <div class="slide__content"><h2>～てはいけない - must not · Nuance &amp; register</h2>
+<p><code>～てはいけない</code> is <strong>strong and top-down</strong>. It is the voice of a rule, a teacher, a parent, a sign, a manual. That is not a matter of politeness level - putting it in <code>ません</code> form makes it polite prohibition, not gentle prohibition.</p>
+<p><strong>Who says it to whom.</strong> Adults say it to children, teachers to students, staff to visitors. Between colleagues and friends it is jarring, and upward it is unthinkable. If you need to stop a superior or a customer doing something, the language goes impersonal and passive-aggressive on purpose: <code><ruby>申<rt>もう</rt></ruby>し<ruby>訳<rt>わけ</rt></ruby>ございませんが、こちらは<ruby>禁煙<rt>きんえん</rt></ruby>となっております</code>, or <code>ご<ruby>遠慮<rt>えんりょ</rt></ruby>ください</code> (&quot;please refrain&quot;). Nobody is <em>told</em> anything; a rule simply exists.</p>
 </div>
 </div>
 <div class="slide" data-index="25">
+  
+  <div class="slide__content"><h2>～てはいけない - must not · Nuance &amp; register (cont.)</h2>
+<p><strong>Contractions belong to speech.</strong> <code><ruby>走<rt>はし</rt></ruby>っちゃだめ</code> is what a parent actually shouts in a car park; <code>～てはいけません</code> is what the sign on the wall says. <code>ちゃ</code> and <code>じゃ</code> are casual but not rude - they are the everyday shape of this pattern among family and friends. <code>だめ</code> for <code>いけない</code> is blunter still and very common with children.</p>
+<p><strong><code>～てはならない</code> is written.</strong> You meet it in laws, contracts, school rules and formal notices, rarely in conversation. <code>いけない</code> covers the individual case; <code>ならない</code> states a standing prohibition.</p>
+</div>
+</div>
+<div class="slide" data-index="26">
+  
+  <div class="slide__content"><h2>～てはいけない - must not · Nuance &amp; register (cont.)</h2>
+<p><strong>It can point at yourself.</strong> <code><ruby>遅<rt>おく</rt></ruby>れてはいけないので、<ruby>早<rt>はや</rt></ruby>めに<ruby>出<rt>で</rt></ruby>ます</code> - &quot;since it would be bad to be late, I&#39;ll leave early.&quot; Here nobody is forbidding anything; the speaker is judging an outcome as unacceptable. This use is common and often missed by learners who only learn the pattern as &quot;must not&quot;.</p>
+</div>
+</div>
+<div class="slide" data-index="27">
   
   <div class="slide__content"><h2>～てはいけない - must not · ～てはいけない vs ～ないでください</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>～てはいけない</code> states a <strong>rule</strong>. <code>～ないでください</code> makes a <strong>request</strong>. One says the thing is forbidden; the other says please don&#39;t.</p>
 </blockquote>
-<p>ここに車(くるま)を<strong>止(と)めてはいけません</strong>。<br><em>You may not park here.</em></p>
-<p>ここに車(くるま)を止(と)めないでください。<br><em>Please don&#39;t park here.</em></p>
+<p>ここに<ruby>車<rt>くるま</rt></ruby>を**<ruby>止<rt>と</rt></ruby>めてはいけません**。<br><em>You may not park here.</em></p>
+<p>ここに<ruby>車<rt>くるま</rt></ruby>を<ruby>止<rt>と</rt></ruby>めないでください。<br><em>Please don&#39;t park here.</em></p>
 <p>The first cites an authority the speaker did not invent; the second is the speaker asking. In everyday interaction - a neighbour, a colleague, a stranger - <code>～ないでください</code> is almost always the right choice, and learners under-use it badly because textbooks teach <code>～てはいけない</code> first.</p>
 </div>
 </div>
-<div class="slide" data-index="26">
+<div class="slide" data-index="28">
   
   <div class="slide__content"><h2>～てはいけない - must not · ～てはいけない vs ～な</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - same content, different force. <code>～てはいけない</code> is a rule delivered in words. <code>～な</code> is a bark.</p>
 </blockquote>
-<p>廊下(ろうか)を<strong>走(はし)ってはいけません</strong>。<br><em>You mustn&#39;t run in the corridor.</em></p>
-<p>廊下(ろうか)を<strong>走(はし)るな</strong>。<br><em>Don&#39;t run in the corridor!</em></p>
+<p><ruby>廊下<rt>ろうか</rt></ruby>を**<ruby>走<rt>はし</rt></ruby>ってはいけません**。<br><em>You mustn&#39;t run in the corridor.</em></p>
+<p><ruby>廊下<rt>ろうか</rt></ruby>を**<ruby>走<rt>はし</rt></ruby>るな**。<br><em>Don&#39;t run in the corridor!</em></p>
 <p>The bare <code>な</code> prohibitive is abrupt and male-coded, at home in orders, warnings and signs. <code>～てはいけません</code> is the neutral written and spoken standard, and the form you should default to until you have a very good ear for register.</p>
 </div>
 </div>
-<div class="slide" data-index="27">
+<div class="slide" data-index="29">
   
   <div class="slide__content"><h2>～てはいけない - must not · ～てはいけない vs ～なくてはいけない</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>～ては</code> forbids; <code>～なくては</code> compels. One <code>なく</code> flips the sentence to its opposite, and it is easy to lose in a long sentence.</p>
 </blockquote>
-<p>この薬(くすり)を<strong>飲(の)んではいけません</strong>。<br><em>You must not take this medicine.</em></p>
-<p>この薬(くすり)を<strong>飲(の)まなくてはいけません</strong>。<br><em>You must take this medicine.</em></p>
+<p>この<ruby>薬<rt>くすり</rt></ruby>を**<ruby>飲<rt>の</rt></ruby>んではいけません**。<br><em>You must not take this medicine.</em></p>
+<p>この<ruby>薬<rt>くすり</rt></ruby>を**<ruby>飲<rt>の</rt></ruby>まなくてはいけません**。<br><em>You must take this medicine.</em></p>
 <p>Both end in <code>いけません</code>, so the ending tells you nothing. Read the middle: a て-form means prohibition, a <code>なくて</code> means obligation. Together with <code>～てもいい</code> (may) and <code>～なくてもいい</code> (needn&#39;t) these four cover the whole permission grid.</p>
-</div>
-</div>
-<div class="slide" data-index="28">
-  
-  <div class="slide__content"><h2>～てはいけない - must not · Common mistakes</h2>
-<ul>
-<li><p>❌ ここに入(はい)<strong>るはいけません</strong>。 → ✅ ここに入(はい)<strong>ってはいけません</strong>。<br><em><code>はいけない</code> attaches to the て-form. The dictionary form never takes it.</em></p>
-</li>
-<li><p>❌ 読(よ)ん<strong>でちゃ</strong>いけない。 → ✅ 読(よ)ん<strong>じゃ</strong>いけない。<br><em>Verbs whose て-form is <code>で</code> contract to <code>じゃ</code>, not <code>ちゃ</code>.</em></p>
-</li>
-<li><p>❌ 薬(くすり)を飲(の)ん<strong>では</strong>いけませんよ。（intending &quot;you have to take your medicine&quot;）→ ✅ 薬(くすり)を飲(の)ま<strong>なくては</strong>いけませんよ。<br><em>Prohibition and obligation differ by one <code>なく</code>. This mix-up can be dangerous, not merely wrong.</em></p>
-</li>
-<li><p>❌ 部長(ぶちょう)、ここでたばこを吸(す)ってはいけません。 → ✅ 部長(ぶちょう)、こちらは禁煙(きんえん)となっておりますので…<br><em>Grammatically fine, socially impossible. Upward, you point at the rule rather than at the person.</em></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="slide" data-index="29">
-  
-  <div class="slide__content"><h2>～てはいけない - must not · Practice 1</h2>
-<p><strong>1.</strong> 美術館(びじゅつかん)の中(なか)で写真(しゃしん)を撮(と)____いけません。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-写真(しゃしん)を撮(と)<strong>っては</strong>いけません。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>撮(と)る</code> is an う-verb, so the て-form is <code>撮(と)って</code>, and prohibition adds <code>は</code>. A museum notice is exactly the top-down context this pattern is built for.</p>
 </div>
 </div>
 <div class="slide" data-index="30">
   
-  <div class="slide__content"><h2>～てはいけない - must not · Practice 2</h2>
-<p><strong>2.</strong> 明日(あした)までにレポートを出(だ)さ（なくては・ては）いけません。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-レポートを出(だ)さ<strong>なくては</strong>いけません。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The sentence means you have to submit it, which is obligation, so it needs the negative stem plus <code>なくては</code>. <code>出(だ)してはいけません</code> would forbid submitting the report - the exact opposite of a deadline.</p>
+  <div class="slide__content"><h2>～てはいけない - must not · Common mistakes</h2>
+<ul>
+<li><p>❌ ここに<ruby>入<rt>はい</rt></ruby><strong>るはいけません</strong>。 → ✅ ここに<ruby>入<rt>はい</rt></ruby><strong>ってはいけません</strong>。<br><em><code>はいけない</code> attaches to the て-form. The dictionary form never takes it.</em></p>
+</li>
+<li><p>❌ <ruby>読<rt>よ</rt></ruby>ん<strong>でちゃ</strong>いけない。 → ✅ <ruby>読<rt>よ</rt></ruby>ん<strong>じゃ</strong>いけない。<br><em>Verbs whose て-form is <code>で</code> contract to <code>じゃ</code>, not <code>ちゃ</code>.</em></p>
+</li>
+<li><p>❌ <ruby>薬<rt>くすり</rt></ruby>を<ruby>飲<rt>の</rt></ruby>ん<strong>では</strong>いけませんよ。（intending &quot;you have to take your medicine&quot;）→ ✅ <ruby>薬<rt>くすり</rt></ruby>を<ruby>飲<rt>の</rt></ruby>ま<strong>なくては</strong>いけませんよ。<br><em>Prohibition and obligation differ by one <code>なく</code>. This mix-up can be dangerous, not merely wrong.</em></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="31">
   
-  <div class="slide__content"><h2>～てはいけない - must not · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese: &quot;You mustn&#39;t open that door.&quot;</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-そのドアを<strong>開(あ)けてはいけません</strong>。 （casual: そのドア、開(あ)けちゃだめだよ。）</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>開(あ)ける</code> is a る-verb, so the て-form is <code>開(あ)けて</code>. Choose the polite form for a notice or a stranger, and the <code>ちゃだめ</code> contraction only with people you would speak casually to anyway.</p>
+  <div class="slide__content"><h2>～てはいけない - must not · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ <ruby>部長<rt>ぶちょう</rt></ruby>、ここでたばこを<ruby>吸<rt>す</rt></ruby>ってはいけません。 → ✅ <ruby>部長<rt>ぶちょう</rt></ruby>、こちらは<ruby>禁煙<rt>きんえん</rt></ruby>となっておりますので…<br><em>Grammatically fine, socially impossible. Upward, you point at the rule rather than at the person.</em></li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="32">
   
-  <div class="slide__content"><h2>～てはいけない - must not · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the problem: 課長(かちょう)、その書類(しょるい)をここに置(お)いてはいけませんよ。</p>
+  <div class="slide__content"><h2>～てはいけない - must not · Practice 1</h2>
+<p><strong>1.</strong> <ruby>美術館<rt>びじゅつかん</rt></ruby>の<ruby>中<rt>なか</rt></ruby>で<ruby>写真<rt>しゃしん</rt></ruby>を<ruby>撮<rt>と</rt></ruby>____いけません。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The grammar is correct; the direction is wrong.</p>
+<ruby>写真<rt>しゃしん</rt></ruby>を<ruby>撮<rt>と</rt></ruby><strong>っては</strong>いけません。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 課長(かちょう)、申(もう)し訳(わけ)ありません、こちらの書類(しょるい)は棚(たな)に戻(もど)すことになっておりまして…</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>～てはいけません</code> forbids, and you do not forbid your section chief anything. Naming the rule impersonally - <code>～ことになっております</code> - lets the regulation do the work instead of you.</p>
+<code><ruby>撮<rt>と</rt></ruby>る</code> is an う-verb, so the て-form is <code><ruby>撮<rt>と</rt></ruby>って</code>, and prohibition adds <code>は</code>. A museum notice is exactly the top-down context this pattern is built for.</p>
 </div>
 </div>
 <div class="slide" data-index="33">
   
+  <div class="slide__content"><h2>～てはいけない - must not · Practice 2</h2>
+<p><strong>2.</strong> <ruby>明日<rt>あした</rt></ruby>までにレポートを<ruby>出<rt>だ</rt></ruby>さ（なくては・ては）いけません。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+レポートを<ruby>出<rt>だ</rt></ruby>さ<strong>なくては</strong>いけません。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The sentence means you have to submit it, which is obligation, so it needs the negative stem plus <code>なくては</code>. <code><ruby>出<rt>だ</rt></ruby>してはいけません</code> would forbid submitting the report - the exact opposite of a deadline.</p>
+</div>
+</div>
+<div class="slide" data-index="34">
+  
+  <div class="slide__content"><h2>～てはいけない - must not · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese: &quot;You mustn&#39;t open that door.&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+そのドアを**<ruby>開<rt>あ</rt></ruby>けてはいけません**。 （casual: そのドア、<ruby>開<rt>あ</rt></ruby>けちゃだめだよ。）</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code><ruby>開<rt>あ</rt></ruby>ける</code> is a る-verb, so the て-form is <code><ruby>開<rt>あ</rt></ruby>けて</code>. Choose the polite form for a notice or a stranger, and the <code>ちゃだめ</code> contraction only with people you would speak casually to anyway.</p>
+</div>
+</div>
+<div class="slide" data-index="35">
+  
+  <div class="slide__content"><h2>～てはいけない - must not · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the problem: <ruby>課長<rt>かちょう</rt></ruby>、その<ruby>書類<rt>しょるい</rt></ruby>をここに<ruby>置<rt>お</rt></ruby>いてはいけませんよ。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The grammar is correct; the direction is wrong.</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ <ruby>課長<rt>かちょう</rt></ruby>、<ruby>申<rt>もう</rt></ruby>し<ruby>訳<rt>わけ</rt></ruby>ありません、こちらの<ruby>書類<rt>しょるい</rt></ruby>は<ruby>棚<rt>たな</rt></ruby>に<ruby>戻<rt>もど</rt></ruby>すことになっておりまして…</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code>～てはいけません</code> forbids, and you do not forbid your section chief anything. Naming the rule impersonally - <code>～ことになっております</code> - lets the regulation do the work instead of you.</p>
+</div>
+</div>
+<div class="slide" data-index="36">
+  
   <div class="slide__content"><h2>～てはいけない - must not · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) ここで遊(あそ)んではいけません。 (b) ここで遊(あそ)ばないでください。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) ここで<ruby>遊<rt>あそ</rt></ruby>んではいけません。 (b) ここで<ruby>遊<rt>あそ</rt></ruby>ばないでください。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) announces a prohibition that exists independently of the speaker: this is a place where playing is not permitted. It is what a park sign or a caretaker says.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (b) is the speaker&#39;s own request, and leaves room for reasons and for goodwill - a neighbour whose flowers keep getting trampled would say this. (a) invokes authority; (b) asks a favour.</p>
 </div>
 </div>
-<div class="slide" data-index="34">
+<div class="slide" data-index="37">
   
   <div class="slide__content"><h1>な - don&#39;t (blunt prohibitive)</h1>
 <p><strong>Meaning</strong> · don&#39;t do it - a flat, unsoftened order not to do something</p>
 <p><code>な</code> is the shortest prohibition in the language: one syllable stuck onto the dictionary form. It carries no politeness, no reason and no room for discussion, which is exactly why it survives in the places where speed matters - warnings, orders, sports, signs, and the mouths of angry fathers in films.</p>
 </div>
 </div>
-<div class="slide" data-index="35">
+<div class="slide" data-index="38">
   
   <div class="slide__content"><h2>な - don&#39;t (blunt prohibitive) · Formation</h2>
 <p><code>な</code> attaches to the <strong>dictionary form</strong>, and to nothing else. It does not conjugate and it cannot be made polite.</p>
@@ -3061,193 +3093,214 @@ The grammar is correct; the direction is wrong.</p>
 <tbody><tr>
 <td>う-verb</td>
 <td>dictionary form + な</td>
-<td>行(い)く → 行(い)くな</td>
+<td><ruby>行<rt>い</rt></ruby>く → <ruby>行<rt>い</rt></ruby>くな</td>
 </tr>
 <tr>
 <td>る-verb</td>
 <td>dictionary form + な</td>
-<td>見(み)る → 見(み)るな</td>
+<td><ruby>見<rt>み</rt></ruby>る → <ruby>見<rt>み</rt></ruby>るな</td>
 </tr>
 <tr>
 <td>する</td>
 <td>する + な</td>
-<td>心配(しんぱい)する → 心配(しんぱい)するな</td>
+<td><ruby>心配<rt>しんぱい</rt></ruby>する → <ruby>心配<rt>しんぱい</rt></ruby>するな</td>
 </tr>
 <tr>
-<td>来(く)る</td>
+<td><ruby>来<rt>く</rt></ruby>る</td>
 <td>くる + な</td>
-<td>来(く)る → 来(く)るな</td>
+<td><ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>く</rt></ruby>るな</td>
 </tr>
 <tr>
 <td>Softened among friends</td>
 <td>+ よ</td>
-<td>言(い)う → 言(い)うなよ</td>
+<td><ruby>言<rt>い</rt></ruby>う → <ruby>言<rt>い</rt></ruby>うなよ</td>
 </tr>
 <tr>
 <td>Shouted / on a sign</td>
 <td>+ ！</td>
-<td>触(さわ)る → 触(さわ)るな！</td>
+<td><ruby>触<rt>さわ</rt></ruby>る → <ruby>触<rt>さわ</rt></ruby>るな！</td>
 </tr>
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="36">
+<div class="slide" data-index="39">
   
   <div class="slide__content"><h2>な - don&#39;t (blunt prohibitive) · Formation (cont.)</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - dictionary form, always. There is no ❌<code>行(い)かないな</code> and no ❌<code>行(い)きな</code> meaning &quot;don&#39;t go&quot; - the second is a <em>positive</em> command, and the trap is covered below.</p>
+<p><strong>Rule of thumb</strong> - dictionary form, always. There is no ❌<code><ruby>行<rt>い</rt></ruby>かないな</code> and no ❌<code><ruby>行<rt>い</rt></ruby>きな</code> meaning &quot;don&#39;t go&quot; - the second is a <em>positive</em> command, and the trap is covered below.</p>
 </blockquote>
-<p>い-adjectives, な-adjectives and nouns cannot take prohibitive <code>な</code> at all. When you see <code>な</code> after <code>寒(さむ)い</code> or <code>静(しず)かだ</code>, it is a different word entirely.</p>
-</div>
-</div>
-<div class="slide" data-index="37">
-  
-  <div class="slide__content"><h2>な - don&#39;t (blunt prohibitive) · Examples</h2>
-<p>それに<strong>触(さわ)るな</strong>。<br><em>Don&#39;t touch that.</em></p>
-<p>心配(しんぱい)<strong>するな</strong>。<br><em>Don&#39;t worry.</em></p>
-<p>そんなに<strong>急(いそ)ぐな</strong>よ。<br><em>Don&#39;t rush so much.</em></p>
-<p>危(あぶ)ない。中(なか)に<strong>入(はい)るな</strong>。<br><em>Danger. Do not enter.</em></p>
-<p>冗談(じょうだん)だよ。そんなに<strong>怒(おこ)るな</strong>よ。<br><em>I&#39;m joking. Don&#39;t get so angry.</em></p>
-</div>
-</div>
-<div class="slide" data-index="38">
-  
-  <div class="slide__content"><h2>な - don&#39;t (blunt prohibitive) · Examples (cont.)</h2>
-<p>試合(しあい)の最後(さいご)まで<strong>あきらめるな</strong>。<br><em>Don&#39;t give up until the match is over.</em></p>
-<p>まだ<strong>来(く)るな</strong>。部屋(へや)の準備(じゅんび)ができていないんだ。<br><em>Don&#39;t come in yet - the room isn&#39;t ready.</em></p>
-<p>この話(はなし)は誰(だれ)にも<strong>言(い)うな</strong>よ。来週(らいしゅう)発表(はっぴょう)するから。<br><em>Don&#39;t tell anyone about this - we&#39;re announcing it next week.</em></p>
-</div>
-</div>
-<div class="slide" data-index="39">
-  
-  <div class="slide__content"><h2>な - don&#39;t (blunt prohibitive) · Nuance &amp; register</h2>
-<p>This is the one N5 pattern where register is not a footnote but the entire point.</p>
-<p><strong>It is male-coded and harsh.</strong> Prohibitive <code>な</code> belongs to men&#39;s speech, especially older men, and to relationships with a clear hierarchy: a coach to a player, a father to a child, a boss to a subordinate he is annoyed with, one close male friend to another. A woman using it sounds deliberately rough, which is sometimes exactly the intended effect and never a neutral choice. Learners should be able to <strong>recognise</strong> <code>な</code> everywhere and should be very cautious about <strong>producing</strong> it.</p>
-<p><strong>Where you will actually meet it.</strong> Signs and warnings (<code>入(はい)るな</code>, <code>押(お)すな</code>), manga and film dialogue, song lyrics, sports slogans (<code>負(ま)けるな</code>, <code>あきらめるな</code>), and advertising copy that wants to sound urgent. In those written contexts the harshness reads as brevity rather than rudeness - a sign has no register.</p>
+<p>い-adjectives, な-adjectives and nouns cannot take prohibitive <code>な</code> at all. When you see <code>な</code> after <code><ruby>寒<rt>さむ</rt></ruby>い</code> or <code><ruby>静<rt>しず</rt></ruby>かだ</code>, it is a different word entirely.</p>
 </div>
 </div>
 <div class="slide" data-index="40">
   
-  <div class="slide__content"><h2>な - don&#39;t (blunt prohibitive) · Nuance &amp; register (cont.)</h2>
-<p><strong><code>よ</code> changes it more than you would expect.</strong> <code>泣(な)くな</code> is an order; <code>泣(な)くなよ</code> is closer to &quot;hey, don&#39;t cry&quot; and can be affectionate. It stays casual and still leans male, but the edge comes off.</p>
-<p><strong>Never aim it upward, and rarely sideways.</strong> To a superior, a customer, a stranger or anyone you use です／ます with, the choices are <code>～ないでください</code>, <code>ご遠慮(えんりょ)ください</code>, or <code>～てはいけません</code> if you are stating a rule. There is no polite version of <code>な</code>; the archaic <code>～ますな</code> (<code>お忘(わす)れなさいますな</code>) survives only in period drama.</p>
-<p><strong>It is not the same <code>な</code> as <code>～なさい</code>.</strong> Nor is it the sentence-final particle you hear in <code>いい天気(てんき)だな</code>. Both look identical on the page. The next section separates them.</p>
+  <div class="slide__content"><h2>な - don&#39;t (blunt prohibitive) · Examples</h2>
+<p>それに**<ruby>触<rt>さわ</rt></ruby>るな**。<br><em>Don&#39;t touch that.</em></p>
+<p><ruby>心配<rt>しんぱい</rt></ruby><strong>するな</strong>。<br><em>Don&#39;t worry.</em></p>
+<p>そんなに**<ruby>急<rt>いそ</rt></ruby>ぐな**よ。<br><em>Don&#39;t rush so much.</em></p>
+<p><ruby>危<rt>あぶ</rt></ruby>ない。<ruby>中<rt>なか</rt></ruby>に**<ruby>入<rt>はい</rt></ruby>るな**。<br><em>Danger. Do not enter.</em></p>
 </div>
 </div>
 <div class="slide" data-index="41">
+  
+  <div class="slide__content"><h2>な - don&#39;t (blunt prohibitive) · Examples (cont.)</h2>
+<p><ruby>冗談<rt>じょうだん</rt></ruby>だよ。そんなに**<ruby>怒<rt>おこ</rt></ruby>るな**よ。<br><em>I&#39;m joking. Don&#39;t get so angry.</em></p>
+<p><ruby>試合<rt>しあい</rt></ruby>の<ruby>最後<rt>さいご</rt></ruby>まで<strong>あきらめるな</strong>。<br><em>Don&#39;t give up until the match is over.</em></p>
+<p>まだ**<ruby>来<rt>く</rt></ruby>るな**。<ruby>部屋<rt>へや</rt></ruby>の<ruby>準備<rt>じゅんび</rt></ruby>ができていないんだ。<br><em>Don&#39;t come in yet - the room isn&#39;t ready.</em></p>
+<p>この<ruby>話<rt>はなし</rt></ruby>は<ruby>誰<rt>だれ</rt></ruby>にも**<ruby>言<rt>い</rt></ruby>うな**よ。<ruby>来週<rt>らいしゅう</rt></ruby><ruby>発表<rt>はっぴょう</rt></ruby>するから。<br><em>Don&#39;t tell anyone about this - we&#39;re announcing it next week.</em></p>
+</div>
+</div>
+<div class="slide" data-index="42">
+  
+  <div class="slide__content"><h2>な - don&#39;t (blunt prohibitive) · Nuance &amp; register</h2>
+<p>This is the one N5 pattern where register is not a footnote but the entire point.</p>
+<p><strong>It is male-coded and harsh.</strong> Prohibitive <code>な</code> belongs to men&#39;s speech, especially older men, and to relationships with a clear hierarchy: a coach to a player, a father to a child, a boss to a subordinate he is annoyed with, one close male friend to another. A woman using it sounds deliberately rough, which is sometimes exactly the intended effect and never a neutral choice. Learners should be able to <strong>recognise</strong> <code>な</code> everywhere and should be very cautious about <strong>producing</strong> it.</p>
+<p><strong>Where you will actually meet it.</strong> Signs and warnings (<code><ruby>入<rt>はい</rt></ruby>るな</code>, <code><ruby>押<rt>お</rt></ruby>すな</code>), manga and film dialogue, song lyrics, sports slogans (<code><ruby>負<rt>ま</rt></ruby>けるな</code>, <code>あきらめるな</code>), and advertising copy that wants to sound urgent. In those written contexts the harshness reads as brevity rather than rudeness - a sign has no register.</p>
+</div>
+</div>
+<div class="slide" data-index="43">
+  
+  <div class="slide__content"><h2>な - don&#39;t (blunt prohibitive) · Nuance &amp; register (cont.)</h2>
+<p><strong><code>よ</code> changes it more than you would expect.</strong> <code><ruby>泣<rt>な</rt></ruby>くな</code> is an order; <code><ruby>泣<rt>な</rt></ruby>くなよ</code> is closer to &quot;hey, don&#39;t cry&quot; and can be affectionate. It stays casual and still leans male, but the edge comes off.</p>
+<p><strong>Never aim it upward, and rarely sideways.</strong> To a superior, a customer, a stranger or anyone you use です／ます with, the choices are <code>～ないでください</code>, <code>ご<ruby>遠慮<rt>えんりょ</rt></ruby>ください</code>, or <code>～てはいけません</code> if you are stating a rule. There is no polite version of <code>な</code>; the archaic <code>～ますな</code> (<code>お<ruby>忘<rt>わす</rt></ruby>れなさいますな</code>) survives only in period drama.</p>
+<p><strong>It is not the same <code>な</code> as <code>～なさい</code>.</strong> Nor is it the sentence-final particle you hear in <code>いい<ruby>天気<rt>てんき</rt></ruby>だな</code>. Both look identical on the page. The next section separates them.</p>
+</div>
+</div>
+<div class="slide" data-index="44">
   
   <div class="slide__content"><h2>な - don&#39;t (blunt prohibitive) · な vs ～ないで・～ないでください</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - same instruction, opposite social weight. <code>な</code> orders; <code>～ないでください</code> asks. If you are not certain which you want, you want <code>～ないでください</code>.</p>
 </blockquote>
-<p>ここに車(くるま)を<strong>止(と)めるな</strong>。<br><em>Don&#39;t park here.</em></p>
-<p>ここに車(くるま)を止(と)めないでください。<br><em>Please don&#39;t park here.</em></p>
-<p>Between the two sits plain <code>～ないで</code> (<code>止(と)めないで</code>), which is casual but not rough, and is the everyday negative request among friends and family - including for speakers who would never say <code>な</code>. Think of it as the neutral option that <code>な</code> is the shouted version of.</p>
+<p>ここに<ruby>車<rt>くるま</rt></ruby>を**<ruby>止<rt>と</rt></ruby>めるな**。<br><em>Don&#39;t park here.</em></p>
+<p>ここに<ruby>車<rt>くるま</rt></ruby>を<ruby>止<rt>と</rt></ruby>めないでください。<br><em>Please don&#39;t park here.</em></p>
 </div>
 </div>
-<div class="slide" data-index="42">
+<div class="slide" data-index="45">
   
-  <div class="slide__content"><h2>な - don&#39;t (blunt prohibitive) · 行(い)くな vs 行(い)きな</h2>
+  <div class="slide__content"><h2>な - don&#39;t (blunt prohibitive) · な vs ～ないで・～ないでください (cont.)</h2>
+<p>Between the two sits plain <code>～ないで</code> (<code><ruby>止<rt>と</rt></ruby>めないで</code>), which is casual but not rough, and is the everyday negative request among friends and family - including for speakers who would never say <code>な</code>. Think of it as the neutral option that <code>な</code> is the shouted version of.</p>
+</div>
+</div>
+<div class="slide" data-index="46">
+  
+  <div class="slide__content"><h2>な - don&#39;t (blunt prohibitive) · 行くな vs 行きな</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - dictionary form + <code>な</code> = <strong>don&#39;t</strong>. ます-stem + <code>な</code> = <strong>do</strong>. One syllable of difference reverses the sentence.</p>
 </blockquote>
-<p>先(さき)に<strong>行(い)くな</strong>。<br><em>Don&#39;t go on ahead.</em></p>
-<p>先(さき)に<strong>行(い)きな</strong>。<br><em>Go on ahead.</em></p>
-<p><code>行(い)きな</code> is <code>～なさい</code> with the tail bitten off, so it is a soft command - warm, casual, common from mothers and shopkeepers, and much less aggressive than prohibitive <code>な</code>. <code>食(た)べるな</code> means don&#39;t eat; <code>食(た)べな</code> means go ahead and eat. Reading the stem correctly is the whole game here.</p>
+<p><ruby>先<rt>さき</rt></ruby>に**<ruby>行<rt>い</rt></ruby>くな**。<br><em>Don&#39;t go on ahead.</em></p>
+<p><ruby>先<rt>さき</rt></ruby>に**<ruby>行<rt>い</rt></ruby>きな**。<br><em>Go on ahead.</em></p>
 </div>
 </div>
-<div class="slide" data-index="43">
+<div class="slide" data-index="47">
+  
+  <div class="slide__content"><h2>な - don&#39;t (blunt prohibitive) · 行くな vs 行きな (cont.)</h2>
+<p><code><ruby>行<rt>い</rt></ruby>きな</code> is <code>～なさい</code> with the tail bitten off, so it is a soft command - warm, casual, common from mothers and shopkeepers, and much less aggressive than prohibitive <code>な</code>. <code><ruby>食<rt>た</rt></ruby>べるな</code> means don&#39;t eat; <code><ruby>食<rt>た</rt></ruby>べな</code> means go ahead and eat. Reading the stem correctly is the whole game here.</p>
+</div>
+</div>
+<div class="slide" data-index="48">
   
   <div class="slide__content"><h2>Prohibitive な vs the sentence-final particle な</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - if it follows an い-adjective, a な-adjective or a noun, it can <strong>only</strong> be the emotive particle. Only after a dictionary-form verb is prohibition even possible.</p>
 </blockquote>
-<p>今日(きょう)は寒(さむ)い<strong>な</strong>。<br><em>It&#39;s cold today, isn&#39;t it.</em></p>
-<p>窓(まど)を<strong>開(あ)けるな</strong>。<br><em>Don&#39;t open the window.</em></p>
-<p>After a plain verb both readings exist, and three things separate them: the emotive particle is usually drawn out (<code>なあ</code>), it is said with a falling, musing tone rather than a bark, and it attaches happily to non-volitional predicates - <code>よく降(ふ)るな</code> can only mean &quot;it really is raining,&quot; because you cannot order the sky. Prohibition needs an action the listener could choose to stop.</p>
-</div>
-</div>
-<div class="slide" data-index="44">
-  
-  <div class="slide__content"><h2>な - don&#39;t (blunt prohibitive) · Common mistakes</h2>
-<ul>
-<li><p>❌ そこに行(い)か<strong>ないな</strong>。 → ✅ そこに行(い)<strong>くな</strong>。<br><em><code>な</code> goes on the dictionary form. Adding it to the ない-form produces something that is not a prohibition at all.</em></p>
-</li>
-<li><p>❌ 食(た)べ<strong>な</strong>。（intending &quot;don&#39;t eat it&quot;）→ ✅ 食(た)べ<strong>るな</strong>。<br><em>Without <code>る</code> you have said the opposite: &quot;go on, eat.&quot; Keep the dictionary form intact.</em></p>
-</li>
-<li><p>❌ 部長(ぶちょう)、そこに座(すわ)るな。 → ✅ 部長(ぶちょう)、そちらの席(せき)はご遠慮(えんりょ)ください。<br><em>There is no polite <code>な</code>. Upward, switch pattern entirely.</em></p>
-</li>
-<li><p>❌ 静(しず)かだ<strong>な</strong>。（intending &quot;don&#39;t be quiet&quot;）→ ✅ 静(しず)かに<strong>するな</strong>。<br><em><code>な</code> after a な-adjective is the emotive particle - you have said &quot;how quiet it is.&quot; Prohibition needs a verb.</em></p>
-</li>
-<li><p>❌ 走(はし)り<strong>ますな</strong>。 → ✅ 走(はし)<strong>るな</strong>。／走(はし)らないでください。<br><em><code>な</code> cannot be attached to a polite form. <code>～ますな</code> exists but is archaic and will sound like a samurai drama.</em></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="slide" data-index="45">
-  
-  <div class="slide__content"><h2>な - don&#39;t (blunt prohibitive) · Practice 1</h2>
-<p><strong>1.</strong> 危(あぶ)ないから、そのボタンを押(お)____。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-そのボタンを押(お)<strong>すな</strong>。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>押(お)す</code> is already the dictionary form, so <code>な</code> simply follows it. A warning shouted in the moment is one of the few situations where the bluntness is appropriate rather than rude.</p>
-</div>
-</div>
-<div class="slide" data-index="46">
-  
-  <div class="slide__content"><h2>な - don&#39;t (blunt prohibitive) · Practice 2</h2>
-<p><strong>2.</strong> 寒(さむ)いから、窓(まど)を（開(あ)けるな・開(あ)けな）。 - meaning &quot;don&#39;t open the window&quot;.</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-窓(まど)を<strong>開(あ)けるな</strong>。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>開(あ)けな</code> is the ます-stem plus <code>な</code>, a shortened <code>～なさい</code>, and it would tell them <em>to</em> open it. Prohibition keeps the whole dictionary form: <code>開(あ)ける + な</code>.</p>
-</div>
-</div>
-<div class="slide" data-index="47">
-  
-  <div class="slide__content"><h2>な - don&#39;t (blunt prohibitive) · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese, twice - once as a shouted warning, once as something you could say to your manager: &quot;Don&#39;t touch this switch.&quot;</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Shouted: このスイッチに<strong>触(さわ)るな</strong>。 To a manager: このスイッチには触(さわ)らないでください。（or …お手(て)を触(ふ)れないようお願(ねが)いします。）</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The content is identical; only the social distance changes. <code>な</code> is fine on a machine label or yelled across a workshop, and impossible aimed at a superior.</p>
-</div>
-</div>
-<div class="slide" data-index="48">
-  
-  <div class="slide__content"><h2>な - don&#39;t (blunt prohibitive) · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the problem: 田中(たなか)さん、そんなに飲(の)まないな。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 田中(たなか)さん、そんなに飲(の)むな。／ more naturally: 田中(たなか)さん、そんなに飲(の)まないで。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Two things are wrong. Prohibitive <code>な</code> never attaches to a ない-form, so <code>飲(の)まないな</code> is ungrammatical as an order. And addressing someone with <code>さん</code> while barking <code>な</code> at them is a register clash - if you are polite enough to say <code>さん</code>, use <code>～ないで</code> or <code>～ないでください</code>.</p>
+<p><ruby>今日<rt>きょう</rt></ruby>は<ruby>寒<rt>さむ</rt></ruby>い<strong>な</strong>。<br><em>It&#39;s cold today, isn&#39;t it.</em></p>
+<p><ruby>窓<rt>まど</rt></ruby>を**<ruby>開<rt>あ</rt></ruby>けるな**。<br><em>Don&#39;t open the window.</em></p>
 </div>
 </div>
 <div class="slide" data-index="49">
   
+  <div class="slide__content"><h2>Prohibitive な vs the sentence-final particle な (cont.)</h2>
+<p>After a plain verb both readings exist, and three things separate them: the emotive particle is usually drawn out (<code>なあ</code>), it is said with a falling, musing tone rather than a bark, and it attaches happily to non-volitional predicates - <code>よく<ruby>降<rt>ふ</rt></ruby>るな</code> can only mean &quot;it really is raining,&quot; because you cannot order the sky. Prohibition needs an action the listener could choose to stop.</p>
+</div>
+</div>
+<div class="slide" data-index="50">
+  
+  <div class="slide__content"><h2>な - don&#39;t (blunt prohibitive) · Common mistakes</h2>
+<ul>
+<li><p>❌ そこに<ruby>行<rt>い</rt></ruby>か<strong>ないな</strong>。 → ✅ そこに<ruby>行<rt>い</rt></ruby><strong>くな</strong>。<br><em><code>な</code> goes on the dictionary form. Adding it to the ない-form produces something that is not a prohibition at all.</em></p>
+</li>
+<li><p>❌ <ruby>食<rt>た</rt></ruby>べ<strong>な</strong>。（intending &quot;don&#39;t eat it&quot;）→ ✅ <ruby>食<rt>た</rt></ruby>べ<strong>るな</strong>。<br><em>Without <code>る</code> you have said the opposite: &quot;go on, eat.&quot; Keep the dictionary form intact.</em></p>
+</li>
+<li><p>❌ <ruby>部長<rt>ぶちょう</rt></ruby>、そこに<ruby>座<rt>すわ</rt></ruby>るな。 → ✅ <ruby>部長<rt>ぶちょう</rt></ruby>、そちらの<ruby>席<rt>せき</rt></ruby>はご<ruby>遠慮<rt>えんりょ</rt></ruby>ください。<br><em>There is no polite <code>な</code>. Upward, switch pattern entirely.</em></p>
+</li>
+<li><p>❌ <ruby>静<rt>しず</rt></ruby>かだ<strong>な</strong>。（intending &quot;don&#39;t be quiet&quot;）→ ✅ <ruby>静<rt>しず</rt></ruby>かに<strong>するな</strong>。<br><em><code>な</code> after a な-adjective is the emotive particle - you have said &quot;how quiet it is.&quot; Prohibition needs a verb.</em></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="51">
+  
+  <div class="slide__content"><h2>な - don&#39;t (blunt prohibitive) · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ <ruby>走<rt>はし</rt></ruby>り<strong>ますな</strong>。 → ✅ <ruby>走<rt>はし</rt></ruby><strong>るな</strong>。／<ruby>走<rt>はし</rt></ruby>らないでください。<br><em><code>な</code> cannot be attached to a polite form. <code>～ますな</code> exists but is archaic and will sound like a samurai drama.</em></li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="52">
+  
+  <div class="slide__content"><h2>な - don&#39;t (blunt prohibitive) · Practice 1</h2>
+<p><strong>1.</strong> <ruby>危<rt>あぶ</rt></ruby>ないから、そのボタンを<ruby>押<rt>お</rt></ruby>____。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+そのボタンを<ruby>押<rt>お</rt></ruby><strong>すな</strong>。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code><ruby>押<rt>お</rt></ruby>す</code> is already the dictionary form, so <code>な</code> simply follows it. A warning shouted in the moment is one of the few situations where the bluntness is appropriate rather than rude.</p>
+</div>
+</div>
+<div class="slide" data-index="53">
+  
+  <div class="slide__content"><h2>な - don&#39;t (blunt prohibitive) · Practice 2</h2>
+<p><strong>2.</strong> <ruby>寒<rt>さむ</rt></ruby>いから、<ruby>窓<rt>まど</rt></ruby>を（<ruby>開<rt>あ</rt></ruby>けるな・<ruby>開<rt>あ</rt></ruby>けな）。 - meaning &quot;don&#39;t open the window&quot;.</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>窓<rt>まど</rt></ruby>を**<ruby>開<rt>あ</rt></ruby>けるな**。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code><ruby>開<rt>あ</rt></ruby>けな</code> is the ます-stem plus <code>な</code>, a shortened <code>～なさい</code>, and it would tell them <em>to</em> open it. Prohibition keeps the whole dictionary form: <code><ruby>開<rt>あ</rt></ruby>ける + な</code>.</p>
+</div>
+</div>
+<div class="slide" data-index="54">
+  
+  <div class="slide__content"><h2>な - don&#39;t (blunt prohibitive) · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese, twice - once as a shouted warning, once as something you could say to your manager: &quot;Don&#39;t touch this switch.&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+Shouted: このスイッチに**<ruby>触<rt>さわ</rt></ruby>るな**。 To a manager: このスイッチには<ruby>触<rt>さわ</rt></ruby>らないでください。（or …お<ruby>手<rt>て</rt></ruby>を<ruby>触<rt>ふ</rt></ruby>れないようお<ruby>願<rt>ねが</rt></ruby>いします。）</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The content is identical; only the social distance changes. <code>な</code> is fine on a machine label or yelled across a workshop, and impossible aimed at a superior.</p>
+</div>
+</div>
+<div class="slide" data-index="55">
+  
+  <div class="slide__content"><h2>な - don&#39;t (blunt prohibitive) · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the problem: <ruby>田中<rt>たなか</rt></ruby>さん、そんなに<ruby>飲<rt>の</rt></ruby>まないな。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ <ruby>田中<rt>たなか</rt></ruby>さん、そんなに<ruby>飲<rt>の</rt></ruby>むな。／ more naturally: <ruby>田中<rt>たなか</rt></ruby>さん、そんなに<ruby>飲<rt>の</rt></ruby>まないで。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+Two things are wrong. Prohibitive <code>な</code> never attaches to a ない-form, so <code><ruby>飲<rt>の</rt></ruby>まないな</code> is ungrammatical as an order. And addressing someone with <code>さん</code> while barking <code>な</code> at them is a register clash - if you are polite enough to say <code>さん</code>, use <code>～ないで</code> or <code>～ないでください</code>.</p>
+</div>
+</div>
+<div class="slide" data-index="56">
+  
   <div class="slide__content"><h2>な - don&#39;t (blunt prohibitive) · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 無理(むり)するな。 (b) 無理(むり)するなよ。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>無理<rt>むり</rt></ruby>するな。 (b) <ruby>無理<rt>むり</rt></ruby>するなよ。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 Both mean &quot;don&#39;t overdo it,&quot; and both are casual and male-leaning.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) is bare and can sound curt, even cold - an instruction delivered and closed. (b) adds <code>よ</code>, which turns the order toward the listener as something said <em>for their sake</em>; it comes out as concerned, almost affectionate, the sort of thing a friend says as you leave the office at eleven at night. The particle carries the warmth that <code>な</code> itself has none of.</p>
 </div>
 </div>
-<div class="slide" data-index="50">
+<div class="slide" data-index="57">
   
   <div class="slide__content"><h1>～なくてはいけない・～なくてはならない - must; have to</h1>
 <p><strong>Meaning</strong> · you have to do it - not doing it is not an option</p>
 <p>Japanese builds obligation out of two negatives. <code>～なくては</code> means &quot;if you don&#39;t&quot;, <code>いけない</code>／<code>ならない</code> means &quot;that won&#39;t do&quot;, so the whole thing is <em>not doing it won&#39;t do</em>. Nothing in the pattern says the speaker wants you to act - the pressure comes from a rule, a schedule or the situation itself, and the speaker is merely reporting it.</p>
 </div>
 </div>
-<div class="slide" data-index="51">
+<div class="slide" data-index="58">
   
   <div class="slide__content"><h2>～なくてはいけない・～なくてはならない - must; have to · Formation</h2>
 <p>Everything hinges on the negative stem. Make the ない-form first, drop the <code>い</code>, add <code>くては</code>.</p>
 </div>
 </div>
-<div class="slide" data-index="52">
+<div class="slide" data-index="59">
   
   <div class="slide__content"><h2>～なくてはいけない・～なくてはならない - must; have to · Formation (cont.)</h2>
 <table>
@@ -3261,47 +3314,52 @@ Both mean &quot;don&#39;t overdo it,&quot; and both are casual and male-leaning.
 <tbody><tr>
 <td>う-verb</td>
 <td>ない-form → なくて + はいけない</td>
-<td>行(い)く → 行(い)かなくてはいけない</td>
+<td><ruby>行<rt>い</rt></ruby>く → <ruby>行<rt>い</rt></ruby>かなくてはいけない</td>
 </tr>
 <tr>
 <td>る-verb</td>
 <td>ない-form → なくて + はいけない</td>
-<td>出(で)る → 出(で)なくてはいけない</td>
+<td><ruby>出<rt>で</rt></ruby>る → <ruby>出<rt>で</rt></ruby>なくてはいけない</td>
 </tr>
 <tr>
 <td>する</td>
 <td>しなくてはいけない</td>
-<td>掃除(そうじ)する → 掃除(そうじ)しなくてはいけない</td>
+<td><ruby>掃除<rt>そうじ</rt></ruby>する → <ruby>掃除<rt>そうじ</rt></ruby>しなくてはいけない</td>
 </tr>
 <tr>
-<td>来(く)る</td>
+<td><ruby>来<rt>く</rt></ruby>る</td>
 <td>こなくてはいけない</td>
-<td>来(く)る → 来(こ)なくてはいけない</td>
+<td><ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby>なくてはいけない</td>
 </tr>
 <tr>
 <td>い-adjective</td>
 <td>～くない → ～くなくて + はいけない</td>
-<td>新(あたら)しい → 新(あたら)しくなくてはいけない</td>
+<td><ruby>新<rt>あたら</rt></ruby>しい → <ruby>新<rt>あたら</rt></ruby>しくなくてはいけない</td>
 </tr>
 <tr>
 <td>な-adjective</td>
 <td>drop だ + でなくて + はいけない</td>
-<td>元気(げんき)だ → 元気(げんき)でなくてはいけない</td>
+<td><ruby>元気<rt>げんき</rt></ruby>だ → <ruby>元気<rt>げんき</rt></ruby>でなくてはいけない</td>
 </tr>
 <tr>
 <td>Noun</td>
 <td>noun + でなくて + はいけない</td>
-<td>日本語(にほんご) → 日本語(にほんご)でなくてはいけない</td>
+<td><ruby>日本語<rt>にほんご</rt></ruby> → <ruby>日本語<rt>にほんご</rt></ruby>でなくてはいけない</td>
 </tr>
 <tr>
 <td>Polite</td>
 <td>いけません／なりません</td>
-<td>行(い)かなくてはいけません</td>
+<td><ruby>行<rt>い</rt></ruby>かなくてはいけません</td>
+</tr>
+<tr>
+<td>Variant</td>
+<td>なくては → なければ</td>
+<td><ruby>行<rt>い</rt></ruby>かなければならない</td>
 </tr>
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="53">
+<div class="slide" data-index="60">
   
   <div class="slide__content"><h2>～なくてはいけない・～なくてはならない - must; have to · Formation (cont.)</h2>
 <table>
@@ -3313,19 +3371,14 @@ Both mean &quot;don&#39;t overdo it,&quot; and both are casual and male-leaning.
 </tr>
 </thead>
 <tbody><tr>
-<td>Variant</td>
-<td>なくては → なければ</td>
-<td>行(い)かなければならない</td>
-</tr>
-<tr>
 <td>Casual contraction</td>
 <td>なくては → なくちゃ</td>
-<td>行(い)かなくちゃ</td>
+<td><ruby>行<rt>い</rt></ruby>かなくちゃ</td>
 </tr>
 <tr>
 <td>Casual contraction</td>
 <td>なければ → なきゃ</td>
-<td>行(い)かなきゃ</td>
+<td><ruby>行<rt>い</rt></ruby>かなきゃ</td>
 </tr>
 </tbody></table>
 <blockquote>
@@ -3333,107 +3386,113 @@ Both mean &quot;don&#39;t overdo it,&quot; and both are casual and male-leaning.
 </blockquote>
 </div>
 </div>
-<div class="slide" data-index="54">
+<div class="slide" data-index="61">
   
   <div class="slide__content"><h2>～なくてはいけない・～なくてはならない - must; have to · Examples</h2>
-<p>もう<strong>行(い)かなくちゃ</strong>。<br><em>I&#39;ve got to go.</em></p>
-<p>明日(あした)は早(はや)く<strong>起(お)きなくてはいけません</strong>。<br><em>I have to get up early tomorrow.</em></p>
-<p>パスポートを<strong>見(み)せなくてはいけません</strong>か。<br><em>Do I have to show my passport?</em></p>
-<p>部屋(へや)を出(で)るとき、電気(でんき)を<strong>消(け)さなくてはいけません</strong>。<br><em>You have to turn the lights off when you leave the room.</em></p>
-<p>毎朝(まいあさ)この薬(くすり)を<strong>飲(の)まなければならない</strong>。<br><em>I have to take this medicine every morning.</em></p>
+<p>もう**<ruby>行<rt>い</rt></ruby>かなくちゃ**。<br><em>I&#39;ve got to go.</em></p>
+<p><ruby>明日<rt>あした</rt></ruby>は<ruby>早<rt>はや</rt></ruby>く**<ruby>起<rt>お</rt></ruby>きなくてはいけません**。<br><em>I have to get up early tomorrow.</em></p>
+<p>パスポートを**<ruby>見<rt>み</rt></ruby>せなくてはいけません**か。<br><em>Do I have to show my passport?</em></p>
+<p><ruby>部屋<rt>へや</rt></ruby>を<ruby>出<rt>で</rt></ruby>るとき、<ruby>電気<rt>でんき</rt></ruby>を**<ruby>消<rt>け</rt></ruby>さなくてはいけません**。<br><em>You have to turn the lights off when you leave the room.</em></p>
 </div>
 </div>
-<div class="slide" data-index="55">
+<div class="slide" data-index="62">
   
   <div class="slide__content"><h2>～なくてはいけない・～なくてはならない - must; have to · Examples (cont.)</h2>
-<p>来週(らいしゅう)までに、この本(ほん)を図書館(としょかん)に<strong>返(かえ)さなくてはいけない</strong>。<br><em>I have to get this book back to the library by next week.</em></p>
-<p>日本(にほん)で車(くるま)を運転(うんてん)するには、免許(めんきょ)を<strong>取(と)らなければなりません</strong>。<br><em>To drive a car in Japan you must obtain a licence.</em></p>
-<p>今週(こんしゅう)は土曜日(どようび)も<strong>働(はたら)かなくてはいけない</strong>んです。ちょっと大変(たいへん)です。<br><em>I have to work on Saturday this week too. It&#39;s a bit rough.</em></p>
+<p><ruby>毎朝<rt>まいあさ</rt></ruby>この<ruby>薬<rt>くすり</rt></ruby>を**<ruby>飲<rt>の</rt></ruby>まなければならない**。<br><em>I have to take this medicine every morning.</em></p>
+<p><ruby>来週<rt>らいしゅう</rt></ruby>までに、この<ruby>本<rt>ほん</rt></ruby>を<ruby>図書館<rt>としょかん</rt></ruby>に**<ruby>返<rt>かえ</rt></ruby>さなくてはいけない**。<br><em>I have to get this book back to the library by next week.</em></p>
+<p><ruby>日本<rt>にほん</rt></ruby>で<ruby>車<rt>くるま</rt></ruby>を<ruby>運転<rt>うんてん</rt></ruby>するには、<ruby>免許<rt>めんきょ</rt></ruby>を**<ruby>取<rt>と</rt></ruby>らなければなりません**。<br><em>To drive a car in Japan you must obtain a licence.</em></p>
+<p><ruby>今週<rt>こんしゅう</rt></ruby>は<ruby>土曜日<rt>どようび</rt></ruby>も**<ruby>働<rt>はたら</rt></ruby>かなくてはいけない**んです。ちょっと<ruby>大変<rt>たいへん</rt></ruby>です。<br><em>I have to work on Saturday this week too. It&#39;s a bit rough.</em></p>
 </div>
 </div>
-<div class="slide" data-index="56">
+<div class="slide" data-index="63">
   
   <div class="slide__content"><h2>Nuance &amp; register</h2>
 <p>The four endings are not interchangeable in feel, and the differences are the kind a textbook table hides.</p>
-<p><strong><code>いけない</code> vs <code>ならない</code>.</strong> <code>いけない</code> handles the case in front of you: <em>I</em> have to do this, <em>today</em>. <code>ならない</code> states a standing requirement and sounds heavier and more written - laws, regulations, company rules, formal writing. <code>税金(ぜいきん)を払(はら)わなければならない</code> reads like a statute, while <code>税金(ぜいきん)を払(はら)わなくちゃ</code> is a person groaning at a form.</p>
+<p><strong><code>いけない</code> vs <code>ならない</code>.</strong> <code>いけない</code> handles the case in front of you: <em>I</em> have to do this, <em>today</em>. <code>ならない</code> states a standing requirement and sounds heavier and more written - laws, regulations, company rules, formal writing. <code><ruby>税金<rt>ぜいきん</rt></ruby>を<ruby>払<rt>はら</rt></ruby>わなければならない</code> reads like a statute, while <code><ruby>税金<rt>ぜいきん</rt></ruby>を<ruby>払<rt>はら</rt></ruby>わなくちゃ</code> is a person groaning at a form.</p>
 <p><strong><code>なくては</code> vs <code>なければ</code>.</strong> <code>なければ</code> is the tidier, more formal conditional and dominates in writing and careful speech. <code>なくては</code> is a shade more conversational. Paired up, <code>なければならない</code> is the most formal of the four and <code>なくてはいけない</code> the most everyday.</p>
 </div>
 </div>
-<div class="slide" data-index="57">
+<div class="slide" data-index="64">
   
   <div class="slide__content"><h2>Nuance &amp; register (cont.)</h2>
-<p><strong>Contractions are everywhere in speech.</strong> <code>なくちゃ</code>, <code>なきゃ</code>, and very often with the ending simply dropped: <code>あ、電話(でんわ)しなきゃ</code>, <code>もう寝(ね)なくちゃ</code>. Learners rarely produce these and hear them constantly. Note that they are casual, not sloppy - but they do not belong in a report or a speech.</p>
-<p><strong><code>～ないと</code> is the most common spoken form of all.</strong> <code>急(いそ)がないと</code>, <code>買(か)わないといけない</code>. If you listen to two friends planning a weekend, <code>ないと</code> will outnumber the textbook forms considerably.</p>
-<p><strong>Direction of use.</strong> Describing your own obligations is safe at any politeness level. Telling someone else what they must do is strong - to a superior, replace it with a question (<code>ご確認(かくにん)いただけますでしょうか</code>) or state the rule without an addressee. Between friends it is fine, and often sympathetic: the speaker is on your side against the requirement.</p>
+<p><strong>Contractions are everywhere in speech.</strong> <code>なくちゃ</code>, <code>なきゃ</code>, and very often with the ending simply dropped: <code>あ、<ruby>電話<rt>でんわ</rt></ruby>しなきゃ</code>, <code>もう<ruby>寝<rt>ね</rt></ruby>なくちゃ</code>. Learners rarely produce these and hear them constantly. Note that they are casual, not sloppy - but they do not belong in a report or a speech.</p>
+<p><strong><code>～ないと</code> is the most common spoken form of all.</strong> <code><ruby>急<rt>いそ</rt></ruby>がないと</code>, <code><ruby>買<rt>か</rt></ruby>わないといけない</code>. If you listen to two friends planning a weekend, <code>ないと</code> will outnumber the textbook forms considerably.</p>
 </div>
 </div>
-<div class="slide" data-index="58">
+<div class="slide" data-index="65">
+  
+  <div class="slide__content"><h2>Nuance &amp; register (cont.)</h2>
+<p><strong>Direction of use.</strong> Describing your own obligations is safe at any politeness level. Telling someone else what they must do is strong - to a superior, replace it with a question (<code>ご<ruby>確認<rt>かくにん</rt></ruby>いただけますでしょうか</code>) or state the rule without an addressee. Between friends it is fine, and often sympathetic: the speaker is on your side against the requirement.</p>
+</div>
+</div>
+<div class="slide" data-index="66">
   
   <div class="slide__content"><h2>～なくてはいけない vs ～なくてもいい</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - one syllable apart, opposite meanings. <code>～なくてはいけない</code> = must; <code>～なくてもいい</code> = needn&#39;t. The <strong>は</strong> closes the option; the <strong>も</strong> opens it.</p>
 </blockquote>
-<p>明日(あした)は七時(しちじ)に<strong>来(こ)なくてはいけません</strong>。<br><em>You have to be here at seven tomorrow.</em></p>
-<p>明日(あした)は七時(しちじ)に<strong>来(こ)なくてもいいです</strong>。<br><em>You don&#39;t have to be here at seven tomorrow.</em></p>
+<p><ruby>明日<rt>あした</rt></ruby>は<ruby>七時<rt>しちじ</rt></ruby>に**<ruby>来<rt>こ</rt></ruby>なくてはいけません**。<br><em>You have to be here at seven tomorrow.</em></p>
+<p><ruby>明日<rt>あした</rt></ruby>は<ruby>七時<rt>しちじ</rt></ruby>に**<ruby>来<rt>こ</rt></ruby>なくてもいいです**。<br><em>You don&#39;t have to be here at seven tomorrow.</em></p>
 <p>Because they differ by a single particle, they are easy to mishear and easy to mistype. When you want to release someone from a duty, check that you wrote <code>も</code>.</p>
 </div>
 </div>
-<div class="slide" data-index="59">
+<div class="slide" data-index="67">
   
   <div class="slide__content"><h2>～なくてはいけない vs ～てはいけない</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>～なくては</code> compels, <code>～ては</code> forbids. The <code>いけない</code> at the end is shared and tells you nothing; the information is in the middle of the word.</p>
 </blockquote>
-<p>この書類(しょるい)に<strong>名前(なまえ)を書(か)かなくてはいけません</strong>。<br><em>You have to write your name on this form.</em></p>
-<p>この書類(しょるい)に<strong>名前(なまえ)を書(か)いてはいけません</strong>。<br><em>You must not write your name on this form.</em></p>
+<p>この<ruby>書類<rt>しょるい</rt></ruby>に**<ruby>名前<rt>なまえ</rt></ruby>を<ruby>書<rt>か</rt></ruby>かなくてはいけません**。<br><em>You have to write your name on this form.</em></p>
+<p>この<ruby>書類<rt>しょるい</rt></ruby>に**<ruby>名前<rt>なまえ</rt></ruby>を<ruby>書<rt>か</rt></ruby>いてはいけません**。<br><em>You must not write your name on this form.</em></p>
 <p>Laid out, the four corners of the grid are: <code>～てもいい</code> may, <code>～てはいけない</code> must not, <code>～なくてはいけない</code> must, <code>～なくてもいい</code> needn&#39;t. Permission and prohibition sit on the て-form; obligation and exemption sit on the negative stem.</p>
 </div>
 </div>
-<div class="slide" data-index="60">
+<div class="slide" data-index="68">
   
   <div class="slide__content"><h2>いけない vs ならない vs ないと</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>ならない</code> for rules on paper, <code>いけない</code> for what you personally have to do, <code>ないと</code> for what you are saying out loud to a friend.</p>
 </blockquote>
-<p>申込書(もうしこみしょ)は三月(さんがつ)までに出(だ)さ<strong>なければならない</strong>。<br><em>Applications must be submitted by March.</em></p>
-<p>申込書(もうしこみしょ)、三月(さんがつ)までに出(だ)さ<strong>ないと</strong>。<br><em>I need to get the application in by March.</em></p>
+<p><ruby>申込書<rt>もうしこみしょ</rt></ruby>は<ruby>三月<rt>さんがつ</rt></ruby>までに<ruby>出<rt>だ</rt></ruby>さ<strong>なければならない</strong>。<br><em>Applications must be submitted by March.</em></p>
+<p><ruby>申込書<rt>もうしこみしょ</rt></ruby>、<ruby>三月<rt>さんがつ</rt></ruby>までに<ruby>出<rt>だ</rt></ruby>さ<strong>ないと</strong>。<br><em>I need to get the application in by March.</em></p>
 <p>The first is the wording of a notice; the second is a person remembering a deadline in the kitchen. Same requirement, completely different voice - and the trailing <code>ないと</code> with nothing after it is entirely normal Japanese, not an unfinished sentence.</p>
 </div>
 </div>
-<div class="slide" data-index="61">
+<div class="slide" data-index="69">
   
   <div class="slide__content"><h2>Common mistakes</h2>
 <ul>
-<li><p>❌ 行(い)く<strong>なくては</strong>いけません。 → ✅ 行(い)か<strong>なくては</strong>いけません。<br><em>Build the ない-form first (<code>行(い)かない</code>), then swap <code>い</code> for <code>くては</code>. The dictionary form never takes it.</em></p>
+<li><p>❌ <ruby>行<rt>い</rt></ruby>く<strong>なくては</strong>いけません。 → ✅ <ruby>行<rt>い</rt></ruby>か<strong>なくては</strong>いけません。<br><em>Build the ない-form first (<code><ruby>行<rt>い</rt></ruby>かない</code>), then swap <code>い</code> for <code>くては</code>. The dictionary form never takes it.</em></p>
 </li>
-<li><p>❌ 学生(がくせい)<strong>だなくては</strong>いけません。 → ✅ 学生(がくせい)<strong>でなくては</strong>いけません。<br><em>Nouns and な-adjectives negate with <code>で(は)ない</code>, so the join is <code>でなくては</code>.</em></p>
+<li><p>❌ <ruby>学生<rt>がくせい</rt></ruby><strong>だなくては</strong>いけません。 → ✅ <ruby>学生<rt>がくせい</rt></ruby><strong>でなくては</strong>いけません。<br><em>Nouns and な-adjectives negate with <code>で(は)ない</code>, so the join is <code>でなくては</code>.</em></p>
 </li>
-<li><p>❌ 明日(あした)は来(こ)な<strong>くては</strong>いいです。（intending &quot;you don&#39;t have to come&quot;）→ ✅ 明日(あした)は来(こ)な<strong>くても</strong>いいです。<br><em><code>は</code> and <code>も</code> are doing all the work. <code>なくてはいい</code> is not a pattern.</em></p>
-</li>
-<li><p>❌ 部長(ぶちょう)、この書類(しょるい)を確認(かくにん)しなくてはいけませんよ。 → ✅ 部長(ぶちょう)、こちらの書類(しょるい)をご確認(かくにん)いただけますでしょうか。<br><em>Stating someone&#39;s obligations to them is strong even in polite form. Upward, ask rather than require.</em></p>
+<li><p>❌ <ruby>明日<rt>あした</rt></ruby>は<ruby>来<rt>こ</rt></ruby>な<strong>くては</strong>いいです。（intending &quot;you don&#39;t have to come&quot;）→ ✅ <ruby>明日<rt>あした</rt></ruby>は<ruby>来<rt>こ</rt></ruby>な<strong>くても</strong>いいです。<br><em><code>は</code> and <code>も</code> are doing all the work. <code>なくてはいい</code> is not a pattern.</em></p>
 </li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="62">
+<div class="slide" data-index="70">
   
   <div class="slide__content"><h2>Common mistakes (cont.)</h2>
 <ul>
-<li>❌ 急(いそ)が<strong>なきゃなりません</strong>。 → ✅ 急(いそ)が<strong>なければなりません</strong>。／急(いそ)が<strong>なきゃ</strong>。<br><em>Mixing registers inside one word is jarring: <code>なきゃ</code> is the casual contraction and does not take the formal <code>なりません</code> tail.</em></li>
+<li><p>❌ <ruby>部長<rt>ぶちょう</rt></ruby>、この<ruby>書類<rt>しょるい</rt></ruby>を<ruby>確認<rt>かくにん</rt></ruby>しなくてはいけませんよ。 → ✅ <ruby>部長<rt>ぶちょう</rt></ruby>、こちらの<ruby>書類<rt>しょるい</rt></ruby>をご<ruby>確認<rt>かくにん</rt></ruby>いただけますでしょうか。<br><em>Stating someone&#39;s obligations to them is strong even in polite form. Upward, ask rather than require.</em></p>
+</li>
+<li><p>❌ <ruby>急<rt>いそ</rt></ruby>が<strong>なきゃなりません</strong>。 → ✅ <ruby>急<rt>いそ</rt></ruby>が<strong>なければなりません</strong>。／<ruby>急<rt>いそ</rt></ruby>が<strong>なきゃ</strong>。<br><em>Mixing registers inside one word is jarring: <code>なきゃ</code> is the casual contraction and does not take the formal <code>なりません</code> tail.</em></p>
+</li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="63">
+<div class="slide" data-index="71">
   
   <div class="slide__content"><h2>～なくてはいけない・～なくてはならない - must; have to · Practice 1</h2>
-<p><strong>1.</strong> 明日(あした)は六時(ろくじ)に起(お)き____いけません。</p>
+<p><strong>1.</strong> <ruby>明日<rt>あした</rt></ruby>は<ruby>六時<rt>ろくじ</rt></ruby>に<ruby>起<rt>お</rt></ruby>き____いけません。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-六時(ろくじ)に起(お)き<strong>なくては</strong>いけません。</p>
+<ruby>六時<rt>ろくじ</rt></ruby>に<ruby>起<rt>お</rt></ruby>き<strong>なくては</strong>いけません。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>起(お)きる</code> → <code>起(お)きない</code> → <code>起(お)きなくては</code>. The obligation comes from outside the speaker - an early train, a meeting - which is exactly what this pattern reports.</p>
+<code><ruby>起<rt>お</rt></ruby>きる</code> → <code><ruby>起<rt>お</rt></ruby>きない</code> → <code><ruby>起<rt>お</rt></ruby>きなくては</code>. The obligation comes from outside the speaker - an early train, a meeting - which is exactly what this pattern reports.</p>
 </div>
 </div>
-<div class="slide" data-index="64">
+<div class="slide" data-index="72">
   
   <div class="slide__content"><h2>～なくてはいけない・～なくてはならない - must; have to · Practice 2</h2>
 <p><strong>2.</strong> パーティーですから、ネクタイをし（なくては・なくても）いけません。</p>
@@ -3443,30 +3502,30 @@ Both mean &quot;don&#39;t overdo it,&quot; and both are casual and male-leaning.
 <code>なくても</code> plus <code>いけない</code> is not a pattern - <code>なくても</code> pairs with <code>いい</code>. If the tie is required, use <code>なくてはいけません</code>; if it is optional, the whole ending changes to <code>しなくてもいいです</code>.</p>
 </div>
 </div>
-<div class="slide" data-index="65">
+<div class="slide" data-index="73">
   
   <div class="slide__content"><h2>～なくてはいけない・～なくてはならない - must; have to · Practice 3</h2>
 <p><strong>3.</strong> Translate into Japanese, casually, as if muttering to yourself: &quot;I have to do the laundry today.&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-今日(きょう)、洗濯(せんたく)しなきゃ。 （also fine: 今日(きょう)は洗濯(せんたく)しなくちゃ。）</p>
+<ruby>今日<rt>きょう</rt></ruby>、<ruby>洗濯<rt>せんたく</rt></ruby>しなきゃ。 （also fine: <ruby>今日<rt>きょう</rt></ruby>は<ruby>洗濯<rt>せんたく</rt></ruby>しなくちゃ。）</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Muttered self-obligation is the natural home of the contractions, and the <code>いけない</code> tail is normally left off entirely. Writing out <code>洗濯(せんたく)しなければなりません</code> here would sound like a regulation about laundry.</p>
+Muttered self-obligation is the natural home of the contractions, and the <code>いけない</code> tail is normally left off entirely. Writing out <code><ruby>洗濯<rt>せんたく</rt></ruby>しなければなりません</code> here would sound like a regulation about laundry.</p>
 </div>
 </div>
-<div class="slide" data-index="66">
+<div class="slide" data-index="74">
   
   <div class="slide__content"><h2>～なくてはいけない・～なくてはならない - must; have to · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the problem: 来週(らいしゅう)までにレポートを出(だ)すなくてはならないです。</p>
+<p><strong>4.</strong> Find and fix the problem: <ruby>来週<rt>らいしゅう</rt></ruby>までにレポートを<ruby>出<rt>だ</rt></ruby>すなくてはならないです。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 来週(らいしゅう)までにレポートを出(だ)さなくてはなりません。</p>
+✅ <ruby>来週<rt>らいしゅう</rt></ruby>までにレポートを<ruby>出<rt>だ</rt></ruby>さなくてはなりません。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Two errors. <code>なくては</code> attaches to the negative stem, so <code>出(だ)す</code> becomes <code>出(だ)さない</code> → <code>出(だ)さなくては</code>. And <code>ならない</code> is a verb, not an adjective: its polite form is <code>なりません</code>, never ❌<code>ならないです</code>.</p>
+Two errors. <code>なくては</code> attaches to the negative stem, so <code><ruby>出<rt>だ</rt></ruby>す</code> becomes <code><ruby>出<rt>だ</rt></ruby>さない</code> → <code><ruby>出<rt>だ</rt></ruby>さなくては</code>. And <code>ならない</code> is a verb, not an adjective: its polite form is <code>なりません</code>, never ❌<code>ならないです</code>.</p>
 </div>
 </div>
-<div class="slide" data-index="67">
+<div class="slide" data-index="75">
   
   <div class="slide__content"><h2>～なくてはいけない・～なくてはならない - must; have to · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 会員(かいいん)は毎年(まいとし)会費(かいひ)を払(はら)わなければならない。 (b) 会費(かいひ)、払(はら)わなくちゃ。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>会員<rt>かいいん</rt></ruby>は<ruby>毎年<rt>まいとし</rt></ruby><ruby>会費<rt>かいひ</rt></ruby>を<ruby>払<rt>はら</rt></ruby>わなければならない。 (b) <ruby>会費<rt>かいひ</rt></ruby>、<ruby>払<rt>はら</rt></ruby>わなくちゃ。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) is the wording of a rule. <code>なければならない</code> states a standing requirement that applies to a class of people, and the sentence would sit comfortably in a membership agreement.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
@@ -3497,7 +3556,7 @@ Two errors. <code>なくては</code> attaches to the negative stem, so <code>�
     </div>
     <div id="hud-right">
       <a href="https://github.com/arpitbbhayani/deckrun" target="_blank" rel="noopener noreferrer" class="hud-brand" id="hud-brand" title="deckrun — Markdown presentations">powered by <span>deckrun</span></a>
-      <div id="slide-counter"><span id="cur">1</span>&nbsp;/&nbsp;<span id="tot">68</span></div>
+      <div id="slide-counter"><span id="cur">1</span>&nbsp;/&nbsp;<span id="tot">76</span></div>
     </div>
   </div>
 </div>
@@ -3550,7 +3609,7 @@ Two errors. <code>なくては</code> attaches to the negative stem, so <code>�
 
 
 
-<script id="deck-notes" type="application/json">["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]</script>
+<script id="deck-notes" type="application/json">["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]</script>
 <script id="deck-themes" type="application/json">{"themes":[{"id":"midnight","label":"midnight","mood":"dark","blurb":"Catppuccin Mocha. Violet on deep indigo, drifting orbs.","decor":"orbs","colors":{"crust":"#11111b","mantle":"#181825","base":"#1e1e2e","surface0":"#313244","overlay1":"#7f849c","subtext1":"#bac2de","text":"#cdd6f4","accent":"#cba6f7","accent2":"#89b4fa","accent3":"#89dceb"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"tokyo","label":"tokyo night","mood":"dark","blurb":"Neon cyan over a wireframe grid, lifted from a rainy skyline.","decor":"grid","colors":{"crust":"#16161e","mantle":"#1a1b26","base":"#1f2335","surface0":"#292e42","overlay1":"#7c86ab","subtext1":"#b7c0e0","text":"#c8d3f5","accent":"#2ac3de","accent2":"#bb9af7","accent3":"#73daca"},"fonts":{"display":"'Sora', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"nord","label":"nord","mood":"dark","blurb":"Arctic frost blue on polar slate, with slow contour waves.","decor":"waves","colors":{"crust":"#232831","mantle":"#2e3440","base":"#353c4a","surface0":"#3b4252","overlay1":"#8e9aae","subtext1":"#d8dee9","text":"#eceff4","accent":"#88c0d0","accent2":"#81a1c1","accent3":"#8fbcbb"},"fonts":{"display":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace","body":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"dracula","label":"dracula","mood":"dark","blurb":"Purple and hot pink over charcoal, lit by a gradient mesh.","decor":"mesh","colors":{"crust":"#1a1b23","mantle":"#21222c","base":"#282a36","surface0":"#343746","overlay1":"#7b85b6","subtext1":"#e2e4f0","text":"#f8f8f2","accent":"#bd93f9","accent2":"#ff79c6","accent3":"#8be9fd"},"fonts":{"display":"'Syne', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'Fira Code', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"gruvbox","label":"gruvbox","mood":"dark","blurb":"Warm amber and moss on retro brown, hatched like graph paper.","decor":"topo","colors":{"crust":"#1b1e1f","mantle":"#232728","base":"#282828","surface0":"#32302f","overlay1":"#928374","subtext1":"#d5c4a1","text":"#ebdbb2","accent":"#fabd2f","accent2":"#fe8019","accent3":"#b8bb26"},"fonts":{"display":"'Bricolage Grotesque', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Work Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"rosepine","label":"rosé pine","mood":"dark","blurb":"Muted iris and gold on plum, under a slow aurora.","decor":"aurora","colors":{"crust":"#14121f","mantle":"#191724","base":"#1f1d2e","surface0":"#26233a","overlay1":"#817c9c","subtext1":"#cdc9e6","text":"#e0def4","accent":"#c4a7e7","accent2":"#9ccfd8","accent3":"#f6c177"},"fonts":{"display":"'Fraunces', Georgia, 'Times New Roman', serif","body":"'Newsreader', Georgia, 'Times New Roman', serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"forest","label":"forest","mood":"dark","blurb":"Everforest sage on deep pine, rippling in concentric rings.","decor":"rings","colors":{"crust":"#232a2e","mantle":"#2d353b","base":"#343f44","surface0":"#3d484d","overlay1":"#9da9a0","subtext1":"#d3c6aa","text":"#e5dfd2","accent":"#a7c080","accent2":"#6fb5ac","accent3":"#dbbc7f"},"fonts":{"display":"'Outfit', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"neon","label":"neon","mood":"dark","blurb":"Electric cyan and magenta on true black, raked by light beams.","decor":"beams","colors":{"crust":"#050509","mantle":"#0a0a12","base":"#0e0e1a","surface0":"#16162a","overlay1":"#6a6a96","subtext1":"#c8c8e4","text":"#f0f0ff","accent":"#22d3ee","accent2":"#ff5cc8","accent3":"#38e8ff"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'Space Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"daylight","label":"daylight","mood":"light","blurb":"Catppuccin Latte, contrast-tuned for a projector. Dot matrix.","decor":"dots","colors":{"crust":"#ebebeb","mantle":"#f5f5f5","base":"#fafaf8","surface0":"#ccd0da","overlay1":"#5c5f77","subtext1":"#3a3c52","text":"#1e2030","accent":"#8839ef","accent2":"#1e66f5","accent3":"#179299"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"arctic","label":"arctic","mood":"light","blurb":"Nord inverted. Frost blue on cool paper, with contour waves.","decor":"waves","colors":{"crust":"#e3e8ef","mantle":"#eceff4","base":"#f7f9fc","surface0":"#dbe1ea","overlay1":"#5f6b7c","subtext1":"#364150","text":"#2e3440","accent":"#2f7d94","accent2":"#4a7ba7","accent3":"#3b8b8a"},"fonts":{"display":"'Manrope', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"solarized","label":"solarized","mood":"light","blurb":"The classic low-glare cream, paired with Lora for long prose.","decor":"topo","colors":{"crust":"#eee8d5","mantle":"#f5efdc","base":"#fdf6e3","surface0":"#e3ddc8","overlay1":"#657b83","subtext1":"#3f5b62","text":"#073642","accent":"#268bd2","accent2":"#6c71c4","accent3":"#21958c"},"fonts":{"display":"'Outfit', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Lora', Georgia, 'Times New Roman', serif","mono":"'Source Code Pro', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"paper","label":"paper","mood":"light","blurb":"Crimson serif on warm cream. Editorial, print-first, very legible.","decor":"rings","colors":{"crust":"#efe8dc","mantle":"#f7f2e9","base":"#fdfbf5","surface0":"#e4dccc","overlay1":"#6e6553","subtext1":"#38311f","text":"#211c11","accent":"#a81f2c","accent2":"#1f7f96","accent3":"#9a6c12"},"fonts":{"display":"'Fraunces', Georgia, 'Times New Roman', serif","body":"'Newsreader', Georgia, 'Times New Roman', serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"rosequartz","label":"rose quartz","mood":"light","blurb":"Rosé Pine Dawn. Blush and iris on linen, with soft orbs.","decor":"orbs","colors":{"crust":"#f2e9e1","mantle":"#faf4ed","base":"#fffaf3","surface0":"#ece0d8","overlay1":"#7d7791","subtext1":"#55506e","text":"#423d5c","accent":"#b4637a","accent2":"#907aa9","accent3":"#56949f"},"fonts":{"display":"'Playfair Display', Georgia, 'Times New Roman', serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"swiss","label":"swiss","mood":"light","blurb":"Black on white, one red. Heavy grotesk, tight tracking, hard grid.","decor":"grid","colors":{"crust":"#f0f0f0","mantle":"#f8f8f8","base":"#ffffff","surface0":"#dcdcdc","overlay1":"#5a5a5a","subtext1":"#222222","text":"#0a0a0a","accent":"#e01b24","accent2":"#0a0a0a","accent3":"#5a5a5a"},"fonts":{"display":"'Archivo', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}}],"hljsMap":{"midnight":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css","tokyo":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css","nord":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/nord.min.css","dracula":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/dracula.min.css","gruvbox":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/gruvbox-dark-medium.min.css","rosepine":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/ros-pine.min.css","forest":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css","neon":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/night-owl.min.css","daylight":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","arctic":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","solarized":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/solarized-light.min.css","paper":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","rosequartz":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/ros-pine-dawn.min.css","swiss":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css"},"decorMap":{"midnight":"orbs","tokyo":"grid","nord":"waves","dracula":"mesh","gruvbox":"topo","rosepine":"aurora","forest":"rings","neon":"beams","daylight":"dots","arctic":"waves","solarized":"topo","paper":"rings","rosequartz":"orbs","swiss":"grid"}}</script>
 
 <script>
@@ -4738,6 +4797,36 @@ Two errors. <code>なくては</code> attaches to the negative stem, so <code>�
     transition: opacity 0.15s ease, background 0.15s ease; }
   #deck-home:hover, #deck-home:focus-visible { opacity: 0.95; background: rgba(128,128,128,0.14); }
   @media print { #deck-home { display: none !important; } }
+  #furigana-toggle { position: fixed; bottom: 2.7rem; right: 1.1rem; z-index: 40;
+    font: 500 0.78rem/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+    color: currentColor; opacity: 0.38; cursor: pointer; user-select: none;
+    background: none; border: 1px solid currentColor; border-radius: 4px;
+    padding: 0.38rem 0.6rem;
+    transition: opacity 0.15s ease, background 0.15s ease; }
+  #furigana-toggle:hover, #furigana-toggle:focus-visible { opacity: 0.95; background: rgba(128,128,128,0.14); }
+  @media print { #furigana-toggle { display: none !important; } }
 </style>
+<button id="furigana-toggle" type="button" aria-pressed="true">&#12405;&#12426;&#12364;&#12394; ON</button>
+<script>
+  (function () {
+    // Deliberately click-only: readers who do not want furigana turn it off
+    // once and it sticks, while every key stays free for presenting.
+    var root = document.documentElement, btn = document.getElementById('furigana-toggle');
+    function paint() {
+      var off = root.getAttribute('data-furigana') === 'off';
+      btn.textContent = '\u3075\u308a\u304c\u306a ' + (off ? 'OFF' : 'ON');
+      btn.setAttribute('aria-pressed', String(!off));
+    }
+    btn.addEventListener('click', function () {
+      var off = root.getAttribute('data-furigana') === 'off';
+      if (off) root.removeAttribute('data-furigana');
+      else root.setAttribute('data-furigana', 'off');
+      try { localStorage.setItem('jlpt-furigana', off ? 'on' : 'off'); } catch (e) {}
+      paint();
+      btn.blur();
+    });
+    paint();
+  })();
+</script>
 </body>
 </html>

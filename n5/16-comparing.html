@@ -2606,6 +2606,13 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
   gap: 0.5rem;
 }
   </style>
+<script>
+  try {
+    if (localStorage.getItem('jlpt-furigana') === 'off') {
+      document.documentElement.setAttribute('data-furigana', 'off');
+    }
+  } catch (e) {}
+</script>
 </head>
 <body>
 
@@ -2614,7 +2621,16 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <div id="presentation">
 <div class="slide" data-index="0">
   
-  <div class="slide__content"><style>html { font-size: 20.0px; }</style>
+  <div class="slide__content"><style>
+  html { font-size: 20.0px; }
+  .slide__content p, .slide__content li,
+  .slide__content td, .slide__content th { line-height: 2.05; }
+  rt { font-size: 0.5em; line-height: 1.1; opacity: 0.72; font-weight: 400; }
+  :root[data-furigana="off"] rt { display: none; }
+  :root[data-furigana="off"] .slide__content p, :root[data-furigana="off"] .slide__content li,
+  :root[data-furigana="off"] .slide__content td, :root[data-furigana="off"] .slide__content th
+    { line-height: 1.5; }
+</style>
 
 <h1>N5 - Comparing</h1>
 <ul>
@@ -2628,7 +2644,7 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
   
   <div class="slide__content"><h1>いちばん</h1>
 <p><strong>Meaning</strong> · the most; the best; number one</p>
-<p>Japanese adjectives have no <code>-est</code> ending. <code>いちばん</code> supplies it: put this one word in front of an adjective and it becomes a superlative. Literally &quot;number one&quot;, and it is written either as <code>いちばん</code> or with the kanji 一番(いちばん).</p>
+<p>Japanese adjectives have no <code>-est</code> ending. <code>いちばん</code> supplies it: put this one word in front of an adjective and it becomes a superlative. Literally &quot;number one&quot;, and it is written either as <code>いちばん</code> or with the kanji <ruby>一番<rt>いちばん</rt></ruby>.</p>
 </div>
 </div>
 <div class="slide" data-index="2">
@@ -2636,41 +2652,41 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
   <div class="slide__content"><h2>いちばん · Usage</h2>
 <p><code>いちばん</code> is an adverb, so it goes <strong>directly in front of the word it makes superlative</strong> - an adjective, a な-adjective, or an adverb - and nothing comes between them.</p>
 <ul>
-<li>Before an い-adjective: いちばん高(たか)い, いちばん新(あたら)しい</li>
-<li>Before a な-adjective: いちばん静(しず)か（な）, いちばん便利(べんり)（な）</li>
-<li>Before an adverb: いちばん早(はや)く来(き)ました, &quot;arrived earliest&quot;</li>
-<li>Before <code>好(す)き</code>, which behaves as a な-adjective:<br><em>いちばん好(す)きな色(いろ)</em></li>
+<li>Before an い-adjective: いちばん<ruby>高<rt>たか</rt></ruby>い, いちばん<ruby>新<rt>あたら</rt></ruby>しい</li>
+<li>Before a な-adjective: いちばん<ruby>静<rt>しず</rt></ruby>か（な）, いちばん<ruby>便利<rt>べんり</rt></ruby>（な）</li>
+<li>Before an adverb: いちばん<ruby>早<rt>はや</rt></ruby>く<ruby>来<rt>き</rt></ruby>ました, &quot;arrived earliest&quot;</li>
+<li>Before <code><ruby>好<rt>す</rt></ruby>き</code>, which behaves as a な-adjective:<br><em>いちばん<ruby>好<rt>す</rt></ruby>きな<ruby>色<rt>いろ</rt></ruby></em></li>
 </ul>
-<p>It can also stand alone as a noun meaning &quot;the top one&quot; - 日本(にほん)で一番(いちばん)になりたい, &quot;I want to be number one in Japan&quot; - and it feeds the ordinal 一番目(いちばんめ), &quot;the first&quot;.</p>
+<p>It can also stand alone as a noun meaning &quot;the top one&quot; - <ruby>日本<rt>にほん</rt></ruby>で<ruby>一番<rt>いちばん</rt></ruby>になりたい, &quot;I want to be number one in Japan&quot; - and it feeds the ordinal <ruby>一番目<rt>いちばんめ</rt></ruby>, &quot;the first&quot;.</p>
 </div>
 </div>
 <div class="slide" data-index="3">
   
   <div class="slide__content"><h2>いちばん · Usage (cont.)</h2>
-<p>The set of things being compared is usually left unsaid and understood from context. When you do want to state it explicitly, Japanese wraps <code>いちばん</code> in the frame <code>～の中(なか)で～がいちばん…</code>, which has its own page.</p>
+<p>The set of things being compared is usually left unsaid and understood from context. When you do want to state it explicitly, Japanese wraps <code>いちばん</code> in the frame <code>～の<ruby>中<rt>なか</rt></ruby>で～がいちばん…</code>, which has its own page.</p>
 </div>
 </div>
 <div class="slide" data-index="4">
   
   <div class="slide__content"><h2>いちばん · Examples</h2>
-<p>この店(みせ)のケーキが<strong>いちばん</strong>おいしいです。<br><em>The cake at this shop is the best.</em></p>
-<p>私(わたし)は夏(なつ)が<strong>いちばん</strong>好(す)きです。<br><em>Summer is my favourite season.</em></p>
-<p>駅(えき)までは、この道(みち)が<strong>いちばん</strong>近(ちか)いですよ。<br><em>This road is the shortest way to the station.</em></p>
-<p>試験(しけん)の前(まえ)は、よく寝(ね)るのが<strong>いちばん</strong>大切(たいせつ)だと思(おも)います。<br><em>Before an exam, I think sleeping well is the most important thing of all.</em></p>
+<p>この<ruby>店<rt>みせ</rt></ruby>のケーキが<strong>いちばん</strong>おいしいです。<br><em>The cake at this shop is the best.</em></p>
+<p><ruby>私<rt>わたし</rt></ruby>は<ruby>夏<rt>なつ</rt></ruby>が<strong>いちばん</strong><ruby>好<rt>す</rt></ruby>きです。<br><em>Summer is my favourite season.</em></p>
+<p><ruby>駅<rt>えき</rt></ruby>までは、この<ruby>道<rt>みち</rt></ruby>が<strong>いちばん</strong><ruby>近<rt>ちか</rt></ruby>いですよ。<br><em>This road is the shortest way to the station.</em></p>
+<p><ruby>試験<rt>しけん</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>は、よく<ruby>寝<rt>ね</rt></ruby>るのが<strong>いちばん</strong><ruby>大切<rt>たいせつ</rt></ruby>だと<ruby>思<rt>おも</rt></ruby>います。<br><em>Before an exam, I think sleeping well is the most important thing of all.</em></p>
 </div>
 </div>
 <div class="slide" data-index="5">
   
   <div class="slide__content"><h2>いちばん · Nuance &amp; register</h2>
 <p>Register-neutral and extremely frequent in ordinary speech. Nothing about it marks age, gender or formality.</p>
-<p>In kanji it is 一番(いちばん), and both spellings are normal; textbooks and signage tend to use the kanji, casual writing the kana. The reading never changes.</p>
-<p>The formal written equivalent is <code>最(もっと)も</code>. A newspaper writes 最(もっと)も高(たか)い山(やま); a person talking to you says いちばん高(たか)い山(やま). Using <code>最(もっと)も</code> in conversation sounds like you are reading from a report.</p>
-<p>Do not confuse <code>いちばん</code> with <code>もっと</code>. <code>もっと</code> means &quot;more&quot; - a comparative, not a superlative - so もっと安(やす)い店(みせ) is &quot;a cheaper shop&quot; while いちばん安(やす)い店(みせ) is &quot;the cheapest shop&quot;. The two are one syllable apart and constantly mixed up.</p>
+<p>In kanji it is <ruby>一番<rt>いちばん</rt></ruby>, and both spellings are normal; textbooks and signage tend to use the kanji, casual writing the kana. The reading never changes.</p>
+<p>The formal written equivalent is <code><ruby>最<rt>もっと</rt></ruby>も</code>. A newspaper writes <ruby>最<rt>もっと</rt></ruby>も<ruby>高<rt>たか</rt></ruby>い<ruby>山<rt>やま</rt></ruby>; a person talking to you says いちばん<ruby>高<rt>たか</rt></ruby>い<ruby>山<rt>やま</rt></ruby>. Using <code><ruby>最<rt>もっと</rt></ruby>も</code> in conversation sounds like you are reading from a report.</p>
 </div>
 </div>
 <div class="slide" data-index="6">
   
   <div class="slide__content"><h2>いちばん · Nuance &amp; register (cont.)</h2>
+<p>Do not confuse <code>いちばん</code> with <code>もっと</code>. <code>もっと</code> means &quot;more&quot; - a comparative, not a superlative - so もっと<ruby>安<rt>やす</rt></ruby>い<ruby>店<rt>みせ</rt></ruby> is &quot;a cheaper shop&quot; while いちばん<ruby>安<rt>やす</rt></ruby>い<ruby>店<rt>みせ</rt></ruby> is &quot;the cheapest shop&quot;. The two are one syllable apart and constantly mixed up.</p>
 <p>Spoken Japanese also uses <code>いちばん</code> loosely as a rough intensifier of preference - 「やっぱりこれがいちばん」, &quot;this really is the best&quot; - where no real ranking has been carried out. That usage is casual and warm, and perfectly standard.</p>
 </div>
 </div>
@@ -2678,13 +2694,13 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
   
   <div class="slide__content"><h2>いちばん · Common mistakes</h2>
 <ul>
-<li><p>❌ この山(やま)は高(たか)いいちばんです。 → ✅ この山(やま)が<strong>いちばん高(たか)い</strong>です。<br><em><code>いちばん</code> goes <em>in front of</em> the adjective, never after it. Word order carries the whole meaning here.</em></p>
+<li><p>❌ この<ruby>山<rt>やま</rt></ruby>は<ruby>高<rt>たか</rt></ruby>いいちばんです。 → ✅ この<ruby>山<rt>やま</rt></ruby>が<strong>いちばん<ruby>高<rt>たか</rt></ruby>い</strong>です。<br><em><code>いちばん</code> goes <em>in front of</em> the adjective, never after it. Word order carries the whole meaning here.</em></p>
 </li>
-<li><p>❌ 犬(いぬ)より<strong>いちばん</strong>好(す)きです。 → ✅ 犬(いぬ)より猫(ねこ)の方(ほう)が好(す)きです。<br><em><code>より</code> compares exactly two things, and a superlative needs three or more. The two patterns cannot be combined in one sentence.</em></p>
+<li><p>❌ <ruby>犬<rt>いぬ</rt></ruby>より<strong>いちばん</strong><ruby>好<rt>す</rt></ruby>きです。 → ✅ <ruby>犬<rt>いぬ</rt></ruby>より<ruby>猫<rt>ねこ</rt></ruby>の<ruby>方<rt>ほう</rt></ruby>が<ruby>好<rt>す</rt></ruby>きです。<br><em><code>より</code> compares exactly two things, and a superlative needs three or more. The two patterns cannot be combined in one sentence.</em></p>
 </li>
-<li><p>❌ いちばん<strong>の</strong>好(す)きな食(た)べ物(もの) → ✅ <strong>いちばん好(す)きな</strong>食(た)べ物(もの)<br><em>No <code>の</code> between <code>いちばん</code> and the adjective. <code>いちばん</code> is an adverb here, not a noun.</em></p>
+<li><p>❌ いちばん<strong>の</strong><ruby>好<rt>す</rt></ruby>きな<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby> → ✅ <strong>いちばん<ruby>好<rt>す</rt></ruby>きな</strong><ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby><br><em>No <code>の</code> between <code>いちばん</code> and the adjective. <code>いちばん</code> is an adverb here, not a noun.</em></p>
 </li>
-<li><p>❌ この部屋(へや)がいちばん静(しず)かなです。 → ✅ この部屋(へや)が<strong>いちばん静(しず)か</strong>です。<br><em>The <code>な</code> of a な-adjective appears only before a noun. <code>いちばん</code> changes nothing about how the adjective itself is conjugated.</em></p>
+<li><p>❌ この<ruby>部屋<rt>へや</rt></ruby>がいちばん<ruby>静<rt>しず</rt></ruby>かなです。 → ✅ この<ruby>部屋<rt>へや</rt></ruby>が<strong>いちばん<ruby>静<rt>しず</rt></ruby>か</strong>です。<br><em>The <code>な</code> of a な-adjective appears only before a noun. <code>いちばん</code> changes nothing about how the adjective itself is conjugated.</em></p>
 </li>
 </ul>
 </div>
@@ -2692,9 +2708,9 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <div class="slide" data-index="8">
   
   <div class="slide__content"><h2>いちばん · Practice 1</h2>
-<p><strong>1.</strong> クラスで山田(やまだ)さんが____足(あし)が速(はや)いです。</p>
+<p><strong>1.</strong> クラスで<ruby>山田<rt>やまだ</rt></ruby>さんが____<ruby>足<rt>あし</rt></ruby>が<ruby>速<rt>はや</rt></ruby>いです。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-クラスで山田(やまだ)さんが<strong>いちばん</strong>足(あし)が速(はや)いです。</p>
+クラスで<ruby>山田<rt>やまだ</rt></ruby>さんが<strong>いちばん</strong><ruby>足<rt>あし</rt></ruby>が<ruby>速<rt>はや</rt></ruby>いです。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 <code>いちばん</code> marks the top of the group. It sits in front of the part being ranked, and the person holding that rank is marked with <code>が</code>, not <code>は</code>.</p>
 </div>
@@ -2702,9 +2718,9 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <div class="slide" data-index="9">
   
   <div class="slide__content"><h2>いちばん · Practice 2</h2>
-<p><strong>2.</strong> Find and fix the error: この辞書(じしょ)はいちばんの便利(べんり)です。</p>
+<p><strong>2.</strong> Find and fix the error: この<ruby>辞書<rt>じしょ</rt></ruby>はいちばんの<ruby>便利<rt>べんり</rt></ruby>です。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ この辞書(じしょ)が**いちばん便利(べんり)**です。</p>
+✅ この<ruby>辞書<rt>じしょ</rt></ruby>が**いちばん<ruby>便利<rt>べんり</rt></ruby>**です。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 Delete the <code>の</code>: <code>いちばん</code> attaches straight onto the adjective. Changing <code>は</code> to <code>が</code> is also natural, because picking out the top item of a set is exactly the job <code>が</code> does.</p>
 </div>
@@ -2712,7 +2728,7 @@ Delete the <code>の</code>: <code>いちばん</code> attaches straight onto th
 <div class="slide" data-index="10">
   
   <div class="slide__content"><h2>いちばん · Practice 3</h2>
-<p><strong>3.</strong> Explain the difference in nuance: (a) もっと大(おお)きいかばんがほしいです。 (b) いちばん大(おお)きいかばんがほしいです。</p>
+<p><strong>3.</strong> Explain the difference in nuance: (a) もっと<ruby>大<rt>おお</rt></ruby>きいかばんがほしいです。 (b) いちばん<ruby>大<rt>おお</rt></ruby>きいかばんがほしいです。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) is a comparative: the speaker has seen a bag and wants a bigger one than that. No ranking of the whole shop is implied.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
@@ -2729,7 +2745,7 @@ Delete the <code>の</code>: <code>いちばん</code> attaches straight onto th
 <div class="slide" data-index="12">
   
   <div class="slide__content"><h2>～のなかで～がいちばん · Formation</h2>
-<p>Two halves that go together: <code>～の中(なか)で</code> sets the field, <code>～がいちばん + adjective</code> announces the winner.</p>
+<p>Two halves that go together: <code>～の<ruby>中<rt>なか</rt></ruby>で</code> sets the field, <code>～がいちばん + adjective</code> announces the winner.</p>
 </div>
 </div>
 <div class="slide" data-index="13">
@@ -2745,43 +2761,43 @@ Delete the <code>の</code>: <code>いちばん</code> attaches straight onto th
 </thead>
 <tbody><tr>
 <td>Group noun</td>
-<td>Noun + の中(なか)で</td>
-<td>クラス → クラスの中(なか)で</td>
+<td>Noun + の<ruby>中<rt>なか</rt></ruby>で</td>
+<td>クラス → クラスの<ruby>中<rt>なか</rt></ruby>で</td>
 </tr>
 <tr>
 <td>Category noun</td>
-<td>Noun + の中(なか)で</td>
-<td>スポーツ → スポーツの中(なか)で</td>
+<td>Noun + の<ruby>中<rt>なか</rt></ruby>で</td>
+<td>スポーツ → スポーツの<ruby>中<rt>なか</rt></ruby>で</td>
 </tr>
 <tr>
 <td>Listed items</td>
-<td>A と B と C + の中(なか)で</td>
-<td>赤(あか)と青(あお)と黒(くろ)の中(なか)で</td>
+<td>A と B と C + の<ruby>中<rt>なか</rt></ruby>で</td>
+<td><ruby>赤<rt>あか</rt></ruby>と<ruby>青<rt>あお</rt></ruby>と<ruby>黒<rt>くろ</rt></ruby>の<ruby>中<rt>なか</rt></ruby>で</td>
 </tr>
 <tr>
 <td>Place or period</td>
-<td>Noun + で（no 中(なか)）</td>
-<td>世界(せかい)で／一年(いちねん)で</td>
+<td>Noun + で（no <ruby>中<rt>なか</rt></ruby>）</td>
+<td><ruby>世界<rt>せかい</rt></ruby>で／<ruby>一年<rt>いちねん</rt></ruby>で</td>
 </tr>
 <tr>
 <td>Winner</td>
 <td>Noun + が + いちばん + adjective</td>
-<td>夏(なつ)がいちばん暑(あつ)いです</td>
+<td><ruby>夏<rt>なつ</rt></ruby>がいちばん<ruby>暑<rt>あつ</rt></ruby>いです</td>
 </tr>
 <tr>
 <td>Question (people)</td>
 <td>だれが いちばん …か</td>
-<td>だれがいちばん強(つよ)いですか</td>
+<td>だれがいちばん<ruby>強<rt>つよ</rt></ruby>いですか</td>
 </tr>
 <tr>
 <td>Question (closed set)</td>
 <td>どれが いちばん …か</td>
-<td>どれがいちばん安(やす)いですか</td>
+<td>どれがいちばん<ruby>安<rt>やす</rt></ruby>いですか</td>
 </tr>
 <tr>
 <td>Question (place / time)</td>
 <td>どこが／いつが いちばん …か</td>
-<td>どこがいちばん寒(さむ)いですか</td>
+<td>どこがいちばん<ruby>寒<rt>さむ</rt></ruby>いですか</td>
 </tr>
 </tbody></table>
 </div>
@@ -2790,7 +2806,7 @@ Delete the <code>の</code>: <code>いちばん</code> attaches straight onto th
   
   <div class="slide__content"><h2>～のなかで～がいちばん · Formation (cont.)</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - the winner takes <code>が</code>. Using <code>は</code> there （❌夏(なつ)はいちばん暑(あつ)いです）turns the sentence into a topic statement and loses the &quot;out of all of them&quot; force. <code>が</code> selects; <code>は</code> merely comments.</p>
+<p><strong>Rule of thumb</strong> - the winner takes <code>が</code>. Using <code>は</code> there （❌<ruby>夏<rt>なつ</rt></ruby>はいちばん<ruby>暑<rt>あつ</rt></ruby>いです）turns the sentence into a topic statement and loses the &quot;out of all of them&quot; force. <code>が</code> selects; <code>は</code> merely comments.</p>
 </blockquote>
 <p>The question word matches the field: <strong>だれ</strong> for people, <strong>どれ</strong> for a closed set of listed things, <strong>なに</strong> for an open category, <strong>どこ</strong> for places, <strong>いつ</strong> for times.</p>
 </div>
@@ -2798,44 +2814,44 @@ Delete the <code>の</code>: <code>いちばん</code> attaches straight onto th
 <div class="slide" data-index="15">
   
   <div class="slide__content"><h2>～のなかで～がいちばん · Examples</h2>
-<p>果物(くだもの)<strong>の中(なか)で</strong>、りんご<strong>がいちばん</strong>好(す)きです。<br><em>Of all fruit, I like apples best.</em></p>
-<p>クラス<strong>の中(なか)で</strong>、林(はやし)さん<strong>がいちばん</strong>背(せ)が高(たか)いです。<br><em>Hayashi is the tallest in the class.</em></p>
-<p>家族(かぞく)<strong>の中(なか)で</strong>、だれ<strong>がいちばん</strong>早(はや)く起(お)きますか。<br><em>Who gets up earliest in your family?</em></p>
-<p>一年(いちねん)<strong>で</strong>、八月(はちがつ)<strong>がいちばん</strong>暑(あつ)いです。<br><em>August is the hottest month of the year.</em></p>
-<p>この三(みっ)つ<strong>の中(なか)で</strong>、どれ<strong>がいちばん</strong>軽(かる)いですか。<br><em>Which of these three is the lightest?</em></p>
+<p><ruby>果物<rt>くだもの</rt></ruby><strong>の<ruby>中<rt>なか</rt></ruby>で</strong>、りんご<strong>がいちばん</strong><ruby>好<rt>す</rt></ruby>きです。<br><em>Of all fruit, I like apples best.</em></p>
+<p>クラス<strong>の<ruby>中<rt>なか</rt></ruby>で</strong>、<ruby>林<rt>はやし</rt></ruby>さん<strong>がいちばん</strong><ruby>背<rt>せ</rt></ruby>が<ruby>高<rt>たか</rt></ruby>いです。<br><em>Hayashi is the tallest in the class.</em></p>
+<p><ruby>家族<rt>かぞく</rt></ruby><strong>の<ruby>中<rt>なか</rt></ruby>で</strong>、だれ<strong>がいちばん</strong><ruby>早<rt>はや</rt></ruby>く<ruby>起<rt>お</rt></ruby>きますか。<br><em>Who gets up earliest in your family?</em></p>
+<p><ruby>一年<rt>いちねん</rt></ruby><strong>で</strong>、<ruby>八月<rt>はちがつ</rt></ruby><strong>がいちばん</strong><ruby>暑<rt>あつ</rt></ruby>いです。<br><em>August is the hottest month of the year.</em></p>
 </div>
 </div>
 <div class="slide" data-index="16">
   
   <div class="slide__content"><h2>～のなかで～がいちばん · Examples (cont.)</h2>
-<p>兄弟(きょうだい)<strong>の中(なか)で</strong>、妹(いもうと)<strong>がいちばん</strong>ピアノが上手(じょうず)です。<br><em>Of us siblings, my little sister is the best at the piano.</em></p>
-<p>この店(みせ)のメニュー<strong>の中(なか)で</strong>、この定食(ていしょく)<strong>がいちばん</strong>人気(にんき)があります。<br><em>Of everything on this restaurant&#39;s menu, this set meal is the most popular.</em></p>
-<p>今(いま)まで見(み)た映画(えいが)<strong>の中(なか)で</strong>、あの作品(さくひん)<strong>がいちばん</strong>おもしろかったです。<br><em>Of all the films I&#39;ve seen, that one was the most interesting.</em></p>
+<p>この<ruby>三<rt>みっ</rt></ruby>つ<strong>の<ruby>中<rt>なか</rt></ruby>で</strong>、どれ<strong>がいちばん</strong><ruby>軽<rt>かる</rt></ruby>いですか。<br><em>Which of these three is the lightest?</em></p>
+<p><ruby>兄弟<rt>きょうだい</rt></ruby><strong>の<ruby>中<rt>なか</rt></ruby>で</strong>、<ruby>妹<rt>いもうと</rt></ruby><strong>がいちばん</strong>ピアノが<ruby>上手<rt>じょうず</rt></ruby>です。<br><em>Of us siblings, my little sister is the best at the piano.</em></p>
+<p>この<ruby>店<rt>みせ</rt></ruby>のメニュー<strong>の<ruby>中<rt>なか</rt></ruby>で</strong>、この<ruby>定食<rt>ていしょく</rt></ruby><strong>がいちばん</strong><ruby>人気<rt>にんき</rt></ruby>があります。<br><em>Of everything on this restaurant&#39;s menu, this set meal is the most popular.</em></p>
+<p><ruby>今<rt>いま</rt></ruby>まで<ruby>見<rt>み</rt></ruby>た<ruby>映画<rt>えいが</rt></ruby><strong>の<ruby>中<rt>なか</rt></ruby>で</strong>、あの<ruby>作品<rt>さくひん</rt></ruby><strong>がいちばん</strong>おもしろかったです。<br><em>Of all the films I&#39;ve seen, that one was the most interesting.</em></p>
 </div>
 </div>
 <div class="slide" data-index="17">
   
   <div class="slide__content"><h2>～のなかで～がいちばん · Nuance &amp; register</h2>
-<p>Register-neutral. The whole frame works unchanged in plain speech - just drop <code>です</code> - and it is one of the first things a learner is asked in conversation practice: 日本(にほん)の食(た)べ物(もの)の中(なか)で、何(なに)がいちばん好(す)きですか。</p>
-<p>The <code>中(なか)</code> is often left out when the field is a <strong>place or a period of time</strong>, because those are already containers: 世界(せかい)でいちばん高(たか)い山(やま), 一年(いちねん)でいちばん寒(さむ)い日(ひ), クラスでいちばん元気(げんき)な人(ひと). Saying 世界(せかい)の中(なか)で is not wrong, but it is heavier than a native speaker would usually bother with. With a category noun - fruit, sports, films - the <code>の中(なか)で</code> is the normal choice.</p>
-<p>In writing you will see <code>最(もっと)も</code> in place of <code>いちばん</code>, and <code>～のうちで</code> in place of <code>～の中(なか)で</code>. Both are stiffer. Neither changes the grammar.</p>
+<p>Register-neutral. The whole frame works unchanged in plain speech - just drop <code>です</code> - and it is one of the first things a learner is asked in conversation practice: <ruby>日本<rt>にほん</rt></ruby>の<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>の<ruby>中<rt>なか</rt></ruby>で、<ruby>何<rt>なに</rt></ruby>がいちばん<ruby>好<rt>す</rt></ruby>きですか。</p>
+<p>The <code><ruby>中<rt>なか</rt></ruby></code> is often left out when the field is a <strong>place or a period of time</strong>, because those are already containers: <ruby>世界<rt>せかい</rt></ruby>でいちばん<ruby>高<rt>たか</rt></ruby>い<ruby>山<rt>やま</rt></ruby>, <ruby>一年<rt>いちねん</rt></ruby>でいちばん<ruby>寒<rt>さむ</rt></ruby>い<ruby>日<rt>ひ</rt></ruby>, クラスでいちばん<ruby>元気<rt>げんき</rt></ruby>な<ruby>人<rt>ひと</rt></ruby>. Saying <ruby>世界<rt>せかい</rt></ruby>の<ruby>中<rt>なか</rt></ruby>で is not wrong, but it is heavier than a native speaker would usually bother with. With a category noun - fruit, sports, films - the <code>の<ruby>中<rt>なか</rt></ruby>で</code> is the normal choice.</p>
 </div>
 </div>
 <div class="slide" data-index="18">
   
   <div class="slide__content"><h2>～のなかで～がいちばん · Nuance &amp; register (cont.)</h2>
-<p>Answering such a question, you normally repeat the frame only if it is not already obvious. Asked 季節(きせつ)の中(なか)でいつがいちばん好(す)きですか, you answer simply 秋(あき)がいちばん好(す)きです - or just 秋(あき)です.</p>
+<p>In writing you will see <code><ruby>最<rt>もっと</rt></ruby>も</code> in place of <code>いちばん</code>, and <code>～のうちで</code> in place of <code>～の<ruby>中<rt>なか</rt></ruby>で</code>. Both are stiffer. Neither changes the grammar.</p>
+<p>Answering such a question, you normally repeat the frame only if it is not already obvious. Asked <ruby>季節<rt>きせつ</rt></ruby>の<ruby>中<rt>なか</rt></ruby>でいつがいちばん<ruby>好<rt>す</rt></ruby>きですか, you answer simply <ruby>秋<rt>あき</rt></ruby>がいちばん<ruby>好<rt>す</rt></ruby>きです - or just <ruby>秋<rt>あき</rt></ruby>です.</p>
 </div>
 </div>
 <div class="slide" data-index="19">
   
-  <div class="slide__content"><h2>～の中(なか)で～がいちばん vs ～より～のほうが</h2>
+  <div class="slide__content"><h2>～のなかで～がいちばん · ～の中で～がいちばん vs ～より～のほうが</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - count the candidates. Two → <code>より</code>. Three or more → <code>いちばん</code>.</p>
 </blockquote>
-<p>スポーツ<strong>の中(なか)で</strong>、サッカー<strong>がいちばん</strong>好(す)きです。<br><em>Of all sports, I like football best.</em></p>
-<p>サッカーより野球(やきゅう)の方(ほう)が好(す)きです。<br><em>I like baseball more than football.</em></p>
-<p>Mixing the two produces sentences that are simply broken: ❌ サッカーよりいちばん好(す)きです. If a <code>より</code> phrase is present, the comparison is between two named things and there is no top of any ranking to point at.</p>
+<p>スポーツ<strong>の<ruby>中<rt>なか</rt></ruby>で</strong>、サッカー<strong>がいちばん</strong><ruby>好<rt>す</rt></ruby>きです。<br><em>Of all sports, I like football best.</em></p>
+<p>サッカーより<ruby>野球<rt>やきゅう</rt></ruby>の<ruby>方<rt>ほう</rt></ruby>が<ruby>好<rt>す</rt></ruby>きです。<br><em>I like baseball more than football.</em></p>
+<p>Mixing the two produces sentences that are simply broken: ❌ サッカーよりいちばん<ruby>好<rt>す</rt></ruby>きです. If a <code>より</code> phrase is present, the comparison is between two named things and there is no top of any ranking to point at.</p>
 </div>
 </div>
 <div class="slide" data-index="20">
@@ -2844,104 +2860,109 @@ Delete the <code>の</code>: <code>いちばん</code> attaches straight onto th
 <blockquote>
 <p><strong>Rule of thumb</strong> - this pattern answers &quot;which one?&quot;, and answers to &quot;which one?&quot; always take <code>が</code>.</p>
 </blockquote>
-<p>四人(よにん)<strong>の中(なか)で</strong>、田中(たなか)さん<strong>がいちばん</strong>若(わか)いです。<br><em>Tanaka is the youngest of the four.</em></p>
+<p><ruby>四人<rt>よにん</rt></ruby><strong>の<ruby>中<rt>なか</rt></ruby>で</strong>、<ruby>田中<rt>たなか</rt></ruby>さん<strong>がいちばん</strong><ruby>若<rt>わか</rt></ruby>いです。<br><em>Tanaka is the youngest of the four.</em></p>
 <p>Replace <code>が</code> with <code>は</code> and the sentence stops selecting: it would be read as &quot;as for Tanaka, he is the youngest&quot;, which is a comment about Tanaka rather than the result of comparing four people. The same logic governs the question - the question word <code>だれ</code> cannot take <code>は</code> at all.</p>
-<p><code>は</code> does appear one step earlier in the sentence, on the field, when the field is being contrasted: 日本(にほん)の山(やま)の中(なか)では…, &quot;in Japan at least, …&quot;.</p>
+<p><code>は</code> does appear one step earlier in the sentence, on the field, when the field is being contrasted: <ruby>日本<rt>にほん</rt></ruby>の<ruby>山<rt>やま</rt></ruby>の<ruby>中<rt>なか</rt></ruby>では…, &quot;in Japan at least, …&quot;.</p>
 </div>
 </div>
 <div class="slide" data-index="21">
   
-  <div class="slide__content"><h2>～のなかで～がいちばん · の中(なか)で vs で</h2>
+  <div class="slide__content"><h2>～のなかで～がいちばん · の中で vs で</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - with a <strong>group</strong>, keep <code>の中(なか)で</code>. With a <strong>place or a stretch of time</strong>, the plain <code>で</code> is enough.</p>
+<p><strong>Rule of thumb</strong> - with a <strong>group</strong>, keep <code>の<ruby>中<rt>なか</rt></ruby>で</code>. With a <strong>place or a stretch of time</strong>, the plain <code>で</code> is enough.</p>
 </blockquote>
-<p>日本(にほん)<strong>で</strong>富士山(ふじさん)<strong>がいちばん</strong>高(たか)いです。<br><em>Mt. Fuji is the highest mountain in Japan.</em></p>
-<p>日本(にほん)の山(やま)<strong>の中(なか)で</strong>富士山(ふじさん)<strong>がいちばん</strong>高(たか)いです。<br><em>Of all the mountains in Japan, Mt. Fuji is the highest.</em></p>
-<p>Both are correct. The first treats Japan as a location; the second explicitly assembles the set of Japanese mountains and ranks it. What you must not do is drop the particle altogether: ❌日本(にほん)富士山(ふじさん)がいちばん高(たか)いです.</p>
+<p><ruby>日本<rt>にほん</rt></ruby><strong>で</strong><ruby>富士山<rt>ふじさん</rt></ruby><strong>がいちばん</strong><ruby>高<rt>たか</rt></ruby>いです。<br><em>Mt. Fuji is the highest mountain in Japan.</em></p>
+<p><ruby>日本<rt>にほん</rt></ruby>の<ruby>山<rt>やま</rt></ruby><strong>の<ruby>中<rt>なか</rt></ruby>で</strong><ruby>富士山<rt>ふじさん</rt></ruby><strong>がいちばん</strong><ruby>高<rt>たか</rt></ruby>いです。<br><em>Of all the mountains in Japan, Mt. Fuji is the highest.</em></p>
 </div>
 </div>
 <div class="slide" data-index="22">
   
-  <div class="slide__content"><h2>～のなかで～がいちばん · Common mistakes</h2>
-<ul>
-<li><p>❌ 果物(くだもの)の中(なか)で、みかん<strong>は</strong>いちばん安(やす)いです。 → ✅ 果物(くだもの)の中(なか)で、みかん<strong>が</strong>いちばん安(やす)いです。<br><em>The item being crowned takes <code>が</code>. This is the error learners make most often with the pattern, because English &quot;oranges are the cheapest&quot; looks like a topic sentence.</em></p>
-</li>
-<li><p>❌ スポーツの中(なか)<strong>に</strong>、テニスがいちばん好(す)きです。 → ✅ スポーツの中(なか)<strong>で</strong>、テニスがいちばん好(す)きです。<br><em><code>で</code> marks the domain within which the comparison is carried out. <code>に</code> would mark a location of existence, which is not what is going on.</em></p>
-</li>
-<li><p>❌ 世界(せかい)の中(なか)でいちばん大(おお)きい国(くに) → ✅ 世界(せかい)でいちばん大(おお)きい国(くに)<br><em>Not ungrammatical, but a place name plus <code>の中(なか)で</code> is clumsy. Places and time spans take the bare <code>で</code>.</em></p>
-</li>
-</ul>
+  <div class="slide__content"><h2>～のなかで～がいちばん · の中で vs で (cont.)</h2>
+<p>Both are correct. The first treats Japan as a location; the second explicitly assembles the set of Japanese mountains and ranks it. What you must not do is drop the particle altogether: ❌<ruby>日本<rt>にほん</rt></ruby><ruby>富士山<rt>ふじさん</rt></ruby>がいちばん<ruby>高<rt>たか</rt></ruby>いです.</p>
 </div>
 </div>
 <div class="slide" data-index="23">
   
-  <div class="slide__content"><h2>～のなかで～がいちばん · Common mistakes (cont.)</h2>
+  <div class="slide__content"><h2>～のなかで～がいちばん · Common mistakes</h2>
 <ul>
-<li><p>❌ この三(みっ)つの中(なか)で、**何(なに)**がいちばんいいですか。 → ✅ この三(みっ)つの中(なか)で、<strong>どれ</strong>がいちばんいいですか。<br><em>When the candidates have been listed, the question word is <code>どれ</code>. <code>なに</code> asks about an open field with no stated members.</em></p>
+<li><p>❌ <ruby>果物<rt>くだもの</rt></ruby>の<ruby>中<rt>なか</rt></ruby>で、みかん<strong>は</strong>いちばん<ruby>安<rt>やす</rt></ruby>いです。 → ✅ <ruby>果物<rt>くだもの</rt></ruby>の<ruby>中<rt>なか</rt></ruby>で、みかん<strong>が</strong>いちばん<ruby>安<rt>やす</rt></ruby>いです。<br><em>The item being crowned takes <code>が</code>. This is the error learners make most often with the pattern, because English &quot;oranges are the cheapest&quot; looks like a topic sentence.</em></p>
 </li>
-<li><p>❌ 兄弟(きょうだい)の中(なか)で、弟(おとうと)がいちばん元気(げんき)<strong>な</strong>です。 → ✅ 兄弟(きょうだい)の中(なか)で、弟(おとうと)がいちばん元気(げんき)です。<br><em><code>いちばん</code> does not change how the adjective ends. A な-adjective keeps its <code>な</code> only in front of a noun.</em></p>
+<li><p>❌ スポーツの<ruby>中<rt>なか</rt></ruby><strong>に</strong>、テニスがいちばん<ruby>好<rt>す</rt></ruby>きです。 → ✅ スポーツの<ruby>中<rt>なか</rt></ruby><strong>で</strong>、テニスがいちばん<ruby>好<rt>す</rt></ruby>きです。<br><em><code>で</code> marks the domain within which the comparison is carried out. <code>に</code> would mark a location of existence, which is not what is going on.</em></p>
+</li>
+<li><p>❌ <ruby>世界<rt>せかい</rt></ruby>の<ruby>中<rt>なか</rt></ruby>でいちばん<ruby>大<rt>おお</rt></ruby>きい<ruby>国<rt>くに</rt></ruby> → ✅ <ruby>世界<rt>せかい</rt></ruby>でいちばん<ruby>大<rt>おお</rt></ruby>きい<ruby>国<rt>くに</rt></ruby><br><em>Not ungrammatical, but a place name plus <code>の<ruby>中<rt>なか</rt></ruby>で</code> is clumsy. Places and time spans take the bare <code>で</code>.</em></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="slide" data-index="24">
   
-  <div class="slide__content"><h2>～のなかで～がいちばん · Practice 1</h2>
-<p><strong>1.</strong> 飲(の)み物(もの)の中(なか)で、お茶(ちゃ)____いちばん好(す)きです。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-飲(の)み物(もの)の中(なか)で、お茶(ちゃ)<strong>が</strong>いちばん好(す)きです。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>が</code> marks the item selected out of the group. It is also the particle <code>好(す)き</code> normally takes for the thing liked, so the two requirements agree here.</p>
+  <div class="slide__content"><h2>～のなかで～がいちばん · Common mistakes (cont.)</h2>
+<ul>
+<li><p>❌ この<ruby>三<rt>みっ</rt></ruby>つの<ruby>中<rt>なか</rt></ruby>で、**<ruby>何<rt>なに</rt></ruby>**がいちばんいいですか。 → ✅ この<ruby>三<rt>みっ</rt></ruby>つの<ruby>中<rt>なか</rt></ruby>で、<strong>どれ</strong>がいちばんいいですか。<br><em>When the candidates have been listed, the question word is <code>どれ</code>. <code>なに</code> asks about an open field with no stated members.</em></p>
+</li>
+<li><p>❌ <ruby>兄弟<rt>きょうだい</rt></ruby>の<ruby>中<rt>なか</rt></ruby>で、<ruby>弟<rt>おとうと</rt></ruby>がいちばん<ruby>元気<rt>げんき</rt></ruby><strong>な</strong>です。 → ✅ <ruby>兄弟<rt>きょうだい</rt></ruby>の<ruby>中<rt>なか</rt></ruby>で、<ruby>弟<rt>おとうと</rt></ruby>がいちばん<ruby>元気<rt>げんき</rt></ruby>です。<br><em><code>いちばん</code> does not change how the adjective ends. A な-adjective keeps its <code>な</code> only in front of a noun.</em></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="25">
   
-  <div class="slide__content"><h2>～のなかで～がいちばん · Practice 2</h2>
-<p><strong>2.</strong> Choose: 春(はる)と秋(あき)と（どちら・どれ）がいちばん好(す)きですか。</p>
+  <div class="slide__content"><h2>～のなかで～がいちばん · Practice 1</h2>
+<p><strong>1.</strong> <ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>の<ruby>中<rt>なか</rt></ruby>で、お<ruby>茶<rt>ちゃ</rt></ruby>____いちばん<ruby>好<rt>す</rt></ruby>きです。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-春(はる)と秋(あき)と<strong>どちら</strong>が好(す)きですか。</p>
+<ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>の<ruby>中<rt>なか</rt></ruby>で、お<ruby>茶<rt>ちゃ</rt></ruby><strong>が</strong>いちばん<ruby>好<rt>す</rt></ruby>きです。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-With exactly two candidates you use <code>どちら</code> - and then <code>いちばん</code> has to go, since there is no ranking of three or more to head. <code>どれ</code> needs at least three listed options.</p>
+<code>が</code> marks the item selected out of the group. It is also the particle <code><ruby>好<rt>す</rt></ruby>き</code> normally takes for the thing liked, so the two requirements agree here.</p>
 </div>
 </div>
 <div class="slide" data-index="26">
   
-  <div class="slide__content"><h2>～のなかで～がいちばん · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese: &quot;Which season do you like best?&quot;</p>
+  <div class="slide__content"><h2>～のなかで～がいちばん · Practice 2</h2>
+<p><strong>2.</strong> Choose: <ruby>春<rt>はる</rt></ruby>と<ruby>秋<rt>あき</rt></ruby>と（どちら・どれ）がいちばん<ruby>好<rt>す</rt></ruby>きですか。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-季節(きせつ)の中(なか)で、<strong>いつがいちばん</strong>好(す)きですか。 （also natural: どの季節(きせつ)がいちばん好(す)きですか。）</p>
+<ruby>春<rt>はる</rt></ruby>と<ruby>秋<rt>あき</rt></ruby>と<strong>どちら</strong>が<ruby>好<rt>す</rt></ruby>きですか。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Seasons are times, so <code>いつ</code> fits; <code>どの + 季節(きせつ)</code> is the other standard way to ask. Either way the question word carries <code>が</code>, never <code>は</code>.</p>
+With exactly two candidates you use <code>どちら</code> - and then <code>いちばん</code> has to go, since there is no ranking of three or more to head. <code>どれ</code> needs at least three listed options.</p>
 </div>
 </div>
 <div class="slide" data-index="27">
   
-  <div class="slide__content"><h2>～のなかで～がいちばん · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 日本(にほん)の町(まち)の中(なか)に、京都(きょうと)はいちばんきれいだと思(おも)います。</p>
+  <div class="slide__content"><h2>～のなかで～がいちばん · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese: &quot;Which season do you like best?&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 日本(にほん)の町(まち)の中(なか)<strong>で</strong>、京都(きょうと)<strong>が</strong>いちばんきれいだと思(おも)います。</p>
+<ruby>季節<rt>きせつ</rt></ruby>の<ruby>中<rt>なか</rt></ruby>で、<strong>いつがいちばん</strong><ruby>好<rt>す</rt></ruby>きですか。 （also natural: どの<ruby>季節<rt>きせつ</rt></ruby>がいちばん<ruby>好<rt>す</rt></ruby>きですか。）</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Two particles are wrong. The field of comparison takes <code>で</code>, not <code>に</code>, and the selected item takes <code>が</code>, not <code>は</code>.</p>
+Seasons are times, so <code>いつ</code> fits; <code>どの + <ruby>季節<rt>きせつ</rt></ruby></code> is the other standard way to ask. Either way the question word carries <code>が</code>, never <code>は</code>.</p>
 </div>
 </div>
 <div class="slide" data-index="28">
   
+  <div class="slide__content"><h2>～のなかで～がいちばん · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the error: <ruby>日本<rt>にほん</rt></ruby>の<ruby>町<rt>まち</rt></ruby>の<ruby>中<rt>なか</rt></ruby>に、<ruby>京都<rt>きょうと</rt></ruby>はいちばんきれいだと<ruby>思<rt>おも</rt></ruby>います。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ <ruby>日本<rt>にほん</rt></ruby>の<ruby>町<rt>まち</rt></ruby>の<ruby>中<rt>なか</rt></ruby><strong>で</strong>、<ruby>京都<rt>きょうと</rt></ruby><strong>が</strong>いちばんきれいだと<ruby>思<rt>おも</rt></ruby>います。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+Two particles are wrong. The field of comparison takes <code>で</code>, not <code>に</code>, and the selected item takes <code>が</code>, not <code>は</code>.</p>
+</div>
+</div>
+<div class="slide" data-index="29">
+  
   <div class="slide__content"><h2>～のなかで～がいちばん · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) この店(みせ)のパンはおいしいです。 (b) この辺(へん)の店(みせ)の中(なか)で、この店(みせ)のパンがいちばんおいしいです。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) この<ruby>店<rt>みせ</rt></ruby>のパンはおいしいです。 (b) この<ruby>辺<rt>へん</rt></ruby>の<ruby>店<rt>みせ</rt></ruby>の<ruby>中<rt>なか</rt></ruby>で、この<ruby>店<rt>みせ</rt></ruby>のパンがいちばんおいしいです。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) is an unranked judgement - the bread here is good, and nothing is said about anywhere else.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (b) sets up a field (the shops around here), compares them, and awards first place. The listener now knows the speaker has tried the others. That explicit field is exactly what the pattern adds over a bare adjective.</p>
 </div>
 </div>
-<div class="slide" data-index="29">
+<div class="slide" data-index="30">
   
   <div class="slide__content"><h1>～より～のほうが～</h1>
 <p><strong>Meaning</strong> · ～ is more ～ than ～ - comparing exactly two things</p>
-<p>Japanese adjectives have no comparative form: 高(たか)い covers both &quot;tall&quot; and &quot;taller&quot;. The comparison is carried entirely by the particles. <code>より</code> marks the loser, <code>の方(ほう)が</code> marks the winner, and the adjective stays exactly as it is.</p>
+<p>Japanese adjectives have no comparative form: <ruby>高<rt>たか</rt></ruby>い covers both &quot;tall&quot; and &quot;taller&quot;. The comparison is carried entirely by the particles. <code>より</code> marks the loser, <code>の<ruby>方<rt>ほう</rt></ruby>が</code> marks the winner, and the adjective stays exactly as it is.</p>
 </div>
 </div>
-<div class="slide" data-index="30">
+<div class="slide" data-index="31">
   
   <div class="slide__content"><h2>～より～のほうが～ · Formation</h2>
 <table>
@@ -2954,193 +2975,193 @@ Two particles are wrong. The field of comparison takes <code>で</code>, not <co
 </thead>
 <tbody><tr>
 <td>Noun (winner)</td>
-<td>Noun + の方(ほう)が</td>
-<td>猫(ねこ) → 猫(ねこ)の方(ほう)が</td>
+<td>Noun + の<ruby>方<rt>ほう</rt></ruby>が</td>
+<td><ruby>猫<rt>ねこ</rt></ruby> → <ruby>猫<rt>ねこ</rt></ruby>の<ruby>方<rt>ほう</rt></ruby>が</td>
 </tr>
 <tr>
 <td>Noun (loser)</td>
 <td>Noun + より</td>
-<td>犬(いぬ) → 犬(いぬ)より</td>
+<td><ruby>犬<rt>いぬ</rt></ruby> → <ruby>犬<rt>いぬ</rt></ruby>より</td>
 </tr>
 <tr>
 <td>Verb</td>
-<td>plain form + 方(ほう)が（no の）</td>
-<td>歩(ある)く → 歩(ある)く方(ほう)が</td>
+<td>plain form + <ruby>方<rt>ほう</rt></ruby>が（no の）</td>
+<td><ruby>歩<rt>ある</rt></ruby>く → <ruby>歩<rt>ある</rt></ruby>く<ruby>方<rt>ほう</rt></ruby>が</td>
 </tr>
 <tr>
 <td>い-adjective</td>
-<td>plain form + 方(ほう)が</td>
-<td>安(やす)い → 安(やす)い方(ほう)が</td>
+<td>plain form + <ruby>方<rt>ほう</rt></ruby>が</td>
+<td><ruby>安<rt>やす</rt></ruby>い → <ruby>安<rt>やす</rt></ruby>い<ruby>方<rt>ほう</rt></ruby>が</td>
 </tr>
 <tr>
 <td>な-adjective</td>
-<td>stem + な + 方(ほう)が</td>
-<td>静(しず)かだ → 静(しず)かな方(ほう)が</td>
+<td>stem + な + <ruby>方<rt>ほう</rt></ruby>が</td>
+<td><ruby>静<rt>しず</rt></ruby>かだ → <ruby>静<rt>しず</rt></ruby>かな<ruby>方<rt>ほう</rt></ruby>が</td>
 </tr>
 <tr>
 <td>Question</td>
 <td>AとBと、どちらが + adjective + か</td>
-<td>どちらが安(やす)いですか</td>
+<td>どちらが<ruby>安<rt>やす</rt></ruby>いですか</td>
 </tr>
 <tr>
 <td>Answer</td>
-<td>Bの方(ほう)が + adjective + です</td>
-<td>Bの方(ほう)が安(やす)いです</td>
+<td>Bの<ruby>方<rt>ほう</rt></ruby>が + adjective + です</td>
+<td>Bの<ruby>方<rt>ほう</rt></ruby>が<ruby>安<rt>やす</rt></ruby>いです</td>
 </tr>
 <tr>
 <td>Short form</td>
 <td>Aより + adjective</td>
-<td>去年(きょねん)より寒(さむ)いです</td>
+<td><ruby>去年<rt>きょねん</rt></ruby>より<ruby>寒<rt>さむ</rt></ruby>いです</td>
 </tr>
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="31">
+<div class="slide" data-index="32">
   
   <div class="slide__content"><h2>～より～のほうが～ · Formation (cont.)</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - the order is free. AよりBの方(ほう)が高(たか)いです and Bの方(ほう)がAより高(たか)いです say the same thing. What is fixed is which particle goes on which noun: <code>より</code> on the one that loses, <code>の方(ほう)が</code> on the one that wins. Swap the particles and you reverse the sentence.</p>
+<p><strong>Rule of thumb</strong> - the order is free. AよりBの<ruby>方<rt>ほう</rt></ruby>が<ruby>高<rt>たか</rt></ruby>いです and Bの<ruby>方<rt>ほう</rt></ruby>がAより<ruby>高<rt>たか</rt></ruby>いです say the same thing. What is fixed is which particle goes on which noun: <code>より</code> on the one that loses, <code>の<ruby>方<rt>ほう</rt></ruby>が</code> on the one that wins. Swap the particles and you reverse the sentence.</p>
 </blockquote>
-<p>Either half can also stand alone. <code>去年(きょねん)より寒(さむ)いです</code> (&quot;colder than last year&quot;) and <code>こちらの方(ほう)が安(やす)いです</code> (&quot;this one is cheaper&quot;) are both complete, ordinary sentences.</p>
-</div>
-</div>
-<div class="slide" data-index="32">
-  
-  <div class="slide__content"><h2>～より～のほうが～ · Examples</h2>
-<p>犬(いぬ)<strong>より</strong>猫(ねこ)<strong>の方(ほう)が</strong>好(す)きです。<br><em>I like cats more than dogs.</em></p>
-<p>バス<strong>より</strong>電車(でんしゃ)<strong>の方(ほう)が</strong>速(はや)いです。<br><em>The train is faster than the bus.</em></p>
-<p>今日(きょう)は昨日(きのう)<strong>より</strong>暖(あたた)かいですね。<br><em>It&#39;s warmer today than yesterday, isn&#39;t it.</em></p>
-<p>東京(とうきょう)と大阪(おおさか)と、どちら<strong>の方(ほう)が</strong>人(ひと)が多(おお)いですか。<br><em>Which has more people, Tokyo or Osaka?</em></p>
-<p>肉(にく)<strong>より</strong>魚(さかな)<strong>の方(ほう)を</strong>よく食(た)べます。<br><em>I eat fish more often than meat.</em></p>
+<p>Either half can also stand alone. <code><ruby>去年<rt>きょねん</rt></ruby>より<ruby>寒<rt>さむ</rt></ruby>いです</code> (&quot;colder than last year&quot;) and <code>こちらの<ruby>方<rt>ほう</rt></ruby>が<ruby>安<rt>やす</rt></ruby>いです</code> (&quot;this one is cheaper&quot;) are both complete, ordinary sentences.</p>
 </div>
 </div>
 <div class="slide" data-index="33">
   
-  <div class="slide__content"><h2>～より～のほうが～ · Examples (cont.)</h2>
-<p>私(わたし)<strong>の方(ほう)が</strong>姉(あね)<strong>より</strong>少(すこ)し背(せ)が高(たか)いです。<br><em>I&#39;m slightly taller than my older sister.</em></p>
-<p>車(くるま)で行(い)く<strong>より</strong>、歩(ある)く<strong>方(ほう)が</strong>早(はや)いですよ。<br><em>It&#39;s quicker to walk than to go by car.</em></p>
-<p>冬(ふゆ)の北海道(ほっかいどう)は、思(おも)っていた<strong>より</strong>ずっと寒(さむ)かったです。<br><em>Hokkaido in winter was far colder than I had expected.</em></p>
+  <div class="slide__content"><h2>～より～のほうが～ · Examples</h2>
+<p><ruby>犬<rt>いぬ</rt></ruby><strong>より</strong><ruby>猫<rt>ねこ</rt></ruby><strong>の<ruby>方<rt>ほう</rt></ruby>が</strong><ruby>好<rt>す</rt></ruby>きです。<br><em>I like cats more than dogs.</em></p>
+<p>バス<strong>より</strong><ruby>電車<rt>でんしゃ</rt></ruby><strong>の<ruby>方<rt>ほう</rt></ruby>が</strong><ruby>速<rt>はや</rt></ruby>いです。<br><em>The train is faster than the bus.</em></p>
+<p><ruby>今日<rt>きょう</rt></ruby>は<ruby>昨日<rt>きのう</rt></ruby><strong>より</strong><ruby>暖<rt>あたた</rt></ruby>かいですね。<br><em>It&#39;s warmer today than yesterday, isn&#39;t it.</em></p>
+<p><ruby>東京<rt>とうきょう</rt></ruby>と<ruby>大阪<rt>おおさか</rt></ruby>と、どちら<strong>の<ruby>方<rt>ほう</rt></ruby>が</strong><ruby>人<rt>ひと</rt></ruby>が<ruby>多<rt>おお</rt></ruby>いですか。<br><em>Which has more people, Tokyo or Osaka?</em></p>
 </div>
 </div>
 <div class="slide" data-index="34">
   
-  <div class="slide__content"><h2>～より～のほうが～ · Nuance &amp; register</h2>
-<p>Register-neutral. In casual speech <code>の方(ほう)が</code> is often reduced to <code>の方(ほう)</code> with the <code>が</code> dropped - こっちの方(ほう)安(やす)いよ - and the whole <code>より</code> half is regularly left out when it is obvious what the comparison is against.</p>
-<p>Degree adverbs slot in before the adjective and are very common: <code>ずっと</code> (far, by a long way), <code>もっと</code> (more), <code>少(すこ)し</code> and <code>ちょっと</code> (a little). 去年(きょねん)よりずっと忙(いそが)しいです.</p>
-<p>The question form is <code>AとBと、どちらが…</code>. Note three things about it: <code>どちら</code> not <code>どれ</code> (two candidates, not three); <code>が</code> not <code>は</code>; and the polite <code>どちら</code> has a casual counterpart <code>どっち</code> that you will hear constantly in conversation - 紅茶(こうちゃ)とコーヒー、どっちがいい?</p>
-<p><code>の方(ほう)</code> literally means &quot;side, direction&quot;, and that image is worth keeping: you are pointing at one side of a pair. It is why the pattern feels wrong with three or more items - there is no &quot;other side&quot; to point away from.</p>
+  <div class="slide__content"><h2>～より～のほうが～ · Examples (cont.)</h2>
+<p><ruby>肉<rt>にく</rt></ruby><strong>より</strong><ruby>魚<rt>さかな</rt></ruby><strong>の<ruby>方<rt>ほう</rt></ruby>を</strong>よく<ruby>食<rt>た</rt></ruby>べます。<br><em>I eat fish more often than meat.</em></p>
+<p><ruby>私<rt>わたし</rt></ruby><strong>の<ruby>方<rt>ほう</rt></ruby>が</strong><ruby>姉<rt>あね</rt></ruby><strong>より</strong><ruby>少<rt>すこ</rt></ruby>し<ruby>背<rt>せ</rt></ruby>が<ruby>高<rt>たか</rt></ruby>いです。<br><em>I&#39;m slightly taller than my older sister.</em></p>
+<p><ruby>車<rt>くるま</rt></ruby>で<ruby>行<rt>い</rt></ruby>く<strong>より</strong>、<ruby>歩<rt>ある</rt></ruby>く**<ruby>方<rt>ほう</rt></ruby>が**<ruby>早<rt>はや</rt></ruby>いですよ。<br><em>It&#39;s quicker to walk than to go by car.</em></p>
+<p><ruby>冬<rt>ふゆ</rt></ruby>の<ruby>北海道<rt>ほっかいどう</rt></ruby>は、<ruby>思<rt>おも</rt></ruby>っていた<strong>より</strong>ずっと<ruby>寒<rt>さむ</rt></ruby>かったです。<br><em>Hokkaido in winter was far colder than I had expected.</em></p>
 </div>
 </div>
 <div class="slide" data-index="35">
   
-  <div class="slide__content"><h2>～より～のほうが～ · Nuance &amp; register (cont.)</h2>
-<p>Finally, <code>より</code> has a second life in formal writing and announcements where it means &quot;from&quot;: 九時(くじ)より開(ひら)きます, &quot;opening from nine&quot;. Same character, unrelated job.</p>
+  <div class="slide__content"><h2>～より～のほうが～ · Nuance &amp; register</h2>
+<p>Register-neutral. In casual speech <code>の<ruby>方<rt>ほう</rt></ruby>が</code> is often reduced to <code>の<ruby>方<rt>ほう</rt></ruby></code> with the <code>が</code> dropped - こっちの<ruby>方<rt>ほう</rt></ruby><ruby>安<rt>やす</rt></ruby>いよ - and the whole <code>より</code> half is regularly left out when it is obvious what the comparison is against.</p>
+<p>Degree adverbs slot in before the adjective and are very common: <code>ずっと</code> (far, by a long way), <code>もっと</code> (more), <code><ruby>少<rt>すこ</rt></ruby>し</code> and <code>ちょっと</code> (a little). <ruby>去年<rt>きょねん</rt></ruby>よりずっと<ruby>忙<rt>いそが</rt></ruby>しいです.</p>
+<p>The question form is <code>AとBと、どちらが…</code>. Note three things about it: <code>どちら</code> not <code>どれ</code> (two candidates, not three); <code>が</code> not <code>は</code>; and the polite <code>どちら</code> has a casual counterpart <code>どっち</code> that you will hear constantly in conversation - <ruby>紅茶<rt>こうちゃ</rt></ruby>とコーヒー、どっちがいい?</p>
 </div>
 </div>
 <div class="slide" data-index="36">
   
-  <div class="slide__content"><h2>～より～の方(ほう)が vs ～の中(なか)で～がいちばん</h2>
-<blockquote>
-<p><strong>Rule of thumb</strong> - two candidates take <code>より</code>; three or more take <code>いちばん</code>. They never appear in the same clause.</p>
-</blockquote>
-<p>コーヒー<strong>より</strong>紅茶(こうちゃ)<strong>の方(ほう)が</strong>好(す)きです。<br><em>I prefer tea to coffee.</em></p>
-<p>飲(の)み物(もの)の中(なか)で紅茶(こうちゃ)がいちばん好(す)きです。<br><em>Of all drinks, tea is my favourite.</em></p>
-<p>The first ranks two named things and says nothing about anything else - the speaker may dislike both. The second crowns a winner over a whole field.</p>
+  <div class="slide__content"><h2>～より～のほうが～ · Nuance &amp; register (cont.)</h2>
+<p><code>の<ruby>方<rt>ほう</rt></ruby></code> literally means &quot;side, direction&quot;, and that image is worth keeping: you are pointing at one side of a pair. It is why the pattern feels wrong with three or more items - there is no &quot;other side&quot; to point away from.</p>
+<p>Finally, <code>より</code> has a second life in formal writing and announcements where it means &quot;from&quot;: <ruby>九時<rt>くじ</rt></ruby>より<ruby>開<rt>ひら</rt></ruby>きます, &quot;opening from nine&quot;. Same character, unrelated job.</p>
 </div>
 </div>
 <div class="slide" data-index="37">
+  
+  <div class="slide__content"><h2>～より～のほうが～ · ～より～の方が vs ～の中で～がいちばん</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - two candidates take <code>より</code>; three or more take <code>いちばん</code>. They never appear in the same clause.</p>
+</blockquote>
+<p>コーヒー<strong>より</strong><ruby>紅茶<rt>こうちゃ</rt></ruby><strong>の<ruby>方<rt>ほう</rt></ruby>が</strong><ruby>好<rt>す</rt></ruby>きです。<br><em>I prefer tea to coffee.</em></p>
+<p><ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>の<ruby>中<rt>なか</rt></ruby>で<ruby>紅茶<rt>こうちゃ</rt></ruby>がいちばん<ruby>好<rt>す</rt></ruby>きです。<br><em>Of all drinks, tea is my favourite.</em></p>
+<p>The first ranks two named things and says nothing about anything else - the speaker may dislike both. The second crowns a winner over a whole field.</p>
+</div>
+</div>
+<div class="slide" data-index="38">
   
   <div class="slide__content"><h2>～より～のほうが～ · comparative <code>より</code> vs &quot;from&quot; <code>より</code></h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - if <code>より</code> is followed by an adjective, it is comparing. If it is followed by a verb of starting, opening or beginning, it means &quot;from&quot; and is a formal replacement for <code>から</code>.</p>
 </blockquote>
-<p>この映画(えいが)は前(まえ)の作品(さくひん)<strong>より</strong>長(なが)いです。<br><em>This film is longer than the previous one.</em></p>
-<p>受付(うけつけ)は十時(じゅうじ)より始(はじ)まります。<br><em>Reception opens from ten o&#39;clock.</em></p>
-<p>The second belongs to notices and announcements. In speech you would say 十時(じゅうじ)から.</p>
-</div>
-</div>
-<div class="slide" data-index="38">
-  
-  <div class="slide__content"><h2>～より～のほうが～ · ～の方(ほう)が vs ～方(ほう)がいい</h2>
-<blockquote>
-<p><strong>Rule of thumb</strong> - the same word <code>方(ほう)</code>, two different jobs. With an adjective it compares; with <code>いい</code> and a verb it advises.</p>
-</blockquote>
-<p>新(あたら)しいパソコン<strong>の方(ほう)が</strong>軽(かる)いです。<br><em>The new laptop is lighter.</em></p>
-<p>新(あたら)しいパソコンを買(か)った方(ほう)がいいですよ。<br><em>You&#39;d better buy a new laptop.</em></p>
-<p>The advice pattern normally takes the た-form of the verb and ends in <code>いい</code>. If you find yourself saying <code>方(ほう)がいい</code> when you only meant &quot;more&quot;, you have accidentally told someone what to do.</p>
+<p>この<ruby>映画<rt>えいが</rt></ruby>は<ruby>前<rt>まえ</rt></ruby>の<ruby>作品<rt>さくひん</rt></ruby><strong>より</strong><ruby>長<rt>なが</rt></ruby>いです。<br><em>This film is longer than the previous one.</em></p>
+<p><ruby>受付<rt>うけつけ</rt></ruby>は<ruby>十時<rt>じゅうじ</rt></ruby>より<ruby>始<rt>はじ</rt></ruby>まります。<br><em>Reception opens from ten o&#39;clock.</em></p>
+<p>The second belongs to notices and announcements. In speech you would say <ruby>十時<rt>じゅうじ</rt></ruby>から.</p>
 </div>
 </div>
 <div class="slide" data-index="39">
   
-  <div class="slide__content"><h2>～より～のほうが～ · Common mistakes</h2>
-<ul>
-<li><p>❌ 猫(ねこ)<strong>の方(ほう)が</strong>犬(いぬ)<strong>が</strong>好(す)きです。 → ✅ 犬(いぬ)<strong>より</strong>猫(ねこ)<strong>の方(ほう)が</strong>好(す)きです。<br><em>The losing item needs <code>より</code>. Without it there is nothing to compare against and the sentence has two competing <code>が</code>.</em></p>
-</li>
-<li><p>❌ 歩(ある)く<strong>の</strong>方(ほう)が早(はや)いです。 → ✅ 歩(ある)く方(ほう)が早(はや)いです。<br><em>Nouns take <code>の</code> before <code>方(ほう)</code>; verbs and い-adjectives attach directly. Only な-adjectives insert anything, and what they insert is <code>な</code>.</em></p>
-</li>
-<li><p>❌ 猫(ねこ)方(ほう)が好(す)きです。 → ✅ 猫(ねこ)<strong>の</strong>方(ほう)が好(す)きです。<br><em>The mirror-image error. After a noun the <code>の</code> is compulsory.</em></p>
-</li>
-<li><p>❌ コーヒーと紅茶(こうちゃ)と、どちらが<strong>いちばん</strong>好(す)きですか。 → ✅ コーヒーと紅茶(こうちゃ)と、どちらが好(す)きですか。<br><em><code>いちばん</code> needs three or more candidates. With two, <code>どちら</code> alone already asks the question.</em></p>
-</li>
-</ul>
+  <div class="slide__content"><h2>～より～のほうが～ · ～の方が vs ～方がいい</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - the same word <code><ruby>方<rt>ほう</rt></ruby></code>, two different jobs. With an adjective it compares; with <code>いい</code> and a verb it advises.</p>
+</blockquote>
+<p><ruby>新<rt>あたら</rt></ruby>しいパソコン<strong>の<ruby>方<rt>ほう</rt></ruby>が</strong><ruby>軽<rt>かる</rt></ruby>いです。<br><em>The new laptop is lighter.</em></p>
+<p><ruby>新<rt>あたら</rt></ruby>しいパソコンを<ruby>買<rt>か</rt></ruby>った<ruby>方<rt>ほう</rt></ruby>がいいですよ。<br><em>You&#39;d better buy a new laptop.</em></p>
+<p>The advice pattern normally takes the た-form of the verb and ends in <code>いい</code>. If you find yourself saying <code><ruby>方<rt>ほう</rt></ruby>がいい</code> when you only meant &quot;more&quot;, you have accidentally told someone what to do.</p>
 </div>
 </div>
 <div class="slide" data-index="40">
   
-  <div class="slide__content"><h2>～より～のほうが～ · Common mistakes (cont.)</h2>
+  <div class="slide__content"><h2>～より～のほうが～ · Common mistakes</h2>
 <ul>
-<li>❌ 今日(きょう)は昨日(きのう)より<strong>もっと暖(あたた)かいの方(ほう)が</strong>です。 → ✅ 今日(きょう)は昨日(きのう)より暖(あたた)かいです。<br><em>The adjective itself never changes shape, and the two halves of the pattern do not both attach to it. Comparison lives in the particles, not in the adjective.</em></li>
+<li><p>❌ <ruby>猫<rt>ねこ</rt></ruby><strong>の<ruby>方<rt>ほう</rt></ruby>が</strong><ruby>犬<rt>いぬ</rt></ruby><strong>が</strong><ruby>好<rt>す</rt></ruby>きです。 → ✅ <ruby>犬<rt>いぬ</rt></ruby><strong>より</strong><ruby>猫<rt>ねこ</rt></ruby><strong>の<ruby>方<rt>ほう</rt></ruby>が</strong><ruby>好<rt>す</rt></ruby>きです。<br><em>The losing item needs <code>より</code>. Without it there is nothing to compare against and the sentence has two competing <code>が</code>.</em></p>
+</li>
+<li><p>❌ <ruby>歩<rt>ある</rt></ruby>く<strong>の</strong><ruby>方<rt>ほう</rt></ruby>が<ruby>早<rt>はや</rt></ruby>いです。 → ✅ <ruby>歩<rt>ある</rt></ruby>く<ruby>方<rt>ほう</rt></ruby>が<ruby>早<rt>はや</rt></ruby>いです。<br><em>Nouns take <code>の</code> before <code><ruby>方<rt>ほう</rt></ruby></code>; verbs and い-adjectives attach directly. Only な-adjectives insert anything, and what they insert is <code>な</code>.</em></p>
+</li>
+<li><p>❌ <ruby>猫<rt>ねこ</rt></ruby><ruby>方<rt>ほう</rt></ruby>が<ruby>好<rt>す</rt></ruby>きです。 → ✅ <ruby>猫<rt>ねこ</rt></ruby><strong>の</strong><ruby>方<rt>ほう</rt></ruby>が<ruby>好<rt>す</rt></ruby>きです。<br><em>The mirror-image error. After a noun the <code>の</code> is compulsory.</em></p>
+</li>
+<li><p>❌ コーヒーと<ruby>紅茶<rt>こうちゃ</rt></ruby>と、どちらが<strong>いちばん</strong><ruby>好<rt>す</rt></ruby>きですか。 → ✅ コーヒーと<ruby>紅茶<rt>こうちゃ</rt></ruby>と、どちらが<ruby>好<rt>す</rt></ruby>きですか。<br><em><code>いちばん</code> needs three or more candidates. With two, <code>どちら</code> alone already asks the question.</em></p>
+</li>
 </ul>
 </div>
 </div>
 <div class="slide" data-index="41">
   
-  <div class="slide__content"><h2>～より～のほうが～ · Practice 1</h2>
-<p><strong>1.</strong> 飛行機(ひこうき)は新幹線(しんかんせん)____速(はや)いです。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-飛行機(ひこうき)は新幹線(しんかんせん)<strong>より</strong>速(はや)いです。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>より</code> attaches to the thing being beaten. The winner here is already the topic, marked with <code>は</code>, so <code>の方(ほう)が</code> is not needed - though 新幹線(しんかんせん)より飛行機(ひこうき)の方(ほう)が速(はや)いです is equally correct.</p>
+  <div class="slide__content"><h2>～より～のほうが～ · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ <ruby>今日<rt>きょう</rt></ruby>は<ruby>昨日<rt>きのう</rt></ruby>より<strong>もっと<ruby>暖<rt>あたた</rt></ruby>かいの<ruby>方<rt>ほう</rt></ruby>が</strong>です。 → ✅ <ruby>今日<rt>きょう</rt></ruby>は<ruby>昨日<rt>きのう</rt></ruby>より<ruby>暖<rt>あたた</rt></ruby>かいです。<br><em>The adjective itself never changes shape, and the two halves of the pattern do not both attach to it. Comparison lives in the particles, not in the adjective.</em></li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="42">
   
-  <div class="slide__content"><h2>～より～のほうが～ · Practice 2</h2>
-<p><strong>2.</strong> Choose: 春(はる)と夏(なつ)と、（どちら・どれ）が好(す)きですか。</p>
+  <div class="slide__content"><h2>～より～のほうが～ · Practice 1</h2>
+<p><strong>1.</strong> <ruby>飛行機<rt>ひこうき</rt></ruby>は<ruby>新幹線<rt>しんかんせん</rt></ruby>____<ruby>速<rt>はや</rt></ruby>いです。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-春(はる)と夏(なつ)と、<strong>どちら</strong>が好(す)きですか。</p>
+<ruby>飛行機<rt>ひこうき</rt></ruby>は<ruby>新幹線<rt>しんかんせん</rt></ruby><strong>より</strong><ruby>速<rt>はや</rt></ruby>いです。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Two options means <code>どちら</code> (casually <code>どっち</code>). <code>どれ</code> requires a set of at least three, and choosing it here would leave the listener looking for a third season.</p>
+<code>より</code> attaches to the thing being beaten. The winner here is already the topic, marked with <code>は</code>, so <code>の<ruby>方<rt>ほう</rt></ruby>が</code> is not needed - though <ruby>新幹線<rt>しんかんせん</rt></ruby>より<ruby>飛行機<rt>ひこうき</rt></ruby>の<ruby>方<rt>ほう</rt></ruby>が<ruby>速<rt>はや</rt></ruby>いです is equally correct.</p>
 </div>
 </div>
 <div class="slide" data-index="43">
   
-  <div class="slide__content"><h2>～より～のほうが～ · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese: &quot;This room is quieter than that one.&quot;</p>
+  <div class="slide__content"><h2>～より～のほうが～ · Practice 2</h2>
+<p><strong>2.</strong> Choose: <ruby>春<rt>はる</rt></ruby>と<ruby>夏<rt>なつ</rt></ruby>と、（どちら・どれ）が<ruby>好<rt>す</rt></ruby>きですか。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-あの部屋(へや)<strong>より</strong>この部屋(へや)<strong>の方(ほう)が</strong>静(しず)かです。</p>
+<ruby>春<rt>はる</rt></ruby>と<ruby>夏<rt>なつ</rt></ruby>と、<strong>どちら</strong>が<ruby>好<rt>す</rt></ruby>きですか。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Both halves are nouns, so both take their own particle, and <code>静(しず)かです</code> stays in its ordinary form - there is no comparative ending to add. Reversing the two halves is also fine.</p>
+Two options means <code>どちら</code> (casually <code>どっち</code>). <code>どれ</code> requires a set of at least three, and choosing it here would leave the listener looking for a third season.</p>
 </div>
 </div>
 <div class="slide" data-index="44">
   
-  <div class="slide__content"><h2>～より～のほうが～ · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 私(わたし)は兄(あに)の方(ほう)が背(せ)が高(たか)いです。</p>
+  <div class="slide__content"><h2>～より～のほうが～ · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese: &quot;This room is quieter than that one.&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 私(わたし)<strong>より</strong>兄(あに)の方(ほう)が背(せ)が高(たか)いです。</p>
+あの<ruby>部屋<rt>へや</rt></ruby><strong>より</strong>この<ruby>部屋<rt>へや</rt></ruby><strong>の<ruby>方<rt>ほう</rt></ruby>が</strong><ruby>静<rt>しず</rt></ruby>かです。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-As written, <code>は</code> and <code>の方(ほう)が</code> are fighting over which noun is the subject. Marking the speaker with <code>より</code> makes it clear who is being compared with whom - and, incidentally, who is taller.</p>
+Both halves are nouns, so both take their own particle, and <code><ruby>静<rt>しず</rt></ruby>かです</code> stays in its ordinary form - there is no comparative ending to add. Reversing the two halves is also fine.</p>
 </div>
 </div>
 <div class="slide" data-index="45">
   
+  <div class="slide__content"><h2>～より～のほうが～ · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the error: <ruby>私<rt>わたし</rt></ruby>は<ruby>兄<rt>あに</rt></ruby>の<ruby>方<rt>ほう</rt></ruby>が<ruby>背<rt>せ</rt></ruby>が<ruby>高<rt>たか</rt></ruby>いです。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ <ruby>私<rt>わたし</rt></ruby><strong>より</strong><ruby>兄<rt>あに</rt></ruby>の<ruby>方<rt>ほう</rt></ruby>が<ruby>背<rt>せ</rt></ruby>が<ruby>高<rt>たか</rt></ruby>いです。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+As written, <code>は</code> and <code>の<ruby>方<rt>ほう</rt></ruby>が</code> are fighting over which noun is the subject. Marking the speaker with <code>より</code> makes it clear who is being compared with whom - and, incidentally, who is taller.</p>
+</div>
+</div>
+<div class="slide" data-index="46">
+  
   <div class="slide__content"><h2>～より～のほうが～ · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) この辞書(じしょ)の方(ほう)が便利(べんり)です。 (b) この辞書(じしょ)を使(つか)った方(ほう)がいいです。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) この<ruby>辞書<rt>じしょ</rt></ruby>の<ruby>方<rt>ほう</rt></ruby>が<ruby>便利<rt>べんり</rt></ruby>です。 (b) この<ruby>辞書<rt>じしょ</rt></ruby>を<ruby>使<rt>つか</rt></ruby>った<ruby>方<rt>ほう</rt></ruby>がいいです。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) is a comparison. Some other dictionary is in play, and this one is the more useful of the two. The speaker is describing, not instructing.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-(b) is advice: you should use this dictionary. The た-form plus <code>方(ほう)がいい</code> is a recommendation, and depending on tone it can sound quite firm. Same noun <code>方(ほう)</code>, entirely different social act.</p>
+(b) is advice: you should use this dictionary. The た-form plus <code><ruby>方<rt>ほう</rt></ruby>がいい</code> is a recommendation, and depending on tone it can sound quite firm. Same noun <code><ruby>方<rt>ほう</rt></ruby></code>, entirely different social act.</p>
 </div>
 </div>
 </div>
@@ -3167,7 +3188,7 @@ As written, <code>は</code> and <code>の方(ほう)が</code> are fighting ove
     </div>
     <div id="hud-right">
       <a href="https://github.com/arpitbbhayani/deckrun" target="_blank" rel="noopener noreferrer" class="hud-brand" id="hud-brand" title="deckrun — Markdown presentations">powered by <span>deckrun</span></a>
-      <div id="slide-counter"><span id="cur">1</span>&nbsp;/&nbsp;<span id="tot">46</span></div>
+      <div id="slide-counter"><span id="cur">1</span>&nbsp;/&nbsp;<span id="tot">47</span></div>
     </div>
   </div>
 </div>
@@ -3220,7 +3241,7 @@ As written, <code>は</code> and <code>の方(ほう)が</code> are fighting ove
 
 
 
-<script id="deck-notes" type="application/json">["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]</script>
+<script id="deck-notes" type="application/json">["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]</script>
 <script id="deck-themes" type="application/json">{"themes":[{"id":"midnight","label":"midnight","mood":"dark","blurb":"Catppuccin Mocha. Violet on deep indigo, drifting orbs.","decor":"orbs","colors":{"crust":"#11111b","mantle":"#181825","base":"#1e1e2e","surface0":"#313244","overlay1":"#7f849c","subtext1":"#bac2de","text":"#cdd6f4","accent":"#cba6f7","accent2":"#89b4fa","accent3":"#89dceb"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"tokyo","label":"tokyo night","mood":"dark","blurb":"Neon cyan over a wireframe grid, lifted from a rainy skyline.","decor":"grid","colors":{"crust":"#16161e","mantle":"#1a1b26","base":"#1f2335","surface0":"#292e42","overlay1":"#7c86ab","subtext1":"#b7c0e0","text":"#c8d3f5","accent":"#2ac3de","accent2":"#bb9af7","accent3":"#73daca"},"fonts":{"display":"'Sora', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"nord","label":"nord","mood":"dark","blurb":"Arctic frost blue on polar slate, with slow contour waves.","decor":"waves","colors":{"crust":"#232831","mantle":"#2e3440","base":"#353c4a","surface0":"#3b4252","overlay1":"#8e9aae","subtext1":"#d8dee9","text":"#eceff4","accent":"#88c0d0","accent2":"#81a1c1","accent3":"#8fbcbb"},"fonts":{"display":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace","body":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"dracula","label":"dracula","mood":"dark","blurb":"Purple and hot pink over charcoal, lit by a gradient mesh.","decor":"mesh","colors":{"crust":"#1a1b23","mantle":"#21222c","base":"#282a36","surface0":"#343746","overlay1":"#7b85b6","subtext1":"#e2e4f0","text":"#f8f8f2","accent":"#bd93f9","accent2":"#ff79c6","accent3":"#8be9fd"},"fonts":{"display":"'Syne', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'Fira Code', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"gruvbox","label":"gruvbox","mood":"dark","blurb":"Warm amber and moss on retro brown, hatched like graph paper.","decor":"topo","colors":{"crust":"#1b1e1f","mantle":"#232728","base":"#282828","surface0":"#32302f","overlay1":"#928374","subtext1":"#d5c4a1","text":"#ebdbb2","accent":"#fabd2f","accent2":"#fe8019","accent3":"#b8bb26"},"fonts":{"display":"'Bricolage Grotesque', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Work Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"rosepine","label":"rosé pine","mood":"dark","blurb":"Muted iris and gold on plum, under a slow aurora.","decor":"aurora","colors":{"crust":"#14121f","mantle":"#191724","base":"#1f1d2e","surface0":"#26233a","overlay1":"#817c9c","subtext1":"#cdc9e6","text":"#e0def4","accent":"#c4a7e7","accent2":"#9ccfd8","accent3":"#f6c177"},"fonts":{"display":"'Fraunces', Georgia, 'Times New Roman', serif","body":"'Newsreader', Georgia, 'Times New Roman', serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"forest","label":"forest","mood":"dark","blurb":"Everforest sage on deep pine, rippling in concentric rings.","decor":"rings","colors":{"crust":"#232a2e","mantle":"#2d353b","base":"#343f44","surface0":"#3d484d","overlay1":"#9da9a0","subtext1":"#d3c6aa","text":"#e5dfd2","accent":"#a7c080","accent2":"#6fb5ac","accent3":"#dbbc7f"},"fonts":{"display":"'Outfit', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"neon","label":"neon","mood":"dark","blurb":"Electric cyan and magenta on true black, raked by light beams.","decor":"beams","colors":{"crust":"#050509","mantle":"#0a0a12","base":"#0e0e1a","surface0":"#16162a","overlay1":"#6a6a96","subtext1":"#c8c8e4","text":"#f0f0ff","accent":"#22d3ee","accent2":"#ff5cc8","accent3":"#38e8ff"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'Space Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"daylight","label":"daylight","mood":"light","blurb":"Catppuccin Latte, contrast-tuned for a projector. Dot matrix.","decor":"dots","colors":{"crust":"#ebebeb","mantle":"#f5f5f5","base":"#fafaf8","surface0":"#ccd0da","overlay1":"#5c5f77","subtext1":"#3a3c52","text":"#1e2030","accent":"#8839ef","accent2":"#1e66f5","accent3":"#179299"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"arctic","label":"arctic","mood":"light","blurb":"Nord inverted. Frost blue on cool paper, with contour waves.","decor":"waves","colors":{"crust":"#e3e8ef","mantle":"#eceff4","base":"#f7f9fc","surface0":"#dbe1ea","overlay1":"#5f6b7c","subtext1":"#364150","text":"#2e3440","accent":"#2f7d94","accent2":"#4a7ba7","accent3":"#3b8b8a"},"fonts":{"display":"'Manrope', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"solarized","label":"solarized","mood":"light","blurb":"The classic low-glare cream, paired with Lora for long prose.","decor":"topo","colors":{"crust":"#eee8d5","mantle":"#f5efdc","base":"#fdf6e3","surface0":"#e3ddc8","overlay1":"#657b83","subtext1":"#3f5b62","text":"#073642","accent":"#268bd2","accent2":"#6c71c4","accent3":"#21958c"},"fonts":{"display":"'Outfit', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Lora', Georgia, 'Times New Roman', serif","mono":"'Source Code Pro', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"paper","label":"paper","mood":"light","blurb":"Crimson serif on warm cream. Editorial, print-first, very legible.","decor":"rings","colors":{"crust":"#efe8dc","mantle":"#f7f2e9","base":"#fdfbf5","surface0":"#e4dccc","overlay1":"#6e6553","subtext1":"#38311f","text":"#211c11","accent":"#a81f2c","accent2":"#1f7f96","accent3":"#9a6c12"},"fonts":{"display":"'Fraunces', Georgia, 'Times New Roman', serif","body":"'Newsreader', Georgia, 'Times New Roman', serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"rosequartz","label":"rose quartz","mood":"light","blurb":"Rosé Pine Dawn. Blush and iris on linen, with soft orbs.","decor":"orbs","colors":{"crust":"#f2e9e1","mantle":"#faf4ed","base":"#fffaf3","surface0":"#ece0d8","overlay1":"#7d7791","subtext1":"#55506e","text":"#423d5c","accent":"#b4637a","accent2":"#907aa9","accent3":"#56949f"},"fonts":{"display":"'Playfair Display', Georgia, 'Times New Roman', serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"swiss","label":"swiss","mood":"light","blurb":"Black on white, one red. Heavy grotesk, tight tracking, hard grid.","decor":"grid","colors":{"crust":"#f0f0f0","mantle":"#f8f8f8","base":"#ffffff","surface0":"#dcdcdc","overlay1":"#5a5a5a","subtext1":"#222222","text":"#0a0a0a","accent":"#e01b24","accent2":"#0a0a0a","accent3":"#5a5a5a"},"fonts":{"display":"'Archivo', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}}],"hljsMap":{"midnight":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css","tokyo":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css","nord":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/nord.min.css","dracula":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/dracula.min.css","gruvbox":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/gruvbox-dark-medium.min.css","rosepine":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/ros-pine.min.css","forest":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css","neon":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/night-owl.min.css","daylight":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","arctic":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","solarized":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/solarized-light.min.css","paper":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","rosequartz":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/ros-pine-dawn.min.css","swiss":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css"},"decorMap":{"midnight":"orbs","tokyo":"grid","nord":"waves","dracula":"mesh","gruvbox":"topo","rosepine":"aurora","forest":"rings","neon":"beams","daylight":"dots","arctic":"waves","solarized":"topo","paper":"rings","rosequartz":"orbs","swiss":"grid"}}</script>
 
 <script>
@@ -4408,6 +4429,36 @@ As written, <code>は</code> and <code>の方(ほう)が</code> are fighting ove
     transition: opacity 0.15s ease, background 0.15s ease; }
   #deck-home:hover, #deck-home:focus-visible { opacity: 0.95; background: rgba(128,128,128,0.14); }
   @media print { #deck-home { display: none !important; } }
+  #furigana-toggle { position: fixed; bottom: 2.7rem; right: 1.1rem; z-index: 40;
+    font: 500 0.78rem/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+    color: currentColor; opacity: 0.38; cursor: pointer; user-select: none;
+    background: none; border: 1px solid currentColor; border-radius: 4px;
+    padding: 0.38rem 0.6rem;
+    transition: opacity 0.15s ease, background 0.15s ease; }
+  #furigana-toggle:hover, #furigana-toggle:focus-visible { opacity: 0.95; background: rgba(128,128,128,0.14); }
+  @media print { #furigana-toggle { display: none !important; } }
 </style>
+<button id="furigana-toggle" type="button" aria-pressed="true">&#12405;&#12426;&#12364;&#12394; ON</button>
+<script>
+  (function () {
+    // Deliberately click-only: readers who do not want furigana turn it off
+    // once and it sticks, while every key stays free for presenting.
+    var root = document.documentElement, btn = document.getElementById('furigana-toggle');
+    function paint() {
+      var off = root.getAttribute('data-furigana') === 'off';
+      btn.textContent = '\u3075\u308a\u304c\u306a ' + (off ? 'OFF' : 'ON');
+      btn.setAttribute('aria-pressed', String(!off));
+    }
+    btn.addEventListener('click', function () {
+      var off = root.getAttribute('data-furigana') === 'off';
+      if (off) root.removeAttribute('data-furigana');
+      else root.setAttribute('data-furigana', 'off');
+      try { localStorage.setItem('jlpt-furigana', off ? 'on' : 'off'); } catch (e) {}
+      paint();
+      btn.blur();
+    });
+    paint();
+  })();
+</script>
 </body>
 </html>

@@ -2606,6 +2606,13 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
   gap: 0.5rem;
 }
   </style>
+<script>
+  try {
+    if (localStorage.getItem('jlpt-furigana') === 'off') {
+      document.documentElement.setAttribute('data-furigana', 'off');
+    }
+  } catch (e) {}
+</script>
 </head>
 <body>
 
@@ -2614,7 +2621,16 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <div id="presentation">
 <div class="slide" data-index="0">
   
-  <div class="slide__content"><style>html { font-size: 20.0px; }</style>
+  <div class="slide__content"><style>
+  html { font-size: 20.0px; }
+  .slide__content p, .slide__content li,
+  .slide__content td, .slide__content th { line-height: 2.05; }
+  rt { font-size: 0.5em; line-height: 1.1; opacity: 0.72; font-weight: 400; }
+  :root[data-furigana="off"] rt { display: none; }
+  :root[data-furigana="off"] .slide__content p, :root[data-furigana="off"] .slide__content li,
+  :root[data-furigana="off"] .slide__content td, :root[data-furigana="off"] .slide__content th
+    { line-height: 1.5; }
+</style>
 
 <h1>N5 - Advice, intention, guessing</h1>
 <ul>
@@ -2652,27 +2668,27 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <tbody><tr>
 <td>Verb (advice)</td>
 <td>た-form + ほうがいい</td>
-<td>休(やす)む → 休(やす)んだほうがいい</td>
+<td><ruby>休<rt>やす</rt></ruby>む → <ruby>休<rt>やす</rt></ruby>んだほうがいい</td>
 </tr>
 <tr>
 <td>Verb (negative advice)</td>
 <td>ない-form + ほうがいい</td>
-<td>行(い)く → 行(い)かないほうがいい</td>
+<td><ruby>行<rt>い</rt></ruby>く → <ruby>行<rt>い</rt></ruby>かないほうがいい</td>
 </tr>
 <tr>
 <td>Verb (general comparison)</td>
 <td>dictionary form + ほうがいい</td>
-<td>歩(ある)く → 歩(ある)くほうがいい</td>
+<td><ruby>歩<rt>ある</rt></ruby>く → <ruby>歩<rt>ある</rt></ruby>くほうがいい</td>
 </tr>
 <tr>
 <td>い-adjective</td>
 <td>plain form + ほうがいい</td>
-<td>安(やす)い → 安(やす)いほうがいい</td>
+<td><ruby>安<rt>やす</rt></ruby>い → <ruby>安<rt>やす</rt></ruby>いほうがいい</td>
 </tr>
 <tr>
 <td>な-adjective</td>
 <td>な + ほうがいい</td>
-<td>静(しず)かだ → 静(しず)かなほうがいい</td>
+<td><ruby>静<rt>しず</rt></ruby>かだ → <ruby>静<rt>しず</rt></ruby>かなほうがいい</td>
 </tr>
 <tr>
 <td>Noun</td>
@@ -2682,12 +2698,12 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <tr>
 <td>Polite</td>
 <td>いい → いいです</td>
-<td>休(やす)んだほうがいいです</td>
+<td><ruby>休<rt>やす</rt></ruby>んだほうがいいです</td>
 </tr>
 <tr>
 <td>Past (&quot;should have&quot;)</td>
 <td>いい → よかった</td>
-<td>休(やす)んだほうがよかった</td>
+<td><ruby>休<rt>やす</rt></ruby>んだほうがよかった</td>
 </tr>
 </tbody></table>
 </div>
@@ -2703,19 +2719,19 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <div class="slide" data-index="5">
   
   <div class="slide__content"><h2>～ほうがいい - it&#39;d be better to · Examples</h2>
-<p>早(はや)く<strong>寝(ね)たほうがいい</strong>よ。<br><em>You should get to bed early.</em></p>
-<p>今日(きょう)は<strong>行(い)かないほうがいい</strong>です。<br><em>It&#39;d be better not to go today.</em></p>
-<p>薬(くすり)を<strong>飲(の)んだほうがいい</strong>ですよ。<br><em>You ought to take some medicine.</em></p>
-<p>かさを<strong>持(も)っていったほうがいい</strong>よ。午後(ごご)から雨(あめ)だって。<br><em>Take an umbrella - apparently it&#39;s going to rain this afternoon.</em></p>
-<p>あの店(みせ)は高(たか)いから、こっちで<strong>買(か)ったほうがいい</strong>と思(おも)う。<br><em>That shop&#39;s expensive, so I think you&#39;re better off buying it here.</em></p>
+<p><ruby>早<rt>はや</rt></ruby>く**<ruby>寝<rt>ね</rt></ruby>たほうがいい**よ。<br><em>You should get to bed early.</em></p>
+<p><ruby>今日<rt>きょう</rt></ruby>は**<ruby>行<rt>い</rt></ruby>かないほうがいい**です。<br><em>It&#39;d be better not to go today.</em></p>
+<p><ruby>薬<rt>くすり</rt></ruby>を**<ruby>飲<rt>の</rt></ruby>んだほうがいい**ですよ。<br><em>You ought to take some medicine.</em></p>
+<p>かさを**<ruby>持<rt>も</rt></ruby>っていったほうがいい**よ。<ruby>午後<rt>ごご</rt></ruby>から<ruby>雨<rt>あめ</rt></ruby>だって。<br><em>Take an umbrella - apparently it&#39;s going to rain this afternoon.</em></p>
 </div>
 </div>
 <div class="slide" data-index="6">
   
   <div class="slide__content"><h2>～ほうがいい - it&#39;d be better to · Examples (cont.)</h2>
-<p>夜(よる)遅(おそ)くにこの道(みち)は<strong>通(とお)らないほうがいい</strong>です。暗(くら)くて危(あぶ)ないですから。<br><em>You&#39;d better not take this road late at night - it&#39;s dark and it&#39;s dangerous.</em></p>
-<p>熱(ねつ)があるなら、会社(かいしゃ)を休(やす)んで病院(びょういん)に<strong>行(い)ったほうがいい</strong>と思(おも)いますよ。<br><em>If you&#39;ve got a fever, I really think you should take the day off and see a doctor.</em></p>
-<p>上司(じょうし)に相談(そうだん)してから<strong>決(き)めたほうがいい</strong>んじゃないでしょうか。<br><em>Wouldn&#39;t it be better to decide after you&#39;ve talked it over with your manager?</em></p>
+<p>あの<ruby>店<rt>みせ</rt></ruby>は<ruby>高<rt>たか</rt></ruby>いから、こっちで**<ruby>買<rt>か</rt></ruby>ったほうがいい**と<ruby>思<rt>おも</rt></ruby>う。<br><em>That shop&#39;s expensive, so I think you&#39;re better off buying it here.</em></p>
+<p><ruby>夜<rt>よる</rt></ruby><ruby>遅<rt>おそ</rt></ruby>くにこの<ruby>道<rt>みち</rt></ruby>は**<ruby>通<rt>とお</rt></ruby>らないほうがいい**です。<ruby>暗<rt>くら</rt></ruby>くて<ruby>危<rt>あぶ</rt></ruby>ないですから。<br><em>You&#39;d better not take this road late at night - it&#39;s dark and it&#39;s dangerous.</em></p>
+<p><ruby>熱<rt>ねつ</rt></ruby>があるなら、<ruby>会社<rt>かいしゃ</rt></ruby>を<ruby>休<rt>やす</rt></ruby>んで<ruby>病院<rt>びょういん</rt></ruby>に**<ruby>行<rt>い</rt></ruby>ったほうがいい**と<ruby>思<rt>おも</rt></ruby>いますよ。<br><em>If you&#39;ve got a fever, I really think you should take the day off and see a doctor.</em></p>
+<p><ruby>上司<rt>じょうし</rt></ruby>に<ruby>相談<rt>そうだん</rt></ruby>してから**<ruby>決<rt>き</rt></ruby>めたほうがいい**んじゃないでしょうか。<br><em>Wouldn&#39;t it be better to decide after you&#39;ve talked it over with your manager?</em></p>
 </div>
 </div>
 <div class="slide" data-index="7">
@@ -2723,21 +2739,21 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
   <div class="slide__content"><h2>～ほうがいい - it&#39;d be better to · Nuance &amp; register</h2>
 <p><code>ほうがいい</code> is often taught as a gentle &quot;should&quot;, and that is the source of a lot of accidental rudeness. It is a <strong>recommendation with weight behind it</strong>. The comparison built into <code>ほう</code> means that when you recommend option A, you are simultaneously saying option B - the one the listener is currently on - is worse. English &quot;you&#39;d better&quot; carries the same faint edge, and for the same reason.</p>
 <p>Some practical consequences:</p>
-<p><strong>Do not aim it upward.</strong> 部長(ぶちょう)、早(はや)く帰(かえ)ったほうがいいですよ is grammatical, polite in form, and still presumptuous, because you are telling a superior what to do. To a superior, drop the directive framing entirely: <code>～てはいかがでしょうか</code>, <code>～てもよろしいかと思(おも)います</code>, or just describe the situation and let them decide.</p>
+<p><strong>Do not aim it upward.</strong> <ruby>部長<rt>ぶちょう</rt></ruby>、<ruby>早<rt>はや</rt></ruby>く<ruby>帰<rt>かえ</rt></ruby>ったほうがいいですよ is grammatical, polite in form, and still presumptuous, because you are telling a superior what to do. To a superior, drop the directive framing entirely: <code>～てはいかがでしょうか</code>, <code>～てもよろしいかと<ruby>思<rt>おも</rt></ruby>います</code>, or just describe the situation and let them decide.</p>
 </div>
 </div>
 <div class="slide" data-index="8">
   
   <div class="slide__content"><h2>～ほうがいい - it&#39;d be better to · Nuance &amp; register (cont.)</h2>
 <p><strong><code>よ</code> is doing real work.</strong> In speech, <code>～たほうがいいよ</code> reads as friendly and concerned; bare <code>～たほうがいい</code> can land flat, like a verdict. <code>～たほうがいいですよ</code> is the everyday polite advice form you will actually hear.</p>
-<p><strong>Hedges are normal, not weakness.</strong> <code>～と思(おも)います</code>, <code>～んじゃないですか</code>, <code>～かもしれません</code> all take the edge off without changing the advice. Native speakers use them constantly.</p>
+<p><strong>Hedges are normal, not weakness.</strong> <code>～と<ruby>思<rt>おも</rt></ruby>います</code>, <code>～んじゃないですか</code>, <code>～かもしれません</code> all take the edge off without changing the advice. Native speakers use them constantly.</p>
 <p><strong><code>～ないほうがいい</code> is blunter than the affirmative.</strong> Telling someone <em>not</em> to do something presupposes they were about to. Reserve it for cases where you mean it - warnings, danger, genuine bad ideas.</p>
 </div>
 </div>
 <div class="slide" data-index="9">
   
   <div class="slide__content"><h2>～ほうがいい - it&#39;d be better to · Nuance &amp; register (cont.)</h2>
-<p>Two spelling and shape notes. <code>ほう</code> is very often written <code>方(ほう)</code>, and you should expect <code>方(ほう)がいい</code> in print. And <code>いい</code> swaps freely for its politer relatives: <code>～たほうがよろしいかと思(おも)います</code> is standard business Japanese, while <code>～たほうがよかった</code> shifts the whole thing into regret - &quot;I should have.&quot;</p>
+<p>Two spelling and shape notes. <code>ほう</code> is very often written <code><ruby>方<rt>ほう</rt></ruby></code>, and you should expect <code><ruby>方<rt>ほう</rt></ruby>がいい</code> in print. And <code>いい</code> swaps freely for its politer relatives: <code>～たほうがよろしいかと<ruby>思<rt>おも</rt></ruby>います</code> is standard business Japanese, while <code>～たほうがよかった</code> shifts the whole thing into regret - &quot;I should have.&quot;</p>
 </div>
 </div>
 <div class="slide" data-index="10">
@@ -2747,17 +2763,17 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <p><strong>Rule of thumb</strong> - た-form gives advice about <em>this</em> situation. Dictionary form compares two options in the abstract.</p>
 </blockquote>
 <p>This is the distinction the pattern is built on, and it is why the &quot;past tense&quot; form is the normal one for advice.</p>
-<p>薬(くすり)を<strong>飲(の)んだほうがいい</strong>です。<br><em>You should take some medicine.</em></p>
+<p><ruby>薬<rt>くすり</rt></ruby>を**<ruby>飲<rt>の</rt></ruby>んだほうがいい**です。<br><em>You should take some medicine.</em></p>
 <p>The た-form presents the action as a completed package - &quot;having taken it&quot; - and holds that up against the listener&#39;s actual, present situation. It points at <em>you</em>, <em>now</em>.</p>
-<p>薬(くすり)を<strong>飲(の)むほうがいい</strong>です。<br><em>Taking medicine is the better approach.</em></p>
 </div>
 </div>
 <div class="slide" data-index="11">
   
   <div class="slide__content"><h2>～ほうがいい - it&#39;d be better to · ～たほうがいい vs ～るほうがいい (cont.)</h2>
+<p><ruby>薬<rt>くすり</rt></ruby>を**<ruby>飲<rt>の</rt></ruby>むほうがいい**です。<br><em>Taking medicine is the better approach.</em></p>
 <p>The dictionary form floats free of anyone in particular. It reads as a general policy statement, which is why using it on a sick friend sounds oddly detached, as though you were reading from a leaflet.</p>
 <p>Dictionary form comes into its own when the two options are actually spelled out:</p>
-<p>バスで行(い)くより、電車(でんしゃ)で<strong>行(い)くほうがいい</strong>ですよ。<br><em>Going by train is better than going by bus.</em></p>
+<p>バスで<ruby>行<rt>い</rt></ruby>くより、<ruby>電車<rt>でんしゃ</rt></ruby>で**<ruby>行<rt>い</rt></ruby>くほうがいい**ですよ。<br><em>Going by train is better than going by bus.</em></p>
 <p>There the sentence really is a comparison, and <code>より</code> makes the other side explicit. That is the same <code>ほうがいい</code> you meet as the comparison pattern.</p>
 </div>
 </div>
@@ -2767,8 +2783,8 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>～ないほうがいい</code> = <em>don&#39;t</em>. <code>～なくてもいい</code> = <em>you don&#39;t have to</em>. One forbids, the other releases.</p>
 </blockquote>
-<p>明日(あした)は<strong>来(こ)ないほうがいい</strong>です。<br><em>You&#39;d better not come tomorrow. (something is wrong with coming)</em></p>
-<p>明日(あした)は<strong>来(こ)なくてもいい</strong>です。<br><em>You don&#39;t have to come tomorrow. (it&#39;s optional; come if you like)</em></p>
+<p><ruby>明日<rt>あした</rt></ruby>は**<ruby>来<rt>こ</rt></ruby>ないほうがいい**です。<br><em>You&#39;d better not come tomorrow. (something is wrong with coming)</em></p>
+<p><ruby>明日<rt>あした</rt></ruby>は**<ruby>来<rt>こ</rt></ruby>なくてもいい**です。<br><em>You don&#39;t have to come tomorrow. (it&#39;s optional; come if you like)</em></p>
 <p>Mixing these up produces one of the more embarrassing N5 errors, because the two sentences are almost opposite in social effect. <code>～なくてもいい</code> grants permission; <code>～ないほうがいい</code> withdraws it.</p>
 </div>
 </div>
@@ -2778,8 +2794,8 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>～ほうがいい</code> says the alternative is worse. <code>～たらどうですか</code> merely puts an idea on the table.</p>
 </blockquote>
-<p>先生(せんせい)に<strong>聞(き)いたほうがいい</strong>ですよ。<br><em>You should ask the teacher.</em></p>
-<p>先生(せんせい)に聞(き)いたらどうですか。<br><em>How about asking the teacher?</em></p>
+<p><ruby>先生<rt>せんせい</rt></ruby>に**<ruby>聞<rt>き</rt></ruby>いたほうがいい**ですよ。<br><em>You should ask the teacher.</em></p>
+<p><ruby>先生<rt>せんせい</rt></ruby>に<ruby>聞<rt>き</rt></ruby>いたらどうですか。<br><em>How about asking the teacher?</em></p>
 <p>The second leaves the decision visibly with the listener, which makes it the safer choice when you are not sure the advice is wanted, or when the person outranks you. It is not always softer - said sharply, <code>～たらどうですか</code> can sound impatient - but its default is more open.</p>
 </div>
 </div>
@@ -2793,13 +2809,11 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
   
   <div class="slide__content"><h2>～ほうがいい - it&#39;d be better to · Common mistakes</h2>
 <ul>
-<li><p>❌ 行(い)か<strong>なかった</strong>ほうがいいです。 → ✅ 行(い)か<strong>ない</strong>ほうがいいです。<br><em>Negative advice uses the plain <code>ない</code>-form. The た of <code>～たほうがいい</code> has no negative counterpart in this pattern.</em></p>
+<li><p>❌ <ruby>行<rt>い</rt></ruby>か<strong>なかった</strong>ほうがいいです。 → ✅ <ruby>行<rt>い</rt></ruby>か<strong>ない</strong>ほうがいいです。<br><em>Negative advice uses the plain <code>ない</code>-form. The た of <code>～たほうがいい</code> has no negative counterpart in this pattern.</em></p>
 </li>
-<li><p>❌ 風邪(かぜ)ですか。休(やす)<strong>むほうがいい</strong>ですよ。 → ✅ 休(やす)<strong>んだほうがいい</strong>ですよ。<br><em>For advice aimed at the person in front of you, use the た-form. The dictionary form turns it into a detached general statement.</em></p>
+<li><p>❌ <ruby>風邪<rt>かぜ</rt></ruby>ですか。<ruby>休<rt>やす</rt></ruby><strong>むほうがいい</strong>ですよ。 → ✅ <ruby>休<rt>やす</rt></ruby><strong>んだほうがいい</strong>ですよ。<br><em>For advice aimed at the person in front of you, use the た-form. The dictionary form turns it into a detached general statement.</em></p>
 </li>
-<li><p>❌ 部長(ぶちょう)、もっと早(はや)く帰(かえ)ったほうがいいですよ。 → ✅ 部長(ぶちょう)、そろそろお帰(かえ)りになってはいかがでしょうか。<br><em>The grammar is fine; the direction is not. <code>ほうがいい</code> implies the listener is currently choosing wrong, which you do not say upward.</em></p>
-</li>
-<li><p>❌ 明日(あした)は来(こ)ないほうがいいです。（intending &quot;you don&#39;t have to come&quot;）→ ✅ 明日(あした)は来(こ)なくてもいいです。<br><em><code>～ないほうがいい</code> tells someone not to do it. Optionality is <code>～なくてもいい</code>.</em></p>
+<li><p>❌ <ruby>部長<rt>ぶちょう</rt></ruby>、もっと<ruby>早<rt>はや</rt></ruby>く<ruby>帰<rt>かえ</rt></ruby>ったほうがいいですよ。 → ✅ <ruby>部長<rt>ぶちょう</rt></ruby>、そろそろお<ruby>帰<rt>かえ</rt></ruby>りになってはいかがでしょうか。<br><em>The grammar is fine; the direction is not. <code>ほうがいい</code> implies the listener is currently choosing wrong, which you do not say upward.</em></p>
 </li>
 </ul>
 </div>
@@ -2808,28 +2822,31 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
   
   <div class="slide__content"><h2>～ほうがいい - it&#39;d be better to · Common mistakes (cont.)</h2>
 <ul>
-<li>❌ この本(ほん)を読(よ)んだほうが<strong>いいでした</strong>。 → ✅ この本(ほん)を読(よ)んだほうが<strong>よかった</strong>です。<br><em><code>いい</code> is an い-adjective. Its past is <code>よかった</code>, never ❌<code>いいでした</code>.</em></li>
+<li><p>❌ <ruby>明日<rt>あした</rt></ruby>は<ruby>来<rt>こ</rt></ruby>ないほうがいいです。（intending &quot;you don&#39;t have to come&quot;）→ ✅ <ruby>明日<rt>あした</rt></ruby>は<ruby>来<rt>こ</rt></ruby>なくてもいいです。<br><em><code>～ないほうがいい</code> tells someone not to do it. Optionality is <code>～なくてもいい</code>.</em></p>
+</li>
+<li><p>❌ この<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>んだほうが<strong>いいでした</strong>。 → ✅ この<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>んだほうが<strong>よかった</strong>です。<br><em><code>いい</code> is an い-adjective. Its past is <code>よかった</code>, never ❌<code>いいでした</code>.</em></p>
+</li>
 </ul>
 </div>
 </div>
 <div class="slide" data-index="17">
   
   <div class="slide__content"><h2>～ほうがいい - it&#39;d be better to · Practice 1</h2>
-<p><strong>1.</strong> 風邪(かぜ)ですね。今日(きょう)は休(やす)____ほうがいいですよ。</p>
+<p><strong>1.</strong> <ruby>風邪<rt>かぜ</rt></ruby>ですね。<ruby>今日<rt>きょう</rt></ruby>は<ruby>休<rt>やす</rt></ruby>____ほうがいいですよ。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-今日(きょう)は休(やす)<strong>んだ</strong>ほうがいいですよ。</p>
+<ruby>今日<rt>きょう</rt></ruby>は<ruby>休<rt>やす</rt></ruby><strong>んだ</strong>ほうがいいですよ。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Affirmative advice takes the た-form. <code>休(やす)む</code> is a う-verb ending in む, so む → んだ. The た-form here is not past tense - it is what makes the advice land on this person, in this situation.</p>
+Affirmative advice takes the た-form. <code><ruby>休<rt>やす</rt></ruby>む</code> is a う-verb ending in む, so む → んだ. The た-form here is not past tense - it is what makes the advice land on this person, in this situation.</p>
 </div>
 </div>
 <div class="slide" data-index="18">
   
   <div class="slide__content"><h2>～ほうがいい - it&#39;d be better to · Practice 2</h2>
-<p><strong>2.</strong> 危(あぶ)ないですから、あの道(みち)は（通(とお)らない・通(とお)らなかった）ほうがいいです。</p>
+<p><strong>2.</strong> <ruby>危<rt>あぶ</rt></ruby>ないですから、あの<ruby>道<rt>みち</rt></ruby>は（<ruby>通<rt>とお</rt></ruby>らない・<ruby>通<rt>とお</rt></ruby>らなかった）ほうがいいです。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-あの道(みち)は<strong>通(とお)らない</strong>ほうがいいです。</p>
+あの<ruby>道<rt>みち</rt></ruby>は**<ruby>通<rt>とお</rt></ruby>らない**ほうがいいです。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Affirmative and negative are not symmetrical here. Affirmative advice uses た, but negative advice uses the plain <code>ない</code>-form. ❌<code>通(とお)らなかったほうがいい</code> is not a form of this pattern at all.</p>
+Affirmative and negative are not symmetrical here. Affirmative advice uses た, but negative advice uses the plain <code>ない</code>-form. ❌<code><ruby>通<rt>とお</rt></ruby>らなかったほうがいい</code> is not a form of this pattern at all.</p>
 </div>
 </div>
 <div class="slide" data-index="19">
@@ -2837,7 +2854,7 @@ Affirmative and negative are not symmetrical here. Affirmative advice uses た, 
   <div class="slide__content"><h2>～ほうがいい - it&#39;d be better to · Practice 3</h2>
 <p><strong>3.</strong> Translate into Japanese: &quot;You&#39;d better take an umbrella.&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-かさを<strong>持(も)っていったほうがいい</strong>ですよ。 （also fine: かさを持(も)ったほうがいいですよ。）</p>
+かさを**<ruby>持<rt>も</rt></ruby>っていったほうがいい**ですよ。 （also fine: かさを<ruby>持<rt>も</rt></ruby>ったほうがいいですよ。）</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 た-form because this is advice for the person in front of you. The <code>ですよ</code> is worth adding - <code>よ</code> frames it as helpful information rather than a verdict, which is how this advice is normally delivered in speech.</p>
 </div>
@@ -2845,11 +2862,11 @@ Affirmative and negative are not symmetrical here. Affirmative advice uses た, 
 <div class="slide" data-index="20">
   
   <div class="slide__content"><h2>～ほうがいい - it&#39;d be better to · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the problem: 部長(ぶちょう)、その資料(しりょう)はもう一度(いちど)確認(かくにん)したほうがいいですよ。</p>
+<p><strong>4.</strong> Find and fix the problem: <ruby>部長<rt>ぶちょう</rt></ruby>、その<ruby>資料<rt>しりょう</rt></ruby>はもう<ruby>一度<rt>いちど</rt></ruby><ruby>確認<rt>かくにん</rt></ruby>したほうがいいですよ。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 The grammar is correct - the problem is the register.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 部長(ぶちょう)、その資料(しりょう)はもう一度(いちど)確認(かくにん)なさってはいかがでしょうか。 （or: …確認(かくにん)していただいたほうがよろしいかと思(おも)います。）</p>
+✅ <ruby>部長<rt>ぶちょう</rt></ruby>、その<ruby>資料<rt>しりょう</rt></ruby>はもう<ruby>一度<rt>いちど</rt></ruby><ruby>確認<rt>かくにん</rt></ruby>なさってはいかがでしょうか。 （or: …<ruby>確認<rt>かくにん</rt></ruby>していただいたほうがよろしいかと<ruby>思<rt>おも</rt></ruby>います。）</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 <code>ほうがいい</code> carries the implication that the listener&#39;s current course is the worse option, so aiming it at a superior is presumptuous however polite the ending is. Reframe as a question or a hedged opinion.</p>
 </div>
@@ -2857,7 +2874,7 @@ The grammar is correct - the problem is the register.</p>
 <div class="slide" data-index="21">
   
   <div class="slide__content"><h2>～ほうがいい - it&#39;d be better to · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) もっと野菜(やさい)を食(た)べたほうがいいです。 (b) もっと野菜(やさい)を食(た)べるほうがいいです。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) もっと<ruby>野菜<rt>やさい</rt></ruby>を<ruby>食<rt>た</rt></ruby>べたほうがいいです。 (b) もっと<ruby>野菜<rt>やさい</rt></ruby>を<ruby>食<rt>た</rt></ruby>べるほうがいいです。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) is advice directed at the listener: &quot;you should eat more vegetables.&quot; The た-form ties the recommendation to this particular person&#39;s situation, and implies the speaker has looked at how they currently eat.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
@@ -2891,42 +2908,42 @@ The grammar is correct - the problem is the register.</p>
 <tbody><tr>
 <td>Verb</td>
 <td>dictionary form + つもりだ</td>
-<td>買(か)う → 買(か)うつもりだ</td>
+<td><ruby>買<rt>か</rt></ruby>う → <ruby>買<rt>か</rt></ruby>うつもりだ</td>
 </tr>
 <tr>
 <td>Verb (negative)</td>
 <td>ない-form + つもりだ</td>
-<td>買(か)う → 買(か)わないつもりだ</td>
+<td><ruby>買<rt>か</rt></ruby>う → <ruby>買<rt>か</rt></ruby>わないつもりだ</td>
 </tr>
 <tr>
 <td>Polite</td>
 <td>つもりだ → つもりです</td>
-<td>買(か)うつもりです</td>
+<td><ruby>買<rt>か</rt></ruby>うつもりです</td>
 </tr>
 <tr>
 <td>Denying the intention</td>
 <td>つもりはない</td>
-<td>買(か)うつもりはない</td>
+<td><ruby>買<rt>か</rt></ruby>うつもりはない</td>
 </tr>
 <tr>
 <td>Intention that changed</td>
 <td>つもりだった</td>
-<td>買(か)うつもりだった</td>
+<td><ruby>買<rt>か</rt></ruby>うつもりだった</td>
 </tr>
 <tr>
 <td>Question</td>
 <td>つもりですか</td>
-<td>買(か)うつもりですか</td>
+<td><ruby>買<rt>か</rt></ruby>うつもりですか</td>
 </tr>
 <tr>
 <td>Noun</td>
 <td>noun + の + つもり</td>
-<td>冗談(じょうだん) → 冗談(じょうだん)のつもり</td>
+<td><ruby>冗談<rt>じょうだん</rt></ruby> → <ruby>冗談<rt>じょうだん</rt></ruby>のつもり</td>
 </tr>
 <tr>
 <td>Verb (た-form)</td>
 <td>た-form + つもり = &quot;under the impression&quot;</td>
-<td>言(い)った → 言(い)ったつもり</td>
+<td><ruby>言<rt>い</rt></ruby>った → <ruby>言<rt>い</rt></ruby>ったつもり</td>
 </tr>
 </tbody></table>
 </div>
@@ -2935,69 +2952,69 @@ The grammar is correct - the problem is the register.</p>
   
   <div class="slide__content"><h2>～つもり - plan to; intend to · Formation (cont.)</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - the verb before <code>つもり</code> stays <strong>plain</strong>. ❌<code>行(い)きますつもりです</code> is one of the most recognisable learner errors in the language.</p>
+<p><strong>Rule of thumb</strong> - the verb before <code>つもり</code> stays <strong>plain</strong>. ❌<code><ruby>行<rt>い</rt></ruby>きますつもりです</code> is one of the most recognisable learner errors in the language.</p>
 </blockquote>
 </div>
 </div>
 <div class="slide" data-index="26">
   
   <div class="slide__content"><h2>～つもり - plan to; intend to · Examples</h2>
-<p>今日(きょう)は早(はや)く<strong>寝(ね)るつもりです</strong>。<br><em>I&#39;m planning to go to bed early tonight.</em></p>
-<p>来年(らいねん)、日本(にほん)へ<strong>行(い)くつもりです</strong>。<br><em>I intend to go to Japan next year.</em></p>
-<p>今年(ことし)こそたばこを<strong>やめるつもりだ</strong>。<br><em>This year I really am going to quit smoking.</em></p>
-<p>夏休(なつやす)みはどう<strong>するつもり</strong>ですか。<br><em>What are you thinking of doing over the summer?</em></p>
-<p>甘(あま)いものは、しばらく<strong>食(た)べないつもりです</strong>。<br><em>I&#39;m planning to stay off sweet things for a while.</em></p>
+<p><ruby>今日<rt>きょう</rt></ruby>は<ruby>早<rt>はや</rt></ruby>く**<ruby>寝<rt>ね</rt></ruby>るつもりです**。<br><em>I&#39;m planning to go to bed early tonight.</em></p>
+<p><ruby>来年<rt>らいねん</rt></ruby>、<ruby>日本<rt>にほん</rt></ruby>へ**<ruby>行<rt>い</rt></ruby>くつもりです**。<br><em>I intend to go to Japan next year.</em></p>
+<p><ruby>今年<rt>ことし</rt></ruby>こそたばこを<strong>やめるつもりだ</strong>。<br><em>This year I really am going to quit smoking.</em></p>
+<p><ruby>夏休<rt>なつやす</rt></ruby>みはどう<strong>するつもり</strong>ですか。<br><em>What are you thinking of doing over the summer?</em></p>
 </div>
 </div>
 <div class="slide" data-index="27">
   
   <div class="slide__content"><h2>～つもり - plan to; intend to · Examples (cont.)</h2>
-<p>新(あたら)しいパソコンを<strong>買(か)うつもりだった</strong>が、お金(かね)が足(た)りなかった。<br><em>I&#39;d meant to buy a new computer, but I didn&#39;t have enough money.</em></p>
-<p>大学(だいがく)を出(で)たら国(くに)に帰(かえ)って、日本語(にほんご)を<strong>教(おし)えるつもりです</strong>。<br><em>After I finish university I intend to go home and teach Japanese.</em></p>
-<p>彼(かれ)にはもう<strong>会(あ)うつもりはありません</strong>。連絡(れんらく)もしないでください。<br><em>I have no intention of seeing him again. Please don&#39;t contact me either.</em></p>
+<p><ruby>甘<rt>あま</rt></ruby>いものは、しばらく**<ruby>食<rt>た</rt></ruby>べないつもりです**。<br><em>I&#39;m planning to stay off sweet things for a while.</em></p>
+<p><ruby>新<rt>あたら</rt></ruby>しいパソコンを**<ruby>買<rt>か</rt></ruby>うつもりだった**が、お<ruby>金<rt>かね</rt></ruby>が<ruby>足<rt>た</rt></ruby>りなかった。<br><em>I&#39;d meant to buy a new computer, but I didn&#39;t have enough money.</em></p>
+<p><ruby>大学<rt>だいがく</rt></ruby>を<ruby>出<rt>で</rt></ruby>たら<ruby>国<rt>くに</rt></ruby>に<ruby>帰<rt>かえ</rt></ruby>って、<ruby>日本語<rt>にほんご</rt></ruby>を**<ruby>教<rt>おし</rt></ruby>えるつもりです**。<br><em>After I finish university I intend to go home and teach Japanese.</em></p>
+<p><ruby>彼<rt>かれ</rt></ruby>にはもう**<ruby>会<rt>あ</rt></ruby>うつもりはありません**。<ruby>連絡<rt>れんらく</rt></ruby>もしないでください。<br><em>I have no intention of seeing him again. Please don&#39;t contact me either.</em></p>
 </div>
 </div>
 <div class="slide" data-index="28">
   
   <div class="slide__content"><h2>～つもり - plan to; intend to · Nuance &amp; register</h2>
 <p><code>つもり</code> is <strong>volitional and personal</strong>. It reports a decision the speaker has taken about their own behaviour, which puts two hard limits on it.</p>
-<p><strong>No intending what you cannot control.</strong> ❌<code>雨(あめ)が降(ふ)るつもりです</code> is impossible - the rain has no plans. The same rule blocks <code>つもり</code> with verbs like <code>できる</code>, <code>分(わ)かる</code> or <code>ある</code>. For predictions, <code>でしょう</code> or <code>と思(おも)います</code> does the job.</p>
-<p><strong>Careful with other people&#39;s intentions.</strong> <code>田中(たなか)さんは来(く)るつもりです</code> claims direct access to Tanaka&#39;s mind. Add evidence: <code>来(く)るつもりらしいです</code>, <code>来(く)るつもりだと言(い)っていました</code>.</p>
+<p><strong>No intending what you cannot control.</strong> ❌<code><ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>るつもりです</code> is impossible - the rain has no plans. The same rule blocks <code>つもり</code> with verbs like <code>できる</code>, <code><ruby>分<rt>わ</rt></ruby>かる</code> or <code>ある</code>. For predictions, <code>でしょう</code> or <code>と<ruby>思<rt>おも</rt></ruby>います</code> does the job.</p>
+<p><strong>Careful with other people&#39;s intentions.</strong> <code><ruby>田中<rt>たなか</rt></ruby>さんは<ruby>来<rt>く</rt></ruby>るつもりです</code> claims direct access to Tanaka&#39;s mind. Add evidence: <code><ruby>来<rt>く</rt></ruby>るつもりらしいです</code>, <code><ruby>来<rt>く</rt></ruby>るつもりだと<ruby>言<rt>い</rt></ruby>っていました</code>.</p>
 </div>
 </div>
 <div class="slide" data-index="29">
   
   <div class="slide__content"><h2>～つもり - plan to; intend to · Nuance &amp; register (cont.)</h2>
-<p><strong><code>どうするつもりですか</code> can be an accusation.</strong> Asked flatly, &quot;what do you intend to do?&quot; carries the tone of a parent facing a broken window. Aimed at a superior it is worse - <code>部長(ぶちょう)はいつ帰(かえ)るつもりですか</code> sounds like a challenge. Upward, ask about their <code>ご予定(よてい)</code> instead: <code>部長(ぶちょう)のご予定(よてい)はいかがでしょうか</code>.</p>
+<p><strong><code>どうするつもりですか</code> can be an accusation.</strong> Asked flatly, &quot;what do you intend to do?&quot; carries the tone of a parent facing a broken window. Aimed at a superior it is worse - <code><ruby>部長<rt>ぶちょう</rt></ruby>はいつ<ruby>帰<rt>かえ</rt></ruby>るつもりですか</code> sounds like a challenge. Upward, ask about their <code>ご<ruby>予定<rt>よてい</rt></ruby></code> instead: <code><ruby>部長<rt>ぶちょう</rt></ruby>のご<ruby>予定<rt>よてい</rt></ruby>はいかがでしょうか</code>.</p>
 <p><strong><code>つもりはない</code> is a door slamming.</strong> It denies that the intention exists at all, and in an argument it is very cold. <code>～ないつもりです</code> is the mild version.</p>
-<p><strong><code>つもりだった</code> almost always implies the plan failed or changed.</strong> Nobody says <code>行(い)くつもりだった</code> about a trip they took; it sets up a &quot;but&quot;.</p>
+<p><strong><code>つもりだった</code> almost always implies the plan failed or changed.</strong> Nobody says <code><ruby>行<rt>い</rt></ruby>くつもりだった</code> about a trip they took; it sets up a &quot;but&quot;.</p>
 </div>
 </div>
 <div class="slide" data-index="30">
   
   <div class="slide__content"><h2>～つもり - plan to; intend to · Nuance &amp; register (cont.)</h2>
-<p><strong>A second life as a plain noun.</strong> <code>冗談(じょうだん)のつもりだった</code> (&quot;I meant it as a joke&quot;), <code>言(い)ったつもりだったんだけど</code> (&quot;I was sure I&#39;d told you&quot;). Here <code>つもり</code> is about what you <em>believed</em>, not what you planned, and the belief is usually wrong. Register-wise <code>つもり</code> itself is neutral; <code>つもりです</code> is fine in a job interview, and <code>つもり</code> bare is fine with friends.</p>
+<p><strong>A second life as a plain noun.</strong> <code><ruby>冗談<rt>じょうだん</rt></ruby>のつもりだった</code> (&quot;I meant it as a joke&quot;), <code><ruby>言<rt>い</rt></ruby>ったつもりだったんだけど</code> (&quot;I was sure I&#39;d told you&quot;). Here <code>つもり</code> is about what you <em>believed</em>, not what you planned, and the belief is usually wrong. Register-wise <code>つもり</code> itself is neutral; <code>つもりです</code> is fine in a job interview, and <code>つもり</code> bare is fine with friends.</p>
 </div>
 </div>
 <div class="slide" data-index="31">
   
-  <div class="slide__content"><h2>～つもり - plan to; intend to · ～つもりです vs ～予定(よてい)です</h2>
+  <div class="slide__content"><h2>～つもり - plan to; intend to · ～つもりです vs ～予定です</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - <code>つもり</code> is what you have decided. <code>予定(よてい)</code> is what is on the calendar. Intention lives in your head; a schedule exists outside it.</p>
+<p><strong>Rule of thumb</strong> - <code>つもり</code> is what you have decided. <code><ruby>予定<rt>よてい</rt></ruby></code> is what is on the calendar. Intention lives in your head; a schedule exists outside it.</p>
 </blockquote>
-<p>来月(らいげつ)、引(ひ)っ<strong>越(こ)すつもりです</strong>。<br><em>I&#39;m planning to move next month. (I&#39;ve decided; nothing is booked yet)</em></p>
-<p>来月(らいげつ)、引(ひ)っ越(こ)す予定(よてい)です。<br><em>I&#39;m due to move next month. (it&#39;s arranged - date set, movers booked)</em></p>
-<p>Because <code>予定(よてい)</code> points at an arrangement rather than a state of mind, it is also the polite way to ask about someone senior, where <code>つもり</code> would be intrusive.</p>
+<p><ruby>来月<rt>らいげつ</rt></ruby>、<ruby>引<rt>ひ</rt></ruby>っ**<ruby>越<rt>こ</rt></ruby>すつもりです**。<br><em>I&#39;m planning to move next month. (I&#39;ve decided; nothing is booked yet)</em></p>
+<p><ruby>来月<rt>らいげつ</rt></ruby>、<ruby>引<rt>ひ</rt></ruby>っ<ruby>越<rt>こ</rt></ruby>す<ruby>予定<rt>よてい</rt></ruby>です。<br><em>I&#39;m due to move next month. (it&#39;s arranged - date set, movers booked)</em></p>
+<p>Because <code><ruby>予定<rt>よてい</rt></ruby></code> points at an arrangement rather than a state of mind, it is also the polite way to ask about someone senior, where <code>つもり</code> would be intrusive.</p>
 </div>
 </div>
 <div class="slide" data-index="32">
   
-  <div class="slide__content"><h2>～つもりです vs ～(よ)うと思(おも)います</h2>
+  <div class="slide__content"><h2>～つもり - plan to; intend to · ～つもりです vs ～(よ)うと思います</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - <code>つもり</code> reports a decision already taken. <code>～(よ)うと思(おも)います</code> presents the thought as forming now, which makes it softer.</p>
+<p><strong>Rule of thumb</strong> - <code>つもり</code> reports a decision already taken. <code>～(よ)うと<ruby>思<rt>おも</rt></ruby>います</code> presents the thought as forming now, which makes it softer.</p>
 </blockquote>
-<p>週末(しゅうまつ)は海(うみ)へ<strong>行(い)くつもりです</strong>。<br><em>I&#39;m planning to go to the sea at the weekend.</em></p>
-<p>週末(しゅうまつ)は海(うみ)へ行(い)こうと思(おも)います。<br><em>I think I&#39;ll head to the sea at the weekend.</em></p>
+<p><ruby>週末<rt>しゅうまつ</rt></ruby>は<ruby>海<rt>うみ</rt></ruby>へ**<ruby>行<rt>い</rt></ruby>くつもりです**。<br><em>I&#39;m planning to go to the sea at the weekend.</em></p>
+<p><ruby>週末<rt>しゅうまつ</rt></ruby>は<ruby>海<rt>うみ</rt></ruby>へ<ruby>行<rt>い</rt></ruby>こうと<ruby>思<rt>おも</rt></ruby>います。<br><em>I think I&#39;ll head to the sea at the weekend.</em></p>
 <p>The second is the safer answer to a casual question, because it does not commit you. The first can sound slightly firm, even stubborn, if the listener was hoping to change your mind.</p>
 </div>
 </div>
@@ -3007,8 +3024,8 @@ The grammar is correct - the problem is the register.</p>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>～ないつもり</code> = I plan not to. <code>～つもりはない</code> = I have no such plan, and I resent the suggestion.</p>
 </blockquote>
-<p>今日(きょう)はお酒(さけ)を<strong>飲(の)まないつもりです</strong>。<br><em>I&#39;m planning not to drink today.</em></p>
-<p>お酒(さけ)を<strong>飲(の)むつもりはありません</strong>。<br><em>I have no intention of drinking.</em></p>
+<p><ruby>今日<rt>きょう</rt></ruby>はお<ruby>酒<rt>さけ</rt></ruby>を**<ruby>飲<rt>の</rt></ruby>まないつもりです**。<br><em>I&#39;m planning not to drink today.</em></p>
+<p>お<ruby>酒<rt>さけ</rt></ruby>を**<ruby>飲<rt>の</rt></ruby>むつもりはありません**。<br><em>I have no intention of drinking.</em></p>
 <p>The first describes a resolution you have made for yourself. The second rejects the whole idea, and depending on the tone it can be a refusal, a defence, or a rebuke. It is a useful sentence to understand and a risky one to use.</p>
 </div>
 </div>
@@ -3016,83 +3033,89 @@ The grammar is correct - the problem is the register.</p>
   
   <div class="slide__content"><h2>～つもり - plan to; intend to · Common mistakes</h2>
 <ul>
-<li><p>❌ 明日(あした)、行(い)き<strong>ます</strong>つもりです。 → ✅ 明日(あした)、行(い)<strong>く</strong>つもりです。<br><em><code>つもり</code> follows a plain form. The politeness goes on <code>です</code> at the end of the sentence, once.</em></p>
+<li><p>❌ <ruby>明日<rt>あした</rt></ruby>、<ruby>行<rt>い</rt></ruby>き<strong>ます</strong>つもりです。 → ✅ <ruby>明日<rt>あした</rt></ruby>、<ruby>行<rt>い</rt></ruby><strong>く</strong>つもりです。<br><em><code>つもり</code> follows a plain form. The politeness goes on <code>です</code> at the end of the sentence, once.</em></p>
 </li>
-<li><p>❌ 明日(あした)は雨(あめ)が降(ふ)るつもりです。 → ✅ 明日(あした)は雨(あめ)が降(ふ)るでしょう。<br><em>Only a person with a choice can have an intention. Weather takes <code>でしょう</code>.</em></p>
+<li><p>❌ <ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>るつもりです。 → ✅ <ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>るでしょう。<br><em>Only a person with a choice can have an intention. Weather takes <code>でしょう</code>.</em></p>
 </li>
-<li><p>❌ 山田(やまだ)さんは来(こ)ないつもりです。 → ✅ 山田(やまだ)さんは来(こ)ないつもりらしいです。<br><em>Asserting someone else&#39;s intentions flatly claims to read their mind. Mark the evidence.</em></p>
+<li><p>❌ <ruby>山田<rt>やまだ</rt></ruby>さんは<ruby>来<rt>こ</rt></ruby>ないつもりです。 → ✅ <ruby>山田<rt>やまだ</rt></ruby>さんは<ruby>来<rt>こ</rt></ruby>ないつもりらしいです。<br><em>Asserting someone else&#39;s intentions flatly claims to read their mind. Mark the evidence.</em></p>
 </li>
-<li><p>❌ これは冗談(じょうだん)つもりでした。 → ✅ これは冗談(じょうだん)のつもりでした。<br><em><code>つもり</code> is a noun, so another noun joins it with <code>の</code>.</em></p>
-</li>
-<li><p>❌ 社長(しゃちょう)、いつ海外(かいがい)へ行(い)くつもりですか。 → ✅ 社長(しゃちょう)、海外(かいがい)へはいつ行(い)かれるご予定(よてい)ですか。<br><em>The grammar is sound; asking a superior about their <code>つもり</code> sounds like an interrogation.</em></p>
+<li><p>❌ これは<ruby>冗談<rt>じょうだん</rt></ruby>つもりでした。 → ✅ これは<ruby>冗談<rt>じょうだん</rt></ruby>のつもりでした。<br><em><code>つもり</code> is a noun, so another noun joins it with <code>の</code>.</em></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="slide" data-index="35">
   
-  <div class="slide__content"><h2>～つもり - plan to; intend to · Practice 1</h2>
-<p><strong>1.</strong> 来週(らいしゅう)から毎日(まいにち)３０分(ぷん)走(はし)____つもりです。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-毎日(まいにち)３０分(ぷん)走(はし)<strong>る</strong>つもりです。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>つもり</code> takes the plain dictionary form, so <code>走(はし)る</code> stays as it is. The politeness is carried by <code>です</code> at the end - never by the verb inside.</p>
+  <div class="slide__content"><h2>～つもり - plan to; intend to · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ <ruby>社長<rt>しゃちょう</rt></ruby>、いつ<ruby>海外<rt>かいがい</rt></ruby>へ<ruby>行<rt>い</rt></ruby>くつもりですか。 → ✅ <ruby>社長<rt>しゃちょう</rt></ruby>、<ruby>海外<rt>かいがい</rt></ruby>へはいつ<ruby>行<rt>い</rt></ruby>かれるご<ruby>予定<rt>よてい</rt></ruby>ですか。<br><em>The grammar is sound; asking a superior about their <code>つもり</code> sounds like an interrogation.</em></li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="36">
   
-  <div class="slide__content"><h2>～つもり - plan to; intend to · Practice 2</h2>
-<p><strong>2.</strong> 来年(らいねん)、結婚(けっこん)する（つもり・予定(よてい)）です。式場(しきじょう)も、もう予約(よやく)しました。</p>
+  <div class="slide__content"><h2>～つもり - plan to; intend to · Practice 1</h2>
+<p><strong>1.</strong> <ruby>来週<rt>らいしゅう</rt></ruby>から<ruby>毎日<rt>まいにち</rt></ruby>３０<ruby>分<rt>ぷん</rt></ruby><ruby>走<rt>はし</rt></ruby>____つもりです。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-来年(らいねん)、結婚(けっこん)する**予定(よてい)**です。</p>
+<ruby>毎日<rt>まいにち</rt></ruby>３０<ruby>分<rt>ぷん</rt></ruby><ruby>走<rt>はし</rt></ruby><strong>る</strong>つもりです。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The venue is already booked, so this is an arrangement in the world, not a plan in the speaker&#39;s head. <code>予定(よてい)</code> is what fits. <code>つもり</code> would oddly suggest nothing had been settled yet.</p>
+<code>つもり</code> takes the plain dictionary form, so <code><ruby>走<rt>はし</rt></ruby>る</code> stays as it is. The politeness is carried by <code>です</code> at the end - never by the verb inside.</p>
 </div>
 </div>
 <div class="slide" data-index="37">
   
-  <div class="slide__content"><h2>～つもり - plan to; intend to · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese: &quot;I was going to call you yesterday, but I forgot.&quot;</p>
+  <div class="slide__content"><h2>～つもり - plan to; intend to · Practice 2</h2>
+<p><strong>2.</strong> <ruby>来年<rt>らいねん</rt></ruby>、<ruby>結婚<rt>けっこん</rt></ruby>する（つもり・<ruby>予定<rt>よてい</rt></ruby>）です。<ruby>式場<rt>しきじょう</rt></ruby>も、もう<ruby>予約<rt>よやく</rt></ruby>しました。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-きのう電話(でんわ)を<strong>するつもりだった</strong>んですが、忘(わす)れてしまいました。</p>
+<ruby>来年<rt>らいねん</rt></ruby>、<ruby>結婚<rt>けっこん</rt></ruby>する**<ruby>予定<rt>よてい</rt></ruby>**です。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>つもりだった</code> is the form for an intention that did not survive contact with reality, and it practically demands a <code>が</code> or <code>けど</code> clause explaining what went wrong.</p>
+The venue is already booked, so this is an arrangement in the world, not a plan in the speaker&#39;s head. <code><ruby>予定<rt>よてい</rt></ruby></code> is what fits. <code>つもり</code> would oddly suggest nothing had been settled yet.</p>
 </div>
 </div>
 <div class="slide" data-index="38">
   
-  <div class="slide__content"><h2>～つもり - plan to; intend to · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the problem: 部長(ぶちょう)は明日(あした)の会議(かいぎ)に出(で)るつもりです。</p>
+  <div class="slide__content"><h2>～つもり - plan to; intend to · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese: &quot;I was going to call you yesterday, but I forgot.&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 部長(ぶちょう)は明日(あした)の会議(かいぎ)に出(で)られるご予定(よてい)です。 （or, if you were told so: …出(で)るつもりだとおっしゃっていました。）</p>
+きのう<ruby>電話<rt>でんわ</rt></ruby>を<strong>するつもりだった</strong>んですが、<ruby>忘<rt>わす</rt></ruby>れてしまいました。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Two problems at once: you cannot assert another person&#39;s intention as fact, and <code>つもり</code> is too familiar to use of a superior. Switch to <code>ご予定(よてい)</code>, or quote your source.</p>
+<code>つもりだった</code> is the form for an intention that did not survive contact with reality, and it practically demands a <code>が</code> or <code>けど</code> clause explaining what went wrong.</p>
 </div>
 </div>
 <div class="slide" data-index="39">
   
+  <div class="slide__content"><h2>～つもり - plan to; intend to · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the problem: <ruby>部長<rt>ぶちょう</rt></ruby>は<ruby>明日<rt>あした</rt></ruby>の<ruby>会議<rt>かいぎ</rt></ruby>に<ruby>出<rt>で</rt></ruby>るつもりです。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ <ruby>部長<rt>ぶちょう</rt></ruby>は<ruby>明日<rt>あした</rt></ruby>の<ruby>会議<rt>かいぎ</rt></ruby>に<ruby>出<rt>で</rt></ruby>られるご<ruby>予定<rt>よてい</rt></ruby>です。 （or, if you were told so: …<ruby>出<rt>で</rt></ruby>るつもりだとおっしゃっていました。）</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+Two problems at once: you cannot assert another person&#39;s intention as fact, and <code>つもり</code> is too familiar to use of a superior. Switch to <code>ご<ruby>予定<rt>よてい</rt></ruby></code>, or quote your source.</p>
+</div>
+</div>
+<div class="slide" data-index="40">
+  
   <div class="slide__content"><h2>～つもり - plan to; intend to · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 会議(かいぎ)には出(で)ないつもりです。 (b) 会議(かいぎ)に出(で)るつもりはありません。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>会議<rt>かいぎ</rt></ruby>には<ruby>出<rt>で</rt></ruby>ないつもりです。 (b) <ruby>会議<rt>かいぎ</rt></ruby>に<ruby>出<rt>で</rt></ruby>るつもりはありません。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) is a plan: the speaker has decided to skip the meeting, and the sentence invites a follow-up reason without any heat in it.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (b) denies that the intention exists at all. It is flat and final, and in a workplace it would read as a refusal - the kind of thing said when someone has just pressed you to attend. Same facts, very different temperature.</p>
 </div>
 </div>
-<div class="slide" data-index="40">
+<div class="slide" data-index="41">
   
   <div class="slide__content"><h1>だろう・でしょう - probably; … right?</h1>
 <p><strong>Meaning</strong> · probably - or, said with a rising tone, &quot;…don&#39;t you think?&quot;</p>
 <p><code>だろう</code> and <code>でしょう</code> are the same word in two politeness levels, and that word does one job: it stops a sentence being a flat assertion. Whether it comes out as a guess or as an appeal for agreement is decided almost entirely by <strong>intonation</strong> - falling for &quot;probably&quot;, rising for &quot;right?&quot;. Learners are usually taught only the first half.</p>
 </div>
 </div>
-<div class="slide" data-index="41">
+<div class="slide" data-index="42">
   
   <div class="slide__content"><h2>だろう・でしょう - probably; … right? · Formation</h2>
 <p><code>でしょう</code> attaches to <strong>plain forms</strong>, and the <code>だ</code> of nouns and な-adjectives disappears in front of it.</p>
 </div>
 </div>
-<div class="slide" data-index="42">
+<div class="slide" data-index="43">
   
   <div class="slide__content"><h2>だろう・でしょう - probably; … right? · Formation (cont.)</h2>
 <table>
@@ -3106,206 +3129,222 @@ Two problems at once: you cannot assert another person&#39;s intention as fact, 
 <tbody><tr>
 <td>Verb</td>
 <td>plain form + でしょう</td>
-<td>降(ふ)る → 降(ふ)るでしょう</td>
+<td><ruby>降<rt>ふ</rt></ruby>る → <ruby>降<rt>ふ</rt></ruby>るでしょう</td>
 </tr>
 <tr>
 <td>Verb (past)</td>
 <td>た-form + でしょう</td>
-<td>降(ふ)った → 降(ふ)ったでしょう</td>
+<td><ruby>降<rt>ふ</rt></ruby>った → <ruby>降<rt>ふ</rt></ruby>ったでしょう</td>
 </tr>
 <tr>
 <td>Verb (negative)</td>
 <td>ない-form + でしょう</td>
-<td>来(く)る → 来(こ)ないでしょう</td>
+<td><ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby>ないでしょう</td>
 </tr>
 <tr>
 <td>い-adjective</td>
 <td>plain form + でしょう</td>
-<td>高(たか)い → 高(たか)いでしょう</td>
+<td><ruby>高<rt>たか</rt></ruby>い → <ruby>高<rt>たか</rt></ruby>いでしょう</td>
 </tr>
 <tr>
 <td>な-adjective</td>
 <td>drop だ + でしょう</td>
-<td>便利(べんり)だ → 便利(べんり)でしょう</td>
+<td><ruby>便利<rt>べんり</rt></ruby>だ → <ruby>便利<rt>べんり</rt></ruby>でしょう</td>
 </tr>
 <tr>
 <td>Noun</td>
 <td>noun + でしょう</td>
-<td>雨(あめ) → 雨(あめ)でしょう</td>
+<td><ruby>雨<rt>あめ</rt></ruby> → <ruby>雨<rt>あめ</rt></ruby>でしょう</td>
 </tr>
 <tr>
 <td>Plain / written style</td>
 <td>でしょう → だろう</td>
-<td>降(ふ)るだろう</td>
+<td><ruby>降<rt>ふ</rt></ruby>るだろう</td>
 </tr>
 <tr>
 <td>Casual spoken</td>
 <td>でしょう → でしょ／だろ</td>
-<td>降(ふ)るでしょ</td>
+<td><ruby>降<rt>ふ</rt></ruby>るでしょ</td>
 </tr>
 <tr>
 <td>Common partners</td>
 <td>たぶん, きっと, もしかしたら</td>
-<td>たぶん降(ふ)るでしょう</td>
+<td>たぶん<ruby>降<rt>ふ</rt></ruby>るでしょう</td>
 </tr>
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="43">
+<div class="slide" data-index="44">
   
   <div class="slide__content"><h2>だろう・でしょう - probably; … right? · Formation (cont.)</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - no <code>だ</code> and no <code>ます</code> in front. ❌<code>学生(がくせい)だでしょう</code>, ❌<code>行(い)きますでしょう</code>. The politeness of the sentence is already carried by <code>でしょう</code> itself.</p>
+<p><strong>Rule of thumb</strong> - no <code>だ</code> and no <code>ます</code> in front. ❌<code><ruby>学生<rt>がくせい</rt></ruby>だでしょう</code>, ❌<code><ruby>行<rt>い</rt></ruby>きますでしょう</code>. The politeness of the sentence is already carried by <code>でしょう</code> itself.</p>
 </blockquote>
-</div>
-</div>
-<div class="slide" data-index="44">
-  
-  <div class="slide__content"><h2>だろう・でしょう - probably; … right? · Examples</h2>
-<p>明日(あした)は雨(あめ)<strong>でしょう</strong>。<br><em>It will probably rain tomorrow.</em></p>
-<p>たぶん田中(たなか)さんは<strong>来(こ)ないでしょう</strong>。<br><em>Tanaka probably won&#39;t come.</em></p>
-<p>この問題(もんだい)、<strong>難(むずか)しいでしょう</strong>？<br><em>This question&#39;s hard, isn&#39;t it?</em></p>
-<p>今夜(こんや)はかなり<strong>冷(ひ)えるだろう</strong>。<br><em>It&#39;ll get pretty cold tonight.</em></p>
-<p>彼(かれ)はもう空港(くうこう)に<strong>着(つ)いているでしょう</strong>。<br><em>He&#39;s probably already arrived at the airport.</em></p>
 </div>
 </div>
 <div class="slide" data-index="45">
   
-  <div class="slide__content"><h2>だろう・でしょう - probably; … right? · Examples (cont.)</h2>
-<p>ほら、言(い)った<strong>でしょう</strong>？だから傘(かさ)を持(も)っていけばよかったのに。<br><em>See? I told you. You should have taken an umbrella.</em></p>
-<p>午後(ごご)から風(かぜ)が<strong>強(つよ)くなるでしょう</strong>。おでかけの方(かた)はご注意(ちゅうい)ください。<br><em>The wind will strengthen from the afternoon. Those going out should take care.</em></p>
-<p>その映画(えいが)、もう<strong>見(み)たでしょう</strong>？どうだった？<br><em>You&#39;ve already seen that film, haven&#39;t you? What did you think?</em></p>
+  <div class="slide__content"><h2>だろう・でしょう - probably; … right? · Examples</h2>
+<p><ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby><strong>でしょう</strong>。<br><em>It will probably rain tomorrow.</em></p>
+<p>たぶん<ruby>田中<rt>たなか</rt></ruby>さんは**<ruby>来<rt>こ</rt></ruby>ないでしょう**。<br><em>Tanaka probably won&#39;t come.</em></p>
+<p>この<ruby>問題<rt>もんだい</rt></ruby>、<strong><ruby>難<rt>むずか</rt></ruby>しいでしょう</strong>？<br><em>This question&#39;s hard, isn&#39;t it?</em></p>
+<p><ruby>今夜<rt>こんや</rt></ruby>はかなり**<ruby>冷<rt>ひ</rt></ruby>えるだろう**。<br><em>It&#39;ll get pretty cold tonight.</em></p>
 </div>
 </div>
 <div class="slide" data-index="46">
   
-  <div class="slide__content"><h2>だろう・でしょう - probably; … right? · Nuance &amp; register</h2>
-<p><strong>The two senses are one form.</strong> Falling intonation gives conjecture: the speaker is guessing and knows they are guessing. Rising intonation turns the sentence outward and asks the listener to agree. In writing there is no intonation, so a <code>？</code> marks the second sense - and a <code>でしょう</code> at the end of a written forecast is always the first.</p>
-<p><strong><code>だろう</code> is plain, and in speech it leans male.</strong> In writing - essays, novels, news commentary - <code>だろう</code> is simply the plain-style equivalent of <code>でしょう</code> and carries no gender at all. In conversation, bare <code>来(く)るだろう</code> and the clipped <code>だろ？</code> sound distinctly masculine and rather rough; women&#39;s casual speech prefers <code>でしょ？</code> or <code>～よね？</code>. <code>でしょ</code> is the everyday spoken shortening for everyone.</p>
+  <div class="slide__content"><h2>だろう・でしょう - probably; … right? · Examples (cont.)</h2>
+<p><ruby>彼<rt>かれ</rt></ruby>はもう<ruby>空港<rt>くうこう</rt></ruby>に**<ruby>着<rt>つ</rt></ruby>いているでしょう**。<br><em>He&#39;s probably already arrived at the airport.</em></p>
+<p>ほら、<ruby>言<rt>い</rt></ruby>った<strong>でしょう</strong>？だから<ruby>傘<rt>かさ</rt></ruby>を<ruby>持<rt>も</rt></ruby>っていけばよかったのに。<br><em>See? I told you. You should have taken an umbrella.</em></p>
+<p><ruby>午後<rt>ごご</rt></ruby>から<ruby>風<rt>かぜ</rt></ruby>が**<ruby>強<rt>つよ</rt></ruby>くなるでしょう**。おでかけの<ruby>方<rt>かた</rt></ruby>はご<ruby>注意<rt>ちゅうい</rt></ruby>ください。<br><em>The wind will strengthen from the afternoon. Those going out should take care.</em></p>
+<p>その<ruby>映画<rt>えいが</rt></ruby>、もう**<ruby>見<rt>み</rt></ruby>たでしょう**？どうだった？<br><em>You&#39;ve already seen that film, haven&#39;t you? What did you think?</em></p>
 </div>
 </div>
 <div class="slide" data-index="47">
   
-  <div class="slide__content"><h2>だろう・でしょう - probably; … right? · Nuance &amp; register (cont.)</h2>
-<p><strong>Weather forecasts live on <code>でしょう</code>.</strong> Japanese meteorologists do not assert; they say <code>晴(は)れるでしょう</code>, <code>雪(ゆき)になるでしょう</code>. Hearing that register helps fix the falling, conjectural sense in your ear.</p>
-<p><strong>The rising <code>でしょう？</code> has an edge.</strong> It presses the listener toward your view. <code>だから言(い)ったでしょう</code> is a genuine &quot;I told you so&quot;, and used upward it is bad news: <code>部長(ぶちょう)、これでいいでしょう？</code> is telling your boss what to think. The upward version is a question - <code>これでよろしいでしょうか</code> - where <code>でしょう</code> has become deference rather than pressure.</p>
-<p><strong>Do not guess about your own choices.</strong> ❌<code>私(わたし)は明日(あした)行(い)くでしょう</code> is strange for the same reason &quot;I will probably go, I suppose&quot; is strange about a decision that is yours to make. Use <code>行(い)きます</code> or <code>行(い)くつもりです</code>. <code>でしょう</code> about yourself is only natural for things outside your control: <code>私(わたし)も太(ふと)るでしょうね</code>.</p>
+  <div class="slide__content"><h2>だろう・でしょう - probably; … right? · Nuance &amp; register</h2>
+<p><strong>The two senses are one form.</strong> Falling intonation gives conjecture: the speaker is guessing and knows they are guessing. Rising intonation turns the sentence outward and asks the listener to agree. In writing there is no intonation, so a <code>？</code> marks the second sense - and a <code>でしょう</code> at the end of a written forecast is always the first.</p>
+<p><strong><code>だろう</code> is plain, and in speech it leans male.</strong> In writing - essays, novels, news commentary - <code>だろう</code> is simply the plain-style equivalent of <code>でしょう</code> and carries no gender at all. In conversation, bare <code><ruby>来<rt>く</rt></ruby>るだろう</code> and the clipped <code>だろ？</code> sound distinctly masculine and rather rough; women&#39;s casual speech prefers <code>でしょ？</code> or <code>～よね？</code>. <code>でしょ</code> is the everyday spoken shortening for everyone.</p>
 </div>
 </div>
 <div class="slide" data-index="48">
+  
+  <div class="slide__content"><h2>だろう・でしょう - probably; … right? · Nuance &amp; register (cont.)</h2>
+<p><strong>Weather forecasts live on <code>でしょう</code>.</strong> Japanese meteorologists do not assert; they say <code><ruby>晴<rt>は</rt></ruby>れるでしょう</code>, <code><ruby>雪<rt>ゆき</rt></ruby>になるでしょう</code>. Hearing that register helps fix the falling, conjectural sense in your ear.</p>
+<p><strong>The rising <code>でしょう？</code> has an edge.</strong> It presses the listener toward your view. <code>だから<ruby>言<rt>い</rt></ruby>ったでしょう</code> is a genuine &quot;I told you so&quot;, and used upward it is bad news: <code><ruby>部長<rt>ぶちょう</rt></ruby>、これでいいでしょう？</code> is telling your boss what to think. The upward version is a question - <code>これでよろしいでしょうか</code> - where <code>でしょう</code> has become deference rather than pressure.</p>
+</div>
+</div>
+<div class="slide" data-index="49">
+  
+  <div class="slide__content"><h2>だろう・でしょう - probably; … right? · Nuance &amp; register (cont.)</h2>
+<p><strong>Do not guess about your own choices.</strong> ❌<code><ruby>私<rt>わたし</rt></ruby>は<ruby>明日<rt>あした</rt></ruby><ruby>行<rt>い</rt></ruby>くでしょう</code> is strange for the same reason &quot;I will probably go, I suppose&quot; is strange about a decision that is yours to make. Use <code><ruby>行<rt>い</rt></ruby>きます</code> or <code><ruby>行<rt>い</rt></ruby>くつもりです</code>. <code>でしょう</code> about yourself is only natural for things outside your control: <code><ruby>私<rt>わたし</rt></ruby>も<ruby>太<rt>ふと</rt></ruby>るでしょうね</code>.</p>
+</div>
+</div>
+<div class="slide" data-index="50">
   
   <div class="slide__content"><h2>だろう・でしょう - probably; … right? · だろう vs でしょう</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - same meaning, different level. <code>でしょう</code> is the ます／です-style form; <code>だろう</code> is the plain-style form and, in speech, noticeably blunt.</p>
 </blockquote>
-<p>来週(らいしゅう)には終(お)わる<strong>でしょう</strong>。<br><em>It&#39;ll probably be finished by next week.</em></p>
-<p>来週(らいしゅう)には終(お)わる<strong>だろう</strong>。<br><em>It&#39;ll probably be finished by next week.</em></p>
+<p><ruby>来週<rt>らいしゅう</rt></ruby>には<ruby>終<rt>お</rt></ruby>わる<strong>でしょう</strong>。<br><em>It&#39;ll probably be finished by next week.</em></p>
+<p><ruby>来週<rt>らいしゅう</rt></ruby>には<ruby>終<rt>お</rt></ruby>わる<strong>だろう</strong>。<br><em>It&#39;ll probably be finished by next week.</em></p>
 <p>The English is identical; the Japanese is not interchangeable. Use <code>でしょう</code> with anyone you would use <code>です</code> with. Use <code>だろう</code> in writing, in a diary, or with close friends - and be aware that a man and a woman saying <code>だろう</code> out loud will be heard differently, fairly or not.</p>
 </div>
 </div>
-<div class="slide" data-index="49">
+<div class="slide" data-index="51">
   
   <div class="slide__content"><h2>Falling でしょう vs rising でしょう</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - falling = <em>I think so, but I&#39;m not sure</em>. Rising = <em>you know this too, don&#39;t you?</em> One looks inward at the speaker&#39;s uncertainty; the other reaches out to the listener.</p>
 </blockquote>
-<p>山田(やまだ)さんはこのニュースを<strong>知(し)らないでしょう</strong>。<br><em>Yamada probably doesn&#39;t know about this news. (falling - a guess)</em></p>
-<p>山田(やまだ)さんもこのニュース、<strong>知(し)っているでしょう</strong>？<br><em>Yamada knows about this news too, right? (rising - checking with you)</em></p>
+<p><ruby>山田<rt>やまだ</rt></ruby>さんはこのニュースを**<ruby>知<rt>し</rt></ruby>らないでしょう**。<br><em>Yamada probably doesn&#39;t know about this news. (falling - a guess)</em></p>
+<p><ruby>山田<rt>やまだ</rt></ruby>さんもこのニュース、<strong><ruby>知<rt>し</rt></ruby>っているでしょう</strong>？<br><em>Yamada knows about this news too, right? (rising - checking with you)</em></p>
 <p>The rising version assumes the listener is in a position to confirm, so it is used about things they can be expected to know - shared experience, obvious facts, or something you told them earlier. Using it about something they could not possibly know sounds like an interrogation.</p>
-</div>
-</div>
-<div class="slide" data-index="50">
-  
-  <div class="slide__content"><h2>だろう・でしょう - probably; … right? · でしょう vs かもしれません</h2>
-<blockquote>
-<p><strong>Rule of thumb</strong> - a rough scale of confidence: <code>かもしれません</code> (maybe, 50/50) → <code>でしょう</code> (probably) → <code>はずです</code> (it should be, by reasoning) → <code>に違(ちが)いありません</code> (it must be).</p>
-</blockquote>
-<p>午後(ごご)から雪(ゆき)になる<strong>でしょう</strong>。<br><em>It&#39;ll probably turn to snow this afternoon.</em></p>
-<p>午後(ごご)から雪(ゆき)になるかもしれません。<br><em>It might turn to snow this afternoon.</em></p>
-<p><code>と思(おも)います</code> sits alongside these but does something different: it labels the statement as the speaker&#39;s personal opinion rather than measuring likelihood. <code>来(こ)ないでしょう</code> is a forecast about the world; <code>来(こ)ないと思(おも)います</code> is what <em>I</em> think - which is why the second is often the politer choice when you might be wrong.</p>
-</div>
-</div>
-<div class="slide" data-index="51">
-  
-  <div class="slide__content"><h2>だろう・でしょう - probably; … right? · Common mistakes</h2>
-<ul>
-<li><p>❌ 彼(かれ)は学生(がくせい)<strong>だ</strong>でしょう。 → ✅ 彼(かれ)は学生(がくせい)でしょう。<br><em>Nouns and な-adjectives lose their <code>だ</code> before <code>でしょう</code>.</em></p>
-</li>
-<li><p>❌ 明日(あした)、雨(あめ)が降(ふ)り<strong>ます</strong>でしょう。 → ✅ 明日(あした)、雨(あめ)が降(ふ)るでしょう。<br><em><code>でしょう</code> follows plain forms. Doubling the politeness sounds like a bad announcement voice.</em></p>
-</li>
-<li><p>❌ 私(わたし)は来年(らいねん)大学(だいがく)に入(はい)るでしょう。 → ✅ 私(わたし)は来年(らいねん)大学(だいがく)に入(はい)るつもりです。<br><em>You do not speculate about your own decisions.</em></p>
-</li>
-<li><p>❌ 部長(ぶちょう)、この案(あん)でいいでしょう？ → ✅ 部長(ぶちょう)、この案(あん)でよろしいでしょうか。<br><em>Rising <code>でしょう？</code> pushes the listener to agree. Upward, ask.</em></p>
-</li>
-<li><p>❌ 静(しず)か<strong>だろう</strong>でしょう。 → ✅ 静(しず)かでしょう。<br><em><code>だろう</code> and <code>でしょう</code> are the same word; they never stack.</em></p>
-</li>
-</ul>
 </div>
 </div>
 <div class="slide" data-index="52">
   
-  <div class="slide__content"><h2>だろう・でしょう - probably; … right? · Practice 1</h2>
-<p><strong>1.</strong> 天気(てんき)予報(よほう)によると、明日(あした)は寒(さむ)____。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-明日(あした)は寒(さむ)<strong>いでしょう</strong>。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-い-adjectives keep their <code>い</code> and simply take <code>でしょう</code>. A forecast is the textbook home of falling-tone <code>でしょう</code>: the speaker is predicting, not asserting.</p>
+  <div class="slide__content"><h2>だろう・でしょう - probably; … right? · でしょう vs かもしれません</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - a rough scale of confidence: <code>かもしれません</code> (maybe, 50/50) → <code>でしょう</code> (probably) → <code>はずです</code> (it should be, by reasoning) → <code>に<ruby>違<rt>ちが</rt></ruby>いありません</code> (it must be).</p>
+</blockquote>
+<p><ruby>午後<rt>ごご</rt></ruby>から<ruby>雪<rt>ゆき</rt></ruby>になる<strong>でしょう</strong>。<br><em>It&#39;ll probably turn to snow this afternoon.</em></p>
+<p><ruby>午後<rt>ごご</rt></ruby>から<ruby>雪<rt>ゆき</rt></ruby>になるかもしれません。<br><em>It might turn to snow this afternoon.</em></p>
 </div>
 </div>
 <div class="slide" data-index="53">
   
-  <div class="slide__content"><h2>だろう・でしょう - probably; … right? · Practice 2</h2>
-<p><strong>2.</strong> 一緒(いっしょ)に習(なら)ったんだから、この漢字(かんじ)は読(よ)める（でしょう？・かもしれません）。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-この漢字(かんじ)は読(よ)める<strong>でしょう？</strong></p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-You studied it together, so you are appealing to shared knowledge and expecting agreement - that is rising <code>でしょう？</code>. <code>かもしれません</code> would mean you have no idea whether they can read it, which contradicts the first half of the sentence.</p>
+  <div class="slide__content"><h2>だろう・でしょう - probably; … right? · でしょう vs かもしれません (cont.)</h2>
+<p><code>と<ruby>思<rt>おも</rt></ruby>います</code> sits alongside these but does something different: it labels the statement as the speaker&#39;s personal opinion rather than measuring likelihood. <code><ruby>来<rt>こ</rt></ruby>ないでしょう</code> is a forecast about the world; <code><ruby>来<rt>こ</rt></ruby>ないと<ruby>思<rt>おも</rt></ruby>います</code> is what <em>I</em> think - which is why the second is often the politer choice when you might be wrong.</p>
 </div>
 </div>
 <div class="slide" data-index="54">
   
-  <div class="slide__content"><h2>だろう・でしょう - probably; … right? · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese: &quot;He&#39;s probably still at work.&quot;</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-彼(かれ)はまだ会社(かいしゃ)に<strong>いるでしょう</strong>。 （plain: 彼(かれ)はまだ会社(かいしゃ)にいるだろう。）</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>でしょう</code> attaches straight to the plain <code>いる</code>. Choose <code>だろう</code> only if the surrounding sentences are also plain style.</p>
+  <div class="slide__content"><h2>だろう・でしょう - probably; … right? · Common mistakes</h2>
+<ul>
+<li><p>❌ <ruby>彼<rt>かれ</rt></ruby>は<ruby>学生<rt>がくせい</rt></ruby><strong>だ</strong>でしょう。 → ✅ <ruby>彼<rt>かれ</rt></ruby>は<ruby>学生<rt>がくせい</rt></ruby>でしょう。<br><em>Nouns and な-adjectives lose their <code>だ</code> before <code>でしょう</code>.</em></p>
+</li>
+<li><p>❌ <ruby>明日<rt>あした</rt></ruby>、<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>り<strong>ます</strong>でしょう。 → ✅ <ruby>明日<rt>あした</rt></ruby>、<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>るでしょう。<br><em><code>でしょう</code> follows plain forms. Doubling the politeness sounds like a bad announcement voice.</em></p>
+</li>
+<li><p>❌ <ruby>私<rt>わたし</rt></ruby>は<ruby>来年<rt>らいねん</rt></ruby><ruby>大学<rt>だいがく</rt></ruby>に<ruby>入<rt>はい</rt></ruby>るでしょう。 → ✅ <ruby>私<rt>わたし</rt></ruby>は<ruby>来年<rt>らいねん</rt></ruby><ruby>大学<rt>だいがく</rt></ruby>に<ruby>入<rt>はい</rt></ruby>るつもりです。<br><em>You do not speculate about your own decisions.</em></p>
+</li>
+<li><p>❌ <ruby>部長<rt>ぶちょう</rt></ruby>、この<ruby>案<rt>あん</rt></ruby>でいいでしょう？ → ✅ <ruby>部長<rt>ぶちょう</rt></ruby>、この<ruby>案<rt>あん</rt></ruby>でよろしいでしょうか。<br><em>Rising <code>でしょう？</code> pushes the listener to agree. Upward, ask.</em></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="55">
   
-  <div class="slide__content"><h2>だろう・でしょう - probably; … right? · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the problem: あの人(ひと)はたぶん先生(せんせい)だでしょう。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ あの人(ひと)はたぶん先生(せんせい)でしょう。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The <code>だ</code> has to go. <code>でしょう</code> is itself the conjectural form of <code>だ</code>／<code>です</code>, so keeping both is like saying &quot;is probably is&quot;. Note how naturally <code>たぶん</code> pairs with the falling sense.</p>
+  <div class="slide__content"><h2>だろう・でしょう - probably; … right? · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ <ruby>静<rt>しず</rt></ruby>か<strong>だろう</strong>でしょう。 → ✅ <ruby>静<rt>しず</rt></ruby>かでしょう。<br><em><code>だろう</code> and <code>でしょう</code> are the same word; they never stack.</em></li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="56">
   
+  <div class="slide__content"><h2>だろう・でしょう - probably; … right? · Practice 1</h2>
+<p><strong>1.</strong> <ruby>天気<rt>てんき</rt></ruby><ruby>予報<rt>よほう</rt></ruby>によると、<ruby>明日<rt>あした</rt></ruby>は<ruby>寒<rt>さむ</rt></ruby>____。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>明日<rt>あした</rt></ruby>は<ruby>寒<rt>さむ</rt></ruby><strong>いでしょう</strong>。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+い-adjectives keep their <code>い</code> and simply take <code>でしょう</code>. A forecast is the textbook home of falling-tone <code>でしょう</code>: the speaker is predicting, not asserting.</p>
+</div>
+</div>
+<div class="slide" data-index="57">
+  
+  <div class="slide__content"><h2>だろう・でしょう - probably; … right? · Practice 2</h2>
+<p><strong>2.</strong> <ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>習<rt>なら</rt></ruby>ったんだから、この<ruby>漢字<rt>かんじ</rt></ruby>は<ruby>読<rt>よ</rt></ruby>める（でしょう？・かもしれません）。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+この<ruby>漢字<rt>かんじ</rt></ruby>は<ruby>読<rt>よ</rt></ruby>める<strong>でしょう？</strong></p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+You studied it together, so you are appealing to shared knowledge and expecting agreement - that is rising <code>でしょう？</code>. <code>かもしれません</code> would mean you have no idea whether they can read it, which contradicts the first half of the sentence.</p>
+</div>
+</div>
+<div class="slide" data-index="58">
+  
+  <div class="slide__content"><h2>だろう・でしょう - probably; … right? · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese: &quot;He&#39;s probably still at work.&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>彼<rt>かれ</rt></ruby>はまだ<ruby>会社<rt>かいしゃ</rt></ruby>に<strong>いるでしょう</strong>。 （plain: <ruby>彼<rt>かれ</rt></ruby>はまだ<ruby>会社<rt>かいしゃ</rt></ruby>にいるだろう。）</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code>でしょう</code> attaches straight to the plain <code>いる</code>. Choose <code>だろう</code> only if the surrounding sentences are also plain style.</p>
+</div>
+</div>
+<div class="slide" data-index="59">
+  
+  <div class="slide__content"><h2>だろう・でしょう - probably; … right? · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the problem: あの<ruby>人<rt>ひと</rt></ruby>はたぶん<ruby>先生<rt>せんせい</rt></ruby>だでしょう。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ あの<ruby>人<rt>ひと</rt></ruby>はたぶん<ruby>先生<rt>せんせい</rt></ruby>でしょう。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The <code>だ</code> has to go. <code>でしょう</code> is itself the conjectural form of <code>だ</code>／<code>です</code>, so keeping both is like saying &quot;is probably is&quot;. Note how naturally <code>たぶん</code> pairs with the falling sense.</p>
+</div>
+</div>
+<div class="slide" data-index="60">
+  
   <div class="slide__content"><h2>だろう・でしょう - probably; … right? · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) この店(みせ)、高(たか)いでしょう。 (b) この店(みせ)、高(たか)いでしょう？</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) この<ruby>店<rt>みせ</rt></ruby>、<ruby>高<rt>たか</rt></ruby>いでしょう。 (b) この<ruby>店<rt>みせ</rt></ruby>、<ruby>高<rt>たか</rt></ruby>いでしょう？</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a), said with a falling tone, is a guess about a shop the speaker does not know first-hand: &quot;this place is probably expensive.&quot; It might be a reason for not going in.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (b), rising, assumes the listener already knows - they have been there, or the prices are on the board in front of you - and asks them to agree: &quot;pricey, isn&#39;t it?&quot; Same eight characters; the tone decides who is supposed to know the answer.</p>
 </div>
 </div>
-<div class="slide" data-index="57">
+<div class="slide" data-index="61">
   
   <div class="slide__content"><h1>んです・のです - explaining, or asking for an explanation</h1>
 <p><strong>Meaning</strong> · here&#39;s the background - or, as a question, so what&#39;s the story?</p>
 <p><code>んです</code> does not change what a sentence says. It changes what the sentence is <em>for</em>. Adding it tells the listener that this statement is tied to the situation you are both in: it explains something, or asks the other person to explain. <code>んです</code> is the spoken form, <code>のです</code> the written one, and the <code>ん</code> is simply <code>の</code> worn down by speech.</p>
 </div>
 </div>
-<div class="slide" data-index="58">
+<div class="slide" data-index="62">
   
   <div class="slide__content"><h2>んです・のです - explaining, or asking for an explanation · Formation</h2>
 <p><code>の</code> is a nominaliser, so everything attaches to it the way it attaches to a noun - which is why nouns and な-adjectives need <code>な</code> in between.</p>
 </div>
 </div>
-<div class="slide" data-index="59">
+<div class="slide" data-index="63">
   
   <div class="slide__content"><h2>んです・のです - explaining, or asking for an explanation · Formation (cont.)</h2>
 <table>
@@ -3319,42 +3358,42 @@ The <code>だ</code> has to go. <code>でしょう</code> is itself the conjectu
 <tbody><tr>
 <td>Verb</td>
 <td>plain form + んです</td>
-<td>遅(おく)れる → 遅(おく)れるんです</td>
+<td><ruby>遅<rt>おく</rt></ruby>れる → <ruby>遅<rt>おく</rt></ruby>れるんです</td>
 </tr>
 <tr>
 <td>Verb (past)</td>
 <td>た-form + んです</td>
-<td>遅(おく)れた → 遅(おく)れたんです</td>
+<td><ruby>遅<rt>おく</rt></ruby>れた → <ruby>遅<rt>おく</rt></ruby>れたんです</td>
 </tr>
 <tr>
 <td>Verb (negative)</td>
 <td>ない-form + んです</td>
-<td>行(い)かない → 行(い)かないんです</td>
+<td><ruby>行<rt>い</rt></ruby>かない → <ruby>行<rt>い</rt></ruby>かないんです</td>
 </tr>
 <tr>
 <td>い-adjective</td>
 <td>plain form + んです</td>
-<td>痛(いた)い → 痛(いた)いんです</td>
+<td><ruby>痛<rt>いた</rt></ruby>い → <ruby>痛<rt>いた</rt></ruby>いんです</td>
 </tr>
 <tr>
 <td>な-adjective</td>
 <td>drop だ + <strong>な</strong> + んです</td>
-<td>大変(たいへん)だ → 大変(たいへん)なんです</td>
+<td><ruby>大変<rt>たいへん</rt></ruby>だ → <ruby>大変<rt>たいへん</rt></ruby>なんです</td>
 </tr>
 <tr>
 <td>Noun</td>
 <td>noun + <strong>な</strong> + んです</td>
-<td>学生(がくせい) → 学生(がくせい)なんです</td>
+<td><ruby>学生<rt>がくせい</rt></ruby> → <ruby>学生<rt>がくせい</rt></ruby>なんです</td>
 </tr>
 <tr>
 <td>Plain style</td>
 <td>んです → んだ</td>
-<td>痛(いた)いんだ</td>
+<td><ruby>痛<rt>いた</rt></ruby>いんだ</td>
 </tr>
 <tr>
 <td>Written / formal</td>
 <td>んです → のです</td>
-<td>痛(いた)いのです</td>
+<td><ruby>痛<rt>いた</rt></ruby>いのです</td>
 </tr>
 <tr>
 <td>Question</td>
@@ -3364,7 +3403,7 @@ The <code>だ</code> has to go. <code>でしょう</code> is itself the conjectu
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="60">
+<div class="slide" data-index="64">
   
   <div class="slide__content"><h2>んです・のです - explaining, or asking for an explanation · Formation (cont.)</h2>
 <table>
@@ -3378,144 +3417,150 @@ The <code>だ</code> has to go. <code>でしょう</code> is itself the conjectu
 <tbody><tr>
 <td>Preface, softener</td>
 <td>んですが／んですけど</td>
-<td>聞(き)きたいんですが</td>
+<td><ruby>聞<rt>き</rt></ruby>きたいんですが</td>
 </tr>
 </tbody></table>
 <blockquote>
-<p><strong>Rule of thumb</strong> - <code>な</code> after nouns and な-adjectives, nothing after verbs and い-adjectives. ❌<code>学生(がくせい)だんです</code> is the classic slip; <code>学生(がくせい)なんです</code> is what you want.</p>
+<p><strong>Rule of thumb</strong> - <code>な</code> after nouns and な-adjectives, nothing after verbs and い-adjectives. ❌<code><ruby>学生<rt>がくせい</rt></ruby>だんです</code> is the classic slip; <code><ruby>学生<rt>がくせい</rt></ruby>なんです</code> is what you want.</p>
 </blockquote>
-</div>
-</div>
-<div class="slide" data-index="61">
-  
-  <div class="slide__content"><h2>んです・のです - explaining, or asking for an explanation · Examples</h2>
-<p>どうした<strong>んです</strong>か。<br><em>What&#39;s the matter?</em></p>
-<p>頭(あたま)が痛(いた)い<strong>んです</strong>。<br><em>I&#39;ve got a headache. (that&#39;s why I&#39;m asking to go home)</em></p>
-<p>すみません、道(みち)が分(わ)からない<strong>んですが</strong>…<br><em>Excuse me - I&#39;m a bit lost…</em></p>
-<p>彼女(かのじょ)はフランス人(じん)<strong>なんです</strong>。だからワインにくわしいんですよ。<br><em>She&#39;s French. That&#39;s why she knows so much about wine.</em></p>
-<p>この漢字(かんじ)、なんて読(よ)む<strong>んです</strong>か。<br><em>How do you read this kanji?</em></p>
-</div>
-</div>
-<div class="slide" data-index="62">
-  
-  <div class="slide__content"><h2>んです・のです - explaining, or asking for an explanation · Examples (cont.)</h2>
-<p>「どうして遅(おく)れたんですか。」「事故(じこ)で電車(でんしゃ)が止(と)まった<strong>んです</strong>。」<br><em>&quot;Why were you late?&quot; &quot;The trains were stopped because of an accident.&quot;</em></p>
-<p>明日(あした)、休(やす)ませていただけませんか。国(くに)から母(はは)が来(く)る<strong>んです</strong>。<br><em>Could I take tomorrow off? My mother is coming over from home.</em></p>
-<p>実(じつ)は来月(らいげつ)引(ひ)っ越(こ)す<strong>のです</strong>。長(なが)い間(あいだ)お世話(せわ)になりました。<br><em>The fact is, I&#39;m moving next month. Thank you for everything over the years.</em></p>
-</div>
-</div>
-<div class="slide" data-index="63">
-  
-  <div class="slide__content"><h2>Nuance &amp; register</h2>
-<p><strong>What <code>んです</code> adds is <em>connection</em>.</strong> <code>雨(あめ)が降(ふ)っています</code> reports the weather. <code>雨(あめ)が降(ふ)っているんです</code> offers it as the reason for something - why I&#39;m wet, why the match is off, why I&#39;d rather not go out. Nothing about the rain has changed; the sentence has been plugged into the conversation.</p>
-<p><strong>That is also its danger.</strong> A learner who ends every sentence with <code>んです</code> sounds as if they are permanently explaining themselves, or making excuses. In neutral self-introduction and plain description, use plain <code>です</code>／<code>ます</code>. <code>東京(とうきょう)に住(す)んでいます</code> is a fact about you; <code>東京(とうきょう)に住(す)んでいるんです</code> answers a question that was asked, out loud or in the air.</p>
-</div>
-</div>
-<div class="slide" data-index="64">
-  
-  <div class="slide__content"><h2>Nuance &amp; register (cont.)</h2>
-<p><strong><code>んですか</code> can accuse.</strong> Because the question demands an explanation, tone decides everything. <code>何(なに)をしているんですか</code> asked warmly is &quot;oh, what are you up to?&quot;; asked flatly it is &quot;what do you think you&#39;re doing?&quot; Similarly <code>どうして来(こ)なかったんですか</code> presses for a justification in a way that <code>来(こ)られませんでしたか</code> does not. When you only want information and not a defence, drop the <code>ん</code>.</p>
-<p><strong><code>～んですが</code> is one of the most useful shapes in the language.</strong> It sets up a request by explaining the situation first and then trailing off, leaving the listener to offer: <code>ちょっとお願(ねが)いがあるんですが…</code>, <code>すみません、この席(せき)、空(あ)いてるんですけど…</code>. The unfinished ending is the politeness.</p>
 </div>
 </div>
 <div class="slide" data-index="65">
   
-  <div class="slide__content"><h2>Nuance &amp; register (cont.)</h2>
-<p><strong>Register.</strong> <code>んです</code> is spoken and polite; <code>のです</code> is written and formal, at home in essays, reports and public announcements, and it sounds stiff in conversation. Plain style gives <code>んだ</code>／<code>のだ</code> (<code>忙(いそが)しいんだ</code>) and, very commonly, bare <code>の</code> for questions and soft statements: <code>どうしたの？</code> is neutral for everyone, while <code>～のよ</code> and <code>～のね</code> are female-leaning and <code>～んだよ</code> male-leaning. The same <code>の</code> turns up as the casual reason connector <code>んで</code> (a worn-down <code>ので</code>): <code>ちょっと急(いそ)いでるんで</code>.</p>
+  <div class="slide__content"><h2>んです・のです - explaining, or asking for an explanation · Examples</h2>
+<p>どうした<strong>んです</strong>か。<br><em>What&#39;s the matter?</em></p>
+<p><ruby>頭<rt>あたま</rt></ruby>が<ruby>痛<rt>いた</rt></ruby>い<strong>んです</strong>。<br><em>I&#39;ve got a headache. (that&#39;s why I&#39;m asking to go home)</em></p>
+<p>すみません、<ruby>道<rt>みち</rt></ruby>が<ruby>分<rt>わ</rt></ruby>からない<strong>んですが</strong>…<br><em>Excuse me - I&#39;m a bit lost…</em></p>
+<p><ruby>彼女<rt>かのじょ</rt></ruby>はフランス<ruby>人<rt>じん</rt></ruby><strong>なんです</strong>。だからワインにくわしいんですよ。<br><em>She&#39;s French. That&#39;s why she knows so much about wine.</em></p>
 </div>
 </div>
 <div class="slide" data-index="66">
+  
+  <div class="slide__content"><h2>んです・のです - explaining, or asking for an explanation · Examples (cont.)</h2>
+<p>この<ruby>漢字<rt>かんじ</rt></ruby>、なんて<ruby>読<rt>よ</rt></ruby>む<strong>んです</strong>か。<br><em>How do you read this kanji?</em></p>
+<p>「どうして<ruby>遅<rt>おく</rt></ruby>れたんですか。」「<ruby>事故<rt>じこ</rt></ruby>で<ruby>電車<rt>でんしゃ</rt></ruby>が<ruby>止<rt>と</rt></ruby>まった<strong>んです</strong>。」<br><em>&quot;Why were you late?&quot; &quot;The trains were stopped because of an accident.&quot;</em></p>
+<p><ruby>明日<rt>あした</rt></ruby>、<ruby>休<rt>やす</rt></ruby>ませていただけませんか。<ruby>国<rt>くに</rt></ruby>から<ruby>母<rt>はは</rt></ruby>が<ruby>来<rt>く</rt></ruby>る<strong>んです</strong>。<br><em>Could I take tomorrow off? My mother is coming over from home.</em></p>
+<p><ruby>実<rt>じつ</rt></ruby>は<ruby>来月<rt>らいげつ</rt></ruby><ruby>引<rt>ひ</rt></ruby>っ<ruby>越<rt>こ</rt></ruby>す<strong>のです</strong>。<ruby>長<rt>なが</rt></ruby>い<ruby>間<rt>あいだ</rt></ruby>お<ruby>世話<rt>せわ</rt></ruby>になりました。<br><em>The fact is, I&#39;m moving next month. Thank you for everything over the years.</em></p>
+</div>
+</div>
+<div class="slide" data-index="67">
+  
+  <div class="slide__content"><h2>Nuance &amp; register</h2>
+<p><strong>What <code>んです</code> adds is <em>connection</em>.</strong> <code><ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>っています</code> reports the weather. <code><ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>っているんです</code> offers it as the reason for something - why I&#39;m wet, why the match is off, why I&#39;d rather not go out. Nothing about the rain has changed; the sentence has been plugged into the conversation.</p>
+<p><strong>That is also its danger.</strong> A learner who ends every sentence with <code>んです</code> sounds as if they are permanently explaining themselves, or making excuses. In neutral self-introduction and plain description, use plain <code>です</code>／<code>ます</code>. <code><ruby>東京<rt>とうきょう</rt></ruby>に<ruby>住<rt>す</rt></ruby>んでいます</code> is a fact about you; <code><ruby>東京<rt>とうきょう</rt></ruby>に<ruby>住<rt>す</rt></ruby>んでいるんです</code> answers a question that was asked, out loud or in the air.</p>
+</div>
+</div>
+<div class="slide" data-index="68">
+  
+  <div class="slide__content"><h2>Nuance &amp; register (cont.)</h2>
+<p><strong><code>んですか</code> can accuse.</strong> Because the question demands an explanation, tone decides everything. <code><ruby>何<rt>なに</rt></ruby>をしているんですか</code> asked warmly is &quot;oh, what are you up to?&quot;; asked flatly it is &quot;what do you think you&#39;re doing?&quot; Similarly <code>どうして<ruby>来<rt>こ</rt></ruby>なかったんですか</code> presses for a justification in a way that <code><ruby>来<rt>こ</rt></ruby>られませんでしたか</code> does not. When you only want information and not a defence, drop the <code>ん</code>.</p>
+<p><strong><code>～んですが</code> is one of the most useful shapes in the language.</strong> It sets up a request by explaining the situation first and then trailing off, leaving the listener to offer: <code>ちょっとお<ruby>願<rt>ねが</rt></ruby>いがあるんですが…</code>, <code>すみません、この<ruby>席<rt>せき</rt></ruby>、<ruby>空<rt>あ</rt></ruby>いてるんですけど…</code>. The unfinished ending is the politeness.</p>
+</div>
+</div>
+<div class="slide" data-index="69">
+  
+  <div class="slide__content"><h2>Nuance &amp; register (cont.)</h2>
+<p><strong>Register.</strong> <code>んです</code> is spoken and polite; <code>のです</code> is written and formal, at home in essays, reports and public announcements, and it sounds stiff in conversation. Plain style gives <code>んだ</code>／<code>のだ</code> (<code><ruby>忙<rt>いそが</rt></ruby>しいんだ</code>) and, very commonly, bare <code>の</code> for questions and soft statements: <code>どうしたの？</code> is neutral for everyone, while <code>～のよ</code> and <code>～のね</code> are female-leaning and <code>～んだよ</code> male-leaning. The same <code>の</code> turns up as the casual reason connector <code>んで</code> (a worn-down <code>ので</code>): <code>ちょっと<ruby>急<rt>いそ</rt></ruby>いでるんで</code>.</p>
+</div>
+</div>
+<div class="slide" data-index="70">
   
   <div class="slide__content"><h2>んです vs です</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>です</code> states. <code>んです</code> explains. Ask yourself whether the sentence is answering a question, spoken or unspoken. If it is not, you probably do not need <code>ん</code>.</p>
 </blockquote>
-<p>かぜを引(ひ)きました。<br><em>I&#39;ve caught a cold. (a report - new information)</em></p>
-<p>かぜを引(ひ)いた<strong>んです</strong>。<br><em>I&#39;ve caught a cold. (that&#39;s why I look terrible / why I&#39;m not coming)</em></p>
+<p>かぜを<ruby>引<rt>ひ</rt></ruby>きました。<br><em>I&#39;ve caught a cold. (a report - new information)</em></p>
+<p>かぜを<ruby>引<rt>ひ</rt></ruby>いた<strong>んです</strong>。<br><em>I&#39;ve caught a cold. (that&#39;s why I look terrible / why I&#39;m not coming)</em></p>
 <p>The second sentence needs a context to lean on. Said out of nowhere with nothing to explain, it makes the listener hunt for the missing connection.</p>
 </div>
 </div>
-<div class="slide" data-index="67">
+<div class="slide" data-index="71">
   
   <div class="slide__content"><h2>～んですか vs ～ですか</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>～ですか</code> asks for a fact. <code>～んですか</code> asks for the story behind something you have just noticed.</p>
 </blockquote>
-<p>明日(あした)、大阪(おおさか)へ行(い)きますか。<br><em>Are you going to Osaka tomorrow? (simple question)</em></p>
-<p>明日(あした)、大阪(おおさか)へ行(い)く<strong>んです</strong>か。<br><em>Oh, you&#39;re going to Osaka tomorrow? (I&#39;ve seen the ticket / heard something)</em></p>
+<p><ruby>明日<rt>あした</rt></ruby>、<ruby>大阪<rt>おおさか</rt></ruby>へ<ruby>行<rt>い</rt></ruby>きますか。<br><em>Are you going to Osaka tomorrow? (simple question)</em></p>
+<p><ruby>明日<rt>あした</rt></ruby>、<ruby>大阪<rt>おおさか</rt></ruby>へ<ruby>行<rt>い</rt></ruby>く<strong>んです</strong>か。<br><em>Oh, you&#39;re going to Osaka tomorrow? (I&#39;ve seen the ticket / heard something)</em></p>
 <p>The <code>ん</code> version presupposes evidence. That makes it warm and interested with a friend, and prickly with a stranger or a subordinate, because you are asking them to account for something. Learners over-produce <code>んですか</code> in exactly the situations where it stings.</p>
 </div>
 </div>
-<div class="slide" data-index="68">
+<div class="slide" data-index="72">
   
   <div class="slide__content"><h2>のです vs んです vs んだ</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - one grammar point, three registers: <code>のです</code> on paper, <code>んです</code> in polite speech, <code>んだ</code>／<code>の</code> among friends.</p>
 </blockquote>
-<p>この問題(もんだい)は一人(ひとり)では解決(かいけつ)できない<strong>のです</strong>。<br><em>This problem cannot be solved alone. (written, formal)</em></p>
-<p>一人(ひとり)じゃ無理(むり)な<strong>んだ</strong>。手伝(てつだ)ってくれない？<br><em>I can&#39;t manage on my own. Could you give me a hand?</em></p>
+<p>この<ruby>問題<rt>もんだい</rt></ruby>は<ruby>一人<rt>ひとり</rt></ruby>では<ruby>解決<rt>かいけつ</rt></ruby>できない<strong>のです</strong>。<br><em>This problem cannot be solved alone. (written, formal)</em></p>
+<p><ruby>一人<rt>ひとり</rt></ruby>じゃ<ruby>無理<rt>むり</rt></ruby>な<strong>んだ</strong>。<ruby>手伝<rt>てつだ</rt></ruby>ってくれない？<br><em>I can&#39;t manage on my own. Could you give me a hand?</em></p>
 <p>Note that the plain form of the noun／な-adjective pattern is <code>なんだ</code>, not ❌<code>だんだ</code> - the <code>な</code> survives at every register.</p>
-</div>
-</div>
-<div class="slide" data-index="69">
-  
-  <div class="slide__content"><h2>Common mistakes</h2>
-<ul>
-<li><p>❌ 彼(かれ)は医者(いしゃ)<strong>だんです</strong>。 → ✅ 彼(かれ)は医者(いしゃ)<strong>なんです</strong>。<br><em>Nouns join <code>の</code> with <code>な</code>. The same goes for な-adjectives: ❌<code>静(しず)かだんです</code> → ✅<code>静(しず)かなんです</code>.</em></p>
-</li>
-<li><p>❌ 明日(あした)行(い)き<strong>ます</strong>んです。 → ✅ 明日(あした)行(い)くんです。<br><em><code>んです</code> follows plain forms; the politeness is already in the <code>です</code> at the end.</em></p>
-</li>
-<li><p>❌ はじめまして。田中(たなか)なんです。 → ✅ はじめまして。田中(たなか)です。<br><em>An introduction explains nothing, so there is no <code>ん</code>. Using it here sounds like you are correcting a misunderstanding.</em></p>
-</li>
-<li><p>❌ (to a colleague, neutrally) どうして会議(かいぎ)に来(こ)なかったんですか。 → ✅ 昨日(きのう)の会議(かいぎ)、来(こ)られませんでしたか。<br><em><code>んですか</code> demands an explanation. If you do not want to sound like you are taking someone to task, ask the plain question.</em></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="slide" data-index="70">
-  
-  <div class="slide__content"><h2>んです・のです - explaining, or asking for an explanation · Practice 1</h2>
-<p><strong>1.</strong> どうしたんですか。 -  - 財布(さいふ)をなくした____。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-財布(さいふ)をなくした<strong>んです</strong>。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The question asked for the story, so the answer supplies it. <code>んです</code> after the た-form marks this as the explanation the listener was after, rather than a bare announcement.</p>
-</div>
-</div>
-<div class="slide" data-index="71">
-  
-  <div class="slide__content"><h2>んです・のです - explaining, or asking for an explanation · Practice 2</h2>
-<p><strong>2.</strong> はじめまして、リンです。中国(ちゅうごく)から来(き)ました。（学生(がくせい)です・学生(がくせい)なんです）。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-学生(がくせい)<strong>です</strong>。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-A self-introduction is new information, not an explanation of anything, so plain <code>です</code> is right. <code>学生(がくせい)なんです</code> would imply you were clearing up a misunderstanding - as if someone had just assumed you worked here.</p>
-</div>
-</div>
-<div class="slide" data-index="72">
-  
-  <div class="slide__content"><h2>んです・のです - explaining, or asking for an explanation · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese: &quot;Excuse me, I&#39;d like to ask you something…&quot;</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-すみません、ちょっと<strong>聞(き)きたいんですが</strong>…</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The <code>んですが</code> preface explains your situation and then stops, leaving the listener room to respond. Finishing the sentence would make it heavier and slightly more demanding.</p>
 </div>
 </div>
 <div class="slide" data-index="73">
   
-  <div class="slide__content"><h2>んです・のです - explaining, or asking for an explanation · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the problem: 来週(らいしゅう)は休(やす)みます。旅行(りょこう)だんです。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 来週(らいしゅう)は休(やす)みます。旅行(りょこう)なんです。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>旅行(りょこう)</code> is a noun, so it joins <code>んです</code> with <code>な</code>, never with <code>だ</code>. The <code>んです</code> itself is well chosen here - the second sentence explains the first.</p>
+  <div class="slide__content"><h2>Common mistakes</h2>
+<ul>
+<li><p>❌ <ruby>彼<rt>かれ</rt></ruby>は<ruby>医者<rt>いしゃ</rt></ruby><strong>だんです</strong>。 → ✅ <ruby>彼<rt>かれ</rt></ruby>は<ruby>医者<rt>いしゃ</rt></ruby><strong>なんです</strong>。<br><em>Nouns join <code>の</code> with <code>な</code>. The same goes for な-adjectives: ❌<code><ruby>静<rt>しず</rt></ruby>かだんです</code> → ✅<code><ruby>静<rt>しず</rt></ruby>かなんです</code>.</em></p>
+</li>
+<li><p>❌ <ruby>明日<rt>あした</rt></ruby><ruby>行<rt>い</rt></ruby>き<strong>ます</strong>んです。 → ✅ <ruby>明日<rt>あした</rt></ruby><ruby>行<rt>い</rt></ruby>くんです。<br><em><code>んです</code> follows plain forms; the politeness is already in the <code>です</code> at the end.</em></p>
+</li>
+<li><p>❌ はじめまして。<ruby>田中<rt>たなか</rt></ruby>なんです。 → ✅ はじめまして。<ruby>田中<rt>たなか</rt></ruby>です。<br><em>An introduction explains nothing, so there is no <code>ん</code>. Using it here sounds like you are correcting a misunderstanding.</em></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="74">
   
+  <div class="slide__content"><h2>Common mistakes (cont.)</h2>
+<ul>
+<li>❌ (to a colleague, neutrally) どうして<ruby>会議<rt>かいぎ</rt></ruby>に<ruby>来<rt>こ</rt></ruby>なかったんですか。 → ✅ <ruby>昨日<rt>きのう</rt></ruby>の<ruby>会議<rt>かいぎ</rt></ruby>、<ruby>来<rt>こ</rt></ruby>られませんでしたか。<br><em><code>んですか</code> demands an explanation. If you do not want to sound like you are taking someone to task, ask the plain question.</em></li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="75">
+  
+  <div class="slide__content"><h2>んです・のです - explaining, or asking for an explanation · Practice 1</h2>
+<p><strong>1.</strong> どうしたんですか。 -  - <ruby>財布<rt>さいふ</rt></ruby>をなくした____。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>財布<rt>さいふ</rt></ruby>をなくした<strong>んです</strong>。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The question asked for the story, so the answer supplies it. <code>んです</code> after the た-form marks this as the explanation the listener was after, rather than a bare announcement.</p>
+</div>
+</div>
+<div class="slide" data-index="76">
+  
+  <div class="slide__content"><h2>んです・のです - explaining, or asking for an explanation · Practice 2</h2>
+<p><strong>2.</strong> はじめまして、リンです。<ruby>中国<rt>ちゅうごく</rt></ruby>から<ruby>来<rt>き</rt></ruby>ました。（<ruby>学生<rt>がくせい</rt></ruby>です・<ruby>学生<rt>がくせい</rt></ruby>なんです）。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>学生<rt>がくせい</rt></ruby><strong>です</strong>。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+A self-introduction is new information, not an explanation of anything, so plain <code>です</code> is right. <code><ruby>学生<rt>がくせい</rt></ruby>なんです</code> would imply you were clearing up a misunderstanding - as if someone had just assumed you worked here.</p>
+</div>
+</div>
+<div class="slide" data-index="77">
+  
+  <div class="slide__content"><h2>んです・のです - explaining, or asking for an explanation · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese: &quot;Excuse me, I&#39;d like to ask you something…&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+すみません、ちょっと**<ruby>聞<rt>き</rt></ruby>きたいんですが**…</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The <code>んですが</code> preface explains your situation and then stops, leaving the listener room to respond. Finishing the sentence would make it heavier and slightly more demanding.</p>
+</div>
+</div>
+<div class="slide" data-index="78">
+  
+  <div class="slide__content"><h2>んです・のです - explaining, or asking for an explanation · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the problem: <ruby>来週<rt>らいしゅう</rt></ruby>は<ruby>休<rt>やす</rt></ruby>みます。<ruby>旅行<rt>りょこう</rt></ruby>だんです。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ <ruby>来週<rt>らいしゅう</rt></ruby>は<ruby>休<rt>やす</rt></ruby>みます。<ruby>旅行<rt>りょこう</rt></ruby>なんです。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code><ruby>旅行<rt>りょこう</rt></ruby></code> is a noun, so it joins <code>んです</code> with <code>な</code>, never with <code>だ</code>. The <code>んです</code> itself is well chosen here - the second sentence explains the first.</p>
+</div>
+</div>
+<div class="slide" data-index="79">
+  
   <div class="slide__content"><h2>んです・のです - explaining, or asking for an explanation · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 毎日(まいにち)走(はし)っていますか。 (b) 毎日(まいにち)走(はし)っているんですか。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>毎日<rt>まいにち</rt></ruby><ruby>走<rt>はし</rt></ruby>っていますか。 (b) <ruby>毎日<rt>まいにち</rt></ruby><ruby>走<rt>はし</rt></ruby>っているんですか。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) is a neutral question - do you run every day? It could come out of nowhere, on a questionnaire or in small talk.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
@@ -3546,7 +3591,7 @@ The <code>んですが</code> preface explains your situation and then stops, le
     </div>
     <div id="hud-right">
       <a href="https://github.com/arpitbbhayani/deckrun" target="_blank" rel="noopener noreferrer" class="hud-brand" id="hud-brand" title="deckrun — Markdown presentations">powered by <span>deckrun</span></a>
-      <div id="slide-counter"><span id="cur">1</span>&nbsp;/&nbsp;<span id="tot">75</span></div>
+      <div id="slide-counter"><span id="cur">1</span>&nbsp;/&nbsp;<span id="tot">80</span></div>
     </div>
   </div>
 </div>
@@ -3599,7 +3644,7 @@ The <code>んですが</code> preface explains your situation and then stops, le
 
 
 
-<script id="deck-notes" type="application/json">["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]</script>
+<script id="deck-notes" type="application/json">["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]</script>
 <script id="deck-themes" type="application/json">{"themes":[{"id":"midnight","label":"midnight","mood":"dark","blurb":"Catppuccin Mocha. Violet on deep indigo, drifting orbs.","decor":"orbs","colors":{"crust":"#11111b","mantle":"#181825","base":"#1e1e2e","surface0":"#313244","overlay1":"#7f849c","subtext1":"#bac2de","text":"#cdd6f4","accent":"#cba6f7","accent2":"#89b4fa","accent3":"#89dceb"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"tokyo","label":"tokyo night","mood":"dark","blurb":"Neon cyan over a wireframe grid, lifted from a rainy skyline.","decor":"grid","colors":{"crust":"#16161e","mantle":"#1a1b26","base":"#1f2335","surface0":"#292e42","overlay1":"#7c86ab","subtext1":"#b7c0e0","text":"#c8d3f5","accent":"#2ac3de","accent2":"#bb9af7","accent3":"#73daca"},"fonts":{"display":"'Sora', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"nord","label":"nord","mood":"dark","blurb":"Arctic frost blue on polar slate, with slow contour waves.","decor":"waves","colors":{"crust":"#232831","mantle":"#2e3440","base":"#353c4a","surface0":"#3b4252","overlay1":"#8e9aae","subtext1":"#d8dee9","text":"#eceff4","accent":"#88c0d0","accent2":"#81a1c1","accent3":"#8fbcbb"},"fonts":{"display":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace","body":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"dracula","label":"dracula","mood":"dark","blurb":"Purple and hot pink over charcoal, lit by a gradient mesh.","decor":"mesh","colors":{"crust":"#1a1b23","mantle":"#21222c","base":"#282a36","surface0":"#343746","overlay1":"#7b85b6","subtext1":"#e2e4f0","text":"#f8f8f2","accent":"#bd93f9","accent2":"#ff79c6","accent3":"#8be9fd"},"fonts":{"display":"'Syne', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'Fira Code', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"gruvbox","label":"gruvbox","mood":"dark","blurb":"Warm amber and moss on retro brown, hatched like graph paper.","decor":"topo","colors":{"crust":"#1b1e1f","mantle":"#232728","base":"#282828","surface0":"#32302f","overlay1":"#928374","subtext1":"#d5c4a1","text":"#ebdbb2","accent":"#fabd2f","accent2":"#fe8019","accent3":"#b8bb26"},"fonts":{"display":"'Bricolage Grotesque', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Work Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"rosepine","label":"rosé pine","mood":"dark","blurb":"Muted iris and gold on plum, under a slow aurora.","decor":"aurora","colors":{"crust":"#14121f","mantle":"#191724","base":"#1f1d2e","surface0":"#26233a","overlay1":"#817c9c","subtext1":"#cdc9e6","text":"#e0def4","accent":"#c4a7e7","accent2":"#9ccfd8","accent3":"#f6c177"},"fonts":{"display":"'Fraunces', Georgia, 'Times New Roman', serif","body":"'Newsreader', Georgia, 'Times New Roman', serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"forest","label":"forest","mood":"dark","blurb":"Everforest sage on deep pine, rippling in concentric rings.","decor":"rings","colors":{"crust":"#232a2e","mantle":"#2d353b","base":"#343f44","surface0":"#3d484d","overlay1":"#9da9a0","subtext1":"#d3c6aa","text":"#e5dfd2","accent":"#a7c080","accent2":"#6fb5ac","accent3":"#dbbc7f"},"fonts":{"display":"'Outfit', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"neon","label":"neon","mood":"dark","blurb":"Electric cyan and magenta on true black, raked by light beams.","decor":"beams","colors":{"crust":"#050509","mantle":"#0a0a12","base":"#0e0e1a","surface0":"#16162a","overlay1":"#6a6a96","subtext1":"#c8c8e4","text":"#f0f0ff","accent":"#22d3ee","accent2":"#ff5cc8","accent3":"#38e8ff"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'Space Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"daylight","label":"daylight","mood":"light","blurb":"Catppuccin Latte, contrast-tuned for a projector. Dot matrix.","decor":"dots","colors":{"crust":"#ebebeb","mantle":"#f5f5f5","base":"#fafaf8","surface0":"#ccd0da","overlay1":"#5c5f77","subtext1":"#3a3c52","text":"#1e2030","accent":"#8839ef","accent2":"#1e66f5","accent3":"#179299"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"arctic","label":"arctic","mood":"light","blurb":"Nord inverted. Frost blue on cool paper, with contour waves.","decor":"waves","colors":{"crust":"#e3e8ef","mantle":"#eceff4","base":"#f7f9fc","surface0":"#dbe1ea","overlay1":"#5f6b7c","subtext1":"#364150","text":"#2e3440","accent":"#2f7d94","accent2":"#4a7ba7","accent3":"#3b8b8a"},"fonts":{"display":"'Manrope', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"solarized","label":"solarized","mood":"light","blurb":"The classic low-glare cream, paired with Lora for long prose.","decor":"topo","colors":{"crust":"#eee8d5","mantle":"#f5efdc","base":"#fdf6e3","surface0":"#e3ddc8","overlay1":"#657b83","subtext1":"#3f5b62","text":"#073642","accent":"#268bd2","accent2":"#6c71c4","accent3":"#21958c"},"fonts":{"display":"'Outfit', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Lora', Georgia, 'Times New Roman', serif","mono":"'Source Code Pro', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"paper","label":"paper","mood":"light","blurb":"Crimson serif on warm cream. Editorial, print-first, very legible.","decor":"rings","colors":{"crust":"#efe8dc","mantle":"#f7f2e9","base":"#fdfbf5","surface0":"#e4dccc","overlay1":"#6e6553","subtext1":"#38311f","text":"#211c11","accent":"#a81f2c","accent2":"#1f7f96","accent3":"#9a6c12"},"fonts":{"display":"'Fraunces', Georgia, 'Times New Roman', serif","body":"'Newsreader', Georgia, 'Times New Roman', serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"rosequartz","label":"rose quartz","mood":"light","blurb":"Rosé Pine Dawn. Blush and iris on linen, with soft orbs.","decor":"orbs","colors":{"crust":"#f2e9e1","mantle":"#faf4ed","base":"#fffaf3","surface0":"#ece0d8","overlay1":"#7d7791","subtext1":"#55506e","text":"#423d5c","accent":"#b4637a","accent2":"#907aa9","accent3":"#56949f"},"fonts":{"display":"'Playfair Display', Georgia, 'Times New Roman', serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"swiss","label":"swiss","mood":"light","blurb":"Black on white, one red. Heavy grotesk, tight tracking, hard grid.","decor":"grid","colors":{"crust":"#f0f0f0","mantle":"#f8f8f8","base":"#ffffff","surface0":"#dcdcdc","overlay1":"#5a5a5a","subtext1":"#222222","text":"#0a0a0a","accent":"#e01b24","accent2":"#0a0a0a","accent3":"#5a5a5a"},"fonts":{"display":"'Archivo', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}}],"hljsMap":{"midnight":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css","tokyo":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css","nord":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/nord.min.css","dracula":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/dracula.min.css","gruvbox":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/gruvbox-dark-medium.min.css","rosepine":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/ros-pine.min.css","forest":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css","neon":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/night-owl.min.css","daylight":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","arctic":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","solarized":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/solarized-light.min.css","paper":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","rosequartz":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/ros-pine-dawn.min.css","swiss":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css"},"decorMap":{"midnight":"orbs","tokyo":"grid","nord":"waves","dracula":"mesh","gruvbox":"topo","rosepine":"aurora","forest":"rings","neon":"beams","daylight":"dots","arctic":"waves","solarized":"topo","paper":"rings","rosequartz":"orbs","swiss":"grid"}}</script>
 
 <script>
@@ -4787,6 +4832,36 @@ The <code>んですが</code> preface explains your situation and then stops, le
     transition: opacity 0.15s ease, background 0.15s ease; }
   #deck-home:hover, #deck-home:focus-visible { opacity: 0.95; background: rgba(128,128,128,0.14); }
   @media print { #deck-home { display: none !important; } }
+  #furigana-toggle { position: fixed; bottom: 2.7rem; right: 1.1rem; z-index: 40;
+    font: 500 0.78rem/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+    color: currentColor; opacity: 0.38; cursor: pointer; user-select: none;
+    background: none; border: 1px solid currentColor; border-radius: 4px;
+    padding: 0.38rem 0.6rem;
+    transition: opacity 0.15s ease, background 0.15s ease; }
+  #furigana-toggle:hover, #furigana-toggle:focus-visible { opacity: 0.95; background: rgba(128,128,128,0.14); }
+  @media print { #furigana-toggle { display: none !important; } }
 </style>
+<button id="furigana-toggle" type="button" aria-pressed="true">&#12405;&#12426;&#12364;&#12394; ON</button>
+<script>
+  (function () {
+    // Deliberately click-only: readers who do not want furigana turn it off
+    // once and it sticks, while every key stays free for presenting.
+    var root = document.documentElement, btn = document.getElementById('furigana-toggle');
+    function paint() {
+      var off = root.getAttribute('data-furigana') === 'off';
+      btn.textContent = '\u3075\u308a\u304c\u306a ' + (off ? 'OFF' : 'ON');
+      btn.setAttribute('aria-pressed', String(!off));
+    }
+    btn.addEventListener('click', function () {
+      var off = root.getAttribute('data-furigana') === 'off';
+      if (off) root.removeAttribute('data-furigana');
+      else root.setAttribute('data-furigana', 'off');
+      try { localStorage.setItem('jlpt-furigana', off ? 'on' : 'off'); } catch (e) {}
+      paint();
+      btn.blur();
+    });
+    paint();
+  })();
+</script>
 </body>
 </html>

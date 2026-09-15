@@ -2606,6 +2606,13 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
   gap: 0.5rem;
 }
   </style>
+<script>
+  try {
+    if (localStorage.getItem('jlpt-furigana') === 'off') {
+      document.documentElement.setAttribute('data-furigana', 'off');
+    }
+  } catch (e) {}
+</script>
 </head>
 <body>
 
@@ -2614,7 +2621,16 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <div id="presentation">
 <div class="slide" data-index="0">
   
-  <div class="slide__content"><style>html { font-size: 20.0px; }</style>
+  <div class="slide__content"><style>
+  html { font-size: 20.0px; }
+  .slide__content p, .slide__content li,
+  .slide__content td, .slide__content th { line-height: 2.05; }
+  rt { font-size: 0.5em; line-height: 1.1; opacity: 0.72; font-weight: 400; }
+  :root[data-furigana="off"] rt { display: none; }
+  :root[data-furigana="off"] .slide__content p, :root[data-furigana="off"] .slide__content li,
+  :root[data-furigana="off"] .slide__content td, :root[data-furigana="off"] .slide__content th
+    { line-height: 1.5; }
+</style>
 
 <h1>N5 - Saying what something is</h1>
 <ul>
@@ -2650,37 +2666,37 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <tbody><tr>
 <td>Noun</td>
 <td>Noun + だ / です</td>
-<td>先生(せんせい) → 先生(せんせい)だ / 先生(せんせい)です</td>
+<td><ruby>先生<rt>せんせい</rt></ruby> → <ruby>先生<rt>せんせい</rt></ruby>だ / <ruby>先生<rt>せんせい</rt></ruby>です</td>
 </tr>
 <tr>
 <td>な-adjective</td>
 <td>stem (no な) + だ / です</td>
-<td>静(しず)かな → 静(しず)かだ / 静(しず)かです</td>
+<td><ruby>静<rt>しず</rt></ruby>かな → <ruby>静<rt>しず</rt></ruby>かだ / <ruby>静<rt>しず</rt></ruby>かです</td>
 </tr>
 <tr>
 <td>い-adjective</td>
 <td>plain adjective + です (never だ)</td>
-<td>高(たか)い → 高(たか)いです</td>
+<td><ruby>高<rt>たか</rt></ruby>い → <ruby>高<rt>たか</rt></ruby>いです</td>
 </tr>
 <tr>
 <td>の-phrase (possession)</td>
 <td>Noun + の + だ / です</td>
-<td>兄(あに)の → 兄(あに)のです</td>
+<td><ruby>兄<rt>あに</rt></ruby>の → <ruby>兄<rt>あに</rt></ruby>のです</td>
 </tr>
 <tr>
 <td>Question (polite)</td>
 <td>Noun + ですか</td>
-<td>学生(がくせい) → 学生(がくせい)ですか</td>
+<td><ruby>学生<rt>がくせい</rt></ruby> → <ruby>学生<rt>がくせい</rt></ruby>ですか</td>
 </tr>
 <tr>
 <td>Question (plain)</td>
 <td>Noun + ? - the だ drops</td>
-<td>学生(がくせい) → 学生(がくせい)?</td>
+<td><ruby>学生<rt>がくせい</rt></ruby> → <ruby>学生<rt>がくせい</rt></ruby>?</td>
 </tr>
 <tr>
 <td>Verb</td>
 <td>does <strong>not</strong> take です - use ます</td>
-<td>行(い)く → 行(い)きます</td>
+<td><ruby>行<rt>い</rt></ruby>く → <ruby>行<rt>い</rt></ruby>きます</td>
 </tr>
 </tbody></table>
 </div>
@@ -2689,26 +2705,26 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
   
   <div class="slide__content"><h2>だ / です · Formation (cont.)</h2>
 <blockquote>
-<p><strong>Note</strong> - <code>です</code> after an い-adjective is doing a different job. It is not linking anything; the adjective already is the predicate, and <code>です</code> is bolted on purely to make the sentence polite. That is why <code>高(たか)いです</code> is fine but ❌<code>高(たか)いだ</code> is not: <code>だ</code> has no politeness to add.</p>
+<p><strong>Note</strong> - <code>です</code> after an い-adjective is doing a different job. It is not linking anything; the adjective already is the predicate, and <code>です</code> is bolted on purely to make the sentence polite. That is why <code><ruby>高<rt>たか</rt></ruby>いです</code> is fine but ❌<code><ruby>高<rt>たか</rt></ruby>いだ</code> is not: <code>だ</code> has no politeness to add.</p>
 </blockquote>
 </div>
 </div>
 <div class="slide" data-index="4">
   
   <div class="slide__content"><h2>だ / です · Examples</h2>
-<p>山田(やまだ)さんは先生(せんせい)<strong>です</strong>。<br><em>Yamada-san is a teacher.</em></p>
-<p>今日(きょう)は休(やす)み<strong>だ</strong>。<br><em>Today&#39;s a day off.</em></p>
-<p>わたしの部屋(へや)は静(しず)か<strong>です</strong>。<br><em>My room is quiet.</em></p>
-<p>その自転車(じてんしゃ)は兄(あに)の<strong>です</strong>。<br><em>That bicycle is my older brother&#39;s.</em></p>
-<p>明日(あした)は雨(あめ)<strong>ですか</strong>。<br><em>Is it going to rain tomorrow?</em></p>
+<p><ruby>山田<rt>やまだ</rt></ruby>さんは<ruby>先生<rt>せんせい</rt></ruby><strong>です</strong>。<br><em>Yamada-san is a teacher.</em></p>
+<p><ruby>今日<rt>きょう</rt></ruby>は<ruby>休<rt>やす</rt></ruby>み<strong>だ</strong>。<br><em>Today&#39;s a day off.</em></p>
+<p>わたしの<ruby>部屋<rt>へや</rt></ruby>は<ruby>静<rt>しず</rt></ruby>か<strong>です</strong>。<br><em>My room is quiet.</em></p>
+<p>その<ruby>自転車<rt>じてんしゃ</rt></ruby>は<ruby>兄<rt>あに</rt></ruby>の<strong>です</strong>。<br><em>That bicycle is my older brother&#39;s.</em></p>
 </div>
 </div>
 <div class="slide" data-index="5">
   
   <div class="slide__content"><h2>だ / です · Examples (cont.)</h2>
-<p>この辞書(じしょ)は新(あたら)しい<strong>です</strong>。<br><em>This dictionary is new.</em></p>
-<p>待(ま)ち合(あ)わせは六時(ろくじ)に駅(えき)の前(まえ)<strong>です</strong>。<br><em>We&#39;re meeting at six in front of the station.</em></p>
-<p>「ご出身(しゅっしん)はどちら<strong>ですか</strong>。」「大阪(おおさか)<strong>です</strong>。」<br><em>&quot;Where are you from?&quot; &quot;Osaka.&quot;</em></p>
+<p><ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby><strong>ですか</strong>。<br><em>Is it going to rain tomorrow?</em></p>
+<p>この<ruby>辞書<rt>じしょ</rt></ruby>は<ruby>新<rt>あたら</rt></ruby>しい<strong>です</strong>。<br><em>This dictionary is new.</em></p>
+<p><ruby>待<rt>ま</rt></ruby>ち<ruby>合<rt>あ</rt></ruby>わせは<ruby>六時<rt>ろくじ</rt></ruby>に<ruby>駅<rt>えき</rt></ruby>の<ruby>前<rt>まえ</rt></ruby><strong>です</strong>。<br><em>We&#39;re meeting at six in front of the station.</em></p>
+<p>「ご<ruby>出身<rt>しゅっしん</rt></ruby>はどちら<strong>ですか</strong>。」「<ruby>大阪<rt>おおさか</rt></ruby><strong>です</strong>。」<br><em>&quot;Where are you from?&quot; &quot;Osaka.&quot;</em></p>
 </div>
 </div>
 <div class="slide" data-index="6">
@@ -2718,7 +2734,7 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <p><code>だ</code> is the plain form, used with friends, family, and in your own head. It is also the form used in writing that has no listener - notes, diaries, newspapers, essays - where politeness would be meaningless. What makes <code>だ</code> tricky is that in actual speech it is very often <strong>dropped</strong>:</p>
 <ul>
 <li>「これ、だれのかさ?」「わたしの。」 - the <code>だ</code> is simply not said.</li>
-<li>「あの人(ひと)、学生(がくせい)?」 - a plain question does not keep <code>だ</code>.</li>
+<li>「あの<ruby>人<rt>ひと</rt></ruby>、<ruby>学生<rt>がくせい</rt></ruby>?」 - a plain question does not keep <code>だ</code>.</li>
 </ul>
 </div>
 </div>
@@ -2726,7 +2742,7 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
   
   <div class="slide__content"><h2>だ / です · Nuance &amp; register (cont.)</h2>
 <p>Spoken <code>だ</code> that is <em>kept</em> sounds assertive and a little blunt, and it is more common in men&#39;s casual speech. Women&#39;s casual speech drops it more often, or softens it with <code>よ</code> / <code>ね</code> (「そうよ」「そうだね」). A learner who ends every casual sentence with a hard <code>だ</code> sounds like a cartoon character; leaving it off is safer.</p>
-<p>Two further forms you will meet but do not need to produce yet. <code>である</code> is the copula of formal written argument - reports, papers, legal text; it never appears in ordinary conversation. <code>でございます</code> is the humble-polite copula of shop staff and announcements: 「こちらが新(あたら)しいメニューでございます」. Recognising them is enough for now.</p>
+<p>Two further forms you will meet but do not need to produce yet. <code>である</code> is the copula of formal written argument - reports, papers, legal text; it never appears in ordinary conversation. <code>でございます</code> is the humble-polite copula of shop staff and announcements: 「こちらが<ruby>新<rt>あたら</rt></ruby>しいメニューでございます」. Recognising them is enough for now.</p>
 </div>
 </div>
 <div class="slide" data-index="8">
@@ -2736,8 +2752,8 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <p><strong>Rule of thumb</strong> - same word, two registers. <code>です</code> for anyone you are being polite to; <code>だ</code> for people you are close to, and for writing with no reader in mind.</p>
 </blockquote>
 <p>The choice says nothing about meaning and everything about the relationship.</p>
-<p>こちらが私(わたし)の机(つくえ)<strong>です</strong>。<br><em>This is my desk.</em></p>
-<p>そこ、ぼくの席(せき)<strong>だ</strong>よ。<br><em>Hey, that&#39;s my seat.</em></p>
+<p>こちらが<ruby>私<rt>わたし</rt></ruby>の<ruby>机<rt>つくえ</rt></ruby><strong>です</strong>。<br><em>This is my desk.</em></p>
+<p>そこ、ぼくの<ruby>席<rt>せき</rt></ruby><strong>だ</strong>よ。<br><em>Hey, that&#39;s my seat.</em></p>
 <p>The second sentence is not ruder in content - it is simply aimed at a friend. Said to a stranger, it would land as abrupt.</p>
 </div>
 </div>
@@ -2753,16 +2769,16 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <blockquote>
 <p><strong>Rule of thumb</strong> - い-adjectives are already complete predicates: add <code>です</code> for politeness, and never <code>だ</code>. な-adjectives and nouns need the copula to stand up at all.</p>
 </blockquote>
-<p>この荷物(にもつ)は重(おも)い<strong>です</strong>。<br><em>This luggage is heavy.</em></p>
-<p>この部屋(へや)は静(しず)か<strong>です</strong>。<br><em>This room is quiet.</em></p>
-<p>Both end in <code>です</code>, but for different reasons - and the difference surfaces the moment you go plain. <code>重(おも)い</code> stands alone as a whole sentence; <code>静(しず)か</code> cannot, and needs <code>だ</code>:</p>
-<p>この荷物(にもつ)、<strong>重(おも)い</strong>。<br><em>This luggage is heavy.</em></p>
+<p>この<ruby>荷物<rt>にもつ</rt></ruby>は<ruby>重<rt>おも</rt></ruby>い<strong>です</strong>。<br><em>This luggage is heavy.</em></p>
+<p>この<ruby>部屋<rt>へや</rt></ruby>は<ruby>静<rt>しず</rt></ruby>か<strong>です</strong>。<br><em>This room is quiet.</em></p>
+<p>Both end in <code>です</code>, but for different reasons - and the difference surfaces the moment you go plain. <code><ruby>重<rt>おも</rt></ruby>い</code> stands alone as a whole sentence; <code><ruby>静<rt>しず</rt></ruby>か</code> cannot, and needs <code>だ</code>:</p>
 </div>
 </div>
 <div class="slide" data-index="11">
   
   <div class="slide__content"><h2>だ / です · い-adjective + です vs な-adjective + だ / です (cont.)</h2>
-<p>この部屋(へや)、静(しず)か<strong>だ</strong>。<br><em>This room is quiet.</em></p>
+<p>この<ruby>荷物<rt>にもつ</rt></ruby>、<strong><ruby>重<rt>おも</rt></ruby>い</strong>。<br><em>This luggage is heavy.</em></p>
+<p>この<ruby>部屋<rt>へや</rt></ruby>、<ruby>静<rt>しず</rt></ruby>か<strong>だ</strong>。<br><em>This room is quiet.</em></p>
 <p>So the test is: strip the politeness away. If what is left needs propping up, it takes <code>だ</code>.</p>
 </div>
 </div>
@@ -2773,97 +2789,103 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <p><strong>Rule of thumb</strong> - <code>です</code> makes a <strong>noun or adjective</strong> sentence polite; <code>ます</code> makes a <strong>verb</strong> sentence polite. You never need both.</p>
 </blockquote>
 <p>English hides &quot;is&quot; inside every tense, so learners reach for <code>です</code> when a verb is already doing the work. Japanese verbs carry their own politeness.</p>
-<p>田中(たなか)さんは医者(いしゃ)<strong>です</strong>。<br><em>Tanaka-san is a doctor.</em></p>
-<p>田中(たなか)さんは毎日(まいにち)走(はし)り<strong>ます</strong>。<br><em>Tanaka-san runs every day.</em></p>
+<p><ruby>田中<rt>たなか</rt></ruby>さんは<ruby>医者<rt>いしゃ</rt></ruby><strong>です</strong>。<br><em>Tanaka-san is a doctor.</em></p>
+<p><ruby>田中<rt>たなか</rt></ruby>さんは<ruby>毎日<rt>まいにち</rt></ruby><ruby>走<rt>はし</rt></ruby>り<strong>ます</strong>。<br><em>Tanaka-san runs every day.</em></p>
 </div>
 </div>
 <div class="slide" data-index="13">
   
   <div class="slide__content"><h2>だ / です · です vs ます (cont.)</h2>
-<p>❌<code>走(はし)るです</code> and ❌<code>走(はし)りますです</code> are both broken. The one place a verb does meet <code>です</code> is through a nominaliser - <code>走(はし)るのが好(す)きです</code> - and even there <code>です</code> is attached to <code>好(す)き</code>, a な-adjective, not to the verb.</p>
+<p>❌<code><ruby>走<rt>はし</rt></ruby>るです</code> and ❌<code><ruby>走<rt>はし</rt></ruby>りますです</code> are both broken. The one place a verb does meet <code>です</code> is through a nominaliser - <code><ruby>走<rt>はし</rt></ruby>るのが<ruby>好<rt>す</rt></ruby>きです</code> - and even there <code>です</code> is attached to <code><ruby>好<rt>す</rt></ruby>き</code>, a な-adjective, not to the verb.</p>
 </div>
 </div>
 <div class="slide" data-index="14">
   
   <div class="slide__content"><h2>だ / です · Common mistakes</h2>
 <ul>
-<li><p>❌ この本(ほん)は高(たか)いだ。 → ✅ この本(ほん)は高(たか)い。<br><em>An い-adjective is already a predicate. It takes <code>です</code> for politeness, but never <code>だ</code>.</em></p>
+<li><p>❌ この<ruby>本<rt>ほん</rt></ruby>は<ruby>高<rt>たか</rt></ruby>いだ。 → ✅ この<ruby>本<rt>ほん</rt></ruby>は<ruby>高<rt>たか</rt></ruby>い。<br><em>An い-adjective is already a predicate. It takes <code>です</code> for politeness, but never <code>だ</code>.</em></p>
 </li>
-<li><p>❌ 静(しず)かだです。 → ✅ 静(しず)かです。<br><em><code>だ</code> and <code>です</code> are one word at two levels. You choose one; you never stack them.</em></p>
+<li><p>❌ <ruby>静<rt>しず</rt></ruby>かだです。 → ✅ <ruby>静<rt>しず</rt></ruby>かです。<br><em><code>だ</code> and <code>です</code> are one word at two levels. You choose one; you never stack them.</em></p>
 </li>
-<li><p>❌ 毎朝(まいあさ)コーヒーを飲(の)むです。 → ✅ 毎朝(まいあさ)コーヒーを飲(の)みます。<br><em>Verbs are made polite with <code>ます</code>, not with <code>です</code>.</em></p>
+<li><p>❌ <ruby>毎朝<rt>まいあさ</rt></ruby>コーヒーを<ruby>飲<rt>の</rt></ruby>むです。 → ✅ <ruby>毎朝<rt>まいあさ</rt></ruby>コーヒーを<ruby>飲<rt>の</rt></ruby>みます。<br><em>Verbs are made polite with <code>ます</code>, not with <code>です</code>.</em></p>
 </li>
-<li><p>❌ あの人(ひと)は学生(がくせい)だですか。 → ✅ あの人(ひと)は学生(がくせい)ですか。<br><em>In a polite question the whole copula is <code>です</code>, and <code>か</code> follows it directly.</em></p>
-</li>
-<li><p>❌ これは静(しず)かなです。 → ✅ これは静(しず)かです。<br><em>A な-adjective keeps its <code>な</code> only in front of a noun (<code>静(しず)かな部屋(へや)</code>). Before the copula the <code>な</code> drops.</em></p>
+<li><p>❌ あの<ruby>人<rt>ひと</rt></ruby>は<ruby>学生<rt>がくせい</rt></ruby>だですか。 → ✅ あの<ruby>人<rt>ひと</rt></ruby>は<ruby>学生<rt>がくせい</rt></ruby>ですか。<br><em>In a polite question the whole copula is <code>です</code>, and <code>か</code> follows it directly.</em></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="slide" data-index="15">
   
-  <div class="slide__content"><h2>だ / です · Practice 1</h2>
-<p><strong>1.</strong> あの建物(たてもの)は図書館(としょかん)____。（polite）</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-あの建物(たてもの)は図書館(としょかん)<strong>です</strong>。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-A noun predicate needs the copula, and the polite copula is <code>です</code>. Nothing changes inside the noun itself.</p>
+  <div class="slide__content"><h2>だ / です · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ これは<ruby>静<rt>しず</rt></ruby>かなです。 → ✅ これは<ruby>静<rt>しず</rt></ruby>かです。<br><em>A な-adjective keeps its <code>な</code> only in front of a noun (<code><ruby>静<rt>しず</rt></ruby>かな<ruby>部屋<rt>へや</rt></ruby></code>). Before the copula the <code>な</code> drops.</em></li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="16">
   
-  <div class="slide__content"><h2>だ / です · Practice 2</h2>
-<p><strong>2.</strong> Choose: この問題(もんだい)は難(むずか)しい（だ・です・nothing）。</p>
+  <div class="slide__content"><h2>だ / です · Practice 1</h2>
+<p><strong>1.</strong> あの<ruby>建物<rt>たてもの</rt></ruby>は<ruby>図書館<rt>としょかん</rt></ruby>____。（polite）</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-難(むずか)しい<strong>です</strong> (polite), or 難(むずか)しい on its own (plain).</p>
+あの<ruby>建物<rt>たてもの</rt></ruby>は<ruby>図書館<rt>としょかん</rt></ruby><strong>です</strong>。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>難(むずか)しい</code> is an い-adjective, so it is already a complete sentence by itself. Add <code>です</code> if you want to be polite, but ❌<code>難(むずか)しいだ</code> is never possible.</p>
+A noun predicate needs the copula, and the polite copula is <code>です</code>. Nothing changes inside the noun itself.</p>
 </div>
 </div>
 <div class="slide" data-index="17">
   
-  <div class="slide__content"><h2>だ / です · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese, politely: &quot;That umbrella is my mother&#39;s.&quot;</p>
+  <div class="slide__content"><h2>だ / です · Practice 2</h2>
+<p><strong>2.</strong> Choose: この<ruby>問題<rt>もんだい</rt></ruby>は<ruby>難<rt>むずか</rt></ruby>しい（だ・です・nothing）。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-そのかさは母(はは)の<strong>です</strong>。</p>
+<ruby>難<rt>むずか</rt></ruby>しい<strong>です</strong> (polite), or <ruby>難<rt>むずか</rt></ruby>しい on its own (plain).</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The <code>の</code> carries the possession, and the noun it stands for (&quot;umbrella&quot;) is simply left out, so <code>です</code> attaches straight onto <code>の</code>.</p>
+<code><ruby>難<rt>むずか</rt></ruby>しい</code> is an い-adjective, so it is already a complete sentence by itself. Add <code>です</code> if you want to be polite, but ❌<code><ruby>難<rt>むずか</rt></ruby>しいだ</code> is never possible.</p>
 </div>
 </div>
 <div class="slide" data-index="18">
   
-  <div class="slide__content"><h2>だ / です · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 山田(やまだ)さんは明日(あした)来(く)るですか。</p>
+  <div class="slide__content"><h2>だ / です · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese, politely: &quot;That umbrella is my mother&#39;s.&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 山田(やまだ)さんは明日(あした)来(き)ますか。</p>
+そのかさは<ruby>母<rt>はは</rt></ruby>の<strong>です</strong>。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The predicate is a verb, and verbs take <code>ます</code> for politeness - <code>です</code> has no work to do here. The question particle <code>か</code> then follows <code>ます</code>.</p>
+The <code>の</code> carries the possession, and the noun it stands for (&quot;umbrella&quot;) is simply left out, so <code>です</code> attaches straight onto <code>の</code>.</p>
 </div>
 </div>
 <div class="slide" data-index="19">
   
+  <div class="slide__content"><h2>だ / です · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the error: <ruby>山田<rt>やまだ</rt></ruby>さんは<ruby>明日<rt>あした</rt></ruby><ruby>来<rt>く</rt></ruby>るですか。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ <ruby>山田<rt>やまだ</rt></ruby>さんは<ruby>明日<rt>あした</rt></ruby><ruby>来<rt>き</rt></ruby>ますか。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The predicate is a verb, and verbs take <code>ます</code> for politeness - <code>です</code> has no work to do here. The question particle <code>か</code> then follows <code>ます</code>.</p>
+</div>
+</div>
+<div class="slide" data-index="20">
+  
   <div class="slide__content"><h2>だ / です · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in feel: (a) 明日(あした)は休(やす)みです。 (b) 明日(あした)は休(やす)みだ。</p>
+<p><strong>5.</strong> Explain the difference in feel: (a) <ruby>明日<rt>あした</rt></ruby>は<ruby>休<rt>やす</rt></ruby>みです。 (b) <ruby>明日<rt>あした</rt></ruby>は<ruby>休<rt>やす</rt></ruby>みだ。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 The information is identical: tomorrow is a day off. Only the relationship differs.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) is aimed at someone you are being polite to - a colleague, a customer, a teacher. (b) is aimed at a friend, or at nobody at all: it is also exactly how the sentence would be written in a diary or a memo. Said out loud to a stranger, (b) sounds abrupt.</p>
 </div>
 </div>
-<div class="slide" data-index="20">
+<div class="slide" data-index="21">
   
   <div class="slide__content"><h1>じゃない・ではない</h1>
 <p><strong>Meaning</strong> · the negative copula - &quot;X is not Y&quot;</p>
 <p><code>じゃない</code> and <code>ではない</code> are the negative of <code>だ</code> / <code>です</code>. They deny that one thing is the other. <code>ではない</code> is the full form; <code>じゃない</code> is its everyday contraction, and it is what you will hear almost all the time.</p>
 </div>
 </div>
-<div class="slide" data-index="21">
+<div class="slide" data-index="22">
   
   <div class="slide__content"><h2>じゃない・ではない · Formation</h2>
 <p><code>では</code> contracts to <code>じゃ</code> in speech, which is the whole story behind the two shapes. Everything below comes in pairs for that reason.</p>
 </div>
 </div>
-<div class="slide" data-index="22">
+<div class="slide" data-index="23">
   
   <div class="slide__content"><h2>じゃない・ではない · Formation (cont.)</h2>
 <table>
@@ -2877,37 +2899,37 @@ The information is identical: tomorrow is a day off. Only the relationship diffe
 <tbody><tr>
 <td>Noun (plain)</td>
 <td>Noun + じゃない / ではない</td>
-<td>学生(がくせい) → 学生(がくせい)じゃない</td>
+<td><ruby>学生<rt>がくせい</rt></ruby> → <ruby>学生<rt>がくせい</rt></ruby>じゃない</td>
 </tr>
 <tr>
 <td>Noun (polite)</td>
 <td>Noun + じゃないです / じゃありません</td>
-<td>学生(がくせい) → 学生(がくせい)じゃありません</td>
+<td><ruby>学生<rt>がくせい</rt></ruby> → <ruby>学生<rt>がくせい</rt></ruby>じゃありません</td>
 </tr>
 <tr>
 <td>Noun (formal)</td>
 <td>Noun + ではありません</td>
-<td>学生(がくせい) → 学生(がくせい)ではありません</td>
+<td><ruby>学生<rt>がくせい</rt></ruby> → <ruby>学生<rt>がくせい</rt></ruby>ではありません</td>
 </tr>
 <tr>
 <td>な-adjective</td>
 <td>stem (no な) + じゃない</td>
-<td>静(しず)かな → 静(しず)かじゃない</td>
+<td><ruby>静<rt>しず</rt></ruby>かな → <ruby>静<rt>しず</rt></ruby>かじゃない</td>
 </tr>
 <tr>
 <td>い-adjective</td>
 <td>～い → ～くない (never じゃない)</td>
-<td>高(たか)い → 高(たか)くない</td>
+<td><ruby>高<rt>たか</rt></ruby>い → <ruby>高<rt>たか</rt></ruby>くない</td>
 </tr>
 <tr>
 <td>Verb</td>
 <td>～ない form (never じゃない)</td>
-<td>行(い)く → 行(い)かない</td>
+<td><ruby>行<rt>い</rt></ruby>く → <ruby>行<rt>い</rt></ruby>かない</td>
 </tr>
 <tr>
 <td>Past</td>
 <td>じゃなかった / じゃありませんでした</td>
-<td>学生(がくせい)じゃなかった</td>
+<td><ruby>学生<rt>がくせい</rt></ruby>じゃなかった</td>
 </tr>
 <tr>
 <td>Joining on</td>
@@ -2917,7 +2939,7 @@ The information is identical: tomorrow is a day off. Only the relationship diffe
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="23">
+<div class="slide" data-index="24">
   
   <div class="slide__content"><h2>じゃない・ではない · Formation (cont.)</h2>
 <blockquote>
@@ -2925,152 +2947,168 @@ The information is identical: tomorrow is a day off. Only the relationship diffe
 </blockquote>
 </div>
 </div>
-<div class="slide" data-index="24">
-  
-  <div class="slide__content"><h2>じゃない・ではない · Examples</h2>
-<p>これは私(わたし)のかさ<strong>じゃない</strong>。<br><em>This isn&#39;t my umbrella.</em></p>
-<p>今日(きょう)は木曜日(もくようび)<strong>じゃありません</strong>。<br><em>Today isn&#39;t Thursday.</em></p>
-<p>その話(はなし)は本当(ほんとう)<strong>じゃないです</strong>よ。<br><em>That story isn&#39;t true.</em></p>
-<p>試験(しけん)は来週(らいしゅう)<strong>じゃなくて</strong>、再来週(さらいしゅう)です。<br><em>The exam isn&#39;t next week - it&#39;s the week after.</em></p>
-<p>冗談(じょうだん)<strong>じゃない</strong>よ。本当(ほんとう)の話(はなし)だ。<br><em>I&#39;m not joking. It really happened.</em></p>
-</div>
-</div>
 <div class="slide" data-index="25">
   
-  <div class="slide__content"><h2>じゃない・ではない · Examples (cont.)</h2>
-<p>大学(だいがく)のとき、わたしは真面目(まじめ)な学生(がくせい)<strong>じゃなかった</strong>。<br><em>I wasn&#39;t a serious student back in university.</em></p>
-<p>この辺(へん)は夜(よる)あまり静(しず)か<strong>じゃない</strong>ので、窓(まど)を閉(し)めて寝(ね)ています。<br><em>It isn&#39;t very quiet around here at night, so I sleep with the window shut.</em></p>
-<p>申(もう)し訳(わけ)ありませんが、これは私(わたし)の担当(たんとう)<strong>ではありません</strong>ので、係(かかり)の者(もの)を呼(よ)びます。<br><em>I&#39;m very sorry, but this isn&#39;t my area - I&#39;ll fetch the person in charge.</em></p>
+  <div class="slide__content"><h2>じゃない・ではない · Examples</h2>
+<p>これは<ruby>私<rt>わたし</rt></ruby>のかさ<strong>じゃない</strong>。<br><em>This isn&#39;t my umbrella.</em></p>
+<p><ruby>今日<rt>きょう</rt></ruby>は<ruby>木曜日<rt>もくようび</rt></ruby><strong>じゃありません</strong>。<br><em>Today isn&#39;t Thursday.</em></p>
+<p>その<ruby>話<rt>はなし</rt></ruby>は<ruby>本当<rt>ほんとう</rt></ruby><strong>じゃないです</strong>よ。<br><em>That story isn&#39;t true.</em></p>
+<p><ruby>試験<rt>しけん</rt></ruby>は<ruby>来週<rt>らいしゅう</rt></ruby><strong>じゃなくて</strong>、<ruby>再来週<rt>さらいしゅう</rt></ruby>です。<br><em>The exam isn&#39;t next week - it&#39;s the week after.</em></p>
 </div>
 </div>
 <div class="slide" data-index="26">
+  
+  <div class="slide__content"><h2>じゃない・ではない · Examples (cont.)</h2>
+<p><ruby>冗談<rt>じょうだん</rt></ruby><strong>じゃない</strong>よ。<ruby>本当<rt>ほんとう</rt></ruby>の<ruby>話<rt>はなし</rt></ruby>だ。<br><em>I&#39;m not joking. It really happened.</em></p>
+<p><ruby>大学<rt>だいがく</rt></ruby>のとき、わたしは<ruby>真面目<rt>まじめ</rt></ruby>な<ruby>学生<rt>がくせい</rt></ruby><strong>じゃなかった</strong>。<br><em>I wasn&#39;t a serious student back in university.</em></p>
+<p>この<ruby>辺<rt>へん</rt></ruby>は<ruby>夜<rt>よる</rt></ruby>あまり<ruby>静<rt>しず</rt></ruby>か<strong>じゃない</strong>ので、<ruby>窓<rt>まど</rt></ruby>を<ruby>閉<rt>し</rt></ruby>めて<ruby>寝<rt>ね</rt></ruby>ています。<br><em>It isn&#39;t very quiet around here at night, so I sleep with the window shut.</em></p>
+<p><ruby>申<rt>もう</rt></ruby>し<ruby>訳<rt>わけ</rt></ruby>ありませんが、これは<ruby>私<rt>わたし</rt></ruby>の<ruby>担当<rt>たんとう</rt></ruby><strong>ではありません</strong>ので、<ruby>係<rt>かかり</rt></ruby>の<ruby>者<rt>もの</rt></ruby>を<ruby>呼<rt>よ</rt></ruby>びます。<br><em>I&#39;m very sorry, but this isn&#39;t my area - I&#39;ll fetch the person in charge.</em></p>
+</div>
+</div>
+<div class="slide" data-index="27">
   
   <div class="slide__content"><h2>じゃない・ではない · Nuance &amp; register</h2>
 <p>The split between <code>じゃ</code> and <code>では</code> is one of pronunciation, not of meaning. <code>ではない</code> is what you write; <code>じゃない</code> is what you say. Reading <code>ではありません</code> aloud in a friendly conversation sounds like reading from a form.</p>
 <p>Within the polite forms there is a further, smaller split. <code>じゃありません</code> is the textbook polite negative and is perfectly normal in speech. <code>じゃないです</code> is a shade more conversational - it is built by taking the plain <code>じゃない</code> and adding <code>です</code>, the same trick い-adjectives use - and it is extremely common in modern spoken Japanese. <code>ではありません</code> belongs to announcements, written notices and stiff business speech, where nobody is trying to sound warm.</p>
 </div>
 </div>
-<div class="slide" data-index="27">
+<div class="slide" data-index="28">
   
   <div class="slide__content"><h2>じゃない・ではない · Nuance &amp; register (cont.)</h2>
-<p>One more thing about <code>じゃない</code> catches learners badly. With <strong>falling</strong> intonation it negates: 「山田(やまだ)さんじゃない。」 = &quot;That&#39;s not Yamada.&quot; With <strong>rising</strong> intonation it does the opposite - it becomes a tag question asserting that something <em>is</em> so: 「山田(やまだ)さんじゃない?」 = &quot;Isn&#39;t that Yamada?&quot; This second use can attach to things the negative copula normally cannot, including い-adjectives and verbs (「高(たか)いじゃない!」 = &quot;That&#39;s expensive!&quot;). If you meet <code>じゃない</code> attached to an い-adjective, it is this tag-question use, not negation.</p>
+<p>One more thing about <code>じゃない</code> catches learners badly. With <strong>falling</strong> intonation it negates: 「<ruby>山田<rt>やまだ</rt></ruby>さんじゃない。」 = &quot;That&#39;s not Yamada.&quot; With <strong>rising</strong> intonation it does the opposite - it becomes a tag question asserting that something <em>is</em> so: 「<ruby>山田<rt>やまだ</rt></ruby>さんじゃない?」 = &quot;Isn&#39;t that Yamada?&quot; This second use can attach to things the negative copula normally cannot, including い-adjectives and verbs (「<ruby>高<rt>たか</rt></ruby>いじゃない!」 = &quot;That&#39;s expensive!&quot;). If you meet <code>じゃない</code> attached to an い-adjective, it is this tag-question use, not negation.</p>
 <p>In casual speech <code>じゃない</code> shortens further to <code>じゃん</code>: 「いいじゃん」 = &quot;that&#39;s fine, isn&#39;t it&quot;. It is friendly, young-sounding, and out of place at work.</p>
 </div>
 </div>
-<div class="slide" data-index="28">
+<div class="slide" data-index="29">
   
   <div class="slide__content"><h2>じゃない・ではない · じゃない vs ～くない</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>じゃない</code> negates <strong>nouns and な-adjectives</strong>. い-adjectives negate themselves by changing <code>～い</code> to <code>～くない</code>.</p>
 </blockquote>
 <p>The two look interchangeable in English (&quot;is not X&quot;) but they are not.</p>
-<p>この問題(もんだい)は簡単(かんたん)<strong>じゃない</strong>。<br><em>This problem isn&#39;t easy.</em></p>
-<p>この問題(もんだい)は難(むずか)し<strong>くない</strong>。<br><em>This problem isn&#39;t hard.</em></p>
-<p><code>簡単(かんたん)</code> is a な-adjective, so it needs the copula and takes <code>じゃない</code>. <code>難(むずか)しい</code> is an い-adjective, so it conjugates on its own. The same test as with <code>だ</code>: if the word needs the copula to stand up, it negates with <code>じゃない</code>.</p>
-</div>
-</div>
-<div class="slide" data-index="29">
-  
-  <div class="slide__content"><h2>じゃない・ではない · じゃない vs ～くない (cont.)</h2>
-<p><code>いい</code> is the irregular one worth learning now: it negates as <code>よくない</code>, never ❌<code>いくない</code>.</p>
+<p>この<ruby>問題<rt>もんだい</rt></ruby>は<ruby>簡単<rt>かんたん</rt></ruby><strong>じゃない</strong>。<br><em>This problem isn&#39;t easy.</em></p>
+<p>この<ruby>問題<rt>もんだい</rt></ruby>は<ruby>難<rt>むずか</rt></ruby>し<strong>くない</strong>。<br><em>This problem isn&#39;t hard.</em></p>
 </div>
 </div>
 <div class="slide" data-index="30">
+  
+  <div class="slide__content"><h2>じゃない・ではない · じゃない vs ～くない (cont.)</h2>
+<p><code><ruby>簡単<rt>かんたん</rt></ruby></code> is a な-adjective, so it needs the copula and takes <code>じゃない</code>. <code><ruby>難<rt>むずか</rt></ruby>しい</code> is an い-adjective, so it conjugates on its own. The same test as with <code>だ</code>: if the word needs the copula to stand up, it negates with <code>じゃない</code>.</p>
+<p><code>いい</code> is the irregular one worth learning now: it negates as <code>よくない</code>, never ❌<code>いくない</code>.</p>
+</div>
+</div>
+<div class="slide" data-index="31">
   
   <div class="slide__content"><h2>じゃない・ではない · じゃありません vs じゃないです vs ではありません</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - all three are polite. Pick by how formal the room is, not by what you mean.</p>
 </blockquote>
-<p>それは私(わたし)のかばん<strong>じゃないです</strong>。<br><em>That&#39;s not my bag.</em></p>
-<p>それは私(わたし)のかばん<strong>じゃありません</strong>。<br><em>That&#39;s not my bag.</em></p>
-<p>当店(とうてん)は本日(ほんじつ)営業(えいぎょう)<strong>ではありません</strong>。<br><em>Our shop is not open for business today.</em></p>
-<p>The first is what you say to a coworker; the second is what a textbook or a careful speaker says; the third is what a sign says. A learner who only ever produces <code>じゃありません</code> will never sound wrong, which makes it the safe default.</p>
-</div>
-</div>
-<div class="slide" data-index="31">
-  
-  <div class="slide__content"><h2>じゃない・ではない · じゃない vs 違(ちが)う</h2>
-<blockquote>
-<p><strong>Rule of thumb</strong> - <code>じゃない</code> denies an equation (&quot;A is not B&quot;); <code>違(ちが)う</code> is a verb meaning &quot;to differ / to be mistaken&quot;, and it is what you say to correct someone.</p>
-</blockquote>
-<p>これは私(わたし)の傘(かさ)<strong>じゃない</strong>です。<br><em>This isn&#39;t my umbrella.</em></p>
-<p>「田中(たなか)さんですか。」「いいえ、<strong>違(ちが)います</strong>。」<br><em>&quot;Are you Tanaka-san?&quot; &quot;No, I&#39;m not.&quot;</em></p>
-<p>Both are heard as &quot;no&quot;, but they work differently. <code>違(ちが)います</code> is a complete answer on its own and needs no noun in front of it, which is exactly why it is the standard way to say &quot;that&#39;s not right&quot;. Notice that answering a question with a bare 「田中(たなか)じゃありません」 sounds blunter than 「違(ちが)います」 - the verb is the softer, more idiomatic correction.</p>
+<p>それは<ruby>私<rt>わたし</rt></ruby>のかばん<strong>じゃないです</strong>。<br><em>That&#39;s not my bag.</em></p>
+<p>それは<ruby>私<rt>わたし</rt></ruby>のかばん<strong>じゃありません</strong>。<br><em>That&#39;s not my bag.</em></p>
+<p><ruby>当店<rt>とうてん</rt></ruby>は<ruby>本日<rt>ほんじつ</rt></ruby><ruby>営業<rt>えいぎょう</rt></ruby><strong>ではありません</strong>。<br><em>Our shop is not open for business today.</em></p>
 </div>
 </div>
 <div class="slide" data-index="32">
   
-  <div class="slide__content"><h2>じゃない・ではない · Common mistakes</h2>
-<ul>
-<li><p>❌ この本(ほん)は高(たか)いじゃない。（meaning &quot;this book isn&#39;t expensive&quot;） → ✅ この本(ほん)は高(たか)くない。<br><em>い-adjectives negate with <code>～くない</code>. The string <code>高(たか)いじゃない</code> does exist, but only as the rising tag question &quot;it&#39;s expensive, isn&#39;t it!&quot; - the opposite of what you meant.</em></p>
-</li>
-<li><p>❌ この部屋(へや)は静(しず)かだじゃない。 → ✅ この部屋(へや)は静(しず)かじゃない。<br><em><code>じゃない</code> already contains the copula. Never leave <code>だ</code> in front of it.</em></p>
-</li>
-<li><p>❌ 昨日(きのう)は雨(あめ)じゃないでした。 → ✅ 昨日(きのう)は雨(あめ)じゃありませんでした。<br><em>The polite negative past is built on <code>ありません</code>, not on <code>です</code>. In plain form: 雨(あめ)じゃなかった。</em></p>
-</li>
-<li><p>❌ わたしはコーヒーを飲(の)むじゃない。 → ✅ わたしはコーヒーを飲(の)まない。<br><em>Verbs have their own negative. <code>じゃない</code> never attaches to a verb to negate it.</em></p>
-</li>
-</ul>
+  <div class="slide__content"><h2>じゃない・ではない · じゃありません vs じゃないです vs ではありません (cont.)</h2>
+<p>The first is what you say to a coworker; the second is what a textbook or a careful speaker says; the third is what a sign says. A learner who only ever produces <code>じゃありません</code> will never sound wrong, which makes it the safe default.</p>
 </div>
 </div>
 <div class="slide" data-index="33">
   
-  <div class="slide__content"><h2>じゃない・ではない · Practice 1</h2>
-<p><strong>1.</strong> あの人(ひと)は先生(せんせい)____。（plain, negative）</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-あの人(ひと)は先生(せんせい)<strong>じゃない</strong>。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>先生(せんせい)</code> is a noun, so it needs the copula, and the plain negative copula is <code>じゃない</code>. The fuller <code>ではない</code> would be the written equivalent.</p>
+  <div class="slide__content"><h2>じゃない・ではない · じゃない vs 違う</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - <code>じゃない</code> denies an equation (&quot;A is not B&quot;); <code><ruby>違<rt>ちが</rt></ruby>う</code> is a verb meaning &quot;to differ / to be mistaken&quot;, and it is what you say to correct someone.</p>
+</blockquote>
+<p>これは<ruby>私<rt>わたし</rt></ruby>の<ruby>傘<rt>かさ</rt></ruby><strong>じゃない</strong>です。<br><em>This isn&#39;t my umbrella.</em></p>
+<p>「<ruby>田中<rt>たなか</rt></ruby>さんですか。」「いいえ、<strong><ruby>違<rt>ちが</rt></ruby>います</strong>。」<br><em>&quot;Are you Tanaka-san?&quot; &quot;No, I&#39;m not.&quot;</em></p>
 </div>
 </div>
 <div class="slide" data-index="34">
   
-  <div class="slide__content"><h2>じゃない・ではない · Practice 2</h2>
-<p><strong>2.</strong> Choose: この店(みせ)は（安(やす)くない・安(やす)いじゃない）。 - &quot;This shop isn&#39;t cheap.&quot;</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-この店(みせ)は<strong>安(やす)くない</strong>。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>安(やす)い</code> is an い-adjective, so it negates by changing <code>い</code> to <code>くない</code>. The other option would be heard as a tag question meaning &quot;it&#39;s cheap, isn&#39;t it!&quot;, which is the opposite claim.</p>
+  <div class="slide__content"><h2>じゃない・ではない · じゃない vs 違う (cont.)</h2>
+<p>Both are heard as &quot;no&quot;, but they work differently. <code><ruby>違<rt>ちが</rt></ruby>います</code> is a complete answer on its own and needs no noun in front of it, which is exactly why it is the standard way to say &quot;that&#39;s not right&quot;. Notice that answering a question with a bare 「<ruby>田中<rt>たなか</rt></ruby>じゃありません」 sounds blunter than 「<ruby>違<rt>ちが</rt></ruby>います」 - the verb is the softer, more idiomatic correction.</p>
 </div>
 </div>
 <div class="slide" data-index="35">
   
-  <div class="slide__content"><h2>じゃない・ではない · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese, politely: &quot;It isn&#39;t Monday today - it&#39;s Tuesday.&quot;</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-今日(きょう)は月曜日(げつようび)<strong>じゃなくて</strong>、火曜日(かようび)です。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The て-form <code>じゃなくて</code> links the correction to what follows, so you get one smooth sentence instead of two. 「月曜日(げつようび)じゃありません。火曜日(かようび)です。」 also works and is a little more emphatic.</p>
+  <div class="slide__content"><h2>じゃない・ではない · Common mistakes</h2>
+<ul>
+<li><p>❌ この<ruby>本<rt>ほん</rt></ruby>は<ruby>高<rt>たか</rt></ruby>いじゃない。（meaning &quot;this book isn&#39;t expensive&quot;） → ✅ この<ruby>本<rt>ほん</rt></ruby>は<ruby>高<rt>たか</rt></ruby>くない。<br><em>い-adjectives negate with <code>～くない</code>. The string <code><ruby>高<rt>たか</rt></ruby>いじゃない</code> does exist, but only as the rising tag question &quot;it&#39;s expensive, isn&#39;t it!&quot; - the opposite of what you meant.</em></p>
+</li>
+<li><p>❌ この<ruby>部屋<rt>へや</rt></ruby>は<ruby>静<rt>しず</rt></ruby>かだじゃない。 → ✅ この<ruby>部屋<rt>へや</rt></ruby>は<ruby>静<rt>しず</rt></ruby>かじゃない。<br><em><code>じゃない</code> already contains the copula. Never leave <code>だ</code> in front of it.</em></p>
+</li>
+<li><p>❌ <ruby>昨日<rt>きのう</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>じゃないでした。 → ✅ <ruby>昨日<rt>きのう</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>じゃありませんでした。<br><em>The polite negative past is built on <code>ありません</code>, not on <code>です</code>. In plain form: <ruby>雨<rt>あめ</rt></ruby>じゃなかった。</em></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="36">
   
-  <div class="slide__content"><h2>じゃない・ではない · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 去年(きょねん)のアパートは便利(べんり)だじゃありませんでした。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 去年(きょねん)のアパートは便利(べんり)じゃありませんでした。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>便利(べんり)</code> is a な-adjective, and the negative form already carries the copula, so the extra <code>だ</code> has to go. Only the stem is left in front of <code>じゃ</code>.</p>
+  <div class="slide__content"><h2>じゃない・ではない · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ わたしはコーヒーを<ruby>飲<rt>の</rt></ruby>むじゃない。 → ✅ わたしはコーヒーを<ruby>飲<rt>の</rt></ruby>まない。<br><em>Verbs have their own negative. <code>じゃない</code> never attaches to a verb to negate it.</em></li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="37">
   
+  <div class="slide__content"><h2>じゃない・ではない · Practice 1</h2>
+<p><strong>1.</strong> あの<ruby>人<rt>ひと</rt></ruby>は<ruby>先生<rt>せんせい</rt></ruby>____。（plain, negative）</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+あの<ruby>人<rt>ひと</rt></ruby>は<ruby>先生<rt>せんせい</rt></ruby><strong>じゃない</strong>。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code><ruby>先生<rt>せんせい</rt></ruby></code> is a noun, so it needs the copula, and the plain negative copula is <code>じゃない</code>. The fuller <code>ではない</code> would be the written equivalent.</p>
+</div>
+</div>
+<div class="slide" data-index="38">
+  
+  <div class="slide__content"><h2>じゃない・ではない · Practice 2</h2>
+<p><strong>2.</strong> Choose: この<ruby>店<rt>みせ</rt></ruby>は（<ruby>安<rt>やす</rt></ruby>くない・<ruby>安<rt>やす</rt></ruby>いじゃない）。 - &quot;This shop isn&#39;t cheap.&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+この<ruby>店<rt>みせ</rt></ruby>は**<ruby>安<rt>やす</rt></ruby>くない**。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code><ruby>安<rt>やす</rt></ruby>い</code> is an い-adjective, so it negates by changing <code>い</code> to <code>くない</code>. The other option would be heard as a tag question meaning &quot;it&#39;s cheap, isn&#39;t it!&quot;, which is the opposite claim.</p>
+</div>
+</div>
+<div class="slide" data-index="39">
+  
+  <div class="slide__content"><h2>じゃない・ではない · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese, politely: &quot;It isn&#39;t Monday today - it&#39;s Tuesday.&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>今日<rt>きょう</rt></ruby>は<ruby>月曜日<rt>げつようび</rt></ruby><strong>じゃなくて</strong>、<ruby>火曜日<rt>かようび</rt></ruby>です。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The て-form <code>じゃなくて</code> links the correction to what follows, so you get one smooth sentence instead of two. 「<ruby>月曜日<rt>げつようび</rt></ruby>じゃありません。<ruby>火曜日<rt>かようび</rt></ruby>です。」 also works and is a little more emphatic.</p>
+</div>
+</div>
+<div class="slide" data-index="40">
+  
+  <div class="slide__content"><h2>じゃない・ではない · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the error: <ruby>去年<rt>きょねん</rt></ruby>のアパートは<ruby>便利<rt>べんり</rt></ruby>だじゃありませんでした。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ <ruby>去年<rt>きょねん</rt></ruby>のアパートは<ruby>便利<rt>べんり</rt></ruby>じゃありませんでした。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code><ruby>便利<rt>べんり</rt></ruby></code> is a な-adjective, and the negative form already carries the copula, so the extra <code>だ</code> has to go. Only the stem is left in front of <code>じゃ</code>.</p>
+</div>
+</div>
+<div class="slide" data-index="41">
+  
   <div class="slide__content"><h2>じゃない・ではない · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 山田(やまだ)さんじゃない。 (b) 山田(やまだ)さんじゃない?</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>山田<rt>やまだ</rt></ruby>さんじゃない。 (b) <ruby>山田<rt>やまだ</rt></ruby>さんじゃない?</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a), said with falling intonation, is straightforward negation: &quot;that isn&#39;t Yamada.&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (b), with a rising tail, flips into a tag question and actually claims the opposite: &quot;that&#39;s Yamada, isn&#39;t it?&quot; The speaker is fairly sure and is inviting the listener to confirm. The written form is identical, so intonation carries the whole meaning here.</p>
 </div>
 </div>
-<div class="slide" data-index="38">
+<div class="slide" data-index="42">
   
   <div class="slide__content"><h1>だった・でした</h1>
 <p><strong>Meaning</strong> · the past copula - &quot;X was Y&quot;</p>
 <p><code>だった</code> and <code>でした</code> put the copula into the past. <code>だった</code> is plain, <code>でした</code> is polite. They are how you say what something <em>was</em>, where it <em>was</em>, and how it <em>felt</em> - for nouns and な-adjectives.</p>
 </div>
 </div>
-<div class="slide" data-index="39">
+<div class="slide" data-index="43">
   
   <div class="slide__content"><h2>だった・でした · Formation</h2>
 <p>The past copula replaces <code>だ</code> / <code>です</code> entirely; nothing else in the sentence moves.</p>
@@ -3085,209 +3123,215 @@ The て-form <code>じゃなくて</code> links the correction to what follows, 
 <tbody><tr>
 <td>Noun</td>
 <td>Noun + だった / でした</td>
-<td>学生(がくせい) → 学生(がくせい)だった / 学生(がくせい)でした</td>
+<td><ruby>学生<rt>がくせい</rt></ruby> → <ruby>学生<rt>がくせい</rt></ruby>だった / <ruby>学生<rt>がくせい</rt></ruby>でした</td>
 </tr>
 <tr>
 <td>な-adjective</td>
 <td>stem (no な) + だった / でした</td>
-<td>元気(げんき)な → 元気(げんき)だった / 元気(げんき)でした</td>
+<td><ruby>元気<rt>げんき</rt></ruby>な → <ruby>元気<rt>げんき</rt></ruby>だった / <ruby>元気<rt>げんき</rt></ruby>でした</td>
 </tr>
 <tr>
 <td>い-adjective</td>
 <td>～い → ～かった (+ です)</td>
-<td>楽(たの)しい → 楽(たの)しかった / 楽(たの)しかったです</td>
+<td><ruby>楽<rt>たの</rt></ruby>しい → <ruby>楽<rt>たの</rt></ruby>しかった / <ruby>楽<rt>たの</rt></ruby>しかったです</td>
 </tr>
 <tr>
 <td>Negative past</td>
 <td>じゃなかった / じゃありませんでした</td>
-<td>学生(がくせい)じゃなかった</td>
+<td><ruby>学生<rt>がくせい</rt></ruby>じゃなかった</td>
 </tr>
 <tr>
 <td>Question</td>
 <td>Noun + でしたか / plain + ?</td>
-<td>学生(がくせい) → 学生(がくせい)でしたか</td>
+<td><ruby>学生<rt>がくせい</rt></ruby> → <ruby>学生<rt>がくせい</rt></ruby>でしたか</td>
 </tr>
 <tr>
 <td>Verb</td>
 <td>～た / ～ました (never でした)</td>
-<td>行(い)く → 行(い)った / 行(い)きました</td>
+<td><ruby>行<rt>い</rt></ruby>く → <ruby>行<rt>い</rt></ruby>った / <ruby>行<rt>い</rt></ruby>きました</td>
 </tr>
 <tr>
 <td>Before a noun</td>
 <td>だった + Noun (でした cannot)</td>
-<td>学生(がくせい)だった人(ひと)</td>
+<td><ruby>学生<rt>がくせい</rt></ruby>だった<ruby>人<rt>ひと</rt></ruby></td>
 </tr>
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="40">
+<div class="slide" data-index="44">
   
   <div class="slide__content"><h2>だった・でした · Formation (cont.)</h2>
 <blockquote>
-<p><strong>Note</strong> - the last row is worth pausing on. Inside a sentence, modifying a noun, only the plain <code>だった</code> is available: <code>学生(がくせい)だった人(ひと)</code> = &quot;a person who was a student&quot;. The politeness of the whole sentence is still decided at the very end.</p>
+<p><strong>Note</strong> - the last row is worth pausing on. Inside a sentence, modifying a noun, only the plain <code>だった</code> is available: <code><ruby>学生<rt>がくせい</rt></ruby>だった<ruby>人<rt>ひと</rt></ruby></code> = &quot;a person who was a student&quot;. The politeness of the whole sentence is still decided at the very end.</p>
 </blockquote>
 </div>
 </div>
-<div class="slide" data-index="41">
+<div class="slide" data-index="45">
   
   <div class="slide__content"><h2>だった・でした · Examples</h2>
-<p>昨日(きのう)のテストは簡単(かんたん)<strong>だった</strong>。<br><em>Yesterday&#39;s test was easy.</em></p>
-<p>去年(きょねん)まで学生(がくせい)<strong>でした</strong>。<br><em>I was a student until last year.</em></p>
-<p>あの映画(えいが)、どう<strong>だった</strong>?<br><em>How was that movie?</em></p>
-<p>子(こ)どものとき、野球(やきゅう)が好(す)き<strong>でした</strong>。<br><em>I liked baseball when I was a child.</em></p>
-<p>会議(かいぎ)は水曜日(すいようび)<strong>じゃなかった</strong>。火曜日(かようび)だったよ。<br><em>The meeting wasn&#39;t Wednesday. It was Tuesday.</em></p>
+<p><ruby>昨日<rt>きのう</rt></ruby>のテストは<ruby>簡単<rt>かんたん</rt></ruby><strong>だった</strong>。<br><em>Yesterday&#39;s test was easy.</em></p>
+<p><ruby>去年<rt>きょねん</rt></ruby>まで<ruby>学生<rt>がくせい</rt></ruby><strong>でした</strong>。<br><em>I was a student until last year.</em></p>
+<p>あの<ruby>映画<rt>えいが</rt></ruby>、どう<strong>だった</strong>?<br><em>How was that movie?</em></p>
+<p><ruby>子<rt>こ</rt></ruby>どものとき、<ruby>野球<rt>やきゅう</rt></ruby>が<ruby>好<rt>す</rt></ruby>き<strong>でした</strong>。<br><em>I liked baseball when I was a child.</em></p>
 </div>
 </div>
-<div class="slide" data-index="42">
+<div class="slide" data-index="46">
   
   <div class="slide__content"><h2>だった・でした · Examples (cont.)</h2>
-<p>昨日(きのう)のパーティーはにぎやか<strong>でしたか</strong>。<br><em>Was yesterday&#39;s party lively?</em></p>
-<p>十年前(じゅうねんまえ)、ここは大(おお)きい工場(こうじょう)<strong>でした</strong>が、今(いま)は公園(こうえん)になっています。<br><em>Ten years ago this was a big factory, but now it&#39;s a park.</em></p>
-<p>去年(きょねん)の旅行(りょこう)は雨(あめ)ばかりで大変(たいへん)<strong>でした</strong>が、とても楽(たの)しかったです。<br><em>Last year&#39;s trip was nothing but rain and pretty rough, but it was a lot of fun.</em></p>
+<p><ruby>会議<rt>かいぎ</rt></ruby>は<ruby>水曜日<rt>すいようび</rt></ruby><strong>じゃなかった</strong>。<ruby>火曜日<rt>かようび</rt></ruby>だったよ。<br><em>The meeting wasn&#39;t Wednesday. It was Tuesday.</em></p>
+<p><ruby>昨日<rt>きのう</rt></ruby>のパーティーはにぎやか<strong>でしたか</strong>。<br><em>Was yesterday&#39;s party lively?</em></p>
+<p><ruby>十年前<rt>じゅうねんまえ</rt></ruby>、ここは<ruby>大<rt>おお</rt></ruby>きい<ruby>工場<rt>こうじょう</rt></ruby><strong>でした</strong>が、<ruby>今<rt>いま</rt></ruby>は<ruby>公園<rt>こうえん</rt></ruby>になっています。<br><em>Ten years ago this was a big factory, but now it&#39;s a park.</em></p>
+<p><ruby>去年<rt>きょねん</rt></ruby>の<ruby>旅行<rt>りょこう</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>ばかりで<ruby>大変<rt>たいへん</rt></ruby><strong>でした</strong>が、とても<ruby>楽<rt>たの</rt></ruby>しかったです。<br><em>Last year&#39;s trip was nothing but rain and pretty rough, but it was a lot of fun.</em></p>
 </div>
 </div>
-<div class="slide" data-index="43">
+<div class="slide" data-index="47">
   
   <div class="slide__content"><h2>だった・でした · Nuance &amp; register</h2>
 <p>The register split is the same one <code>だ</code> and <code>です</code> already set up: <code>でした</code> for people you are being polite to, <code>だった</code> for friends, family and writing with no reader. Nothing about the past tense changes that calculation.</p>
-<p>Unlike plain <code>だ</code>, plain <code>だった</code> is <strong>not</strong> dropped in casual speech. 「テスト、 簡単(かんたん)?」 works as a present-tense question with no copula at all, but to put it in the past you must say 「簡単(かんたん)だった?」 - there is no other way to carry the tense. This is the first place where beginners who have learned to drop <code>だ</code> get stuck.</p>
-<p><code>でした</code> also has a quiet second life as part of the polite negative past for adjectives and verbs: <code>～ませんでした</code>, <code>～くありませんでした</code>. In those it is not the copula any more, just the polite past ending being reused. That is exactly why ❌<code>楽(たの)しいでした</code> feels tempting and is wrong: い-adjectives make their own past with <code>～かった</code>, and <code>です</code> may only be added afterwards.</p>
+<p>Unlike plain <code>だ</code>, plain <code>だった</code> is <strong>not</strong> dropped in casual speech. 「テスト、 <ruby>簡単<rt>かんたん</rt></ruby>?」 works as a present-tense question with no copula at all, but to put it in the past you must say 「<ruby>簡単<rt>かんたん</rt></ruby>だった?」 - there is no other way to carry the tense. This is the first place where beginners who have learned to drop <code>だ</code> get stuck.</p>
 </div>
 </div>
-<div class="slide" data-index="44">
+<div class="slide" data-index="48">
   
   <div class="slide__content"><h2>だった・でした · Nuance &amp; register (cont.)</h2>
+<p><code>でした</code> also has a quiet second life as part of the polite negative past for adjectives and verbs: <code>～ませんでした</code>, <code>～くありませんでした</code>. In those it is not the copula any more, just the polite past ending being reused. That is exactly why ❌<code><ruby>楽<rt>たの</rt></ruby>しいでした</code> feels tempting and is wrong: い-adjectives make their own past with <code>～かった</code>, and <code>です</code> may only be added afterwards.</p>
 <p>One nuance about <code>だった</code> in speech: with a falling, drawn-out delivery (「そうだった～」) it often marks a sudden recollection - &quot;oh, right, that&#39;s how it was.&quot; Learners hear this a lot and mistake it for ordinary past tense.</p>
 </div>
 </div>
-<div class="slide" data-index="45">
+<div class="slide" data-index="49">
   
   <div class="slide__content"><h2>だった・でした · だった vs でした</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - identical meaning, different politeness. <code>でした</code> in polite speech, <code>だった</code> with friends and in plain-style writing.</p>
 </blockquote>
-<p>先週(せんしゅう)の試合(しあい)は残念(ざんねん)<strong>でした</strong>。<br><em>Last week&#39;s match was a disappointment.</em></p>
-<p>先週(せんしゅう)の試合(しあい)、残念(ざんねん)<strong>だった</strong>な。<br><em>Shame about last week&#39;s match.</em></p>
-<p>There is one asymmetry worth knowing. <code>だった</code> can sit <strong>inside</strong> a sentence, modifying a noun or leading into <code>と思(おも)う</code>; <code>でした</code> cannot, because polite forms live only at the end.</p>
-<p>昔(むかし)、ここは海(うみ)<strong>だった</strong>と聞(き)きました。<br><em>I heard this used to be the sea.</em></p>
+<p><ruby>先週<rt>せんしゅう</rt></ruby>の<ruby>試合<rt>しあい</rt></ruby>は<ruby>残念<rt>ざんねん</rt></ruby><strong>でした</strong>。<br><em>Last week&#39;s match was a disappointment.</em></p>
+<p><ruby>先週<rt>せんしゅう</rt></ruby>の<ruby>試合<rt>しあい</rt></ruby>、<ruby>残念<rt>ざんねん</rt></ruby><strong>だった</strong>な。<br><em>Shame about last week&#39;s match.</em></p>
+<p>There is one asymmetry worth knowing. <code>だった</code> can sit <strong>inside</strong> a sentence, modifying a noun or leading into <code>と<ruby>思<rt>おも</rt></ruby>う</code>; <code>でした</code> cannot, because polite forms live only at the end.</p>
 </div>
 </div>
-<div class="slide" data-index="46">
+<div class="slide" data-index="50">
   
   <div class="slide__content"><h2>だった・でした · だった vs でした (cont.)</h2>
-<p>The sentence is polite - but the politeness is carried by <code>聞(き)きました</code> at the end, and the embedded copula stays plain.</p>
+<p><ruby>昔<rt>むかし</rt></ruby>、ここは<ruby>海<rt>うみ</rt></ruby><strong>だった</strong>と<ruby>聞<rt>き</rt></ruby>きました。<br><em>I heard this used to be the sea.</em></p>
+<p>The sentence is polite - but the politeness is carried by <code><ruby>聞<rt>き</rt></ruby>きました</code> at the end, and the embedded copula stays plain.</p>
 </div>
 </div>
-<div class="slide" data-index="47">
+<div class="slide" data-index="51">
   
   <div class="slide__content"><h2>だった・でした · い-adjective past vs でした</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - い-adjectives have their own past, <code>～かった</code>. They never take <code>でした</code>.</p>
 </blockquote>
 <p>This is the single most common past-tense error at N5, because English puts &quot;was&quot; in front of both kinds of word.</p>
-<p>昨日(きのう)は寒(さむ)<strong>かったです</strong>。<br><em>It was cold yesterday.</em></p>
-<p>昨日(きのう)は暇(ひま)<strong>でした</strong>。<br><em>I was free yesterday.</em></p>
+<p><ruby>昨日<rt>きのう</rt></ruby>は<ruby>寒<rt>さむ</rt></ruby><strong>かったです</strong>。<br><em>It was cold yesterday.</em></p>
+<p><ruby>昨日<rt>きのう</rt></ruby>は<ruby>暇<rt>ひま</rt></ruby><strong>でした</strong>。<br><em>I was free yesterday.</em></p>
 </div>
 </div>
-<div class="slide" data-index="48">
+<div class="slide" data-index="52">
   
   <div class="slide__content"><h2>だった・でした · い-adjective past vs でした (cont.)</h2>
-<p><code>寒(さむ)い</code> is an い-adjective, so the past is built inside the word and <code>です</code> is added only for politeness. <code>暇(ひま)</code> is a な-adjective, so it has no past of its own and hands the job to the copula. ❌<code>寒(さむ)いでした</code> and ❌<code>寒(さむ)かったでした</code> are both wrong; ❌<code>暇(ひま)かった</code> is wrong for the same reason in reverse.</p>
+<p><code><ruby>寒<rt>さむ</rt></ruby>い</code> is an い-adjective, so the past is built inside the word and <code>です</code> is added only for politeness. <code><ruby>暇<rt>ひま</rt></ruby></code> is a な-adjective, so it has no past of its own and hands the job to the copula. ❌<code><ruby>寒<rt>さむ</rt></ruby>いでした</code> and ❌<code><ruby>寒<rt>さむ</rt></ruby>かったでした</code> are both wrong; ❌<code><ruby>暇<rt>ひま</rt></ruby>かった</code> is wrong for the same reason in reverse.</p>
 <p><code>いい</code> is irregular here too: the past is <code>よかった</code>, never ❌<code>いかった</code>.</p>
 </div>
 </div>
-<div class="slide" data-index="49">
+<div class="slide" data-index="53">
   
   <div class="slide__content"><h2>だった・でした · でした vs ました</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>でした</code> is the past of a <strong>noun / な-adjective</strong> sentence; <code>ました</code> is the past of a <strong>verb</strong> sentence.</p>
 </blockquote>
-<p>去年(きょねん)の夏(なつ)は北海道(ほっかいどう)に<strong>いました</strong>。<br><em>Last summer I was in Hokkaido.</em></p>
-<p>去年(きょねん)の夏(なつ)は北海道(ほっかいどう)に<strong>いた</strong>。<br><em>Last summer I was in Hokkaido.</em></p>
-<p>Note that English &quot;was&quot; here is not the copula at all - it is existence, which Japanese handles with the verbs <code>いる</code> and <code>ある</code>, and therefore with <code>ました</code> / <code>た</code>. Saying ❌<code>北海道(ほっかいどう)にでした</code> is not possible.</p>
-</div>
-</div>
-<div class="slide" data-index="50">
-  
-  <div class="slide__content"><h2>だった・でした · でした vs ました (cont.)</h2>
-<p>The negative past follows the same division: <code>～ませんでした</code> for verbs, <code>じゃありませんでした</code> for nouns.</p>
-</div>
-</div>
-<div class="slide" data-index="51">
-  
-  <div class="slide__content"><h2>だった・でした · Common mistakes</h2>
-<ul>
-<li><p>❌ 映画(えいが)は面白(おもしろ)いでした。 → ✅ 映画(えいが)は面白(おもしろ)かったです。<br><em>い-adjectives carry their own past in <code>～かった</code>. <code>でした</code> belongs to nouns and な-adjectives.</em></p>
-</li>
-<li><p>❌ 昨日(きのう)は忙(いそが)しかったでした。 → ✅ 昨日(きのう)は忙(いそが)しかったです。<br><em>Once the adjective is already past, only <code>です</code> is added - the past is not marked twice.</em></p>
-</li>
-<li><p>❌ 元気(げんき)だでした。 → ✅ 元気(げんき)でした。<br><em><code>でした</code> already is the copula. There is no <code>だ</code> in front of it.</em></p>
-</li>
-<li><p>❌ 友(とも)だちと映画(えいが)を見(み)るでした。 → ✅ 友(とも)だちと映画(えいが)を見(み)ました。<br><em>A verb sentence goes past with <code>ました</code>, never with <code>でした</code>.</em></p>
-</li>
-<li><p>❌ 学生(がくせい)だったです。 → ✅ 学生(がくせい)でした。<br><em><code>楽(たの)しかったです</code> works because <code>です</code> is attaching to an adjective. After the copula <code>だった</code> it is not standard - use <code>でした</code> instead.</em></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="slide" data-index="52">
-  
-  <div class="slide__content"><h2>だった・でした · Practice 1</h2>
-<p><strong>1.</strong> 先週(せんしゅう)の日曜日(にちようび)は雨(あめ)____。（polite）</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-先週(せんしゅう)の日曜日(にちようび)は雨(あめ)<strong>でした</strong>。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>雨(あめ)</code> is a noun, so the past tense has to be carried by the copula, and the polite past copula is <code>でした</code>.</p>
-</div>
-</div>
-<div class="slide" data-index="53">
-  
-  <div class="slide__content"><h2>だった・でした · Practice 2</h2>
-<p><strong>2.</strong> Choose: 旅行(りょこう)は（楽(たの)しいでした・楽(たの)しかったです）。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-旅行(りょこう)は<strong>楽(たの)しかったです</strong>。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>楽(たの)しい</code> is an い-adjective, so it forms its own past by changing <code>い</code> to <code>かった</code>; <code>です</code> is then added purely for politeness. The first option marks the past in the wrong place.</p>
+<p><ruby>去年<rt>きょねん</rt></ruby>の<ruby>夏<rt>なつ</rt></ruby>は<ruby>北海道<rt>ほっかいどう</rt></ruby>に<strong>いました</strong>。<br><em>Last summer I was in Hokkaido.</em></p>
+<p><ruby>去年<rt>きょねん</rt></ruby>の<ruby>夏<rt>なつ</rt></ruby>は<ruby>北海道<rt>ほっかいどう</rt></ruby>に<strong>いた</strong>。<br><em>Last summer I was in Hokkaido.</em></p>
 </div>
 </div>
 <div class="slide" data-index="54">
   
-  <div class="slide__content"><h2>だった・でした · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese, plain form: &quot;When I was little, my father was a teacher.&quot;</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-小(ちい)さいとき、父(ちち)は先生(せんせい)<strong>だった</strong>。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Both halves are past in English, but only the main clause needs marking: the <code>とき</code> clause takes its tense from the adjective, and the noun predicate <code>先生(せんせい)</code> takes the plain past copula.</p>
+  <div class="slide__content"><h2>だった・でした · でした vs ました (cont.)</h2>
+<p>Note that English &quot;was&quot; here is not the copula at all - it is existence, which Japanese handles with the verbs <code>いる</code> and <code>ある</code>, and therefore with <code>ました</code> / <code>た</code>. Saying ❌<code><ruby>北海道<rt>ほっかいどう</rt></ruby>にでした</code> is not possible.</p>
+<p>The negative past follows the same division: <code>～ませんでした</code> for verbs, <code>じゃありませんでした</code> for nouns.</p>
 </div>
 </div>
 <div class="slide" data-index="55">
   
-  <div class="slide__content"><h2>だった・でした · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 昨日(きのう)のコンサートはとてもよかったでした。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 昨日(きのう)のコンサートはとてもよかったです。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>よかった</code> is already the past of <code>いい</code>, so adding <code>でした</code> marks the past twice. Only <code>です</code> may follow, and it adds politeness alone.</p>
+  <div class="slide__content"><h2>だった・でした · Common mistakes</h2>
+<ul>
+<li><p>❌ <ruby>映画<rt>えいが</rt></ruby>は<ruby>面白<rt>おもしろ</rt></ruby>いでした。 → ✅ <ruby>映画<rt>えいが</rt></ruby>は<ruby>面白<rt>おもしろ</rt></ruby>かったです。<br><em>い-adjectives carry their own past in <code>～かった</code>. <code>でした</code> belongs to nouns and な-adjectives.</em></p>
+</li>
+<li><p>❌ <ruby>昨日<rt>きのう</rt></ruby>は<ruby>忙<rt>いそが</rt></ruby>しかったでした。 → ✅ <ruby>昨日<rt>きのう</rt></ruby>は<ruby>忙<rt>いそが</rt></ruby>しかったです。<br><em>Once the adjective is already past, only <code>です</code> is added - the past is not marked twice.</em></p>
+</li>
+<li><p>❌ <ruby>元気<rt>げんき</rt></ruby>だでした。 → ✅ <ruby>元気<rt>げんき</rt></ruby>でした。<br><em><code>でした</code> already is the copula. There is no <code>だ</code> in front of it.</em></p>
+</li>
+<li><p>❌ <ruby>友<rt>とも</rt></ruby>だちと<ruby>映画<rt>えいが</rt></ruby>を<ruby>見<rt>み</rt></ruby>るでした。 → ✅ <ruby>友<rt>とも</rt></ruby>だちと<ruby>映画<rt>えいが</rt></ruby>を<ruby>見<rt>み</rt></ruby>ました。<br><em>A verb sentence goes past with <code>ました</code>, never with <code>でした</code>.</em></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="56">
   
+  <div class="slide__content"><h2>だった・でした · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ <ruby>学生<rt>がくせい</rt></ruby>だったです。 → ✅ <ruby>学生<rt>がくせい</rt></ruby>でした。<br><em><code><ruby>楽<rt>たの</rt></ruby>しかったです</code> works because <code>です</code> is attaching to an adjective. After the copula <code>だった</code> it is not standard - use <code>でした</code> instead.</em></li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="57">
+  
+  <div class="slide__content"><h2>だった・でした · Practice 1</h2>
+<p><strong>1.</strong> <ruby>先週<rt>せんしゅう</rt></ruby>の<ruby>日曜日<rt>にちようび</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>____。（polite）</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>先週<rt>せんしゅう</rt></ruby>の<ruby>日曜日<rt>にちようび</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby><strong>でした</strong>。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code><ruby>雨<rt>あめ</rt></ruby></code> is a noun, so the past tense has to be carried by the copula, and the polite past copula is <code>でした</code>.</p>
+</div>
+</div>
+<div class="slide" data-index="58">
+  
+  <div class="slide__content"><h2>だった・でした · Practice 2</h2>
+<p><strong>2.</strong> Choose: <ruby>旅行<rt>りょこう</rt></ruby>は（<ruby>楽<rt>たの</rt></ruby>しいでした・<ruby>楽<rt>たの</rt></ruby>しかったです）。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>旅行<rt>りょこう</rt></ruby>は**<ruby>楽<rt>たの</rt></ruby>しかったです**。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code><ruby>楽<rt>たの</rt></ruby>しい</code> is an い-adjective, so it forms its own past by changing <code>い</code> to <code>かった</code>; <code>です</code> is then added purely for politeness. The first option marks the past in the wrong place.</p>
+</div>
+</div>
+<div class="slide" data-index="59">
+  
+  <div class="slide__content"><h2>だった・でした · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese, plain form: &quot;When I was little, my father was a teacher.&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>小<rt>ちい</rt></ruby>さいとき、<ruby>父<rt>ちち</rt></ruby>は<ruby>先生<rt>せんせい</rt></ruby><strong>だった</strong>。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+Both halves are past in English, but only the main clause needs marking: the <code>とき</code> clause takes its tense from the adjective, and the noun predicate <code><ruby>先生<rt>せんせい</rt></ruby></code> takes the plain past copula.</p>
+</div>
+</div>
+<div class="slide" data-index="60">
+  
+  <div class="slide__content"><h2>だった・でした · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the error: <ruby>昨日<rt>きのう</rt></ruby>のコンサートはとてもよかったでした。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ <ruby>昨日<rt>きのう</rt></ruby>のコンサートはとてもよかったです。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code>よかった</code> is already the past of <code>いい</code>, so adding <code>でした</code> marks the past twice. Only <code>です</code> may follow, and it adds politeness alone.</p>
+</div>
+</div>
+<div class="slide" data-index="61">
+  
   <div class="slide__content"><h2>だった・でした · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 田中(たなか)さんは先生(せんせい)でした。 (b) 田中(たなか)さんは先生(せんせい)だったんです。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>田中<rt>たなか</rt></ruby>さんは<ruby>先生<rt>せんせい</rt></ruby>でした。 (b) <ruby>田中<rt>たなか</rt></ruby>さんは<ruby>先生<rt>せんせい</rt></ruby>だったんです。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 Both say Tanaka used to be a teacher, politely. (a) is a flat report of a fact - the kind of thing you would write on a form or state in an introduction.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (b) wraps the same fact in the explanatory <code>んです</code>, so it comes across as background offered for a reason: &quot;the thing is, he used to be a teacher&quot; - explaining why he is so good with children, for instance. Notice the copula goes plain (<code>だった</code>) before <code>んです</code>, with the politeness moved to the very end.</p>
 </div>
 </div>
-<div class="slide" data-index="57">
+<div class="slide" data-index="62">
   
   <div class="slide__content"><h1>は</h1>
 <p><strong>Meaning</strong> · marks the topic - &quot;as for X, …&quot;</p>
 <p><code>は</code> does not mean anything by itself. It lifts a noun out of the sentence and hangs it up as the thing being talked <em>about</em>; everything after it is the comment. It is written with the kana は but <strong>pronounced わ</strong>.</p>
 </div>
 </div>
-<div class="slide" data-index="58">
+<div class="slide" data-index="63">
   
   <div class="slide__content"><h2>は · Formation</h2>
 <p><code>は</code> attaches to a noun or a noun phrase with no change to the noun. What matters is what it does to the particle that was already there.</p>
@@ -3302,32 +3346,32 @@ Both say Tanaka used to be a teacher, politely. (a) is a flat report of a fact -
 <tbody><tr>
 <td>Noun</td>
 <td>Noun + は</td>
-<td>私(わたし) → 私(わたし)は</td>
+<td><ruby>私<rt>わたし</rt></ruby> → <ruby>私<rt>わたし</rt></ruby>は</td>
 </tr>
 <tr>
 <td>A subject marked が</td>
 <td>が is <strong>replaced</strong></td>
-<td>犬(いぬ)が好(す)き → 犬(いぬ)は好(す)き</td>
+<td><ruby>犬<rt>いぬ</rt></ruby>が<ruby>好<rt>す</rt></ruby>き → <ruby>犬<rt>いぬ</rt></ruby>は<ruby>好<rt>す</rt></ruby>き</td>
 </tr>
 <tr>
 <td>An object marked を</td>
 <td>を is <strong>replaced</strong></td>
-<td>ごはんを食(た)べる → ごはんは食(た)べる</td>
+<td>ごはんを<ruby>食<rt>た</rt></ruby>べる → ごはんは<ruby>食<rt>た</rt></ruby>べる</td>
 </tr>
 <tr>
 <td>に・で・と・から・まで</td>
 <td>は is <strong>added after</strong> them</td>
-<td>東京(とうきょう)に → 東京(とうきょう)には</td>
+<td><ruby>東京<rt>とうきょう</rt></ruby>に → <ruby>東京<rt>とうきょう</rt></ruby>には</td>
 </tr>
 <tr>
 <td>Time / adverb phrase</td>
 <td>phrase + は</td>
-<td>今日(きょう) → 今日(きょう)は</td>
+<td><ruby>今日<rt>きょう</rt></ruby> → <ruby>今日<rt>きょう</rt></ruby>は</td>
 </tr>
 <tr>
 <td>Negative sentences</td>
 <td>は is the default marker</td>
-<td>時間(じかん)はありません</td>
+<td><ruby>時間<rt>じかん</rt></ruby>はありません</td>
 </tr>
 <tr>
 <td>Pronunciation</td>
@@ -3337,7 +3381,7 @@ Both say Tanaka used to be a teacher, politely. (a) is a flat report of a fact -
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="59">
+<div class="slide" data-index="64">
   
   <div class="slide__content"><h2>は · Formation (cont.)</h2>
 <blockquote>
@@ -3345,39 +3389,39 @@ Both say Tanaka used to be a teacher, politely. (a) is a flat report of a fact -
 </blockquote>
 </div>
 </div>
-<div class="slide" data-index="60">
+<div class="slide" data-index="65">
   
   <div class="slide__content"><h2>は · Examples</h2>
-<p>今日(きょう)<strong>は</strong>寒(さむ)いですね。<br><em>It&#39;s cold today, isn&#39;t it.</em></p>
-<p>この本(ほん)<strong>は</strong>面白(おもしろ)いです。<br><em>This book is interesting.</em></p>
-<p>野菜(やさい)<strong>は</strong>好(す)きですが、肉(にく)<strong>は</strong>あまり好(す)きじゃありません。<br><em>I like vegetables, but I&#39;m not so keen on meat.</em></p>
-<p>土曜日(どようび)に<strong>は</strong>会議(かいぎ)がありません。<br><em>There are no meetings on Saturdays.</em></p>
-<p>きのう<strong>は</strong>ありがとうございました。<br><em>Thank you for yesterday.</em></p>
+<p><ruby>今日<rt>きょう</rt></ruby><strong>は</strong><ruby>寒<rt>さむ</rt></ruby>いですね。<br><em>It&#39;s cold today, isn&#39;t it.</em></p>
+<p>この<ruby>本<rt>ほん</rt></ruby><strong>は</strong><ruby>面白<rt>おもしろ</rt></ruby>いです。<br><em>This book is interesting.</em></p>
+<p><ruby>野菜<rt>やさい</rt></ruby><strong>は</strong><ruby>好<rt>す</rt></ruby>きですが、<ruby>肉<rt>にく</rt></ruby><strong>は</strong>あまり<ruby>好<rt>す</rt></ruby>きじゃありません。<br><em>I like vegetables, but I&#39;m not so keen on meat.</em></p>
+<p><ruby>土曜日<rt>どようび</rt></ruby>に<strong>は</strong><ruby>会議<rt>かいぎ</rt></ruby>がありません。<br><em>There are no meetings on Saturdays.</em></p>
 </div>
 </div>
-<div class="slide" data-index="61">
+<div class="slide" data-index="66">
   
   <div class="slide__content"><h2>は · Examples (cont.)</h2>
-<p>あの店(みせ)のラーメン<strong>は</strong>本当(ほんとう)においしいですよ。<br><em>The ramen at that place is genuinely good.</em></p>
-<p>日本(にほん)の夏(なつ)<strong>は</strong>暑(あつ)くて、東京(とうきょう)で<strong>は</strong>夜(よる)も気温(きおん)が下(さ)がりません。<br><em>Summer in Japan is hot, and in Tokyo the temperature doesn&#39;t even drop at night.</em></p>
-<p>私(わたし)<strong>は</strong>来週(らいしゅう)大阪(おおさか)へ行(い)きますが、妹(いもうと)<strong>は</strong>家(いえ)に残(のこ)ります。<br><em>I&#39;m going to Osaka next week, but my younger sister is staying home.</em></p>
+<p>きのう<strong>は</strong>ありがとうございました。<br><em>Thank you for yesterday.</em></p>
+<p>あの<ruby>店<rt>みせ</rt></ruby>のラーメン<strong>は</strong><ruby>本当<rt>ほんとう</rt></ruby>においしいですよ。<br><em>The ramen at that place is genuinely good.</em></p>
+<p><ruby>日本<rt>にほん</rt></ruby>の<ruby>夏<rt>なつ</rt></ruby><strong>は</strong><ruby>暑<rt>あつ</rt></ruby>くて、<ruby>東京<rt>とうきょう</rt></ruby>で<strong>は</strong><ruby>夜<rt>よる</rt></ruby>も<ruby>気温<rt>きおん</rt></ruby>が<ruby>下<rt>さ</rt></ruby>がりません。<br><em>Summer in Japan is hot, and in Tokyo the temperature doesn&#39;t even drop at night.</em></p>
+<p><ruby>私<rt>わたし</rt></ruby><strong>は</strong><ruby>来週<rt>らいしゅう</rt></ruby><ruby>大阪<rt>おおさか</rt></ruby>へ<ruby>行<rt>い</rt></ruby>きますが、<ruby>妹<rt>いもうと</rt></ruby><strong>は</strong><ruby>家<rt>いえ</rt></ruby>に<ruby>残<rt>のこ</rt></ruby>ります。<br><em>I&#39;m going to Osaka next week, but my younger sister is staying home.</em></p>
 </div>
 </div>
-<div class="slide" data-index="62">
+<div class="slide" data-index="67">
   
   <div class="slide__content"><h2>は · Nuance &amp; register</h2>
 <p><code>は</code> is register-neutral. It is the same in plain speech, polite speech, and writing, and choosing it tells the listener nothing about how formal you are being.</p>
-<p>Two habits will make you sound much more natural. The first is <strong>leaving it out</strong>. Once a topic is established, Japanese simply keeps talking about it - you do not restate it. A conversation that begins 「田中(たなか)さんは元気(げんき)ですか」 continues 「はい、元気(げんき)です」, with no topic at all. Beginners who start every sentence with <code>私(わたし)は</code> sound like a textbook, and after a while faintly self-absorbed; native speakers say it once, if at all, and then drop it.</p>
-<p>The second is that in casual speech <code>は</code> is often just not pronounced - 「これ、おいしい」 - or replaced by <code>って</code>, which is the conversational topic marker: 「田中(たなか)さん<strong>って</strong>、面白(おもしろ)いね」 = &quot;Tanaka&#39;s funny, isn&#39;t he.&quot; <code>って</code> is friendly and slightly gossipy, and it is out of place in a report.</p>
+<p>Two habits will make you sound much more natural. The first is <strong>leaving it out</strong>. Once a topic is established, Japanese simply keeps talking about it - you do not restate it. A conversation that begins 「<ruby>田中<rt>たなか</rt></ruby>さんは<ruby>元気<rt>げんき</rt></ruby>ですか」 continues 「はい、<ruby>元気<rt>げんき</rt></ruby>です」, with no topic at all. Beginners who start every sentence with <code><ruby>私<rt>わたし</rt></ruby>は</code> sound like a textbook, and after a while faintly self-absorbed; native speakers say it once, if at all, and then drop it.</p>
 </div>
 </div>
-<div class="slide" data-index="63">
+<div class="slide" data-index="68">
   
   <div class="slide__content"><h2>は · Nuance &amp; register (cont.)</h2>
-<p>Finally, <code>は</code> always carries a faint edge of <strong>contrast</strong>, even when you do not intend one. Saying 「今日(きょう)は忙(いそが)しいです」 quietly implies &quot;today in particular - other days, not so much.&quot; That side effect is very useful for softening refusals (「今日(きょう)はちょっと…」), and it is also why piling <code>は</code> onto something can sound pointed: 「あなたはいいですね」 can land as &quot;well, it&#39;s all right for <em>you</em>.&quot;</p>
+<p>The second is that in casual speech <code>は</code> is often just not pronounced - 「これ、おいしい」 - or replaced by <code>って</code>, which is the conversational topic marker: 「<ruby>田中<rt>たなか</rt></ruby>さん<strong>って</strong>、<ruby>面白<rt>おもしろ</rt></ruby>いね」 = &quot;Tanaka&#39;s funny, isn&#39;t he.&quot; <code>って</code> is friendly and slightly gossipy, and it is out of place in a report.</p>
+<p>Finally, <code>は</code> always carries a faint edge of <strong>contrast</strong>, even when you do not intend one. Saying 「<ruby>今日<rt>きょう</rt></ruby>は<ruby>忙<rt>いそが</rt></ruby>しいです」 quietly implies &quot;today in particular - other days, not so much.&quot; That side effect is very useful for softening refusals (「<ruby>今日<rt>きょう</rt></ruby>はちょっと…」), and it is also why piling <code>は</code> onto something can sound pointed: 「あなたはいいですね」 can land as &quot;well, it&#39;s all right for <em>you</em>.&quot;</p>
 </div>
 </div>
-<div class="slide" data-index="64">
+<div class="slide" data-index="69">
   
   <div class="slide__content"><h2>は · は vs が</h2>
 <blockquote>
@@ -3385,77 +3429,87 @@ Both say Tanaka used to be a teacher, politely. (a) is a flat report of a fact -
 </blockquote>
 <p>This is the single hardest thing at N5, and the confusion starts from a bad label: <code>は</code> is not a subject marker. <code>が</code> marks the <strong>subject</strong> - the thing that does the verb. <code>は</code> marks the <strong>topic</strong> - the thing under discussion. They often land in the same slot in the sentence, which makes them look like alternatives, but they are answering different needs.</p>
 <p>Watch where the news sits:</p>
-<p>猫(ねこ)<strong>は</strong>外(そと)にいます。<br><em>The cat is outside.</em></p>
+<p><ruby>猫<rt>ねこ</rt></ruby><strong>は</strong><ruby>外<rt>そと</rt></ruby>にいます。<br><em>The cat is outside.</em></p>
 <p>We both know which cat; the news is <em>where it is</em>, and it comes after <code>は</code>. This answers &quot;where&#39;s the cat?&quot;</p>
 </div>
 </div>
-<div class="slide" data-index="65">
+<div class="slide" data-index="70">
   
   <div class="slide__content"><h2>は · は vs が (cont.)</h2>
-<p>猫(ねこ)<strong>が</strong>外(そと)にいます。<br><em>There&#39;s a cat outside.</em></p>
+<p><ruby>猫<rt>ねこ</rt></ruby><strong>が</strong><ruby>外<rt>そと</rt></ruby>にいます。<br><em>There&#39;s a cat outside.</em></p>
 <p>Here the news is <em>the cat itself</em> - presented fresh, before <code>が</code>. This answers &quot;what&#39;s out there?&quot;, or it is simply you noticing.</p>
-<p>Two consequences follow directly. First, a question word is by definition the unknown, so it must sit on the <code>が</code> side and can never take <code>は</code>: 「どれ<strong>が</strong>山田(やまだ)さんのかばんですか」. Second, a brand-new thing is introduced with <code>が</code> and then talked about with <code>は</code> - which is why stories start one way and continue the other.</p>
-<p><code>は</code> also reaches further than <code>が</code>. A topic scopes over everything to the end of the sentence, while <code>が</code> only marks the subject of its own clause. That is why <code>は</code> cannot appear inside a clause that is merely modifying a noun:</p>
+<p>Two consequences follow directly. First, a question word is by definition the unknown, so it must sit on the <code>が</code> side and can never take <code>は</code>: 「どれ<strong>が</strong><ruby>山田<rt>やまだ</rt></ruby>さんのかばんですか」. Second, a brand-new thing is introduced with <code>が</code> and then talked about with <code>は</code> - which is why stories start one way and continue the other.</p>
 </div>
 </div>
-<div class="slide" data-index="66">
+<div class="slide" data-index="71">
   
   <div class="slide__content"><h2>は · は vs が (cont.)</h2>
-<p>これは姉(あね)<strong>が</strong>作(つく)ったケーキです。<br><em>This is a cake my older sister made.</em></p>
-<p><code>姉(あね)が作(つく)った</code> is decorating <code>ケーキ</code>; the outer topic is <code>これ</code>. Putting <code>は</code> on <code>姉(あね)</code> would try to make her the topic of the whole sentence, and it breaks.</p>
+<p><code>は</code> also reaches further than <code>が</code>. A topic scopes over everything to the end of the sentence, while <code>が</code> only marks the subject of its own clause. That is why <code>は</code> cannot appear inside a clause that is merely modifying a noun:</p>
+<p>これは<ruby>姉<rt>あね</rt></ruby><strong>が</strong><ruby>作<rt>つく</rt></ruby>ったケーキです。<br><em>This is a cake my older sister made.</em></p>
+<p><code><ruby>姉<rt>あね</rt></ruby>が<ruby>作<rt>つく</rt></ruby>った</code> is decorating <code>ケーキ</code>; the outer topic is <code>これ</code>. Putting <code>は</code> on <code><ruby>姉<rt>あね</rt></ruby></code> would try to make her the topic of the whole sentence, and it breaks.</p>
 <p>And both can live in one sentence, doing their separate jobs:</p>
-<p>日本(にほん)<strong>は</strong>電車(でんしゃ)<strong>が</strong>便利(べんり)です。<br><em>Japan has convenient trains. (As for Japan - the trains are convenient.)</em></p>
+</div>
+</div>
+<div class="slide" data-index="72">
+  
+  <div class="slide__content"><h2>は · は vs が (cont.)</h2>
+<p><ruby>日本<rt>にほん</rt></ruby><strong>は</strong><ruby>電車<rt>でんしゃ</rt></ruby><strong>が</strong><ruby>便利<rt>べんり</rt></ruby>です。<br><em>Japan has convenient trains. (As for Japan - the trains are convenient.)</em></p>
 <p>If you take one thing from this section: ask yourself which word in your sentence is the <em>news</em>. If the news is the noun in front of the particle, use <code>が</code>. If the news is what comes after it, use <code>は</code>.</p>
 </div>
 </div>
-<div class="slide" data-index="67">
+<div class="slide" data-index="73">
   
   <div class="slide__content"><h2>は · は vs も</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>は</code> says &quot;as for this one&quot;; <code>も</code> says &quot;this one as well&quot;. Both replace <code>が</code> and <code>を</code>, and only one can be there at a time.</p>
 </blockquote>
 <p>They occupy the same slot, so choosing between them is choosing what you imply about everything else.</p>
-<p>兄(あに)<strong>は</strong>大学生(だいがくせい)です。<br><em>My older brother is a university student.</em></p>
-<p>兄(あに)<strong>も</strong>大学生(だいがくせい)です。<br><em>My older brother is a university student too.</em></p>
+<p><ruby>兄<rt>あに</rt></ruby><strong>は</strong><ruby>大学生<rt>だいがくせい</rt></ruby>です。<br><em>My older brother is a university student.</em></p>
+<p><ruby>兄<rt>あに</rt></ruby><strong>も</strong><ruby>大学生<rt>だいがくせい</rt></ruby>です。<br><em>My older brother is a university student too.</em></p>
 </div>
 </div>
-<div class="slide" data-index="68">
+<div class="slide" data-index="74">
   
   <div class="slide__content"><h2>は · は vs も (cont.)</h2>
 <p>The <code>も</code> version only makes sense if somebody else has already been named as a student. The <code>は</code> version, by contrast, faintly suggests a comparison going the other way - the brother, as opposed to whoever else we were discussing.</p>
 <p>In negative sentences the pair splits cleanly: <code>は</code> gives &quot;not this one (whatever about the others)&quot;, <code>も</code> gives &quot;not this one either&quot;.</p>
-<p>コーヒー<strong>は</strong>飲(の)みません。<br><em>I don&#39;t drink coffee. (tea might be another matter)</em></p>
-<p>コーヒー<strong>も</strong>飲(の)みません。<br><em>I don&#39;t drink coffee either.</em></p>
+<p>コーヒー<strong>は</strong><ruby>飲<rt>の</rt></ruby>みません。<br><em>I don&#39;t drink coffee. (tea might be another matter)</em></p>
+<p>コーヒー<strong>も</strong><ruby>飲<rt>の</rt></ruby>みません。<br><em>I don&#39;t drink coffee either.</em></p>
 </div>
 </div>
-<div class="slide" data-index="69">
+<div class="slide" data-index="75">
   
   <div class="slide__content"><h2>は · は with other particles: には・では・とは</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>は</code> swallows <code>が</code> and <code>を</code>, but it rides on the back of every other particle.</p>
 </blockquote>
 <p>The particle that shows the <em>role</em> of the noun cannot be thrown away, or the sentence stops making sense. So it stays, and <code>は</code> is added behind it.</p>
-<p>京都(きょうと)に<strong>は</strong>一度(いちど)行(い)きました。<br><em>I&#39;ve been to Kyoto once. (Kyoto, at least - other places, who knows)</em></p>
-<p>この店(みせ)で<strong>は</strong>カードが使(つか)えません。<br><em>You can&#39;t use a card at this shop.</em></p>
-<p>Dropping the inner particle changes or destroys the meaning: ❌<code>京都(きょうと)は行(い)きました</code> loses the &quot;to&quot;, and ❌<code>この店(みせ)は…</code> would make the shop itself the topic rather than the place of the action. The order is always <strong>particle first, <code>は</code> second</strong> - never ❌<code>はに</code>, ❌<code>はで</code>.</p>
+<p><ruby>京都<rt>きょうと</rt></ruby>に<strong>は</strong><ruby>一度<rt>いちど</rt></ruby><ruby>行<rt>い</rt></ruby>きました。<br><em>I&#39;ve been to Kyoto once. (Kyoto, at least - other places, who knows)</em></p>
+<p>この<ruby>店<rt>みせ</rt></ruby>で<strong>は</strong>カードが<ruby>使<rt>つか</rt></ruby>えません。<br><em>You can&#39;t use a card at this shop.</em></p>
 </div>
 </div>
-<div class="slide" data-index="70">
+<div class="slide" data-index="76">
+  
+  <div class="slide__content"><h2>は · は with other particles: には・では・とは (cont.)</h2>
+<p>Dropping the inner particle changes or destroys the meaning: ❌<code><ruby>京都<rt>きょうと</rt></ruby>は<ruby>行<rt>い</rt></ruby>きました</code> loses the &quot;to&quot;, and ❌<code>この<ruby>店<rt>みせ</rt></ruby>は…</code> would make the shop itself the topic rather than the place of the action. The order is always <strong>particle first, <code>は</code> second</strong> - never ❌<code>はに</code>, ❌<code>はで</code>.</p>
+</div>
+</div>
+<div class="slide" data-index="77">
   
   <div class="slide__content"><h2>は · Common mistakes</h2>
 <ul>
-<li><p>❌ だれ<strong>は</strong>この窓(まど)を開(あ)けましたか。 → ✅ だれ<strong>が</strong>この窓(まど)を開(あ)けましたか。<br><em>A question word is the unknown, and an unknown cannot be a topic. Question words take <code>が</code>.</em></p>
+<li><p>❌ だれ<strong>は</strong>この<ruby>窓<rt>まど</rt></ruby>を<ruby>開<rt>あ</rt></ruby>けましたか。 → ✅ だれ<strong>が</strong>この<ruby>窓<rt>まど</rt></ruby>を<ruby>開<rt>あ</rt></ruby>けましたか。<br><em>A question word is the unknown, and an unknown cannot be a topic. Question words take <code>が</code>.</em></p>
 </li>
-<li><p>❌ 私(わたし)<strong>がは</strong>行(い)きます。 → ✅ 私(わたし)<strong>は</strong>行(い)きます。<br><em><code>は</code> replaces <code>が</code>; it never stacks with it. The same goes for <code>を</code>.</em></p>
+<li><p>❌ <ruby>私<rt>わたし</rt></ruby><strong>がは</strong><ruby>行<rt>い</rt></ruby>きます。 → ✅ <ruby>私<rt>わたし</rt></ruby><strong>は</strong><ruby>行<rt>い</rt></ruby>きます。<br><em><code>は</code> replaces <code>が</code>; it never stacks with it. The same goes for <code>を</code>.</em></p>
 </li>
-<li><p>❌ 大阪(おおさか)<strong>は</strong>住(す)んでいます。 → ✅ 大阪(おおさか)<strong>に</strong>住(す)んでいます。（or 大阪(おおさか)<strong>には</strong>…）<br><em><code>住(す)む</code> needs <code>に</code> to show &quot;in&quot;. <code>は</code> may be added on top of <code>に</code>, but it cannot take its place.</em></p>
+<li><p>❌ <ruby>大阪<rt>おおさか</rt></ruby><strong>は</strong><ruby>住<rt>す</rt></ruby>んでいます。 → ✅ <ruby>大阪<rt>おおさか</rt></ruby><strong>に</strong><ruby>住<rt>す</rt></ruby>んでいます。（or <ruby>大阪<rt>おおさか</rt></ruby><strong>には</strong>…）<br><em><code><ruby>住<rt>す</rt></ruby>む</code> needs <code>に</code> to show &quot;in&quot;. <code>は</code> may be added on top of <code>に</code>, but it cannot take its place.</em></p>
 </li>
-<li><p>❌ これ<strong>は</strong>母(はは)<strong>は</strong>作(つく)った料理(りょうり)です。 → ✅ これ<strong>は</strong>母(はは)<strong>が</strong>作(つく)った料理(りょうり)です。<br><em>Inside a clause that modifies a noun, the subject takes <code>が</code>. A topic cannot be trapped in there.</em></p>
+<li><p>❌ これ<strong>は</strong><ruby>母<rt>はは</rt></ruby><strong>は</strong><ruby>作<rt>つく</rt></ruby>った<ruby>料理<rt>りょうり</rt></ruby>です。 → ✅ これ<strong>は</strong><ruby>母<rt>はは</rt></ruby><strong>が</strong><ruby>作<rt>つく</rt></ruby>った<ruby>料理<rt>りょうり</rt></ruby>です。<br><em>Inside a clause that modifies a noun, the subject takes <code>が</code>. A topic cannot be trapped in there.</em></p>
 </li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="71">
+<div class="slide" data-index="78">
   
   <div class="slide__content"><h2>は · Common mistakes (cont.)</h2>
 <ul>
@@ -3463,7 +3517,7 @@ Both say Tanaka used to be a teacher, politely. (a) is a flat report of a fact -
 </ul>
 </div>
 </div>
-<div class="slide" data-index="72">
+<div class="slide" data-index="79">
   
   <div class="slide__content"><h2>は · Practice 1</h2>
 <p><strong>1.</strong> 「すみません、トイレ____どこですか。」</p>
@@ -3473,54 +3527,54 @@ Both say Tanaka used to be a teacher, politely. (a) is a flat report of a fact -
 The toilet is the thing you are asking <em>about</em> - old, shared information - so it is the topic. The unknown is <code>どこ</code>, and in a <code>は</code> sentence the unknown comes after the particle.</p>
 </div>
 </div>
-<div class="slide" data-index="73">
+<div class="slide" data-index="80">
   
   <div class="slide__content"><h2>は · Practice 2</h2>
-<p><strong>2.</strong> Choose: 「あ、あそこに人(ひと)（は・が）立(た)っていますよ。」</p>
+<p><strong>2.</strong> Choose: 「あ、あそこに<ruby>人<rt>ひと</rt></ruby>（は・が）<ruby>立<rt>た</rt></ruby>っていますよ。」</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-人(ひと)<strong>が</strong>立(た)っています。</p>
+<ruby>人<rt>ひと</rt></ruby><strong>が</strong><ruby>立<rt>た</rt></ruby>っています。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 You are reporting something you have just noticed, and the person is brand-new information. New information comes <em>before</em> <code>が</code>. <code>は</code> would imply the listener already had that person in mind.</p>
 </div>
 </div>
-<div class="slide" data-index="74">
+<div class="slide" data-index="81">
   
   <div class="slide__content"><h2>は · Practice 3</h2>
 <p><strong>3.</strong> Translate into Japanese: &quot;I don&#39;t eat meat, but I do eat fish.&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-肉(にく)<strong>は</strong>食(た)べませんが、魚(さかな)<strong>は</strong>食(た)べます。</p>
+<ruby>肉<rt>にく</rt></ruby><strong>は</strong><ruby>食<rt>た</rt></ruby>べませんが、<ruby>魚<rt>さかな</rt></ruby><strong>は</strong><ruby>食<rt>た</rt></ruby>べます。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 Both nouns are objects, so both would normally take <code>を</code> - but the sentence is built on a contrast, and that is <code>は</code>&#39;s speciality. <code>を</code> is replaced, not stacked, in both halves.</p>
 </div>
 </div>
-<div class="slide" data-index="75">
+<div class="slide" data-index="82">
   
   <div class="slide__content"><h2>は · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 来年(らいねん)、日本(にほん)は留学(りゅうがく)したいです。</p>
+<p><strong>4.</strong> Find and fix the error: <ruby>来年<rt>らいねん</rt></ruby>、<ruby>日本<rt>にほん</rt></ruby>は<ruby>留学<rt>りゅうがく</rt></ruby>したいです。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 来年(らいねん)、日本(にほん)<strong>に</strong>留学(りゅうがく)したいです。（or 日本(にほん)<strong>には</strong>…）</p>
+✅ <ruby>来年<rt>らいねん</rt></ruby>、<ruby>日本<rt>にほん</rt></ruby><strong>に</strong><ruby>留学<rt>りゅうがく</rt></ruby>したいです。（or <ruby>日本<rt>にほん</rt></ruby><strong>には</strong>…）</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>留学(りゅうがく)する</code> needs <code>に</code> to mark the destination. <code>は</code> can be layered on top of <code>に</code> for emphasis or contrast, but on its own it leaves the sentence with no indication of where you are going.</p>
+<code><ruby>留学<rt>りゅうがく</rt></ruby>する</code> needs <code>に</code> to mark the destination. <code>は</code> can be layered on top of <code>に</code> for emphasis or contrast, but on its own it leaves the sentence with no indication of where you are going.</p>
 </div>
 </div>
-<div class="slide" data-index="76">
+<div class="slide" data-index="83">
   
   <div class="slide__content"><h2>は · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 今日(きょう)<strong>は</strong>忙(いそが)しいです。 (b) 今日(きょう)、忙(いそが)しいです。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>今日<rt>きょう</rt></ruby><strong>は</strong><ruby>忙<rt>いそが</rt></ruby>しいです。 (b) <ruby>今日<rt>きょう</rt></ruby>、<ruby>忙<rt>いそが</rt></ruby>しいです。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) sets today up as the topic, and <code>は</code> drags a comparison in with it: &quot;today I&#39;m busy&quot; - with the unspoken implication &quot;unlike other days&quot;, or &quot;so not today, please.&quot; This is why it is the polite way to turn an invitation down.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (b) has no topic marker and simply states the situation. It is flatter and more factual, with none of the &quot;as opposed to&quot; flavour. In casual speech the particle is often dropped for exactly this reason.</p>
 </div>
 </div>
-<div class="slide" data-index="77">
+<div class="slide" data-index="84">
   
   <div class="slide__content"><h1>も</h1>
 <p><strong>Meaning</strong> · also; too; as well</p>
 <p><code>も</code> adds its noun to something already on the table. Whatever was just said about A is now said about B as well. In negative sentences the same particle gives you &quot;not … either&quot;, and with a number it turns into an expression of surprise: &quot;as many as&quot;.</p>
 </div>
 </div>
-<div class="slide" data-index="78">
+<div class="slide" data-index="85">
   
   <div class="slide__content"><h2>も · Formation</h2>
 <p><code>も</code> sits exactly where <code>は</code> would sit, and follows the same replacement rule.</p>
@@ -3535,47 +3589,47 @@ Both nouns are objects, so both would normally take <code>を</code> - but the s
 <tbody><tr>
 <td>Noun</td>
 <td>Noun + も</td>
-<td>私(わたし) → 私(わたし)も</td>
+<td><ruby>私<rt>わたし</rt></ruby> → <ruby>私<rt>わたし</rt></ruby>も</td>
 </tr>
 <tr>
 <td>A subject marked が</td>
 <td>が is <strong>replaced</strong></td>
-<td>雨(あめ)が降(ふ)る → 雨(あめ)も降(ふ)る</td>
+<td><ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>る → <ruby>雨<rt>あめ</rt></ruby>も<ruby>降<rt>ふ</rt></ruby>る</td>
 </tr>
 <tr>
 <td>An object marked を</td>
 <td>を is <strong>replaced</strong></td>
-<td>ケーキを食(た)べる → ケーキも食(た)べる</td>
+<td>ケーキを<ruby>食<rt>た</rt></ruby>べる → ケーキも<ruby>食<rt>た</rt></ruby>べる</td>
 </tr>
 <tr>
 <td>A topic marked は</td>
 <td>は is <strong>replaced</strong></td>
-<td>私(わたし)は → 私(わたし)も</td>
+<td><ruby>私<rt>わたし</rt></ruby>は → <ruby>私<rt>わたし</rt></ruby>も</td>
 </tr>
 <tr>
 <td>に・で・と・から・まで</td>
 <td>も is <strong>added after</strong> them</td>
-<td>京都(きょうと)に → 京都(きょうと)にも</td>
+<td><ruby>京都<rt>きょうと</rt></ruby>に → <ruby>京都<rt>きょうと</rt></ruby>にも</td>
 </tr>
 <tr>
 <td>A も B も</td>
 <td>both A and B (or, with a negative, neither)</td>
-<td>英語(えいご)も中国語(ちゅうごくご)も</td>
+<td><ruby>英語<rt>えいご</rt></ruby>も<ruby>中国語<rt>ちゅうごくご</rt></ruby>も</td>
 </tr>
 <tr>
 <td>Question word + も</td>
 <td>+ negative = not any</td>
-<td>何(なに)も／だれも／どこも</td>
+<td><ruby>何<rt>なに</rt></ruby>も／だれも／どこも</td>
 </tr>
 <tr>
 <td>Number + counter + も</td>
 <td>as many as …</td>
-<td>三杯(さんばい)も</td>
+<td><ruby>三杯<rt>さんばい</rt></ruby>も</td>
 </tr>
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="79">
+<div class="slide" data-index="86">
   
   <div class="slide__content"><h2>も · Formation (cont.)</h2>
 <blockquote>
@@ -3583,161 +3637,166 @@ Both nouns are objects, so both would normally take <code>を</code> - but the s
 </blockquote>
 </div>
 </div>
-<div class="slide" data-index="80">
+<div class="slide" data-index="87">
   
   <div class="slide__content"><h2>も · Examples</h2>
-<p>わたし<strong>も</strong>行(い)きます。<br><em>I&#39;ll go too.</em></p>
+<p>わたし<strong>も</strong><ruby>行<rt>い</rt></ruby>きます。<br><em>I&#39;ll go too.</em></p>
 <p>これ<strong>も</strong>ください。<br><em>I&#39;ll take this one as well, please.</em></p>
-<p>姉(あね)は英語(えいご)<strong>も</strong>中国語(ちゅうごくご)<strong>も</strong>話(はな)します。<br><em>My older sister speaks both English and Chinese.</em></p>
-<p>昨日(きのう)は何(なに)<strong>も</strong>買(か)いませんでした。<br><em>I didn&#39;t buy anything yesterday.</em></p>
-<p>「わたし、甘(あま)いものが苦手(にがて)なんだ。」「え、わたし<strong>も</strong>。」<br><em>&quot;I&#39;m not big on sweet things.&quot; &quot;Oh - me neither.&quot;</em></p>
+<p><ruby>姉<rt>あね</rt></ruby>は<ruby>英語<rt>えいご</rt></ruby><strong>も</strong><ruby>中国語<rt>ちゅうごくご</rt></ruby><strong>も</strong><ruby>話<rt>はな</rt></ruby>します。<br><em>My older sister speaks both English and Chinese.</em></p>
+<p><ruby>昨日<rt>きのう</rt></ruby>は<ruby>何<rt>なに</rt></ruby><strong>も</strong><ruby>買<rt>か</rt></ruby>いませんでした。<br><em>I didn&#39;t buy anything yesterday.</em></p>
 </div>
 </div>
-<div class="slide" data-index="81">
+<div class="slide" data-index="88">
   
   <div class="slide__content"><h2>も · Examples (cont.)</h2>
-<p>きのうは水(みず)を二(に)リットル<strong>も</strong>飲(の)んだ。<br><em>I drank a whole two litres of water yesterday.</em></p>
-<p>田中(たなか)さん<strong>も</strong>同(おな)じ電車(でんしゃ)に乗(の)っていて、駅(えき)でびっくりしました。<br><em>Tanaka was on the same train as well, and I got a surprise at the station.</em></p>
-<p>あの店(みせ)は値段(ねだん)が安(やす)くて、店員(てんいん)さん<strong>も</strong>親切(しんせつ)なので、よく行(い)きます。<br><em>That shop is cheap and the staff are friendly too, so I go there often.</em></p>
+<p>「わたし、<ruby>甘<rt>あま</rt></ruby>いものが<ruby>苦手<rt>にがて</rt></ruby>なんだ。」「え、わたし<strong>も</strong>。」<br><em>&quot;I&#39;m not big on sweet things.&quot; &quot;Oh - me neither.&quot;</em></p>
+<p>きのうは<ruby>水<rt>みず</rt></ruby>を<ruby>二<rt>に</rt></ruby>リットル<strong>も</strong><ruby>飲<rt>の</rt></ruby>んだ。<br><em>I drank a whole two litres of water yesterday.</em></p>
+<p><ruby>田中<rt>たなか</rt></ruby>さん<strong>も</strong><ruby>同<rt>おな</rt></ruby>じ<ruby>電車<rt>でんしゃ</rt></ruby>に<ruby>乗<rt>の</rt></ruby>っていて、<ruby>駅<rt>えき</rt></ruby>でびっくりしました。<br><em>Tanaka was on the same train as well, and I got a surprise at the station.</em></p>
+<p>あの<ruby>店<rt>みせ</rt></ruby>は<ruby>値段<rt>ねだん</rt></ruby>が<ruby>安<rt>やす</rt></ruby>くて、<ruby>店員<rt>てんいん</rt></ruby>さん<strong>も</strong><ruby>親切<rt>しんせつ</rt></ruby>なので、よく<ruby>行<rt>い</rt></ruby>きます。<br><em>That shop is cheap and the staff are friendly too, so I go there often.</em></p>
 </div>
 </div>
-<div class="slide" data-index="82">
+<div class="slide" data-index="89">
   
   <div class="slide__content"><h2>も · Nuance &amp; register</h2>
 <p><code>も</code> is register-neutral: identical in plain and polite speech, in writing, and in anyone&#39;s mouth. Nothing about it is casual or formal.</p>
 <p>What it <em>is</em> sensitive to is context. <code>も</code> only works if the listener can supply the &quot;as well as what&quot;. 「わたしも」 as a one-word reply - &quot;me too&quot; - is perfectly natural precisely because the other half was just said out loud. Dropped into a conversation with nothing to attach to, <code>も</code> sounds like the beginning of a sentence you forgot to finish.</p>
 <p>Beyond plain addition, two extensions are worth having now.</p>
-<p>With a <strong>number</strong>, <code>も</code> stops meaning &quot;also&quot; and starts meaning &quot;as many as&quot; - it marks the amount as more than expected: 「三時間(さんじかん)も待(ま)った」 = &quot;I waited a full three hours.&quot; With a <em>small</em> number plus a negative it flips to &quot;not even&quot;: 「一度(いちど)も行(い)ったことがない」 = &quot;I&#39;ve never been, not even once.&quot;</p>
+<p>With a <strong>number</strong>, <code>も</code> stops meaning &quot;also&quot; and starts meaning &quot;as many as&quot; - it marks the amount as more than expected: 「<ruby>三時間<rt>さんじかん</rt></ruby>も<ruby>待<rt>ま</rt></ruby>った」 = &quot;I waited a full three hours.&quot; With a <em>small</em> number plus a negative it flips to &quot;not even&quot;: 「<ruby>一度<rt>いちど</rt></ruby>も<ruby>行<rt>い</rt></ruby>ったことがない」 = &quot;I&#39;ve never been, not even once.&quot;</p>
 </div>
 </div>
-<div class="slide" data-index="83">
+<div class="slide" data-index="90">
   
   <div class="slide__content"><h2>も · Nuance &amp; register (cont.)</h2>
-<p>With a <strong>question word</strong>, <code>も</code> plus a negative sweeps the whole category away: だれも来(こ)ない = &quot;nobody came&quot;, 何(なに)もない = &quot;there&#39;s nothing&quot;, どこにも行(い)かない = &quot;I&#39;m not going anywhere&quot;. This construction is fixed - the negative is not optional, and this is where beginners most often build a sentence that means the opposite of what they wanted.</p>
+<p>With a <strong>question word</strong>, <code>も</code> plus a negative sweeps the whole category away: だれも<ruby>来<rt>こ</rt></ruby>ない = &quot;nobody came&quot;, <ruby>何<rt>なに</rt></ruby>もない = &quot;there&#39;s nothing&quot;, どこにも<ruby>行<rt>い</rt></ruby>かない = &quot;I&#39;m not going anywhere&quot;. This construction is fixed - the negative is not optional, and this is where beginners most often build a sentence that means the opposite of what they wanted.</p>
 <p><code>も</code> also has a softening, generous feel when offering things: 「コーヒーもいかがですか」 sounds like an addition rather than a demand, and shopkeepers use it constantly.</p>
 </div>
 </div>
-<div class="slide" data-index="84">
+<div class="slide" data-index="91">
   
   <div class="slide__content"><h2>も · も vs は</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>は</code> sets its noun <strong>apart</strong> from the others; <code>も</code> puts it <strong>alongside</strong> them.</p>
 </blockquote>
 <p>They fight for the same slot in the sentence, so the choice is always meaningful.</p>
-<p>弟(おとうと)<strong>は</strong>ピアノを習(なら)っています。<br><em>My little brother takes piano lessons.</em></p>
-<p>弟(おとうと)<strong>も</strong>ピアノを習(なら)っています。<br><em>My little brother takes piano lessons too.</em></p>
+<p><ruby>弟<rt>おとうと</rt></ruby><strong>は</strong>ピアノを<ruby>習<rt>なら</rt></ruby>っています。<br><em>My little brother takes piano lessons.</em></p>
+<p><ruby>弟<rt>おとうと</rt></ruby><strong>も</strong>ピアノを<ruby>習<rt>なら</rt></ruby>っています。<br><em>My little brother takes piano lessons too.</em></p>
 <p>The second sentence only stands up if somebody else was already named as a piano student. The first quietly does the reverse: it hints that the brother is the exception among the people under discussion.</p>
 </div>
 </div>
-<div class="slide" data-index="85">
+<div class="slide" data-index="92">
   
   <div class="slide__content"><h2>も · も vs は (cont.)</h2>
-<p>This distinction is sharpest in refusals and admissions. 「今日(きょう)は 無理(むり)です」 leaves other days open; 「今日(きょう)も無理(むり)です」 admits today is one more in a run of no&#39;s.</p>
+<p>This distinction is sharpest in refusals and admissions. 「<ruby>今日<rt>きょう</rt></ruby>は <ruby>無理<rt>むり</rt></ruby>です」 leaves other days open; 「<ruby>今日<rt>きょう</rt></ruby>も<ruby>無理<rt>むり</rt></ruby>です」 admits today is one more in a run of no&#39;s.</p>
 </div>
 </div>
-<div class="slide" data-index="86">
+<div class="slide" data-index="93">
   
   <div class="slide__content"><h2>も · も vs と</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>と</code> glues nouns into one phrase (&quot;A and B&quot;); <code>も</code> marks each noun separately as an addition (&quot;A as well, B as well&quot;).</p>
 </blockquote>
 <p>English &quot;and&quot; covers both, which is why this goes wrong so often.</p>
-<p>パン<strong>と</strong>たまごを買(か)いました。<br><em>I bought bread and eggs.</em></p>
-<p>パン<strong>も</strong>たまご<strong>も</strong>買(か)いました。<br><em>I bought bread <em>and</em> eggs - both of them.</em></p>
-<p>The <code>と</code> version is a neutral shopping list. The <code>も…も</code> version stresses the completeness of it, and it is the only one that can turn into &quot;neither&quot; simply by negating the verb: 「パンもたまごも買(か)いませんでした」 = &quot;I bought neither.&quot;</p>
-</div>
-</div>
-<div class="slide" data-index="87">
-  
-  <div class="slide__content"><h2>も · も vs と (cont.)</h2>
-<p>Note also that <code>と</code> joins <strong>nouns only</strong>. To link two whole sentences, <code>と</code> is not available at all.</p>
-</div>
-</div>
-<div class="slide" data-index="88">
-  
-  <div class="slide__content"><h2>も · だれも / 何(なに)も vs だれか / 何(なに)か</h2>
-<blockquote>
-<p><strong>Rule of thumb</strong> - question word + <code>も</code> needs a <strong>negative</strong> and means &quot;none&quot;; question word + <code>か</code> is <strong>positive</strong> and means &quot;some&quot;.</p>
-</blockquote>
-<p>The two look like near-twins and mean opposite things.</p>
-<p>部屋(へや)にだれ<strong>も</strong>いません。<br><em>There&#39;s nobody in the room.</em></p>
-<p>部屋(へや)にだれ<strong>か</strong>いますか。<br><em>Is somebody in the room?</em></p>
-<p>Mixing them up produces sentences that are not just unnatural but ungrammatical: ❌<code>だれも来(き)ました</code> cannot mean &quot;somebody came&quot; - <code>だれも</code> demands a negative verb, so the sentence simply breaks. Use <code>だれか来(き)ました</code> for &quot;somebody came.&quot;</p>
-</div>
-</div>
-<div class="slide" data-index="89">
-  
-  <div class="slide__content"><h2>も · Common mistakes</h2>
-<ul>
-<li><p>❌ わたし<strong>はも</strong>行(い)きます。 → ✅ わたし<strong>も</strong>行(い)きます。<br><em><code>も</code> replaces <code>は</code>, <code>が</code> and <code>を</code>. It never stacks with them.</em></p>
-</li>
-<li><p>❌ ケーキ<strong>をも</strong>食(た)べました。 → ✅ ケーキ<strong>も</strong>食(た)べました。<br><em>Same rule for the object marker: <code>を</code> disappears under <code>も</code>.</em></p>
-</li>
-<li><p>❌ 友(とも)だち<strong>もと</strong>行(い)きました。 → ✅ 友(とも)だち<strong>とも</strong>行(い)きました。<br><em>With the particles that survive (<code>に</code>, <code>で</code>, <code>と</code>, <code>から</code>), the order is always particle first, <code>も</code> second.</em></p>
-</li>
-<li><p>❌ 今日(きょう)は何(なに)<strong>も</strong>食(た)べました。 → ✅ 今日(きょう)は何(なに)<strong>か</strong>食(た)べました。<br><em><code>何(なに)も</code> can only be followed by a negative. For &quot;I ate something&quot;, use <code>何(なに)か</code>.</em></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="slide" data-index="90">
-  
-  <div class="slide__content"><h2>も · Practice 1</h2>
-<p><strong>1.</strong> 「山田(やまだ)さんは来(き)ますか。」「はい。田中(たなか)さん____来(き)ますよ。」</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-田中(たなか)さん<strong>も</strong>来(き)ますよ。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Yamada has already been established as coming, so Tanaka is being added to that group. <code>も</code> replaces the <code>が</code> that would otherwise mark the subject.</p>
-</div>
-</div>
-<div class="slide" data-index="91">
-  
-  <div class="slide__content"><h2>も · Practice 2</h2>
-<p><strong>2.</strong> Choose: 冷蔵庫(れいぞうこ)に何(なに)（も・か）ありませんでした。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-冷蔵庫(れいぞうこ)に何(なに)<strong>も</strong>ありませんでした。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The verb is negative, and question word + <code>も</code> + negative is the fixed way to say &quot;nothing at all&quot;. <code>何(なに)か</code> would need a positive verb: <code>何(なに)かありました</code>.</p>
-</div>
-</div>
-<div class="slide" data-index="92">
-  
-  <div class="slide__content"><h2>も · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese: &quot;My brother can&#39;t swim, and I can&#39;t either.&quot;</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-兄(あに)は泳(およ)げません。わたし<strong>も</strong>泳(およ)げません。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The <code>も</code> does the work of &quot;either&quot; - Japanese uses the same particle for &quot;too&quot; and &quot;either&quot;, and the negative verb supplies the difference. Note that <code>も</code> replaces the <code>は</code> that marked the first speaker&#39;s topic.</p>
-</div>
-</div>
-<div class="slide" data-index="93">
-  
-  <div class="slide__content"><h2>も · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 去年(きょねん)、北海道(ほっかいどう)もへ行(い)きました。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 去年(きょねん)、北海道(ほっかいどう)<strong>へも</strong>行(い)きました。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>へ</code> shows the direction and cannot be dropped, so <code>も</code> goes behind it, not in front. The rule is that <code>も</code> follows every particle except <code>が</code>, <code>を</code> and <code>は</code>, which it replaces.</p>
+<p>パン<strong>と</strong>たまごを<ruby>買<rt>か</rt></ruby>いました。<br><em>I bought bread and eggs.</em></p>
+<p>パン<strong>も</strong>たまご<strong>も</strong><ruby>買<rt>か</rt></ruby>いました。<br><em>I bought bread <em>and</em> eggs - both of them.</em></p>
 </div>
 </div>
 <div class="slide" data-index="94">
   
+  <div class="slide__content"><h2>も · も vs と (cont.)</h2>
+<p>The <code>と</code> version is a neutral shopping list. The <code>も…も</code> version stresses the completeness of it, and it is the only one that can turn into &quot;neither&quot; simply by negating the verb: 「パンもたまごも<ruby>買<rt>か</rt></ruby>いませんでした」 = &quot;I bought neither.&quot;</p>
+<p>Note also that <code>と</code> joins <strong>nouns only</strong>. To link two whole sentences, <code>と</code> is not available at all.</p>
+</div>
+</div>
+<div class="slide" data-index="95">
+  
+  <div class="slide__content"><h2>も · だれも / 何も vs だれか / 何か</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - question word + <code>も</code> needs a <strong>negative</strong> and means &quot;none&quot;; question word + <code>か</code> is <strong>positive</strong> and means &quot;some&quot;.</p>
+</blockquote>
+<p>The two look like near-twins and mean opposite things.</p>
+<p><ruby>部屋<rt>へや</rt></ruby>にだれ<strong>も</strong>いません。<br><em>There&#39;s nobody in the room.</em></p>
+<p><ruby>部屋<rt>へや</rt></ruby>にだれ<strong>か</strong>いますか。<br><em>Is somebody in the room?</em></p>
+</div>
+</div>
+<div class="slide" data-index="96">
+  
+  <div class="slide__content"><h2>も · だれも / 何も vs だれか / 何か (cont.)</h2>
+<p>Mixing them up produces sentences that are not just unnatural but ungrammatical: ❌<code>だれも<ruby>来<rt>き</rt></ruby>ました</code> cannot mean &quot;somebody came&quot; - <code>だれも</code> demands a negative verb, so the sentence simply breaks. Use <code>だれか<ruby>来<rt>き</rt></ruby>ました</code> for &quot;somebody came.&quot;</p>
+</div>
+</div>
+<div class="slide" data-index="97">
+  
+  <div class="slide__content"><h2>も · Common mistakes</h2>
+<ul>
+<li><p>❌ わたし<strong>はも</strong><ruby>行<rt>い</rt></ruby>きます。 → ✅ わたし<strong>も</strong><ruby>行<rt>い</rt></ruby>きます。<br><em><code>も</code> replaces <code>は</code>, <code>が</code> and <code>を</code>. It never stacks with them.</em></p>
+</li>
+<li><p>❌ ケーキ<strong>をも</strong><ruby>食<rt>た</rt></ruby>べました。 → ✅ ケーキ<strong>も</strong><ruby>食<rt>た</rt></ruby>べました。<br><em>Same rule for the object marker: <code>を</code> disappears under <code>も</code>.</em></p>
+</li>
+<li><p>❌ <ruby>友<rt>とも</rt></ruby>だち<strong>もと</strong><ruby>行<rt>い</rt></ruby>きました。 → ✅ <ruby>友<rt>とも</rt></ruby>だち<strong>とも</strong><ruby>行<rt>い</rt></ruby>きました。<br><em>With the particles that survive (<code>に</code>, <code>で</code>, <code>と</code>, <code>から</code>), the order is always particle first, <code>も</code> second.</em></p>
+</li>
+<li><p>❌ <ruby>今日<rt>きょう</rt></ruby>は<ruby>何<rt>なに</rt></ruby><strong>も</strong><ruby>食<rt>た</rt></ruby>べました。 → ✅ <ruby>今日<rt>きょう</rt></ruby>は<ruby>何<rt>なに</rt></ruby><strong>か</strong><ruby>食<rt>た</rt></ruby>べました。<br><em><code><ruby>何<rt>なに</rt></ruby>も</code> can only be followed by a negative. For &quot;I ate something&quot;, use <code><ruby>何<rt>なに</rt></ruby>か</code>.</em></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="98">
+  
+  <div class="slide__content"><h2>も · Practice 1</h2>
+<p><strong>1.</strong> 「<ruby>山田<rt>やまだ</rt></ruby>さんは<ruby>来<rt>き</rt></ruby>ますか。」「はい。<ruby>田中<rt>たなか</rt></ruby>さん____<ruby>来<rt>き</rt></ruby>ますよ。」</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>田中<rt>たなか</rt></ruby>さん<strong>も</strong><ruby>来<rt>き</rt></ruby>ますよ。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+Yamada has already been established as coming, so Tanaka is being added to that group. <code>も</code> replaces the <code>が</code> that would otherwise mark the subject.</p>
+</div>
+</div>
+<div class="slide" data-index="99">
+  
+  <div class="slide__content"><h2>も · Practice 2</h2>
+<p><strong>2.</strong> Choose: <ruby>冷蔵庫<rt>れいぞうこ</rt></ruby>に<ruby>何<rt>なに</rt></ruby>（も・か）ありませんでした。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>冷蔵庫<rt>れいぞうこ</rt></ruby>に<ruby>何<rt>なに</rt></ruby><strong>も</strong>ありませんでした。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The verb is negative, and question word + <code>も</code> + negative is the fixed way to say &quot;nothing at all&quot;. <code><ruby>何<rt>なに</rt></ruby>か</code> would need a positive verb: <code><ruby>何<rt>なに</rt></ruby>かありました</code>.</p>
+</div>
+</div>
+<div class="slide" data-index="100">
+  
+  <div class="slide__content"><h2>も · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese: &quot;My brother can&#39;t swim, and I can&#39;t either.&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>兄<rt>あに</rt></ruby>は<ruby>泳<rt>およ</rt></ruby>げません。わたし<strong>も</strong><ruby>泳<rt>およ</rt></ruby>げません。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The <code>も</code> does the work of &quot;either&quot; - Japanese uses the same particle for &quot;too&quot; and &quot;either&quot;, and the negative verb supplies the difference. Note that <code>も</code> replaces the <code>は</code> that marked the first speaker&#39;s topic.</p>
+</div>
+</div>
+<div class="slide" data-index="101">
+  
+  <div class="slide__content"><h2>も · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the error: <ruby>去年<rt>きょねん</rt></ruby>、<ruby>北海道<rt>ほっかいどう</rt></ruby>もへ<ruby>行<rt>い</rt></ruby>きました。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ <ruby>去年<rt>きょねん</rt></ruby>、<ruby>北海道<rt>ほっかいどう</rt></ruby><strong>へも</strong><ruby>行<rt>い</rt></ruby>きました。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code>へ</code> shows the direction and cannot be dropped, so <code>も</code> goes behind it, not in front. The rule is that <code>も</code> follows every particle except <code>が</code>, <code>を</code> and <code>は</code>, which it replaces.</p>
+</div>
+</div>
+<div class="slide" data-index="102">
+  
   <div class="slide__content"><h2>も · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) ケーキを三(みっ)つ食(た)べました。 (b) ケーキを三(みっ)つ<strong>も</strong>食(た)べました。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) ケーキを<ruby>三<rt>みっ</rt></ruby>つ<ruby>食<rt>た</rt></ruby>べました。 (b) ケーキを<ruby>三<rt>みっ</rt></ruby>つ<strong>も</strong><ruby>食<rt>た</rt></ruby>べました。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) is a plain count: three cakes were eaten, no comment attached.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (b) adds <code>も</code> to the number, which turns it into an evaluation - &quot;I ate <em>three whole cakes</em>.&quot; The speaker is flagging the amount as more than expected, usually with a touch of guilt or amazement. Nothing about the quantity itself has changed; only the attitude toward it has.</p>
 </div>
 </div>
-<div class="slide" data-index="95">
+<div class="slide" data-index="103">
   
   <div class="slide__content"><h1>か - or</h1>
 <p><strong>Meaning</strong> · joins alternatives - &quot;A or B&quot;</p>
 <p>Placed <strong>between</strong> two nouns, <code>か</code> offers a choice: either one will do. This is the everyday Japanese &quot;or&quot;, and it is the same syllable as the question particle without being the same word - position tells them apart.</p>
 </div>
 </div>
-<div class="slide" data-index="96">
+<div class="slide" data-index="104">
   
   <div class="slide__content"><h2>か - or · Formation</h2>
 <p><code>か</code> goes between the items, not after the last one. Any case particle the phrase needs (<code>を</code>, <code>に</code>, <code>で</code>…) is attached to the <strong>whole group</strong>, once, at the end.</p>
@@ -3752,195 +3811,201 @@ The <code>も</code> does the work of &quot;either&quot; - Japanese uses the sam
 <tbody><tr>
 <td>Two nouns</td>
 <td>A か B</td>
-<td>コーヒー か お茶(ちゃ)</td>
+<td>コーヒー か お<ruby>茶<rt>ちゃ</rt></ruby></td>
 </tr>
 <tr>
 <td>Three or more</td>
 <td>A か B か C</td>
-<td>月(げつ) か 火(か) か 水(すい)</td>
+<td><ruby>月<rt>げつ</rt></ruby> か <ruby>火<rt>か</rt></ruby> か <ruby>水<rt>すい</rt></ruby></td>
 </tr>
 <tr>
 <td>With a case particle</td>
 <td>(A か B) + を・に・で</td>
-<td>コーヒーかお茶(ちゃ)を飲(の)む</td>
+<td>コーヒーかお<ruby>茶<rt>ちゃ</rt></ruby>を<ruby>飲<rt>の</rt></ruby>む</td>
 </tr>
 <tr>
 <td>Both items marked</td>
 <td>A か B か（、）…</td>
-<td>バスか電車(でんしゃ)か、どちらか</td>
+<td>バスか<ruby>電車<rt>でんしゃ</rt></ruby>か、どちらか</td>
 </tr>
 <tr>
 <td>Numbers / dates</td>
 <td>approximation: &quot;…or…&quot;</td>
-<td>三日(みっか)か四日(よっか)</td>
+<td><ruby>三日<rt>みっか</rt></ruby>か<ruby>四日<rt>よっか</rt></ruby></td>
 </tr>
 <tr>
 <td>Two clauses</td>
 <td>plain form + か、plain form</td>
-<td>映画(えいが)を見(み)るか、本(ほん)を読(よ)む</td>
+<td><ruby>映画<rt>えいが</rt></ruby>を<ruby>見<rt>み</rt></ruby>るか、<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>む</td>
 </tr>
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="97">
+<div class="slide" data-index="105">
   
   <div class="slide__content"><h2>か - or · Formation (cont.)</h2>
 <blockquote>
-<p><strong>Note</strong> - the case particle rule is the mechanical trap. ❌<code>コーヒーをかお茶(ちゃ)を</code> is wrong; the <code>を</code> is not distributed over the alternatives. Build the choice first, then mark it: <code>コーヒーかお茶(ちゃ)を飲(の)みます</code>.</p>
+<p><strong>Note</strong> - the case particle rule is the mechanical trap. ❌<code>コーヒーをかお<ruby>茶<rt>ちゃ</rt></ruby>を</code> is wrong; the <code>を</code> is not distributed over the alternatives. Build the choice first, then mark it: <code>コーヒーかお<ruby>茶<rt>ちゃ</rt></ruby>を<ruby>飲<rt>の</rt></ruby>みます</code>.</p>
 </blockquote>
 </div>
 </div>
-<div class="slide" data-index="98">
+<div class="slide" data-index="106">
   
   <div class="slide__content"><h2>か - or · Examples</h2>
-<p>コーヒー<strong>か</strong>お茶(ちゃ)を飲(の)みます。<br><em>I&#39;ll have coffee or tea.</em></p>
+<p>コーヒー<strong>か</strong>お<ruby>茶<rt>ちゃ</rt></ruby>を<ruby>飲<rt>の</rt></ruby>みます。<br><em>I&#39;ll have coffee or tea.</em></p>
 <p>ペン<strong>か</strong>えんぴつ、ありますか。<br><em>Do you have a pen or a pencil?</em></p>
-<p>土曜日(どようび)<strong>か</strong>日曜日(にちようび)に会(あ)いましょう。<br><em>Let&#39;s meet on Saturday or Sunday.</em></p>
-<p>バス<strong>か</strong>電車(でんしゃ)<strong>か</strong>、どちらで行(い)きますか。<br><em>Bus or train - which will you take?</em></p>
-<p>三日(みっか)<strong>か</strong>四日(よっか)で終(お)わると思(おも)います。<br><em>I think it&#39;ll be finished in three or four days.</em></p>
+<p><ruby>土曜日<rt>どようび</rt></ruby><strong>か</strong><ruby>日曜日<rt>にちようび</rt></ruby>に<ruby>会<rt>あ</rt></ruby>いましょう。<br><em>Let&#39;s meet on Saturday or Sunday.</em></p>
+<p>バス<strong>か</strong><ruby>電車<rt>でんしゃ</rt></ruby><strong>か</strong>、どちらで<ruby>行<rt>い</rt></ruby>きますか。<br><em>Bus or train - which will you take?</em></p>
 </div>
 </div>
-<div class="slide" data-index="99">
+<div class="slide" data-index="107">
   
   <div class="slide__content"><h2>か - or · Examples (cont.)</h2>
-<p>明日(あした)雨(あめ)なら、映画(えいが)を見(み)る<strong>か</strong>、家(いえ)で本(ほん)を読(よ)みます。<br><em>If it rains tomorrow, I&#39;ll watch a film or read at home.</em></p>
-<p>夏休(なつやす)みは北海道(ほっかいどう)<strong>か</strong>沖縄(おきなわ)に行(い)きたいと思(おも)っています。<br><em>For the summer holiday I&#39;m thinking of going to Hokkaido or Okinawa.</em></p>
-<p>すみません、受付(うけつけ)は一階(いっかい)<strong>か</strong>二階(にかい)か、どちらでしょうか。<br><em>Excuse me - is reception on the first floor or the second?</em></p>
+<p><ruby>三日<rt>みっか</rt></ruby><strong>か</strong><ruby>四日<rt>よっか</rt></ruby>で<ruby>終<rt>お</rt></ruby>わると<ruby>思<rt>おも</rt></ruby>います。<br><em>I think it&#39;ll be finished in three or four days.</em></p>
+<p><ruby>明日<rt>あした</rt></ruby><ruby>雨<rt>あめ</rt></ruby>なら、<ruby>映画<rt>えいが</rt></ruby>を<ruby>見<rt>み</rt></ruby>る<strong>か</strong>、<ruby>家<rt>いえ</rt></ruby>で<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>みます。<br><em>If it rains tomorrow, I&#39;ll watch a film or read at home.</em></p>
+<p><ruby>夏休<rt>なつやす</rt></ruby>みは<ruby>北海道<rt>ほっかいどう</rt></ruby><strong>か</strong><ruby>沖縄<rt>おきなわ</rt></ruby>に<ruby>行<rt>い</rt></ruby>きたいと<ruby>思<rt>おも</rt></ruby>っています。<br><em>For the summer holiday I&#39;m thinking of going to Hokkaido or Okinawa.</em></p>
+<p>すみません、<ruby>受付<rt>うけつけ</rt></ruby>は<ruby>一階<rt>いっかい</rt></ruby><strong>か</strong><ruby>二階<rt>にかい</rt></ruby>か、どちらでしょうか。<br><em>Excuse me - is reception on the first floor or the second?</em></p>
 </div>
 </div>
-<div class="slide" data-index="100">
+<div class="slide" data-index="108">
   
   <div class="slide__content"><h2>か - or · Nuance &amp; register</h2>
 <p><code>か</code> is register-neutral. It is the same word in a text message and in a contract, and nobody will hear it as either casual or stiff.</p>
-<p>Marking <strong>both</strong> items - 「AかBか」 - changes the feel slightly. It slows the sentence down and presents the choice as a genuine, deliberate fork: 「行(い)くか、 行(い)かないか」 = &quot;whether to go or not&quot;. A single <code>か</code> between two nouns is the lighter, more offhand version, and it is what you will say most of the time.</p>
-<p>Two related shapes to recognise. In relaxed speech, <code>とか</code> does the same job with a looser, &quot;…or something like that&quot; flavour: 「お茶(ちゃ)とかコーヒーとか」. And in written or formal Japanese, <code>または</code> replaces <code>か</code> in instructions and forms: 「ペンまたはえんぴつでご記入(きにゅう)ください」.</p>
+<p>Marking <strong>both</strong> items - 「AかBか」 - changes the feel slightly. It slows the sentence down and presents the choice as a genuine, deliberate fork: 「<ruby>行<rt>い</rt></ruby>くか、 <ruby>行<rt>い</rt></ruby>かないか」 = &quot;whether to go or not&quot;. A single <code>か</code> between two nouns is the lighter, more offhand version, and it is what you will say most of the time.</p>
 </div>
 </div>
-<div class="slide" data-index="101">
+<div class="slide" data-index="109">
   
   <div class="slide__content"><h2>か - or · Nuance &amp; register (cont.)</h2>
+<p>Two related shapes to recognise. In relaxed speech, <code>とか</code> does the same job with a looser, &quot;…or something like that&quot; flavour: 「お<ruby>茶<rt>ちゃ</rt></ruby>とかコーヒーとか」. And in written or formal Japanese, <code>または</code> replaces <code>か</code> in instructions and forms: 「ペンまたはえんぴつでご<ruby>記入<rt>きにゅう</rt></ruby>ください」.</p>
 <p>Note one limit. <code>か</code> does not translate every English &quot;or&quot;. English uses &quot;or&quot; to threaten (&quot;hurry, <strong>or</strong> we&#39;ll be late&quot;) and to correct (&quot;Tuesday - <strong>or</strong> rather, Wednesday&quot;); Japanese uses other constructions for both, and reaching for <code>か</code> there will not work.</p>
-<p>Finally, do not read the choice as exclusive by default. 「コーヒーかお茶(ちゃ)」 offers two options; it does not insist you may not have both. If exclusivity matters, say so - 「どちらか一(ひと)つ」.</p>
+<p>Finally, do not read the choice as exclusive by default. 「コーヒーかお<ruby>茶<rt>ちゃ</rt></ruby>」 offers two options; it does not insist you may not have both. If exclusivity matters, say so - 「どちらか<ruby>一<rt>ひと</rt></ruby>つ」.</p>
 </div>
 </div>
-<div class="slide" data-index="102">
+<div class="slide" data-index="110">
   
   <div class="slide__content"><h2>か - or · か vs と</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>と</code> means <strong>and</strong> (both), <code>か</code> means <strong>or</strong> (either). They sit in exactly the same place, so a single syllable flips the meaning.</p>
 </blockquote>
-<p>パン<strong>と</strong>牛乳(ぎゅうにゅう)を買(か)います。<br><em>I&#39;ll buy bread and milk.</em></p>
-<p>パン<strong>か</strong>牛乳(ぎゅうにゅう)を買(か)います。<br><em>I&#39;ll buy bread or milk.</em></p>
+<p>パン<strong>と</strong><ruby>牛乳<rt>ぎゅうにゅう</rt></ruby>を<ruby>買<rt>か</rt></ruby>います。<br><em>I&#39;ll buy bread and milk.</em></p>
+<p>パン<strong>か</strong><ruby>牛乳<rt>ぎゅうにゅう</rt></ruby>を<ruby>買<rt>か</rt></ruby>います。<br><em>I&#39;ll buy bread or milk.</em></p>
 <p>The first commits you to two items; the second to one, not yet decided. Both take a single <code>を</code> at the end, because in both cases the two nouns form one phrase together.</p>
 </div>
 </div>
-<div class="slide" data-index="103">
+<div class="slide" data-index="111">
   
   <div class="slide__content"><h2>か - or · か vs それとも</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>か</code> joins <strong>nouns inside one sentence</strong>; <code>それとも</code> joins <strong>two complete questions</strong>.</p>
 </blockquote>
 <p><code>それとも</code> is a conjunction, not a particle. It starts a new clause and cannot sit between bare nouns.</p>
-<p>お茶(ちゃ)<strong>か</strong>コーヒーはいかがですか。<br><em>Would you like tea or coffee?</em></p>
-<p>お茶(ちゃ)にしますか。<strong>それとも</strong>コーヒーにしますか。<br><em>Will you have tea? Or would you rather have coffee?</em></p>
+<p>お<ruby>茶<rt>ちゃ</rt></ruby><strong>か</strong>コーヒーはいかがですか。<br><em>Would you like tea or coffee?</em></p>
+<p>お<ruby>茶<rt>ちゃ</rt></ruby>にしますか。<strong>それとも</strong>コーヒーにしますか。<br><em>Will you have tea? Or would you rather have coffee?</em></p>
 </div>
 </div>
-<div class="slide" data-index="104">
+<div class="slide" data-index="112">
   
   <div class="slide__content"><h2>か - or · か vs それとも (cont.)</h2>
-<p>The <code>それとも</code> version is more deliberate - it lays out two full alternatives and asks the listener to pick between them, which makes it useful when you want to be clearly polite about offering a real choice. ❌<code>お茶(ちゃ)それともコーヒー</code> is not possible.</p>
+<p>The <code>それとも</code> version is more deliberate - it lays out two full alternatives and asks the listener to pick between them, which makes it useful when you want to be clearly polite about offering a real choice. ❌<code>お<ruby>茶<rt>ちゃ</rt></ruby>それともコーヒー</code> is not possible.</p>
 </div>
 </div>
-<div class="slide" data-index="105">
+<div class="slide" data-index="113">
   
   <div class="slide__content"><h2>か - or · か (or) vs か (question particle)</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>か</code> <strong>between</strong> nouns means &quot;or&quot;; <code>か</code> at the <strong>end</strong> of a sentence makes a question. Position decides, every time.</p>
 </blockquote>
 <p>Learners see the same kana and assume ambiguity. There is almost none, because the two uses never occupy the same slot.</p>
-<p>紅茶(こうちゃ)<strong>か</strong>コーヒーを飲(の)みます。<br><em>I&#39;ll have black tea or coffee.</em></p>
-<p>紅茶(こうちゃ)を飲(の)みます<strong>か</strong>。<br><em>Will you have some black tea?</em></p>
+<p><ruby>紅茶<rt>こうちゃ</rt></ruby><strong>か</strong>コーヒーを<ruby>飲<rt>の</rt></ruby>みます。<br><em>I&#39;ll have black tea or coffee.</em></p>
+<p><ruby>紅茶<rt>こうちゃ</rt></ruby>を<ruby>飲<rt>の</rt></ruby>みます<strong>か</strong>。<br><em>Will you have some black tea?</em></p>
 </div>
 </div>
-<div class="slide" data-index="106">
+<div class="slide" data-index="114">
   
   <div class="slide__content"><h2>か - or · か (or) vs か (question particle) (cont.)</h2>
-<p>And both can appear in one sentence without any clash, each doing its own job: 「紅茶(こうちゃ)<strong>か</strong>コーヒーを飲(の)みます<strong>か</strong>。」 - &quot;Will you have tea or coffee?&quot; The first <code>か</code> offers the choice; the last one turns the whole thing into a question.</p>
+<p>And both can appear in one sentence without any clash, each doing its own job: 「<ruby>紅茶<rt>こうちゃ</rt></ruby><strong>か</strong>コーヒーを<ruby>飲<rt>の</rt></ruby>みます<strong>か</strong>。」 - &quot;Will you have tea or coffee?&quot; The first <code>か</code> offers the choice; the last one turns the whole thing into a question.</p>
 </div>
 </div>
-<div class="slide" data-index="107">
+<div class="slide" data-index="115">
   
   <div class="slide__content"><h2>か - or · Common mistakes</h2>
 <ul>
-<li><p>❌ コーヒーをかお茶(ちゃ)を飲(の)みます。 → ✅ コーヒーかお茶(ちゃ)を飲(の)みます。<br><em>The case particle marks the whole choice once, at the end. It is not repeated on each alternative.</em></p>
+<li><p>❌ コーヒーをかお<ruby>茶<rt>ちゃ</rt></ruby>を<ruby>飲<rt>の</rt></ruby>みます。 → ✅ コーヒーかお<ruby>茶<rt>ちゃ</rt></ruby>を<ruby>飲<rt>の</rt></ruby>みます。<br><em>The case particle marks the whole choice once, at the end. It is not repeated on each alternative.</em></p>
 </li>
-<li><p>❌ パンかたまごを買(か)いました。（when you bought both） → ✅ パンとたまごを買(か)いました。<br><em><code>か</code> is &quot;or&quot;. If you took both items home, the word you want is <code>と</code>.</em></p>
+<li><p>❌ パンかたまごを<ruby>買<rt>か</rt></ruby>いました。（when you bought both） → ✅ パンとたまごを<ruby>買<rt>か</rt></ruby>いました。<br><em><code>か</code> is &quot;or&quot;. If you took both items home, the word you want is <code>と</code>.</em></p>
 </li>
-<li><p>❌ お茶(ちゃ)それともコーヒーがいいです。 → ✅ お茶(ちゃ)かコーヒーがいいです。<br><em><code>それとも</code> links two whole questions, not two nouns.</em></p>
-</li>
-<li><p>❌ 明日(あした)か行(い)きます。 → ✅ 明日(あした)か明後日(あさって)行(い)きます。<br><em><code>か</code> needs something on <strong>both</strong> sides. A single item with a trailing <code>か</code> at the end of a noun phrase is not an alternative - it will be read as a question particle or as &quot;something like&quot;.</em></p>
+<li><p>❌ お<ruby>茶<rt>ちゃ</rt></ruby>それともコーヒーがいいです。 → ✅ お<ruby>茶<rt>ちゃ</rt></ruby>かコーヒーがいいです。<br><em><code>それとも</code> links two whole questions, not two nouns.</em></p>
 </li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="108">
+<div class="slide" data-index="116">
+  
+  <div class="slide__content"><h2>か - or · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ <ruby>明日<rt>あした</rt></ruby>か<ruby>行<rt>い</rt></ruby>きます。 → ✅ <ruby>明日<rt>あした</rt></ruby>か<ruby>明後日<rt>あさって</rt></ruby><ruby>行<rt>い</rt></ruby>きます。<br><em><code>か</code> needs something on <strong>both</strong> sides. A single item with a trailing <code>か</code> at the end of a noun phrase is not an alternative - it will be read as a question particle or as &quot;something like&quot;.</em></li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="117">
   
   <div class="slide__content"><h2>か - or · Practice 1</h2>
-<p><strong>1.</strong> 昼(ひる)ごはんはうどん____そばにします。</p>
+<p><strong>1.</strong> <ruby>昼<rt>ひる</rt></ruby>ごはんはうどん____そばにします。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 うどん<strong>か</strong>そばにします。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 Two nouns offered as alternatives take <code>か</code> between them, and the following particle - here <code>に</code> - attaches once, after the whole pair.</p>
 </div>
 </div>
-<div class="slide" data-index="109">
+<div class="slide" data-index="118">
   
   <div class="slide__content"><h2>か - or · Practice 2</h2>
-<p><strong>2.</strong> Choose: 会議(かいぎ)は月曜日(げつようび)（と・か）火曜日(かようび)です。まだ決(き)まっていません。</p>
+<p><strong>2.</strong> Choose: <ruby>会議<rt>かいぎ</rt></ruby>は<ruby>月曜日<rt>げつようび</rt></ruby>（と・か）<ruby>火曜日<rt>かようび</rt></ruby>です。まだ<ruby>決<rt>き</rt></ruby>まっていません。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-月曜日(げつようび)<strong>か</strong>火曜日(かようび)です。</p>
+<ruby>月曜日<rt>げつようび</rt></ruby><strong>か</strong><ruby>火曜日<rt>かようび</rt></ruby>です。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 The second sentence says it hasn&#39;t been decided, so only one of the two days will happen. That is &quot;or&quot;, which is <code>か</code>. <code>と</code> would claim the meeting runs on both days.</p>
 </div>
 </div>
-<div class="slide" data-index="110">
+<div class="slide" data-index="119">
   
   <div class="slide__content"><h2>か - or · Practice 3</h2>
 <p><strong>3.</strong> Translate into Japanese: &quot;Please write your name in pen or pencil.&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-ペン<strong>か</strong>えんぴつでお名前(なまえ)を書(か)いてください。</p>
+ペン<strong>か</strong>えんぴつでお<ruby>名前<rt>なまえ</rt></ruby>を<ruby>書<rt>か</rt></ruby>いてください。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 The choice is built first, then marked once with <code>で</code> for the instrument. In a printed form you would meet the written equivalent, <code>または</code>, in the same slot.</p>
 </div>
 </div>
-<div class="slide" data-index="111">
+<div class="slide" data-index="120">
   
   <div class="slide__content"><h2>か - or · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 飲(の)み物(もの)はビールをかワインをお願(ねが)いします。</p>
+<p><strong>4.</strong> Find and fix the error: <ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>はビールをかワインをお<ruby>願<rt>ねが</rt></ruby>いします。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 飲(の)み物(もの)はビールかワインをお願(ねが)いします。</p>
+✅ <ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>はビールかワインをお<ruby>願<rt>ねが</rt></ruby>いします。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 <code>を</code> cannot be attached to each alternative. Join the nouns with <code>か</code> first, and let the single <code>を</code> cover the resulting phrase.</p>
 </div>
 </div>
-<div class="slide" data-index="112">
+<div class="slide" data-index="121">
   
   <div class="slide__content"><h2>か - or · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) バスか電車(でんしゃ)で行(い)きます。 (b) バスか電車(でんしゃ)か、どちらかで行(い)きます。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) バスか<ruby>電車<rt>でんしゃ</rt></ruby>で<ruby>行<rt>い</rt></ruby>きます。 (b) バスか<ruby>電車<rt>でんしゃ</rt></ruby>か、どちらかで<ruby>行<rt>い</rt></ruby>きます。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 Both say you will travel by one of the two. (a) is light and offhand - you have not thought about it much, and either is fine.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (b) marks both options and then names the choice explicitly with <code>どちらか</code>, which slows the sentence down and presents the decision as a real, still-open fork. It is what you would say when the choice actually matters, or when you are being careful in front of someone.</p>
 </div>
 </div>
-<div class="slide" data-index="113">
+<div class="slide" data-index="122">
   
   <div class="slide__content"><h1>か - question particle</h1>
 <p><strong>Meaning</strong> · turns a statement into a question</p>
 <p>Put <code>か</code> at the end of a sentence and it becomes a question. Nothing else moves - no word order changes, no auxiliary appears. This is the same syllable as the &quot;or&quot; particle, but at the end of the sentence rather than between two nouns.</p>
 </div>
 </div>
-<div class="slide" data-index="114">
+<div class="slide" data-index="123">
   
   <div class="slide__content"><h2>か - question particle · Formation</h2>
 <p><code>か</code> is the last thing in the sentence, after the predicate is already complete.</p>
@@ -3955,27 +4020,27 @@ Both say you will travel by one of the two. (a) is light and offhand - you have 
 <tbody><tr>
 <td>ます-form verb</td>
 <td>～ます + か</td>
-<td>行(い)きます → 行(い)きますか</td>
+<td><ruby>行<rt>い</rt></ruby>きます → <ruby>行<rt>い</rt></ruby>きますか</td>
 </tr>
 <tr>
 <td>Noun + です</td>
 <td>Noun + ですか</td>
-<td>学生(がくせい)です → 学生(がくせい)ですか</td>
+<td><ruby>学生<rt>がくせい</rt></ruby>です → <ruby>学生<rt>がくせい</rt></ruby>ですか</td>
 </tr>
 <tr>
 <td>い-adjective + です</td>
 <td>～いです + か</td>
-<td>高(たか)いです → 高(たか)いですか</td>
+<td><ruby>高<rt>たか</rt></ruby>いです → <ruby>高<rt>たか</rt></ruby>いですか</td>
 </tr>
 <tr>
 <td>Past / negative</td>
 <td>～ましたか・～ませんか</td>
-<td>来(き)ました → 来(き)ましたか</td>
+<td><ruby>来<rt>き</rt></ruby>ました → <ruby>来<rt>き</rt></ruby>ましたか</td>
 </tr>
 <tr>
 <td>Plain form</td>
 <td>plain + か (blunt or written)</td>
-<td>行(い)く → 行(い)くか</td>
+<td><ruby>行<rt>い</rt></ruby>く → <ruby>行<rt>い</rt></ruby>くか</td>
 </tr>
 <tr>
 <td>Question word sentences</td>
@@ -3985,153 +4050,184 @@ Both say you will travel by one of the two. (a) is light and offhand - you have 
 <tr>
 <td>Inside a sentence</td>
 <td>clause + か + わかりません etc.</td>
-<td>何時(なんじ)に来(く)るか、わかりません</td>
+<td><ruby>何時<rt>なんじ</rt></ruby>に<ruby>来<rt>く</rt></ruby>るか、わかりません</td>
 </tr>
 <tr>
 <td>Punctuation</td>
 <td>normally 。 - the か already asks</td>
-<td>行(い)きますか。</td>
+<td><ruby>行<rt>い</rt></ruby>きますか。</td>
 </tr>
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="115">
+<div class="slide" data-index="124">
   
   <div class="slide__content"><h2>か - question particle · Formation (cont.)</h2>
 <blockquote>
-<p><strong>Note</strong> - after a noun in the <strong>plain</strong> form, the <code>だ</code> drops before <code>か</code>: <code>学生(がくせい)か</code>, never ❌<code>学生(がくせい)だか</code>. In the polite form there is no such problem, because <code>です</code> stays: <code>学生(がくせい)ですか</code>.</p>
+<p><strong>Note</strong> - after a noun in the <strong>plain</strong> form, the <code>だ</code> drops before <code>か</code>: <code><ruby>学生<rt>がくせい</rt></ruby>か</code>, never ❌<code><ruby>学生<rt>がくせい</rt></ruby>だか</code>. In the polite form there is no such problem, because <code>です</code> stays: <code><ruby>学生<rt>がくせい</rt></ruby>ですか</code>.</p>
 </blockquote>
 </div>
 </div>
-<div class="slide" data-index="116">
+<div class="slide" data-index="125">
   
   <div class="slide__content"><h2>か - question particle · Examples</h2>
-<p>お名前(なまえ)は何(なん)です<strong>か</strong>。<br><em>What&#39;s your name?</em></p>
-<p>明日(あした)来(き)ます<strong>か</strong>。<br><em>Are you coming tomorrow?</em></p>
-<p>すみません、コピー機(き)はどこです<strong>か</strong>。<br><em>Excuse me, where&#39;s the photocopier?</em></p>
-<p>昨日(きのう)の試合(しあい)を見(み)ました<strong>か</strong>。<br><em>Did you watch yesterday&#39;s match?</em></p>
-<p>一緒(いっしょ)にお昼(ひる)を食(た)べません<strong>か</strong>。<br><em>Would you like to have lunch with me?</em></p>
+<p>お<ruby>名前<rt>なまえ</rt></ruby>は<ruby>何<rt>なん</rt></ruby>です<strong>か</strong>。<br><em>What&#39;s your name?</em></p>
+<p><ruby>明日<rt>あした</rt></ruby><ruby>来<rt>き</rt></ruby>ます<strong>か</strong>。<br><em>Are you coming tomorrow?</em></p>
+<p>すみません、コピー<ruby>機<rt>き</rt></ruby>はどこです<strong>か</strong>。<br><em>Excuse me, where&#39;s the photocopier?</em></p>
+<p><ruby>昨日<rt>きのう</rt></ruby>の<ruby>試合<rt>しあい</rt></ruby>を<ruby>見<rt>み</rt></ruby>ました<strong>か</strong>。<br><em>Did you watch yesterday&#39;s match?</em></p>
 </div>
 </div>
-<div class="slide" data-index="117">
+<div class="slide" data-index="126">
   
   <div class="slide__content"><h2>か - question particle · Examples (cont.)</h2>
-<p>会議(かいぎ)が何時(なんじ)に終(お)わる<strong>か</strong>、まだわかりません。<br><em>I still don&#39;t know what time the meeting ends.</em></p>
-<p>すみません、この席(せき)に座(すわ)ってもいいです<strong>か</strong>。<br><em>Excuse me, may I sit here?</em></p>
-<p>傘(かさ)を持(も)っています<strong>か</strong>。午後(ごご)から降(ふ)るそうですよ。<br><em>Do you have an umbrella with you? Apparently it&#39;s going to rain from the afternoon.</em></p>
+<p><ruby>一緒<rt>いっしょ</rt></ruby>にお<ruby>昼<rt>ひる</rt></ruby>を<ruby>食<rt>た</rt></ruby>べません<strong>か</strong>。<br><em>Would you like to have lunch with me?</em></p>
+<p><ruby>会議<rt>かいぎ</rt></ruby>が<ruby>何時<rt>なんじ</rt></ruby>に<ruby>終<rt>お</rt></ruby>わる<strong>か</strong>、まだわかりません。<br><em>I still don&#39;t know what time the meeting ends.</em></p>
+<p>すみません、この<ruby>席<rt>せき</rt></ruby>に<ruby>座<rt>すわ</rt></ruby>ってもいいです<strong>か</strong>。<br><em>Excuse me, may I sit here?</em></p>
+<p><ruby>傘<rt>かさ</rt></ruby>を<ruby>持<rt>も</rt></ruby>っています<strong>か</strong>。<ruby>午後<rt>ごご</rt></ruby>から<ruby>降<rt>ふ</rt></ruby>るそうですよ。<br><em>Do you have an umbrella with you? Apparently it&#39;s going to rain from the afternoon.</em></p>
 </div>
 </div>
-<div class="slide" data-index="118">
+<div class="slide" data-index="127">
   
   <div class="slide__content"><h2>か - question particle · Nuance &amp; register</h2>
 <p><code>か</code> belongs with polite Japanese. Attached to <code>です</code> / <code>ます</code> it is simply the normal way to ask anything, and it carries no attitude at all.</p>
-<p>Attached to a <strong>plain</strong> form it is a different animal. 「行(い)くか」 sounds blunt, brusque, and distinctly masculine - a boss barking at a subordinate, or a character in a film. Ordinary casual questions do not use <code>か</code> at all: you take the plain form and raise your pitch at the end.</p>
+<p>Attached to a <strong>plain</strong> form it is a different animal. 「<ruby>行<rt>い</rt></ruby>くか」 sounds blunt, brusque, and distinctly masculine - a boss barking at a subordinate, or a character in a film. Ordinary casual questions do not use <code>か</code> at all: you take the plain form and raise your pitch at the end.</p>
 <ul>
-<li>「行(い)く?」 - &quot;You going?&quot;</li>
-<li>「これ、食(た)べる?」 - &quot;You want this?&quot;</li>
+<li>「<ruby>行<rt>い</rt></ruby>く?」 - &quot;You going?&quot;</li>
+<li>「これ、<ruby>食<rt>た</rt></ruby>べる?」 - &quot;You want this?&quot;</li>
 </ul>
-<p>That is the single most useful register fact on this page. A learner who says 「食(た)べるか?」 to a friend sounds aggressive; 「食(た)べる?」 is warm and normal. In writing, plain form + <code>か</code> is fine and neutral - it is the everyday shape of a question in a book or a report, where nobody is being addressed.</p>
 </div>
 </div>
-<div class="slide" data-index="119">
+<div class="slide" data-index="128">
   
   <div class="slide__content"><h2>か - question particle · Nuance &amp; register (cont.)</h2>
-<p>Plain <code>か</code> also survives in a set of self-directed expressions that everybody uses regardless of gender: 「そうか」(&quot;ah, I see&quot;), 「本当(ほんとう)か」, and the polite 「そうですか」. Watch the intonation on that last one. Rising 「そうですか?」 is a real question - &quot;is that so?&quot;. Falling 「そうですか。」 is not a question at all; it is &quot;I see&quot;, an acknowledgement. Beginners produce the falling version by accident and puzzle their listener.</p>
-<p>Two more things worth knowing. <code>か</code> is normally followed by <code>。</code>, not <code>?</code>, in careful writing - the particle already marks the question. And a <strong>negative</strong> question, <code>～ませんか</code>, is not really a question about ability or fact: it is an invitation. 「見(み)ませんか」 = &quot;won&#39;t you watch it with me?&quot;, not &quot;do you not watch it?&quot;.</p>
+<p>That is the single most useful register fact on this page. A learner who says 「<ruby>食<rt>た</rt></ruby>べるか?」 to a friend sounds aggressive; 「<ruby>食<rt>た</rt></ruby>べる?」 is warm and normal. In writing, plain form + <code>か</code> is fine and neutral - it is the everyday shape of a question in a book or a report, where nobody is being addressed.</p>
 </div>
 </div>
-<div class="slide" data-index="120">
+<div class="slide" data-index="129">
+  
+  <div class="slide__content"><h2>か - question particle · Nuance &amp; register (cont.)</h2>
+<p>Plain <code>か</code> also survives in a set of self-directed expressions that everybody uses regardless of gender: 「そうか」(&quot;ah, I see&quot;), 「<ruby>本当<rt>ほんとう</rt></ruby>か」, and the polite 「そうですか」. Watch the intonation on that last one. Rising 「そうですか?」 is a real question - &quot;is that so?&quot;. Falling 「そうですか。」 is not a question at all; it is &quot;I see&quot;, an acknowledgement. Beginners produce the falling version by accident and puzzle their listener.</p>
+</div>
+</div>
+<div class="slide" data-index="130">
+  
+  <div class="slide__content"><h2>か - question particle · Nuance &amp; register (cont.)</h2>
+<p>Two more things worth knowing. <code>か</code> is normally followed by <code>。</code>, not <code>?</code>, in careful writing - the particle already marks the question. And a <strong>negative</strong> question, <code>～ませんか</code>, is not really a question about ability or fact: it is an invitation. 「<ruby>見<rt>み</rt></ruby>ませんか」 = &quot;won&#39;t you watch it with me?&quot;, not &quot;do you not watch it?&quot;.</p>
+</div>
+</div>
+<div class="slide" data-index="131">
   
   <div class="slide__content"><h2>か - question particle · か vs rising intonation</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - polite speech asks with <code>か</code>. Casual speech asks by raising the pitch and adding nothing.</p>
 </blockquote>
-<p>コーヒーを飲(の)みます<strong>か</strong>。<br><em>Would you like some coffee?</em></p>
-<p>コーヒー、飲(の)む**?**<br><em>Want some coffee?</em></p>
-<p>Both are questions and neither is wrong, but they are for different people. The first is what you say to a client; the second to a friend. Fusing them - ❌「コーヒーを飲(の)むか?」 - produces the rough, confrontational register mentioned above, which is very rarely what a learner intends.</p>
+<p>コーヒーを<ruby>飲<rt>の</rt></ruby>みます<strong>か</strong>。<br><em>Would you like some coffee?</em></p>
+<p>コーヒー、<ruby>飲<rt>の</rt></ruby>む**?**<br><em>Want some coffee?</em></p>
 </div>
 </div>
-<div class="slide" data-index="121">
+<div class="slide" data-index="132">
+  
+  <div class="slide__content"><h2>か - question particle · か vs rising intonation (cont.)</h2>
+<p>Both are questions and neither is wrong, but they are for different people. The first is what you say to a client; the second to a friend. Fusing them - ❌「コーヒーを<ruby>飲<rt>の</rt></ruby>むか?」 - produces the rough, confrontational register mentioned above, which is very rarely what a learner intends.</p>
+</div>
+</div>
+<div class="slide" data-index="133">
   
   <div class="slide__content"><h2>か - question particle · ～ますか vs ～ませんか</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>～ますか</code> asks for information. <code>～ませんか</code> offers an invitation.</p>
 </blockquote>
-<p>週末(しゅうまつ)、映画(えいが)を見(み)ます<strong>か</strong>。<br><em>Do you watch films at the weekend?</em></p>
-<p>週末(しゅうまつ)、映画(えいが)を見(み)ません<strong>か</strong>。<br><em>How about seeing a film at the weekend?</em></p>
-<p>The negative shape is doing politeness work, not negation: by phrasing the offer so that &quot;no&quot; is the easy answer, you leave the listener room to refuse. English does the same thing with &quot;you wouldn&#39;t want to…, would you?&quot; A step further along is <code>～ましょうか</code>, which offers to do something <em>for</em> the listener: 「手伝(てつだ)いましょうか」 = &quot;shall I give you a hand?&quot;</p>
+<p><ruby>週末<rt>しゅうまつ</rt></ruby>、<ruby>映画<rt>えいが</rt></ruby>を<ruby>見<rt>み</rt></ruby>ます<strong>か</strong>。<br><em>Do you watch films at the weekend?</em></p>
+<p><ruby>週末<rt>しゅうまつ</rt></ruby>、<ruby>映画<rt>えいが</rt></ruby>を<ruby>見<rt>み</rt></ruby>ません<strong>か</strong>。<br><em>How about seeing a film at the weekend?</em></p>
 </div>
 </div>
-<div class="slide" data-index="122">
+<div class="slide" data-index="134">
+  
+  <div class="slide__content"><h2>か - question particle · ～ますか vs ～ませんか (cont.)</h2>
+<p>The negative shape is doing politeness work, not negation: by phrasing the offer so that &quot;no&quot; is the easy answer, you leave the listener room to refuse. English does the same thing with &quot;you wouldn&#39;t want to…, would you?&quot; A step further along is <code>～ましょうか</code>, which offers to do something <em>for</em> the listener: 「<ruby>手伝<rt>てつだ</rt></ruby>いましょうか」 = &quot;shall I give you a hand?&quot;</p>
+</div>
+</div>
+<div class="slide" data-index="135">
   
   <div class="slide__content"><h2>か - question particle · か vs の</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>か</code> is the neutral polite question. Sentence-final <code>の</code> is the casual question that asks for an <em>explanation</em>.</p>
 </blockquote>
-<p>どうして来(き)ませんでした<strong>か</strong>。<br><em>Why didn&#39;t you come?</em></p>
-<p>どうして来(こ)なかった<strong>の</strong>?<br><em>How come you didn&#39;t come?</em></p>
-<p><code>の</code> builds on the explanatory <code>のだ</code> / <code>んです</code>, so it asks about the reason or the situation behind something rather than the bare fact. It is soft and personal - used a great deal with children and between friends, and slightly more by women than by men in its bare form. Its polite counterpart is <code>んですか</code>: 「どうして来(こ)なかったんですか」, which is gentler than a flat <code>ませんでしたか</code> and is often the better choice when a direct <code>か</code> question would feel like an interrogation.</p>
+<p>どうして<ruby>来<rt>き</rt></ruby>ませんでした<strong>か</strong>。<br><em>Why didn&#39;t you come?</em></p>
+<p>どうして<ruby>来<rt>こ</rt></ruby>なかった<strong>の</strong>?<br><em>How come you didn&#39;t come?</em></p>
 </div>
 </div>
-<div class="slide" data-index="123">
+<div class="slide" data-index="136">
+  
+  <div class="slide__content"><h2>か - question particle · か vs の (cont.)</h2>
+<p><code>の</code> builds on the explanatory <code>のだ</code> / <code>んです</code>, so it asks about the reason or the situation behind something rather than the bare fact. It is soft and personal - used a great deal with children and between friends, and slightly more by women than by men in its bare form. Its polite counterpart is <code>んですか</code>: 「どうして<ruby>来<rt>こ</rt></ruby>なかったんですか」, which is gentler than a flat <code>ませんでしたか</code> and is often the better choice when a direct <code>か</code> question would feel like an interrogation.</p>
+</div>
+</div>
+<div class="slide" data-index="137">
   
   <div class="slide__content"><h2>か - question particle · Common mistakes</h2>
 <ul>
-<li><p>❌ あの人(ひと)は学生(がくせい)だか。 → ✅ あの人(ひと)は学生(がくせい)ですか。／学生(がくせい)か。<br><em>In the polite form the copula is <code>です</code>; in the plain form the <code>だ</code> drops out entirely before <code>か</code>.</em></p>
+<li><p>❌ あの<ruby>人<rt>ひと</rt></ruby>は<ruby>学生<rt>がくせい</rt></ruby>だか。 → ✅ あの<ruby>人<rt>ひと</rt></ruby>は<ruby>学生<rt>がくせい</rt></ruby>ですか。／<ruby>学生<rt>がくせい</rt></ruby>か。<br><em>In the polite form the copula is <code>です</code>; in the plain form the <code>だ</code> drops out entirely before <code>か</code>.</em></p>
 </li>
-<li><p>❌ 「学生(がくせい)ですか。」「はい、そうですか。」 → ✅ 「はい、そうです。」<br><em>Falling 「そうですか」 means &quot;I see&quot; - it is what the <em>listener</em> says. Answering with it tells your questioner you have just learned your own occupation.</em></p>
+<li><p>❌ 「<ruby>学生<rt>がくせい</rt></ruby>ですか。」「はい、そうですか。」 → ✅ 「はい、そうです。」<br><em>Falling 「そうですか」 means &quot;I see&quot; - it is what the <em>listener</em> says. Answering with it tells your questioner you have just learned your own occupation.</em></p>
 </li>
-<li><p>❌ どこか行(い)きますか。（meaning &quot;where are you going?&quot;） → ✅ どこへ行(い)きますか。<br><em><code>どこか</code> is one word meaning &quot;somewhere&quot;. The question word needs its ordinary particle instead.</em></p>
-</li>
-<li><p>❌ 友(とも)だちに「食(た)べるか?」と聞(き)きました。 → ✅ 「食(た)べる?」と聞(き)きました。<br><em>Plain form + <code>か</code> addressed at a person is rough. Casual questions drop the particle and rely on intonation.</em></p>
+<li><p>❌ どこか<ruby>行<rt>い</rt></ruby>きますか。（meaning &quot;where are you going?&quot;） → ✅ どこへ<ruby>行<rt>い</rt></ruby>きますか。<br><em><code>どこか</code> is one word meaning &quot;somewhere&quot;. The question word needs its ordinary particle instead.</em></p>
 </li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="124">
+<div class="slide" data-index="138">
+  
+  <div class="slide__content"><h2>か - question particle · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ <ruby>友<rt>とも</rt></ruby>だちに「<ruby>食<rt>た</rt></ruby>べるか?」と<ruby>聞<rt>き</rt></ruby>きました。 → ✅ 「<ruby>食<rt>た</rt></ruby>べる?」と<ruby>聞<rt>き</rt></ruby>きました。<br><em>Plain form + <code>か</code> addressed at a person is rough. Casual questions drop the particle and rely on intonation.</em></li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="139">
   
   <div class="slide__content"><h2>か - question particle · Practice 1</h2>
-<p><strong>1.</strong> すみません、駅(えき)はどちら____。</p>
+<p><strong>1.</strong> すみません、<ruby>駅<rt>えき</rt></ruby>はどちら____。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-駅(えき)はどちらです<strong>か</strong>。</p>
+<ruby>駅<rt>えき</rt></ruby>はどちらです<strong>か</strong>。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 The sentence ends in a noun predicate, so the polite copula <code>です</code> comes first and <code>か</code> follows it to make the question. Asking a stranger, the polite form is the only sensible choice.</p>
 </div>
 </div>
-<div class="slide" data-index="125">
+<div class="slide" data-index="140">
   
   <div class="slide__content"><h2>か - question particle · Practice 2</h2>
-<p><strong>2.</strong> Choose the more inviting version: 一緒(いっしょ)に（帰(かえ)りますか・帰(かえ)りませんか）。</p>
+<p><strong>2.</strong> Choose the more inviting version: <ruby>一緒<rt>いっしょ</rt></ruby>に（<ruby>帰<rt>かえ</rt></ruby>りますか・<ruby>帰<rt>かえ</rt></ruby>りませんか）。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-一緒(いっしょ)に<strong>帰(かえ)りませんか</strong>。</p>
+<ruby>一緒<rt>いっしょ</rt></ruby>に**<ruby>帰<rt>かえ</rt></ruby>りませんか**。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The negative question is Japanese&#39;s standard invitation. It leaves refusing easy, so it sounds considerate rather than pushy. <code>帰(かえ)りますか</code> would just be asking whether the person intends to go home.</p>
+The negative question is Japanese&#39;s standard invitation. It leaves refusing easy, so it sounds considerate rather than pushy. <code><ruby>帰<rt>かえ</rt></ruby>りますか</code> would just be asking whether the person intends to go home.</p>
 </div>
 </div>
-<div class="slide" data-index="126">
+<div class="slide" data-index="141">
   
   <div class="slide__content"><h2>か - question particle · Practice 3</h2>
 <p><strong>3.</strong> Translate into Japanese, politely: &quot;Is this seat free?&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-この席(せき)は空(あ)いています<strong>か</strong>。</p>
+この<ruby>席<rt>せき</rt></ruby>は<ruby>空<rt>あ</rt></ruby>いています<strong>か</strong>。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 The predicate is a verb in polite form, so <code>か</code> simply attaches to <code>います</code>. No word order changes and no extra word is needed to make it a question.</p>
 </div>
 </div>
-<div class="slide" data-index="127">
+<div class="slide" data-index="142">
   
   <div class="slide__content"><h2>か - question particle · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 友(とも)だちに「明日(あした)来(く)るか?」と聞(き)きました。</p>
+<p><strong>4.</strong> Find and fix the error: <ruby>友<rt>とも</rt></ruby>だちに「<ruby>明日<rt>あした</rt></ruby><ruby>来<rt>く</rt></ruby>るか?」と<ruby>聞<rt>き</rt></ruby>きました。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 友(とも)だちに「明日(あした)来(く)る?」と聞(き)きました。</p>
+✅ <ruby>友<rt>とも</rt></ruby>だちに「<ruby>明日<rt>あした</rt></ruby><ruby>来<rt>く</rt></ruby>る?」と<ruby>聞<rt>き</rt></ruby>きました。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 Plain form plus <code>か</code> aimed at a listener sounds harsh and confrontational. Between friends the particle is dropped and the question is carried by rising intonation alone.</p>
 </div>
 </div>
-<div class="slide" data-index="128">
+<div class="slide" data-index="143">
   
   <div class="slide__content"><h2>か - question particle · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) どうして会社(かいしゃ)を休(やす)みましたか。 (b) どうして会社(かいしゃ)を休(やす)んだんですか。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) どうして<ruby>会社<rt>かいしゃ</rt></ruby>を<ruby>休<rt>やす</rt></ruby>みましたか。 (b) どうして<ruby>会社<rt>かいしゃ</rt></ruby>を<ruby>休<rt>やす</rt></ruby>んだんですか。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 Both are polite and both ask why the person missed work. (a) is a bare request for a fact, and coming from a superior it can feel like being called in for questioning.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
@@ -4162,7 +4258,7 @@ Both are polite and both ask why the person missed work. (a) is a bare request f
     </div>
     <div id="hud-right">
       <a href="https://github.com/arpitbbhayani/deckrun" target="_blank" rel="noopener noreferrer" class="hud-brand" id="hud-brand" title="deckrun — Markdown presentations">powered by <span>deckrun</span></a>
-      <div id="slide-counter"><span id="cur">1</span>&nbsp;/&nbsp;<span id="tot">129</span></div>
+      <div id="slide-counter"><span id="cur">1</span>&nbsp;/&nbsp;<span id="tot">144</span></div>
     </div>
   </div>
 </div>
@@ -4215,7 +4311,7 @@ Both are polite and both ask why the person missed work. (a) is a bare request f
 
 
 
-<script id="deck-notes" type="application/json">["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]</script>
+<script id="deck-notes" type="application/json">["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]</script>
 <script id="deck-themes" type="application/json">{"themes":[{"id":"midnight","label":"midnight","mood":"dark","blurb":"Catppuccin Mocha. Violet on deep indigo, drifting orbs.","decor":"orbs","colors":{"crust":"#11111b","mantle":"#181825","base":"#1e1e2e","surface0":"#313244","overlay1":"#7f849c","subtext1":"#bac2de","text":"#cdd6f4","accent":"#cba6f7","accent2":"#89b4fa","accent3":"#89dceb"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"tokyo","label":"tokyo night","mood":"dark","blurb":"Neon cyan over a wireframe grid, lifted from a rainy skyline.","decor":"grid","colors":{"crust":"#16161e","mantle":"#1a1b26","base":"#1f2335","surface0":"#292e42","overlay1":"#7c86ab","subtext1":"#b7c0e0","text":"#c8d3f5","accent":"#2ac3de","accent2":"#bb9af7","accent3":"#73daca"},"fonts":{"display":"'Sora', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"nord","label":"nord","mood":"dark","blurb":"Arctic frost blue on polar slate, with slow contour waves.","decor":"waves","colors":{"crust":"#232831","mantle":"#2e3440","base":"#353c4a","surface0":"#3b4252","overlay1":"#8e9aae","subtext1":"#d8dee9","text":"#eceff4","accent":"#88c0d0","accent2":"#81a1c1","accent3":"#8fbcbb"},"fonts":{"display":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace","body":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"dracula","label":"dracula","mood":"dark","blurb":"Purple and hot pink over charcoal, lit by a gradient mesh.","decor":"mesh","colors":{"crust":"#1a1b23","mantle":"#21222c","base":"#282a36","surface0":"#343746","overlay1":"#7b85b6","subtext1":"#e2e4f0","text":"#f8f8f2","accent":"#bd93f9","accent2":"#ff79c6","accent3":"#8be9fd"},"fonts":{"display":"'Syne', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'Fira Code', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"gruvbox","label":"gruvbox","mood":"dark","blurb":"Warm amber and moss on retro brown, hatched like graph paper.","decor":"topo","colors":{"crust":"#1b1e1f","mantle":"#232728","base":"#282828","surface0":"#32302f","overlay1":"#928374","subtext1":"#d5c4a1","text":"#ebdbb2","accent":"#fabd2f","accent2":"#fe8019","accent3":"#b8bb26"},"fonts":{"display":"'Bricolage Grotesque', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Work Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"rosepine","label":"rosé pine","mood":"dark","blurb":"Muted iris and gold on plum, under a slow aurora.","decor":"aurora","colors":{"crust":"#14121f","mantle":"#191724","base":"#1f1d2e","surface0":"#26233a","overlay1":"#817c9c","subtext1":"#cdc9e6","text":"#e0def4","accent":"#c4a7e7","accent2":"#9ccfd8","accent3":"#f6c177"},"fonts":{"display":"'Fraunces', Georgia, 'Times New Roman', serif","body":"'Newsreader', Georgia, 'Times New Roman', serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"forest","label":"forest","mood":"dark","blurb":"Everforest sage on deep pine, rippling in concentric rings.","decor":"rings","colors":{"crust":"#232a2e","mantle":"#2d353b","base":"#343f44","surface0":"#3d484d","overlay1":"#9da9a0","subtext1":"#d3c6aa","text":"#e5dfd2","accent":"#a7c080","accent2":"#6fb5ac","accent3":"#dbbc7f"},"fonts":{"display":"'Outfit', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"neon","label":"neon","mood":"dark","blurb":"Electric cyan and magenta on true black, raked by light beams.","decor":"beams","colors":{"crust":"#050509","mantle":"#0a0a12","base":"#0e0e1a","surface0":"#16162a","overlay1":"#6a6a96","subtext1":"#c8c8e4","text":"#f0f0ff","accent":"#22d3ee","accent2":"#ff5cc8","accent3":"#38e8ff"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'Space Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"daylight","label":"daylight","mood":"light","blurb":"Catppuccin Latte, contrast-tuned for a projector. Dot matrix.","decor":"dots","colors":{"crust":"#ebebeb","mantle":"#f5f5f5","base":"#fafaf8","surface0":"#ccd0da","overlay1":"#5c5f77","subtext1":"#3a3c52","text":"#1e2030","accent":"#8839ef","accent2":"#1e66f5","accent3":"#179299"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"arctic","label":"arctic","mood":"light","blurb":"Nord inverted. Frost blue on cool paper, with contour waves.","decor":"waves","colors":{"crust":"#e3e8ef","mantle":"#eceff4","base":"#f7f9fc","surface0":"#dbe1ea","overlay1":"#5f6b7c","subtext1":"#364150","text":"#2e3440","accent":"#2f7d94","accent2":"#4a7ba7","accent3":"#3b8b8a"},"fonts":{"display":"'Manrope', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"solarized","label":"solarized","mood":"light","blurb":"The classic low-glare cream, paired with Lora for long prose.","decor":"topo","colors":{"crust":"#eee8d5","mantle":"#f5efdc","base":"#fdf6e3","surface0":"#e3ddc8","overlay1":"#657b83","subtext1":"#3f5b62","text":"#073642","accent":"#268bd2","accent2":"#6c71c4","accent3":"#21958c"},"fonts":{"display":"'Outfit', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Lora', Georgia, 'Times New Roman', serif","mono":"'Source Code Pro', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"paper","label":"paper","mood":"light","blurb":"Crimson serif on warm cream. Editorial, print-first, very legible.","decor":"rings","colors":{"crust":"#efe8dc","mantle":"#f7f2e9","base":"#fdfbf5","surface0":"#e4dccc","overlay1":"#6e6553","subtext1":"#38311f","text":"#211c11","accent":"#a81f2c","accent2":"#1f7f96","accent3":"#9a6c12"},"fonts":{"display":"'Fraunces', Georgia, 'Times New Roman', serif","body":"'Newsreader', Georgia, 'Times New Roman', serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"rosequartz","label":"rose quartz","mood":"light","blurb":"Rosé Pine Dawn. Blush and iris on linen, with soft orbs.","decor":"orbs","colors":{"crust":"#f2e9e1","mantle":"#faf4ed","base":"#fffaf3","surface0":"#ece0d8","overlay1":"#7d7791","subtext1":"#55506e","text":"#423d5c","accent":"#b4637a","accent2":"#907aa9","accent3":"#56949f"},"fonts":{"display":"'Playfair Display', Georgia, 'Times New Roman', serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"swiss","label":"swiss","mood":"light","blurb":"Black on white, one red. Heavy grotesk, tight tracking, hard grid.","decor":"grid","colors":{"crust":"#f0f0f0","mantle":"#f8f8f8","base":"#ffffff","surface0":"#dcdcdc","overlay1":"#5a5a5a","subtext1":"#222222","text":"#0a0a0a","accent":"#e01b24","accent2":"#0a0a0a","accent3":"#5a5a5a"},"fonts":{"display":"'Archivo', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}}],"hljsMap":{"midnight":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css","tokyo":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css","nord":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/nord.min.css","dracula":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/dracula.min.css","gruvbox":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/gruvbox-dark-medium.min.css","rosepine":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/ros-pine.min.css","forest":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css","neon":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/night-owl.min.css","daylight":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","arctic":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","solarized":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/solarized-light.min.css","paper":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","rosequartz":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/ros-pine-dawn.min.css","swiss":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css"},"decorMap":{"midnight":"orbs","tokyo":"grid","nord":"waves","dracula":"mesh","gruvbox":"topo","rosepine":"aurora","forest":"rings","neon":"beams","daylight":"dots","arctic":"waves","solarized":"topo","paper":"rings","rosequartz":"orbs","swiss":"grid"}}</script>
 
 <script>
@@ -5403,6 +5499,36 @@ Both are polite and both ask why the person missed work. (a) is a bare request f
     transition: opacity 0.15s ease, background 0.15s ease; }
   #deck-home:hover, #deck-home:focus-visible { opacity: 0.95; background: rgba(128,128,128,0.14); }
   @media print { #deck-home { display: none !important; } }
+  #furigana-toggle { position: fixed; bottom: 2.7rem; right: 1.1rem; z-index: 40;
+    font: 500 0.78rem/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+    color: currentColor; opacity: 0.38; cursor: pointer; user-select: none;
+    background: none; border: 1px solid currentColor; border-radius: 4px;
+    padding: 0.38rem 0.6rem;
+    transition: opacity 0.15s ease, background 0.15s ease; }
+  #furigana-toggle:hover, #furigana-toggle:focus-visible { opacity: 0.95; background: rgba(128,128,128,0.14); }
+  @media print { #furigana-toggle { display: none !important; } }
 </style>
+<button id="furigana-toggle" type="button" aria-pressed="true">&#12405;&#12426;&#12364;&#12394; ON</button>
+<script>
+  (function () {
+    // Deliberately click-only: readers who do not want furigana turn it off
+    // once and it sticks, while every key stays free for presenting.
+    var root = document.documentElement, btn = document.getElementById('furigana-toggle');
+    function paint() {
+      var off = root.getAttribute('data-furigana') === 'off';
+      btn.textContent = '\u3075\u308a\u304c\u306a ' + (off ? 'OFF' : 'ON');
+      btn.setAttribute('aria-pressed', String(!off));
+    }
+    btn.addEventListener('click', function () {
+      var off = root.getAttribute('data-furigana') === 'off';
+      if (off) root.removeAttribute('data-furigana');
+      else root.setAttribute('data-furigana', 'off');
+      try { localStorage.setItem('jlpt-furigana', off ? 'on' : 'off'); } catch (e) {}
+      paint();
+      btn.blur();
+    });
+    paint();
+  })();
+</script>
 </body>
 </html>

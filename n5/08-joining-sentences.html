@@ -2606,6 +2606,13 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
   gap: 0.5rem;
 }
   </style>
+<script>
+  try {
+    if (localStorage.getItem('jlpt-furigana') === 'off') {
+      document.documentElement.setAttribute('data-furigana', 'off');
+    }
+  } catch (e) {}
+</script>
 </head>
 <body>
 
@@ -2614,7 +2621,16 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <div id="presentation">
 <div class="slide" data-index="0">
   
-  <div class="slide__content"><style>html { font-size: 20.0px; }</style>
+  <div class="slide__content"><style>
+  html { font-size: 20.0px; }
+  .slide__content p, .slide__content li,
+  .slide__content td, .slide__content th { line-height: 2.05; }
+  rt { font-size: 0.5em; line-height: 1.1; opacity: 0.72; font-weight: 400; }
+  :root[data-furigana="off"] rt { display: none; }
+  :root[data-furigana="off"] .slide__content p, :root[data-furigana="off"] .slide__content li,
+  :root[data-furigana="off"] .slide__content td, :root[data-furigana="off"] .slide__content th
+    { line-height: 1.5; }
+</style>
 
 <h1>N5 - Joining sentences</h1>
 <ul>
@@ -2649,32 +2665,32 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <tbody><tr>
 <td>Noun (two items)</td>
 <td>Noun や Noun</td>
-<td>卵(たまご) + チーズ → 卵(たまご)やチーズ</td>
+<td><ruby>卵<rt>たまご</rt></ruby> + チーズ → <ruby>卵<rt>たまご</rt></ruby>やチーズ</td>
 </tr>
 <tr>
 <td>Noun (three or more)</td>
 <td>N や N や N</td>
-<td>ペンやノートや消(け)しゴム</td>
+<td>ペンやノートや<ruby>消<rt>け</rt></ruby>しゴム</td>
 </tr>
 <tr>
 <td>Rounded off with など</td>
 <td>N や N など</td>
-<td>野菜(やさい)や果物(くだもの)など</td>
+<td><ruby>野菜<rt>やさい</rt></ruby>や<ruby>果物<rt>くだもの</rt></ruby>など</td>
 </tr>
 <tr>
 <td>Followed by a case particle</td>
 <td>N や N + particle</td>
-<td>机(つくえ)や椅子(いす)<strong>を</strong>運(はこ)ぶ</td>
+<td><ruby>机<rt>つくえ</rt></ruby>や<ruby>椅子<rt>いす</rt></ruby><strong>を</strong><ruby>運<rt>はこ</rt></ruby>ぶ</td>
 </tr>
 <tr>
 <td>❌ Verbs</td>
 <td>not possible - use ～たり～たり</td>
-<td>❌読(よ)むや書(か)く</td>
+<td>❌<ruby>読<rt>よ</rt></ruby>むや<ruby>書<rt>か</rt></ruby>く</td>
 </tr>
 <tr>
 <td>❌ い-adjectives</td>
 <td>not possible - use ～くて</td>
-<td>❌安(やす)いやおいしい</td>
+<td>❌<ruby>安<rt>やす</rt></ruby>いやおいしい</td>
 </tr>
 </tbody></table>
 </div>
@@ -2690,145 +2706,161 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <div class="slide" data-index="4">
   
   <div class="slide__content"><h2>や · Examples</h2>
-<p>冷蔵庫(れいぞうこ)に卵(たまご)<strong>や</strong>チーズがあります。<br><em>There are eggs, cheese and so on in the fridge.</em></p>
-<p>週末(しゅうまつ)は洗濯(せんたく)<strong>や</strong>掃除(そうじ)をします。<br><em>On weekends I do laundry, cleaning, that kind of thing.</em></p>
-<p>引(ひ)き出(だ)しの中(なか)にはさみ<strong>や</strong>のりが入(はい)っています。<br><em>There are scissors, glue and suchlike in the drawer.</em></p>
-<p>京都(きょうと)<strong>や</strong>奈良(なら)へ行(い)ってみたいです。<br><em>I&#39;d like to visit Kyoto, Nara and places like that.</em></p>
-<p>この店(みせ)では野菜(やさい)<strong>や</strong>果物(くだもの)が安(やす)く買(か)えます。<br><em>At this shop you can buy vegetables, fruit and the like cheaply.</em></p>
+<p><ruby>冷蔵庫<rt>れいぞうこ</rt></ruby>に<ruby>卵<rt>たまご</rt></ruby><strong>や</strong>チーズがあります。<br><em>There are eggs, cheese and so on in the fridge.</em></p>
+<p><ruby>週末<rt>しゅうまつ</rt></ruby>は<ruby>洗濯<rt>せんたく</rt></ruby><strong>や</strong><ruby>掃除<rt>そうじ</rt></ruby>をします。<br><em>On weekends I do laundry, cleaning, that kind of thing.</em></p>
+<p><ruby>引<rt>ひ</rt></ruby>き<ruby>出<rt>だ</rt></ruby>しの<ruby>中<rt>なか</rt></ruby>にはさみ<strong>や</strong>のりが<ruby>入<rt>はい</rt></ruby>っています。<br><em>There are scissors, glue and suchlike in the drawer.</em></p>
+<p><ruby>京都<rt>きょうと</rt></ruby><strong>や</strong><ruby>奈良<rt>なら</rt></ruby>へ<ruby>行<rt>い</rt></ruby>ってみたいです。<br><em>I&#39;d like to visit Kyoto, Nara and places like that.</em></p>
 </div>
 </div>
 <div class="slide" data-index="5">
   
   <div class="slide__content"><h2>や · Examples (cont.)</h2>
-<p>夏休(なつやす)みには海(うみ)<strong>や</strong>山(やま)へ出(で)かける人(ひと)が多(おお)いです。<br><em>Over the summer holidays a lot of people head to the sea, the mountains and so on.</em></p>
-<p>昼(ひる)ごはんはおにぎり<strong>や</strong>サンドイッチで済(す)ませることが多(おお)い。<br><em>I usually make do with a rice ball or a sandwich or something for lunch.</em></p>
-<p>引(ひ)っ越(こ)しのとき、本棚(ほんだな)<strong>や</strong>古(ふる)いソファなどの大(おお)きい家具(かぐ)は全部(ぜんぶ)捨(す)てました。<br><em>When I moved I threw out all the big furniture - the bookshelf, the old sofa and so on.</em></p>
+<p>この<ruby>店<rt>みせ</rt></ruby>では<ruby>野菜<rt>やさい</rt></ruby><strong>や</strong><ruby>果物<rt>くだもの</rt></ruby>が<ruby>安<rt>やす</rt></ruby>く<ruby>買<rt>か</rt></ruby>えます。<br><em>At this shop you can buy vegetables, fruit and the like cheaply.</em></p>
+<p><ruby>夏休<rt>なつやす</rt></ruby>みには<ruby>海<rt>うみ</rt></ruby><strong>や</strong><ruby>山<rt>やま</rt></ruby>へ<ruby>出<rt>で</rt></ruby>かける<ruby>人<rt>ひと</rt></ruby>が<ruby>多<rt>おお</rt></ruby>いです。<br><em>Over the summer holidays a lot of people head to the sea, the mountains and so on.</em></p>
+<p><ruby>昼<rt>ひる</rt></ruby>ごはんはおにぎり<strong>や</strong>サンドイッチで<ruby>済<rt>す</rt></ruby>ませることが<ruby>多<rt>おお</rt></ruby>い。<br><em>I usually make do with a rice ball or a sandwich or something for lunch.</em></p>
+<p><ruby>引<rt>ひ</rt></ruby>っ<ruby>越<rt>こ</rt></ruby>しのとき、<ruby>本棚<rt>ほんだな</rt></ruby><strong>や</strong><ruby>古<rt>ふる</rt></ruby>いソファなどの<ruby>大<rt>おお</rt></ruby>きい<ruby>家具<rt>かぐ</rt></ruby>は<ruby>全部<rt>ぜんぶ</rt></ruby><ruby>捨<rt>す</rt></ruby>てました。<br><em>When I moved I threw out all the big furniture - the bookshelf, the old sofa and so on.</em></p>
 </div>
 </div>
 <div class="slide" data-index="6">
   
   <div class="slide__content"><h2>や · Nuance &amp; register</h2>
 <p><code>や</code> is register-neutral. It appears in newspapers, in textbooks and in ordinary conversation, and it does not sound stiff or casual either way.</p>
-<p>What it <em>does</em> carry is a small amount of politeness-by-vagueness. Because <code>や</code> declines to close the list, it sounds less like a bureaucratic inventory. Asked what you did on holiday, 海(うみ)や山(やま)に行(い)きました sounds relaxed; the same sentence with <code>と</code> sounds like you are filing a report.</p>
-<p><strong>In speech, <code>とか</code> does the same job and is much more common.</strong> 野菜(やさい)とか果物(くだもの)とか買(か)ってきて - that is what you would actually text a housemate. <code>とか</code> is casual, can repeat after the final item, and can (unlike <code>や</code>) also hang off verbs. In writing, prefer <code>や</code>.</p>
-<p><strong><code>など</code> is the natural finisher.</strong> <code>野菜(やさい)や果物(くだもの)など</code> makes the open-endedness explicit and is standard in written Japanese. In formal documents the same word is often written in kanji as <code>等(など)</code>; write it in kana at N5.</p>
+<p>What it <em>does</em> carry is a small amount of politeness-by-vagueness. Because <code>や</code> declines to close the list, it sounds less like a bureaucratic inventory. Asked what you did on holiday, <ruby>海<rt>うみ</rt></ruby>や<ruby>山<rt>やま</rt></ruby>に<ruby>行<rt>い</rt></ruby>きました sounds relaxed; the same sentence with <code>と</code> sounds like you are filing a report.</p>
+<p><strong>In speech, <code>とか</code> does the same job and is much more common.</strong> <ruby>野菜<rt>やさい</rt></ruby>とか<ruby>果物<rt>くだもの</rt></ruby>とか<ruby>買<rt>か</rt></ruby>ってきて - that is what you would actually text a housemate. <code>とか</code> is casual, can repeat after the final item, and can (unlike <code>や</code>) also hang off verbs. In writing, prefer <code>や</code>.</p>
 </div>
 </div>
 <div class="slide" data-index="7">
+  
+  <div class="slide__content"><h2>や · Nuance &amp; register (cont.)</h2>
+<p><strong><code>など</code> is the natural finisher.</strong> <code><ruby>野菜<rt>やさい</rt></ruby>や<ruby>果物<rt>くだもの</rt></ruby>など</code> makes the open-endedness explicit and is standard in written Japanese. In formal documents the same word is often written in kanji as <code><ruby>等<rt>など</rt></ruby></code>; write it in kana at N5.</p>
+</div>
+</div>
+<div class="slide" data-index="8">
   
   <div class="slide__content"><h2>や · や vs と</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>と</code> closes the list; <code>や</code> leaves it open. <code>と</code> = &quot;A and B, that&#39;s everything&quot;. <code>や</code> = &quot;A and B, among other things&quot;.</p>
 </blockquote>
 <p>This is the only difference, and it is a real one - a listener hears it.</p>
-<p>かばんの中(なか)には、さいふ<strong>と</strong>かぎがあります。<br><em>In my bag there&#39;s a wallet and a key. (Those two things. Nothing else.)</em></p>
-<p>かばんの中(なか)には、さいふ<strong>や</strong>かぎがあります。<br><em>In my bag there&#39;s a wallet, a key, stuff like that. (And other things besides.)</em></p>
-<p>Two consequences worth remembering. First, when the set really is fixed, <code>や</code> is odd: 日本(にほん)の大(おお)きい島(しま)は北海道(ほっかいどう)と本州(ほんしゅう)と… - you are enumerating, so use <code>と</code>. Second, <code>や</code> needs at least two items; ❌水(みず)やください is not a sentence.</p>
+<p>かばんの<ruby>中<rt>なか</rt></ruby>には、さいふ<strong>と</strong>かぎがあります。<br><em>In my bag there&#39;s a wallet and a key. (Those two things. Nothing else.)</em></p>
+<p>かばんの<ruby>中<rt>なか</rt></ruby>には、さいふ<strong>や</strong>かぎがあります。<br><em>In my bag there&#39;s a wallet, a key, stuff like that. (And other things besides.)</em></p>
 </div>
 </div>
-<div class="slide" data-index="8">
+<div class="slide" data-index="9">
+  
+  <div class="slide__content"><h2>や · や vs と (cont.)</h2>
+<p>Two consequences worth remembering. First, when the set really is fixed, <code>や</code> is odd: <ruby>日本<rt>にほん</rt></ruby>の<ruby>大<rt>おお</rt></ruby>きい<ruby>島<rt>しま</rt></ruby>は<ruby>北海道<rt>ほっかいどう</rt></ruby>と<ruby>本州<rt>ほんしゅう</rt></ruby>と… - you are enumerating, so use <code>と</code>. Second, <code>や</code> needs at least two items; ❌<ruby>水<rt>みず</rt></ruby>やください is not a sentence.</p>
+</div>
+</div>
+<div class="slide" data-index="10">
   
   <div class="slide__content"><h2>や · や vs とか</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - same meaning, different register. <code>や</code> is neutral-to-written; <code>とか</code> is spoken.</p>
 </blockquote>
 <p><code>とか</code> also repeats after the last item, which <code>や</code> cannot do.</p>
-<p>コーヒー<strong>とか</strong>お茶(ちゃ)<strong>とか</strong>、何(なに)か飲(の)む?<br><em>Coffee, tea, something - want a drink?</em></p>
-<p>And <code>とか</code> will attach to verbs, where <code>や</code> is simply ungrammatical: 走(はし)るとか泳(およ)ぐとか、運動(うんどう)をしたほうがいいよ。</p>
+<p>コーヒー<strong>とか</strong>お<ruby>茶<rt>ちゃ</rt></ruby><strong>とか</strong>、<ruby>何<rt>なに</rt></ruby>か<ruby>飲<rt>の</rt></ruby>む?<br><em>Coffee, tea, something - want a drink?</em></p>
+<p>And <code>とか</code> will attach to verbs, where <code>や</code> is simply ungrammatical: <ruby>走<rt>はし</rt></ruby>るとか<ruby>泳<rt>およ</rt></ruby>ぐとか、<ruby>運動<rt>うんどう</rt></ruby>をしたほうがいいよ。</p>
 </div>
 </div>
-<div class="slide" data-index="9">
+<div class="slide" data-index="11">
   
   <div class="slide__content"><h2>や · や vs ～たり～たり</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>や</code> lists <strong>nouns</strong>. To give a non-exhaustive list of <strong>actions</strong>, you need <code>～たり～たり</code>.</p>
 </blockquote>
 <p>Learners reach for <code>や</code> here because English uses &quot;and&quot; for both. Japanese does not.</p>
-<p>日曜日(にちようび)は音楽(おんがく)<strong>や</strong>映画(えいが)が好(す)きです。<br><em>On Sundays I like music, films, that sort of thing. (nouns - や is right)</em></p>
-<p>日曜日(にちようび)は音楽(おんがく)を聞(き)い<strong>たり</strong>映画(えいが)を見(み)<strong>たり</strong>します。<br><em>On Sundays I listen to music, watch films, and so on. (actions - たり is required)</em></p>
-</div>
-</div>
-<div class="slide" data-index="10">
-  
-  <div class="slide__content"><h2>や · Common mistakes</h2>
-<ul>
-<li><p>❌ 本(ほん)を読(よ)む<strong>や</strong>音楽(おんがく)を聞(き)きます。 → ✅ 本(ほん)を読(よ)ん<strong>だり</strong>音楽(おんがく)を聞(き)い<strong>たり</strong>します。<br><em><code>や</code> joins nouns only. A list of activities needs <code>～たり～たり</code>.</em></p>
-</li>
-<li><p>❌ この部屋(へや)は明(あか)るい<strong>や</strong>広(ひろ)いです。 → ✅ この部屋(へや)は明(あか)る<strong>くて</strong>広(ひろ)いです。<br><em>Adjectives chain with <code>くて</code>／<code>で</code>, never with <code>や</code>.</em></p>
-</li>
-<li><p>❌ ペン<strong>や</strong>ノート<strong>や</strong>を買(か)いました。 → ✅ ペン<strong>や</strong>ノート<strong>を</strong>買(か)いました。<br><em><code>や</code> goes <em>between</em> nouns. Nothing follows the last item except the case particle (or <code>など</code>).</em></p>
-</li>
-<li><p>❌ 父(ちち)<strong>や</strong>母(はは)は二人(ふたり)とも先生(せんせい)です。 → ✅ 父(ちち)<strong>と</strong>母(はは)は二人(ふたり)とも先生(せんせい)です。<br><em><code>二人(ふたり)とも</code> says the list is exactly two people, which contradicts the open-endedness of <code>や</code>.</em></p>
-</li>
-<li><p>❌ 野菜(やさい)<strong>など</strong>や果物(くだもの)を買(か)います。 → ✅ 野菜(やさい)<strong>や</strong>果物(くだもの)<strong>など</strong>を買(か)います。<br><em><code>など</code> closes the whole list, so it comes at the end - not in the middle.</em></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="slide" data-index="11">
-  
-  <div class="slide__content"><h2>や · Practice 1</h2>
-<p><strong>1.</strong> テーブルの上(うえ)にコップ____おさらがあります。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-テーブルの上(うえ)にコップ<strong>や</strong>おさらがあります。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Either <code>や</code> or <code>と</code> is grammatical here, and they say different things. With <code>や</code> the cups and plates are examples of what is on the table; with <code>と</code> they are the complete contents. If you can imagine a fork sitting there too, use <code>や</code>.</p>
+<p><ruby>日曜日<rt>にちようび</rt></ruby>は<ruby>音楽<rt>おんがく</rt></ruby><strong>や</strong><ruby>映画<rt>えいが</rt></ruby>が<ruby>好<rt>す</rt></ruby>きです。<br><em>On Sundays I like music, films, that sort of thing. (nouns - や is right)</em></p>
+<p><ruby>日曜日<rt>にちようび</rt></ruby>は<ruby>音楽<rt>おんがく</rt></ruby>を<ruby>聞<rt>き</rt></ruby>い<strong>たり</strong><ruby>映画<rt>えいが</rt></ruby>を<ruby>見<rt>み</rt></ruby><strong>たり</strong>します。<br><em>On Sundays I listen to music, watch films, and so on. (actions - たり is required)</em></p>
 </div>
 </div>
 <div class="slide" data-index="12">
   
-  <div class="slide__content"><h2>や · Practice 2</h2>
-<p><strong>2.</strong> 私(わたし)の家族(かぞく)は父(ちち)（や・と）母(はは)と私(わたし)の三人(さんにん)です。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-私(わたし)の家族(かぞく)は父(ちち)<strong>と</strong>母(はは)と私(わたし)の三人(さんにん)です。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>三人(さんにん)です</code> states the exact size of the set, so the list has to be exhaustive. <code>や</code> would promise that there are other family members you have not mentioned, which flatly contradicts the rest of the sentence.</p>
+  <div class="slide__content"><h2>や · Common mistakes</h2>
+<ul>
+<li><p>❌ <ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>む<strong>や</strong><ruby>音楽<rt>おんがく</rt></ruby>を<ruby>聞<rt>き</rt></ruby>きます。 → ✅ <ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>ん<strong>だり</strong><ruby>音楽<rt>おんがく</rt></ruby>を<ruby>聞<rt>き</rt></ruby>い<strong>たり</strong>します。<br><em><code>や</code> joins nouns only. A list of activities needs <code>～たり～たり</code>.</em></p>
+</li>
+<li><p>❌ この<ruby>部屋<rt>へや</rt></ruby>は<ruby>明<rt>あか</rt></ruby>るい<strong>や</strong><ruby>広<rt>ひろ</rt></ruby>いです。 → ✅ この<ruby>部屋<rt>へや</rt></ruby>は<ruby>明<rt>あか</rt></ruby>る<strong>くて</strong><ruby>広<rt>ひろ</rt></ruby>いです。<br><em>Adjectives chain with <code>くて</code>／<code>で</code>, never with <code>や</code>.</em></p>
+</li>
+<li><p>❌ ペン<strong>や</strong>ノート<strong>や</strong>を<ruby>買<rt>か</rt></ruby>いました。 → ✅ ペン<strong>や</strong>ノート<strong>を</strong><ruby>買<rt>か</rt></ruby>いました。<br><em><code>や</code> goes <em>between</em> nouns. Nothing follows the last item except the case particle (or <code>など</code>).</em></p>
+</li>
+<li><p>❌ <ruby>父<rt>ちち</rt></ruby><strong>や</strong><ruby>母<rt>はは</rt></ruby>は<ruby>二人<rt>ふたり</rt></ruby>とも<ruby>先生<rt>せんせい</rt></ruby>です。 → ✅ <ruby>父<rt>ちち</rt></ruby><strong>と</strong><ruby>母<rt>はは</rt></ruby>は<ruby>二人<rt>ふたり</rt></ruby>とも<ruby>先生<rt>せんせい</rt></ruby>です。<br><em><code><ruby>二人<rt>ふたり</rt></ruby>とも</code> says the list is exactly two people, which contradicts the open-endedness of <code>や</code>.</em></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="13">
   
-  <div class="slide__content"><h2>や · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese: &quot;I bought stamps, envelopes and things like that at the post office.&quot;</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-郵便局(ゆうびんきょく)で切手(きって)<strong>や</strong>封筒(ふうとう)（<strong>など</strong>）を買(か)いました。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-&quot;and things like that&quot; is exactly what <code>や</code> encodes, so no extra word is needed - though <code>など</code> after the final noun makes it unmistakable. Note that <code>を</code> attaches once, to the end of the whole list.</p>
+  <div class="slide__content"><h2>や · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ <ruby>野菜<rt>やさい</rt></ruby><strong>など</strong>や<ruby>果物<rt>くだもの</rt></ruby>を<ruby>買<rt>か</rt></ruby>います。 → ✅ <ruby>野菜<rt>やさい</rt></ruby><strong>や</strong><ruby>果物<rt>くだもの</rt></ruby><strong>など</strong>を<ruby>買<rt>か</rt></ruby>います。<br><em><code>など</code> closes the whole list, so it comes at the end - not in the middle.</em></li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="14">
   
-  <div class="slide__content"><h2>や · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 朝(あさ)はパンを食(た)べるや新聞(しんぶん)を読(よ)みます。</p>
+  <div class="slide__content"><h2>や · Practice 1</h2>
+<p><strong>1.</strong> テーブルの<ruby>上<rt>うえ</rt></ruby>にコップ____おさらがあります。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 朝(あさ)はパンを食(た)べ<strong>たり</strong>新聞(しんぶん)を読(よ)ん<strong>だり</strong>します。 &quot;In the morning I eat toast, read the paper, and so on.&quot;</p>
+テーブルの<ruby>上<rt>うえ</rt></ruby>にコップ<strong>や</strong>おさらがあります。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The two items being listed are <em>actions</em>, not nouns, so <code>や</code> cannot join them. The non-exhaustive list of actions is <code>～たり～たり</code>, and the sentence then ends in <code>します</code>.</p>
+Either <code>や</code> or <code>と</code> is grammatical here, and they say different things. With <code>や</code> the cups and plates are examples of what is on the table; with <code>と</code> they are the complete contents. If you can imagine a fork sitting there too, use <code>や</code>.</p>
 </div>
 </div>
 <div class="slide" data-index="15">
   
+  <div class="slide__content"><h2>や · Practice 2</h2>
+<p><strong>2.</strong> <ruby>私<rt>わたし</rt></ruby>の<ruby>家族<rt>かぞく</rt></ruby>は<ruby>父<rt>ちち</rt></ruby>（や・と）<ruby>母<rt>はは</rt></ruby>と<ruby>私<rt>わたし</rt></ruby>の<ruby>三人<rt>さんにん</rt></ruby>です。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>私<rt>わたし</rt></ruby>の<ruby>家族<rt>かぞく</rt></ruby>は<ruby>父<rt>ちち</rt></ruby><strong>と</strong><ruby>母<rt>はは</rt></ruby>と<ruby>私<rt>わたし</rt></ruby>の<ruby>三人<rt>さんにん</rt></ruby>です。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code><ruby>三人<rt>さんにん</rt></ruby>です</code> states the exact size of the set, so the list has to be exhaustive. <code>や</code> would promise that there are other family members you have not mentioned, which flatly contradicts the rest of the sentence.</p>
+</div>
+</div>
+<div class="slide" data-index="16">
+  
+  <div class="slide__content"><h2>や · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese: &quot;I bought stamps, envelopes and things like that at the post office.&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>郵便局<rt>ゆうびんきょく</rt></ruby>で<ruby>切手<rt>きって</rt></ruby><strong>や</strong><ruby>封筒<rt>ふうとう</rt></ruby>（<strong>など</strong>）を<ruby>買<rt>か</rt></ruby>いました。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+&quot;and things like that&quot; is exactly what <code>や</code> encodes, so no extra word is needed - though <code>など</code> after the final noun makes it unmistakable. Note that <code>を</code> attaches once, to the end of the whole list.</p>
+</div>
+</div>
+<div class="slide" data-index="17">
+  
+  <div class="slide__content"><h2>や · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the error: <ruby>朝<rt>あさ</rt></ruby>はパンを<ruby>食<rt>た</rt></ruby>べるや<ruby>新聞<rt>しんぶん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>みます。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ <ruby>朝<rt>あさ</rt></ruby>はパンを<ruby>食<rt>た</rt></ruby>べ<strong>たり</strong><ruby>新聞<rt>しんぶん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>ん<strong>だり</strong>します。 &quot;In the morning I eat toast, read the paper, and so on.&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The two items being listed are <em>actions</em>, not nouns, so <code>や</code> cannot join them. The non-exhaustive list of actions is <code>～たり～たり</code>, and the sentence then ends in <code>します</code>.</p>
+</div>
+</div>
+<div class="slide" data-index="18">
+  
   <div class="slide__content"><h2>や · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 土曜日(どようび)はそうじと買(か)い物(もの)をしました。 (b) 土曜日(どようび)はそうじや買(か)い物(もの)をしました。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>土曜日<rt>どようび</rt></ruby>はそうじと<ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>をしました。 (b) <ruby>土曜日<rt>どようび</rt></ruby>はそうじや<ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>をしました。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) presents cleaning and shopping as the whole of Saturday - those two jobs, and that is the account. It sounds like an answer to &quot;what exactly did you do?&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (b) offers them as samples of a busier day: cleaning, shopping, and other errands you are not bothering to list. Japanese speakers reach for (b) far more often in small talk, because pinning the day down to precisely two activities sounds strangely precise.</p>
 </div>
 </div>
-<div class="slide" data-index="16">
+<div class="slide" data-index="19">
   
   <div class="slide__content"><h1>ので</h1>
 <p><strong>Meaning</strong> · because - presenting the reason as a plain fact, not as your opinion</p>
 <p><code>ので</code> links a cause to its result. The half before <code>ので</code> is the reason; the half after it is what follows from that reason. It frames the connection as something anyone would accept, which is why it is the polite way to explain yourself when you are asking for indulgence.</p>
 </div>
 </div>
-<div class="slide" data-index="17">
+<div class="slide" data-index="20">
   
   <div class="slide__content"><h2>ので · Formation</h2>
 <p><code>ので</code> attaches to a <strong>clause</strong>, not to a word. The trap is nouns and な-adjectives, which need <code>な</code> in front of it.</p>
 </div>
 </div>
-<div class="slide" data-index="18">
+<div class="slide" data-index="21">
   
   <div class="slide__content"><h2>ので · Formation (cont.)</h2>
 <table>
@@ -2842,12 +2874,12 @@ The two items being listed are <em>actions</em>, not nouns, so <code>や</code> 
 <tbody><tr>
 <td>Verb (plain)</td>
 <td>plain form + ので</td>
-<td>降(ふ)る → 降(ふ)るので</td>
+<td><ruby>降<rt>ふ</rt></ruby>る → <ruby>降<rt>ふ</rt></ruby>るので</td>
 </tr>
 <tr>
 <td>Verb (past)</td>
 <td>た-form + ので</td>
-<td>遅(おく)れた → 遅(おく)れたので</td>
+<td><ruby>遅<rt>おく</rt></ruby>れた → <ruby>遅<rt>おく</rt></ruby>れたので</td>
 </tr>
 <tr>
 <td>Verb (negative)</td>
@@ -2857,213 +2889,213 @@ The two items being listed are <em>actions</em>, not nouns, so <code>や</code> 
 <tr>
 <td>い-adjective</td>
 <td>plain form + ので</td>
-<td>寒(さむ)い → 寒(さむ)いので</td>
+<td><ruby>寒<rt>さむ</rt></ruby>い → <ruby>寒<rt>さむ</rt></ruby>いので</td>
 </tr>
 <tr>
 <td>い-adjective (past)</td>
 <td>かった + ので</td>
-<td>寒(さむ)かったので</td>
+<td><ruby>寒<rt>さむ</rt></ruby>かったので</td>
 </tr>
 <tr>
 <td>な-adjective</td>
 <td>～<strong>な</strong> + ので</td>
-<td>静(しず)かだ → 静(しず)か<strong>な</strong>ので</td>
+<td><ruby>静<rt>しず</rt></ruby>かだ → <ruby>静<rt>しず</rt></ruby>か<strong>な</strong>ので</td>
 </tr>
 <tr>
 <td>Noun</td>
 <td>Noun + <strong>な</strong> + ので</td>
-<td>休(やす)みだ → 休(やす)み<strong>な</strong>ので</td>
+<td><ruby>休<rt>やす</rt></ruby>みだ → <ruby>休<rt>やす</rt></ruby>み<strong>な</strong>ので</td>
 </tr>
 <tr>
 <td>Noun (past)</td>
 <td>～だった + ので</td>
-<td>休(やす)みだったので</td>
+<td><ruby>休<rt>やす</rt></ruby>みだったので</td>
 </tr>
 <tr>
 <td>Polite (formal)</td>
 <td>ます-form + ので</td>
-<td>参(まい)ります → 参(まい)りますので</td>
+<td><ruby>参<rt>まい</rt></ruby>ります → <ruby>参<rt>まい</rt></ruby>りますので</td>
 </tr>
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="19">
+<div class="slide" data-index="22">
   
   <div class="slide__content"><h2>ので · Formation (cont.)</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - ❌<code>だので</code> does not exist. A noun or な-adjective takes <code>な</code> before <code>ので</code>, and <code>な</code> only. The past forms <code>だったので</code> are fine, because there the <code>だ</code> has already become <code>だった</code>.</p>
 </blockquote>
-<p>Politeness lives on the <strong>final</strong> verb of the sentence, not on the <code>ので</code> clause: 寒(さむ)いので、まどを閉(し)め<strong>ます</strong>. The ます-form before <code>ので</code> shown in the last row is a separate, extra-formal register - announcements and business email.</p>
-</div>
-</div>
-<div class="slide" data-index="20">
-  
-  <div class="slide__content"><h2>ので · Examples</h2>
-<p>寒(さむ)い<strong>ので</strong>、コートを着(き)ます。<br><em>It&#39;s cold, so I&#39;ll put a coat on.</em></p>
-<p>明日(あした)は休(やす)み<strong>なので</strong>、ゆっくり寝(ね)ます。<br><em>Tomorrow&#39;s a day off, so I&#39;m going to sleep in.</em></p>
-<p>電車(でんしゃ)が遅(おく)れた<strong>ので</strong>、会議(かいぎ)に間(ま)に合(あ)いませんでした。<br><em>The train was delayed, so I didn&#39;t make the meeting.</em></p>
-<p>図書館(としょかん)は静(しず)か<strong>なので</strong>、よく勉強(べんきょう)しに行(い)きます。<br><em>The library is quiet, so I often go there to study.</em></p>
-<p>頭(あたま)が痛(いた)い<strong>ので</strong>、先(さき)に失礼(しつれい)します。<br><em>I have a headache, so I&#39;ll head off before the rest of you.</em></p>
-</div>
-</div>
-<div class="slide" data-index="21">
-  
-  <div class="slide__content"><h2>ので · Examples (cont.)</h2>
-<p>まだ日本語(にほんご)が上手(じょうず)じゃない<strong>ので</strong>、ゆっくり話(はな)していただけませんか。<br><em>My Japanese still isn&#39;t very good, so could you speak slowly?</em></p>
-<p>子(こ)どもがまだ小(ちい)さい<strong>ので</strong>、夜(よる)の集(あつ)まりには参加(さんか)できません。<br><em>My children are still small, so I can&#39;t come to evening gatherings.</em></p>
-<p>台風(たいふう)が近(ちか)づいております<strong>ので</strong>、本日(ほんじつ)は早(はや)めに閉店(へいてん)させていただきます。<br><em>A typhoon is approaching, so we will be closing early today.</em></p>
-</div>
-</div>
-<div class="slide" data-index="22">
-  
-  <div class="slide__content"><h2>ので · Nuance &amp; register</h2>
-<p><code>ので</code> is polite-leaning but not itself a polite form - you will hear plain 眠(ねむ)いので寝(ね)る among friends. What it does is present the reason as <strong>objective</strong>: this is how things are, and the conclusion follows by itself.</p>
-<p>That objectivity is why <code>ので</code> is the excuse-making particle. Cancelling on someone, arriving late, asking to leave early - 急用(きゅうよう)ができました<strong>ので</strong> sounds like circumstances have decided, not like you have. Saying the same thing with <code>から</code> puts your own will in the frame and can land as &quot;because I say so&quot;.</p>
-<p><strong>The contraction is <code>んで</code>.</strong> 眠(ねむ)いんで先(さき)に帰(かえ)るね。 This is very common in casual speech and completely normal among friends, but it is markedly informal - it sounds rough in the mouth of a shop assistant and you should not write it. Learners often meet <code>んで</code> in dramas long before anyone tells them it is just <code>ので</code>.</p>
+<p>Politeness lives on the <strong>final</strong> verb of the sentence, not on the <code>ので</code> clause: <ruby>寒<rt>さむ</rt></ruby>いので、まどを<ruby>閉<rt>し</rt></ruby>め<strong>ます</strong>. The ます-form before <code>ので</code> shown in the last row is a separate, extra-formal register - announcements and business email.</p>
 </div>
 </div>
 <div class="slide" data-index="23">
   
-  <div class="slide__content"><h2>ので · Nuance &amp; register (cont.)</h2>
-<p>At the other end, <code>ますので</code> (as in the last example above) is service and business register. It is not more grammatical, just more deferential, and it belongs to announcements, apologies and formal email.</p>
-<p>One more habit worth copying: <code>ので</code> frequently ends a sentence on its own, with the consequence left unsaid. 今(いま)手(て)が離(はな)せないので…。 The listener supplies &quot;…so I can&#39;t right now&quot;, and nobody has had to refuse anything out loud.</p>
+  <div class="slide__content"><h2>ので · Examples</h2>
+<p><ruby>寒<rt>さむ</rt></ruby>い<strong>ので</strong>、コートを<ruby>着<rt>き</rt></ruby>ます。<br><em>It&#39;s cold, so I&#39;ll put a coat on.</em></p>
+<p><ruby>明日<rt>あした</rt></ruby>は<ruby>休<rt>やす</rt></ruby>み<strong>なので</strong>、ゆっくり<ruby>寝<rt>ね</rt></ruby>ます。<br><em>Tomorrow&#39;s a day off, so I&#39;m going to sleep in.</em></p>
+<p><ruby>電車<rt>でんしゃ</rt></ruby>が<ruby>遅<rt>おく</rt></ruby>れた<strong>ので</strong>、<ruby>会議<rt>かいぎ</rt></ruby>に<ruby>間<rt>ま</rt></ruby>に<ruby>合<rt>あ</rt></ruby>いませんでした。<br><em>The train was delayed, so I didn&#39;t make the meeting.</em></p>
+<p><ruby>図書館<rt>としょかん</rt></ruby>は<ruby>静<rt>しず</rt></ruby>か<strong>なので</strong>、よく<ruby>勉強<rt>べんきょう</rt></ruby>しに<ruby>行<rt>い</rt></ruby>きます。<br><em>The library is quiet, so I often go there to study.</em></p>
 </div>
 </div>
 <div class="slide" data-index="24">
+  
+  <div class="slide__content"><h2>ので · Examples (cont.)</h2>
+<p><ruby>頭<rt>あたま</rt></ruby>が<ruby>痛<rt>いた</rt></ruby>い<strong>ので</strong>、<ruby>先<rt>さき</rt></ruby>に<ruby>失礼<rt>しつれい</rt></ruby>します。<br><em>I have a headache, so I&#39;ll head off before the rest of you.</em></p>
+<p>まだ<ruby>日本語<rt>にほんご</rt></ruby>が<ruby>上手<rt>じょうず</rt></ruby>じゃない<strong>ので</strong>、ゆっくり<ruby>話<rt>はな</rt></ruby>していただけませんか。<br><em>My Japanese still isn&#39;t very good, so could you speak slowly?</em></p>
+<p><ruby>子<rt>こ</rt></ruby>どもがまだ<ruby>小<rt>ちい</rt></ruby>さい<strong>ので</strong>、<ruby>夜<rt>よる</rt></ruby>の<ruby>集<rt>あつ</rt></ruby>まりには<ruby>参加<rt>さんか</rt></ruby>できません。<br><em>My children are still small, so I can&#39;t come to evening gatherings.</em></p>
+<p><ruby>台風<rt>たいふう</rt></ruby>が<ruby>近<rt>ちか</rt></ruby>づいております<strong>ので</strong>、<ruby>本日<rt>ほんじつ</rt></ruby>は<ruby>早<rt>はや</rt></ruby>めに<ruby>閉店<rt>へいてん</rt></ruby>させていただきます。<br><em>A typhoon is approaching, so we will be closing early today.</em></p>
+</div>
+</div>
+<div class="slide" data-index="25">
+  
+  <div class="slide__content"><h2>ので · Nuance &amp; register</h2>
+<p><code>ので</code> is polite-leaning but not itself a polite form - you will hear plain <ruby>眠<rt>ねむ</rt></ruby>いので<ruby>寝<rt>ね</rt></ruby>る among friends. What it does is present the reason as <strong>objective</strong>: this is how things are, and the conclusion follows by itself.</p>
+<p>That objectivity is why <code>ので</code> is the excuse-making particle. Cancelling on someone, arriving late, asking to leave early - <ruby>急用<rt>きゅうよう</rt></ruby>ができました<strong>ので</strong> sounds like circumstances have decided, not like you have. Saying the same thing with <code>から</code> puts your own will in the frame and can land as &quot;because I say so&quot;.</p>
+</div>
+</div>
+<div class="slide" data-index="26">
+  
+  <div class="slide__content"><h2>ので · Nuance &amp; register (cont.)</h2>
+<p><strong>The contraction is <code>んで</code>.</strong> <ruby>眠<rt>ねむ</rt></ruby>いんで<ruby>先<rt>さき</rt></ruby>に<ruby>帰<rt>かえ</rt></ruby>るね。 This is very common in casual speech and completely normal among friends, but it is markedly informal - it sounds rough in the mouth of a shop assistant and you should not write it. Learners often meet <code>んで</code> in dramas long before anyone tells them it is just <code>ので</code>.</p>
+<p>At the other end, <code>ますので</code> (as in the last example above) is service and business register. It is not more grammatical, just more deferential, and it belongs to announcements, apologies and formal email.</p>
+</div>
+</div>
+<div class="slide" data-index="27">
+  
+  <div class="slide__content"><h2>ので · Nuance &amp; register (cont.)</h2>
+<p>One more habit worth copying: <code>ので</code> frequently ends a sentence on its own, with the consequence left unsaid. <ruby>今<rt>いま</rt></ruby><ruby>手<rt>て</rt></ruby>が<ruby>離<rt>はな</rt></ruby>せないので…。 The listener supplies &quot;…so I can&#39;t right now&quot;, and nobody has had to refuse anything out loud.</p>
+</div>
+</div>
+<div class="slide" data-index="28">
   
   <div class="slide__content"><h2>ので · ので vs から</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>から</code> is <em>my</em> reason; <code>ので</code> is <em>the</em> reason. <code>から</code> pushes, <code>ので</code> explains.</p>
 </blockquote>
 <p>Both mean &quot;because&quot; and both are correct in most sentences. The difference is whose judgement the reason belongs to.</p>
-<p>熱(ねつ)がある<strong>ので</strong>、今日(きょう)は休(やす)ませていただきます。<br><em>I have a fever, so I&#39;ll be taking today off. (Circumstances decide; I&#39;m reporting them.)</em></p>
-<p>熱(ねつ)がある<strong>から</strong>、今日(きょう)は休(やす)む。<br><em>I&#39;ve got a fever, so I&#39;m taking today off. (My call, stated plainly.)</em></p>
+<p><ruby>熱<rt>ねつ</rt></ruby>がある<strong>ので</strong>、<ruby>今日<rt>きょう</rt></ruby>は<ruby>休<rt>やす</rt></ruby>ませていただきます。<br><em>I have a fever, so I&#39;ll be taking today off. (Circumstances decide; I&#39;m reporting them.)</em></p>
+<p><ruby>熱<rt>ねつ</rt></ruby>がある<strong>から</strong>、<ruby>今日<rt>きょう</rt></ruby>は<ruby>休<rt>やす</rt></ruby>む。<br><em>I&#39;ve got a fever, so I&#39;m taking today off. (My call, stated plainly.)</em></p>
 <p>Practical consequences:</p>
 </div>
 </div>
-<div class="slide" data-index="25">
+<div class="slide" data-index="29">
   
   <div class="slide__content"><h2>ので · ので vs から (cont.)</h2>
 <ul>
 <li>Apologising or asking a favour of someone senior → <code>ので</code>. <code>から</code> can sound like<br><em>you are pressing your case.</em></li>
-<li>Strong personal statements, warnings, invitations, imperatives → <code>から</code>.<br><em>危(あぶ)ない*<em>から</em></em>、来(く)るな! An imperative with <code>ので</code> sounds mismatched, though polite requests with <code>ので</code> are completely normal and extremely common: 危(あぶ)ないので、下(さ)がってください。*</li>
+<li>Strong personal statements, warnings, invitations, imperatives → <code>から</code>.<br><em><ruby>危<rt>あぶ</rt></ruby>ない*<em>から</em></em>、<ruby>来<rt>く</rt></ruby>るな! An imperative with <code>ので</code> sounds mismatched, though polite requests with <code>ので</code> are completely normal and extremely common: <ruby>危<rt>あぶ</rt></ruby>ないので、<ruby>下<rt>さ</rt></ruby>がってください。*</li>
 <li>Answering the question どうして? → <code>からです</code>. ❌<code>のでです</code> is not a form.</li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="26">
+<div class="slide" data-index="30">
   
   <div class="slide__content"><h2>ので · ので vs のに</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - identical attachment, opposite meaning. <code>ので</code> = the result follows; <code>のに</code> = the result <em>fails</em> to follow, and the speaker is put out about it.</p>
 </blockquote>
 <p>They are one syllable apart and both take <code>な</code> after a noun, so they are easy to mix up in production.</p>
-<p>雨(あめ)が降(ふ)っている<strong>ので</strong>、試合(しあい)は中止(ちゅうし)です。<br><em>It&#39;s raining, so the match is cancelled.</em></p>
-<p>雨(あめ)が降(ふ)っている<strong>のに</strong>、試合(しあい)は中止(ちゅうし)になりませんでした。<br><em>It&#39;s raining, and yet the match wasn&#39;t cancelled.</em></p>
+<p><ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>っている<strong>ので</strong>、<ruby>試合<rt>しあい</rt></ruby>は<ruby>中止<rt>ちゅうし</rt></ruby>です。<br><em>It&#39;s raining, so the match is cancelled.</em></p>
+<p><ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>っている<strong>のに</strong>、<ruby>試合<rt>しあい</rt></ruby>は<ruby>中止<rt>ちゅうし</rt></ruby>になりませんでした。<br><em>It&#39;s raining, and yet the match wasn&#39;t cancelled.</em></p>
 <p><code>のに</code> always carries feeling - surprise, complaint, disappointment. <code>ので</code> is emotionally flat.</p>
 </div>
 </div>
-<div class="slide" data-index="27">
+<div class="slide" data-index="31">
   
   <div class="slide__content"><h2>ので · ので vs the plain て-form</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - the て-form can imply cause, but only when the result is something outside your control. If the second clause is a decision, a request or an invitation, you need <code>ので</code>.</p>
 </blockquote>
-<p>道(みち)が込(こ)んでいた<strong>ので</strong>、タクシーで行(い)きました。<br><em>The roads were busy, so I went by taxi. (a choice - ので)</em></p>
-<p>道(みち)が込(こ)んで<strong>いて</strong>、なかなか進(すす)めませんでした。<br><em>The roads were busy and we could hardly move. (no choice involved - て is fine)</em></p>
-<p>So ❌寒(さむ)くて、まどを閉(し)めてください is wrong; closing a window is a request. ✅寒(さむ)いので、まどを閉(し)めてください。</p>
-</div>
-</div>
-<div class="slide" data-index="28">
-  
-  <div class="slide__content"><h2>ので · Common mistakes</h2>
-<ul>
-<li><p>❌ 雨(あめ)<strong>だ</strong>ので、出(で)かけません。 → ✅ 雨(あめ)<strong>な</strong>ので、出(で)かけません。<br><em>A noun takes <code>な</code> before <code>ので</code>. The same goes for な-adjectives: ❌便利(べんり)だので → ✅便利(べんり)なので.</em></p>
-</li>
-<li><p>❌ どうして来(こ)なかったんですか。 -  - 忙(いそが)しかった<strong>のでです</strong>。 → ✅ 忙(いそが)しかった<strong>からです</strong>。<br><em><code>ので</code> connects two clauses; it cannot stand as a predicate. The stand-alone answer form is <code>からです</code>.</em></p>
-</li>
-<li><p>❌ 時間(じかん)がありません<strong>ので</strong>急(いそ)げ! → ✅ 時間(じかん)がない<strong>から</strong>急(いそ)げ!<br><em>A blunt imperative wants the subjective <code>から</code>. <code>ので</code> with a barked order sounds like two different people talking.</em></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="slide" data-index="29">
-  
-  <div class="slide__content"><h2>ので · Common mistakes (cont.)</h2>
-<ul>
-<li><p>❌ 会議(かいぎ)に間(ま)に合(あ)いませんでした<strong>ので</strong>電車(でんしゃ)が遅(おく)れました。 → ✅ 電車(でんしゃ)が遅(おく)れました<strong>ので</strong>、会議(かいぎ)に間(ま)に合(あ)いませんでした。<br><em>The reason comes <strong>first</strong>. Japanese never puts <code>ので</code> in front of the cause the way English puts &quot;because&quot; in front of it.</em></p>
-</li>
-<li><p>❌ 安(やす)かった<strong>なので</strong>買(か)いました。 → ✅ 安(やす)かった<strong>ので</strong>買(か)いました。<br><em>The <code>な</code> belongs only to nouns and な-adjectives in their non-past form. Once a predicate is already <code>かった</code> or <code>だった</code>, <code>ので</code> attaches bare.</em></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="slide" data-index="30">
-  
-  <div class="slide__content"><h2>ので · Practice 1</h2>
-<p><strong>1.</strong> 今日(きょう)は日曜日(にちようび)____、銀行(ぎんこう)は開(あ)いていません。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-今日(きょう)は日曜日(にちようび)<strong>なので</strong>、銀行(ぎんこう)は開(あ)いていません。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>日曜日(にちようび)</code> is a noun, so <code>ので</code> needs <code>な</code> in front of it. ❌<code>日曜日(にちようび)だので</code> is the single most common <code>ので</code> error, and it comes from thinking of <code>ので</code> as attaching to a finished sentence.</p>
-</div>
-</div>
-<div class="slide" data-index="31">
-  
-  <div class="slide__content"><h2>ので · Practice 2</h2>
-<p><strong>2.</strong> 山田(やまだ)さん、申(もう)し訳(わけ)ありません。急(きゅう)に用事(ようじ)ができました（ので・から）、今日(きょう)のパーティーは欠席(けっせき)させていただきます。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-…用事(ようじ)ができました<strong>ので</strong>、今日(きょう)のパーティーは欠席(けっせき)させていただきます。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-You are apologising to someone and asking to be excused, so you want the reason to look like circumstance rather than preference. <code>から</code> here would foreground your own decision and sound faintly self-justifying.</p>
+<p><ruby>道<rt>みち</rt></ruby>が<ruby>込<rt>こ</rt></ruby>んでいた<strong>ので</strong>、タクシーで<ruby>行<rt>い</rt></ruby>きました。<br><em>The roads were busy, so I went by taxi. (a choice - ので)</em></p>
+<p><ruby>道<rt>みち</rt></ruby>が<ruby>込<rt>こ</rt></ruby>んで<strong>いて</strong>、なかなか<ruby>進<rt>すす</rt></ruby>めませんでした。<br><em>The roads were busy and we could hardly move. (no choice involved - て is fine)</em></p>
+<p>So ❌<ruby>寒<rt>さむ</rt></ruby>くて、まどを<ruby>閉<rt>し</rt></ruby>めてください is wrong; closing a window is a request. ✅<ruby>寒<rt>さむ</rt></ruby>いので、まどを<ruby>閉<rt>し</rt></ruby>めてください。</p>
 </div>
 </div>
 <div class="slide" data-index="32">
   
-  <div class="slide__content"><h2>ので · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese: &quot;The room was noisy, so I couldn&#39;t sleep well.&quot;</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-部屋(へや)がうるさかった<strong>ので</strong>、よく寝(ね)られませんでした。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-うるさい is an い-adjective, so its past form <code>うるさかった</code> takes <code>ので</code> directly - no <code>な</code>. Note also that the whole sentence&#39;s tense sits on the final verb; you do not need to mark past twice in any special way.</p>
+  <div class="slide__content"><h2>ので · Common mistakes</h2>
+<ul>
+<li><p>❌ <ruby>雨<rt>あめ</rt></ruby><strong>だ</strong>ので、<ruby>出<rt>で</rt></ruby>かけません。 → ✅ <ruby>雨<rt>あめ</rt></ruby><strong>な</strong>ので、<ruby>出<rt>で</rt></ruby>かけません。<br><em>A noun takes <code>な</code> before <code>ので</code>. The same goes for な-adjectives: ❌<ruby>便利<rt>べんり</rt></ruby>だので → ✅<ruby>便利<rt>べんり</rt></ruby>なので.</em></p>
+</li>
+<li><p>❌ どうして<ruby>来<rt>こ</rt></ruby>なかったんですか。 -  - <ruby>忙<rt>いそが</rt></ruby>しかった<strong>のでです</strong>。 → ✅ <ruby>忙<rt>いそが</rt></ruby>しかった<strong>からです</strong>。<br><em><code>ので</code> connects two clauses; it cannot stand as a predicate. The stand-alone answer form is <code>からです</code>.</em></p>
+</li>
+<li><p>❌ <ruby>時間<rt>じかん</rt></ruby>がありません<strong>ので</strong><ruby>急<rt>いそ</rt></ruby>げ! → ✅ <ruby>時間<rt>じかん</rt></ruby>がない<strong>から</strong><ruby>急<rt>いそ</rt></ruby>げ!<br><em>A blunt imperative wants the subjective <code>から</code>. <code>ので</code> with a barked order sounds like two different people talking.</em></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="33">
   
-  <div class="slide__content"><h2>ので · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 字(じ)が小(ちい)さいので、もっと大(おお)きく書(か)け。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 字(じ)が小(ちい)さい<strong>から</strong>、もっと大(おお)きく書(か)け。 Or, keeping <code>ので</code>: 字(じ)が小(ちい)さいので、もっと大(おお)きく書(か)いてください。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The grammar of the <code>ので</code> clause is fine; the mismatch is in register. A bare imperative is maximally subjective, and it pairs with the subjective <code>から</code>. Swap either half and the sentence settles.</p>
+  <div class="slide__content"><h2>ので · Common mistakes (cont.)</h2>
+<ul>
+<li><p>❌ <ruby>会議<rt>かいぎ</rt></ruby>に<ruby>間<rt>ま</rt></ruby>に<ruby>合<rt>あ</rt></ruby>いませんでした<strong>ので</strong><ruby>電車<rt>でんしゃ</rt></ruby>が<ruby>遅<rt>おく</rt></ruby>れました。 → ✅ <ruby>電車<rt>でんしゃ</rt></ruby>が<ruby>遅<rt>おく</rt></ruby>れました<strong>ので</strong>、<ruby>会議<rt>かいぎ</rt></ruby>に<ruby>間<rt>ま</rt></ruby>に<ruby>合<rt>あ</rt></ruby>いませんでした。<br><em>The reason comes <strong>first</strong>. Japanese never puts <code>ので</code> in front of the cause the way English puts &quot;because&quot; in front of it.</em></p>
+</li>
+<li><p>❌ <ruby>安<rt>やす</rt></ruby>かった<strong>なので</strong><ruby>買<rt>か</rt></ruby>いました。 → ✅ <ruby>安<rt>やす</rt></ruby>かった<strong>ので</strong><ruby>買<rt>か</rt></ruby>いました。<br><em>The <code>な</code> belongs only to nouns and な-adjectives in their non-past form. Once a predicate is already <code>かった</code> or <code>だった</code>, <code>ので</code> attaches bare.</em></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="34">
   
+  <div class="slide__content"><h2>ので · Practice 1</h2>
+<p><strong>1.</strong> <ruby>今日<rt>きょう</rt></ruby>は<ruby>日曜日<rt>にちようび</rt></ruby>____、<ruby>銀行<rt>ぎんこう</rt></ruby>は<ruby>開<rt>あ</rt></ruby>いていません。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>今日<rt>きょう</rt></ruby>は<ruby>日曜日<rt>にちようび</rt></ruby><strong>なので</strong>、<ruby>銀行<rt>ぎんこう</rt></ruby>は<ruby>開<rt>あ</rt></ruby>いていません。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code><ruby>日曜日<rt>にちようび</rt></ruby></code> is a noun, so <code>ので</code> needs <code>な</code> in front of it. ❌<code><ruby>日曜日<rt>にちようび</rt></ruby>だので</code> is the single most common <code>ので</code> error, and it comes from thinking of <code>ので</code> as attaching to a finished sentence.</p>
+</div>
+</div>
+<div class="slide" data-index="35">
+  
+  <div class="slide__content"><h2>ので · Practice 2</h2>
+<p><strong>2.</strong> <ruby>山田<rt>やまだ</rt></ruby>さん、<ruby>申<rt>もう</rt></ruby>し<ruby>訳<rt>わけ</rt></ruby>ありません。<ruby>急<rt>きゅう</rt></ruby>に<ruby>用事<rt>ようじ</rt></ruby>ができました（ので・から）、<ruby>今日<rt>きょう</rt></ruby>のパーティーは<ruby>欠席<rt>けっせき</rt></ruby>させていただきます。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+…<ruby>用事<rt>ようじ</rt></ruby>ができました<strong>ので</strong>、<ruby>今日<rt>きょう</rt></ruby>のパーティーは<ruby>欠席<rt>けっせき</rt></ruby>させていただきます。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+You are apologising to someone and asking to be excused, so you want the reason to look like circumstance rather than preference. <code>から</code> here would foreground your own decision and sound faintly self-justifying.</p>
+</div>
+</div>
+<div class="slide" data-index="36">
+  
+  <div class="slide__content"><h2>ので · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese: &quot;The room was noisy, so I couldn&#39;t sleep well.&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>部屋<rt>へや</rt></ruby>がうるさかった<strong>ので</strong>、よく<ruby>寝<rt>ね</rt></ruby>られませんでした。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+うるさい is an い-adjective, so its past form <code>うるさかった</code> takes <code>ので</code> directly - no <code>な</code>. Note also that the whole sentence&#39;s tense sits on the final verb; you do not need to mark past twice in any special way.</p>
+</div>
+</div>
+<div class="slide" data-index="37">
+  
+  <div class="slide__content"><h2>ので · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the error: <ruby>字<rt>じ</rt></ruby>が<ruby>小<rt>ちい</rt></ruby>さいので、もっと<ruby>大<rt>おお</rt></ruby>きく<ruby>書<rt>か</rt></ruby>け。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ <ruby>字<rt>じ</rt></ruby>が<ruby>小<rt>ちい</rt></ruby>さい<strong>から</strong>、もっと<ruby>大<rt>おお</rt></ruby>きく<ruby>書<rt>か</rt></ruby>け。 Or, keeping <code>ので</code>: <ruby>字<rt>じ</rt></ruby>が<ruby>小<rt>ちい</rt></ruby>さいので、もっと<ruby>大<rt>おお</rt></ruby>きく<ruby>書<rt>か</rt></ruby>いてください。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The grammar of the <code>ので</code> clause is fine; the mismatch is in register. A bare imperative is maximally subjective, and it pairs with the subjective <code>から</code>. Swap either half and the sentence settles.</p>
+</div>
+</div>
+<div class="slide" data-index="38">
+  
   <div class="slide__content"><h2>ので · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 時間(じかん)がないから、また今度(こんど)にしましょう。 (b) 時間(じかん)がないので、また今度(こんど)にしましょう。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>時間<rt>じかん</rt></ruby>がないから、また<ruby>今度<rt>こんど</rt></ruby>にしましょう。 (b) <ruby>時間<rt>じかん</rt></ruby>がないので、また<ruby>今度<rt>こんど</rt></ruby>にしましょう。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 Both propose postponing, and both are perfectly natural. (a) puts the shortage of time forward as the speaker&#39;s own read on the situation - it is direct, it is what you say to a friend, and among strangers it can sound slightly brusque.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (b) presents the lack of time as an external fact that has made the decision for both of you. It is the softer, more deferential version, and it is what you would say to a client or a teacher. Nothing about the facts differs; only who is seen to be deciding.</p>
 </div>
 </div>
-<div class="slide" data-index="35">
+<div class="slide" data-index="39">
   
   <div class="slide__content"><h1>けど / けれども</h1>
 <p><strong>Meaning</strong> · but; although - and, very often, just a soft way to start talking</p>
 <p><code>けど</code> joins two clauses where the second is not what the first led you to expect. It is also, in everyday Japanese, the ordinary way to preface a request or a piece of news without landing on it too hard.</p>
 </div>
 </div>
-<div class="slide" data-index="36">
+<div class="slide" data-index="40">
   
   <div class="slide__content"><h2>けど / けれども · Formation</h2>
 <p><code>けど</code> clips onto the <strong>end of a finished clause</strong>, plain or polite. Nouns and な-adjectives need <code>だ</code> (plain) or <code>です</code> (polite) first.</p>
-</div>
-</div>
-<div class="slide" data-index="37">
-  
-  <div class="slide__content"><h2>けど / けれども · Formation (cont.)</h2>
 <table>
 <thead>
 <tr>
@@ -3075,42 +3107,42 @@ Both propose postponing, and both are perfectly natural. (a) puts the shortage o
 <tbody><tr>
 <td>Verb (plain)</td>
 <td>plain form + けど</td>
-<td>行(い)く → 行(い)くけど</td>
+<td><ruby>行<rt>い</rt></ruby>く → <ruby>行<rt>い</rt></ruby>くけど</td>
 </tr>
 <tr>
 <td>Verb (polite)</td>
 <td>ます-form + けど</td>
-<td>行(い)きます → 行(い)きますけど</td>
+<td><ruby>行<rt>い</rt></ruby>きます → <ruby>行<rt>い</rt></ruby>きますけど</td>
 </tr>
 <tr>
 <td>Verb (past)</td>
 <td>た-form + けど</td>
-<td>行(い)った → 行(い)ったけど</td>
+<td><ruby>行<rt>い</rt></ruby>った → <ruby>行<rt>い</rt></ruby>ったけど</td>
 </tr>
 <tr>
 <td>い-adjective</td>
 <td>plain form + けど</td>
-<td>高(たか)い → 高(たか)いけど</td>
+<td><ruby>高<rt>たか</rt></ruby>い → <ruby>高<rt>たか</rt></ruby>いけど</td>
 </tr>
 <tr>
 <td>な-adjective</td>
 <td>～<strong>だ</strong> + けど</td>
-<td>便利(べんり)だ → 便利(べんり)<strong>だ</strong>けど／便利(べんり)<strong>です</strong>けど</td>
+<td><ruby>便利<rt>べんり</rt></ruby>だ → <ruby>便利<rt>べんり</rt></ruby><strong>だ</strong>けど／<ruby>便利<rt>べんり</rt></ruby><strong>です</strong>けど</td>
 </tr>
 <tr>
 <td>Noun</td>
 <td>Noun + <strong>だ</strong> + けど</td>
-<td>学生(がくせい) → 学生(がくせい)<strong>だ</strong>けど／学生(がくせい)<strong>です</strong>けど</td>
+<td><ruby>学生<rt>がくせい</rt></ruby> → <ruby>学生<rt>がくせい</rt></ruby><strong>だ</strong>けど／<ruby>学生<rt>がくせい</rt></ruby><strong>です</strong>けど</td>
 </tr>
 <tr>
 <td>Negative</td>
 <td>ない-form + けど</td>
-<td>知(し)らないけど</td>
+<td><ruby>知<rt>し</rt></ruby>らないけど</td>
 </tr>
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="38">
+<div class="slide" data-index="41">
   
   <div class="slide__content"><h2>けど / けれども · Formation (cont.)</h2>
 <p>The four spellings are one word at four levels of formality:</p>
@@ -3125,22 +3157,22 @@ Both propose postponing, and both are perfectly natural. (a) puts the shortage o
 <tbody><tr>
 <td>Casual speech</td>
 <td>けど</td>
-<td>安(やす)いけど</td>
+<td><ruby>安<rt>やす</rt></ruby>いけど</td>
 </tr>
 <tr>
 <td>Slightly softer</td>
 <td>けども</td>
-<td>安(やす)いですけども</td>
+<td><ruby>安<rt>やす</rt></ruby>いですけども</td>
 </tr>
 <tr>
 <td>Neutral / written</td>
 <td>けれど</td>
-<td>安(やす)いけれど</td>
+<td><ruby>安<rt>やす</rt></ruby>いけれど</td>
 </tr>
 <tr>
 <td>Formal / written</td>
 <td>けれども</td>
-<td>安(やす)いけれども</td>
+<td><ruby>安<rt>やす</rt></ruby>いけれども</td>
 </tr>
 </tbody></table>
 <blockquote>
@@ -3148,165 +3180,176 @@ Both propose postponing, and both are perfectly natural. (a) puts the shortage o
 </blockquote>
 </div>
 </div>
-<div class="slide" data-index="39">
-  
-  <div class="slide__content"><h2>けど / けれども · Examples</h2>
-<p>このケーキは甘(あま)い<strong>けど</strong>、おいしくない。<br><em>This cake is sweet but it isn&#39;t good.</em></p>
-<p>日本語(にほんご)は難(むずか)しい<strong>けど</strong>、楽(たの)しいです。<br><em>Japanese is hard, but it&#39;s fun.</em></p>
-<p>昨日(きのう)電話(でんわ)した<strong>けど</strong>、出(で)なかったね。<br><em>I called you yesterday, but you didn&#39;t pick up.</em></p>
-<p>すみません、中村(なかむら)<strong>ですけど</strong>、部長(ぶちょう)はいらっしゃいますか。<br><em>Excuse me, this is Nakamura - is the department head in?</em></p>
-<p>夏(なつ)の海(うみ)は好(す)き<strong>だけど</strong>、人(ひと)が多(おお)すぎるのはちょっとね。<br><em>I love the sea in summer, but the crowds are a bit much.</em></p>
-</div>
-</div>
-<div class="slide" data-index="40">
-  
-  <div class="slide__content"><h2>けど / けれども · Examples (cont.)</h2>
-<p>去年(きょねん)買(か)った自転車(じてんしゃ)は安(やす)かった<strong>けれども</strong>、ひと月(つき)で壊(こわ)れてしまった。<br><em>The bike I bought last year was cheap, but it broke within a month.</em></p>
-<p>一度(いちど)メールを送(おく)りました<strong>けど</strong>、まだお返事(へんじ)をいただいていません。<br><em>I did send an email once, but I haven&#39;t had a reply yet.</em></p>
-<p>申(もう)し訳(わけ)ありません<strong>けれども</strong>、明日(あした)の会(かい)は欠席(けっせき)させていただきます。<br><em>I&#39;m very sorry, but I&#39;ll have to miss tomorrow&#39;s meeting.</em></p>
-</div>
-</div>
-<div class="slide" data-index="41">
-  
-  <div class="slide__content"><h2>けど / けれども · Nuance &amp; register</h2>
-<p><code>けど</code> is one of the most-used words in spoken Japanese, and most of the time it is not really contrastive at all.</p>
-<p><strong>The trailing <code>けど</code>.</strong> A sentence that stops on <code>けど</code> is a complete, polite utterance. 少(すこ)し伺(うかが)いたいことがあるんですけど…。 Nothing has been left out by accident; the <code>けど</code> hands the floor to the listener instead of stating your business flatly. Requests, complaints, refusals and first approaches to a stranger nearly all arrive this way, and a learner who never uses trailing <code>けど</code> sounds blunt without knowing why.</p>
-<p><strong>The preface <code>けど</code>.</strong> 映画(えいが)の話(はなし)なんですけど、今週(こんしゅう)見(み)に行(い)きませんか。 Here <code>けど</code> marks the first clause as background - &quot;about the film&quot; - with no contrast whatsoever. Translating it as &quot;but&quot; gives nonsense; it is closer to English &quot;so,&quot;.</p>
-</div>
-</div>
 <div class="slide" data-index="42">
   
-  <div class="slide__content"><h2>けど / けれども · Nuance &amp; register (cont.)</h2>
-<p><strong>Register.</strong> <code>けど</code> is casual but not rude, and it is fine after <code>です</code>／<code>ます</code>: 高(たか)いですけど、いいですか。 is perfectly polite. <code>けれども</code> in speech sounds careful and slightly formal; in writing it is unremarkable. <code>けども</code> is a spoken middle ground you will hear a lot from shop staff.</p>
-<p><code>けど</code> is not gender- or age-marked. What <em>is</em> marked is stacking: two <code>けど</code> clauses in one sentence sounds rambling, and three sounds like you have lost the thread.</p>
+  <div class="slide__content"><h2>けど / けれども · Examples</h2>
+<p>このケーキは<ruby>甘<rt>あま</rt></ruby>い<strong>けど</strong>、おいしくない。<br><em>This cake is sweet but it isn&#39;t good.</em></p>
+<p><ruby>日本語<rt>にほんご</rt></ruby>は<ruby>難<rt>むずか</rt></ruby>しい<strong>けど</strong>、<ruby>楽<rt>たの</rt></ruby>しいです。<br><em>Japanese is hard, but it&#39;s fun.</em></p>
+<p><ruby>昨日<rt>きのう</rt></ruby><ruby>電話<rt>でんわ</rt></ruby>した<strong>けど</strong>、<ruby>出<rt>で</rt></ruby>なかったね。<br><em>I called you yesterday, but you didn&#39;t pick up.</em></p>
+<p>すみません、<ruby>中村<rt>なかむら</rt></ruby><strong>ですけど</strong>、<ruby>部長<rt>ぶちょう</rt></ruby>はいらっしゃいますか。<br><em>Excuse me, this is Nakamura - is the department head in?</em></p>
 </div>
 </div>
 <div class="slide" data-index="43">
+  
+  <div class="slide__content"><h2>けど / けれども · Examples (cont.)</h2>
+<p><ruby>夏<rt>なつ</rt></ruby>の<ruby>海<rt>うみ</rt></ruby>は<ruby>好<rt>す</rt></ruby>き<strong>だけど</strong>、<ruby>人<rt>ひと</rt></ruby>が<ruby>多<rt>おお</rt></ruby>すぎるのはちょっとね。<br><em>I love the sea in summer, but the crowds are a bit much.</em></p>
+<p><ruby>去年<rt>きょねん</rt></ruby><ruby>買<rt>か</rt></ruby>った<ruby>自転車<rt>じてんしゃ</rt></ruby>は<ruby>安<rt>やす</rt></ruby>かった<strong>けれども</strong>、ひと<ruby>月<rt>つき</rt></ruby>で<ruby>壊<rt>こわ</rt></ruby>れてしまった。<br><em>The bike I bought last year was cheap, but it broke within a month.</em></p>
+<p><ruby>一度<rt>いちど</rt></ruby>メールを<ruby>送<rt>おく</rt></ruby>りました<strong>けど</strong>、まだお<ruby>返事<rt>へんじ</rt></ruby>をいただいていません。<br><em>I did send an email once, but I haven&#39;t had a reply yet.</em></p>
+<p><ruby>申<rt>もう</rt></ruby>し<ruby>訳<rt>わけ</rt></ruby>ありません<strong>けれども</strong>、<ruby>明日<rt>あした</rt></ruby>の<ruby>会<rt>かい</rt></ruby>は<ruby>欠席<rt>けっせき</rt></ruby>させていただきます。<br><em>I&#39;m very sorry, but I&#39;ll have to miss tomorrow&#39;s meeting.</em></p>
+</div>
+</div>
+<div class="slide" data-index="44">
+  
+  <div class="slide__content"><h2>けど / けれども · Nuance &amp; register</h2>
+<p><code>けど</code> is one of the most-used words in spoken Japanese, and most of the time it is not really contrastive at all.</p>
+<p><strong>The trailing <code>けど</code>.</strong> A sentence that stops on <code>けど</code> is a complete, polite utterance. <ruby>少<rt>すこ</rt></ruby>し<ruby>伺<rt>うかが</rt></ruby>いたいことがあるんですけど…。 Nothing has been left out by accident; the <code>けど</code> hands the floor to the listener instead of stating your business flatly. Requests, complaints, refusals and first approaches to a stranger nearly all arrive this way, and a learner who never uses trailing <code>けど</code> sounds blunt without knowing why.</p>
+</div>
+</div>
+<div class="slide" data-index="45">
+  
+  <div class="slide__content"><h2>けど / けれども · Nuance &amp; register (cont.)</h2>
+<p><strong>The preface <code>けど</code>.</strong> <ruby>映画<rt>えいが</rt></ruby>の<ruby>話<rt>はなし</rt></ruby>なんですけど、<ruby>今週<rt>こんしゅう</rt></ruby><ruby>見<rt>み</rt></ruby>に<ruby>行<rt>い</rt></ruby>きませんか。 Here <code>けど</code> marks the first clause as background - &quot;about the film&quot; - with no contrast whatsoever. Translating it as &quot;but&quot; gives nonsense; it is closer to English &quot;so,&quot;.</p>
+<p><strong>Register.</strong> <code>けど</code> is casual but not rude, and it is fine after <code>です</code>／<code>ます</code>: <ruby>高<rt>たか</rt></ruby>いですけど、いいですか。 is perfectly polite. <code>けれども</code> in speech sounds careful and slightly formal; in writing it is unremarkable. <code>けども</code> is a spoken middle ground you will hear a lot from shop staff.</p>
+<p><code>けど</code> is not gender- or age-marked. What <em>is</em> marked is stacking: two <code>けど</code> clauses in one sentence sounds rambling, and three sounds like you have lost the thread.</p>
+</div>
+</div>
+<div class="slide" data-index="46">
   
   <div class="slide__content"><h2>けど / けれども · けど vs が</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - same grammar, different formality. <code>が</code> is the written and formal member of the pair; <code>けど</code> is the spoken one.</p>
 </blockquote>
 <p>They are interchangeable in structure - both attach to a finished clause, both can be contrastive or merely prefatory, both can trail off at the end.</p>
-<p>値段(ねだん)は高(たか)いです<strong>が</strong>、品質(ひんしつ)はたしかです。<br><em>It is expensive, but the quality is dependable. (a written product description)</em></p>
-<p>値段(ねだん)は高(たか)い<strong>けど</strong>、ものはいいよ。<br><em>Pricey, but it&#39;s good stuff. (the same claim, said to a friend)</em></p>
+<p><ruby>値段<rt>ねだん</rt></ruby>は<ruby>高<rt>たか</rt></ruby>いです<strong>が</strong>、<ruby>品質<rt>ひんしつ</rt></ruby>はたしかです。<br><em>It is expensive, but the quality is dependable. (a written product description)</em></p>
+<p><ruby>値段<rt>ねだん</rt></ruby>は<ruby>高<rt>たか</rt></ruby>い<strong>けど</strong>、ものはいいよ。<br><em>Pricey, but it&#39;s good stuff. (the same claim, said to a friend)</em></p>
 </div>
 </div>
-<div class="slide" data-index="44">
+<div class="slide" data-index="47">
   
   <div class="slide__content"><h2>けど / けれども · けど vs が (cont.)</h2>
-<p>Two practical notes. <code>が</code> after a plain form (高(たか)いが) reads as literary, not casual - plain form plus <code>が</code> belongs to essays, not chat. And in a speech or a formal email, <code>が</code> is the safe default.</p>
+<p>Two practical notes. <code>が</code> after a plain form (<ruby>高<rt>たか</rt></ruby>いが) reads as literary, not casual - plain form plus <code>が</code> belongs to essays, not chat. And in a speech or a formal email, <code>が</code> is the safe default.</p>
 </div>
 </div>
-<div class="slide" data-index="45">
+<div class="slide" data-index="48">
   
   <div class="slide__content"><h2>けど / けれども · けど vs でも</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>けど</code> goes at the <strong>end</strong> of the first clause. <code>でも</code> goes at the <strong>start</strong> of the second sentence. They are never interchangeable in position.</p>
 </blockquote>
-<p>この部屋(へや)は狭(せま)い<strong>けど</strong>、明(あか)るいです。<br><em>This room is small, but it&#39;s bright. (one sentence)</em></p>
-<p>この部屋(へや)は狭(せま)いです。<strong>でも</strong>、明(あか)るいです。<br><em>This room is small. But it&#39;s bright. (two sentences)</em></p>
-<p>This is the mistake English speakers make most, because English &quot;but&quot; sits between the two halves and so <em>looks</em> like <code>でも</code>. It is not: ❌狭(せま)いでも is ungrammatical. If the word comes after the first clause, it must be <code>けど</code>.</p>
+<p>この<ruby>部屋<rt>へや</rt></ruby>は<ruby>狭<rt>せま</rt></ruby>い<strong>けど</strong>、<ruby>明<rt>あか</rt></ruby>るいです。<br><em>This room is small, but it&#39;s bright. (one sentence)</em></p>
+<p>この<ruby>部屋<rt>へや</rt></ruby>は<ruby>狭<rt>せま</rt></ruby>いです。<strong>でも</strong>、<ruby>明<rt>あか</rt></ruby>るいです。<br><em>This room is small. But it&#39;s bright. (two sentences)</em></p>
 </div>
 </div>
-<div class="slide" data-index="46">
+<div class="slide" data-index="49">
+  
+  <div class="slide__content"><h2>けど / けれども · けど vs でも (cont.)</h2>
+<p>This is the mistake English speakers make most, because English &quot;but&quot; sits between the two halves and so <em>looks</em> like <code>でも</code>. It is not: ❌<ruby>狭<rt>せま</rt></ruby>いでも is ungrammatical. If the word comes after the first clause, it must be <code>けど</code>.</p>
+</div>
+</div>
+<div class="slide" data-index="50">
   
   <div class="slide__content"><h2>けど / けれども · けど vs のに</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>のに</code> is <code>けど</code> plus a grievance. Use <code>のに</code> only when the outcome genuinely disappoints or surprises the speaker.</p>
 </blockquote>
-<p>三時間(さんじかん)待(ま)った<strong>けど</strong>、来(こ)なかった。<br><em>I waited three hours, but he didn&#39;t come.</em></p>
-<p>三時間(さんじかん)も待(ま)った<strong>のに</strong>、来(こ)なかった。<br><em>I waited three whole hours and he still didn&#39;t come! (and I&#39;m annoyed)</em></p>
-<p>Because <code>のに</code> carries emotion, it is wrong where you are simply setting two facts side by side: ❌弟(おとうと)は背(せ)が低(ひく)いのに、兄(あに)は高(たか)いです。 Nobody&#39;s expectation has been thwarted by how tall someone&#39;s brother is, so this needs <code>けど</code>.</p>
-</div>
-</div>
-<div class="slide" data-index="47">
-  
-  <div class="slide__content"><h2>けど / けれども · Common mistakes</h2>
-<ul>
-<li><p>❌ 学生(がくせい)けど、働(はたら)いています。 → ✅ 学生(がくせい)<strong>だ</strong>けど、働(はたら)いています。<br><em>A noun cannot sit bare in front of <code>けど</code>. Insert <code>だ</code> (plain) or <code>です</code> (polite). Same for な-adjectives: ❌静(しず)かけど → ✅静(しず)か<strong>だ</strong>けど.</em></p>
-</li>
-<li><p>❌ 高(たか)いでも、買(か)います。 → ✅ 高(たか)い<strong>けど</strong>、買(か)います。<br><em><code>でも</code> cannot follow a clause. It opens a new sentence: 高(たか)いです。<strong>でも</strong>、買(か)います。</em></p>
-</li>
-<li><p>❌ 雨(あめ)が降(ふ)っているけど、傘(かさ)を持(も)っているけど、ぬれました。 → ✅ 雨(あめ)が降(ふ)っていて傘(かさ)も持(も)っていたけど、ぬれました。<br><em>One <code>けど</code> per sentence. Chaining them reads as unfinished thinking.</em></p>
-</li>
-<li><p>❌ 安(やす)いけれども。 as a full written sentence → ✅ 安(やす)いけれども、買(か)いませんでした。<br><em>Trailing off is a <em>spoken</em> move. In writing, finish the sentence - a dangling <code>けれども</code> on the page just looks truncated.</em></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="slide" data-index="48">
-  
-  <div class="slide__content"><h2>けど / けれども · Common mistakes (cont.)</h2>
-<ul>
-<li>❌ けど、明日(あした)は行(い)けません。 (at the start of a sentence) → ✅ でも、明日(あした)は行(い)けません。<br><em><code>けど</code> is a clause-final connective. To begin a sentence with &quot;but&quot;, use <code>でも</code>, <code>しかし</code>, or <code>ですが</code>.</em></li>
-</ul>
-</div>
-</div>
-<div class="slide" data-index="49">
-  
-  <div class="slide__content"><h2>けど / けれども · Practice 1</h2>
-<p><strong>1.</strong> この辞書(じしょ)は便利(べんり)____、重(おも)いです。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-この辞書(じしょ)は便利(べんり)<strong>だけど</strong>（polite: <strong>ですけど</strong>）、重(おも)いです。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>便利(べんり)</code> is a な-adjective, so it cannot touch <code>けど</code> directly - you need <code>だ</code> or <code>です</code> between them. ❌<code>便利(べんり)けど</code> and ❌<code>便利(べんり)なけど</code> are both wrong.</p>
-</div>
-</div>
-<div class="slide" data-index="50">
-  
-  <div class="slide__content"><h2>けど / けれども · Practice 2</h2>
-<p><strong>2.</strong> 時間(じかん)がなかったです。（けど・でも）、全部(ぜんぶ)終(お)わりました。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-時間(じかん)がなかったです。<strong>でも</strong>、全部(ぜんぶ)終(お)わりました。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The first clause has already been closed with <code>です</code> and a full stop, so the connector is starting a new sentence - that is <code>でも</code>&#39;s job. <code>けど</code> would have had to attach inside the first sentence: 時間(じかん)がなかったけど、全部(ぜんぶ)終(お)わりました。</p>
+<p><ruby>三時間<rt>さんじかん</rt></ruby><ruby>待<rt>ま</rt></ruby>った<strong>けど</strong>、<ruby>来<rt>こ</rt></ruby>なかった。<br><em>I waited three hours, but he didn&#39;t come.</em></p>
+<p><ruby>三時間<rt>さんじかん</rt></ruby>も<ruby>待<rt>ま</rt></ruby>った<strong>のに</strong>、<ruby>来<rt>こ</rt></ruby>なかった。<br><em>I waited three whole hours and he still didn&#39;t come! (and I&#39;m annoyed)</em></p>
 </div>
 </div>
 <div class="slide" data-index="51">
   
-  <div class="slide__content"><h2>けど / けれども · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese: &quot;I&#39;ve read the book, but I don&#39;t really understand it.&quot;</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-その本(ほん)は読(よ)みました<strong>けど</strong>、あまりわかりません。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Polite <code>ました</code> plus <code>けど</code> is a completely normal combination - <code>けど</code> does not drag the register down. In casual speech: 読(よ)んだ<strong>けど</strong>、あまりわからない。</p>
+  <div class="slide__content"><h2>けど / けれども · けど vs のに (cont.)</h2>
+<p>Because <code>のに</code> carries emotion, it is wrong where you are simply setting two facts side by side: ❌<ruby>弟<rt>おとうと</rt></ruby>は<ruby>背<rt>せ</rt></ruby>が<ruby>低<rt>ひく</rt></ruby>いのに、<ruby>兄<rt>あに</rt></ruby>は<ruby>高<rt>たか</rt></ruby>いです。 Nobody&#39;s expectation has been thwarted by how tall someone&#39;s brother is, so this needs <code>けど</code>.</p>
 </div>
 </div>
 <div class="slide" data-index="52">
   
-  <div class="slide__content"><h2>けど / けれども · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: すみません、道(みち)を聞(き)きたいでも、いいですか。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ すみません、道(みち)を聞(き)きたいん<strong>ですけど</strong>、いいですか。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>でも</code> cannot follow a clause, and here the speaker is not contrasting anything anyway - this is the prefatory <code>けど</code> that softens an approach to a stranger. The <code>んですけど</code> shape is the standard opening for asking a favour.</p>
+  <div class="slide__content"><h2>けど / けれども · Common mistakes</h2>
+<ul>
+<li><p>❌ <ruby>学生<rt>がくせい</rt></ruby>けど、<ruby>働<rt>はたら</rt></ruby>いています。 → ✅ <ruby>学生<rt>がくせい</rt></ruby><strong>だ</strong>けど、<ruby>働<rt>はたら</rt></ruby>いています。<br><em>A noun cannot sit bare in front of <code>けど</code>. Insert <code>だ</code> (plain) or <code>です</code> (polite). Same for な-adjectives: ❌<ruby>静<rt>しず</rt></ruby>かけど → ✅<ruby>静<rt>しず</rt></ruby>か<strong>だ</strong>けど.</em></p>
+</li>
+<li><p>❌ <ruby>高<rt>たか</rt></ruby>いでも、<ruby>買<rt>か</rt></ruby>います。 → ✅ <ruby>高<rt>たか</rt></ruby>い<strong>けど</strong>、<ruby>買<rt>か</rt></ruby>います。<br><em><code>でも</code> cannot follow a clause. It opens a new sentence: <ruby>高<rt>たか</rt></ruby>いです。<strong>でも</strong>、<ruby>買<rt>か</rt></ruby>います。</em></p>
+</li>
+<li><p>❌ <ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>っているけど、<ruby>傘<rt>かさ</rt></ruby>を<ruby>持<rt>も</rt></ruby>っているけど、ぬれました。 → ✅ <ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>っていて<ruby>傘<rt>かさ</rt></ruby>も<ruby>持<rt>も</rt></ruby>っていたけど、ぬれました。<br><em>One <code>けど</code> per sentence. Chaining them reads as unfinished thinking.</em></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="53">
   
+  <div class="slide__content"><h2>けど / けれども · Common mistakes (cont.)</h2>
+<ul>
+<li><p>❌ <ruby>安<rt>やす</rt></ruby>いけれども。 as a full written sentence → ✅ <ruby>安<rt>やす</rt></ruby>いけれども、<ruby>買<rt>か</rt></ruby>いませんでした。<br><em>Trailing off is a <em>spoken</em> move. In writing, finish the sentence - a dangling <code>けれども</code> on the page just looks truncated.</em></p>
+</li>
+<li><p>❌ けど、<ruby>明日<rt>あした</rt></ruby>は<ruby>行<rt>い</rt></ruby>けません。 (at the start of a sentence) → ✅ でも、<ruby>明日<rt>あした</rt></ruby>は<ruby>行<rt>い</rt></ruby>けません。<br><em><code>けど</code> is a clause-final connective. To begin a sentence with &quot;but&quot;, use <code>でも</code>, <code>しかし</code>, or <code>ですが</code>.</em></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="54">
+  
+  <div class="slide__content"><h2>けど / けれども · Practice 1</h2>
+<p><strong>1.</strong> この<ruby>辞書<rt>じしょ</rt></ruby>は<ruby>便利<rt>べんり</rt></ruby>____、<ruby>重<rt>おも</rt></ruby>いです。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+この<ruby>辞書<rt>じしょ</rt></ruby>は<ruby>便利<rt>べんり</rt></ruby><strong>だけど</strong>（polite: <strong>ですけど</strong>）、<ruby>重<rt>おも</rt></ruby>いです。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code><ruby>便利<rt>べんり</rt></ruby></code> is a な-adjective, so it cannot touch <code>けど</code> directly - you need <code>だ</code> or <code>です</code> between them. ❌<code><ruby>便利<rt>べんり</rt></ruby>けど</code> and ❌<code><ruby>便利<rt>べんり</rt></ruby>なけど</code> are both wrong.</p>
+</div>
+</div>
+<div class="slide" data-index="55">
+  
+  <div class="slide__content"><h2>けど / けれども · Practice 2</h2>
+<p><strong>2.</strong> <ruby>時間<rt>じかん</rt></ruby>がなかったです。（けど・でも）、<ruby>全部<rt>ぜんぶ</rt></ruby><ruby>終<rt>お</rt></ruby>わりました。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>時間<rt>じかん</rt></ruby>がなかったです。<strong>でも</strong>、<ruby>全部<rt>ぜんぶ</rt></ruby><ruby>終<rt>お</rt></ruby>わりました。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The first clause has already been closed with <code>です</code> and a full stop, so the connector is starting a new sentence - that is <code>でも</code>&#39;s job. <code>けど</code> would have had to attach inside the first sentence: <ruby>時間<rt>じかん</rt></ruby>がなかったけど、<ruby>全部<rt>ぜんぶ</rt></ruby><ruby>終<rt>お</rt></ruby>わりました。</p>
+</div>
+</div>
+<div class="slide" data-index="56">
+  
+  <div class="slide__content"><h2>けど / けれども · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese: &quot;I&#39;ve read the book, but I don&#39;t really understand it.&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+その<ruby>本<rt>ほん</rt></ruby>は<ruby>読<rt>よ</rt></ruby>みました<strong>けど</strong>、あまりわかりません。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+Polite <code>ました</code> plus <code>けど</code> is a completely normal combination - <code>けど</code> does not drag the register down. In casual speech: <ruby>読<rt>よ</rt></ruby>んだ<strong>けど</strong>、あまりわからない。</p>
+</div>
+</div>
+<div class="slide" data-index="57">
+  
+  <div class="slide__content"><h2>けど / けれども · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the error: すみません、<ruby>道<rt>みち</rt></ruby>を<ruby>聞<rt>き</rt></ruby>きたいでも、いいですか。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ すみません、<ruby>道<rt>みち</rt></ruby>を<ruby>聞<rt>き</rt></ruby>きたいん<strong>ですけど</strong>、いいですか。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code>でも</code> cannot follow a clause, and here the speaker is not contrasting anything anyway - this is the prefatory <code>けど</code> that softens an approach to a stranger. The <code>んですけど</code> shape is the standard opening for asking a favour.</p>
+</div>
+</div>
+<div class="slide" data-index="58">
+  
   <div class="slide__content"><h2>けど / けれども · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 毎日(まいにち)練習(れんしゅう)したけど、試合(しあい)に負(ま)けました。 (b) 毎日(まいにち)練習(れんしゅう)したのに、試合(しあい)に負(ま)けました。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>毎日<rt>まいにち</rt></ruby><ruby>練習<rt>れんしゅう</rt></ruby>したけど、<ruby>試合<rt>しあい</rt></ruby>に<ruby>負<rt>ま</rt></ruby>けました。 (b) <ruby>毎日<rt>まいにち</rt></ruby><ruby>練習<rt>れんしゅう</rt></ruby>したのに、<ruby>試合<rt>しあい</rt></ruby>に<ruby>負<rt>ま</rt></ruby>けました。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) states two facts and marks the second as unexpected. It is neutral - a reasonable thing to write in a diary or say to a coach without making a scene.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (b) adds the speaker&#39;s feeling: after all that practice, losing is unfair or maddening. <code>のに</code> is never emotionally blank. Use it when you want the listener to hear the disappointment, and <code>けど</code> when you just want the facts joined.</p>
 </div>
 </div>
-<div class="slide" data-index="54">
+<div class="slide" data-index="59">
   
   <div class="slide__content"><h1>～てから</h1>
 <p><strong>Meaning</strong> · after doing X - and X has to happen first for Y to be possible</p>
 <p><code>～てから</code> puts two actions in order and says the first one <em>clears the way</em> for the second. It is not a neutral timestamp: the reason you mention washing your hands before eating is that eating comes after washing, and should.</p>
 </div>
 </div>
-<div class="slide" data-index="55">
+<div class="slide" data-index="60">
   
   <div class="slide__content"><h2>～てから · Formation</h2>
 <p><code>から</code> clips onto the plain <strong>て-form</strong>. It never conjugates and never carries tense - the tense of the whole sentence sits on the final verb.</p>
 </div>
 </div>
-<div class="slide" data-index="56">
+<div class="slide" data-index="61">
   
   <div class="slide__content"><h2>～てから · Formation (cont.)</h2>
 <table>
@@ -3320,214 +3363,220 @@ Polite <code>ました</code> plus <code>けど</code> is a completely normal co
 <tbody><tr>
 <td>Verb</td>
 <td>て-form + から</td>
-<td>食(た)べる → 食(た)べてから</td>
+<td><ruby>食<rt>た</rt></ruby>べる → <ruby>食<rt>た</rt></ruby>べてから</td>
 </tr>
 <tr>
 <td>Verb (voiced て-form)</td>
 <td>で-form + から</td>
-<td>読(よ)む → 読(よ)ん<strong>で</strong>から</td>
+<td><ruby>読<rt>よ</rt></ruby>む → <ruby>読<rt>よ</rt></ruby>ん<strong>で</strong>から</td>
 </tr>
 <tr>
 <td>する</td>
 <td>して + から</td>
-<td>勉強(べんきょう)する → 勉強(べんきょう)してから</td>
+<td><ruby>勉強<rt>べんきょう</rt></ruby>する → <ruby>勉強<rt>べんきょう</rt></ruby>してから</td>
 </tr>
 <tr>
-<td>来(く)る</td>
-<td>来(き)て + から</td>
-<td>来(く)る → 来(き)てから</td>
+<td><ruby>来<rt>く</rt></ruby>る</td>
+<td><ruby>来<rt>き</rt></ruby>て + から</td>
+<td><ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>き</rt></ruby>てから</td>
 </tr>
 <tr>
 <td>Tense of the sentence</td>
 <td>on the <strong>final</strong> verb only</td>
-<td>洗(あら)ってから食(た)べ<strong>ました</strong></td>
+<td><ruby>洗<rt>あら</rt></ruby>ってから<ruby>食<rt>た</rt></ruby>べ<strong>ました</strong></td>
 </tr>
 <tr>
 <td>Politeness</td>
 <td>on the <strong>final</strong> verb only</td>
-<td>洗(あら)ってから食(た)べ<strong>ます</strong></td>
+<td><ruby>洗<rt>あら</rt></ruby>ってから<ruby>食<rt>た</rt></ruby>べ<strong>ます</strong></td>
 </tr>
 <tr>
 <td>❌ Noun</td>
 <td>not possible - use Noun + のあとで</td>
-<td>❌仕事(しごと)のてから</td>
+<td>❌<ruby>仕事<rt>しごと</rt></ruby>のてから</td>
 </tr>
 <tr>
 <td>❌ Negative</td>
 <td>❌ないでから does not exist - rephrase</td>
-<td>❌見(み)ないでから</td>
+<td>❌<ruby>見<rt>み</rt></ruby>ないでから</td>
 </tr>
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="57">
+<div class="slide" data-index="62">
   
   <div class="slide__content"><h2>～てから · Formation (cont.)</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - the verb in front of <code>から</code> is <em>always</em> bare て-form. ❌帰(かえ)りますてから, ❌帰(かえ)ったから and ❌帰(かえ)るから all mean something else or nothing at all.</p>
+<p><strong>Rule of thumb</strong> - the verb in front of <code>から</code> is <em>always</em> bare て-form. ❌<ruby>帰<rt>かえ</rt></ruby>りますてから, ❌<ruby>帰<rt>かえ</rt></ruby>ったから and ❌<ruby>帰<rt>かえ</rt></ruby>るから all mean something else or nothing at all.</p>
 </blockquote>
 <blockquote>
-<p><strong>Note</strong> - <code>～てから</code> has a second, closely related job: measuring elapsed time from a starting point. 日本(にほん)に来(き)てから３年(ねん)になります - &quot;it&#39;s been three years since I came to Japan.&quot; Same form, and the logic is the same (everything after that point rests on it), but here the second clause is a duration rather than an action.</p>
+<p><strong>Note</strong> - <code>～てから</code> has a second, closely related job: measuring elapsed time from a starting point. <ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>き</rt></ruby>てから３<ruby>年<rt>ねん</rt></ruby>になります - &quot;it&#39;s been three years since I came to Japan.&quot; Same form, and the logic is the same (everything after that point rests on it), but here the second clause is a duration rather than an action.</p>
 </blockquote>
 </div>
 </div>
-<div class="slide" data-index="58">
+<div class="slide" data-index="63">
   
   <div class="slide__content"><h2>～てから · Examples</h2>
-<p>手(て)を洗(あら)っ<strong>てから</strong>、ごはんを食(た)べます。<br><em>I&#39;ll wash my hands and then eat.</em></p>
-<p>宿題(しゅくだい)をし<strong>てから</strong>、テレビを見(み)なさい。<br><em>Do your homework first, then watch television.</em></p>
-<p>お金(かね)を入(い)れ<strong>てから</strong>、ボタンを押(お)してください。<br><em>Put the money in first, then press the button.</em></p>
-<p>靴(くつ)を脱(ぬ)い<strong>でから</strong>、上(あ)がってください。<br><em>Please take your shoes off before you come up.</em></p>
-<p>日本(にほん)に来(き)<strong>てから</strong>、３年(ねん)が経(た)ちました。<br><em>Three years have passed since I came to Japan.</em></p>
+<p><ruby>手<rt>て</rt></ruby>を<ruby>洗<rt>あら</rt></ruby>っ<strong>てから</strong>、ごはんを<ruby>食<rt>た</rt></ruby>べます。<br><em>I&#39;ll wash my hands and then eat.</em></p>
+<p><ruby>宿題<rt>しゅくだい</rt></ruby>をし<strong>てから</strong>、テレビを<ruby>見<rt>み</rt></ruby>なさい。<br><em>Do your homework first, then watch television.</em></p>
+<p>お<ruby>金<rt>かね</rt></ruby>を<ruby>入<rt>い</rt></ruby>れ<strong>てから</strong>、ボタンを<ruby>押<rt>お</rt></ruby>してください。<br><em>Put the money in first, then press the button.</em></p>
+<p><ruby>靴<rt>くつ</rt></ruby>を<ruby>脱<rt>ぬ</rt></ruby>い<strong>でから</strong>、<ruby>上<rt>あ</rt></ruby>がってください。<br><em>Please take your shoes off before you come up.</em></p>
 </div>
 </div>
-<div class="slide" data-index="59">
+<div class="slide" data-index="64">
   
   <div class="slide__content"><h2>～てから · Examples (cont.)</h2>
-<p>説明書(せつめいしょ)をよく読(よ)ん<strong>でから</strong>、組(く)み立(た)ててください。<br><em>Read the instructions carefully before you assemble it.</em></p>
-<p>大学(だいがく)を卒業(そつぎょう)し<strong>てから</strong>、ずっと同(おな)じ会社(かいしゃ)で働(はたら)いています。<br><em>I&#39;ve worked at the same company ever since I graduated.</em></p>
-<p>会議(かいぎ)の資料(しりょう)は、部長(ぶちょう)に確認(かくにん)していただい<strong>てから</strong>、皆(みな)さんにお送(おく)りします。<br><em>I&#39;ll send the meeting materials round once the department head has checked them.</em></p>
+<p><ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>き</rt></ruby><strong>てから</strong>、３<ruby>年<rt>ねん</rt></ruby>が<ruby>経<rt>た</rt></ruby>ちました。<br><em>Three years have passed since I came to Japan.</em></p>
+<p><ruby>説明書<rt>せつめいしょ</rt></ruby>をよく<ruby>読<rt>よ</rt></ruby>ん<strong>でから</strong>、<ruby>組<rt>く</rt></ruby>み<ruby>立<rt>た</rt></ruby>ててください。<br><em>Read the instructions carefully before you assemble it.</em></p>
+<p><ruby>大学<rt>だいがく</rt></ruby>を<ruby>卒業<rt>そつぎょう</rt></ruby>し<strong>てから</strong>、ずっと<ruby>同<rt>おな</rt></ruby>じ<ruby>会社<rt>かいしゃ</rt></ruby>で<ruby>働<rt>はたら</rt></ruby>いています。<br><em>I&#39;ve worked at the same company ever since I graduated.</em></p>
+<p><ruby>会議<rt>かいぎ</rt></ruby>の<ruby>資料<rt>しりょう</rt></ruby>は、<ruby>部長<rt>ぶちょう</rt></ruby>に<ruby>確認<rt>かくにん</rt></ruby>していただい<strong>てから</strong>、<ruby>皆<rt>みな</rt></ruby>さんにお<ruby>送<rt>おく</rt></ruby>りします。<br><em>I&#39;ll send the meeting materials round once the department head has checked them.</em></p>
 </div>
 </div>
-<div class="slide" data-index="60">
+<div class="slide" data-index="65">
   
   <div class="slide__content"><h2>～てから · Nuance &amp; register</h2>
 <p><code>～てから</code> is register-neutral. It has no casual contraction and no formal variant; the politeness of the sentence is decided entirely by the verb at the end.</p>
-<p>What it does carry is a faint sense of <strong>order being observed</strong>. That makes it the natural form for instructions, rules and procedures - machine displays, recipes, safety notices, and parents talking to children all use it. ボタンを押(お)してから、レバーを下(さ)げてください reads as a step-by-step procedure in a way that the plain て-form does not.</p>
-<p>The flip side: because <code>てから</code> insists on the ordering, using it for two things that merely happened to follow one another sounds fussy. 起(お)きてから窓(まど)を開(あ)けて、顔(かお)を洗(あら)ってから服(ふく)を着(き)て… - nobody narrates a morning like that. <strong>One <code>てから</code> per sentence</strong> is the practical limit; when you need a longer chain, use plain て-forms and reserve <code>てから</code> for the one step that genuinely gates the rest.</p>
+<p>What it does carry is a faint sense of <strong>order being observed</strong>. That makes it the natural form for instructions, rules and procedures - machine displays, recipes, safety notices, and parents talking to children all use it. ボタンを<ruby>押<rt>お</rt></ruby>してから、レバーを<ruby>下<rt>さ</rt></ruby>げてください reads as a step-by-step procedure in a way that the plain て-form does not.</p>
 </div>
 </div>
-<div class="slide" data-index="61">
+<div class="slide" data-index="66">
   
   <div class="slide__content"><h2>～てから · Nuance &amp; register (cont.)</h2>
-<p>For the elapsed-time use (来(き)てから３年(ねん)), the second half is very often <code>なります</code>, <code>経(た)ちます</code> or a state - not an action.</p>
+<p>The flip side: because <code>てから</code> insists on the ordering, using it for two things that merely happened to follow one another sounds fussy. <ruby>起<rt>お</rt></ruby>きてから<ruby>窓<rt>まど</rt></ruby>を<ruby>開<rt>あ</rt></ruby>けて、<ruby>顔<rt>かお</rt></ruby>を<ruby>洗<rt>あら</rt></ruby>ってから<ruby>服<rt>ふく</rt></ruby>を<ruby>着<rt>き</rt></ruby>て… - nobody narrates a morning like that. <strong>One <code>てから</code> per sentence</strong> is the practical limit; when you need a longer chain, use plain て-forms and reserve <code>てから</code> for the one step that genuinely gates the rest.</p>
+<p>For the elapsed-time use (<ruby>来<rt>き</rt></ruby>てから３<ruby>年<rt>ねん</rt></ruby>), the second half is very often <code>なります</code>, <code><ruby>経<rt>た</rt></ruby>ちます</code> or a state - not an action.</p>
 </div>
 </div>
-<div class="slide" data-index="62">
+<div class="slide" data-index="67">
   
   <div class="slide__content"><h2>～てから · ～てから vs ～たあとで</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>てから</code> says the first action is a <strong>precondition</strong>; <code>たあとで</code> just says it came <strong>earlier</strong>. Both translate as &quot;after&quot;, and only <code>てから</code> claims a connection between the two.</p>
 </blockquote>
-<p>くすりを飲(の)ん<strong>でから</strong>、寝(ね)ました。<br><em>I took the medicine and then went to bed. (I went to bed on the strength of having taken it.)</em></p>
-<p>くすりを飲(の)ん<strong>だあとで</strong>、寝(ね)ました。<br><em>I went to bed after taking the medicine. (Simple sequence; the two are not necessarily linked.)</em></p>
+<p>くすりを<ruby>飲<rt>の</rt></ruby>ん<strong>でから</strong>、<ruby>寝<rt>ね</rt></ruby>ました。<br><em>I took the medicine and then went to bed. (I went to bed on the strength of having taken it.)</em></p>
+<p>くすりを<ruby>飲<rt>の</rt></ruby>ん<strong>だあとで</strong>、<ruby>寝<rt>ね</rt></ruby>ました。<br><em>I went to bed after taking the medicine. (Simple sequence; the two are not necessarily linked.)</em></p>
 <p>Three consequences you can act on:</p>
 </div>
 </div>
-<div class="slide" data-index="63">
+<div class="slide" data-index="68">
   
   <div class="slide__content"><h2>～てから · ～てから vs ～たあとで (cont.)</h2>
 <ul>
-<li>If the second action <strong>depends</strong> on the first - permission, readiness,<br><em>eligibility - <code>てから</code> is the right one: 十八歳(じゅうはっさい)になっ<strong>てから</strong>運転(うんてん)できます。</em></li>
+<li>If the second action <strong>depends</strong> on the first - permission, readiness,<br><em>eligibility - <code>てから</code> is the right one: <ruby>十八歳<rt>じゅうはっさい</rt></ruby>になっ*<em>てから</em></em><ruby>運転<rt>うんてん</rt></ruby>できます。*</li>
 <li>If you want a bare timeline, or the two events have nothing to do with each<br><em>other, <code>たあとで</code> is safer.</em></li>
-<li>Only <code>てから</code> measures elapsed time. ❌来(き)たあとで３年(ねん)になります is wrong;<br><em>来(き)てから３年(ねん)になります is right.</em></li>
+<li>Only <code>てから</code> measures elapsed time. ❌<ruby>来<rt>き</rt></ruby>たあとで３<ruby>年<rt>ねん</rt></ruby>になります is wrong;<br><em><ruby>来<rt>き</rt></ruby>てから３<ruby>年<rt>ねん</rt></ruby>になります is right.</em></li>
 </ul>
 <p>Note that the forms differ too: <code>てから</code> takes the <strong>て-form</strong>, <code>たあとで</code> takes the <strong>た-form</strong>.</p>
 </div>
 </div>
-<div class="slide" data-index="64">
+<div class="slide" data-index="69">
   
   <div class="slide__content"><h2>～てから · ～てから vs the plain て-form</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - plain <code>～て</code> says &quot;and then&quot;, loosely. <code>～てから</code> says &quot;and not until then&quot;.</p>
 </blockquote>
-<p>駅(えき)まで歩(ある)い<strong>て</strong>、電車(でんしゃ)に乗(の)りました。<br><em>I walked to the station and got on the train. (ordinary narration)</em></p>
-<p>きっぷを買(か)っ<strong>てから</strong>、電車(でんしゃ)に乗(の)ってください。<br><em>Buy a ticket before boarding the train. (you may not board until you have)</em></p>
+<p><ruby>駅<rt>えき</rt></ruby>まで<ruby>歩<rt>ある</rt></ruby>い<strong>て</strong>、<ruby>電車<rt>でんしゃ</rt></ruby>に<ruby>乗<rt>の</rt></ruby>りました。<br><em>I walked to the station and got on the train. (ordinary narration)</em></p>
+<p>きっぷを<ruby>買<rt>か</rt></ruby>っ<strong>てから</strong>、<ruby>電車<rt>でんしゃ</rt></ruby>に<ruby>乗<rt>の</rt></ruby>ってください。<br><em>Buy a ticket before boarding the train. (you may not board until you have)</em></p>
 <p>Both are correct Japanese in most contexts, so the choice is about emphasis. Where the て-form is genuinely wrong is when the gating matters and the listener might miss it - a rule, a warning, an instruction.</p>
-</div>
-</div>
-<div class="slide" data-index="65">
-  
-  <div class="slide__content"><h2>～てから · ～てから vs ～前(まえ)に</h2>
-<blockquote>
-<p><strong>Rule of thumb</strong> - same two events, opposite anchor. <code>AてからB</code> puts A first and looks forward; <code>BまえにA</code> puts B first and looks back. Watch the form: <code>てから</code> wants the <strong>て-form</strong>, <code>前(まえ)に</code> wants the <strong>dictionary form</strong>.</p>
-</blockquote>
-<p>手(て)を洗(あら)っ<strong>てから</strong>、料理(りょうり)を始(はじ)めます。<br><em>I&#39;ll wash my hands, and then start cooking.</em></p>
-<p>料理(りょうり)を始(はじ)める<strong>前(まえ)に</strong>、手(て)を洗(あら)います。<br><em>Before I start cooking, I&#39;ll wash my hands.</em></p>
-<p>The facts are identical. What differs is which action is the topic of the sentence: with <code>てから</code> you are talking about the washing, with <code>前(まえ)に</code> you are talking about the cooking.</p>
-</div>
-</div>
-<div class="slide" data-index="66">
-  
-  <div class="slide__content"><h2>～てから · Common mistakes</h2>
-<ul>
-<li><p>❌ 食(た)べる<strong>から</strong>、歯(は)をみがきます。 → ✅ 食(た)べ<strong>てから</strong>、歯(は)をみがきます。<br><em>Dictionary form + <code>から</code> is &quot;because&quot;, not &quot;after&quot;. The sequence meaning needs the て-form, and dropping the <code>て</code> changes the sentence entirely.</em></p>
-</li>
-<li><p>❌ うちへ帰(かえ)り<strong>ますてから</strong>、晩(ばん)ごはんを作(つく)ります。 → ✅ うちへ帰(かえ)っ<strong>てから</strong>、晩(ばん)ごはんを作(つく)ります。<br><em>Politeness belongs to the last verb only. The <code>てから</code> clause is always plain.</em></p>
-</li>
-<li><p>❌ 仕事(しごと)<strong>のてから</strong>、飲(の)みに行(い)きます。 → ✅ 仕事(しごと)<strong>のあとで</strong>、飲(の)みに行(い)きます。<br><em><code>てから</code> attaches to verbs, never to nouns. For a noun you need <code>のあとで</code>.</em></p>
-</li>
-<li><p>❌ 見(み)<strong>ないでから</strong>買(か)いました。 → ✅ 見(み)<strong>ないで</strong>買(か)いました。<br><em>There is no negative <code>てから</code>. &quot;Without doing X&quot; is <code>～ないで</code>; &quot;not until X&quot; is handled by rephrasing in the positive.</em></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="slide" data-index="67">
-  
-  <div class="slide__content"><h2>～てから · Common mistakes (cont.)</h2>
-<ul>
-<li>❌ 起(お)きてから顔(かお)を洗(あら)ってから服(ふく)を着(き)てから出(で)かけました。 → ✅ 起(お)きて顔(かお)を洗(あら)って、服(ふく)を着(き)てから出(で)かけました。<br><em>Chained <code>てから</code> sounds mechanical. Use plain て-forms for the run of events and keep <code>てから</code> for the one step that actually gates what follows.</em></li>
-</ul>
-</div>
-</div>
-<div class="slide" data-index="68">
-  
-  <div class="slide__content"><h2>～てから · Practice 1</h2>
-<p><strong>1.</strong> よく____から、はんこを押(お)してください。（読(よ)む）</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-よく読(よ)ん<strong>でから</strong>、はんこを押(お)してください。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>読(よ)む</code> is a む-verb, so its て-form is <code>読(よ)んで</code> - voiced. And since the signing is not supposed to happen until the reading is done, <code>てから</code> (rather than a plain て-form) is exactly right for an instruction like this.</p>
-</div>
-</div>
-<div class="slide" data-index="69">
-  
-  <div class="slide__content"><h2>～てから · Practice 2</h2>
-<p><strong>2.</strong> 日本(にほん)に来(き)（てから・たあとで）、五年(ごねん)になります。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-日本(にほん)に来(き)<strong>てから</strong>、五年(ごねん)になります。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Measuring elapsed time from a starting point is a job only <code>てから</code> can do. <code>来(き)たあとで</code> would set up a sequence of two events, and &quot;five years have become&quot; is not an event - so the sentence would have nowhere to land.</p>
 </div>
 </div>
 <div class="slide" data-index="70">
   
-  <div class="slide__content"><h2>～てから · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese: &quot;Please wait until the light turns green and then cross.&quot;</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-信号(しんごう)が青(あお)になっ<strong>てから</strong>、渡(わた)ってください。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The crossing is conditional on the light changing, which is the core of <code>てから</code>. Japanese calls a green light 青(あお) (&quot;blue&quot;), and <code>信号(しんごう)が青(あお)になる</code> is the fixed phrase.</p>
+  <div class="slide__content"><h2>～てから · ～てから vs ～前に</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - same two events, opposite anchor. <code>AてからB</code> puts A first and looks forward; <code>BまえにA</code> puts B first and looks back. Watch the form: <code>てから</code> wants the <strong>て-form</strong>, <code><ruby>前<rt>まえ</rt></ruby>に</code> wants the <strong>dictionary form</strong>.</p>
+</blockquote>
+<p><ruby>手<rt>て</rt></ruby>を<ruby>洗<rt>あら</rt></ruby>っ<strong>てから</strong>、<ruby>料理<rt>りょうり</rt></ruby>を<ruby>始<rt>はじ</rt></ruby>めます。<br><em>I&#39;ll wash my hands, and then start cooking.</em></p>
+<p><ruby>料理<rt>りょうり</rt></ruby>を<ruby>始<rt>はじ</rt></ruby>める**<ruby>前<rt>まえ</rt></ruby>に**、<ruby>手<rt>て</rt></ruby>を<ruby>洗<rt>あら</rt></ruby>います。<br><em>Before I start cooking, I&#39;ll wash my hands.</em></p>
 </div>
 </div>
 <div class="slide" data-index="71">
   
-  <div class="slide__content"><h2>～てから · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: シャワーを浴(あ)びるてから、寝(ね)ます。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ シャワーを浴(あ)び<strong>てから</strong>、寝(ね)ます。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>浴(あ)びる</code> is a る-verb, so drop the <code>る</code> and add <code>て</code>: 浴(あ)びて. The dictionary form can never sit in front of <code>てから</code> - ❌<code>浴(あ)びるてから</code> mixes two different attachment rules.</p>
+  <div class="slide__content"><h2>～てから · ～てから vs ～前に (cont.)</h2>
+<p>The facts are identical. What differs is which action is the topic of the sentence: with <code>てから</code> you are talking about the washing, with <code><ruby>前<rt>まえ</rt></ruby>に</code> you are talking about the cooking.</p>
 </div>
 </div>
 <div class="slide" data-index="72">
   
+  <div class="slide__content"><h2>～てから · Common mistakes</h2>
+<ul>
+<li><p>❌ <ruby>食<rt>た</rt></ruby>べる<strong>から</strong>、<ruby>歯<rt>は</rt></ruby>をみがきます。 → ✅ <ruby>食<rt>た</rt></ruby>べ<strong>てから</strong>、<ruby>歯<rt>は</rt></ruby>をみがきます。<br><em>Dictionary form + <code>から</code> is &quot;because&quot;, not &quot;after&quot;. The sequence meaning needs the て-form, and dropping the <code>て</code> changes the sentence entirely.</em></p>
+</li>
+<li><p>❌ うちへ<ruby>帰<rt>かえ</rt></ruby>り<strong>ますてから</strong>、<ruby>晩<rt>ばん</rt></ruby>ごはんを<ruby>作<rt>つく</rt></ruby>ります。 → ✅ うちへ<ruby>帰<rt>かえ</rt></ruby>っ<strong>てから</strong>、<ruby>晩<rt>ばん</rt></ruby>ごはんを<ruby>作<rt>つく</rt></ruby>ります。<br><em>Politeness belongs to the last verb only. The <code>てから</code> clause is always plain.</em></p>
+</li>
+<li><p>❌ <ruby>仕事<rt>しごと</rt></ruby><strong>のてから</strong>、<ruby>飲<rt>の</rt></ruby>みに<ruby>行<rt>い</rt></ruby>きます。 → ✅ <ruby>仕事<rt>しごと</rt></ruby><strong>のあとで</strong>、<ruby>飲<rt>の</rt></ruby>みに<ruby>行<rt>い</rt></ruby>きます。<br><em><code>てから</code> attaches to verbs, never to nouns. For a noun you need <code>のあとで</code>.</em></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="73">
+  
+  <div class="slide__content"><h2>～てから · Common mistakes (cont.)</h2>
+<ul>
+<li><p>❌ <ruby>見<rt>み</rt></ruby><strong>ないでから</strong><ruby>買<rt>か</rt></ruby>いました。 → ✅ <ruby>見<rt>み</rt></ruby><strong>ないで</strong><ruby>買<rt>か</rt></ruby>いました。<br><em>There is no negative <code>てから</code>. &quot;Without doing X&quot; is <code>～ないで</code>; &quot;not until X&quot; is handled by rephrasing in the positive.</em></p>
+</li>
+<li><p>❌ <ruby>起<rt>お</rt></ruby>きてから<ruby>顔<rt>かお</rt></ruby>を<ruby>洗<rt>あら</rt></ruby>ってから<ruby>服<rt>ふく</rt></ruby>を<ruby>着<rt>き</rt></ruby>てから<ruby>出<rt>で</rt></ruby>かけました。 → ✅ <ruby>起<rt>お</rt></ruby>きて<ruby>顔<rt>かお</rt></ruby>を<ruby>洗<rt>あら</rt></ruby>って、<ruby>服<rt>ふく</rt></ruby>を<ruby>着<rt>き</rt></ruby>てから<ruby>出<rt>で</rt></ruby>かけました。<br><em>Chained <code>てから</code> sounds mechanical. Use plain て-forms for the run of events and keep <code>てから</code> for the one step that actually gates what follows.</em></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="74">
+  
+  <div class="slide__content"><h2>～てから · Practice 1</h2>
+<p><strong>1.</strong> よく____から、はんこを<ruby>押<rt>お</rt></ruby>してください。（<ruby>読<rt>よ</rt></ruby>む）</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+よく<ruby>読<rt>よ</rt></ruby>ん<strong>でから</strong>、はんこを<ruby>押<rt>お</rt></ruby>してください。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code><ruby>読<rt>よ</rt></ruby>む</code> is a む-verb, so its て-form is <code><ruby>読<rt>よ</rt></ruby>んで</code> - voiced. And since the signing is not supposed to happen until the reading is done, <code>てから</code> (rather than a plain て-form) is exactly right for an instruction like this.</p>
+</div>
+</div>
+<div class="slide" data-index="75">
+  
+  <div class="slide__content"><h2>～てから · Practice 2</h2>
+<p><strong>2.</strong> <ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>き</rt></ruby>（てから・たあとで）、<ruby>五年<rt>ごねん</rt></ruby>になります。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>き</rt></ruby><strong>てから</strong>、<ruby>五年<rt>ごねん</rt></ruby>になります。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+Measuring elapsed time from a starting point is a job only <code>てから</code> can do. <code><ruby>来<rt>き</rt></ruby>たあとで</code> would set up a sequence of two events, and &quot;five years have become&quot; is not an event - so the sentence would have nowhere to land.</p>
+</div>
+</div>
+<div class="slide" data-index="76">
+  
+  <div class="slide__content"><h2>～てから · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese: &quot;Please wait until the light turns green and then cross.&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>信号<rt>しんごう</rt></ruby>が<ruby>青<rt>あお</rt></ruby>になっ<strong>てから</strong>、<ruby>渡<rt>わた</rt></ruby>ってください。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The crossing is conditional on the light changing, which is the core of <code>てから</code>. Japanese calls a green light <ruby>青<rt>あお</rt></ruby> (&quot;blue&quot;), and <code><ruby>信号<rt>しんごう</rt></ruby>が<ruby>青<rt>あお</rt></ruby>になる</code> is the fixed phrase.</p>
+</div>
+</div>
+<div class="slide" data-index="77">
+  
+  <div class="slide__content"><h2>～てから · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the error: シャワーを<ruby>浴<rt>あ</rt></ruby>びるてから、<ruby>寝<rt>ね</rt></ruby>ます。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ シャワーを<ruby>浴<rt>あ</rt></ruby>び<strong>てから</strong>、<ruby>寝<rt>ね</rt></ruby>ます。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code><ruby>浴<rt>あ</rt></ruby>びる</code> is a る-verb, so drop the <code>る</code> and add <code>て</code>: <ruby>浴<rt>あ</rt></ruby>びて. The dictionary form can never sit in front of <code>てから</code> - ❌<code><ruby>浴<rt>あ</rt></ruby>びるてから</code> mixes two different attachment rules.</p>
+</div>
+</div>
+<div class="slide" data-index="78">
+  
   <div class="slide__content"><h2>～てから · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) お風呂(ふろ)に入(はい)ってから、ビールを飲(の)みます。 (b) お風呂(ふろ)に入(はい)ったあとで、ビールを飲(の)みます。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) お<ruby>風呂<rt>ふろ</rt></ruby>に<ruby>入<rt>はい</rt></ruby>ってから、ビールを<ruby>飲<rt>の</rt></ruby>みます。 (b) お<ruby>風呂<rt>ふろ</rt></ruby>に<ruby>入<rt>はい</rt></ruby>ったあとで、ビールを<ruby>飲<rt>の</rt></ruby>みます。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 Both describe a bath followed by a beer, and in casual conversation either would pass unremarked.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) frames the bath as the thing that earns the beer - the beer is the reward, and drinking it beforehand would be doing it wrong. (b) simply reports the order of the evening: bath, then beer, no particular logic joining them. If someone asked &quot;so when do you drink it?&quot;, (b) is the answer; if the point is that you never drink before bathing, (a) says that.</p>
 </div>
 </div>
-<div class="slide" data-index="73">
+<div class="slide" data-index="79">
   
   <div class="slide__content"><h1>～前に</h1>
 <p><strong>Meaning</strong> · before doing X - X hasn&#39;t happened yet at the moment Y takes place</p>
-<p><code>前(まえ)に</code> puts one event in front of another on the timeline. The whole sentence can be past, present or future; the clause in front of <code>前(まえ)に</code> is always in the <strong>dictionary form</strong>, because from the viewpoint of the main clause that event still lies ahead.</p>
+<p><code><ruby>前<rt>まえ</rt></ruby>に</code> puts one event in front of another on the timeline. The whole sentence can be past, present or future; the clause in front of <code><ruby>前<rt>まえ</rt></ruby>に</code> is always in the <strong>dictionary form</strong>, because from the viewpoint of the main clause that event still lies ahead.</p>
 </div>
 </div>
-<div class="slide" data-index="74">
+<div class="slide" data-index="80">
   
   <div class="slide__content"><h2>～前に · Formation</h2>
 <table>
@@ -3540,211 +3589,226 @@ Both describe a bath followed by a beer, and in casual conversation either would
 </thead>
 <tbody><tr>
 <td>Verb</td>
-<td><strong>dictionary form</strong> + 前(まえ)に</td>
-<td>寝(ね)る → 寝(ね)る前(まえ)に</td>
+<td><strong>dictionary form</strong> + <ruby>前<rt>まえ</rt></ruby>に</td>
+<td><ruby>寝<rt>ね</rt></ruby>る → <ruby>寝<rt>ね</rt></ruby>る<ruby>前<rt>まえ</rt></ruby>に</td>
 </tr>
 <tr>
 <td>Verb (in a past sentence)</td>
 <td>still <strong>dictionary form</strong></td>
-<td>来(く)る前(まえ)に習(なら)い<strong>ました</strong></td>
+<td><ruby>来<rt>く</rt></ruby>る<ruby>前<rt>まえ</rt></ruby>に<ruby>習<rt>なら</rt></ruby>い<strong>ました</strong></td>
 </tr>
 <tr>
 <td>Verb (in a future sentence)</td>
 <td>still <strong>dictionary form</strong></td>
-<td>来(く)る前(まえ)に習(なら)い<strong>ます</strong></td>
+<td><ruby>来<rt>く</rt></ruby>る<ruby>前<rt>まえ</rt></ruby>に<ruby>習<rt>なら</rt></ruby>い<strong>ます</strong></td>
 </tr>
 <tr>
 <td>Noun</td>
-<td>Noun + <strong>の</strong> + 前(まえ)に</td>
-<td>食事(しょくじ) → 食事(しょくじ)<strong>の</strong>前(まえ)に</td>
+<td>Noun + <strong>の</strong> + <ruby>前<rt>まえ</rt></ruby>に</td>
+<td><ruby>食事<rt>しょくじ</rt></ruby> → <ruby>食事<rt>しょくじ</rt></ruby><strong>の</strong><ruby>前<rt>まえ</rt></ruby>に</td>
 </tr>
 <tr>
 <td>Duration (&quot;ago&quot;)</td>
-<td>Quantity + 前(まえ)に - <strong>no</strong> の</td>
-<td>三日(みっか)前(まえ)に、一週間(いっしゅうかん)前(まえ)に</td>
+<td>Quantity + <ruby>前<rt>まえ</rt></ruby>に - <strong>no</strong> の</td>
+<td><ruby>三日<rt>みっか</rt></ruby><ruby>前<rt>まえ</rt></ruby>に、<ruby>一週間<rt>いっしゅうかん</rt></ruby><ruby>前<rt>まえ</rt></ruby>に</td>
 </tr>
 <tr>
 <td>Politeness</td>
 <td>on the <strong>final</strong> verb only</td>
-<td>寝(ね)る前(まえ)に歯(は)をみがき<strong>ます</strong></td>
+<td><ruby>寝<rt>ね</rt></ruby>る<ruby>前<rt>まえ</rt></ruby>に<ruby>歯<rt>は</rt></ruby>をみがき<strong>ます</strong></td>
 </tr>
 <tr>
 <td>❌ Negative</td>
-<td>❌ない前(まえ)に does not exist - use ～ないうちに</td>
-<td>❌忘(わす)れない前(まえ)に</td>
+<td>❌ない<ruby>前<rt>まえ</rt></ruby>に does not exist - use ～ないうちに</td>
+<td>❌<ruby>忘<rt>わす</rt></ruby>れない<ruby>前<rt>まえ</rt></ruby>に</td>
 </tr>
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="75">
+<div class="slide" data-index="81">
   
   <div class="slide__content"><h2>～前に · Formation (cont.)</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - <code>前(まえ)に</code> takes the <strong>dictionary form</strong>, and its mirror image <code>～たあとで</code> takes the <strong>past form</strong>. That asymmetry is not a quirk of memorisation: &quot;before eating&quot; is a moment when the eating has not happened yet, &quot;after eating&quot; is a moment when it has. Japanese marks that literally. ❌食(た)べた前(まえ)に and ❌食(た)べるあとで are both wrong, and for the same reason.</p>
+<p><strong>Rule of thumb</strong> - <code><ruby>前<rt>まえ</rt></ruby>に</code> takes the <strong>dictionary form</strong>, and its mirror image <code>～たあとで</code> takes the <strong>past form</strong>. That asymmetry is not a quirk of memorisation: &quot;before eating&quot; is a moment when the eating has not happened yet, &quot;after eating&quot; is a moment when it has. Japanese marks that literally. ❌<ruby>食<rt>た</rt></ruby>べた<ruby>前<rt>まえ</rt></ruby>に and ❌<ruby>食<rt>た</rt></ruby>べるあとで are both wrong, and for the same reason.</p>
 </blockquote>
 <blockquote>
-<p><strong>Note</strong> - the <code>に</code> can drop when the phrase is doing adverbial duty at the head of a sentence: 寝(ね)る前(まえ)、少(すこ)し本(ほん)を読(よ)みます。 Keep the <code>に</code> while you are learning; it is never wrong.</p>
+<p><strong>Note</strong> - the <code>に</code> can drop when the phrase is doing adverbial duty at the head of a sentence: <ruby>寝<rt>ね</rt></ruby>る<ruby>前<rt>まえ</rt></ruby>、<ruby>少<rt>すこ</rt></ruby>し<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>みます。 Keep the <code>に</code> while you are learning; it is never wrong.</p>
 </blockquote>
-</div>
-</div>
-<div class="slide" data-index="76">
-  
-  <div class="slide__content"><h2>～前に · Examples</h2>
-<p>寝(ね)る<strong>前(まえ)に</strong>、歯(は)をみがきます。<br><em>I brush my teeth before going to bed.</em></p>
-<p>出(で)かける<strong>前(まえ)に</strong>、かぎをかけてください。<br><em>Please lock up before you go out.</em></p>
-<p>映画(えいが)が始(はじ)まる<strong>前(まえ)に</strong>、飲(の)み物(もの)を買(か)っておきましょう。<br><em>Let&#39;s buy drinks before the film starts.</em></p>
-<p>試験(しけん)の<strong>前(まえ)に</strong>、トイレに行(い)っておいたほうがいいですよ。<br><em>You&#39;d be wise to go to the toilet before the exam.</em></p>
-<p>日本(にほん)に来(く)る<strong>前(まえ)に</strong>、２年(ねん)ほど日本語(にほんご)を習(なら)いました。<br><em>I studied Japanese for about two years before coming to Japan.</em></p>
-</div>
-</div>
-<div class="slide" data-index="77">
-  
-  <div class="slide__content"><h2>～前に · Examples (cont.)</h2>
-<p>暗(くら)くなる<strong>前(まえ)に</strong>、家(いえ)に帰(かえ)りなさい。<br><em>Get home before it gets dark.</em></p>
-<p>会議(かいぎ)が始(はじ)まる<strong>前(まえ)に</strong>、コピーを人数(にんずう)分(ぶん)用意(ようい)しておきました。<br><em>I got enough copies for everyone ready before the meeting started.</em></p>
-<p>引(ひ)っ越(こ)す<strong>前(まえ)に</strong>、市役所(しやくしょ)で手続(てつづ)きをしなければなりません。<br><em>You have to do the paperwork at the city office before you move.</em></p>
-</div>
-</div>
-<div class="slide" data-index="78">
-  
-  <div class="slide__content"><h2>～前に · Nuance &amp; register</h2>
-<p><code>前(まえ)に</code> is register-neutral and has no contracted form. It appears in signs, in manuals and in ordinary chat without changing its shape.</p>
-<p>The one thing to internalise is that <strong>the dictionary form here carries no tense</strong>. Look at the fifth example again: the studying is finished and gone, the main verb is <code>習(なら)いました</code>, and yet the clause still reads 来(く)る前(まえ)に. A learner who translates &quot;before I came&quot; word for word produces ❌来(き)た前(まえ)に every time. The dictionary form is not &quot;present tense&quot; - it is simply the unmarked form the construction demands.</p>
-<p>Two related patterns worth recognising when you meet them:</p>
-</div>
-</div>
-<div class="slide" data-index="79">
-  
-  <div class="slide__content"><h2>～前に · Nuance &amp; register (cont.)</h2>
-<ul>
-<li><strong>A bare 前(まえ) after a quantity means &quot;ago&quot;.</strong> 三日(みっか)前(まえ)に電話(でんわ)しました - &quot;I called three days ago.&quot; No <code>の</code>, and the sentence is<br><em>about the past, not about an ordering.</em></li>
-<li><strong>前(まえ) also means &quot;in front of&quot; in space</strong>, and then it takes <code>で</code> or <code>に</code><br><em>according to the usual place rules: 駅(えき)の前(まえ)で待(ま)っています。 Same kanji, entirely different job.</em></li>
-</ul>
-<p>In more formal writing you will meet <code>以前(いぜん)に</code> and <code>～に先立(さきだ)ち</code> doing similar work. Neither is expected at N5.</p>
-</div>
-</div>
-<div class="slide" data-index="80">
-  
-  <div class="slide__content"><h2>～前に · ～前(まえ)に vs ～たあとで</h2>
-<blockquote>
-<p><strong>Rule of thumb</strong> - <code>前(まえ)に</code> demands the <strong>dictionary form</strong>; <code>あとで</code> demands the <strong>た-form</strong>. Neither one ever changes to match the tense of the sentence.</p>
-</blockquote>
-<p>This is the single most useful table on the page, so here it is as a pair:</p>
-<p>ごはんを食(た)べる<strong>前(まえ)に</strong>、薬(くすり)を飲(の)みました。<br><em>I took the medicine before eating.</em></p>
-<p>ごはんを食(た)べ<strong>たあとで</strong>、薬(くすり)を飲(の)みました。<br><em>I took the medicine after eating.</em></p>
-<p>Both main clauses are past. Only the first clause differs, and it differs in form, not in tense: <code>食(た)べる前(まえ)に</code> versus <code>食(た)べたあとで</code>. Learners routinely write ❌<code>食(た)べた前(まえ)に</code> by copying the English past tense across. Japanese does not.</p>
-</div>
-</div>
-<div class="slide" data-index="81">
-  
-  <div class="slide__content"><h2>～前に · 前(まえ)に vs 前(まえ)で</h2>
-<blockquote>
-<p><strong>Rule of thumb</strong> - <code>前(まえ)に</code> is <strong>time</strong>; <code>前(まえ)で</code> is <strong>place</strong>, and it means physically in front of something.</p>
-</blockquote>
-<p>授業(じゅぎょう)の<strong>前(まえ)に</strong>質問(しつもん)しました。<br><em>I asked a question before the lesson.</em></p>
-<p>教室(きょうしつ)の<strong>前(まえ)で</strong>質問(しつもん)しました。<br><em>I asked a question at the front of the classroom.</em></p>
-<p>The two are told apart by the noun as much as by the particle: a <em>time</em> noun (授業(じゅぎょう)、食事(しょくじ)、試合(しあい)) makes it temporal, a <em>place</em> noun (教室(きょうしつ)、駅(えき)、店(みせ)) makes it spatial. With a place noun and a verb of existence you get <code>前(まえ)に</code> again, but locationally: 駅(えき)の前(まえ)に銀行(ぎんこう)があります。</p>
 </div>
 </div>
 <div class="slide" data-index="82">
   
-  <div class="slide__content"><h2>～前に · ～前(まえ)に vs ～までに</h2>
-<blockquote>
-<p><strong>Rule of thumb</strong> - <code>前(まえ)に</code> orders two events; <code>までに</code> sets a <strong>deadline</strong>. If English would say &quot;by&quot;, you want <code>までに</code>.</p>
-</blockquote>
-<p>会議(かいぎ)が始(はじ)まる<strong>前(まえ)に</strong>、資料(しりょう)を配(くば)ります。<br><em>I&#39;ll hand out the documents before the meeting starts.</em></p>
-<p>金曜日(きんようび)<strong>までに</strong>、資料(しりょう)を出(だ)してください。<br><em>Please submit the documents by Friday.</em></p>
-<p>The difference bites with a fixed time. 五時(ごじ)の前(まえ)に帰(かえ)ります sounds like you are arranging your afternoon around five o&#39;clock; 五時(ごじ)までに帰(かえ)ります is a promise to be back no later than five. For appointments and obligations, <code>までに</code>.</p>
+  <div class="slide__content"><h2>～前に · Examples</h2>
+<p><ruby>寝<rt>ね</rt></ruby>る**<ruby>前<rt>まえ</rt></ruby>に**、<ruby>歯<rt>は</rt></ruby>をみがきます。<br><em>I brush my teeth before going to bed.</em></p>
+<p><ruby>出<rt>で</rt></ruby>かける**<ruby>前<rt>まえ</rt></ruby>に**、かぎをかけてください。<br><em>Please lock up before you go out.</em></p>
+<p><ruby>映画<rt>えいが</rt></ruby>が<ruby>始<rt>はじ</rt></ruby>まる**<ruby>前<rt>まえ</rt></ruby>に**、<ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>を<ruby>買<rt>か</rt></ruby>っておきましょう。<br><em>Let&#39;s buy drinks before the film starts.</em></p>
+<p><ruby>試験<rt>しけん</rt></ruby>の**<ruby>前<rt>まえ</rt></ruby>に**、トイレに<ruby>行<rt>い</rt></ruby>っておいたほうがいいですよ。<br><em>You&#39;d be wise to go to the toilet before the exam.</em></p>
 </div>
 </div>
 <div class="slide" data-index="83">
   
-  <div class="slide__content"><h2>～前に · Common mistakes</h2>
-<ul>
-<li><p>❌ 寝(ね)<strong>た</strong>前(まえ)に、電気(でんき)を消(け)しました。 → ✅ 寝(ね)<strong>る</strong>前(まえ)に、電気(でんき)を消(け)しました。<br><em>Always the dictionary form, no matter how far in the past the sentence is. The English &quot;before I went to bed&quot; is what leads you astray.</em></p>
-</li>
-<li><p>❌ 三日(みっか)<strong>の</strong>前(まえ)に着(つ)きました。 → ✅ 三日(みっか)前(まえ)に着(つ)きました。<br><em>A duration takes no <code>の</code>. The <code>の</code> appears only when <code>前(まえ)に</code> follows an ordinary noun: 食事(しょくじ)の前(まえ)に.</em></p>
-</li>
-<li><p>❌ 食事(しょくじ)前(まえ)に手(て)を洗(あら)います。 → ✅ 食事(しょくじ)<strong>の</strong>前(まえ)に手(て)を洗(あら)います。<br><em>The mirror error: an ordinary noun does need <code>の</code>. (Some fixed compounds such as 食前(しょくぜん) exist, but they are separate words with their own readings.)</em></p>
-</li>
-</ul>
+  <div class="slide__content"><h2>～前に · Examples (cont.)</h2>
+<p><ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>く</rt></ruby>る**<ruby>前<rt>まえ</rt></ruby>に**、２<ruby>年<rt>ねん</rt></ruby>ほど<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>習<rt>なら</rt></ruby>いました。<br><em>I studied Japanese for about two years before coming to Japan.</em></p>
+<p><ruby>暗<rt>くら</rt></ruby>くなる**<ruby>前<rt>まえ</rt></ruby>に**、<ruby>家<rt>いえ</rt></ruby>に<ruby>帰<rt>かえ</rt></ruby>りなさい。<br><em>Get home before it gets dark.</em></p>
+<p><ruby>会議<rt>かいぎ</rt></ruby>が<ruby>始<rt>はじ</rt></ruby>まる**<ruby>前<rt>まえ</rt></ruby>に**、コピーを<ruby>人数<rt>にんずう</rt></ruby><ruby>分<rt>ぶん</rt></ruby><ruby>用意<rt>ようい</rt></ruby>しておきました。<br><em>I got enough copies for everyone ready before the meeting started.</em></p>
+<p><ruby>引<rt>ひ</rt></ruby>っ<ruby>越<rt>こ</rt></ruby>す**<ruby>前<rt>まえ</rt></ruby>に**、<ruby>市役所<rt>しやくしょ</rt></ruby>で<ruby>手続<rt>てつづ</rt></ruby>きをしなければなりません。<br><em>You have to do the paperwork at the city office before you move.</em></p>
 </div>
 </div>
 <div class="slide" data-index="84">
   
-  <div class="slide__content"><h2>～前に · Common mistakes (cont.)</h2>
-<ul>
-<li><p>❌ 駅(えき)の前(まえ)<strong>に</strong>待(ま)っています。 → ✅ 駅(えき)の前(まえ)<strong>で</strong>待(ま)っています。<br><em>Waiting is an action, and actions happen <code>で</code>. <code>に</code> in front of <code>前(まえ)</code> marks location only with existence verbs.</em></p>
-</li>
-<li><p>❌ 忘(わす)れない前(まえ)に、メモしておきます。 → ✅ 忘(わす)れない<strong>うちに</strong>、メモしておきます。<br><em>There is no negative <code>前(まえ)に</code>. &quot;While it hasn&#39;t yet happened&quot; is <code>～ないうちに</code>.</em></p>
-</li>
-</ul>
+  <div class="slide__content"><h2>～前に · Nuance &amp; register</h2>
+<p><code><ruby>前<rt>まえ</rt></ruby>に</code> is register-neutral and has no contracted form. It appears in signs, in manuals and in ordinary chat without changing its shape.</p>
+<p>The one thing to internalise is that <strong>the dictionary form here carries no tense</strong>. Look at the fifth example again: the studying is finished and gone, the main verb is <code><ruby>習<rt>なら</rt></ruby>いました</code>, and yet the clause still reads <ruby>来<rt>く</rt></ruby>る<ruby>前<rt>まえ</rt></ruby>に. A learner who translates &quot;before I came&quot; word for word produces ❌<ruby>来<rt>き</rt></ruby>た<ruby>前<rt>まえ</rt></ruby>に every time. The dictionary form is not &quot;present tense&quot; - it is simply the unmarked form the construction demands.</p>
+<p>Two related patterns worth recognising when you meet them:</p>
 </div>
 </div>
 <div class="slide" data-index="85">
   
-  <div class="slide__content"><h2>～前に · Practice 1</h2>
-<p><strong>1.</strong> 旅行(りょこう)に____前(まえ)に、パスポートを確認(かくにん)してください。（行(い)く）</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-旅行(りょこう)に行(い)く<strong>前(まえ)に</strong>、パスポートを確認(かくにん)してください。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Dictionary form, unchanged. Even though the trip is in the future and the check comes first, the verb in front of <code>前(まえ)に</code> is never conjugated - neither for tense nor for politeness.</p>
+  <div class="slide__content"><h2>～前に · Nuance &amp; register (cont.)</h2>
+<ul>
+<li><strong>A bare <ruby>前<rt>まえ</rt></ruby> after a quantity means &quot;ago&quot;.</strong> <ruby>三日<rt>みっか</rt></ruby><ruby>前<rt>まえ</rt></ruby>に<ruby>電話<rt>でんわ</rt></ruby>しました - &quot;I called three days ago.&quot; No <code>の</code>, and the sentence is<br><em>about the past, not about an ordering.</em></li>
+<li><strong><ruby>前<rt>まえ</rt></ruby> also means &quot;in front of&quot; in space</strong>, and then it takes <code>で</code> or <code>に</code><br><em>according to the usual place rules: <ruby>駅<rt>えき</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>で<ruby>待<rt>ま</rt></ruby>っています。 Same kanji, entirely different job.</em></li>
+</ul>
+<p>In more formal writing you will meet <code><ruby>以前<rt>いぜん</rt></ruby>に</code> and <code>～に<ruby>先立<rt>さきだ</rt></ruby>ち</code> doing similar work. Neither is expected at N5.</p>
 </div>
 </div>
 <div class="slide" data-index="86">
   
-  <div class="slide__content"><h2>～前に · Practice 2</h2>
-<p><strong>2.</strong> 日本(にほん)に来(く)る前(まえ)に、中国(ちゅうごく)に（住(す)む・住(す)んでいました）。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-日本(にほん)に来(く)る前(まえ)に、中国(ちゅうごく)に<strong>住(す)んでいました</strong>。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The dictionary form belongs to the <code>前(まえ)に</code> clause and nowhere else. All the tense in the sentence is carried by the <strong>main</strong> verb at the end, which here has to be past - hence <code>住(す)んでいました</code>.</p>
+  <div class="slide__content"><h2>～前に · ～前に vs ～たあとで</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - <code><ruby>前<rt>まえ</rt></ruby>に</code> demands the <strong>dictionary form</strong>; <code>あとで</code> demands the <strong>た-form</strong>. Neither one ever changes to match the tense of the sentence.</p>
+</blockquote>
+<p>This is the single most useful table on the page, so here it is as a pair:</p>
+<p>ごはんを<ruby>食<rt>た</rt></ruby>べる**<ruby>前<rt>まえ</rt></ruby>に**、<ruby>薬<rt>くすり</rt></ruby>を<ruby>飲<rt>の</rt></ruby>みました。<br><em>I took the medicine before eating.</em></p>
+<p>ごはんを<ruby>食<rt>た</rt></ruby>べ<strong>たあとで</strong>、<ruby>薬<rt>くすり</rt></ruby>を<ruby>飲<rt>の</rt></ruby>みました。<br><em>I took the medicine after eating.</em></p>
 </div>
 </div>
 <div class="slide" data-index="87">
   
-  <div class="slide__content"><h2>～前に · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese: &quot;Wash the vegetables before you cut them.&quot;</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-野菜(やさい)は切(き)る<strong>前(まえ)に</strong>洗(あら)ってください。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>切(き)る</code> stays in the dictionary form; the instruction (&quot;please wash&quot;) sits at the end. Note the Japanese order is the reverse of the English one - the <code>前(まえ)に</code> clause comes first, and the main verb last.</p>
+  <div class="slide__content"><h2>～前に · ～前に vs ～たあとで (cont.)</h2>
+<p>Both main clauses are past. Only the first clause differs, and it differs in form, not in tense: <code><ruby>食<rt>た</rt></ruby>べる<ruby>前<rt>まえ</rt></ruby>に</code> versus <code><ruby>食<rt>た</rt></ruby>べたあとで</code>. Learners routinely write ❌<code><ruby>食<rt>た</rt></ruby>べた<ruby>前<rt>まえ</rt></ruby>に</code> by copying the English past tense across. Japanese does not.</p>
 </div>
 </div>
 <div class="slide" data-index="88">
   
-  <div class="slide__content"><h2>～前に · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 試験(しけん)の前(まえ)で、よく勉強(べんきょう)しました。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 試験(しけん)の前(まえ)<strong>に</strong>、よく勉強(べんきょう)しました。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>試験(しけん)</code> is an event in time, not a place, so this is the temporal <code>前(まえ)に</code>. <code>前(まえ)で</code> would have to mean &quot;physically in front of the exam&quot;, which is not a thing.</p>
+  <div class="slide__content"><h2>～前に · 前に vs 前で</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - <code><ruby>前<rt>まえ</rt></ruby>に</code> is <strong>time</strong>; <code><ruby>前<rt>まえ</rt></ruby>で</code> is <strong>place</strong>, and it means physically in front of something.</p>
+</blockquote>
+<p><ruby>授業<rt>じゅぎょう</rt></ruby>の**<ruby>前<rt>まえ</rt></ruby>に**<ruby>質問<rt>しつもん</rt></ruby>しました。<br><em>I asked a question before the lesson.</em></p>
+<p><ruby>教室<rt>きょうしつ</rt></ruby>の**<ruby>前<rt>まえ</rt></ruby>で**<ruby>質問<rt>しつもん</rt></ruby>しました。<br><em>I asked a question at the front of the classroom.</em></p>
 </div>
 </div>
 <div class="slide" data-index="89">
   
+  <div class="slide__content"><h2>～前に · 前に vs 前で (cont.)</h2>
+<p>The two are told apart by the noun as much as by the particle: a <em>time</em> noun (<ruby>授業<rt>じゅぎょう</rt></ruby>、<ruby>食事<rt>しょくじ</rt></ruby>、<ruby>試合<rt>しあい</rt></ruby>) makes it temporal, a <em>place</em> noun (<ruby>教室<rt>きょうしつ</rt></ruby>、<ruby>駅<rt>えき</rt></ruby>、<ruby>店<rt>みせ</rt></ruby>) makes it spatial. With a place noun and a verb of existence you get <code><ruby>前<rt>まえ</rt></ruby>に</code> again, but locationally: <ruby>駅<rt>えき</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>に<ruby>銀行<rt>ぎんこう</rt></ruby>があります。</p>
+</div>
+</div>
+<div class="slide" data-index="90">
+  
+  <div class="slide__content"><h2>～前に · ～前に vs ～までに</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - <code><ruby>前<rt>まえ</rt></ruby>に</code> orders two events; <code>までに</code> sets a <strong>deadline</strong>. If English would say &quot;by&quot;, you want <code>までに</code>.</p>
+</blockquote>
+<p><ruby>会議<rt>かいぎ</rt></ruby>が<ruby>始<rt>はじ</rt></ruby>まる**<ruby>前<rt>まえ</rt></ruby>に**、<ruby>資料<rt>しりょう</rt></ruby>を<ruby>配<rt>くば</rt></ruby>ります。<br><em>I&#39;ll hand out the documents before the meeting starts.</em></p>
+<p><ruby>金曜日<rt>きんようび</rt></ruby><strong>までに</strong>、<ruby>資料<rt>しりょう</rt></ruby>を<ruby>出<rt>だ</rt></ruby>してください。<br><em>Please submit the documents by Friday.</em></p>
+</div>
+</div>
+<div class="slide" data-index="91">
+  
+  <div class="slide__content"><h2>～前に · ～前に vs ～までに (cont.)</h2>
+<p>The difference bites with a fixed time. <ruby>五時<rt>ごじ</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>に<ruby>帰<rt>かえ</rt></ruby>ります sounds like you are arranging your afternoon around five o&#39;clock; <ruby>五時<rt>ごじ</rt></ruby>までに<ruby>帰<rt>かえ</rt></ruby>ります is a promise to be back no later than five. For appointments and obligations, <code>までに</code>.</p>
+</div>
+</div>
+<div class="slide" data-index="92">
+  
+  <div class="slide__content"><h2>～前に · Common mistakes</h2>
+<ul>
+<li><p>❌ <ruby>寝<rt>ね</rt></ruby><strong>た</strong><ruby>前<rt>まえ</rt></ruby>に、<ruby>電気<rt>でんき</rt></ruby>を<ruby>消<rt>け</rt></ruby>しました。 → ✅ <ruby>寝<rt>ね</rt></ruby><strong>る</strong><ruby>前<rt>まえ</rt></ruby>に、<ruby>電気<rt>でんき</rt></ruby>を<ruby>消<rt>け</rt></ruby>しました。<br><em>Always the dictionary form, no matter how far in the past the sentence is. The English &quot;before I went to bed&quot; is what leads you astray.</em></p>
+</li>
+<li><p>❌ <ruby>三日<rt>みっか</rt></ruby><strong>の</strong><ruby>前<rt>まえ</rt></ruby>に<ruby>着<rt>つ</rt></ruby>きました。 → ✅ <ruby>三日<rt>みっか</rt></ruby><ruby>前<rt>まえ</rt></ruby>に<ruby>着<rt>つ</rt></ruby>きました。<br><em>A duration takes no <code>の</code>. The <code>の</code> appears only when <code><ruby>前<rt>まえ</rt></ruby>に</code> follows an ordinary noun: <ruby>食事<rt>しょくじ</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>に.</em></p>
+</li>
+<li><p>❌ <ruby>食事<rt>しょくじ</rt></ruby><ruby>前<rt>まえ</rt></ruby>に<ruby>手<rt>て</rt></ruby>を<ruby>洗<rt>あら</rt></ruby>います。 → ✅ <ruby>食事<rt>しょくじ</rt></ruby><strong>の</strong><ruby>前<rt>まえ</rt></ruby>に<ruby>手<rt>て</rt></ruby>を<ruby>洗<rt>あら</rt></ruby>います。<br><em>The mirror error: an ordinary noun does need <code>の</code>. (Some fixed compounds such as <ruby>食前<rt>しょくぜん</rt></ruby> exist, but they are separate words with their own readings.)</em></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="93">
+  
+  <div class="slide__content"><h2>～前に · Common mistakes (cont.)</h2>
+<ul>
+<li><p>❌ <ruby>駅<rt>えき</rt></ruby>の<ruby>前<rt>まえ</rt></ruby><strong>に</strong><ruby>待<rt>ま</rt></ruby>っています。 → ✅ <ruby>駅<rt>えき</rt></ruby>の<ruby>前<rt>まえ</rt></ruby><strong>で</strong><ruby>待<rt>ま</rt></ruby>っています。<br><em>Waiting is an action, and actions happen <code>で</code>. <code>に</code> in front of <code><ruby>前<rt>まえ</rt></ruby></code> marks location only with existence verbs.</em></p>
+</li>
+<li><p>❌ <ruby>忘<rt>わす</rt></ruby>れない<ruby>前<rt>まえ</rt></ruby>に、メモしておきます。 → ✅ <ruby>忘<rt>わす</rt></ruby>れない<strong>うちに</strong>、メモしておきます。<br><em>There is no negative <code><ruby>前<rt>まえ</rt></ruby>に</code>. &quot;While it hasn&#39;t yet happened&quot; is <code>～ないうちに</code>.</em></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="94">
+  
+  <div class="slide__content"><h2>～前に · Practice 1</h2>
+<p><strong>1.</strong> <ruby>旅行<rt>りょこう</rt></ruby>に____<ruby>前<rt>まえ</rt></ruby>に、パスポートを<ruby>確認<rt>かくにん</rt></ruby>してください。（<ruby>行<rt>い</rt></ruby>く）</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>旅行<rt>りょこう</rt></ruby>に<ruby>行<rt>い</rt></ruby>く**<ruby>前<rt>まえ</rt></ruby>に**、パスポートを<ruby>確認<rt>かくにん</rt></ruby>してください。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+Dictionary form, unchanged. Even though the trip is in the future and the check comes first, the verb in front of <code><ruby>前<rt>まえ</rt></ruby>に</code> is never conjugated - neither for tense nor for politeness.</p>
+</div>
+</div>
+<div class="slide" data-index="95">
+  
+  <div class="slide__content"><h2>～前に · Practice 2</h2>
+<p><strong>2.</strong> <ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>く</rt></ruby>る<ruby>前<rt>まえ</rt></ruby>に、<ruby>中国<rt>ちゅうごく</rt></ruby>に（<ruby>住<rt>す</rt></ruby>む・<ruby>住<rt>す</rt></ruby>んでいました）。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>く</rt></ruby>る<ruby>前<rt>まえ</rt></ruby>に、<ruby>中国<rt>ちゅうごく</rt></ruby>に**<ruby>住<rt>す</rt></ruby>んでいました**。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The dictionary form belongs to the <code><ruby>前<rt>まえ</rt></ruby>に</code> clause and nowhere else. All the tense in the sentence is carried by the <strong>main</strong> verb at the end, which here has to be past - hence <code><ruby>住<rt>す</rt></ruby>んでいました</code>.</p>
+</div>
+</div>
+<div class="slide" data-index="96">
+  
+  <div class="slide__content"><h2>～前に · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese: &quot;Wash the vegetables before you cut them.&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>野菜<rt>やさい</rt></ruby>は<ruby>切<rt>き</rt></ruby>る**<ruby>前<rt>まえ</rt></ruby>に**<ruby>洗<rt>あら</rt></ruby>ってください。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code><ruby>切<rt>き</rt></ruby>る</code> stays in the dictionary form; the instruction (&quot;please wash&quot;) sits at the end. Note the Japanese order is the reverse of the English one - the <code><ruby>前<rt>まえ</rt></ruby>に</code> clause comes first, and the main verb last.</p>
+</div>
+</div>
+<div class="slide" data-index="97">
+  
+  <div class="slide__content"><h2>～前に · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the error: <ruby>試験<rt>しけん</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>で、よく<ruby>勉強<rt>べんきょう</rt></ruby>しました。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ <ruby>試験<rt>しけん</rt></ruby>の<ruby>前<rt>まえ</rt></ruby><strong>に</strong>、よく<ruby>勉強<rt>べんきょう</rt></ruby>しました。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code><ruby>試験<rt>しけん</rt></ruby></code> is an event in time, not a place, so this is the temporal <code><ruby>前<rt>まえ</rt></ruby>に</code>. <code><ruby>前<rt>まえ</rt></ruby>で</code> would have to mean &quot;physically in front of the exam&quot;, which is not a thing.</p>
+</div>
+</div>
+<div class="slide" data-index="98">
+  
   <div class="slide__content"><h2>～前に · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 六時(ろくじ)の前(まえ)に駅(えき)に着(つ)きます。 (b) 六時(ろくじ)までに駅(えき)に着(つ)きます。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>六時<rt>ろくじ</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>に<ruby>駅<rt>えき</rt></ruby>に<ruby>着<rt>つ</rt></ruby>きます。 (b) <ruby>六時<rt>ろくじ</rt></ruby>までに<ruby>駅<rt>えき</rt></ruby>に<ruby>着<rt>つ</rt></ruby>きます。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) simply places your arrival earlier on the clock than six - it describes the order of things and sounds a little odd on its own, because a bare clock time is not much of an event to be &quot;before&quot;.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (b) treats six o&#39;clock as a deadline and commits you to arriving at some point between now and then. That is what you say when someone is waiting for you or a train is leaving. With fixed times and obligations, Japanese overwhelmingly prefers <code>までに</code>.</p>
 </div>
 </div>
-<div class="slide" data-index="90">
+<div class="slide" data-index="99">
   
   <div class="slide__content"><h1>～たあとで</h1>
 <p><strong>Meaning</strong> · after X - plain chronological order, with no claim that X caused Y</p>
 <p><code>～たあとで</code> places one event later than another on the timeline and says nothing else about them. It is the neutral &quot;after&quot;: useful precisely because it does not imply that the first thing had to happen for the second to be possible.</p>
 </div>
 </div>
-<div class="slide" data-index="91">
+<div class="slide" data-index="100">
   
   <div class="slide__content"><h2>～たあとで · Formation</h2>
 <p>The verb in front of <code>あとで</code> is in the <strong>た-form</strong>, and it stays in the た-form whether the sentence is about the past, the present or the future.</p>
 </div>
 </div>
-<div class="slide" data-index="92">
+<div class="slide" data-index="101">
   
   <div class="slide__content"><h2>～たあとで · Formation (cont.)</h2>
 <table>
@@ -3758,211 +3822,216 @@ The dictionary form belongs to the <code>前(まえ)に</code> clause and nowher
 <tbody><tr>
 <td>Verb</td>
 <td><strong>た-form</strong> + あとで</td>
-<td>食(た)べる → 食(た)べたあとで</td>
+<td><ruby>食<rt>た</rt></ruby>べる → <ruby>食<rt>た</rt></ruby>べたあとで</td>
 </tr>
 <tr>
 <td>Verb (voiced た-form)</td>
 <td>だ-form + あとで</td>
-<td>飲(の)む → 飲(の)ん<strong>だ</strong>あとで</td>
+<td><ruby>飲<rt>の</rt></ruby>む → <ruby>飲<rt>の</rt></ruby>ん<strong>だ</strong>あとで</td>
 </tr>
 <tr>
 <td>Verb (in a future sentence)</td>
 <td>still <strong>た-form</strong></td>
-<td>終(お)わったあとで行(い)き<strong>ます</strong></td>
+<td><ruby>終<rt>お</rt></ruby>わったあとで<ruby>行<rt>い</rt></ruby>き<strong>ます</strong></td>
 </tr>
 <tr>
 <td>Noun</td>
 <td>Noun + <strong>の</strong> + あとで</td>
-<td>仕事(しごと) → 仕事(しごと)<strong>の</strong>あとで</td>
+<td><ruby>仕事<rt>しごと</rt></ruby> → <ruby>仕事<rt>しごと</rt></ruby><strong>の</strong>あとで</td>
 </tr>
 <tr>
 <td>Without で</td>
 <td>た-form + あと</td>
-<td>食(た)べたあと、コーヒーを飲(の)む</td>
+<td><ruby>食<rt>た</rt></ruby>べたあと、コーヒーを<ruby>飲<rt>の</rt></ruby>む</td>
 </tr>
 <tr>
 <td>In kanji</td>
-<td>あと = 後(あと)</td>
-<td>食(た)べた後(あと)で</td>
+<td>あと = <ruby>後<rt>あと</rt></ruby></td>
+<td><ruby>食<rt>た</rt></ruby>べた<ruby>後<rt>あと</rt></ruby>で</td>
 </tr>
 <tr>
 <td>Politeness</td>
 <td>on the <strong>final</strong> verb only</td>
-<td>食(た)べたあとで飲(の)み<strong>ます</strong></td>
+<td><ruby>食<rt>た</rt></ruby>べたあとで<ruby>飲<rt>の</rt></ruby>み<strong>ます</strong></td>
 </tr>
 <tr>
 <td>❌ Negative</td>
 <td>❌なかったあとで does not exist</td>
-<td>❌見(み)なかったあとで</td>
+<td>❌<ruby>見<rt>み</rt></ruby>なかったあとで</td>
 </tr>
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="93">
+<div class="slide" data-index="102">
   
   <div class="slide__content"><h2>～たあとで · Formation (cont.)</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - <code>あとで</code> takes the <strong>た-form</strong>; its mirror image <code>前(まえ)に</code> takes the <strong>dictionary form</strong>. ❌食(た)べるあとで and ❌食(た)べた前(まえ)に are the two halves of the same mistake. The logic: after eating, the eating is done (た); before eating, it is not (dictionary).</p>
+<p><strong>Rule of thumb</strong> - <code>あとで</code> takes the <strong>た-form</strong>; its mirror image <code><ruby>前<rt>まえ</rt></ruby>に</code> takes the <strong>dictionary form</strong>. ❌<ruby>食<rt>た</rt></ruby>べるあとで and ❌<ruby>食<rt>た</rt></ruby>べた<ruby>前<rt>まえ</rt></ruby>に are the two halves of the same mistake. The logic: after eating, the eating is done (た); before eating, it is not (dictionary).</p>
 </blockquote>
 <blockquote>
-<p><strong>Note</strong> - the <code>で</code> is optional and drops freely, especially in writing. 授業(じゅぎょう)が終(お)わったあと、質問(しつもん)しました is completely natural. There is also <code>あとに</code>, but at N5 treat it as a different word: it is about a thing being left <em>in the place of</em> another, not about time.</p>
+<p><strong>Note</strong> - the <code>で</code> is optional and drops freely, especially in writing. <ruby>授業<rt>じゅぎょう</rt></ruby>が<ruby>終<rt>お</rt></ruby>わったあと、<ruby>質問<rt>しつもん</rt></ruby>しました is completely natural. There is also <code>あとに</code>, but at N5 treat it as a different word: it is about a thing being left <em>in the place of</em> another, not about time.</p>
 </blockquote>
 </div>
 </div>
-<div class="slide" data-index="94">
+<div class="slide" data-index="103">
   
   <div class="slide__content"><h2>～たあとで · Examples</h2>
-<p>ごはんを食(た)べ<strong>たあとで</strong>、コーヒーを飲(の)みます。<br><em>I have coffee after eating.</em></p>
-<p>仕事(しごと)<strong>のあとで</strong>、買(か)い物(もの)に行(い)きます。<br><em>I&#39;m going shopping after work.</em></p>
-<p>映画(えいが)を見(み)<strong>たあとで</strong>、みんなで感想(かんそう)を話(はな)し合(あ)いました。<br><em>After the film we all talked about what we thought of it.</em></p>
-<p>授業(じゅぎょう)が終(お)わっ<strong>たあと</strong>、先生(せんせい)に質問(しつもん)しました。<br><em>I asked the teacher a question after the lesson finished.</em></p>
-<p>シャワーを浴(あ)び<strong>たあとで</strong>、すぐに寝(ね)てしまった。<br><em>I fell straight asleep after taking a shower.</em></p>
+<p>ごはんを<ruby>食<rt>た</rt></ruby>べ<strong>たあとで</strong>、コーヒーを<ruby>飲<rt>の</rt></ruby>みます。<br><em>I have coffee after eating.</em></p>
+<p><ruby>仕事<rt>しごと</rt></ruby><strong>のあとで</strong>、<ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>に<ruby>行<rt>い</rt></ruby>きます。<br><em>I&#39;m going shopping after work.</em></p>
+<p><ruby>映画<rt>えいが</rt></ruby>を<ruby>見<rt>み</rt></ruby><strong>たあとで</strong>、みんなで<ruby>感想<rt>かんそう</rt></ruby>を<ruby>話<rt>はな</rt></ruby>し<ruby>合<rt>あ</rt></ruby>いました。<br><em>After the film we all talked about what we thought of it.</em></p>
+<p><ruby>授業<rt>じゅぎょう</rt></ruby>が<ruby>終<rt>お</rt></ruby>わっ<strong>たあと</strong>、<ruby>先生<rt>せんせい</rt></ruby>に<ruby>質問<rt>しつもん</rt></ruby>しました。<br><em>I asked the teacher a question after the lesson finished.</em></p>
 </div>
 </div>
-<div class="slide" data-index="95">
+<div class="slide" data-index="104">
   
   <div class="slide__content"><h2>～たあとで · Examples (cont.)</h2>
-<p>雨(あめ)がやん<strong>だあとで</strong>、空(そら)に虹(にじ)が出(で)ました。<br><em>A rainbow appeared in the sky after the rain stopped.</em></p>
-<p>夕(ゆう)ごはんを作(つく)っ<strong>たあとで</strong>、台所(だいどころ)をきれいに片付(かたづ)けた。<br><em>After making dinner I tidied the kitchen up properly.</em></p>
-<p>会議(かいぎ)が終(お)わっ<strong>たあとで</strong>、少(すこ)しお時間(じかん)をいただけませんか。<br><em>Could I have a few minutes of your time once the meeting is over?</em></p>
+<p>シャワーを<ruby>浴<rt>あ</rt></ruby>び<strong>たあとで</strong>、すぐに<ruby>寝<rt>ね</rt></ruby>てしまった。<br><em>I fell straight asleep after taking a shower.</em></p>
+<p><ruby>雨<rt>あめ</rt></ruby>がやん<strong>だあとで</strong>、<ruby>空<rt>そら</rt></ruby>に<ruby>虹<rt>にじ</rt></ruby>が<ruby>出<rt>で</rt></ruby>ました。<br><em>A rainbow appeared in the sky after the rain stopped.</em></p>
+<p><ruby>夕<rt>ゆう</rt></ruby>ごはんを<ruby>作<rt>つく</rt></ruby>っ<strong>たあとで</strong>、<ruby>台所<rt>だいどころ</rt></ruby>をきれいに<ruby>片付<rt>かたづ</rt></ruby>けた。<br><em>After making dinner I tidied the kitchen up properly.</em></p>
+<p><ruby>会議<rt>かいぎ</rt></ruby>が<ruby>終<rt>お</rt></ruby>わっ<strong>たあとで</strong>、<ruby>少<rt>すこ</rt></ruby>しお<ruby>時間<rt>じかん</rt></ruby>をいただけませんか。<br><em>Could I have a few minutes of your time once the meeting is over?</em></p>
 </div>
 </div>
-<div class="slide" data-index="96">
+<div class="slide" data-index="105">
   
   <div class="slide__content"><h2>～たあとで · Nuance &amp; register</h2>
-<p><code>たあとで</code> is register-neutral and does not contract. Whether the sentence is polite is settled entirely by the final verb, exactly as with <code>前(まえ)に</code>.</p>
-<p>Its defining quality is <strong>neutrality</strong>. It reports a sequence and stops there. If you want to say that the first event made the second possible, or that you were waiting for it, <code>たあとで</code> is too flat and you want <code>てから</code> instead. This is why <code>たあとで</code> feels slightly odd in instructions: a sign that read 手(て)を洗(あら)ったあとで食(た)べてください is grammatical but sounds like it is describing your habits rather than telling you what to do.</p>
+<p><code>たあとで</code> is register-neutral and does not contract. Whether the sentence is polite is settled entirely by the final verb, exactly as with <code><ruby>前<rt>まえ</rt></ruby>に</code>.</p>
+<p>Its defining quality is <strong>neutrality</strong>. It reports a sequence and stops there. If you want to say that the first event made the second possible, or that you were waiting for it, <code>たあとで</code> is too flat and you want <code>てから</code> instead. This is why <code>たあとで</code> feels slightly odd in instructions: a sign that read <ruby>手<rt>て</rt></ruby>を<ruby>洗<rt>あら</rt></ruby>ったあとで<ruby>食<rt>た</rt></ruby>べてください is grammatical but sounds like it is describing your habits rather than telling you what to do.</p>
 <p>Two smaller habits:</p>
 </div>
 </div>
-<div class="slide" data-index="97">
+<div class="slide" data-index="106">
   
   <div class="slide__content"><h2>～たあとで · Nuance &amp; register (cont.)</h2>
 <ul>
-<li><strong>後(あと) written in kanji is common in adult writing</strong>, and the reading is<br><em>あと, not うしろ. Same character, two words: 後(あと)で = &quot;later, afterwards&quot;; 後(うし)ろ = &quot;behind&quot;. A learner who reads them the wrong way round produces sentences about standing behind a meeting.</em></li>
-<li><strong><code>あとで</code> also stands alone as an adverb meaning &quot;later&quot;</strong>, with no<br><em>clause in front of it at all: あとで電話(でんわ)するね。 That usage is extremely common in speech and is not the same grammar point, though it is obviously the same word.</em></li>
+<li><strong><ruby>後<rt>あと</rt></ruby> written in kanji is common in adult writing</strong>, and the reading is<br><em>あと, not うしろ. Same character, two words: <ruby>後<rt>あと</rt></ruby>で = &quot;later, afterwards&quot;; <ruby>後<rt>うし</rt></ruby>ろ = &quot;behind&quot;. A learner who reads them the wrong way round produces sentences about standing behind a meeting.</em></li>
+<li><strong><code>あとで</code> also stands alone as an adverb meaning &quot;later&quot;</strong>, with no<br><em>clause in front of it at all: あとで<ruby>電話<rt>でんわ</rt></ruby>するね。 That usage is extremely common in speech and is not the same grammar point, though it is obviously the same word.</em></li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="98">
+<div class="slide" data-index="107">
   
   <div class="slide__content"><h2>～たあとで · ～たあとで vs ～てから</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>たあとで</code> reports the order; <code>てから</code> claims the first event was a <strong>precondition</strong> for the second. If you could insert &quot;and only then&quot; in English, use <code>てから</code>.</p>
 </blockquote>
-<p>宿題(しゅくだい)をし<strong>たあとで</strong>、友(とも)だちに電話(でんわ)した。<br><em>I phoned my friend after doing my homework. (What I did, in order.)</em></p>
-<p>宿題(しゅくだい)をし<strong>てから</strong>、友(とも)だちに電話(でんわ)した。<br><em>I did my homework first, and then phoned my friend. (The homework had to come first.)</em></p>
+<p><ruby>宿題<rt>しゅくだい</rt></ruby>をし<strong>たあとで</strong>、<ruby>友<rt>とも</rt></ruby>だちに<ruby>電話<rt>でんわ</rt></ruby>した。<br><em>I phoned my friend after doing my homework. (What I did, in order.)</em></p>
+<p><ruby>宿題<rt>しゅくだい</rt></ruby>をし<strong>てから</strong>、<ruby>友<rt>とも</rt></ruby>だちに<ruby>電話<rt>でんわ</rt></ruby>した。<br><em>I did my homework first, and then phoned my friend. (The homework had to come first.)</em></p>
 <p>Three practical splits:</p>
 </div>
 </div>
-<div class="slide" data-index="99">
+<div class="slide" data-index="108">
   
   <div class="slide__content"><h2>～たあとで · ～たあとで vs ～てから (cont.)</h2>
 <ul>
-<li>Rules, instructions and permissions want <code>てから</code>, because the whole point is<br><em>the gate: お金(かね)を払(はら)ってから入(はい)ってください。</em></li>
-<li>Elapsed time takes <code>てから</code> only: 結婚(けっこん)してから十年(じゅうねん)になります。<br><em>❌結婚(けっこん)したあとで十年(じゅうねん)になります is wrong.</em></li>
-<li>A noun can only take <code>のあとで</code>. There is no ❌仕事(しごと)のてから.</li>
+<li>Rules, instructions and permissions want <code>てから</code>, because the whole point is<br><em>the gate: お<ruby>金<rt>かね</rt></ruby>を<ruby>払<rt>はら</rt></ruby>ってから<ruby>入<rt>はい</rt></ruby>ってください。</em></li>
+<li>Elapsed time takes <code>てから</code> only: <ruby>結婚<rt>けっこん</rt></ruby>してから<ruby>十年<rt>じゅうねん</rt></ruby>になります。<br><em>❌<ruby>結婚<rt>けっこん</rt></ruby>したあとで<ruby>十年<rt>じゅうねん</rt></ruby>になります is wrong.</em></li>
+<li>A noun can only take <code>のあとで</code>. There is no ❌<ruby>仕事<rt>しごと</rt></ruby>のてから.</li>
 </ul>
 <p>And do not miss the form difference: <code>てから</code> needs the <strong>て-form</strong>, <code>たあとで</code> the <strong>た-form</strong>.</p>
 </div>
 </div>
-<div class="slide" data-index="100">
+<div class="slide" data-index="109">
   
-  <div class="slide__content"><h2>～たあとで · ～たあとで vs ～前(まえ)に</h2>
+  <div class="slide__content"><h2>～たあとで · ～たあとで vs ～前に</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - mirror images, and the mirror includes the verb form. <code>たあとで</code> = <strong>た-form</strong>; <code>前(まえ)に</code> = <strong>dictionary form</strong>.</p>
+<p><strong>Rule of thumb</strong> - mirror images, and the mirror includes the verb form. <code>たあとで</code> = <strong>た-form</strong>; <code><ruby>前<rt>まえ</rt></ruby>に</code> = <strong>dictionary form</strong>.</p>
 </blockquote>
 <p>Put the two side by side on the same pair of events and the pattern is obvious.</p>
-<p>会(かい)が終(お)わっ<strong>たあとで</strong>、写真(しゃしん)をとりました。<br><em>We took photos after the party ended.</em></p>
-<p>会(かい)が終(お)わる<strong>前(まえ)に</strong>、写真(しゃしん)をとりました。<br><em>We took photos before the party ended.</em></p>
-<p>Both main clauses are past, and neither first clause is marked for tense at all - <code>終(お)わった</code> and <code>終(お)わる</code> are chosen by the <em>construction</em>, not by when things happened. English speakers reliably write ❌終(お)わった前(まえ)に because English says &quot;before it ended&quot;. Japanese never does.</p>
+<p><ruby>会<rt>かい</rt></ruby>が<ruby>終<rt>お</rt></ruby>わっ<strong>たあとで</strong>、<ruby>写真<rt>しゃしん</rt></ruby>をとりました。<br><em>We took photos after the party ended.</em></p>
+<p><ruby>会<rt>かい</rt></ruby>が<ruby>終<rt>お</rt></ruby>わる**<ruby>前<rt>まえ</rt></ruby>に**、<ruby>写真<rt>しゃしん</rt></ruby>をとりました。<br><em>We took photos before the party ended.</em></p>
 </div>
 </div>
-<div class="slide" data-index="101">
+<div class="slide" data-index="110">
   
-  <div class="slide__content"><h2>～たあとで · ～たあとで vs ～前(まえ)に (cont.)</h2>
-<p>There is one more asymmetry worth noticing: a noun takes <code>の</code> with both (<code>会(かい)のあとで</code>, <code>会(かい)の前(まえ)に</code>), so the noun pattern gives you no clue about which verb form to use. Learn the verb forms as a pair.</p>
+  <div class="slide__content"><h2>～たあとで · ～たあとで vs ～前に (cont.)</h2>
+<p>Both main clauses are past, and neither first clause is marked for tense at all - <code><ruby>終<rt>お</rt></ruby>わった</code> and <code><ruby>終<rt>お</rt></ruby>わる</code> are chosen by the <em>construction</em>, not by when things happened. English speakers reliably write ❌<ruby>終<rt>お</rt></ruby>わった<ruby>前<rt>まえ</rt></ruby>に because English says &quot;before it ended&quot;. Japanese never does.</p>
+<p>There is one more asymmetry worth noticing: a noun takes <code>の</code> with both (<code><ruby>会<rt>かい</rt></ruby>のあとで</code>, <code><ruby>会<rt>かい</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>に</code>), so the noun pattern gives you no clue about which verb form to use. Learn the verb forms as a pair.</p>
 </div>
 </div>
-<div class="slide" data-index="102">
+<div class="slide" data-index="111">
   
   <div class="slide__content"><h2>～たあとで · <code>あとで</code> on its own vs ～たあとで</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - with a clause in front, <code>あとで</code> means &quot;after [that event]&quot;. With nothing in front, it means simply &quot;later on&quot;.</p>
 </blockquote>
-<p>電話(でんわ)が終(お)わっ<strong>たあとで</strong>、返事(へんじ)します。<br><em>I&#39;ll reply after I finish the phone call.</em></p>
-<p><strong>あとで</strong>返事(へんじ)します。<br><em>I&#39;ll reply later.</em></p>
-<p>The second sentence names no reference point at all - it just pushes the action into the unspecified future, which is why it is a favourite for putting things off. Note that 後(あと)でね。 on its own (&quot;see you later&quot;, &quot;in a bit&quot;) is a complete utterance in casual speech.</p>
+<p><ruby>電話<rt>でんわ</rt></ruby>が<ruby>終<rt>お</rt></ruby>わっ<strong>たあとで</strong>、<ruby>返事<rt>へんじ</rt></ruby>します。<br><em>I&#39;ll reply after I finish the phone call.</em></p>
+<p><strong>あとで</strong><ruby>返事<rt>へんじ</rt></ruby>します。<br><em>I&#39;ll reply later.</em></p>
 </div>
 </div>
-<div class="slide" data-index="103">
+<div class="slide" data-index="112">
+  
+  <div class="slide__content"><h2>～たあとで · <code>あとで</code> on its own vs ～たあとで (cont.)</h2>
+<p>The second sentence names no reference point at all - it just pushes the action into the unspecified future, which is why it is a favourite for putting things off. Note that <ruby>後<rt>あと</rt></ruby>でね。 on its own (&quot;see you later&quot;, &quot;in a bit&quot;) is a complete utterance in casual speech.</p>
+</div>
+</div>
+<div class="slide" data-index="113">
   
   <div class="slide__content"><h2>～たあとで · Common mistakes</h2>
 <ul>
-<li><p>❌ ごはんを食(た)べ<strong>る</strong>あとで、薬(くすり)を飲(の)みます。 → ✅ ごはんを食(た)べ<strong>た</strong>あとで、薬(くすり)を飲(の)みます。<br><em><code>あとで</code> always takes the た-form, even when the whole sentence is about the future. Nothing here is being said about <em>when</em> - only about order.</em></p>
+<li><p>❌ ごはんを<ruby>食<rt>た</rt></ruby>べ<strong>る</strong>あとで、<ruby>薬<rt>くすり</rt></ruby>を<ruby>飲<rt>の</rt></ruby>みます。 → ✅ ごはんを<ruby>食<rt>た</rt></ruby>べ<strong>た</strong>あとで、<ruby>薬<rt>くすり</rt></ruby>を<ruby>飲<rt>の</rt></ruby>みます。<br><em><code>あとで</code> always takes the た-form, even when the whole sentence is about the future. Nothing here is being said about <em>when</em> - only about order.</em></p>
 </li>
-<li><p>❌ 授業(じゅぎょう)あとで質問(しつもん)します。 → ✅ 授業(じゅぎょう)<strong>の</strong>あとで質問(しつもん)します。<br><em>A noun needs <code>の</code> before <code>あとで</code>. Only a verb can attach directly, and only in the た-form.</em></p>
+<li><p>❌ <ruby>授業<rt>じゅぎょう</rt></ruby>あとで<ruby>質問<rt>しつもん</rt></ruby>します。 → ✅ <ruby>授業<rt>じゅぎょう</rt></ruby><strong>の</strong>あとで<ruby>質問<rt>しつもん</rt></ruby>します。<br><em>A noun needs <code>の</code> before <code>あとで</code>. Only a verb can attach directly, and only in the た-form.</em></p>
 </li>
-<li><p>❌ 会議(かいぎ)の後(うし)ろで話(はな)しましょう。 → ✅ 会議(かいぎ)の後(あと)で話(はな)しましょう。<br><em><code>後(うし)ろ</code> is a place word meaning &quot;behind&quot;. The time word is <code>後(あと)</code>, and it is written without the ろ.</em></p>
+<li><p>❌ <ruby>会議<rt>かいぎ</rt></ruby>の<ruby>後<rt>うし</rt></ruby>ろで<ruby>話<rt>はな</rt></ruby>しましょう。 → ✅ <ruby>会議<rt>かいぎ</rt></ruby>の<ruby>後<rt>あと</rt></ruby>で<ruby>話<rt>はな</rt></ruby>しましょう。<br><em><code><ruby>後<rt>うし</rt></ruby>ろ</code> is a place word meaning &quot;behind&quot;. The time word is <code><ruby>後<rt>あと</rt></ruby></code>, and it is written without the ろ.</em></p>
 </li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="104">
+<div class="slide" data-index="114">
   
   <div class="slide__content"><h2>～たあとで · Common mistakes (cont.)</h2>
 <ul>
-<li><p>❌ 薬(くすり)を飲(の)んだあとで、運転(うんてん)してもいいです。 → ✅ 薬(くすり)を飲(の)ん<strong>でから</strong>、運転(うんてん)してもいいです。<br><em>Not a grammar error, a nuance error. Permission depends on the first event, so the sentence wants the precondition marker <code>てから</code>.</em></p>
+<li><p>❌ <ruby>薬<rt>くすり</rt></ruby>を<ruby>飲<rt>の</rt></ruby>んだあとで、<ruby>運転<rt>うんてん</rt></ruby>してもいいです。 → ✅ <ruby>薬<rt>くすり</rt></ruby>を<ruby>飲<rt>の</rt></ruby>ん<strong>でから</strong>、<ruby>運転<rt>うんてん</rt></ruby>してもいいです。<br><em>Not a grammar error, a nuance error. Permission depends on the first event, so the sentence wants the precondition marker <code>てから</code>.</em></p>
 </li>
-<li><p>❌ 日本(にほん)に来(き)たあとで、３年(ねん)になります。 → ✅ 日本(にほん)に来(き)<strong>てから</strong>、３年(ねん)になります。<br><em>Only <code>てから</code> can measure elapsed time from a starting point. <code>たあとで</code> needs a second <em>event</em>, not a duration.</em></p>
+<li><p>❌ <ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>き</rt></ruby>たあとで、３<ruby>年<rt>ねん</rt></ruby>になります。 → ✅ <ruby>日本<rt>にほん</rt></ruby>に<ruby>来<rt>き</rt></ruby><strong>てから</strong>、３<ruby>年<rt>ねん</rt></ruby>になります。<br><em>Only <code>てから</code> can measure elapsed time from a starting point. <code>たあとで</code> needs a second <em>event</em>, not a duration.</em></p>
 </li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="105">
+<div class="slide" data-index="115">
   
   <div class="slide__content"><h2>～たあとで · Practice 1</h2>
-<p><strong>1.</strong> 昼(ひる)ごはんを____あとで、散歩(さんぽ)しませんか。（食(た)べる）</p>
+<p><strong>1.</strong> <ruby>昼<rt>ひる</rt></ruby>ごはんを____あとで、<ruby>散歩<rt>さんぽ</rt></ruby>しませんか。（<ruby>食<rt>た</rt></ruby>べる）</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-昼(ひる)ごはんを食(た)べ<strong>た</strong>あとで、散歩(さんぽ)しませんか。</p>
+<ruby>昼<rt>ひる</rt></ruby>ごはんを<ruby>食<rt>た</rt></ruby>べ<strong>た</strong>あとで、<ruby>散歩<rt>さんぽ</rt></ruby>しませんか。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 The た-form is required even though the lunch has not happened yet - the invitation is about the future. <code>あとで</code> fixes the form of the verb in front of it and leaves all the tense to the final verb.</p>
 </div>
 </div>
-<div class="slide" data-index="106">
+<div class="slide" data-index="116">
   
   <div class="slide__content"><h2>～たあとで · Practice 2</h2>
-<p><strong>2.</strong> 大学(だいがく)を出(で)（たあとで・てから）、もう十年(じゅうねん)になります。</p>
+<p><strong>2.</strong> <ruby>大学<rt>だいがく</rt></ruby>を<ruby>出<rt>で</rt></ruby>（たあとで・てから）、もう<ruby>十年<rt>じゅうねん</rt></ruby>になります。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-大学(だいがく)を出(で)<strong>てから</strong>、もう十年(じゅうねん)になります。</p>
+<ruby>大学<rt>だいがく</rt></ruby>を<ruby>出<rt>で</rt></ruby><strong>てから</strong>、もう<ruby>十年<rt>じゅうねん</rt></ruby>になります。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 Counting years from a starting point is a job <code>てから</code> does and <code>たあとで</code> cannot. <code>たあとで</code> needs a second event to place on the timeline, and &quot;ten years have become&quot; is a duration, not an event.</p>
 </div>
 </div>
-<div class="slide" data-index="107">
+<div class="slide" data-index="117">
   
   <div class="slide__content"><h2>～たあとで · Practice 3</h2>
 <p><strong>3.</strong> Translate into Japanese: &quot;I&#39;ll do the dishes after the guests go home.&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-お客(きゃく)さんが帰(かえ)っ<strong>たあとで</strong>、皿(さら)を洗(あら)います。</p>
+お<ruby>客<rt>きゃく</rt></ruby>さんが<ruby>帰<rt>かえ</rt></ruby>っ<strong>たあとで</strong>、<ruby>皿<rt>さら</rt></ruby>を<ruby>洗<rt>あら</rt></ruby>います。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 The washing-up is not conditional on the guests leaving in any interesting way - it is just the next thing that happens - so the neutral <code>たあとで</code> fits better than <code>てから</code>. Note again the た-form on a future event.</p>
 </div>
 </div>
-<div class="slide" data-index="108">
+<div class="slide" data-index="118">
   
   <div class="slide__content"><h2>～たあとで · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 仕事(しごと)たあとで、飲(の)みに行(い)きましょう。</p>
+<p><strong>4.</strong> Find and fix the error: <ruby>仕事<rt>しごと</rt></ruby>たあとで、<ruby>飲<rt>の</rt></ruby>みに<ruby>行<rt>い</rt></ruby>きましょう。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 仕事(しごと)<strong>の</strong>あとで、飲(の)みに行(い)きましょう。</p>
+✅ <ruby>仕事<rt>しごと</rt></ruby><strong>の</strong>あとで、<ruby>飲<rt>の</rt></ruby>みに<ruby>行<rt>い</rt></ruby>きましょう。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>仕事(しごと)</code> is a noun, and a noun links to <code>あとで</code> with <code>の</code>. The <code>た</code> in <code>たあとで</code> is not part of the phrase - it is the past ending of a verb, and there is no verb here.</p>
+<code><ruby>仕事<rt>しごと</rt></ruby></code> is a noun, and a noun links to <code>あとで</code> with <code>の</code>. The <code>た</code> in <code>たあとで</code> is not part of the phrase - it is the past ending of a verb, and there is no verb here.</p>
 </div>
 </div>
-<div class="slide" data-index="109">
+<div class="slide" data-index="119">
   
   <div class="slide__content"><h2>～たあとで · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 手(て)を洗(あら)ったあとで、パンを食(た)べた。 (b) 手(て)を洗(あら)ってから、パンを食(た)べた。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>手<rt>て</rt></ruby>を<ruby>洗<rt>あら</rt></ruby>ったあとで、パンを<ruby>食<rt>た</rt></ruby>べた。 (b) <ruby>手<rt>て</rt></ruby>を<ruby>洗<rt>あら</rt></ruby>ってから、パンを<ruby>食<rt>た</rt></ruby>べた。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) is a report: two things happened, in that order. It would be a fine sentence in a diary, and it carries no suggestion that the hand-washing mattered.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
@@ -3993,7 +4062,7 @@ The washing-up is not conditional on the guests leaving in any interesting way -
     </div>
     <div id="hud-right">
       <a href="https://github.com/arpitbbhayani/deckrun" target="_blank" rel="noopener noreferrer" class="hud-brand" id="hud-brand" title="deckrun — Markdown presentations">powered by <span>deckrun</span></a>
-      <div id="slide-counter"><span id="cur">1</span>&nbsp;/&nbsp;<span id="tot">110</span></div>
+      <div id="slide-counter"><span id="cur">1</span>&nbsp;/&nbsp;<span id="tot">120</span></div>
     </div>
   </div>
 </div>
@@ -4046,7 +4115,7 @@ The washing-up is not conditional on the guests leaving in any interesting way -
 
 
 
-<script id="deck-notes" type="application/json">["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]</script>
+<script id="deck-notes" type="application/json">["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]</script>
 <script id="deck-themes" type="application/json">{"themes":[{"id":"midnight","label":"midnight","mood":"dark","blurb":"Catppuccin Mocha. Violet on deep indigo, drifting orbs.","decor":"orbs","colors":{"crust":"#11111b","mantle":"#181825","base":"#1e1e2e","surface0":"#313244","overlay1":"#7f849c","subtext1":"#bac2de","text":"#cdd6f4","accent":"#cba6f7","accent2":"#89b4fa","accent3":"#89dceb"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"tokyo","label":"tokyo night","mood":"dark","blurb":"Neon cyan over a wireframe grid, lifted from a rainy skyline.","decor":"grid","colors":{"crust":"#16161e","mantle":"#1a1b26","base":"#1f2335","surface0":"#292e42","overlay1":"#7c86ab","subtext1":"#b7c0e0","text":"#c8d3f5","accent":"#2ac3de","accent2":"#bb9af7","accent3":"#73daca"},"fonts":{"display":"'Sora', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"nord","label":"nord","mood":"dark","blurb":"Arctic frost blue on polar slate, with slow contour waves.","decor":"waves","colors":{"crust":"#232831","mantle":"#2e3440","base":"#353c4a","surface0":"#3b4252","overlay1":"#8e9aae","subtext1":"#d8dee9","text":"#eceff4","accent":"#88c0d0","accent2":"#81a1c1","accent3":"#8fbcbb"},"fonts":{"display":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace","body":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"dracula","label":"dracula","mood":"dark","blurb":"Purple and hot pink over charcoal, lit by a gradient mesh.","decor":"mesh","colors":{"crust":"#1a1b23","mantle":"#21222c","base":"#282a36","surface0":"#343746","overlay1":"#7b85b6","subtext1":"#e2e4f0","text":"#f8f8f2","accent":"#bd93f9","accent2":"#ff79c6","accent3":"#8be9fd"},"fonts":{"display":"'Syne', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'Fira Code', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"gruvbox","label":"gruvbox","mood":"dark","blurb":"Warm amber and moss on retro brown, hatched like graph paper.","decor":"topo","colors":{"crust":"#1b1e1f","mantle":"#232728","base":"#282828","surface0":"#32302f","overlay1":"#928374","subtext1":"#d5c4a1","text":"#ebdbb2","accent":"#fabd2f","accent2":"#fe8019","accent3":"#b8bb26"},"fonts":{"display":"'Bricolage Grotesque', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Work Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"rosepine","label":"rosé pine","mood":"dark","blurb":"Muted iris and gold on plum, under a slow aurora.","decor":"aurora","colors":{"crust":"#14121f","mantle":"#191724","base":"#1f1d2e","surface0":"#26233a","overlay1":"#817c9c","subtext1":"#cdc9e6","text":"#e0def4","accent":"#c4a7e7","accent2":"#9ccfd8","accent3":"#f6c177"},"fonts":{"display":"'Fraunces', Georgia, 'Times New Roman', serif","body":"'Newsreader', Georgia, 'Times New Roman', serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"forest","label":"forest","mood":"dark","blurb":"Everforest sage on deep pine, rippling in concentric rings.","decor":"rings","colors":{"crust":"#232a2e","mantle":"#2d353b","base":"#343f44","surface0":"#3d484d","overlay1":"#9da9a0","subtext1":"#d3c6aa","text":"#e5dfd2","accent":"#a7c080","accent2":"#6fb5ac","accent3":"#dbbc7f"},"fonts":{"display":"'Outfit', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"neon","label":"neon","mood":"dark","blurb":"Electric cyan and magenta on true black, raked by light beams.","decor":"beams","colors":{"crust":"#050509","mantle":"#0a0a12","base":"#0e0e1a","surface0":"#16162a","overlay1":"#6a6a96","subtext1":"#c8c8e4","text":"#f0f0ff","accent":"#22d3ee","accent2":"#ff5cc8","accent3":"#38e8ff"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'Space Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"daylight","label":"daylight","mood":"light","blurb":"Catppuccin Latte, contrast-tuned for a projector. Dot matrix.","decor":"dots","colors":{"crust":"#ebebeb","mantle":"#f5f5f5","base":"#fafaf8","surface0":"#ccd0da","overlay1":"#5c5f77","subtext1":"#3a3c52","text":"#1e2030","accent":"#8839ef","accent2":"#1e66f5","accent3":"#179299"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"arctic","label":"arctic","mood":"light","blurb":"Nord inverted. Frost blue on cool paper, with contour waves.","decor":"waves","colors":{"crust":"#e3e8ef","mantle":"#eceff4","base":"#f7f9fc","surface0":"#dbe1ea","overlay1":"#5f6b7c","subtext1":"#364150","text":"#2e3440","accent":"#2f7d94","accent2":"#4a7ba7","accent3":"#3b8b8a"},"fonts":{"display":"'Manrope', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"solarized","label":"solarized","mood":"light","blurb":"The classic low-glare cream, paired with Lora for long prose.","decor":"topo","colors":{"crust":"#eee8d5","mantle":"#f5efdc","base":"#fdf6e3","surface0":"#e3ddc8","overlay1":"#657b83","subtext1":"#3f5b62","text":"#073642","accent":"#268bd2","accent2":"#6c71c4","accent3":"#21958c"},"fonts":{"display":"'Outfit', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Lora', Georgia, 'Times New Roman', serif","mono":"'Source Code Pro', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"paper","label":"paper","mood":"light","blurb":"Crimson serif on warm cream. Editorial, print-first, very legible.","decor":"rings","colors":{"crust":"#efe8dc","mantle":"#f7f2e9","base":"#fdfbf5","surface0":"#e4dccc","overlay1":"#6e6553","subtext1":"#38311f","text":"#211c11","accent":"#a81f2c","accent2":"#1f7f96","accent3":"#9a6c12"},"fonts":{"display":"'Fraunces', Georgia, 'Times New Roman', serif","body":"'Newsreader', Georgia, 'Times New Roman', serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"rosequartz","label":"rose quartz","mood":"light","blurb":"Rosé Pine Dawn. Blush and iris on linen, with soft orbs.","decor":"orbs","colors":{"crust":"#f2e9e1","mantle":"#faf4ed","base":"#fffaf3","surface0":"#ece0d8","overlay1":"#7d7791","subtext1":"#55506e","text":"#423d5c","accent":"#b4637a","accent2":"#907aa9","accent3":"#56949f"},"fonts":{"display":"'Playfair Display', Georgia, 'Times New Roman', serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"swiss","label":"swiss","mood":"light","blurb":"Black on white, one red. Heavy grotesk, tight tracking, hard grid.","decor":"grid","colors":{"crust":"#f0f0f0","mantle":"#f8f8f8","base":"#ffffff","surface0":"#dcdcdc","overlay1":"#5a5a5a","subtext1":"#222222","text":"#0a0a0a","accent":"#e01b24","accent2":"#0a0a0a","accent3":"#5a5a5a"},"fonts":{"display":"'Archivo', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}}],"hljsMap":{"midnight":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css","tokyo":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css","nord":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/nord.min.css","dracula":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/dracula.min.css","gruvbox":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/gruvbox-dark-medium.min.css","rosepine":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/ros-pine.min.css","forest":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css","neon":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/night-owl.min.css","daylight":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","arctic":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","solarized":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/solarized-light.min.css","paper":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","rosequartz":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/ros-pine-dawn.min.css","swiss":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css"},"decorMap":{"midnight":"orbs","tokyo":"grid","nord":"waves","dracula":"mesh","gruvbox":"topo","rosepine":"aurora","forest":"rings","neon":"beams","daylight":"dots","arctic":"waves","solarized":"topo","paper":"rings","rosequartz":"orbs","swiss":"grid"}}</script>
 
 <script>
@@ -5234,6 +5303,36 @@ The washing-up is not conditional on the guests leaving in any interesting way -
     transition: opacity 0.15s ease, background 0.15s ease; }
   #deck-home:hover, #deck-home:focus-visible { opacity: 0.95; background: rgba(128,128,128,0.14); }
   @media print { #deck-home { display: none !important; } }
+  #furigana-toggle { position: fixed; bottom: 2.7rem; right: 1.1rem; z-index: 40;
+    font: 500 0.78rem/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+    color: currentColor; opacity: 0.38; cursor: pointer; user-select: none;
+    background: none; border: 1px solid currentColor; border-radius: 4px;
+    padding: 0.38rem 0.6rem;
+    transition: opacity 0.15s ease, background 0.15s ease; }
+  #furigana-toggle:hover, #furigana-toggle:focus-visible { opacity: 0.95; background: rgba(128,128,128,0.14); }
+  @media print { #furigana-toggle { display: none !important; } }
 </style>
+<button id="furigana-toggle" type="button" aria-pressed="true">&#12405;&#12426;&#12364;&#12394; ON</button>
+<script>
+  (function () {
+    // Deliberately click-only: readers who do not want furigana turn it off
+    // once and it sticks, while every key stays free for presenting.
+    var root = document.documentElement, btn = document.getElementById('furigana-toggle');
+    function paint() {
+      var off = root.getAttribute('data-furigana') === 'off';
+      btn.textContent = '\u3075\u308a\u304c\u306a ' + (off ? 'OFF' : 'ON');
+      btn.setAttribute('aria-pressed', String(!off));
+    }
+    btn.addEventListener('click', function () {
+      var off = root.getAttribute('data-furigana') === 'off';
+      if (off) root.removeAttribute('data-furigana');
+      else root.setAttribute('data-furigana', 'off');
+      try { localStorage.setItem('jlpt-furigana', off ? 'on' : 'off'); } catch (e) {}
+      paint();
+      btn.blur();
+    });
+    paint();
+  })();
+</script>
 </body>
 </html>

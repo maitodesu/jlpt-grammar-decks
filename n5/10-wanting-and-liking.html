@@ -2606,6 +2606,13 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
   gap: 0.5rem;
 }
   </style>
+<script>
+  try {
+    if (localStorage.getItem('jlpt-furigana') === 'off') {
+      document.documentElement.setAttribute('data-furigana', 'off');
+    }
+  } catch (e) {}
+</script>
 </head>
 <body>
 
@@ -2614,7 +2621,16 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <div id="presentation">
 <div class="slide" data-index="0">
   
-  <div class="slide__content"><style>html { font-size: 20.0px; }</style>
+  <div class="slide__content"><style>
+  html { font-size: 20.0px; }
+  .slide__content p, .slide__content li,
+  .slide__content td, .slide__content th { line-height: 2.05; }
+  rt { font-size: 0.5em; line-height: 1.1; opacity: 0.72; font-weight: 400; }
+  :root[data-furigana="off"] rt { display: none; }
+  :root[data-furigana="off"] .slide__content p, :root[data-furigana="off"] .slide__content li,
+  :root[data-furigana="off"] .slide__content td, :root[data-furigana="off"] .slide__content th
+    { line-height: 1.5; }
+</style>
 
 <h1>N5 - Wanting and liking</h1>
 <ul>
@@ -2648,25 +2664,25 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <tbody><tr>
 <td>Verb (う-verb)</td>
 <td>ます-stem + たい</td>
-<td>飲(の)みます → 飲(の)みたい</td>
+<td><ruby>飲<rt>の</rt></ruby>みます → <ruby>飲<rt>の</rt></ruby>みたい</td>
 </tr>
 <tr>
 <td>Verb (る-verb)</td>
 <td>ます-stem + たい</td>
-<td>食(た)べます → 食(た)べたい</td>
+<td><ruby>食<rt>た</rt></ruby>べます → <ruby>食<rt>た</rt></ruby>べたい</td>
 </tr>
 <tr>
 <td>Verb (する)</td>
 <td>し + たい</td>
-<td>する → したい／勉強(べんきょう)したい</td>
+<td>する → したい／<ruby>勉強<rt>べんきょう</rt></ruby>したい</td>
 </tr>
 <tr>
-<td>Verb (来(く)る)</td>
+<td>Verb (<ruby>来<rt>く</rt></ruby>る)</td>
 <td>き + たい</td>
-<td>来(く)る → 来(き)たい</td>
+<td><ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>き</rt></ruby>たい</td>
 </tr>
 </tbody></table>
-<p>Once <code>たい</code> is attached, <code>飲(の)みたい</code> behaves like <code>高(たか)い</code> in every respect:</p>
+<p>Once <code>たい</code> is attached, <code><ruby>飲<rt>の</rt></ruby>みたい</code> behaves like <code><ruby>高<rt>たか</rt></ruby>い</code> in every respect:</p>
 </div>
 </div>
 <div class="slide" data-index="3">
@@ -2683,42 +2699,42 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <tbody><tr>
 <td>Polite</td>
 <td>+ です</td>
-<td>飲(の)みたいです</td>
+<td><ruby>飲<rt>の</rt></ruby>みたいです</td>
 </tr>
 <tr>
 <td>Negative</td>
 <td>たい → たくない</td>
-<td>飲(の)みたくない</td>
+<td><ruby>飲<rt>の</rt></ruby>みたくない</td>
 </tr>
 <tr>
 <td>Past</td>
 <td>たい → たかった</td>
-<td>飲(の)みたかった</td>
+<td><ruby>飲<rt>の</rt></ruby>みたかった</td>
 </tr>
 <tr>
 <td>Negative past</td>
 <td>たい → たくなかった</td>
-<td>飲(の)みたくなかった</td>
+<td><ruby>飲<rt>の</rt></ruby>みたくなかった</td>
 </tr>
 <tr>
 <td>て-form</td>
 <td>たい → たくて</td>
-<td>飲(の)みたくて</td>
+<td><ruby>飲<rt>の</rt></ruby>みたくて</td>
 </tr>
 <tr>
 <td>Adverbial</td>
 <td>たい → たく</td>
-<td>飲(の)みたくなる</td>
+<td><ruby>飲<rt>の</rt></ruby>みたくなる</td>
 </tr>
 <tr>
 <td>Before a noun</td>
 <td>たい + Noun</td>
-<td>飲(の)みたいもの</td>
+<td><ruby>飲<rt>の</rt></ruby>みたいもの</td>
 </tr>
 <tr>
 <td>Third person</td>
 <td>ます-stem + たがる</td>
-<td>飲(の)みたがる／飲(の)みたがっている</td>
+<td><ruby>飲<rt>の</rt></ruby>みたがる／<ruby>飲<rt>の</rt></ruby>みたがっている</td>
 </tr>
 </tbody></table>
 </div>
@@ -2727,185 +2743,195 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
   
   <div class="slide__content"><h2>～たい · Formation (cont.)</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - <code>たい</code> is an い-adjective, not a verb. So it is <code>行(い)きたくない</code>, never ❌<code>行(い)きたいじゃない</code>, and <code>行(い)きたかった</code>, never ❌<code>行(い)きたいでした</code>.</p>
+<p><strong>Rule of thumb</strong> - <code>たい</code> is an い-adjective, not a verb. So it is <code><ruby>行<rt>い</rt></ruby>きたくない</code>, never ❌<code><ruby>行<rt>い</rt></ruby>きたいじゃない</code>, and <code><ruby>行<rt>い</rt></ruby>きたかった</code>, never ❌<code><ruby>行<rt>い</rt></ruby>きたいでした</code>.</p>
 </blockquote>
 </div>
 </div>
 <div class="slide" data-index="5">
   
   <div class="slide__content"><h2>～たい · Examples</h2>
-<p>水(みず)が<strong>飲(の)みたい</strong>。<br><em>I want some water.</em></p>
-<p>日本(にほん)へ<strong>行(い)きたい</strong>です。<br><em>I want to go to Japan.</em></p>
-<p>何(なに)が<strong>食(た)べたい</strong>ですか。<br><em>What do you want to eat?</em></p>
-<p>今日(きょう)はどこにも<strong>行(い)きたくない</strong>。<br><em>I don&#39;t want to go anywhere today.</em></p>
-<p>子(こ)どものとき、パイロットに<strong>なりたかった</strong>。<br><em>When I was a kid, I wanted to be a pilot.</em></p>
+<p><ruby>水<rt>みず</rt></ruby>が**<ruby>飲<rt>の</rt></ruby>みたい**。<br><em>I want some water.</em></p>
+<p><ruby>日本<rt>にほん</rt></ruby>へ**<ruby>行<rt>い</rt></ruby>きたい**です。<br><em>I want to go to Japan.</em></p>
+<p><ruby>何<rt>なに</rt></ruby>が**<ruby>食<rt>た</rt></ruby>べたい**ですか。<br><em>What do you want to eat?</em></p>
+<p><ruby>今日<rt>きょう</rt></ruby>はどこにも**<ruby>行<rt>い</rt></ruby>きたくない**。<br><em>I don&#39;t want to go anywhere today.</em></p>
 </div>
 </div>
 <div class="slide" data-index="6">
   
   <div class="slide__content"><h2>～たい · Examples (cont.)</h2>
-<p>弟(おとうと)は新(あたら)しいゲームを<strong>買(か)いたがっている</strong>。<br><em>My little brother wants to buy the new game.</em></p>
-<p>疲(つか)れたので今日(きょう)は早(はや)く<strong>寝(ね)たい</strong>んですが、まだ仕事(しごと)が終(お)わりません。<br><em>I&#39;m exhausted and I want an early night, but I still haven&#39;t finished work.</em></p>
-<p>来年(らいねん)は沖縄(おきなわ)に行(い)って、海(うみ)で<strong>泳(およ)ぎたい</strong>と思(おも)っています。<br><em>Next year I&#39;m hoping to go to Okinawa and swim in the sea.</em></p>
+<p><ruby>子<rt>こ</rt></ruby>どものとき、パイロットに<strong>なりたかった</strong>。<br><em>When I was a kid, I wanted to be a pilot.</em></p>
+<p><ruby>弟<rt>おとうと</rt></ruby>は<ruby>新<rt>あたら</rt></ruby>しいゲームを**<ruby>買<rt>か</rt></ruby>いたがっている**。<br><em>My little brother wants to buy the new game.</em></p>
+<p><ruby>疲<rt>つか</rt></ruby>れたので<ruby>今日<rt>きょう</rt></ruby>は<ruby>早<rt>はや</rt></ruby>く**<ruby>寝<rt>ね</rt></ruby>たい**んですが、まだ<ruby>仕事<rt>しごと</rt></ruby>が<ruby>終<rt>お</rt></ruby>わりません。<br><em>I&#39;m exhausted and I want an early night, but I still haven&#39;t finished work.</em></p>
+<p><ruby>来年<rt>らいねん</rt></ruby>は<ruby>沖縄<rt>おきなわ</rt></ruby>に<ruby>行<rt>い</rt></ruby>って、<ruby>海<rt>うみ</rt></ruby>で**<ruby>泳<rt>およ</rt></ruby>ぎたい**と<ruby>思<rt>おも</rt></ruby>っています。<br><em>Next year I&#39;m hoping to go to Okinawa and swim in the sea.</em></p>
 </div>
 </div>
 <div class="slide" data-index="7">
   
   <div class="slide__content"><h2>～たい · Nuance &amp; register</h2>
-<p><code>～たい</code> itself is neutral; <code>～たいです</code> is polite in <em>form</em>. The trouble is that politeness of form does not fix bluntness of content. Stating a raw want at someone senior - 部長(ぶちょう)、早(はや)く帰(かえ)りたいです - is grammatical and still lands badly, because you are pushing your preference at a superior. Softeners exist for exactly this:</p>
-<ul>
-<li><strong>～たいと思(おも)います</strong> - &quot;I&#39;m thinking I&#39;d like to…&quot;. The standard business<br><em>hedge. 来週(らいしゅう)お休(やす)みを取(と)りたいと思(おも)います。</em></li>
-<li><strong>～たいんですが</strong> - sets up a request and leaves the ask unsaid.<br><em>すみません、これを返(かえ)したいんですが…</em></li>
-<li><strong>～たいのですが／～たく存(ぞん)じます</strong> - written and formal registers.</li>
-</ul>
+<p><code>～たい</code> itself is neutral; <code>～たいです</code> is polite in <em>form</em>. The trouble is that politeness of form does not fix bluntness of content. Stating a raw want at someone senior - <ruby>部長<rt>ぶちょう</rt></ruby>、<ruby>早<rt>はや</rt></ruby>く<ruby>帰<rt>かえ</rt></ruby>りたいです - is grammatical and still lands badly, because you are pushing your preference at a superior. Softeners exist for exactly this:</p>
 </div>
 </div>
 <div class="slide" data-index="8">
   
   <div class="slide__content"><h2>～たい · Nuance &amp; register (cont.)</h2>
-<p>The same asymmetry runs the other way. Asking a superior 何(なに)が食(た)べたいですか is a bit bald; 何(なん)になさいますか or 何(なに)がよろしいですか is what you actually say. Among friends and to subordinates, plain <code>～たい?</code> is perfectly normal.</p>
-<p>In casual speech the negative <code>～たくない</code> is the everyday form; <code>～たくありません</code> is correct but stiff, and mostly turns up in writing or careful speech.</p>
-<p><code>～たがる</code> is a real verb (a う-verb: <code>たがらない</code>, <code>たがります</code>, <code>たがって</code>) and it carries a slight sense of <em>watching someone from outside</em> - you are describing observable behaviour, not reading a mind. That distance can shade into criticism, so <code>たがる</code> about a superior is rude: ❌社長(しゃちょう)は帰(かえ)りたがっています.</p>
+<ul>
+<li><strong>～たいと<ruby>思<rt>おも</rt></ruby>います</strong> - &quot;I&#39;m thinking I&#39;d like to…&quot;. The standard business<br><em>hedge. <ruby>来週<rt>らいしゅう</rt></ruby>お<ruby>休<rt>やす</rt></ruby>みを<ruby>取<rt>と</rt></ruby>りたいと<ruby>思<rt>おも</rt></ruby>います。</em></li>
+<li><strong>～たいんですが</strong> - sets up a request and leaves the ask unsaid.<br><em>すみません、これを<ruby>返<rt>かえ</rt></ruby>したいんですが…</em></li>
+<li><strong>～たいのですが／～たく<ruby>存<rt>ぞん</rt></ruby>じます</strong> - written and formal registers.</li>
+</ul>
+<p>The same asymmetry runs the other way. Asking a superior <ruby>何<rt>なに</rt></ruby>が<ruby>食<rt>た</rt></ruby>べたいですか is a bit bald; <ruby>何<rt>なん</rt></ruby>になさいますか or <ruby>何<rt>なに</rt></ruby>がよろしいですか is what you actually say. Among friends and to subordinates, plain <code>～たい?</code> is perfectly normal.</p>
 </div>
 </div>
 <div class="slide" data-index="9">
+  
+  <div class="slide__content"><h2>～たい · Nuance &amp; register (cont.)</h2>
+<p>In casual speech the negative <code>～たくない</code> is the everyday form; <code>～たくありません</code> is correct but stiff, and mostly turns up in writing or careful speech.</p>
+<p><code>～たがる</code> is a real verb (a う-verb: <code>たがらない</code>, <code>たがります</code>, <code>たがって</code>) and it carries a slight sense of <em>watching someone from outside</em> - you are describing observable behaviour, not reading a mind. That distance can shade into criticism, so <code>たがる</code> about a superior is rude: ❌<ruby>社長<rt>しゃちょう</rt></ruby>は<ruby>帰<rt>かえ</rt></ruby>りたがっています.</p>
+</div>
+</div>
+<div class="slide" data-index="10">
   
   <div class="slide__content"><h2>～たい · ～たい vs ～たがる</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>～たい</code> for me and for you; <code>～たがる</code> for him, her and them.</p>
 </blockquote>
 <p>A flat statement about a third person&#39;s desire in plain <code>～たい</code> sounds wrong to native ears, because you are claiming direct access to someone else&#39;s inner state.</p>
-<p>妹(いもうと)はケーキを<strong>食(た)べたがっています</strong>。<br><em>My little sister wants cake.</em></p>
-<p>Note the particle: <code>たがる</code> is an ordinary verb, so its object takes <code>を</code>, never the <code>が</code> that <code>たい</code> allows. Note the <code>～ている</code> too. For a desire someone is feeling <em>right now</em>, <code>たがっている</code> is the normal form; bare <code>たがる</code> reads as a habit - 弟(おとうと)はいつも新(あたら)しいものを買(か)いたがる - &quot;my brother always wants to buy the newest thing.&quot;</p>
-<p><code>たがる</code> is not the only way out. These are often more natural, and politer:</p>
-</div>
-</div>
-<div class="slide" data-index="10">
-  
-  <div class="slide__content"><h2>～たい · ～たい vs ～たがる (cont.)</h2>
-<ul>
-<li>妹(いもうと)はケーキが食(た)べたいそうです。 (I hear that…)</li>
-<li>妹(いもうと)はケーキが食(た)べたいと言(い)っています。 (she says…)</li>
-<li>妹(いもうと)はケーキが食(た)べたいようです／みたいです。 (it seems…)</li>
-</ul>
-<blockquote>
-<p><strong>Note</strong> - the third-person ban only applies to a <strong>plain main-clause statement</strong>. Inside a subordinate clause, plain <code>たい</code> about someone else is fine: 日本(にほん)に行(い)きたい人(ひと)は手(て)を挙(あ)げてください。 「Anyone who wants to go to Japan, raise your hand.」 It is also fine under <code>と思(おも)っている</code>: 彼(かれ)は行(い)きたいと思(おも)っています。</p>
-</blockquote>
+<p><ruby>妹<rt>いもうと</rt></ruby>はケーキを**<ruby>食<rt>た</rt></ruby>べたがっています**。<br><em>My little sister wants cake.</em></p>
 </div>
 </div>
 <div class="slide" data-index="11">
+  
+  <div class="slide__content"><h2>～たい · ～たい vs ～たがる (cont.)</h2>
+<p>Note the particle: <code>たがる</code> is an ordinary verb, so its object takes <code>を</code>, never the <code>が</code> that <code>たい</code> allows. Note the <code>～ている</code> too. For a desire someone is feeling <em>right now</em>, <code>たがっている</code> is the normal form; bare <code>たがる</code> reads as a habit - <ruby>弟<rt>おとうと</rt></ruby>はいつも<ruby>新<rt>あたら</rt></ruby>しいものを<ruby>買<rt>か</rt></ruby>いたがる - &quot;my brother always wants to buy the newest thing.&quot;</p>
+<p><code>たがる</code> is not the only way out. These are often more natural, and politer:</p>
+<ul>
+<li><ruby>妹<rt>いもうと</rt></ruby>はケーキが<ruby>食<rt>た</rt></ruby>べたいそうです。 (I hear that…)</li>
+<li><ruby>妹<rt>いもうと</rt></ruby>はケーキが<ruby>食<rt>た</rt></ruby>べたいと<ruby>言<rt>い</rt></ruby>っています。 (she says…)</li>
+<li><ruby>妹<rt>いもうと</rt></ruby>はケーキが<ruby>食<rt>た</rt></ruby>べたいようです／みたいです。 (it seems…)</li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="12">
+  
+  <div class="slide__content"><h2>～たい · ～たい vs ～たがる (cont.)</h2>
+<blockquote>
+<p><strong>Note</strong> - the third-person ban only applies to a <strong>plain main-clause statement</strong>. Inside a subordinate clause, plain <code>たい</code> about someone else is fine: <ruby>日本<rt>にほん</rt></ruby>に<ruby>行<rt>い</rt></ruby>きたい<ruby>人<rt>ひと</rt></ruby>は<ruby>手<rt>て</rt></ruby>を<ruby>挙<rt>あ</rt></ruby>げてください。 「Anyone who wants to go to Japan, raise your hand.」 It is also fine under <code>と<ruby>思<rt>おも</rt></ruby>っている</code>: <ruby>彼<rt>かれ</rt></ruby>は<ruby>行<rt>い</rt></ruby>きたいと<ruby>思<rt>おも</rt></ruby>っています。</p>
+</blockquote>
+</div>
+</div>
+<div class="slide" data-index="13">
   
   <div class="slide__content"><h2>～たい · が vs を with ～たい</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - both are correct. <code>が</code> spotlights the <em>thing</em> you crave; <code>を</code> keeps the focus on the <em>action</em>. When in doubt at N5, <code>が</code> is the safer answer.</p>
 </blockquote>
 <p>Because <code>たい</code> turns the verb into an adjective-like word, the old object can take <code>が</code> - and that option is genuinely alive in modern Japanese.</p>
-<p>ビール<strong>が</strong>飲(の)みたい。<br><em>I want a beer. (it&#39;s beer specifically that I&#39;m after)</em></p>
-<p>ビール<strong>を</strong>飲(の)みたい。<br><em>I want to drink a beer. (the drinking is what I&#39;m picturing)</em></p>
+<p>ビール<strong>が</strong><ruby>飲<rt>の</rt></ruby>みたい。<br><em>I want a beer. (it&#39;s beer specifically that I&#39;m after)</em></p>
+<p>ビール<strong>を</strong><ruby>飲<rt>の</rt></ruby>みたい。<br><em>I want to drink a beer. (the drinking is what I&#39;m picturing)</em></p>
 <p>Three places where <code>を</code> is the only option:</p>
 </div>
 </div>
-<div class="slide" data-index="12">
+<div class="slide" data-index="14">
   
   <div class="slide__content"><h2>～たい · が vs を with ～たい (cont.)</h2>
 <ol>
-<li><strong>The <code>を</code> is not a direct object.</strong> Path and departure <code>を</code> never becomes <code>が</code>: 空(そら)<strong>を</strong>飛(と)びたい, 家(いえ)<strong>を</strong>出(で)たい. 2. <strong>The clause already has a <code>が</code>.</strong> Two <code>が</code> in one clause collide: ❌私(わたし)がビールが飲(の)みたい. 3. <strong>The object is far from the verb.</strong> Once material intervenes, <code>が</code> degrades: ビール<strong>を</strong>冷(ひ)やして、あとでゆっくり飲(の)みたい.</li>
+<li><strong>The <code>を</code> is not a direct object.</strong> Path and departure <code>を</code> never becomes <code>が</code>: <ruby>空<rt>そら</rt></ruby><strong>を</strong><ruby>飛<rt>と</rt></ruby>びたい, <ruby>家<rt>いえ</rt></ruby><strong>を</strong><ruby>出<rt>で</rt></ruby>たい. 2. <strong>The clause already has a <code>が</code>.</strong> Two <code>が</code> in one clause collide: ❌<ruby>私<rt>わたし</rt></ruby>がビールが<ruby>飲<rt>の</rt></ruby>みたい. 3. <strong>The object is far from the verb.</strong> Once material intervenes, <code>が</code> degrades: ビール<strong>を</strong><ruby>冷<rt>ひ</rt></ruby>やして、あとでゆっくり<ruby>飲<rt>の</rt></ruby>みたい.</li>
 </ol>
 <p><code>を</code> is also the safer default in writing and in longer sentences; <code>が</code> is at its most natural in short, felt statements - the ones you say when you actually want the thing.</p>
 </div>
 </div>
-<div class="slide" data-index="13">
+<div class="slide" data-index="15">
   
   <div class="slide__content"><h2>～たい · ～たい vs ほしい</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>ほしい</code> wants a <strong>noun</strong>; <code>～たい</code> wants an <strong>action</strong>.</p>
 </blockquote>
-<p>新(あたら)しいパソコン<strong>がほしい</strong>です。<br><em>I want a new computer.</em></p>
-<p>新(あたら)しいパソコンが<strong>買(か)いたい</strong>です。<br><em>I want to buy a new computer.</em></p>
-<p><code>ほしい</code> is also an い-adjective, and it carries the same first-person restriction as <code>たい</code> - third person needs <code>ほしがっている</code>. Its verb-taking cousin, <code>～てほしい</code>, means you want <em>someone else</em> to do something: 手伝(てつだ)ってほしい - &quot;I want you to help.&quot;</p>
-</div>
-</div>
-<div class="slide" data-index="14">
-  
-  <div class="slide__content"><h2>～たい · Common mistakes</h2>
-<ul>
-<li><p>❌ 田中(たなか)さんは日本(にほん)に行(い)きたいです。 → ✅ 田中(たなか)さんは日本(にほん)に行(い)き<strong>たがっています</strong>。<br><em>A flat statement about a third person&#39;s desire needs <code>たがる</code>, or a hedge like <code>たいそうです</code>／<code>たいと言(い)っています</code>.</em></p>
-</li>
-<li><p>❌ 行(い)きたい<strong>じゃない</strong>／行(い)きたい<strong>でした</strong> → ✅ 行(い)き<strong>たくない</strong>／行(い)き<strong>たかった</strong><br><em><code>たい</code> is an い-adjective. It never takes <code>じゃない</code> or <code>でした</code>.</em></p>
-</li>
-<li><p>❌ 食(た)べる<strong>たい</strong> → ✅ 食(た)べ<strong>たい</strong><br><em><code>たい</code> attaches to the ます-stem, not the dictionary form. 食(た)べます → 食(た)べ + たい.</em></p>
-</li>
-<li><p>❌ コーヒーが<strong>ほしいたい</strong>。 → ✅ コーヒーが<strong>飲(の)みたい</strong>。／コーヒーが<strong>ほしい</strong>。<br><em><code>ほしい</code> and <code>たい</code> do the same job for different word classes. Never stack them.</em></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="slide" data-index="15">
-  
-  <div class="slide__content"><h2>～たい · Common mistakes (cont.)</h2>
-<ul>
-<li>❌ 課長(かちょう)、何(なに)が食(た)べたいですか。 → ✅ 課長(かちょう)、何(なに)がよろしいですか。<br><em>Grammatical, but too direct upward. Asking a superior about their wants calls for <code>よろしいですか</code> or <code>なさいますか</code>.</em></li>
-</ul>
+<p><ruby>新<rt>あたら</rt></ruby>しいパソコン<strong>がほしい</strong>です。<br><em>I want a new computer.</em></p>
+<p><ruby>新<rt>あたら</rt></ruby>しいパソコンが**<ruby>買<rt>か</rt></ruby>いたい**です。<br><em>I want to buy a new computer.</em></p>
+<p><code>ほしい</code> is also an い-adjective, and it carries the same first-person restriction as <code>たい</code> - third person needs <code>ほしがっている</code>. Its verb-taking cousin, <code>～てほしい</code>, means you want <em>someone else</em> to do something: <ruby>手伝<rt>てつだ</rt></ruby>ってほしい - &quot;I want you to help.&quot;</p>
 </div>
 </div>
 <div class="slide" data-index="16">
   
-  <div class="slide__content"><h2>～たい · Practice 1</h2>
-<p><strong>1.</strong> のどがかわきました。水(みず)が飲(の)____です。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-水(みず)が飲(の)<strong>みたい</strong>です。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>たい</code> attaches to the ます-stem: 飲(の)みます → 飲(の)み + たい. The polite form is just <code>です</code> on the end, because <code>飲(の)みたい</code> is an い-adjective.</p>
+  <div class="slide__content"><h2>～たい · Common mistakes</h2>
+<ul>
+<li><p>❌ <ruby>田中<rt>たなか</rt></ruby>さんは<ruby>日本<rt>にほん</rt></ruby>に<ruby>行<rt>い</rt></ruby>きたいです。 → ✅ <ruby>田中<rt>たなか</rt></ruby>さんは<ruby>日本<rt>にほん</rt></ruby>に<ruby>行<rt>い</rt></ruby>き<strong>たがっています</strong>。<br><em>A flat statement about a third person&#39;s desire needs <code>たがる</code>, or a hedge like <code>たいそうです</code>／<code>たいと<ruby>言<rt>い</rt></ruby>っています</code>.</em></p>
+</li>
+<li><p>❌ <ruby>行<rt>い</rt></ruby>きたい<strong>じゃない</strong>／<ruby>行<rt>い</rt></ruby>きたい<strong>でした</strong> → ✅ <ruby>行<rt>い</rt></ruby>き<strong>たくない</strong>／<ruby>行<rt>い</rt></ruby>き<strong>たかった</strong><br><em><code>たい</code> is an い-adjective. It never takes <code>じゃない</code> or <code>でした</code>.</em></p>
+</li>
+<li><p>❌ <ruby>食<rt>た</rt></ruby>べる<strong>たい</strong> → ✅ <ruby>食<rt>た</rt></ruby>べ<strong>たい</strong><br><em><code>たい</code> attaches to the ます-stem, not the dictionary form. <ruby>食<rt>た</rt></ruby>べます → <ruby>食<rt>た</rt></ruby>べ + たい.</em></p>
+</li>
+<li><p>❌ コーヒーが<strong>ほしいたい</strong>。 → ✅ コーヒーが**<ruby>飲<rt>の</rt></ruby>みたい**。／コーヒーが<strong>ほしい</strong>。<br><em><code>ほしい</code> and <code>たい</code> do the same job for different word classes. Never stack them.</em></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="17">
   
-  <div class="slide__content"><h2>～たい · Practice 2</h2>
-<p><strong>2.</strong> 妹(いもうと)は新(あたら)しい靴(くつ)を（買(か)いたいです・買(か)いたがっています）。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-妹(いもうと)は新(あたら)しい靴(くつ)を<strong>買(か)いたがっています</strong>。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>妹(いもうと)</code> is a third person, so plain <code>たい</code> in a main clause is out - you cannot assert someone else&#39;s inner state directly. <code>たがっている</code> describes the desire as something you can observe from outside.</p>
+  <div class="slide__content"><h2>～たい · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ <ruby>課長<rt>かちょう</rt></ruby>、<ruby>何<rt>なに</rt></ruby>が<ruby>食<rt>た</rt></ruby>べたいですか。 → ✅ <ruby>課長<rt>かちょう</rt></ruby>、<ruby>何<rt>なに</rt></ruby>がよろしいですか。<br><em>Grammatical, but too direct upward. Asking a superior about their wants calls for <code>よろしいですか</code> or <code>なさいますか</code>.</em></li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="18">
   
-  <div class="slide__content"><h2>～たい · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese: &quot;I didn&#39;t want to go to school yesterday.&quot;</p>
+  <div class="slide__content"><h2>～たい · Practice 1</h2>
+<p><strong>1.</strong> のどがかわきました。<ruby>水<rt>みず</rt></ruby>が<ruby>飲<rt>の</rt></ruby>____です。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-きのうは学校(がっこう)に<strong>行(い)きたくなかった</strong>（です）。</p>
+<ruby>水<rt>みず</rt></ruby>が<ruby>飲<rt>の</rt></ruby><strong>みたい</strong>です。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Past negative of an い-adjective: たい → たく → たくない → たくなかった. There is no ❌<code>行(い)きたいじゃなかった</code>. Adding <code>です</code> makes it polite without changing the stem.</p>
+<code>たい</code> attaches to the ます-stem: <ruby>飲<rt>の</rt></ruby>みます → <ruby>飲<rt>の</rt></ruby>み + たい. The polite form is just <code>です</code> on the end, because <code><ruby>飲<rt>の</rt></ruby>みたい</code> is an い-adjective.</p>
 </div>
 </div>
 <div class="slide" data-index="19">
   
-  <div class="slide__content"><h2>～たい · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 今日(きょう)は映画(えいが)を見(み)に行(い)きたいじゃないです。</p>
+  <div class="slide__content"><h2>～たい · Practice 2</h2>
+<p><strong>2.</strong> <ruby>妹<rt>いもうと</rt></ruby>は<ruby>新<rt>あたら</rt></ruby>しい<ruby>靴<rt>くつ</rt></ruby>を（<ruby>買<rt>か</rt></ruby>いたいです・<ruby>買<rt>か</rt></ruby>いたがっています）。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 今日(きょう)は映画(えいが)を見(み)に行(い)き<strong>たくない</strong>です。</p>
+<ruby>妹<rt>いもうと</rt></ruby>は<ruby>新<rt>あたら</rt></ruby>しい<ruby>靴<rt>くつ</rt></ruby>を**<ruby>買<rt>か</rt></ruby>いたがっています**。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>じゃない</code> is the negative for nouns and な-adjectives. <code>～たい</code> is an い-adjective, so the negative is built by swapping the final <code>い</code> for <code>くない</code>.</p>
+<code><ruby>妹<rt>いもうと</rt></ruby></code> is a third person, so plain <code>たい</code> in a main clause is out - you cannot assert someone else&#39;s inner state directly. <code>たがっている</code> describes the desire as something you can observe from outside.</p>
 </div>
 </div>
 <div class="slide" data-index="20">
   
+  <div class="slide__content"><h2>～たい · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese: &quot;I didn&#39;t want to go to school yesterday.&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+きのうは<ruby>学校<rt>がっこう</rt></ruby>に**<ruby>行<rt>い</rt></ruby>きたくなかった**（です）。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+Past negative of an い-adjective: たい → たく → たくない → たくなかった. There is no ❌<code><ruby>行<rt>い</rt></ruby>きたいじゃなかった</code>. Adding <code>です</code> makes it polite without changing the stem.</p>
+</div>
+</div>
+<div class="slide" data-index="21">
+  
+  <div class="slide__content"><h2>～たい · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the error: <ruby>今日<rt>きょう</rt></ruby>は<ruby>映画<rt>えいが</rt></ruby>を<ruby>見<rt>み</rt></ruby>に<ruby>行<rt>い</rt></ruby>きたいじゃないです。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ <ruby>今日<rt>きょう</rt></ruby>は<ruby>映画<rt>えいが</rt></ruby>を<ruby>見<rt>み</rt></ruby>に<ruby>行<rt>い</rt></ruby>き<strong>たくない</strong>です。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code>じゃない</code> is the negative for nouns and な-adjectives. <code>～たい</code> is an い-adjective, so the negative is built by swapping the final <code>い</code> for <code>くない</code>.</p>
+</div>
+</div>
+<div class="slide" data-index="22">
+  
   <div class="slide__content"><h2>～たい · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) ラーメンが食(た)べたい。 (b) ラーメンを食(た)べたい。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) ラーメンが<ruby>食<rt>た</rt></ruby>べたい。 (b) ラーメンを<ruby>食<rt>た</rt></ruby>べたい。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 Both are correct and a speaker would accept either. (a) puts the spotlight on <em>ramen</em> as the object of the craving - &quot;it&#39;s ramen I want&quot;, the thing itself. (b) keeps the sentence built around the action of eating, so it reads a touch more neutral and descriptive, and it&#39;s what you&#39;d reach for in a longer or written sentence.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 The choice narrows once the sentence grows: with material between the object and the verb, or with a <code>が</code>-marked subject already present, only <code>を</code> works.</p>
 </div>
 </div>
-<div class="slide" data-index="21">
+<div class="slide" data-index="23">
   
   <div class="slide__content"><h1>ほしい</h1>
 <p><strong>Meaning</strong> · want a thing - the speaker&#39;s own desire for an object</p>
-<p><code>ほしい</code> (kanji 欲(ほ)しい, but usually written in kana at this level) is an <strong>い-adjective</strong>, not a verb. It does not take an object with <code>を</code>; the thing you want is marked with <code>が</code>. And like <code>～たい</code>, it reports a want felt from the inside, so plain <code>ほしい</code> covers <strong>your own</strong> wants and questions about the <strong>listener&#39;s</strong> - never a flat statement about what a third person wants.</p>
+<p><code>ほしい</code> (kanji <ruby>欲<rt>ほ</rt></ruby>しい, but usually written in kana at this level) is an <strong>い-adjective</strong>, not a verb. It does not take an object with <code>を</code>; the thing you want is marked with <code>が</code>. And like <code>～たい</code>, it reports a want felt from the inside, so plain <code>ほしい</code> covers <strong>your own</strong> wants and questions about the <strong>listener&#39;s</strong> - never a flat statement about what a third person wants.</p>
 </div>
 </div>
-<div class="slide" data-index="22">
+<div class="slide" data-index="24">
   
   <div class="slide__content"><h2>ほしい · Formation</h2>
 <table>
@@ -2919,28 +2945,28 @@ The choice narrows once the sentence grows: with material between the object and
 <tbody><tr>
 <td>Noun (the thing wanted)</td>
 <td>Noun + が + ほしい</td>
-<td>車(くるま) → 車(くるま)がほしい</td>
+<td><ruby>車<rt>くるま</rt></ruby> → <ruby>車<rt>くるま</rt></ruby>がほしい</td>
 </tr>
 <tr>
 <td>Verb (an action you want <em>from someone</em>)</td>
 <td>て-form + ほしい</td>
-<td>手伝(てつだ)う → 手伝(てつだ)ってほしい</td>
+<td><ruby>手伝<rt>てつだ</rt></ruby>う → <ruby>手伝<rt>てつだ</rt></ruby>ってほしい</td>
 </tr>
 <tr>
 <td>Verb (an action you want <em>to do</em>)</td>
 <td>not possible - use <code>～たい</code></td>
-<td>休(やす)む → 休(やす)みたい</td>
+<td><ruby>休<rt>やす</rt></ruby>む → <ruby>休<rt>やす</rt></ruby>みたい</td>
 </tr>
 <tr>
 <td>Third person&#39;s want</td>
 <td>Noun + を + ほしがる</td>
-<td>犬(いぬ) → 犬(いぬ)をほしがっている</td>
+<td><ruby>犬<rt>いぬ</rt></ruby> → <ruby>犬<rt>いぬ</rt></ruby>をほしがっている</td>
 </tr>
 </tbody></table>
-<p>Once <code>ほしい</code> is in place it conjugates exactly like 高(たか)い or 安(やす)い:</p>
+<p>Once <code>ほしい</code> is in place it conjugates exactly like <ruby>高<rt>たか</rt></ruby>い or <ruby>安<rt>やす</rt></ruby>い:</p>
 </div>
 </div>
-<div class="slide" data-index="23">
+<div class="slide" data-index="25">
   
   <div class="slide__content"><h2>ほしい · Formation (cont.)</h2>
 <table>
@@ -2994,7 +3020,7 @@ The choice narrows once the sentence grows: with material between the object and
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="24">
+<div class="slide" data-index="26">
   
   <div class="slide__content"><h2>ほしい · Formation (cont.)</h2>
 <blockquote>
@@ -3002,176 +3028,187 @@ The choice narrows once the sentence grows: with material between the object and
 </blockquote>
 </div>
 </div>
-<div class="slide" data-index="25">
-  
-  <div class="slide__content"><h2>ほしい · Examples</h2>
-<p>お金(かね)が<strong>ほしい</strong>。<br><em>I want money.</em></p>
-<p>もっと時間(じかん)が<strong>ほしい</strong>です。<br><em>I want more time.</em></p>
-<p>誕生日(たんじょうび)に何(なに)が<strong>ほしい</strong>ですか。<br><em>What do you want for your birthday?</em></p>
-<p>今(いま)は何(なに)も<strong>ほしくない</strong>。<br><em>I don&#39;t want anything right now.</em></p>
-<p>子(こ)どものころ、自分(じぶん)の部屋(へや)が<strong>ほしかった</strong>。<br><em>When I was little I wanted a room of my own.</em></p>
-</div>
-</div>
-<div class="slide" data-index="26">
-  
-  <div class="slide__content"><h2>ほしい · Examples (cont.)</h2>
-<p>弟(おとうと)は前(まえ)から犬(いぬ)を<strong>ほしがっています</strong>。<br><em>My little brother has wanted a dog for ages.</em></p>
-<p>返事(へんじ)は急(いそ)ぎませんが、一度(いちど)ゆっくり話(はな)す機会(きかい)が<strong>ほしい</strong>です。<br><em>There&#39;s no rush on an answer, but I&#39;d like a chance to talk it through properly.</em></p>
-<p>この書類(しょるい)、明日(あした)の朝(あさ)までに目(め)を通(とお)して<strong>ほしい</strong>んですが、お願(ねが)いできますか。<br><em>I&#39;d like you to look these documents over by tomorrow morning - could I ask you to?</em></p>
-</div>
-</div>
 <div class="slide" data-index="27">
   
-  <div class="slide__content"><h2>ほしい · Nuance &amp; register</h2>
-<p><code>ほしいです</code> is polite in <em>form</em> only. The content is still a bare statement of appetite, and pointing it at someone above you lands like a child asking for a present: 部長(ぶちょう)、新(あたら)しいパソコンがほしいです is grammatical and socially awkward. Upward, you reframe the want as a request or a hedge:</p>
-<ul>
-<li><strong>～がほしいのですが／～がほしいんですが</strong> - trails off and lets the listener<br><em>offer. 資料(しりょう)のコピーがほしいんですが…</em></li>
-<li><strong>～をいただけますか／お願(ねが)いできますか</strong> - asks instead of wanting.</li>
-<li><strong>～があると助(たす)かります</strong> - &quot;it would help if I had…&quot;, the standard<br><em>workplace softener.</em></li>
-</ul>
-<p>The same asymmetry runs upward in questions. 社長(しゃちょう)、何(なに)がほしいですか is far too direct; offering with いかがですか is what you actually say.</p>
+  <div class="slide__content"><h2>ほしい · Examples</h2>
+<p>お<ruby>金<rt>かね</rt></ruby>が<strong>ほしい</strong>。<br><em>I want money.</em></p>
+<p>もっと<ruby>時間<rt>じかん</rt></ruby>が<strong>ほしい</strong>です。<br><em>I want more time.</em></p>
+<p><ruby>誕生日<rt>たんじょうび</rt></ruby>に<ruby>何<rt>なに</rt></ruby>が<strong>ほしい</strong>ですか。<br><em>What do you want for your birthday?</em></p>
+<p><ruby>今<rt>いま</rt></ruby>は<ruby>何<rt>なに</rt></ruby>も<strong>ほしくない</strong>。<br><em>I don&#39;t want anything right now.</em></p>
 </div>
 </div>
 <div class="slide" data-index="28">
   
-  <div class="slide__content"><h2>ほしい · Nuance &amp; register (cont.)</h2>
-<p>In a shop or a café, <code>ほしい</code> is simply the wrong tool. You do not say これがほしいです to a waiter - you say これをください or これをお願(ねが)いします. <code>ほしい</code> describes your inner state; <code>ください</code> performs the request.</p>
-<p>Casually, <code>ほしい</code> is very common and takes all the usual endings: ほしいなあ (wistful), ほしい！, ほしいんだけど…. Men and women use it alike. In writing the kanji 欲(ほ)しい appears. What <code>ほしい</code> does <strong>not</strong> have is a humble register of its own - there is no polite conjugation that makes it suitable upward, which is why formal Japanese switches word entirely, to <code>頂(いただ)きたい</code> or <code>お願(ねが)いしたい</code>.</p>
+  <div class="slide__content"><h2>ほしい · Examples (cont.)</h2>
+<p><ruby>子<rt>こ</rt></ruby>どものころ、<ruby>自分<rt>じぶん</rt></ruby>の<ruby>部屋<rt>へや</rt></ruby>が<strong>ほしかった</strong>。<br><em>When I was little I wanted a room of my own.</em></p>
+<p><ruby>弟<rt>おとうと</rt></ruby>は<ruby>前<rt>まえ</rt></ruby>から<ruby>犬<rt>いぬ</rt></ruby>を<strong>ほしがっています</strong>。<br><em>My little brother has wanted a dog for ages.</em></p>
+<p><ruby>返事<rt>へんじ</rt></ruby>は<ruby>急<rt>いそ</rt></ruby>ぎませんが、<ruby>一度<rt>いちど</rt></ruby>ゆっくり<ruby>話<rt>はな</rt></ruby>す<ruby>機会<rt>きかい</rt></ruby>が<strong>ほしい</strong>です。<br><em>There&#39;s no rush on an answer, but I&#39;d like a chance to talk it through properly.</em></p>
+<p>この<ruby>書類<rt>しょるい</rt></ruby>、<ruby>明日<rt>あした</rt></ruby>の<ruby>朝<rt>あさ</rt></ruby>までに<ruby>目<rt>め</rt></ruby>を<ruby>通<rt>とお</rt></ruby>して<strong>ほしい</strong>んですが、お<ruby>願<rt>ねが</rt></ruby>いできますか。<br><em>I&#39;d like you to look these documents over by tomorrow morning - could I ask you to?</em></p>
 </div>
 </div>
 <div class="slide" data-index="29">
   
-  <div class="slide__content"><h2>ほしい · Nuance &amp; register (cont.)</h2>
-<p><code>ほしがる</code> is an ordinary う-verb (欲(ほ)しがらない, ほしがります, ほしがって). It describes desire as something you can <em>see</em> in someone - the reaching, the asking, the looking. That outside-observer flavour makes it faintly belittling, so it is not used about superiors: ❌課長(かちょう)は新(あたら)しい車(くるま)をほしがっています.</p>
+  <div class="slide__content"><h2>ほしい · Nuance &amp; register</h2>
+<p><code>ほしいです</code> is polite in <em>form</em> only. The content is still a bare statement of appetite, and pointing it at someone above you lands like a child asking for a present: <ruby>部長<rt>ぶちょう</rt></ruby>、<ruby>新<rt>あたら</rt></ruby>しいパソコンがほしいです is grammatical and socially awkward. Upward, you reframe the want as a request or a hedge:</p>
+<ul>
+<li><strong>～がほしいのですが／～がほしいんですが</strong> - trails off and lets the listener<br><em>offer. <ruby>資料<rt>しりょう</rt></ruby>のコピーがほしいんですが…</em></li>
+<li><strong>～をいただけますか／お<ruby>願<rt>ねが</rt></ruby>いできますか</strong> - asks instead of wanting.</li>
+<li><strong>～があると<ruby>助<rt>たす</rt></ruby>かります</strong> - &quot;it would help if I had…&quot;, the standard<br><em>workplace softener.</em></li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="30">
+  
+  <div class="slide__content"><h2>ほしい · Nuance &amp; register (cont.)</h2>
+<p>The same asymmetry runs upward in questions. <ruby>社長<rt>しゃちょう</rt></ruby>、<ruby>何<rt>なに</rt></ruby>がほしいですか is far too direct; offering with いかがですか is what you actually say.</p>
+<p>In a shop or a café, <code>ほしい</code> is simply the wrong tool. You do not say これがほしいです to a waiter - you say これをください or これをお<ruby>願<rt>ねが</rt></ruby>いします. <code>ほしい</code> describes your inner state; <code>ください</code> performs the request.</p>
+</div>
+</div>
+<div class="slide" data-index="31">
+  
+  <div class="slide__content"><h2>ほしい · Nuance &amp; register (cont.)</h2>
+<p>Casually, <code>ほしい</code> is very common and takes all the usual endings: ほしいなあ (wistful), ほしい！, ほしいんだけど…. Men and women use it alike. In writing the kanji <ruby>欲<rt>ほ</rt></ruby>しい appears. What <code>ほしい</code> does <strong>not</strong> have is a humble register of its own - there is no polite conjugation that makes it suitable upward, which is why formal Japanese switches word entirely, to <code><ruby>頂<rt>いただ</rt></ruby>きたい</code> or <code>お<ruby>願<rt>ねが</rt></ruby>いしたい</code>.</p>
+<p><code>ほしがる</code> is an ordinary う-verb (<ruby>欲<rt>ほ</rt></ruby>しがらない, ほしがります, ほしがって). It describes desire as something you can <em>see</em> in someone - the reaching, the asking, the looking. That outside-observer flavour makes it faintly belittling, so it is not used about superiors: ❌<ruby>課長<rt>かちょう</rt></ruby>は<ruby>新<rt>あたら</rt></ruby>しい<ruby>車<rt>くるま</rt></ruby>をほしがっています.</p>
+</div>
+</div>
+<div class="slide" data-index="32">
   
   <div class="slide__content"><h2>ほしい · ほしい vs ～たい</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>ほしい</code> wants a <strong>noun</strong>; <code>～たい</code> wants an <strong>action</strong>. They divide the work; they never stack.</p>
 </blockquote>
 <p>アイスクリーム<strong>がほしい</strong>。<br><em>I want ice cream.</em></p>
-<p>アイスクリームが<strong>食(た)べたい</strong>。<br><em>I want to eat ice cream.</em></p>
-<p>The two are otherwise twins: both are い-adjectives, both mark their target with <code>が</code>, both are barred from flat third-person statements, and both have a <code>～がる</code> form for other people. What <code>ほしい</code> cannot do is attach to a verb - ❌休(やす)むがほしい is not a sentence. If the thing you want is an action you perform yourself, <code>～たい</code> is the only route.</p>
+<p>アイスクリームが**<ruby>食<rt>た</rt></ruby>べたい**。<br><em>I want to eat ice cream.</em></p>
 </div>
 </div>
-<div class="slide" data-index="31">
+<div class="slide" data-index="33">
+  
+  <div class="slide__content"><h2>ほしい · ほしい vs ～たい (cont.)</h2>
+<p>The two are otherwise twins: both are い-adjectives, both mark their target with <code>が</code>, both are barred from flat third-person statements, and both have a <code>～がる</code> form for other people. What <code>ほしい</code> cannot do is attach to a verb - ❌<ruby>休<rt>やす</rt></ruby>むがほしい is not a sentence. If the thing you want is an action you perform yourself, <code>～たい</code> is the only route.</p>
+</div>
+</div>
+<div class="slide" data-index="34">
   
   <div class="slide__content"><h2>ほしい · ほしい vs ～てほしい</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>Noun + がほしい</code> wants a <strong>thing</strong>; <code>Verb-て + ほしい</code> wants <strong>someone else to do something</strong>. The person you want it from takes <code>に</code>.</p>
 </blockquote>
-<p>説明書(せつめいしょ)が<strong>ほしい</strong>。<br><em>I want the instruction manual.</em></p>
-<p>使(つか)い方(かた)を<strong>教(おし)えてほしい</strong>。<br><em>I want you to show me how to use it.</em></p>
-<p>母(はは)に来(き)て<strong>ほしくない</strong>。<br><em>I don&#39;t want my mother to come.</em></p>
+<p><ruby>説明書<rt>せつめいしょ</rt></ruby>が<strong>ほしい</strong>。<br><em>I want the instruction manual.</em></p>
+<p><ruby>使<rt>つか</rt></ruby>い<ruby>方<rt>かた</rt></ruby>を**<ruby>教<rt>おし</rt></ruby>えてほしい**。<br><em>I want you to show me how to use it.</em></p>
+<p><ruby>母<rt>はは</rt></ruby>に<ruby>来<rt>き</rt></ruby>て<strong>ほしくない</strong>。<br><em>I don&#39;t want my mother to come.</em></p>
 </div>
 </div>
-<div class="slide" data-index="32">
+<div class="slide" data-index="35">
   
   <div class="slide__content"><h2>ほしい · ほしい vs ～てほしい (cont.)</h2>
-<p><code>～てほしい</code> is a wish, not a command, so it is gentler than a direct request - but it is also more personal, and to a superior it presumes. The polite ladder runs 待(ま)ってほしい → 待(ま)っていただきたい → 待(ま)っていただけないでしょうか. The negative is <code>～ないでほしい</code>: 勝手(かって)に決(き)めないでほしい.</p>
+<p><code>～てほしい</code> is a wish, not a command, so it is gentler than a direct request - but it is also more personal, and to a superior it presumes. The polite ladder runs <ruby>待<rt>ま</rt></ruby>ってほしい → <ruby>待<rt>ま</rt></ruby>っていただきたい → <ruby>待<rt>ま</rt></ruby>っていただけないでしょうか. The negative is <code>～ないでほしい</code>: <ruby>勝手<rt>かって</rt></ruby>に<ruby>決<rt>き</rt></ruby>めないでほしい.</p>
 </div>
 </div>
-<div class="slide" data-index="33">
+<div class="slide" data-index="36">
   
   <div class="slide__content"><h2>ほしい · ほしい vs ほしがる</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>ほしい</code> for me and you; <code>ほしがる</code> for him, her and them. The particle flips too: <code>が</code> with <code>ほしい</code>, <code>を</code> with <code>ほしがる</code>.</p>
 </blockquote>
-<p>娘(むすめ)はずっとピアノを<strong>ほしがっています</strong>。<br><em>My daughter has been wanting a piano for a long time.</em></p>
-<p>Note the <code>～ている</code>. A desire someone is feeling <em>now</em> is <code>ほしがっている</code>; bare <code>ほしがる</code> reads as a habit - あの子(こ)は友(とも)だちのものを何(なん)でもほしがる.</p>
+<p><ruby>娘<rt>むすめ</rt></ruby>はずっとピアノを<strong>ほしがっています</strong>。<br><em>My daughter has been wanting a piano for a long time.</em></p>
+<p>Note the <code>～ている</code>. A desire someone is feeling <em>now</em> is <code>ほしがっている</code>; bare <code>ほしがる</code> reads as a habit - あの<ruby>子<rt>こ</rt></ruby>は<ruby>友<rt>とも</rt></ruby>だちのものを<ruby>何<rt>なん</rt></ruby>でもほしがる.</p>
 <p><code>ほしがる</code> is not the only escape. These are often smoother, and safer upward:</p>
-<ul>
-<li>妹(いもうと)は新(あたら)しい辞書(じしょ)がほしいそうです。 (I hear that…)</li>
-<li>妹(いもうと)は新(あたら)しい辞書(じしょ)がほしいと言(い)っています。 (she says…)</li>
-<li>妹(いもうと)は新(あたら)しい辞書(じしょ)がほしいようです。 (it seems…)</li>
-</ul>
-</div>
-</div>
-<div class="slide" data-index="34">
-  
-  <div class="slide__content"><h2>ほしい · ほしい vs ほしがる (cont.)</h2>
-<blockquote>
-<p><strong>Note</strong> - the ban is on <strong>plain main-clause statements</strong> only. Inside a modifying clause, plain <code>ほしい</code> about other people is perfectly normal: 資料(しりょう)がほしい人(ひと)は、前(まえ)の机(つくえ)から取(と)ってください。 「Anyone who wants a copy, take one from the desk at the front.」</p>
-</blockquote>
-</div>
-</div>
-<div class="slide" data-index="35">
-  
-  <div class="slide__content"><h2>ほしい · Common mistakes</h2>
-<ul>
-<li><p>❌ 私(わたし)は車(くるま)<strong>を</strong>ほしいです。 → ✅ 私(わたし)は車(くるま)<strong>が</strong>ほしいです。<br><em><code>ほしい</code> is an adjective, so it has no direct object. <code>を</code> appears only with the verb <code>ほしがる</code>.</em></p>
-</li>
-<li><p>❌ 山田(やまだ)さんは新(あたら)しい車(くるま)がほしいです。 → ✅ 山田(やまだ)さんは新(あたら)しい車(くるま)を<strong>ほしがっています</strong>。<br><em>A flat statement about a third person&#39;s want needs <code>ほしがっている</code>, or a hedge like <code>ほしいそうです</code>.</em></p>
-</li>
-<li><p>❌ <strong>ほしいじゃない</strong>／<strong>ほしいでした</strong> → ✅ <strong>ほしくない</strong>／<strong>ほしかった</strong><br><em>い-adjective endings, not な-adjective ones.</em></p>
-</li>
-<li><p>❌ 休(やす)む<strong>がほしい</strong>。 → ✅ 休(やす)み<strong>たい</strong>。<br><em><code>ほしい</code> cannot take a verb. Wanting to perform an action is <code>～たい</code> territory.</em></p>
-</li>
-<li><p>❌ （カフェで）これ<strong>がほしいです</strong>。 → ✅ これを<strong>ください</strong>。<br><em>Naming your inner state at a server is odd. Ordering is done with <code>ください</code> or <code>お願(ねが)いします</code>.</em></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="slide" data-index="36">
-  
-  <div class="slide__content"><h2>ほしい · Practice 1</h2>
-<p><strong>1.</strong> 新(あたら)しいカメラ____ほしいです。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-新(あたら)しいカメラ<strong>が</strong>ほしいです。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>ほしい</code> is an い-adjective, and what it wants is marked with <code>が</code>, not <code>を</code>. The English &quot;want a camera&quot; has an object, but the Japanese does not.</p>
 </div>
 </div>
 <div class="slide" data-index="37">
   
-  <div class="slide__content"><h2>ほしい · Practice 2</h2>
-<p><strong>2.</strong> 兄(あに)はバイクを（ほしいです・ほしがっています）。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-兄(あに)はバイクを<strong>ほしがっています</strong>。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>兄(あに)</code> is a third person, so a plain <code>ほしい</code> statement would be claiming direct access to someone else&#39;s inner state. <code>ほしがっている</code> reports the desire as something you can observe - and note that it takes <code>を</code>, which is why the sentence was written with <code>を</code> to begin with.</p>
+  <div class="slide__content"><h2>ほしい · ほしい vs ほしがる (cont.)</h2>
+<ul>
+<li><ruby>妹<rt>いもうと</rt></ruby>は<ruby>新<rt>あたら</rt></ruby>しい<ruby>辞書<rt>じしょ</rt></ruby>がほしいそうです。 (I hear that…)</li>
+<li><ruby>妹<rt>いもうと</rt></ruby>は<ruby>新<rt>あたら</rt></ruby>しい<ruby>辞書<rt>じしょ</rt></ruby>がほしいと<ruby>言<rt>い</rt></ruby>っています。 (she says…)</li>
+<li><ruby>妹<rt>いもうと</rt></ruby>は<ruby>新<rt>あたら</rt></ruby>しい<ruby>辞書<rt>じしょ</rt></ruby>がほしいようです。 (it seems…)</li>
+</ul>
+<blockquote>
+<p><strong>Note</strong> - the ban is on <strong>plain main-clause statements</strong> only. Inside a modifying clause, plain <code>ほしい</code> about other people is perfectly normal: <ruby>資料<rt>しりょう</rt></ruby>がほしい<ruby>人<rt>ひと</rt></ruby>は、<ruby>前<rt>まえ</rt></ruby>の<ruby>机<rt>つくえ</rt></ruby>から<ruby>取<rt>と</rt></ruby>ってください。 「Anyone who wants a copy, take one from the desk at the front.」</p>
+</blockquote>
 </div>
 </div>
 <div class="slide" data-index="38">
   
-  <div class="slide__content"><h2>ほしい · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese: &quot;When I was a student, I wanted a motorbike.&quot;</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-学生(がくせい)のとき、バイク<strong>がほしかった</strong>（です）。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The past of an い-adjective: ほしい → ほしかった. There is no ❌<code>ほしいでした</code>; adding <code>です</code> after <code>ほしかった</code> is what makes it polite.</p>
+  <div class="slide__content"><h2>ほしい · Common mistakes</h2>
+<ul>
+<li><p>❌ <ruby>私<rt>わたし</rt></ruby>は<ruby>車<rt>くるま</rt></ruby><strong>を</strong>ほしいです。 → ✅ <ruby>私<rt>わたし</rt></ruby>は<ruby>車<rt>くるま</rt></ruby><strong>が</strong>ほしいです。<br><em><code>ほしい</code> is an adjective, so it has no direct object. <code>を</code> appears only with the verb <code>ほしがる</code>.</em></p>
+</li>
+<li><p>❌ <ruby>山田<rt>やまだ</rt></ruby>さんは<ruby>新<rt>あたら</rt></ruby>しい<ruby>車<rt>くるま</rt></ruby>がほしいです。 → ✅ <ruby>山田<rt>やまだ</rt></ruby>さんは<ruby>新<rt>あたら</rt></ruby>しい<ruby>車<rt>くるま</rt></ruby>を<strong>ほしがっています</strong>。<br><em>A flat statement about a third person&#39;s want needs <code>ほしがっている</code>, or a hedge like <code>ほしいそうです</code>.</em></p>
+</li>
+<li><p>❌ <strong>ほしいじゃない</strong>／<strong>ほしいでした</strong> → ✅ <strong>ほしくない</strong>／<strong>ほしかった</strong><br><em>い-adjective endings, not な-adjective ones.</em></p>
+</li>
+<li><p>❌ <ruby>休<rt>やす</rt></ruby>む<strong>がほしい</strong>。 → ✅ <ruby>休<rt>やす</rt></ruby>み<strong>たい</strong>。<br><em><code>ほしい</code> cannot take a verb. Wanting to perform an action is <code>～たい</code> territory.</em></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="39">
   
-  <div class="slide__content"><h2>ほしい · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 辞書(じしょ)をほしいんですが、いい店(みせ)を知(し)りませんか。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 辞書(じしょ)<strong>が</strong>ほしいんですが、いい店(みせ)を知(し)りませんか。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The <code>を</code> is the interference: English treats &quot;want&quot; as a transitive verb, Japanese treats <code>ほしい</code> as an adjective whose target takes <code>が</code>.</p>
+  <div class="slide__content"><h2>ほしい · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ （カフェで）これ<strong>がほしいです</strong>。 → ✅ これを<strong>ください</strong>。<br><em>Naming your inner state at a server is odd. Ordering is done with <code>ください</code> or <code>お<ruby>願<rt>ねが</rt></ruby>いします</code>.</em></li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="40">
   
-  <div class="slide__content"><h2>ほしい · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 静(しず)かにして<strong>ほしい</strong>。 (b) 静(しず)かにして<strong>ください</strong>。</p>
+  <div class="slide__content"><h2>ほしい · Practice 1</h2>
+<p><strong>1.</strong> <ruby>新<rt>あたら</rt></ruby>しいカメラ____ほしいです。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-(b) is a direct request aimed at the listener - it tells them to do something, and in the wrong context it can sound like an instruction. (a) reports the speaker&#39;s wish instead of issuing the request, so it is indirect, and among friends it comes across as softer, almost a complaint said out loud.</p>
+<ruby>新<rt>あたら</rt></ruby>しいカメラ<strong>が</strong>ほしいです。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Indirectness is not the same as politeness upward, though. To a superior neither is ideal: 静(しず)かにしていただけませんか is the form that actually works.</p>
+<code>ほしい</code> is an い-adjective, and what it wants is marked with <code>が</code>, not <code>を</code>. The English &quot;want a camera&quot; has an object, but the Japanese does not.</p>
 </div>
 </div>
 <div class="slide" data-index="41">
   
-  <div class="slide__content"><h1>～のが好き</h1>
-<p><strong>Meaning</strong> · like doing something - a standing preference, not a present urge</p>
-<p><code>好(す)き</code> is a <strong>な-adjective</strong> meaning &quot;pleasing, to my taste&quot;, and what pleases you is marked with <code>が</code>. English makes &quot;like&quot; a verb with an object; Japanese makes it an adjective with a subject. To like an <em>action</em>, you first turn the verb into a noun with the nominaliser <code>の</code>, then feed it to <code>好(す)き</code>.</p>
+  <div class="slide__content"><h2>ほしい · Practice 2</h2>
+<p><strong>2.</strong> <ruby>兄<rt>あに</rt></ruby>はバイクを（ほしいです・ほしがっています）。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>兄<rt>あに</rt></ruby>はバイクを<strong>ほしがっています</strong>。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code><ruby>兄<rt>あに</rt></ruby></code> is a third person, so a plain <code>ほしい</code> statement would be claiming direct access to someone else&#39;s inner state. <code>ほしがっている</code> reports the desire as something you can observe - and note that it takes <code>を</code>, which is why the sentence was written with <code>を</code> to begin with.</p>
 </div>
 </div>
 <div class="slide" data-index="42">
+  
+  <div class="slide__content"><h2>ほしい · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese: &quot;When I was a student, I wanted a motorbike.&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>学生<rt>がくせい</rt></ruby>のとき、バイク<strong>がほしかった</strong>（です）。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The past of an い-adjective: ほしい → ほしかった. There is no ❌<code>ほしいでした</code>; adding <code>です</code> after <code>ほしかった</code> is what makes it polite.</p>
+</div>
+</div>
+<div class="slide" data-index="43">
+  
+  <div class="slide__content"><h2>ほしい · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the error: <ruby>辞書<rt>じしょ</rt></ruby>をほしいんですが、いい<ruby>店<rt>みせ</rt></ruby>を<ruby>知<rt>し</rt></ruby>りませんか。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ <ruby>辞書<rt>じしょ</rt></ruby><strong>が</strong>ほしいんですが、いい<ruby>店<rt>みせ</rt></ruby>を<ruby>知<rt>し</rt></ruby>りませんか。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The <code>を</code> is the interference: English treats &quot;want&quot; as a transitive verb, Japanese treats <code>ほしい</code> as an adjective whose target takes <code>が</code>.</p>
+</div>
+</div>
+<div class="slide" data-index="44">
+  
+  <div class="slide__content"><h2>ほしい · Practice 5</h2>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>静<rt>しず</rt></ruby>かにして<strong>ほしい</strong>。 (b) <ruby>静<rt>しず</rt></ruby>かにして<strong>ください</strong>。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+(b) is a direct request aimed at the listener - it tells them to do something, and in the wrong context it can sound like an instruction. (a) reports the speaker&#39;s wish instead of issuing the request, so it is indirect, and among friends it comes across as softer, almost a complaint said out loud.</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+Indirectness is not the same as politeness upward, though. To a superior neither is ideal: <ruby>静<rt>しず</rt></ruby>かにしていただけませんか is the form that actually works.</p>
+</div>
+</div>
+<div class="slide" data-index="45">
+  
+  <div class="slide__content"><h1>～のが好き</h1>
+<p><strong>Meaning</strong> · like doing something - a standing preference, not a present urge</p>
+<p><code><ruby>好<rt>す</rt></ruby>き</code> is a <strong>な-adjective</strong> meaning &quot;pleasing, to my taste&quot;, and what pleases you is marked with <code>が</code>. English makes &quot;like&quot; a verb with an object; Japanese makes it an adjective with a subject. To like an <em>action</em>, you first turn the verb into a noun with the nominaliser <code>の</code>, then feed it to <code><ruby>好<rt>す</rt></ruby>き</code>.</p>
+</div>
+</div>
+<div class="slide" data-index="46">
   
   <div class="slide__content"><h2>～のが好き · Formation</h2>
 <table>
@@ -3184,29 +3221,29 @@ Indirectness is not the same as politeness upward, though. To a superior neither
 </thead>
 <tbody><tr>
 <td>Verb (dictionary form)</td>
-<td>Dictionary + のが + 好(す)き</td>
-<td>泳(およ)ぐ → 泳(およ)ぐのが好(す)き</td>
+<td>Dictionary + のが + <ruby>好<rt>す</rt></ruby>き</td>
+<td><ruby>泳<rt>およ</rt></ruby>ぐ → <ruby>泳<rt>およ</rt></ruby>ぐのが<ruby>好<rt>す</rt></ruby>き</td>
 </tr>
 <tr>
 <td>Verb (alternative nominaliser)</td>
-<td>Dictionary + ことが + 好(す)き</td>
-<td>読(よ)む → 読(よ)むことが好(す)き</td>
+<td>Dictionary + ことが + <ruby>好<rt>す</rt></ruby>き</td>
+<td><ruby>読<rt>よ</rt></ruby>む → <ruby>読<rt>よ</rt></ruby>むことが<ruby>好<rt>す</rt></ruby>き</td>
 </tr>
 <tr>
 <td>Noun</td>
-<td>Noun + が + 好(す)き</td>
-<td>音楽(おんがく) → 音楽(おんがく)が好(す)き</td>
+<td>Noun + が + <ruby>好<rt>す</rt></ruby>き</td>
+<td><ruby>音楽<rt>おんがく</rt></ruby> → <ruby>音楽<rt>おんがく</rt></ruby>が<ruby>好<rt>す</rt></ruby>き</td>
 </tr>
 <tr>
 <td>Verb (する-noun)</td>
-<td>Noun + が + 好(す)き</td>
-<td>料理(りょうり)する → 料理(りょうり)が好(す)き</td>
+<td>Noun + が + <ruby>好<rt>す</rt></ruby>き</td>
+<td><ruby>料理<rt>りょうり</rt></ruby>する → <ruby>料理<rt>りょうり</rt></ruby>が<ruby>好<rt>す</rt></ruby>き</td>
 </tr>
 </tbody></table>
-<p><code>好(す)き</code> then behaves like 静(しず)か or 元気(げんき) - a な-adjective in every respect:</p>
+<p><code><ruby>好<rt>す</rt></ruby>き</code> then behaves like <ruby>静<rt>しず</rt></ruby>か or <ruby>元気<rt>げんき</rt></ruby> - a な-adjective in every respect:</p>
 </div>
 </div>
-<div class="slide" data-index="43">
+<div class="slide" data-index="47">
   
   <div class="slide__content"><h2>～のが好き · Formation (cont.)</h2>
 <table>
@@ -3219,203 +3256,219 @@ Indirectness is not the same as politeness upward, though. To a superior neither
 </thead>
 <tbody><tr>
 <td>Plain</td>
-<td>好(す)きだ</td>
-<td>泳(およ)ぐのが好(す)きだ</td>
+<td><ruby>好<rt>す</rt></ruby>きだ</td>
+<td><ruby>泳<rt>およ</rt></ruby>ぐのが<ruby>好<rt>す</rt></ruby>きだ</td>
 </tr>
 <tr>
 <td>Polite</td>
-<td>好(す)きです</td>
-<td>泳(およ)ぐのが好(す)きです</td>
+<td><ruby>好<rt>す</rt></ruby>きです</td>
+<td><ruby>泳<rt>およ</rt></ruby>ぐのが<ruby>好<rt>す</rt></ruby>きです</td>
 </tr>
 <tr>
 <td>Negative</td>
-<td>好(す)きじゃない</td>
-<td>泳(およ)ぐのが好(す)きじゃない</td>
+<td><ruby>好<rt>す</rt></ruby>きじゃない</td>
+<td><ruby>泳<rt>およ</rt></ruby>ぐのが<ruby>好<rt>す</rt></ruby>きじゃない</td>
 </tr>
 <tr>
 <td>Polite negative</td>
-<td>好(す)きじゃないです／ではありません</td>
-<td>好(す)きじゃありません</td>
+<td><ruby>好<rt>す</rt></ruby>きじゃないです／ではありません</td>
+<td><ruby>好<rt>す</rt></ruby>きじゃありません</td>
 </tr>
 <tr>
 <td>Past</td>
-<td>好(す)きだった／好(す)きでした</td>
-<td>好(す)きでした</td>
+<td><ruby>好<rt>す</rt></ruby>きだった／<ruby>好<rt>す</rt></ruby>きでした</td>
+<td><ruby>好<rt>す</rt></ruby>きでした</td>
 </tr>
 <tr>
 <td>Negative past</td>
-<td>好(す)きじゃなかった</td>
-<td>好(す)きじゃなかったです</td>
+<td><ruby>好<rt>す</rt></ruby>きじゃなかった</td>
+<td><ruby>好<rt>す</rt></ruby>きじゃなかったです</td>
 </tr>
 <tr>
 <td>Before a noun</td>
-<td>好(す)きな + Noun</td>
-<td>好(す)きな歌(うた)</td>
+<td><ruby>好<rt>す</rt></ruby>きな + Noun</td>
+<td><ruby>好<rt>す</rt></ruby>きな<ruby>歌<rt>うた</rt></ruby></td>
 </tr>
 <tr>
 <td>Intensified</td>
-<td>大好(だいす)き</td>
-<td>歌(うた)うのが大好(だいす)き</td>
+<td><ruby>大好<rt>だいす</rt></ruby>き</td>
+<td><ruby>歌<rt>うた</rt></ruby>うのが<ruby>大好<rt>だいす</rt></ruby>き</td>
 </tr>
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="44">
+<div class="slide" data-index="48">
   
   <div class="slide__content"><h2>～のが好き · Formation (cont.)</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - <code>好(す)き</code> is an adjective, so there is no ❌<code>好(す)きます</code>, no ❌<code>好(す)きません</code> and no ❌<code>好(す)きくない</code>. And the verb needs <code>の</code> to become a noun first: ❌<code>読(よ)むが好(す)き</code> → ✅<code>読(よ)むのが好(す)き</code>.</p>
+<p><strong>Rule of thumb</strong> - <code><ruby>好<rt>す</rt></ruby>き</code> is an adjective, so there is no ❌<code><ruby>好<rt>す</rt></ruby>きます</code>, no ❌<code><ruby>好<rt>す</rt></ruby>きません</code> and no ❌<code><ruby>好<rt>す</rt></ruby>きくない</code>. And the verb needs <code>の</code> to become a noun first: ❌<code><ruby>読<rt>よ</rt></ruby>むが<ruby>好<rt>す</rt></ruby>き</code> → ✅<code><ruby>読<rt>よ</rt></ruby>むのが<ruby>好<rt>す</rt></ruby>き</code>.</p>
 </blockquote>
-</div>
-</div>
-<div class="slide" data-index="45">
-  
-  <div class="slide__content"><h2>～のが好き · Examples</h2>
-<p>歌(うた)を<strong>歌(うた)うのが好(す)き</strong>です。<br><em>I like singing.</em></p>
-<p>私(わたし)は<strong>走(はし)るのが好(す)き</strong>じゃない。<br><em>I don&#39;t like running.</em></p>
-<p>どんな音楽(おんがく)を<strong>聞(き)くのが好(す)き</strong>ですか。<br><em>What kind of music do you like listening to?</em></p>
-<p>父(ちち)は朝(あさ)早(はや)く<strong>起(お)きるのが好(す)き</strong>です。<br><em>My father likes getting up early.</em></p>
-<p>子(こ)どものころは絵(え)を<strong>かくのが大好(だいす)き</strong>でした。<br><em>As a child I absolutely loved drawing.</em></p>
-</div>
-</div>
-<div class="slide" data-index="46">
-  
-  <div class="slide__content"><h2>～のが好き · Examples (cont.)</h2>
-<p>雨(あめ)の日(ひ)に家(いえ)で映画(えいが)を<strong>見(み)るのが好(す)き</strong>です。<br><em>I like watching films at home on a rainy day.</em></p>
-<p>妻(つま)は週末(しゅうまつ)に市場(いちば)まで歩(ある)いて野菜(やさい)を<strong>選(えら)ぶのが好(す)き</strong>です。<br><em>My wife likes walking to the market at the weekend and picking out the vegetables.</em></p>
-<p>地図(ちず)を見(み)ないで知(し)らない町(まち)を<strong>歩(ある)き回(まわ)るのが好(す)き</strong>なんです。<br><em>The thing is, I love wandering around a town I don&#39;t know without looking at a map.</em></p>
-</div>
-</div>
-<div class="slide" data-index="47">
-  
-  <div class="slide__content"><h2>～のが好き · Nuance &amp; register</h2>
-<p>The pattern is register-neutral. <code>好(す)きです</code> is the everyday polite form, <code>好(す)きだ</code> the plain one, and in casual speech the copula usually vanishes altogether - <code>甘(あま)いものが好(す)き</code>, with a rising tone for a question. Upward, お好(す)きですか is the polite version: 部長(ぶちょう)、コーヒーはお好(す)きですか.</p>
-<p>One important difference from <code>～たい</code>: <code>好(す)き</code> may be used flatly about a third person. A preference is a settled, observable trait, not a private impulse, so 姉(あね)は山(やま)に登(のぼ)るのが好(す)きです needs no <code>がる</code> and no hedge. This is one of the few places where describing someone else is <em>easier</em> than describing yourself.</p>
-<p>Be careful with people as the object. <code>田中(たなか)さんが好(す)きです</code> is a confession of romantic feeling, not &quot;I get on with Tanaka&quot;. If you mean the latter, say 田中(たなか)さんは、いい人(ひと)ですね or 田中(たなか)さんと話(はな)すのが好(す)きです - attaching the liking to an activity defuses it.</p>
-</div>
-</div>
-<div class="slide" data-index="48">
-  
-  <div class="slide__content"><h2>～のが好き · Nuance &amp; register (cont.)</h2>
-<p>Finally, negation carries weight. Japanese hedges dislike far more than English does: あまり好(す)きじゃないです is the polite way to decline food, music or a suggestion, and it is what a learner should reach for by default.</p>
 </div>
 </div>
 <div class="slide" data-index="49">
   
-  <div class="slide__content"><h2>～のが好き · ～のが好(す)き vs ～ことが好(す)き</h2>
-<blockquote>
-<p><strong>Rule of thumb</strong> - <code>の</code> for concrete, lived, experienced activity; <code>こと</code> for the activity in the abstract. With <code>好(す)き</code> both are usually fine, and <code>の</code> is the more conversational of the two.</p>
-</blockquote>
-<p>海(うみ)で<strong>泳(およ)ぐのが好(す)き</strong>です。<br><em>I like swimming in the sea.</em></p>
-<p>人(ひと)に<strong>教(おし)えることが好(す)き</strong>です。<br><em>I like teaching people.</em></p>
-<p>The first is the feel of the water; the second is teaching as a category of thing. Push the difference and you can hear it, but for a plain statement of taste nobody will correct you either way.</p>
-<p>Where the choice stops being free is when the nominalised clause is not the object of an adjective but a noun in its own right - a <code>は…です</code> sentence, for instance. There only <code>こと</code> works:</p>
+  <div class="slide__content"><h2>～のが好き · Examples</h2>
+<p><ruby>歌<rt>うた</rt></ruby>を**<ruby>歌<rt>うた</rt></ruby>うのが<ruby>好<rt>す</rt></ruby>き**です。<br><em>I like singing.</em></p>
+<p><ruby>私<rt>わたし</rt></ruby>は**<ruby>走<rt>はし</rt></ruby>るのが<ruby>好<rt>す</rt></ruby>き**じゃない。<br><em>I don&#39;t like running.</em></p>
+<p>どんな<ruby>音楽<rt>おんがく</rt></ruby>を**<ruby>聞<rt>き</rt></ruby>くのが<ruby>好<rt>す</rt></ruby>き**ですか。<br><em>What kind of music do you like listening to?</em></p>
+<p><ruby>父<rt>ちち</rt></ruby>は<ruby>朝<rt>あさ</rt></ruby><ruby>早<rt>はや</rt></ruby>く**<ruby>起<rt>お</rt></ruby>きるのが<ruby>好<rt>す</rt></ruby>き**です。<br><em>My father likes getting up early.</em></p>
 </div>
 </div>
 <div class="slide" data-index="50">
   
-  <div class="slide__content"><h2>～のが好き · ～のが好(す)き vs ～ことが好(す)き (cont.)</h2>
-<p>趣味(しゅみ)は古(ふる)い本(ほん)を<strong>集(あつ)めること</strong>です。<br><em>My hobby is collecting old books.</em></p>
-<p>❌<code>集(あつ)めるのです</code> would be read as the explanatory <code>のです</code>, which means something else entirely.</p>
+  <div class="slide__content"><h2>～のが好き · Examples (cont.)</h2>
+<p><ruby>子<rt>こ</rt></ruby>どものころは<ruby>絵<rt>え</rt></ruby>を<strong>かくのが<ruby>大好<rt>だいす</rt></ruby>き</strong>でした。<br><em>As a child I absolutely loved drawing.</em></p>
+<p><ruby>雨<rt>あめ</rt></ruby>の<ruby>日<rt>ひ</rt></ruby>に<ruby>家<rt>いえ</rt></ruby>で<ruby>映画<rt>えいが</rt></ruby>を**<ruby>見<rt>み</rt></ruby>るのが<ruby>好<rt>す</rt></ruby>き**です。<br><em>I like watching films at home on a rainy day.</em></p>
+<p><ruby>妻<rt>つま</rt></ruby>は<ruby>週末<rt>しゅうまつ</rt></ruby>に<ruby>市場<rt>いちば</rt></ruby>まで<ruby>歩<rt>ある</rt></ruby>いて<ruby>野菜<rt>やさい</rt></ruby>を**<ruby>選<rt>えら</rt></ruby>ぶのが<ruby>好<rt>す</rt></ruby>き**です。<br><em>My wife likes walking to the market at the weekend and picking out the vegetables.</em></p>
+<p><ruby>地図<rt>ちず</rt></ruby>を<ruby>見<rt>み</rt></ruby>ないで<ruby>知<rt>し</rt></ruby>らない<ruby>町<rt>まち</rt></ruby>を**<ruby>歩<rt>ある</rt></ruby>き<ruby>回<rt>まわ</rt></ruby>るのが<ruby>好<rt>す</rt></ruby>き**なんです。<br><em>The thing is, I love wandering around a town I don&#39;t know without looking at a map.</em></p>
 </div>
 </div>
 <div class="slide" data-index="51">
   
-  <div class="slide__content"><h2>～のが好き · ～のが好(す)き vs ～たい</h2>
-<blockquote>
-<p><strong>Rule of thumb</strong> - <code>好(す)き</code> is what you like <strong>in general</strong>; <code>～たい</code> is what you want <strong>now</strong>. Liking something does not mean you want it this minute.</p>
-</blockquote>
-<p>コーヒーを<strong>飲(の)むのが好(す)き</strong>です。<br><em>I like drinking coffee. (a habit, a taste)</em></p>
-<p>今(いま)、コーヒーが<strong>飲(の)みたい</strong>です。<br><em>I want a coffee right now. (an urge)</em></p>
-<p>The two also behave differently across persons. <code>～たい</code> cannot be stated flatly about someone else, but <code>好(す)き</code> can - which is why a description of another person&#39;s tastes almost always comes out in <code>好(す)き</code>: 夫(おっと)は料理(りょうり)するのが好(す)きです.</p>
+  <div class="slide__content"><h2>～のが好き · Nuance &amp; register</h2>
+<p>The pattern is register-neutral. <code><ruby>好<rt>す</rt></ruby>きです</code> is the everyday polite form, <code><ruby>好<rt>す</rt></ruby>きだ</code> the plain one, and in casual speech the copula usually vanishes altogether - <code><ruby>甘<rt>あま</rt></ruby>いものが<ruby>好<rt>す</rt></ruby>き</code>, with a rising tone for a question. Upward, お<ruby>好<rt>す</rt></ruby>きですか is the polite version: <ruby>部長<rt>ぶちょう</rt></ruby>、コーヒーはお<ruby>好<rt>す</rt></ruby>きですか.</p>
+<p>One important difference from <code>～たい</code>: <code><ruby>好<rt>す</rt></ruby>き</code> may be used flatly about a third person. A preference is a settled, observable trait, not a private impulse, so <ruby>姉<rt>あね</rt></ruby>は<ruby>山<rt>やま</rt></ruby>に<ruby>登<rt>のぼ</rt></ruby>るのが<ruby>好<rt>す</rt></ruby>きです needs no <code>がる</code> and no hedge. This is one of the few places where describing someone else is <em>easier</em> than describing yourself.</p>
 </div>
 </div>
 <div class="slide" data-index="52">
   
-  <div class="slide__content"><h2>～のが好き · 好(す)き vs 嫌(きら)い</h2>
-<blockquote>
-<p><strong>Rule of thumb</strong> - <code>嫌(きら)い</code> is much stronger than English &quot;don&#39;t like&quot;. The everyday negative is あまり好(す)きじゃない.</p>
-</blockquote>
-<p>運動(うんどう)するのは<strong>あまり好(す)きじゃない</strong>です。<br><em>I&#39;m not that keen on exercising.</em></p>
-<p>虫(むし)が<strong>嫌(きら)い</strong>です。<br><em>I hate insects.</em></p>
-<p>Two traps sit here. First, <code>嫌(きら)い</code> ends in <code>い</code> but is a <strong>な-adjective</strong>: <code>嫌(きら)いな食(た)べ物(もの)</code>, <code>嫌(きら)いじゃない</code>, never ❌<code>嫌(きら)くない</code>. Second, notice the <code>は</code> in the first sentence. Swapping the <code>が</code> for <code>は</code> when you negate is standard, and it softens further - you are marking this one thing as the exception rather than making a sweeping declaration.</p>
+  <div class="slide__content"><h2>～のが好き · Nuance &amp; register (cont.)</h2>
+<p>Be careful with people as the object. <code><ruby>田中<rt>たなか</rt></ruby>さんが<ruby>好<rt>す</rt></ruby>きです</code> is a confession of romantic feeling, not &quot;I get on with Tanaka&quot;. If you mean the latter, say <ruby>田中<rt>たなか</rt></ruby>さんは、いい<ruby>人<rt>ひと</rt></ruby>ですね or <ruby>田中<rt>たなか</rt></ruby>さんと<ruby>話<rt>はな</rt></ruby>すのが<ruby>好<rt>す</rt></ruby>きです - attaching the liking to an activity defuses it.</p>
+<p>Finally, negation carries weight. Japanese hedges dislike far more than English does: あまり<ruby>好<rt>す</rt></ruby>きじゃないです is the polite way to decline food, music or a suggestion, and it is what a learner should reach for by default.</p>
 </div>
 </div>
 <div class="slide" data-index="53">
   
-  <div class="slide__content"><h2>～のが好き · Common mistakes</h2>
-<ul>
-<li><p>❌ 本(ほん)を読(よ)む<strong>が</strong>好(す)きです。 → ✅ 本(ほん)を読(よ)む<strong>のが</strong>好(す)きです。<br><em>A verb cannot be the subject of an adjective on its own. <code>の</code> nominalises it.</em></p>
-</li>
-<li><p>❌ 音楽(おんがく)<strong>を</strong>好(す)きです。 → ✅ 音楽(おんがく)<strong>が</strong>好(す)きです。<br><em>Interference from English. <code>好(す)き</code> is not a verb and has no direct object.</em></p>
-</li>
-<li><p>❌ ピアノを<strong>好(す)きます</strong>。 → ✅ ピアノが<strong>好(す)きです</strong>。<br><em><code>好(す)き</code> takes adjective endings. A verb <code>好(す)く</code> does exist, but in everyday Japanese it survives mainly in the passive (<code>人(ひと)に好(す)かれる</code>).</em></p>
-</li>
-<li><p>❌ 泳(およ)ぐのが<strong>好(す)きくない</strong>です。 → ✅ 泳(およ)ぐのが<strong>好(す)きじゃない</strong>です。<br><em>な-adjective negation, despite the final <code>き</code> looking harmless.</em></p>
-</li>
-<li><p>❌ 好(す)き<strong>の</strong>食(た)べ物(もの) → ✅ 好(す)き<strong>な</strong>食(た)べ物(もの)<br><em>Before a noun, a な-adjective takes <code>な</code>, not <code>の</code>.</em></p>
-</li>
-</ul>
+  <div class="slide__content"><h2>～のが好き · ～のが好き vs ～ことが好き</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - <code>の</code> for concrete, lived, experienced activity; <code>こと</code> for the activity in the abstract. With <code><ruby>好<rt>す</rt></ruby>き</code> both are usually fine, and <code>の</code> is the more conversational of the two.</p>
+</blockquote>
+<p><ruby>海<rt>うみ</rt></ruby>で**<ruby>泳<rt>およ</rt></ruby>ぐのが<ruby>好<rt>す</rt></ruby>き**です。<br><em>I like swimming in the sea.</em></p>
+<p><ruby>人<rt>ひと</rt></ruby>に**<ruby>教<rt>おし</rt></ruby>えることが<ruby>好<rt>す</rt></ruby>き**です。<br><em>I like teaching people.</em></p>
+<p>The first is the feel of the water; the second is teaching as a category of thing. Push the difference and you can hear it, but for a plain statement of taste nobody will correct you either way.</p>
 </div>
 </div>
 <div class="slide" data-index="54">
   
-  <div class="slide__content"><h2>～のが好き · Practice 1</h2>
-<p><strong>1.</strong> 私(わたし)は自転車(じてんしゃ)に乗(の)る____好(す)きです。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-自転車(じてんしゃ)に乗(の)る<strong>のが</strong>好(す)きです。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The verb <code>乗(の)る</code> has to become a noun before it can be the subject of <code>好(す)き</code>, and that is what <code>の</code> does. The particle after it is <code>が</code>, never <code>を</code>.</p>
+  <div class="slide__content"><h2>～のが好き · ～のが好き vs ～ことが好き (cont.)</h2>
+<p>Where the choice stops being free is when the nominalised clause is not the object of an adjective but a noun in its own right - a <code>は…です</code> sentence, for instance. There only <code>こと</code> works:</p>
+<p><ruby>趣味<rt>しゅみ</rt></ruby>は<ruby>古<rt>ふる</rt></ruby>い<ruby>本<rt>ほん</rt></ruby>を**<ruby>集<rt>あつ</rt></ruby>めること**です。<br><em>My hobby is collecting old books.</em></p>
+<p>❌<code><ruby>集<rt>あつ</rt></ruby>めるのです</code> would be read as the explanatory <code>のです</code>, which means something else entirely.</p>
 </div>
 </div>
 <div class="slide" data-index="55">
   
-  <div class="slide__content"><h2>～のが好き · Practice 2</h2>
-<p><strong>2.</strong> 弟(おとうと)は甘(あま)いものを食(た)べるのが（好(す)きです・食(た)べたいです）。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-弟(おとうと)は甘(あま)いものを食(た)べるのが<strong>好(す)きです</strong>。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Two reasons. The sentence describes a standing taste rather than a present urge, and it is about a third person, where a flat <code>～たい</code> is not allowed anyway. The second option would also leave the nominalised clause stranded.</p>
+  <div class="slide__content"><h2>～のが好き · ～のが好き vs ～たい</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - <code><ruby>好<rt>す</rt></ruby>き</code> is what you like <strong>in general</strong>; <code>～たい</code> is what you want <strong>now</strong>. Liking something does not mean you want it this minute.</p>
+</blockquote>
+<p>コーヒーを**<ruby>飲<rt>の</rt></ruby>むのが<ruby>好<rt>す</rt></ruby>き**です。<br><em>I like drinking coffee. (a habit, a taste)</em></p>
+<p><ruby>今<rt>いま</rt></ruby>、コーヒーが**<ruby>飲<rt>の</rt></ruby>みたい**です。<br><em>I want a coffee right now. (an urge)</em></p>
 </div>
 </div>
 <div class="slide" data-index="56">
   
-  <div class="slide__content"><h2>～のが好き · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese: &quot;My grandmother likes taking photographs of flowers.&quot;</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-祖母(そぼ)は花(はな)の写真(しゃしん)を<strong>撮(と)るのが好(す)き</strong>です。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Note that no hedge is needed even though the subject is a third person: unlike <code>～たい</code>, a preference can be asserted about other people directly.</p>
+  <div class="slide__content"><h2>～のが好き · ～のが好き vs ～たい (cont.)</h2>
+<p>The two also behave differently across persons. <code>～たい</code> cannot be stated flatly about someone else, but <code><ruby>好<rt>す</rt></ruby>き</code> can - which is why a description of another person&#39;s tastes almost always comes out in <code><ruby>好<rt>す</rt></ruby>き</code>: <ruby>夫<rt>おっと</rt></ruby>は<ruby>料理<rt>りょうり</rt></ruby>するのが<ruby>好<rt>す</rt></ruby>きです.</p>
 </div>
 </div>
 <div class="slide" data-index="57">
   
-  <div class="slide__content"><h2>～のが好き · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 兄(あに)はサッカーを好(す)きの人(ひと)です。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 兄(あに)はサッカーが**好(す)きな人(ひと)**です。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Two problems in one short sentence. The object of <code>好(す)き</code> takes <code>が</code>, not <code>を</code>; and before a noun a な-adjective uses <code>な</code>, not <code>の</code>.</p>
+  <div class="slide__content"><h2>～のが好き · 好き vs 嫌い</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - <code><ruby>嫌<rt>きら</rt></ruby>い</code> is much stronger than English &quot;don&#39;t like&quot;. The everyday negative is あまり<ruby>好<rt>す</rt></ruby>きじゃない.</p>
+</blockquote>
+<p><ruby>運動<rt>うんどう</rt></ruby>するのは<strong>あまり<ruby>好<rt>す</rt></ruby>きじゃない</strong>です。<br><em>I&#39;m not that keen on exercising.</em></p>
+<p><ruby>虫<rt>むし</rt></ruby>が**<ruby>嫌<rt>きら</rt></ruby>い**です。<br><em>I hate insects.</em></p>
 </div>
 </div>
 <div class="slide" data-index="58">
   
+  <div class="slide__content"><h2>～のが好き · 好き vs 嫌い (cont.)</h2>
+<p>Two traps sit here. First, <code><ruby>嫌<rt>きら</rt></ruby>い</code> ends in <code>い</code> but is a <strong>な-adjective</strong>: <code><ruby>嫌<rt>きら</rt></ruby>いな<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby></code>, <code><ruby>嫌<rt>きら</rt></ruby>いじゃない</code>, never ❌<code><ruby>嫌<rt>きら</rt></ruby>くない</code>. Second, notice the <code>は</code> in the first sentence. Swapping the <code>が</code> for <code>は</code> when you negate is standard, and it softens further - you are marking this one thing as the exception rather than making a sweeping declaration.</p>
+</div>
+</div>
+<div class="slide" data-index="59">
+  
+  <div class="slide__content"><h2>～のが好き · Common mistakes</h2>
+<ul>
+<li><p>❌ <ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>む<strong>が</strong><ruby>好<rt>す</rt></ruby>きです。 → ✅ <ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>む<strong>のが</strong><ruby>好<rt>す</rt></ruby>きです。<br><em>A verb cannot be the subject of an adjective on its own. <code>の</code> nominalises it.</em></p>
+</li>
+<li><p>❌ <ruby>音楽<rt>おんがく</rt></ruby><strong>を</strong><ruby>好<rt>す</rt></ruby>きです。 → ✅ <ruby>音楽<rt>おんがく</rt></ruby><strong>が</strong><ruby>好<rt>す</rt></ruby>きです。<br><em>Interference from English. <code><ruby>好<rt>す</rt></ruby>き</code> is not a verb and has no direct object.</em></p>
+</li>
+<li><p>❌ ピアノを**<ruby>好<rt>す</rt></ruby>きます**。 → ✅ ピアノが**<ruby>好<rt>す</rt></ruby>きです**。<br><em><code><ruby>好<rt>す</rt></ruby>き</code> takes adjective endings. A verb <code><ruby>好<rt>す</rt></ruby>く</code> does exist, but in everyday Japanese it survives mainly in the passive (<code><ruby>人<rt>ひと</rt></ruby>に<ruby>好<rt>す</rt></ruby>かれる</code>).</em></p>
+</li>
+<li><p>❌ <ruby>泳<rt>およ</rt></ruby>ぐのが**<ruby>好<rt>す</rt></ruby>きくない<strong>です。 → ✅ <ruby>泳<rt>およ</rt></ruby>ぐのが</strong><ruby>好<rt>す</rt></ruby>きじゃない**です。<br><em>な-adjective negation, despite the final <code>き</code> looking harmless.</em></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="60">
+  
+  <div class="slide__content"><h2>～のが好き · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ <ruby>好<rt>す</rt></ruby>き<strong>の</strong><ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby> → ✅ <ruby>好<rt>す</rt></ruby>き<strong>な</strong><ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby><br><em>Before a noun, a な-adjective takes <code>な</code>, not <code>の</code>.</em></li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="61">
+  
+  <div class="slide__content"><h2>～のが好き · Practice 1</h2>
+<p><strong>1.</strong> <ruby>私<rt>わたし</rt></ruby>は<ruby>自転車<rt>じてんしゃ</rt></ruby>に<ruby>乗<rt>の</rt></ruby>る____<ruby>好<rt>す</rt></ruby>きです。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>自転車<rt>じてんしゃ</rt></ruby>に<ruby>乗<rt>の</rt></ruby>る<strong>のが</strong><ruby>好<rt>す</rt></ruby>きです。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The verb <code><ruby>乗<rt>の</rt></ruby>る</code> has to become a noun before it can be the subject of <code><ruby>好<rt>す</rt></ruby>き</code>, and that is what <code>の</code> does. The particle after it is <code>が</code>, never <code>を</code>.</p>
+</div>
+</div>
+<div class="slide" data-index="62">
+  
+  <div class="slide__content"><h2>～のが好き · Practice 2</h2>
+<p><strong>2.</strong> <ruby>弟<rt>おとうと</rt></ruby>は<ruby>甘<rt>あま</rt></ruby>いものを<ruby>食<rt>た</rt></ruby>べるのが（<ruby>好<rt>す</rt></ruby>きです・<ruby>食<rt>た</rt></ruby>べたいです）。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>弟<rt>おとうと</rt></ruby>は<ruby>甘<rt>あま</rt></ruby>いものを<ruby>食<rt>た</rt></ruby>べるのが**<ruby>好<rt>す</rt></ruby>きです**。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+Two reasons. The sentence describes a standing taste rather than a present urge, and it is about a third person, where a flat <code>～たい</code> is not allowed anyway. The second option would also leave the nominalised clause stranded.</p>
+</div>
+</div>
+<div class="slide" data-index="63">
+  
+  <div class="slide__content"><h2>～のが好き · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese: &quot;My grandmother likes taking photographs of flowers.&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>祖母<rt>そぼ</rt></ruby>は<ruby>花<rt>はな</rt></ruby>の<ruby>写真<rt>しゃしん</rt></ruby>を**<ruby>撮<rt>と</rt></ruby>るのが<ruby>好<rt>す</rt></ruby>き**です。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+Note that no hedge is needed even though the subject is a third person: unlike <code>～たい</code>, a preference can be asserted about other people directly.</p>
+</div>
+</div>
+<div class="slide" data-index="64">
+  
+  <div class="slide__content"><h2>～のが好き · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the error: <ruby>兄<rt>あに</rt></ruby>はサッカーを<ruby>好<rt>す</rt></ruby>きの<ruby>人<rt>ひと</rt></ruby>です。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ <ruby>兄<rt>あに</rt></ruby>はサッカーが**<ruby>好<rt>す</rt></ruby>きな<ruby>人<rt>ひと</rt></ruby>**です。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+Two problems in one short sentence. The object of <code><ruby>好<rt>す</rt></ruby>き</code> takes <code>が</code>, not <code>を</code>; and before a noun a な-adjective uses <code>な</code>, not <code>の</code>.</p>
+</div>
+</div>
+<div class="slide" data-index="65">
+  
   <div class="slide__content"><h2>～のが好き · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) パクチーは<strong>あまり好(す)きじゃない</strong>です。 (b) パクチーが<strong>嫌(きら)い</strong>です。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) パクチーは<strong>あまり<ruby>好<rt>す</rt></ruby>きじゃない</strong>です。 (b) パクチーが**<ruby>嫌<rt>きら</rt></ruby>い**です。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (b) is a flat declaration of dislike and sounds surprisingly strong in Japanese - closer to &quot;I can&#39;t stand coriander&quot; than to &quot;I&#39;m not a fan&quot;. (a) is the polite default: the softener あまり plus a negative, with <code>は</code> marking coriander as the one exception rather than condemning it outright.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 If a host offers you something you would rather not eat, (a) is the sentence you want. (b) risks sounding like a complaint about the food.</p>
 </div>
 </div>
-<div class="slide" data-index="59">
+<div class="slide" data-index="66">
   
   <div class="slide__content"><h1>～のが上手</h1>
 <p><strong>Meaning</strong> · to be good at something - skill you can see in the result</p>
-<p><code>上手(じょうず)</code> is a <strong>な-adjective</strong> describing an ability that has visibly been trained. What someone is good at is marked with <code>が</code>, and to say they are good at an <em>action</em> you nominalise the verb with <code>の</code> first. The important thing to learn alongside the grammar is who you may say it about: <code>上手(じょうず)</code> is a judgement handed down, so it is used about other people, and almost never about yourself.</p>
+<p><code><ruby>上手<rt>じょうず</rt></ruby></code> is a <strong>な-adjective</strong> describing an ability that has visibly been trained. What someone is good at is marked with <code>が</code>, and to say they are good at an <em>action</em> you nominalise the verb with <code>の</code> first. The important thing to learn alongside the grammar is who you may say it about: <code><ruby>上手<rt>じょうず</rt></ruby></code> is a judgement handed down, so it is used about other people, and almost never about yourself.</p>
 </div>
 </div>
-<div class="slide" data-index="60">
+<div class="slide" data-index="67">
   
   <div class="slide__content"><h2>～のが上手 · Formation</h2>
 <table>
@@ -3428,29 +3481,29 @@ If a host offers you something you would rather not eat, (a) is the sentence you
 </thead>
 <tbody><tr>
 <td>Verb (dictionary form)</td>
-<td>Dictionary + のが + 上手(じょうず)</td>
-<td>話(はな)す → 話(はな)すのが上手(じょうず)</td>
+<td>Dictionary + のが + <ruby>上手<rt>じょうず</rt></ruby></td>
+<td><ruby>話<rt>はな</rt></ruby>す → <ruby>話<rt>はな</rt></ruby>すのが<ruby>上手<rt>じょうず</rt></ruby></td>
 </tr>
 <tr>
 <td>Noun</td>
-<td>Noun + が + 上手(じょうず)</td>
-<td>ピアノ → ピアノが上手(じょうず)</td>
+<td>Noun + が + <ruby>上手<rt>じょうず</rt></ruby></td>
+<td>ピアノ → ピアノが<ruby>上手<rt>じょうず</rt></ruby></td>
 </tr>
 <tr>
 <td>Person + thing</td>
-<td>Person + は + Thing + が + 上手(じょうず)</td>
-<td>姉(あね)は絵(え)が上手(じょうず)です</td>
+<td>Person + は + Thing + が + <ruby>上手<rt>じょうず</rt></ruby></td>
+<td><ruby>姉<rt>あね</rt></ruby>は<ruby>絵<rt>え</rt></ruby>が<ruby>上手<rt>じょうず</rt></ruby>です</td>
 </tr>
 <tr>
 <td>Adverbially (modifying a verb)</td>
-<td>上手(じょうず)に + Verb</td>
-<td>上手(じょうず)に使(つか)う</td>
+<td><ruby>上手<rt>じょうず</rt></ruby>に + Verb</td>
+<td><ruby>上手<rt>じょうず</rt></ruby>に<ruby>使<rt>つか</rt></ruby>う</td>
 </tr>
 </tbody></table>
 <p>The な-adjective forms behave as expected:</p>
 </div>
 </div>
-<div class="slide" data-index="61">
+<div class="slide" data-index="68">
   
   <div class="slide__content"><h2>～のが上手 · Formation (cont.)</h2>
 <table>
@@ -3463,206 +3516,216 @@ If a host offers you something you would rather not eat, (a) is the sentence you
 </thead>
 <tbody><tr>
 <td>Plain</td>
-<td>上手(じょうず)だ</td>
-<td>歌(うた)うのが上手(じょうず)だ</td>
+<td><ruby>上手<rt>じょうず</rt></ruby>だ</td>
+<td><ruby>歌<rt>うた</rt></ruby>うのが<ruby>上手<rt>じょうず</rt></ruby>だ</td>
 </tr>
 <tr>
 <td>Polite</td>
-<td>上手(じょうず)です</td>
-<td>歌(うた)うのが上手(じょうず)です</td>
+<td><ruby>上手<rt>じょうず</rt></ruby>です</td>
+<td><ruby>歌<rt>うた</rt></ruby>うのが<ruby>上手<rt>じょうず</rt></ruby>です</td>
 </tr>
 <tr>
 <td>Negative</td>
-<td>上手(じょうず)じゃない</td>
-<td>上手(じょうず)じゃないです</td>
+<td><ruby>上手<rt>じょうず</rt></ruby>じゃない</td>
+<td><ruby>上手<rt>じょうず</rt></ruby>じゃないです</td>
 </tr>
 <tr>
 <td>Past</td>
-<td>上手(じょうず)だった／上手(じょうず)でした</td>
-<td>上手(じょうず)でした</td>
+<td><ruby>上手<rt>じょうず</rt></ruby>だった／<ruby>上手<rt>じょうず</rt></ruby>でした</td>
+<td><ruby>上手<rt>じょうず</rt></ruby>でした</td>
 </tr>
 <tr>
 <td>Before a noun</td>
-<td>上手(じょうず)な + Noun</td>
-<td>上手(じょうず)な人(ひと)</td>
+<td><ruby>上手<rt>じょうず</rt></ruby>な + Noun</td>
+<td><ruby>上手<rt>じょうず</rt></ruby>な<ruby>人<rt>ひと</rt></ruby></td>
 </tr>
 <tr>
 <td>Honorific</td>
-<td>お上手(じょうず)</td>
-<td>お上手(じょうず)ですね</td>
+<td>お<ruby>上手<rt>じょうず</rt></ruby></td>
+<td>お<ruby>上手<rt>じょうず</rt></ruby>ですね</td>
 </tr>
 </tbody></table>
-<blockquote>
-<p><strong>Rule of thumb</strong> - <code>上手(じょうず)</code> before a <strong>noun</strong> takes <code>な</code>; before a <strong>verb</strong> it takes <code>に</code>. <code>上手(じょうず)な字(じ)</code> &quot;neat handwriting&quot; versus <code>上手(じょうず)に書(か)く</code> &quot;to write neatly&quot;.</p>
-</blockquote>
-</div>
-</div>
-<div class="slide" data-index="62">
-  
-  <div class="slide__content"><h2>～のが上手 · Examples</h2>
-<p>母(はは)は**料理(りょうり)を作(つく)るのが上手(じょうず)**です。<br><em>My mother is good at cooking.</em></p>
-<p>彼(かれ)は**字(じ)を書(か)くのが上手(じょうず)**ですね。<br><em>He has lovely handwriting, doesn&#39;t he.</em></p>
-<p>兄(あに)は人(ひと)の名前(なまえ)を**覚(おぼ)えるのが上手(じょうず)**じゃないです。<br><em>My older brother isn&#39;t good at remembering people&#39;s names.</em></p>
-<p>田中(たなか)さんは人(ひと)の話(はなし)を**聞(き)くのが上手(じょうず)**です。<br><em>Tanaka is a good listener.</em></p>
-<p>息子(むすこ)はまだ五(ご)さいですが、自転車(じてんしゃ)に**乗(の)るのが上手(じょうず)**です。<br><em>My son is only five, but he&#39;s good at riding a bicycle.</em></p>
-</div>
-</div>
-<div class="slide" data-index="63">
-  
-  <div class="slide__content"><h2>～のが上手 · Examples (cont.)</h2>
-<p>娘(むすめ)は小(ちい)さいころから絵(え)を<strong>上手(じょうず)に</strong>かきました。<br><em>My daughter drew well from the time she was small.</em></p>
-<p>山田(やまだ)さんは会議(かいぎ)で話(はなし)を**まとめるのが上手(じょうず)**なので、いつも司会(しかい)をお願(ねが)いしています。<br><em>Yamada is good at pulling a discussion together, so we always ask her to chair.</em></p>
-<p>祖母(そぼ)は昔(むかし)から着物(きもの)を**着(き)るのが上手(じょうず)**で、近所(きんじょ)の人(ひと)にもよく教(おし)えています。<br><em>My grandmother has always been good at putting on a kimono, and she often teaches the neighbours too.</em></p>
-</div>
-</div>
-<div class="slide" data-index="64">
-  
-  <div class="slide__content"><h2>～のが上手 · Nuance &amp; register</h2>
-<p><code>上手(じょうず)</code> is a <strong>verdict</strong>. You are standing outside someone&#39;s performance and rating it, and that is exactly why the word behaves the way it does socially.</p>
-<p>First, you do not normally use it about yourself. ❌私(わたし)は英語(えいご)が上手(じょうず)です is grammatical and sounds boastful; the natural equivalents are 英語(えいご)が得意(とくい)です, 英語(えいご)が少(すこ)し話(はな)せます, or the modest classic まだまだです.</p>
-<p>Second - and this catches learners going the other way - praising a <strong>superior</strong> with <code>上手(じょうず)</code> is also awkward, because rating someone above you is not your place. 部長(ぶちょう)、英語(えいご)がお上手(じょうず)ですね is softened by the honorific <code>お</code>, and is heard, but さすがですね or 勉強(べんきょう)になります is safer. Between equals and downward it is completely normal.</p>
-</div>
-</div>
-<div class="slide" data-index="65">
-  
-  <div class="slide__content"><h2>～のが上手 · Nuance &amp; register (cont.)</h2>
-<p>Third, when someone says 日本語(にほんご)がお上手(じょうず)ですね to you, the expected reply is not ありがとうございます but a deflection: いいえ、まだまだです or そんなことないです. Accepting the compliment flatly is not wrong, just noticeably un-Japanese.</p>
-<p><code>お上手(じょうず)ですね</code> said with the wrong timing means &quot;you flatterer&quot; - お上手(じょうず)を言(い)って is a fixed phrase for exactly that. Context carries it, but be aware the word has that second life.</p>
-</div>
-</div>
-<div class="slide" data-index="66">
-  
-  <div class="slide__content"><h2>～のが上手 · ～のが上手(じょうず) vs ～のが得意(とくい)</h2>
-<blockquote>
-<p><strong>Rule of thumb</strong> - <code>上手(じょうず)</code> rates someone <strong>else</strong>; <code>得意(とくい)</code> is how you talk about <strong>yourself</strong>. <code>得意(とくい)</code> also carries confidence, not just skill.</p>
-</blockquote>
-<p>林(はやし)さんはギターを**弾(ひ)くのが上手(じょうず)**です。<br><em>Hayashi is good at playing the guitar.</em></p>
-<p>私(わたし)は人(ひと)の前(まえ)で**話(はな)すのが得意(とくい)**です。<br><em>I&#39;m good at speaking in front of people.</em></p>
-<p>The difference is where the judgement comes from. <code>上手(じょうず)</code> is an outside assessment of quality, so turning it on yourself is self-congratulation. <code>得意(とくい)</code> describes your own sense of what you are strong at and can be asserted without immodesty - it is what you write on a job application.</p>
-</div>
-</div>
-<div class="slide" data-index="67">
-  
-  <div class="slide__content"><h2>～のが上手 · ～のが上手(じょうず) vs ～のが得意(とくい) (cont.)</h2>
-<p>Note that <code>得意(とくい)</code> is not a full escape either: said too readily it still sounds confident, so many speakers reach for 少(すこ)しできます or a plain potential form instead.</p>
-<p><code>得意(とくい)</code> about a third person is fine too, but it then reports <em>their</em> confidence: 弟(おとうと)は数学(すうがく)が得意(とくい)です suggests he would say so himself, whereas 弟(おとうと)は数学(すうがく)が上手(じょうず)です is your opinion of him - and for school subjects it sounds odd, because <code>上手(じょうず)</code> wants a performed skill.</p>
-</div>
-</div>
-<div class="slide" data-index="68">
-  
-  <div class="slide__content"><h2>～のが上手 · 上手(じょうず) vs できる</h2>
-<blockquote>
-<p><strong>Rule of thumb</strong> - <code>上手(じょうず)</code> is <em>how well</em>; できる is <em>whether at all</em>.</p>
-</blockquote>
-<p>妹(いもうと)はスペイン語(ご)が<strong>できます</strong>。<br><em>My little sister can speak Spanish.</em></p>
-<p>妹(いもうと)はスペイン語(ご)を話(はな)すのが**上手(じょうず)**です。<br><em>My little sister speaks Spanish well.</em></p>
-<p>The first says the ability exists; the second grades it. This is why できる and the potential form are the safe way to describe <strong>your own</strong> abilities - 少(すこ)し泳(およ)げます reports a fact, while 泳(およ)ぐのが上手(じょうず)です awards yourself a prize.</p>
 </div>
 </div>
 <div class="slide" data-index="69">
   
-  <div class="slide__content"><h2>～のが上手 · 上手(じょうず) vs できる (cont.)</h2>
-<p>They also differ in what they accept. できる takes nouns and する-nouns (運転(うんてん)ができる) and, with <code>ことが</code>, verbs. <code>上手(じょうず)</code> takes nouns and <code>のが</code> clauses, and refuses anything that is not a trainable skill: ❌背(せ)が高(たか)いのが上手(じょうず)です is nonsense.</p>
+  <div class="slide__content"><h2>～のが上手 · Formation (cont.)</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - <code><ruby>上手<rt>じょうず</rt></ruby></code> before a <strong>noun</strong> takes <code>な</code>; before a <strong>verb</strong> it takes <code>に</code>. <code><ruby>上手<rt>じょうず</rt></ruby>な<ruby>字<rt>じ</rt></ruby></code> &quot;neat handwriting&quot; versus <code><ruby>上手<rt>じょうず</rt></ruby>に<ruby>書<rt>か</rt></ruby>く</code> &quot;to write neatly&quot;.</p>
+</blockquote>
 </div>
 </div>
 <div class="slide" data-index="70">
   
-  <div class="slide__content"><h2>～のが上手 · 上手(じょうず) vs うまい</h2>
-<blockquote>
-<p><strong>Rule of thumb</strong> - same meaning, lower register. うまい is casual, slightly male-coded, and ambiguous with &quot;tasty&quot;.</p>
-</blockquote>
-<p>あいつ、歌(うた)<strong>うまい</strong>な。<br><em>Wow, he&#39;s a good singer.</em></p>
-<p>先生(せんせい)はテニスが**お上手(じょうず)**ですね。<br><em>You&#39;re good at tennis, aren&#39;t you, sensei.</em></p>
-<p>うまい is an い-adjective (上手(うま)い in kanji, though usually kana), so it takes うまくない, うまかった - a different paradigm from <code>上手(じょうず)</code> entirely. It belongs to friends, sport and the internet, never to a business email.</p>
+  <div class="slide__content"><h2>～のが上手 · Examples</h2>
+<p><ruby>母<rt>はは</rt></ruby>は**<ruby>料理<rt>りょうり</rt></ruby>を<ruby>作<rt>つく</rt></ruby>るのが<ruby>上手<rt>じょうず</rt></ruby>**です。<br><em>My mother is good at cooking.</em></p>
+<p><ruby>彼<rt>かれ</rt></ruby>は**<ruby>字<rt>じ</rt></ruby>を<ruby>書<rt>か</rt></ruby>くのが<ruby>上手<rt>じょうず</rt></ruby>**ですね。<br><em>He has lovely handwriting, doesn&#39;t he.</em></p>
+<p><ruby>兄<rt>あに</rt></ruby>は<ruby>人<rt>ひと</rt></ruby>の<ruby>名前<rt>なまえ</rt></ruby>を**<ruby>覚<rt>おぼ</rt></ruby>えるのが<ruby>上手<rt>じょうず</rt></ruby>**じゃないです。<br><em>My older brother isn&#39;t good at remembering people&#39;s names.</em></p>
+<p><ruby>田中<rt>たなか</rt></ruby>さんは<ruby>人<rt>ひと</rt></ruby>の<ruby>話<rt>はなし</rt></ruby>を**<ruby>聞<rt>き</rt></ruby>くのが<ruby>上手<rt>じょうず</rt></ruby>**です。<br><em>Tanaka is a good listener.</em></p>
 </div>
 </div>
 <div class="slide" data-index="71">
   
-  <div class="slide__content"><h2>～のが上手 · 上手(じょうず) vs うまい (cont.)</h2>
-<p>Its other meaning is &quot;delicious&quot;, which is where the ambiguity bites: この店(みせ)、うまい in a restaurant is about the food, not the chef&#39;s technique. And the negative 下手(へた) has no equivalent slot here - the casual opposite of うまい is へた or へたくそ, which is blunter still.</p>
+  <div class="slide__content"><h2>～のが上手 · Examples (cont.)</h2>
+<p><ruby>息子<rt>むすこ</rt></ruby>はまだ<ruby>五<rt>ご</rt></ruby>さいですが、<ruby>自転車<rt>じてんしゃ</rt></ruby>に**<ruby>乗<rt>の</rt></ruby>るのが<ruby>上手<rt>じょうず</rt></ruby>**です。<br><em>My son is only five, but he&#39;s good at riding a bicycle.</em></p>
+<p><ruby>娘<rt>むすめ</rt></ruby>は<ruby>小<rt>ちい</rt></ruby>さいころから<ruby>絵<rt>え</rt></ruby>を**<ruby>上手<rt>じょうず</rt></ruby>に**かきました。<br><em>My daughter drew well from the time she was small.</em></p>
+<p><ruby>山田<rt>やまだ</rt></ruby>さんは<ruby>会議<rt>かいぎ</rt></ruby>で<ruby>話<rt>はなし</rt></ruby>を**まとめるのが<ruby>上手<rt>じょうず</rt></ruby>**なので、いつも<ruby>司会<rt>しかい</rt></ruby>をお<ruby>願<rt>ねが</rt></ruby>いしています。<br><em>Yamada is good at pulling a discussion together, so we always ask her to chair.</em></p>
+<p><ruby>祖母<rt>そぼ</rt></ruby>は<ruby>昔<rt>むかし</rt></ruby>から<ruby>着物<rt>きもの</rt></ruby>を**<ruby>着<rt>き</rt></ruby>るのが<ruby>上手<rt>じょうず</rt></ruby>**で、<ruby>近所<rt>きんじょ</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>にもよく<ruby>教<rt>おし</rt></ruby>えています。<br><em>My grandmother has always been good at putting on a kimono, and she often teaches the neighbours too.</em></p>
 </div>
 </div>
 <div class="slide" data-index="72">
   
-  <div class="slide__content"><h2>～のが上手 · Common mistakes</h2>
-<ul>
-<li><p>❌ 私(わたし)は日本語(にほんご)が<strong>上手(じょうず)です</strong>。 → ✅ 私(わたし)は日本語(にほんご)が<strong>得意(とくい)です</strong>。／少(すこ)し話(はな)せます。<br><em>Grammatical but boastful. <code>上手(じょうず)</code> is a verdict on someone else.</em></p>
-</li>
-<li><p>❌ ギター<strong>を</strong>上手(じょうず)です。 → ✅ ギター<strong>が</strong>上手(じょうず)です。<br><em><code>上手(じょうず)</code> is an adjective and has no direct object.</em></p>
-</li>
-<li><p>❌ 泳(およ)ぐ<strong>が</strong>上手(じょうず)です。 → ✅ 泳(およ)ぐ<strong>のが</strong>上手(じょうず)です。<br><em>A verb needs the nominaliser <code>の</code> before <code>が</code>.</em></p>
-</li>
-<li><p>❌ 上手(じょうず)<strong>に</strong>人(ひと) → ✅ 上手(じょうず)<strong>な</strong>人(ひと)<br><em><code>に</code> modifies verbs, <code>な</code> modifies nouns.</em></p>
-</li>
-</ul>
+  <div class="slide__content"><h2>～のが上手 · Nuance &amp; register</h2>
+<p><code><ruby>上手<rt>じょうず</rt></ruby></code> is a <strong>verdict</strong>. You are standing outside someone&#39;s performance and rating it, and that is exactly why the word behaves the way it does socially.</p>
+<p>First, you do not normally use it about yourself. ❌<ruby>私<rt>わたし</rt></ruby>は<ruby>英語<rt>えいご</rt></ruby>が<ruby>上手<rt>じょうず</rt></ruby>です is grammatical and sounds boastful; the natural equivalents are <ruby>英語<rt>えいご</rt></ruby>が<ruby>得意<rt>とくい</rt></ruby>です, <ruby>英語<rt>えいご</rt></ruby>が<ruby>少<rt>すこ</rt></ruby>し<ruby>話<rt>はな</rt></ruby>せます, or the modest classic まだまだです.</p>
 </div>
 </div>
 <div class="slide" data-index="73">
   
-  <div class="slide__content"><h2>～のが上手 · Common mistakes (cont.)</h2>
-<ul>
-<li>❌ 彼(かれ)は上手(じょうず)<strong>します</strong>。 → ✅ 彼(かれ)は上手(じょうず)<strong>です</strong>。／上手(じょうず)に<strong>します</strong>。<br><em><code>上手(じょうず)</code> is not a verb; it needs the copula, or <code>に</code> if it is describing how something is done.</em></li>
-</ul>
+  <div class="slide__content"><h2>～のが上手 · Nuance &amp; register (cont.)</h2>
+<p>Second - and this catches learners going the other way - praising a <strong>superior</strong> with <code><ruby>上手<rt>じょうず</rt></ruby></code> is also awkward, because rating someone above you is not your place. <ruby>部長<rt>ぶちょう</rt></ruby>、<ruby>英語<rt>えいご</rt></ruby>がお<ruby>上手<rt>じょうず</rt></ruby>ですね is softened by the honorific <code>お</code>, and is heard, but さすがですね or <ruby>勉強<rt>べんきょう</rt></ruby>になります is safer. Between equals and downward it is completely normal.</p>
+<p>Third, when someone says <ruby>日本語<rt>にほんご</rt></ruby>がお<ruby>上手<rt>じょうず</rt></ruby>ですね to you, the expected reply is not ありがとうございます but a deflection: いいえ、まだまだです or そんなことないです. Accepting the compliment flatly is not wrong, just noticeably un-Japanese.</p>
 </div>
 </div>
 <div class="slide" data-index="74">
   
-  <div class="slide__content"><h2>～のが上手 · Practice 1</h2>
-<p><strong>1.</strong> 姉(あね)はケーキを作(つく)る____上手(じょうず)です。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-ケーキを作(つく)る<strong>のが</strong>上手(じょうず)です。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The verb <code>作(つく)る</code> must be nominalised by <code>の</code> before it can take <code>が</code> and be graded by <code>上手(じょうず)</code>.</p>
+  <div class="slide__content"><h2>～のが上手 · Nuance &amp; register (cont.)</h2>
+<p><code>お<ruby>上手<rt>じょうず</rt></ruby>ですね</code> said with the wrong timing means &quot;you flatterer&quot; - お<ruby>上手<rt>じょうず</rt></ruby>を<ruby>言<rt>い</rt></ruby>って is a fixed phrase for exactly that. Context carries it, but be aware the word has that second life.</p>
 </div>
 </div>
 <div class="slide" data-index="75">
   
-  <div class="slide__content"><h2>～のが上手 · Practice 2</h2>
-<p><strong>2.</strong> 面接(めんせつ)で：「私(わたし)はコンピューターが（上手(じょうず)です・得意(とくい)です）。」</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-私(わたし)はコンピューターが<strong>得意(とくい)です</strong>。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Talking about your own strengths calls for <code>得意(とくい)</code>. <code>上手(じょうず)</code> is an evaluation you hand to someone else, so applying it to yourself in an interview would sound like bragging rather than reporting.</p>
+  <div class="slide__content"><h2>～のが上手 · ～のが上手 vs ～のが得意</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - <code><ruby>上手<rt>じょうず</rt></ruby></code> rates someone <strong>else</strong>; <code><ruby>得意<rt>とくい</rt></ruby></code> is how you talk about <strong>yourself</strong>. <code><ruby>得意<rt>とくい</rt></ruby></code> also carries confidence, not just skill.</p>
+</blockquote>
+<p><ruby>林<rt>はやし</rt></ruby>さんはギターを**<ruby>弾<rt>ひ</rt></ruby>くのが<ruby>上手<rt>じょうず</rt></ruby>**です。<br><em>Hayashi is good at playing the guitar.</em></p>
+<p><ruby>私<rt>わたし</rt></ruby>は<ruby>人<rt>ひと</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>で**<ruby>話<rt>はな</rt></ruby>すのが<ruby>得意<rt>とくい</rt></ruby>**です。<br><em>I&#39;m good at speaking in front of people.</em></p>
 </div>
 </div>
 <div class="slide" data-index="76">
   
-  <div class="slide__content"><h2>～のが上手 · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese: &quot;My grandfather is good at growing vegetables.&quot;</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-祖父(そふ)は野菜(やさい)を**育(そだ)てるのが上手(じょうず)**です。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-A third person, a trainable skill, and a verb that needs <code>のが</code> - the textbook shape for this pattern. <code>野菜(やさい)が上手(じょうず)です</code> on its own would not work, because it is the growing, not the vegetables, that is skilled.</p>
+  <div class="slide__content"><h2>～のが上手 · ～のが上手 vs ～のが得意 (cont.)</h2>
+<p>The difference is where the judgement comes from. <code><ruby>上手<rt>じょうず</rt></ruby></code> is an outside assessment of quality, so turning it on yourself is self-congratulation. <code><ruby>得意<rt>とくい</rt></ruby></code> describes your own sense of what you are strong at and can be asserted without immodesty - it is what you write on a job application.</p>
+<p>Note that <code><ruby>得意<rt>とくい</rt></ruby></code> is not a full escape either: said too readily it still sounds confident, so many speakers reach for <ruby>少<rt>すこ</rt></ruby>しできます or a plain potential form instead.</p>
+<p><code><ruby>得意<rt>とくい</rt></ruby></code> about a third person is fine too, but it then reports <em>their</em> confidence: <ruby>弟<rt>おとうと</rt></ruby>は<ruby>数学<rt>すうがく</rt></ruby>が<ruby>得意<rt>とくい</rt></ruby>です suggests he would say so himself, whereas <ruby>弟<rt>おとうと</rt></ruby>は<ruby>数学<rt>すうがく</rt></ruby>が<ruby>上手<rt>じょうず</rt></ruby>です is your opinion of him - and for school subjects it sounds odd, because <code><ruby>上手<rt>じょうず</rt></ruby></code> wants a performed skill.</p>
 </div>
 </div>
 <div class="slide" data-index="77">
   
-  <div class="slide__content"><h2>～のが上手 · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 彼女(かのじょ)はピアノを上手(じょうず)に人(ひと)です。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 彼女(かのじょ)はピアノ<strong>が</strong>上手(じょうず)<strong>な</strong>人(ひと)です。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Two errors. The thing you are good at takes <code>が</code>, not <code>を</code>; and before the noun <code>人(ひと)</code> the な-adjective must be <code>上手(じょうず)な</code>, since <code>に</code> is the form that attaches to verbs.</p>
+  <div class="slide__content"><h2>～のが上手 · 上手 vs できる</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - <code><ruby>上手<rt>じょうず</rt></ruby></code> is <em>how well</em>; できる is <em>whether at all</em>.</p>
+</blockquote>
+<p><ruby>妹<rt>いもうと</rt></ruby>はスペイン<ruby>語<rt>ご</rt></ruby>が<strong>できます</strong>。<br><em>My little sister can speak Spanish.</em></p>
+<p><ruby>妹<rt>いもうと</rt></ruby>はスペイン<ruby>語<rt>ご</rt></ruby>を<ruby>話<rt>はな</rt></ruby>すのが**<ruby>上手<rt>じょうず</rt></ruby>**です。<br><em>My little sister speaks Spanish well.</em></p>
+<p>The first says the ability exists; the second grades it. This is why できる and the potential form are the safe way to describe <strong>your own</strong> abilities - <ruby>少<rt>すこ</rt></ruby>し<ruby>泳<rt>およ</rt></ruby>げます reports a fact, while <ruby>泳<rt>およ</rt></ruby>ぐのが<ruby>上手<rt>じょうず</rt></ruby>です awards yourself a prize.</p>
 </div>
 </div>
 <div class="slide" data-index="78">
   
+  <div class="slide__content"><h2>～のが上手 · 上手 vs できる (cont.)</h2>
+<p>They also differ in what they accept. できる takes nouns and する-nouns (<ruby>運転<rt>うんてん</rt></ruby>ができる) and, with <code>ことが</code>, verbs. <code><ruby>上手<rt>じょうず</rt></ruby></code> takes nouns and <code>のが</code> clauses, and refuses anything that is not a trainable skill: ❌<ruby>背<rt>せ</rt></ruby>が<ruby>高<rt>たか</rt></ruby>いのが<ruby>上手<rt>じょうず</rt></ruby>です is nonsense.</p>
+</div>
+</div>
+<div class="slide" data-index="79">
+  
+  <div class="slide__content"><h2>～のが上手 · 上手 vs うまい</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - same meaning, lower register. うまい is casual, slightly male-coded, and ambiguous with &quot;tasty&quot;.</p>
+</blockquote>
+<p>あいつ、<ruby>歌<rt>うた</rt></ruby><strong>うまい</strong>な。<br><em>Wow, he&#39;s a good singer.</em></p>
+<p><ruby>先生<rt>せんせい</rt></ruby>はテニスが**お<ruby>上手<rt>じょうず</rt></ruby>**ですね。<br><em>You&#39;re good at tennis, aren&#39;t you, sensei.</em></p>
+</div>
+</div>
+<div class="slide" data-index="80">
+  
+  <div class="slide__content"><h2>～のが上手 · 上手 vs うまい (cont.)</h2>
+<p>うまい is an い-adjective (<ruby>上手<rt>うま</rt></ruby>い in kanji, though usually kana), so it takes うまくない, うまかった - a different paradigm from <code><ruby>上手<rt>じょうず</rt></ruby></code> entirely. It belongs to friends, sport and the internet, never to a business email.</p>
+<p>Its other meaning is &quot;delicious&quot;, which is where the ambiguity bites: この<ruby>店<rt>みせ</rt></ruby>、うまい in a restaurant is about the food, not the chef&#39;s technique. And the negative <ruby>下手<rt>へた</rt></ruby> has no equivalent slot here - the casual opposite of うまい is へた or へたくそ, which is blunter still.</p>
+</div>
+</div>
+<div class="slide" data-index="81">
+  
+  <div class="slide__content"><h2>～のが上手 · Common mistakes</h2>
+<ul>
+<li><p>❌ <ruby>私<rt>わたし</rt></ruby>は<ruby>日本語<rt>にほんご</rt></ruby>が**<ruby>上手<rt>じょうず</rt></ruby>です**。 → ✅ <ruby>私<rt>わたし</rt></ruby>は<ruby>日本語<rt>にほんご</rt></ruby>が**<ruby>得意<rt>とくい</rt></ruby>です**。／<ruby>少<rt>すこ</rt></ruby>し<ruby>話<rt>はな</rt></ruby>せます。<br><em>Grammatical but boastful. <code><ruby>上手<rt>じょうず</rt></ruby></code> is a verdict on someone else.</em></p>
+</li>
+<li><p>❌ ギター<strong>を</strong><ruby>上手<rt>じょうず</rt></ruby>です。 → ✅ ギター<strong>が</strong><ruby>上手<rt>じょうず</rt></ruby>です。<br><em><code><ruby>上手<rt>じょうず</rt></ruby></code> is an adjective and has no direct object.</em></p>
+</li>
+<li><p>❌ <ruby>泳<rt>およ</rt></ruby>ぐ<strong>が</strong><ruby>上手<rt>じょうず</rt></ruby>です。 → ✅ <ruby>泳<rt>およ</rt></ruby>ぐ<strong>のが</strong><ruby>上手<rt>じょうず</rt></ruby>です。<br><em>A verb needs the nominaliser <code>の</code> before <code>が</code>.</em></p>
+</li>
+<li><p>❌ <ruby>上手<rt>じょうず</rt></ruby><strong>に</strong><ruby>人<rt>ひと</rt></ruby> → ✅ <ruby>上手<rt>じょうず</rt></ruby><strong>な</strong><ruby>人<rt>ひと</rt></ruby><br><em><code>に</code> modifies verbs, <code>な</code> modifies nouns.</em></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="82">
+  
+  <div class="slide__content"><h2>～のが上手 · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ <ruby>彼<rt>かれ</rt></ruby>は<ruby>上手<rt>じょうず</rt></ruby><strong>します</strong>。 → ✅ <ruby>彼<rt>かれ</rt></ruby>は<ruby>上手<rt>じょうず</rt></ruby><strong>です</strong>。／<ruby>上手<rt>じょうず</rt></ruby>に<strong>します</strong>。<br><em><code><ruby>上手<rt>じょうず</rt></ruby></code> is not a verb; it needs the copula, or <code>に</code> if it is describing how something is done.</em></li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="83">
+  
+  <div class="slide__content"><h2>～のが上手 · Practice 1</h2>
+<p><strong>1.</strong> <ruby>姉<rt>あね</rt></ruby>はケーキを<ruby>作<rt>つく</rt></ruby>る____<ruby>上手<rt>じょうず</rt></ruby>です。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+ケーキを<ruby>作<rt>つく</rt></ruby>る<strong>のが</strong><ruby>上手<rt>じょうず</rt></ruby>です。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The verb <code><ruby>作<rt>つく</rt></ruby>る</code> must be nominalised by <code>の</code> before it can take <code>が</code> and be graded by <code><ruby>上手<rt>じょうず</rt></ruby></code>.</p>
+</div>
+</div>
+<div class="slide" data-index="84">
+  
+  <div class="slide__content"><h2>～のが上手 · Practice 2</h2>
+<p><strong>2.</strong> <ruby>面接<rt>めんせつ</rt></ruby>で：「<ruby>私<rt>わたし</rt></ruby>はコンピューターが（<ruby>上手<rt>じょうず</rt></ruby>です・<ruby>得意<rt>とくい</rt></ruby>です）。」</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>私<rt>わたし</rt></ruby>はコンピューターが**<ruby>得意<rt>とくい</rt></ruby>です**。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+Talking about your own strengths calls for <code><ruby>得意<rt>とくい</rt></ruby></code>. <code><ruby>上手<rt>じょうず</rt></ruby></code> is an evaluation you hand to someone else, so applying it to yourself in an interview would sound like bragging rather than reporting.</p>
+</div>
+</div>
+<div class="slide" data-index="85">
+  
+  <div class="slide__content"><h2>～のが上手 · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese: &quot;My grandfather is good at growing vegetables.&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>祖父<rt>そふ</rt></ruby>は<ruby>野菜<rt>やさい</rt></ruby>を**<ruby>育<rt>そだ</rt></ruby>てるのが<ruby>上手<rt>じょうず</rt></ruby>**です。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+A third person, a trainable skill, and a verb that needs <code>のが</code> - the textbook shape for this pattern. <code><ruby>野菜<rt>やさい</rt></ruby>が<ruby>上手<rt>じょうず</rt></ruby>です</code> on its own would not work, because it is the growing, not the vegetables, that is skilled.</p>
+</div>
+</div>
+<div class="slide" data-index="86">
+  
+  <div class="slide__content"><h2>～のが上手 · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the error: <ruby>彼女<rt>かのじょ</rt></ruby>はピアノを<ruby>上手<rt>じょうず</rt></ruby>に<ruby>人<rt>ひと</rt></ruby>です。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ <ruby>彼女<rt>かのじょ</rt></ruby>はピアノ<strong>が</strong><ruby>上手<rt>じょうず</rt></ruby><strong>な</strong><ruby>人<rt>ひと</rt></ruby>です。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+Two errors. The thing you are good at takes <code>が</code>, not <code>を</code>; and before the noun <code><ruby>人<rt>ひと</rt></ruby></code> the な-adjective must be <code><ruby>上手<rt>じょうず</rt></ruby>な</code>, since <code>に</code> is the form that attaches to verbs.</p>
+</div>
+</div>
+<div class="slide" data-index="87">
+  
   <div class="slide__content"><h2>～のが上手 · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 山田(やまだ)さんは英語(えいご)が<strong>上手(じょうず)<strong>です。 (b) 山田(やまだ)さんは英語(えいご)が</strong>できます</strong>。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>山田<rt>やまだ</rt></ruby>さんは<ruby>英語<rt>えいご</rt></ruby>が**<ruby>上手<rt>じょうず</rt></ruby><strong>です。 (b) <ruby>山田<rt>やまだ</rt></ruby>さんは<ruby>英語<rt>えいご</rt></ruby>が</strong>できます**。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (b) reports a plain fact: Yamada has English at her disposal. It says nothing about how good she is, and it is the neutral thing to write in an email about who can handle a foreign client.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) grades her, and grading is a social act. It is warm and complimentary between equals or from above, but if Yamada outranks you it can read as presumptuous - さすがですね avoids the problem.</p>
 </div>
 </div>
-<div class="slide" data-index="79">
+<div class="slide" data-index="88">
   
   <div class="slide__content"><h1>～のが下手</h1>
 <p><strong>Meaning</strong> · to be bad at something - a lack of skill, plainly stated</p>
-<p><code>下手(へた)</code> is a <strong>な-adjective</strong>, the mirror image of <code>上手(じょうず)</code>. What you are bad at is marked with <code>が</code>, and an <em>action</em> has to be nominalised with <code>の</code> first. Because it is a blunt verdict, it is comfortable about yourself - where it reads as modesty - and uncomfortable about anyone else.</p>
+<p><code><ruby>下手<rt>へた</rt></ruby></code> is a <strong>な-adjective</strong>, the mirror image of <code><ruby>上手<rt>じょうず</rt></ruby></code>. What you are bad at is marked with <code>が</code>, and an <em>action</em> has to be nominalised with <code>の</code> first. Because it is a blunt verdict, it is comfortable about yourself - where it reads as modesty - and uncomfortable about anyone else.</p>
 </div>
 </div>
-<div class="slide" data-index="80">
+<div class="slide" data-index="89">
   
   <div class="slide__content"><h2>～のが下手 · Formation</h2>
 <table>
@@ -3675,28 +3738,28 @@ Two errors. The thing you are good at takes <code>が</code>, not <code>を</cod
 </thead>
 <tbody><tr>
 <td>Verb (dictionary form)</td>
-<td>Dictionary + のが + 下手(へた)</td>
-<td>踊(おど)る → 踊(おど)るのが下手(へた)</td>
+<td>Dictionary + のが + <ruby>下手<rt>へた</rt></ruby></td>
+<td><ruby>踊<rt>おど</rt></ruby>る → <ruby>踊<rt>おど</rt></ruby>るのが<ruby>下手<rt>へた</rt></ruby></td>
 </tr>
 <tr>
 <td>Noun</td>
-<td>Noun + が + 下手(へた)</td>
-<td>テニス → テニスが下手(へた)</td>
+<td>Noun + が + <ruby>下手<rt>へた</rt></ruby></td>
+<td>テニス → テニスが<ruby>下手<rt>へた</rt></ruby></td>
 </tr>
 <tr>
 <td>Person + thing</td>
-<td>Person + は + Thing + が + 下手(へた)</td>
-<td>私(わたし)は絵(え)が下手(へた)です</td>
+<td>Person + は + Thing + が + <ruby>下手<rt>へた</rt></ruby></td>
+<td><ruby>私<rt>わたし</rt></ruby>は<ruby>絵<rt>え</rt></ruby>が<ruby>下手<rt>へた</rt></ruby>です</td>
 </tr>
 <tr>
 <td>Adverbially (modifying a verb)</td>
-<td>下手(へた)に + Verb</td>
-<td>下手(へた)に動(うご)く</td>
+<td><ruby>下手<rt>へた</rt></ruby>に + Verb</td>
+<td><ruby>下手<rt>へた</rt></ruby>に<ruby>動<rt>うご</rt></ruby>く</td>
 </tr>
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="81">
+<div class="slide" data-index="90">
   
   <div class="slide__content"><h2>～のが下手 · Formation (cont.)</h2>
 <table>
@@ -3709,186 +3772,197 @@ Two errors. The thing you are good at takes <code>が</code>, not <code>を</cod
 </thead>
 <tbody><tr>
 <td>Plain</td>
-<td>下手(へた)だ</td>
-<td>踊(おど)るのが下手(へた)だ</td>
+<td><ruby>下手<rt>へた</rt></ruby>だ</td>
+<td><ruby>踊<rt>おど</rt></ruby>るのが<ruby>下手<rt>へた</rt></ruby>だ</td>
 </tr>
 <tr>
 <td>Polite</td>
-<td>下手(へた)です</td>
-<td>踊(おど)るのが下手(へた)です</td>
+<td><ruby>下手<rt>へた</rt></ruby>です</td>
+<td><ruby>踊<rt>おど</rt></ruby>るのが<ruby>下手<rt>へた</rt></ruby>です</td>
 </tr>
 <tr>
 <td>Negative</td>
-<td>下手(へた)じゃない</td>
-<td>下手(へた)じゃないです</td>
+<td><ruby>下手<rt>へた</rt></ruby>じゃない</td>
+<td><ruby>下手<rt>へた</rt></ruby>じゃないです</td>
 </tr>
 <tr>
 <td>Past</td>
-<td>下手(へた)だった／下手(へた)でした</td>
-<td>下手(へた)でした</td>
+<td><ruby>下手<rt>へた</rt></ruby>だった／<ruby>下手<rt>へた</rt></ruby>でした</td>
+<td><ruby>下手<rt>へた</rt></ruby>でした</td>
 </tr>
 <tr>
 <td>Before a noun</td>
-<td>下手(へた)な + Noun</td>
-<td>下手(へた)な絵(え)</td>
+<td><ruby>下手<rt>へた</rt></ruby>な + Noun</td>
+<td><ruby>下手<rt>へた</rt></ruby>な<ruby>絵<rt>え</rt></ruby></td>
 </tr>
 <tr>
 <td>Softened</td>
-<td>あまり上手(じょうず)じゃない</td>
-<td>あまり上手(じょうず)じゃないです</td>
+<td>あまり<ruby>上手<rt>じょうず</rt></ruby>じゃない</td>
+<td>あまり<ruby>上手<rt>じょうず</rt></ruby>じゃないです</td>
 </tr>
 </tbody></table>
-<blockquote>
-<p><strong>Rule of thumb</strong> - <code>下手(へた)</code> ends in <code>た</code>, not <code>い</code>, so nothing about it is an い-adjective: ❌<code>下手(へた)くない</code>, ❌<code>下手(へた)かった</code>. It is <code>下手(へた)じゃない</code> and <code>下手(へた)だった</code>.</p>
-</blockquote>
-</div>
-</div>
-<div class="slide" data-index="82">
-  
-  <div class="slide__content"><h2>～のが下手 · Examples</h2>
-<p>私(わたし)は**泳(およ)ぐのが下手(へた)**です。<br><em>I&#39;m a bad swimmer.</em></p>
-<p>うちの父(ちち)は**運転(うんてん)が下手(へた)**だ。<br><em>My dad is a bad driver.</em></p>
-<p>部屋(へや)を**片付(かたづ)けるのが下手(へた)**です。<br><em>I&#39;m bad at tidying my room.</em></p>
-<p>昔(むかし)は人(ひと)の前(まえ)で**話(はな)すのが下手(へた)**でした。<br><em>I used to be bad at speaking in front of people.</em></p>
-<p>弟(おとうと)はまだはしを**使(つか)うのが下手(へた)**です。<br><em>My little brother still isn&#39;t good with chopsticks.</em></p>
-</div>
-</div>
-<div class="slide" data-index="83">
-  
-  <div class="slide__content"><h2>～のが下手 · Examples (cont.)</h2>
-<p>兄(あに)はサッカーは上手(じょうず)ですが、テニスは**下手(へた)**です。<br><em>My older brother is good at football but bad at tennis.</em></p>
-<p>私(わたし)は**断(ことわ)るのが下手(へた)**なので、いつも仕事(しごと)が多(おお)すぎます。<br><em>I&#39;m bad at saying no, so I always end up with too much work.</em></p>
-<p>字(じ)が**下手(へた)**ですから、メールで送(おく)ってもいいですか。<br><em>My handwriting is terrible, so would it be all right if I sent it by email?</em></p>
-</div>
-</div>
-<div class="slide" data-index="84">
-  
-  <div class="slide__content"><h2>～のが下手 · Nuance &amp; register</h2>
-<p>Pointed at yourself, <code>下手(へた)</code> is safe and even likeable. Japanese conversation runs on modesty, and 料理(りょうり)が下手(へた)なんです is a normal, friendly thing to say about your own cooking. There is no need to soften it.</p>
-<p>Pointed at anyone else it is a judgement, and a harsh one. Telling a colleague 英語(えいご)が下手(へた)ですね is close to an insult in English terms. The two standard repairs are あまり上手(じょうず)じゃない (a hedged negative) and 苦手(にがて) (a weakness rather than a failing) - and about a superior you simply do not go there at all.</p>
-<p><code>下手(へた)くそ</code> exists and is much cruder; it is what one friend shouts at another over a video game, not something to try on strangers. Note also that unlike <code>上手(じょうず)</code>, <code>下手(へた)</code> has no polite お-form in ordinary use - there is nothing to be honorific about.</p>
-</div>
-</div>
-<div class="slide" data-index="85">
-  
-  <div class="slide__content"><h2>～のが下手 · Nuance &amp; register (cont.)</h2>
-<blockquote>
-<p><strong>Note</strong> - <code>下手(へた)に</code> before a verb has drifted away from &quot;badly&quot;. It means <em>carelessly, without thinking, rashly</em>: 下手(へた)に動(うご)くと危(あぶ)ないです「Move carelessly and you&#39;ll get hurt」. The literal &quot;does it badly&quot; sense is usually carried by 下手(へた)な絵(え) or あまり上手(じょうず)じゃない instead.</p>
-</blockquote>
-</div>
-</div>
-<div class="slide" data-index="86">
-  
-  <div class="slide__content"><h2>～のが下手 · 下手(へた) vs 苦手(にがて)</h2>
-<blockquote>
-<p><strong>Rule of thumb</strong> - <code>下手(へた)</code> is about <strong>skill</strong>; <code>苦手(にがて)</code> is about how you <strong>feel</strong> about it. <code>苦手(にがて)</code> covers things you have no skill in at all - food, insects, particular people.</p>
-</blockquote>
-<p>私(わたし)は歌(うた)を**歌(うた)うのが下手(へた)**です。<br><em>I&#39;m a bad singer.</em></p>
-<p>私(わたし)はカラオケが**苦手(にがて)**です。<br><em>I&#39;m not keen on karaoke.</em></p>
-<p>The first is a claim about your voice. The second says karaoke makes you uncomfortable - perhaps because you cannot sing, perhaps because you hate being looked at. That extra emotional layer is why <code>苦手(にがて)</code> reaches places <code>下手(へた)</code> cannot: なっとうが苦手(にがて)です and あの人(ひと)は少(すこ)し苦手(にがて)です are both natural, while ❌なっとうが下手(へた)です is nonsense - you do not perform natto.</p>
-</div>
-</div>
-<div class="slide" data-index="87">
-  
-  <div class="slide__content"><h2>～のが下手 · 下手(へた) vs 苦手(にがて) (cont.)</h2>
-<p><code>苦手(にがて)</code> is also the kinder word about other people, because &quot;he finds it hard&quot; is gentler than &quot;he is bad at it&quot;: 山田(やまだ)さんは数字(すうじ)が苦手(にがて)みたいです.</p>
-</div>
-</div>
-<div class="slide" data-index="88">
-  
-  <div class="slide__content"><h2>～のが下手 · 下手(へた) vs あまり上手(じょうず)じゃない</h2>
-<blockquote>
-<p><strong>Rule of thumb</strong> - about <strong>yourself</strong>, <code>下手(へた)</code>. About <strong>other people</strong>, the hedged negative あまり上手(じょうず)じゃない.</p>
-</blockquote>
-<p>私(わたし)は**下手(へた)**ですが、やってみます。<br><em>I&#39;m bad at this, but I&#39;ll give it a go.</em></p>
-<p>彼(かれ)は料理(りょうり)が<strong>あまり上手(じょうず)じゃない</strong>です。<br><em>He isn&#39;t a very good cook.</em></p>
-<p>The hedge does two things at once. あまり plus a negative is the standard Japanese way of saying &quot;not very&quot;, and phrasing the criticism as a <em>shortfall of skill</em> rather than <em>presence of badness</em> takes the sting out. Add みたいです or ようです and it softens again, because you are now reporting an impression rather than passing sentence.</p>
-</div>
-</div>
-<div class="slide" data-index="89">
-  
-  <div class="slide__content"><h2>～のが下手 · 下手(へた) vs あまり上手(じょうず)じゃない (cont.)</h2>
-<p>The asymmetry is the same one that governs <code>上手(じょうず)</code>, run in reverse: you praise other people and criticise yourself, never the other way round.</p>
-</div>
-</div>
-<div class="slide" data-index="90">
-  
-  <div class="slide__content"><h2>～のが下手 · Noun が下手(へた) vs Verb のが下手(へた)</h2>
-<blockquote>
-<p><strong>Rule of thumb</strong> - if a single noun names the skill, use it bare. Reach for <code>のが</code> when the skill only exists as an action.</p>
-</blockquote>
-<p>姉(あね)はピアノが**下手(へた)**です。<br><em>My older sister is bad at the piano.</em></p>
-<p>姉(あね)はピアノを**人(ひと)の前(まえ)で弾(ひ)くのが下手(へた)**です。<br><em>My older sister is bad at playing the piano in front of an audience.</em></p>
-<p>Nouns that already name an activity - ピアノ, テニス, 料理(りょうり), 運転(うんてん) - go straight in with <code>が</code>. Adding <code>を弾(ひ)くのが</code> is not wrong, it just spells the activity out, which is what you want as soon as the description gets more specific than the noun can carry.</p>
 </div>
 </div>
 <div class="slide" data-index="91">
   
-  <div class="slide__content"><h2>～のが下手 · Noun が下手(へた) vs Verb のが下手(へた) (cont.)</h2>
-<p>And some skills have no noun at all. There is no single word for &quot;remembering people&#39;s names&quot; or &quot;saying no&quot;, so the verb clause is the only route: 人(ひと)の名前(なまえ)を覚(おぼ)えるのが下手(へた)です. What you cannot do is drop the <code>の</code> and hand the raw verb to the adjective.</p>
+  <div class="slide__content"><h2>～のが下手 · Formation (cont.)</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - <code><ruby>下手<rt>へた</rt></ruby></code> ends in <code>た</code>, not <code>い</code>, so nothing about it is an い-adjective: ❌<code><ruby>下手<rt>へた</rt></ruby>くない</code>, ❌<code><ruby>下手<rt>へた</rt></ruby>かった</code>. It is <code><ruby>下手<rt>へた</rt></ruby>じゃない</code> and <code><ruby>下手<rt>へた</rt></ruby>だった</code>.</p>
+</blockquote>
 </div>
 </div>
 <div class="slide" data-index="92">
   
-  <div class="slide__content"><h2>～のが下手 · Common mistakes</h2>
-<ul>
-<li><p>❌ なっとうが**下手(へた)<strong>です。 → ✅ なっとうが</strong>苦手(にがて)**です。<br><em>Food is not a skill. <code>苦手(にがて)</code> is the word for things you would rather avoid.</em></p>
-</li>
-<li><p>❌ 田中(たなか)さんは英語(えいご)が<strong>下手(へた)<strong>ですね。 → ✅ 田中(たなか)さんは英語(えいご)が</strong>あまり上手(じょうず)じゃない</strong>ですね。<br><em>Direct <code>下手(へた)</code> about another person is rude. Hedge it, or use <code>苦手(にがて)</code>.</em></p>
-</li>
-<li><p>❌ 踊(おど)る<strong>が</strong>下手(へた)です。 → ✅ 踊(おど)る<strong>のが</strong>下手(へた)です。<br><em>The verb has to be nominalised by <code>の</code> before it can take <code>が</code>.</em></p>
-</li>
-<li><p>❌ 下手(へた)<strong>くない</strong>です。 → ✅ 下手(へた)<strong>じゃない</strong>です。<br><em><code>下手(へた)</code> is a な-adjective. The final <code>た</code> is part of the reading, not an adjective ending.</em></p>
-</li>
-<li><p>❌ 下手(へた)<strong>の</strong>絵(え) → ✅ 下手(へた)<strong>な</strong>絵(え)<br><em>な-adjectives take <code>な</code> before a noun.</em></p>
-</li>
-</ul>
+  <div class="slide__content"><h2>～のが下手 · Examples</h2>
+<p><ruby>私<rt>わたし</rt></ruby>は**<ruby>泳<rt>およ</rt></ruby>ぐのが<ruby>下手<rt>へた</rt></ruby>**です。<br><em>I&#39;m a bad swimmer.</em></p>
+<p>うちの<ruby>父<rt>ちち</rt></ruby>は**<ruby>運転<rt>うんてん</rt></ruby>が<ruby>下手<rt>へた</rt></ruby>**だ。<br><em>My dad is a bad driver.</em></p>
+<p><ruby>部屋<rt>へや</rt></ruby>を**<ruby>片付<rt>かたづ</rt></ruby>けるのが<ruby>下手<rt>へた</rt></ruby>**です。<br><em>I&#39;m bad at tidying my room.</em></p>
+<p><ruby>昔<rt>むかし</rt></ruby>は<ruby>人<rt>ひと</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>で**<ruby>話<rt>はな</rt></ruby>すのが<ruby>下手<rt>へた</rt></ruby>**でした。<br><em>I used to be bad at speaking in front of people.</em></p>
 </div>
 </div>
 <div class="slide" data-index="93">
   
-  <div class="slide__content"><h2>～のが下手 · Practice 1</h2>
-<p><strong>1.</strong> 私(わたし)は人(ひと)に道(みち)を説明(せつめい)する____下手(へた)です。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-道(みち)を説明(せつめい)する<strong>のが</strong>下手(へた)です。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>説明(せつめい)する</code> is a verb, so <code>の</code> turns it into something <code>が</code> can mark. You could also say <code>説明(せつめい)が下手(へた)です</code>, using the noun on its own.</p>
+  <div class="slide__content"><h2>～のが下手 · Examples (cont.)</h2>
+<p><ruby>弟<rt>おとうと</rt></ruby>はまだはしを**<ruby>使<rt>つか</rt></ruby>うのが<ruby>下手<rt>へた</rt></ruby>**です。<br><em>My little brother still isn&#39;t good with chopsticks.</em></p>
+<p><ruby>兄<rt>あに</rt></ruby>はサッカーは<ruby>上手<rt>じょうず</rt></ruby>ですが、テニスは**<ruby>下手<rt>へた</rt></ruby>**です。<br><em>My older brother is good at football but bad at tennis.</em></p>
+<p><ruby>私<rt>わたし</rt></ruby>は**<ruby>断<rt>ことわ</rt></ruby>るのが<ruby>下手<rt>へた</rt></ruby>**なので、いつも<ruby>仕事<rt>しごと</rt></ruby>が<ruby>多<rt>おお</rt></ruby>すぎます。<br><em>I&#39;m bad at saying no, so I always end up with too much work.</em></p>
+<p><ruby>字<rt>じ</rt></ruby>が**<ruby>下手<rt>へた</rt></ruby>**ですから、メールで<ruby>送<rt>おく</rt></ruby>ってもいいですか。<br><em>My handwriting is terrible, so would it be all right if I sent it by email?</em></p>
 </div>
 </div>
 <div class="slide" data-index="94">
   
-  <div class="slide__content"><h2>～のが下手 · Practice 2</h2>
-<p><strong>2.</strong> 課長(かちょう)に：「部長(ぶちょう)はゴルフが（下手(へた)です・あまり上手(じょうず)じゃないです）ね。」</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-部長(ぶちょう)はゴルフがあまり<strong>上手(じょうず)じゃないです</strong>ね。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Even this is risky about a superior, but of the two it is the survivable one. A flat <code>下手(へた)</code> about someone above you is a straight insult; the hedged negative reads as an observation rather than a verdict.</p>
+  <div class="slide__content"><h2>～のが下手 · Nuance &amp; register</h2>
+<p>Pointed at yourself, <code><ruby>下手<rt>へた</rt></ruby></code> is safe and even likeable. Japanese conversation runs on modesty, and <ruby>料理<rt>りょうり</rt></ruby>が<ruby>下手<rt>へた</rt></ruby>なんです is a normal, friendly thing to say about your own cooking. There is no need to soften it.</p>
+<p>Pointed at anyone else it is a judgement, and a harsh one. Telling a colleague <ruby>英語<rt>えいご</rt></ruby>が<ruby>下手<rt>へた</rt></ruby>ですね is close to an insult in English terms. The two standard repairs are あまり<ruby>上手<rt>じょうず</rt></ruby>じゃない (a hedged negative) and <ruby>苦手<rt>にがて</rt></ruby> (a weakness rather than a failing) - and about a superior you simply do not go there at all.</p>
 </div>
 </div>
 <div class="slide" data-index="95">
   
-  <div class="slide__content"><h2>～のが下手 · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese: &quot;I&#39;m bad at getting up early.&quot;</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-私(わたし)は朝(あさ)早(はや)く**起(お)きるのが下手(へた)**です。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-About yourself, <code>下手(へた)</code> is the modest, natural choice. Many speakers would also say <code>苦手(にがて)です</code> here, which adds &quot;and I dislike it&quot; to the meaning.</p>
+  <div class="slide__content"><h2>～のが下手 · Nuance &amp; register (cont.)</h2>
+<p><code><ruby>下手<rt>へた</rt></ruby>くそ</code> exists and is much cruder; it is what one friend shouts at another over a video game, not something to try on strangers. Note also that unlike <code><ruby>上手<rt>じょうず</rt></ruby></code>, <code><ruby>下手<rt>へた</rt></ruby></code> has no polite お-form in ordinary use - there is nothing to be honorific about.</p>
+<blockquote>
+<p><strong>Note</strong> - <code><ruby>下手<rt>へた</rt></ruby>に</code> before a verb has drifted away from &quot;badly&quot;. It means <em>carelessly, without thinking, rashly</em>: <ruby>下手<rt>へた</rt></ruby>に<ruby>動<rt>うご</rt></ruby>くと<ruby>危<rt>あぶ</rt></ruby>ないです「Move carelessly and you&#39;ll get hurt」. The literal &quot;does it badly&quot; sense is usually carried by <ruby>下手<rt>へた</rt></ruby>な<ruby>絵<rt>え</rt></ruby> or あまり<ruby>上手<rt>じょうず</rt></ruby>じゃない instead.</p>
+</blockquote>
 </div>
 </div>
 <div class="slide" data-index="96">
   
-  <div class="slide__content"><h2>～のが下手 · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 私(わたし)は歌(うた)が下手(へた)くなかったです。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 私(わたし)は歌(うた)が<strong>下手(へた)じゃなかった</strong>です。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>下手(へた)</code> only looks like an い-adjective. It is a な-adjective, so the negative past is <code>じゃなかった</code>, exactly as with <code>静(しず)かじゃなかった</code>.</p>
+  <div class="slide__content"><h2>～のが下手 · 下手 vs 苦手</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - <code><ruby>下手<rt>へた</rt></ruby></code> is about <strong>skill</strong>; <code><ruby>苦手<rt>にがて</rt></ruby></code> is about how you <strong>feel</strong> about it. <code><ruby>苦手<rt>にがて</rt></ruby></code> covers things you have no skill in at all - food, insects, particular people.</p>
+</blockquote>
+<p><ruby>私<rt>わたし</rt></ruby>は<ruby>歌<rt>うた</rt></ruby>を**<ruby>歌<rt>うた</rt></ruby>うのが<ruby>下手<rt>へた</rt></ruby>**です。<br><em>I&#39;m a bad singer.</em></p>
+<p><ruby>私<rt>わたし</rt></ruby>はカラオケが**<ruby>苦手<rt>にがて</rt></ruby>**です。<br><em>I&#39;m not keen on karaoke.</em></p>
 </div>
 </div>
 <div class="slide" data-index="97">
   
+  <div class="slide__content"><h2>～のが下手 · 下手 vs 苦手 (cont.)</h2>
+<p>The first is a claim about your voice. The second says karaoke makes you uncomfortable - perhaps because you cannot sing, perhaps because you hate being looked at. That extra emotional layer is why <code><ruby>苦手<rt>にがて</rt></ruby></code> reaches places <code><ruby>下手<rt>へた</rt></ruby></code> cannot: なっとうが<ruby>苦手<rt>にがて</rt></ruby>です and あの<ruby>人<rt>ひと</rt></ruby>は<ruby>少<rt>すこ</rt></ruby>し<ruby>苦手<rt>にがて</rt></ruby>です are both natural, while ❌なっとうが<ruby>下手<rt>へた</rt></ruby>です is nonsense - you do not perform natto.</p>
+<p><code><ruby>苦手<rt>にがて</rt></ruby></code> is also the kinder word about other people, because &quot;he finds it hard&quot; is gentler than &quot;he is bad at it&quot;: <ruby>山田<rt>やまだ</rt></ruby>さんは<ruby>数字<rt>すうじ</rt></ruby>が<ruby>苦手<rt>にがて</rt></ruby>みたいです.</p>
+</div>
+</div>
+<div class="slide" data-index="98">
+  
+  <div class="slide__content"><h2>～のが下手 · 下手 vs あまり上手じゃない</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - about <strong>yourself</strong>, <code><ruby>下手<rt>へた</rt></ruby></code>. About <strong>other people</strong>, the hedged negative あまり<ruby>上手<rt>じょうず</rt></ruby>じゃない.</p>
+</blockquote>
+<p><ruby>私<rt>わたし</rt></ruby>は**<ruby>下手<rt>へた</rt></ruby>**ですが、やってみます。<br><em>I&#39;m bad at this, but I&#39;ll give it a go.</em></p>
+<p><ruby>彼<rt>かれ</rt></ruby>は<ruby>料理<rt>りょうり</rt></ruby>が<strong>あまり<ruby>上手<rt>じょうず</rt></ruby>じゃない</strong>です。<br><em>He isn&#39;t a very good cook.</em></p>
+</div>
+</div>
+<div class="slide" data-index="99">
+  
+  <div class="slide__content"><h2>～のが下手 · 下手 vs あまり上手じゃない (cont.)</h2>
+<p>The hedge does two things at once. あまり plus a negative is the standard Japanese way of saying &quot;not very&quot;, and phrasing the criticism as a <em>shortfall of skill</em> rather than <em>presence of badness</em> takes the sting out. Add みたいです or ようです and it softens again, because you are now reporting an impression rather than passing sentence.</p>
+<p>The asymmetry is the same one that governs <code><ruby>上手<rt>じょうず</rt></ruby></code>, run in reverse: you praise other people and criticise yourself, never the other way round.</p>
+</div>
+</div>
+<div class="slide" data-index="100">
+  
+  <div class="slide__content"><h2>～のが下手 · Noun が下手 vs Verb のが下手</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - if a single noun names the skill, use it bare. Reach for <code>のが</code> when the skill only exists as an action.</p>
+</blockquote>
+<p><ruby>姉<rt>あね</rt></ruby>はピアノが**<ruby>下手<rt>へた</rt></ruby>**です。<br><em>My older sister is bad at the piano.</em></p>
+<p><ruby>姉<rt>あね</rt></ruby>はピアノを**<ruby>人<rt>ひと</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>で<ruby>弾<rt>ひ</rt></ruby>くのが<ruby>下手<rt>へた</rt></ruby>**です。<br><em>My older sister is bad at playing the piano in front of an audience.</em></p>
+</div>
+</div>
+<div class="slide" data-index="101">
+  
+  <div class="slide__content"><h2>～のが下手 · Noun が下手 vs Verb のが下手 (cont.)</h2>
+<p>Nouns that already name an activity - ピアノ, テニス, <ruby>料理<rt>りょうり</rt></ruby>, <ruby>運転<rt>うんてん</rt></ruby> - go straight in with <code>が</code>. Adding <code>を<ruby>弾<rt>ひ</rt></ruby>くのが</code> is not wrong, it just spells the activity out, which is what you want as soon as the description gets more specific than the noun can carry.</p>
+<p>And some skills have no noun at all. There is no single word for &quot;remembering people&#39;s names&quot; or &quot;saying no&quot;, so the verb clause is the only route: <ruby>人<rt>ひと</rt></ruby>の<ruby>名前<rt>なまえ</rt></ruby>を<ruby>覚<rt>おぼ</rt></ruby>えるのが<ruby>下手<rt>へた</rt></ruby>です. What you cannot do is drop the <code>の</code> and hand the raw verb to the adjective.</p>
+</div>
+</div>
+<div class="slide" data-index="102">
+  
+  <div class="slide__content"><h2>～のが下手 · Common mistakes</h2>
+<ul>
+<li><p>❌ なっとうが**<ruby>下手<rt>へた</rt></ruby><strong>です。 → ✅ なっとうが</strong><ruby>苦手<rt>にがて</rt></ruby>**です。<br><em>Food is not a skill. <code><ruby>苦手<rt>にがて</rt></ruby></code> is the word for things you would rather avoid.</em></p>
+</li>
+<li><p>❌ <ruby>田中<rt>たなか</rt></ruby>さんは<ruby>英語<rt>えいご</rt></ruby>が**<ruby>下手<rt>へた</rt></ruby><strong>ですね。 → ✅ <ruby>田中<rt>たなか</rt></ruby>さんは<ruby>英語<rt>えいご</rt></ruby>が</strong>あまり<ruby>上手<rt>じょうず</rt></ruby>じゃない**ですね。<br><em>Direct <code><ruby>下手<rt>へた</rt></ruby></code> about another person is rude. Hedge it, or use <code><ruby>苦手<rt>にがて</rt></ruby></code>.</em></p>
+</li>
+<li><p>❌ <ruby>踊<rt>おど</rt></ruby>る<strong>が</strong><ruby>下手<rt>へた</rt></ruby>です。 → ✅ <ruby>踊<rt>おど</rt></ruby>る<strong>のが</strong><ruby>下手<rt>へた</rt></ruby>です。<br><em>The verb has to be nominalised by <code>の</code> before it can take <code>が</code>.</em></p>
+</li>
+<li><p>❌ <ruby>下手<rt>へた</rt></ruby><strong>くない</strong>です。 → ✅ <ruby>下手<rt>へた</rt></ruby><strong>じゃない</strong>です。<br><em><code><ruby>下手<rt>へた</rt></ruby></code> is a な-adjective. The final <code>た</code> is part of the reading, not an adjective ending.</em></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="103">
+  
+  <div class="slide__content"><h2>～のが下手 · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ <ruby>下手<rt>へた</rt></ruby><strong>の</strong><ruby>絵<rt>え</rt></ruby> → ✅ <ruby>下手<rt>へた</rt></ruby><strong>な</strong><ruby>絵<rt>え</rt></ruby><br><em>な-adjectives take <code>な</code> before a noun.</em></li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="104">
+  
+  <div class="slide__content"><h2>～のが下手 · Practice 1</h2>
+<p><strong>1.</strong> <ruby>私<rt>わたし</rt></ruby>は<ruby>人<rt>ひと</rt></ruby>に<ruby>道<rt>みち</rt></ruby>を<ruby>説明<rt>せつめい</rt></ruby>する____<ruby>下手<rt>へた</rt></ruby>です。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>道<rt>みち</rt></ruby>を<ruby>説明<rt>せつめい</rt></ruby>する<strong>のが</strong><ruby>下手<rt>へた</rt></ruby>です。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code><ruby>説明<rt>せつめい</rt></ruby>する</code> is a verb, so <code>の</code> turns it into something <code>が</code> can mark. You could also say <code><ruby>説明<rt>せつめい</rt></ruby>が<ruby>下手<rt>へた</rt></ruby>です</code>, using the noun on its own.</p>
+</div>
+</div>
+<div class="slide" data-index="105">
+  
+  <div class="slide__content"><h2>～のが下手 · Practice 2</h2>
+<p><strong>2.</strong> <ruby>課長<rt>かちょう</rt></ruby>に：「<ruby>部長<rt>ぶちょう</rt></ruby>はゴルフが（<ruby>下手<rt>へた</rt></ruby>です・あまり<ruby>上手<rt>じょうず</rt></ruby>じゃないです）ね。」</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>部長<rt>ぶちょう</rt></ruby>はゴルフがあまり**<ruby>上手<rt>じょうず</rt></ruby>じゃないです**ね。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+Even this is risky about a superior, but of the two it is the survivable one. A flat <code><ruby>下手<rt>へた</rt></ruby></code> about someone above you is a straight insult; the hedged negative reads as an observation rather than a verdict.</p>
+</div>
+</div>
+<div class="slide" data-index="106">
+  
+  <div class="slide__content"><h2>～のが下手 · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese: &quot;I&#39;m bad at getting up early.&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>私<rt>わたし</rt></ruby>は<ruby>朝<rt>あさ</rt></ruby><ruby>早<rt>はや</rt></ruby>く**<ruby>起<rt>お</rt></ruby>きるのが<ruby>下手<rt>へた</rt></ruby>**です。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+About yourself, <code><ruby>下手<rt>へた</rt></ruby></code> is the modest, natural choice. Many speakers would also say <code><ruby>苦手<rt>にがて</rt></ruby>です</code> here, which adds &quot;and I dislike it&quot; to the meaning.</p>
+</div>
+</div>
+<div class="slide" data-index="107">
+  
+  <div class="slide__content"><h2>～のが下手 · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the error: <ruby>私<rt>わたし</rt></ruby>は<ruby>歌<rt>うた</rt></ruby>が<ruby>下手<rt>へた</rt></ruby>くなかったです。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ <ruby>私<rt>わたし</rt></ruby>は<ruby>歌<rt>うた</rt></ruby>が**<ruby>下手<rt>へた</rt></ruby>じゃなかった**です。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code><ruby>下手<rt>へた</rt></ruby></code> only looks like an い-adjective. It is a な-adjective, so the negative past is <code>じゃなかった</code>, exactly as with <code><ruby>静<rt>しず</rt></ruby>かじゃなかった</code>.</p>
+</div>
+</div>
+<div class="slide" data-index="108">
+  
   <div class="slide__content"><h2>～のが下手 · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 私(わたし)は漢字(かんじ)を書(か)くのが**下手(へた)<strong>です。 (b) 私(わたし)は漢字(かんじ)が</strong>苦手(にがて)**です。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>私<rt>わたし</rt></ruby>は<ruby>漢字<rt>かんじ</rt></ruby>を<ruby>書<rt>か</rt></ruby>くのが**<ruby>下手<rt>へた</rt></ruby><strong>です。 (b) <ruby>私<rt>わたし</rt></ruby>は<ruby>漢字<rt>かんじ</rt></ruby>が</strong><ruby>苦手<rt>にがて</rt></ruby>**です。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) is a statement about the output: your kanji come out badly formed. It says nothing about how you feel while writing them.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
@@ -3919,7 +3993,7 @@ About yourself, <code>下手(へた)</code> is the modest, natural choice. Many 
     </div>
     <div id="hud-right">
       <a href="https://github.com/arpitbbhayani/deckrun" target="_blank" rel="noopener noreferrer" class="hud-brand" id="hud-brand" title="deckrun — Markdown presentations">powered by <span>deckrun</span></a>
-      <div id="slide-counter"><span id="cur">1</span>&nbsp;/&nbsp;<span id="tot">98</span></div>
+      <div id="slide-counter"><span id="cur">1</span>&nbsp;/&nbsp;<span id="tot">109</span></div>
     </div>
   </div>
 </div>
@@ -3972,7 +4046,7 @@ About yourself, <code>下手(へた)</code> is the modest, natural choice. Many 
 
 
 
-<script id="deck-notes" type="application/json">["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]</script>
+<script id="deck-notes" type="application/json">["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]</script>
 <script id="deck-themes" type="application/json">{"themes":[{"id":"midnight","label":"midnight","mood":"dark","blurb":"Catppuccin Mocha. Violet on deep indigo, drifting orbs.","decor":"orbs","colors":{"crust":"#11111b","mantle":"#181825","base":"#1e1e2e","surface0":"#313244","overlay1":"#7f849c","subtext1":"#bac2de","text":"#cdd6f4","accent":"#cba6f7","accent2":"#89b4fa","accent3":"#89dceb"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"tokyo","label":"tokyo night","mood":"dark","blurb":"Neon cyan over a wireframe grid, lifted from a rainy skyline.","decor":"grid","colors":{"crust":"#16161e","mantle":"#1a1b26","base":"#1f2335","surface0":"#292e42","overlay1":"#7c86ab","subtext1":"#b7c0e0","text":"#c8d3f5","accent":"#2ac3de","accent2":"#bb9af7","accent3":"#73daca"},"fonts":{"display":"'Sora', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"nord","label":"nord","mood":"dark","blurb":"Arctic frost blue on polar slate, with slow contour waves.","decor":"waves","colors":{"crust":"#232831","mantle":"#2e3440","base":"#353c4a","surface0":"#3b4252","overlay1":"#8e9aae","subtext1":"#d8dee9","text":"#eceff4","accent":"#88c0d0","accent2":"#81a1c1","accent3":"#8fbcbb"},"fonts":{"display":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace","body":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"dracula","label":"dracula","mood":"dark","blurb":"Purple and hot pink over charcoal, lit by a gradient mesh.","decor":"mesh","colors":{"crust":"#1a1b23","mantle":"#21222c","base":"#282a36","surface0":"#343746","overlay1":"#7b85b6","subtext1":"#e2e4f0","text":"#f8f8f2","accent":"#bd93f9","accent2":"#ff79c6","accent3":"#8be9fd"},"fonts":{"display":"'Syne', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'Fira Code', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"gruvbox","label":"gruvbox","mood":"dark","blurb":"Warm amber and moss on retro brown, hatched like graph paper.","decor":"topo","colors":{"crust":"#1b1e1f","mantle":"#232728","base":"#282828","surface0":"#32302f","overlay1":"#928374","subtext1":"#d5c4a1","text":"#ebdbb2","accent":"#fabd2f","accent2":"#fe8019","accent3":"#b8bb26"},"fonts":{"display":"'Bricolage Grotesque', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Work Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"rosepine","label":"rosé pine","mood":"dark","blurb":"Muted iris and gold on plum, under a slow aurora.","decor":"aurora","colors":{"crust":"#14121f","mantle":"#191724","base":"#1f1d2e","surface0":"#26233a","overlay1":"#817c9c","subtext1":"#cdc9e6","text":"#e0def4","accent":"#c4a7e7","accent2":"#9ccfd8","accent3":"#f6c177"},"fonts":{"display":"'Fraunces', Georgia, 'Times New Roman', serif","body":"'Newsreader', Georgia, 'Times New Roman', serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"forest","label":"forest","mood":"dark","blurb":"Everforest sage on deep pine, rippling in concentric rings.","decor":"rings","colors":{"crust":"#232a2e","mantle":"#2d353b","base":"#343f44","surface0":"#3d484d","overlay1":"#9da9a0","subtext1":"#d3c6aa","text":"#e5dfd2","accent":"#a7c080","accent2":"#6fb5ac","accent3":"#dbbc7f"},"fonts":{"display":"'Outfit', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"neon","label":"neon","mood":"dark","blurb":"Electric cyan and magenta on true black, raked by light beams.","decor":"beams","colors":{"crust":"#050509","mantle":"#0a0a12","base":"#0e0e1a","surface0":"#16162a","overlay1":"#6a6a96","subtext1":"#c8c8e4","text":"#f0f0ff","accent":"#22d3ee","accent2":"#ff5cc8","accent3":"#38e8ff"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'Space Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"daylight","label":"daylight","mood":"light","blurb":"Catppuccin Latte, contrast-tuned for a projector. Dot matrix.","decor":"dots","colors":{"crust":"#ebebeb","mantle":"#f5f5f5","base":"#fafaf8","surface0":"#ccd0da","overlay1":"#5c5f77","subtext1":"#3a3c52","text":"#1e2030","accent":"#8839ef","accent2":"#1e66f5","accent3":"#179299"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"arctic","label":"arctic","mood":"light","blurb":"Nord inverted. Frost blue on cool paper, with contour waves.","decor":"waves","colors":{"crust":"#e3e8ef","mantle":"#eceff4","base":"#f7f9fc","surface0":"#dbe1ea","overlay1":"#5f6b7c","subtext1":"#364150","text":"#2e3440","accent":"#2f7d94","accent2":"#4a7ba7","accent3":"#3b8b8a"},"fonts":{"display":"'Manrope', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"solarized","label":"solarized","mood":"light","blurb":"The classic low-glare cream, paired with Lora for long prose.","decor":"topo","colors":{"crust":"#eee8d5","mantle":"#f5efdc","base":"#fdf6e3","surface0":"#e3ddc8","overlay1":"#657b83","subtext1":"#3f5b62","text":"#073642","accent":"#268bd2","accent2":"#6c71c4","accent3":"#21958c"},"fonts":{"display":"'Outfit', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Lora', Georgia, 'Times New Roman', serif","mono":"'Source Code Pro', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"paper","label":"paper","mood":"light","blurb":"Crimson serif on warm cream. Editorial, print-first, very legible.","decor":"rings","colors":{"crust":"#efe8dc","mantle":"#f7f2e9","base":"#fdfbf5","surface0":"#e4dccc","overlay1":"#6e6553","subtext1":"#38311f","text":"#211c11","accent":"#a81f2c","accent2":"#1f7f96","accent3":"#9a6c12"},"fonts":{"display":"'Fraunces', Georgia, 'Times New Roman', serif","body":"'Newsreader', Georgia, 'Times New Roman', serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"rosequartz","label":"rose quartz","mood":"light","blurb":"Rosé Pine Dawn. Blush and iris on linen, with soft orbs.","decor":"orbs","colors":{"crust":"#f2e9e1","mantle":"#faf4ed","base":"#fffaf3","surface0":"#ece0d8","overlay1":"#7d7791","subtext1":"#55506e","text":"#423d5c","accent":"#b4637a","accent2":"#907aa9","accent3":"#56949f"},"fonts":{"display":"'Playfair Display', Georgia, 'Times New Roman', serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"swiss","label":"swiss","mood":"light","blurb":"Black on white, one red. Heavy grotesk, tight tracking, hard grid.","decor":"grid","colors":{"crust":"#f0f0f0","mantle":"#f8f8f8","base":"#ffffff","surface0":"#dcdcdc","overlay1":"#5a5a5a","subtext1":"#222222","text":"#0a0a0a","accent":"#e01b24","accent2":"#0a0a0a","accent3":"#5a5a5a"},"fonts":{"display":"'Archivo', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}}],"hljsMap":{"midnight":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css","tokyo":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css","nord":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/nord.min.css","dracula":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/dracula.min.css","gruvbox":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/gruvbox-dark-medium.min.css","rosepine":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/ros-pine.min.css","forest":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css","neon":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/night-owl.min.css","daylight":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","arctic":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","solarized":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/solarized-light.min.css","paper":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","rosequartz":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/ros-pine-dawn.min.css","swiss":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css"},"decorMap":{"midnight":"orbs","tokyo":"grid","nord":"waves","dracula":"mesh","gruvbox":"topo","rosepine":"aurora","forest":"rings","neon":"beams","daylight":"dots","arctic":"waves","solarized":"topo","paper":"rings","rosequartz":"orbs","swiss":"grid"}}</script>
 
 <script>
@@ -5160,6 +5234,36 @@ About yourself, <code>下手(へた)</code> is the modest, natural choice. Many 
     transition: opacity 0.15s ease, background 0.15s ease; }
   #deck-home:hover, #deck-home:focus-visible { opacity: 0.95; background: rgba(128,128,128,0.14); }
   @media print { #deck-home { display: none !important; } }
+  #furigana-toggle { position: fixed; bottom: 2.7rem; right: 1.1rem; z-index: 40;
+    font: 500 0.78rem/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+    color: currentColor; opacity: 0.38; cursor: pointer; user-select: none;
+    background: none; border: 1px solid currentColor; border-radius: 4px;
+    padding: 0.38rem 0.6rem;
+    transition: opacity 0.15s ease, background 0.15s ease; }
+  #furigana-toggle:hover, #furigana-toggle:focus-visible { opacity: 0.95; background: rgba(128,128,128,0.14); }
+  @media print { #furigana-toggle { display: none !important; } }
 </style>
+<button id="furigana-toggle" type="button" aria-pressed="true">&#12405;&#12426;&#12364;&#12394; ON</button>
+<script>
+  (function () {
+    // Deliberately click-only: readers who do not want furigana turn it off
+    // once and it sticks, while every key stays free for presenting.
+    var root = document.documentElement, btn = document.getElementById('furigana-toggle');
+    function paint() {
+      var off = root.getAttribute('data-furigana') === 'off';
+      btn.textContent = '\u3075\u308a\u304c\u306a ' + (off ? 'OFF' : 'ON');
+      btn.setAttribute('aria-pressed', String(!off));
+    }
+    btn.addEventListener('click', function () {
+      var off = root.getAttribute('data-furigana') === 'off';
+      if (off) root.removeAttribute('data-furigana');
+      else root.setAttribute('data-furigana', 'off');
+      try { localStorage.setItem('jlpt-furigana', off ? 'on' : 'off'); } catch (e) {}
+      paint();
+      btn.blur();
+    });
+    paint();
+  })();
+</script>
 </body>
 </html>

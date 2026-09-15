@@ -2606,6 +2606,13 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
   gap: 0.5rem;
 }
   </style>
+<script>
+  try {
+    if (localStorage.getItem('jlpt-furigana') === 'off') {
+      document.documentElement.setAttribute('data-furigana', 'off');
+    }
+  } catch (e) {}
+</script>
 </head>
 <body>
 
@@ -2614,7 +2621,16 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <div id="presentation">
 <div class="slide" data-index="0">
   
-  <div class="slide__content"><style>html { font-size: 20.0px; }</style>
+  <div class="slide__content"><style>
+  html { font-size: 20.0px; }
+  .slide__content p, .slide__content li,
+  .slide__content td, .slide__content th { line-height: 2.05; }
+  rt { font-size: 0.5em; line-height: 1.1; opacity: 0.72; font-weight: 400; }
+  :root[data-furigana="off"] rt { display: none; }
+  :root[data-furigana="off"] .slide__content p, :root[data-furigana="off"] .slide__content li,
+  :root[data-furigana="off"] .slide__content td, :root[data-furigana="off"] .slide__content th
+    { line-height: 1.5; }
+</style>
 
 <h1>N5 - Asking, offering, inviting</h1>
 <ul>
@@ -2632,7 +2648,7 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
   
   <div class="slide__content"><h1>～てください</h1>
 <p><strong>Meaning</strong> · please do ~ - a request, and often an instruction</p>
-<p><code>～てください</code> attaches to the て-form and asks the listener to perform an action. It is polite in <em>form</em> - <code>ください</code> is the imperative of the honorific verb <code>下(くだ)さる</code> - but it is not a soft or deferential way to ask. Teachers, doctors, station staff and forms all use it, and that is the flavour it carries: a clear directive, delivered courteously.</p>
+<p><code>～てください</code> attaches to the て-form and asks the listener to perform an action. It is polite in <em>form</em> - <code>ください</code> is the imperative of the honorific verb <code><ruby>下<rt>くだ</rt></ruby>さる</code> - but it is not a soft or deferential way to ask. Teachers, doctors, station staff and forms all use it, and that is the flavour it carries: a clear directive, delivered courteously.</p>
 </div>
 </div>
 <div class="slide" data-index="2">
@@ -2649,37 +2665,37 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
 <tbody><tr>
 <td>Verb (う-verb)</td>
 <td>て-form + ください</td>
-<td>待(ま)つ → 待(ま)ってください</td>
+<td><ruby>待<rt>ま</rt></ruby>つ → <ruby>待<rt>ま</rt></ruby>ってください</td>
 </tr>
 <tr>
 <td>Verb (る-verb)</td>
 <td>て-form + ください</td>
-<td>見(み)る → 見(み)てください</td>
+<td><ruby>見<rt>み</rt></ruby>る → <ruby>見<rt>み</rt></ruby>てください</td>
 </tr>
 <tr>
 <td>Verb (する)</td>
 <td>して + ください</td>
-<td>電話(でんわ)する → 電話(でんわ)してください</td>
+<td><ruby>電話<rt>でんわ</rt></ruby>する → <ruby>電話<rt>でんわ</rt></ruby>してください</td>
 </tr>
 <tr>
-<td>Verb (来(く)る)</td>
-<td>来(き)て + ください</td>
-<td>来(く)る → 来(き)てください</td>
+<td>Verb (<ruby>来<rt>く</rt></ruby>る)</td>
+<td><ruby>来<rt>き</rt></ruby>て + ください</td>
+<td><ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>き</rt></ruby>てください</td>
 </tr>
 <tr>
 <td>Negative request</td>
 <td>ない-form + で + ください</td>
-<td>来(く)る → 来(こ)ないでください</td>
+<td><ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby>ないでください</td>
 </tr>
 <tr>
 <td>Casual</td>
 <td>て-form on its own</td>
-<td>待(ま)って／待(ま)ってね</td>
+<td><ruby>待<rt>ま</rt></ruby>って／<ruby>待<rt>ま</rt></ruby>ってね</td>
 </tr>
 <tr>
 <td>More polite</td>
 <td>～てくださいませんか／～ていただけませんか</td>
-<td>待(ま)っていただけませんか</td>
+<td><ruby>待<rt>ま</rt></ruby>っていただけませんか</td>
 </tr>
 </tbody></table>
 <p>To ask for a <strong>thing</strong> rather than an action, <code>ください</code> follows a noun with <code>を</code> instead - that pattern has its own page in this book.</p>
@@ -2689,32 +2705,32 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
   
   <div class="slide__content"><h2>～てください · Formation (cont.)</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - <code>ください</code> attaches to the て-form, never the dictionary form. Get the て-form right and the rest is automatic: 話(はな)す → 話(はな)して, 急(いそ)ぐ → 急(いそ)いで, 読(よ)む → 読(よ)んで, 行(い)く → 行(い)って.</p>
+<p><strong>Rule of thumb</strong> - <code>ください</code> attaches to the て-form, never the dictionary form. Get the て-form right and the rest is automatic: <ruby>話<rt>はな</rt></ruby>す → <ruby>話<rt>はな</rt></ruby>して, <ruby>急<rt>いそ</rt></ruby>ぐ → <ruby>急<rt>いそ</rt></ruby>いで, <ruby>読<rt>よ</rt></ruby>む → <ruby>読<rt>よ</rt></ruby>んで, <ruby>行<rt>い</rt></ruby>く → <ruby>行<rt>い</rt></ruby>って.</p>
 </blockquote>
 </div>
 </div>
 <div class="slide" data-index="4">
   
   <div class="slide__content"><h2>～てください · Examples</h2>
-<p>ちょっと<strong>待(ま)ってください</strong>。<br><em>Hang on a moment, please.</em></p>
-<p>ここに名前(なまえ)を<strong>書(か)いてください</strong>。<br><em>Please write your name here.</em></p>
-<p>もう一度(いちど)<strong>言(い)ってください</strong>。<br><em>Could you say that again, please.</em></p>
-<p>どうぞ<strong>座(すわ)ってください</strong>。<br><em>Please, have a seat.</em></p>
-<p>駅(えき)に着(つ)いたら<strong>電話(でんわ)してください</strong>。<br><em>Give me a call when you get to the station.</em></p>
+<p>ちょっと**<ruby>待<rt>ま</rt></ruby>ってください**。<br><em>Hang on a moment, please.</em></p>
+<p>ここに<ruby>名前<rt>なまえ</rt></ruby>を**<ruby>書<rt>か</rt></ruby>いてください**。<br><em>Please write your name here.</em></p>
+<p>もう<ruby>一度<rt>いちど</rt></ruby><strong><ruby>言<rt>い</rt></ruby>ってください</strong>。<br><em>Could you say that again, please.</em></p>
+<p>どうぞ**<ruby>座<rt>すわ</rt></ruby>ってください**。<br><em>Please, have a seat.</em></p>
 </div>
 </div>
 <div class="slide" data-index="5">
   
   <div class="slide__content"><h2>～てください · Examples (cont.)</h2>
-<p>寒(さむ)いので、ドアを<strong>閉(し)めてください</strong>。<br><em>It&#39;s cold, so please shut the door.</em></p>
-<p>来週(らいしゅう)の会議(かいぎ)の資料(しりょう)を、金曜日(きんようび)までにメールで<strong>送(おく)ってください</strong>。<br><em>Please email me the material for next week&#39;s meeting by Friday.</em></p>
-<p>申(もう)し訳(わけ)ありませんが、明日(あした)は三十分(さんじゅっぷん)ほど早(はや)く来(き)て<strong>くださいませんか</strong>。<br><em>I&#39;m terribly sorry, but could you possibly come in half an hour early tomorrow?</em></p>
+<p><ruby>駅<rt>えき</rt></ruby>に<ruby>着<rt>つ</rt></ruby>いたら**<ruby>電話<rt>でんわ</rt></ruby>してください**。<br><em>Give me a call when you get to the station.</em></p>
+<p><ruby>寒<rt>さむ</rt></ruby>いので、ドアを**<ruby>閉<rt>し</rt></ruby>めてください**。<br><em>It&#39;s cold, so please shut the door.</em></p>
+<p><ruby>来週<rt>らいしゅう</rt></ruby>の<ruby>会議<rt>かいぎ</rt></ruby>の<ruby>資料<rt>しりょう</rt></ruby>を、<ruby>金曜日<rt>きんようび</rt></ruby>までにメールで**<ruby>送<rt>おく</rt></ruby>ってください**。<br><em>Please email me the material for next week&#39;s meeting by Friday.</em></p>
+<p><ruby>申<rt>もう</rt></ruby>し<ruby>訳<rt>わけ</rt></ruby>ありませんが、<ruby>明日<rt>あした</rt></ruby>は<ruby>三十分<rt>さんじゅっぷん</rt></ruby>ほど<ruby>早<rt>はや</rt></ruby>く<ruby>来<rt>き</rt></ruby>て<strong>くださいませんか</strong>。<br><em>I&#39;m terribly sorry, but could you possibly come in half an hour early tomorrow?</em></p>
 </div>
 </div>
 <div class="slide" data-index="6">
   
   <div class="slide__content"><h2>～てください · Nuance &amp; register</h2>
-<p>The single most useful thing to know about <code>～てください</code> is that <strong>it is not the polite form of a request</strong>. It is the <em>neutral</em> one. Because it tells rather than asks, it belongs to situations where the speaker has a right to direct: a teacher to a class, a doctor to a patient, an announcement to passengers, a form to whoever is filling it in. Used sideways or upward it can land as bossy - 部長(ぶちょう)、これをコピーしてください is grammatically impeccable and would raise eyebrows.</p>
+<p>The single most useful thing to know about <code>～てください</code> is that <strong>it is not the polite form of a request</strong>. It is the <em>neutral</em> one. Because it tells rather than asks, it belongs to situations where the speaker has a right to direct: a teacher to a class, a doctor to a patient, an announcement to passengers, a form to whoever is filling it in. Used sideways or upward it can land as bossy - <ruby>部長<rt>ぶちょう</rt></ruby>、これをコピーしてください is grammatically impeccable and would raise eyebrows.</p>
 <p>The ladder, roughly from most casual to most deferential:</p>
 </div>
 </div>
@@ -2722,144 +2738,160 @@ body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
   
   <div class="slide__content"><h2>～てください · Nuance &amp; register (cont.)</h2>
 <ul>
-<li><strong>待(ま)って</strong> - friends, family. て-form alone.</li>
-<li><strong>待(ま)ってくれる？／待(ま)ってくれない？</strong> - casual, but genuinely asking.</li>
-<li><strong>待(ま)ってください</strong> - the neutral polite directive on this page.</li>
-<li><strong>待(ま)ってくださいませんか</strong> - a real question, so noticeably softer.</li>
-<li><strong>待(ま)っていただけませんか／待(ま)っていただけますか</strong> - humble; the workplace default upward.</li>
-<li><strong>お待(ま)ちください</strong> - honorific, used <em>to</em> customers by staff.</li>
+<li><strong><ruby>待<rt>ま</rt></ruby>って</strong> - friends, family. て-form alone.</li>
+<li><strong><ruby>待<rt>ま</rt></ruby>ってくれる？／<ruby>待<rt>ま</rt></ruby>ってくれない？</strong> - casual, but genuinely asking.</li>
+<li><strong><ruby>待<rt>ま</rt></ruby>ってください</strong> - the neutral polite directive on this page.</li>
+<li><strong><ruby>待<rt>ま</rt></ruby>ってくださいませんか</strong> - a real question, so noticeably softer.</li>
+<li><strong><ruby>待<rt>ま</rt></ruby>っていただけませんか／<ruby>待<rt>ま</rt></ruby>っていただけますか</strong> - humble; the workplace default upward.</li>
+<li><strong>お<ruby>待<rt>ま</rt></ruby>ちください</strong> - honorific, used <em>to</em> customers by staff.</li>
 </ul>
-<p><code>くださる</code> and <code>いただく</code> describe the same event from opposite ends: <code>くださる</code> is &quot;you kindly give&quot;, <code>いただく</code> is &quot;I humbly receive&quot;. Both are polite; the <code>いただく</code> versions are the ones you reach for when you want to sound careful.</p>
 </div>
 </div>
 <div class="slide" data-index="8">
   
   <div class="slide__content"><h2>～てください · Nuance &amp; register (cont.)</h2>
-<p>Small softeners matter more than learners expect. Front the request with すみませんが or 恐(おそ)れ入(い)りますが, add ちょっと, and finish with ね (気(き)をつけてくださいね) and the same sentence stops sounding like an order.</p>
-<p>Note one friendly use that runs against all of this: with どうぞ, <code>～てください</code> is an <em>offer</em>, not a command. 食(た)べてください at a dinner table means &quot;please, help yourself&quot;.</p>
-<p>In casual speech the bare て-form does all this work - 見(み)て！, 貸(か)して - and ちょうだい (貸(か)してちょうだい) is a softer, childish or motherly variant.</p>
+<p><code>くださる</code> and <code>いただく</code> describe the same event from opposite ends: <code>くださる</code> is &quot;you kindly give&quot;, <code>いただく</code> is &quot;I humbly receive&quot;. Both are polite; the <code>いただく</code> versions are the ones you reach for when you want to sound careful.</p>
+<p>Small softeners matter more than learners expect. Front the request with すみませんが or <ruby>恐<rt>おそ</rt></ruby>れ<ruby>入<rt>い</rt></ruby>りますが, add ちょっと, and finish with ね (<ruby>気<rt>き</rt></ruby>をつけてくださいね) and the same sentence stops sounding like an order.</p>
+<p>Note one friendly use that runs against all of this: with どうぞ, <code>～てください</code> is an <em>offer</em>, not a command. <ruby>食<rt>た</rt></ruby>べてください at a dinner table means &quot;please, help yourself&quot;.</p>
 </div>
 </div>
 <div class="slide" data-index="9">
+  
+  <div class="slide__content"><h2>～てください · Nuance &amp; register (cont.)</h2>
+<p>In casual speech the bare て-form does all this work - <ruby>見<rt>み</rt></ruby>て！, <ruby>貸<rt>か</rt></ruby>して - and ちょうだい (<ruby>貸<rt>か</rt></ruby>してちょうだい) is a softer, childish or motherly variant.</p>
+</div>
+</div>
+<div class="slide" data-index="10">
   
   <div class="slide__content"><h2>～てください · ～てください vs ～ていただけませんか</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>～てください</code> <em>tells</em>; <code>～ていただけませんか</code> <em>asks</em>. Upward, and for anything that is a favour rather than a duty, ask.</p>
 </blockquote>
-<p>この漢字(かんじ)の読(よ)み方(かた)を<strong>教(おし)えてください</strong>。<br><em>Tell me how to read this kanji.</em></p>
-<p>この漢字(かんじ)の読(よ)み方(かた)を<strong>教(おし)えていただけませんか</strong>。<br><em>Would you mind telling me how to read this kanji?</em></p>
+<p>この<ruby>漢字<rt>かんじ</rt></ruby>の<ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby>を**<ruby>教<rt>おし</rt></ruby>えてください**。<br><em>Tell me how to read this kanji.</em></p>
+<p>この<ruby>漢字<rt>かんじ</rt></ruby>の<ruby>読<rt>よ</rt></ruby>み<ruby>方<rt>かた</rt></ruby>を**<ruby>教<rt>おし</rt></ruby>えていただけませんか**。<br><em>Would you mind telling me how to read this kanji?</em></p>
 <p>The second is longer for a reason. It is a negative question, which leaves the listener room to say no, and it uses the humble <code>いただく</code>, which frames you as the one receiving a kindness. The pair <code>～てくださいませんか</code> works the same way with <code>くださる</code> and is a shade less humble.</p>
 </div>
 </div>
-<div class="slide" data-index="10">
+<div class="slide" data-index="11">
   
   <div class="slide__content"><h2>～てください · ～てください vs ～ていただけませんか (cont.)</h2>
-<p>A useful test: if a &quot;no&quot; would be perfectly reasonable, use the question form. If you are describing a step in a procedure - 靴(くつ)をぬいでください at the door - <code>～てください</code> is exactly right and the long version would sound strange.</p>
+<p>A useful test: if a &quot;no&quot; would be perfectly reasonable, use the question form. If you are describing a step in a procedure - <ruby>靴<rt>くつ</rt></ruby>をぬいでください at the door - <code>～てください</code> is exactly right and the long version would sound strange.</p>
 </div>
 </div>
-<div class="slide" data-index="11">
+<div class="slide" data-index="12">
   
   <div class="slide__content"><h2>～てください · ～てください vs the plain て-form</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - drop <code>ください</code> and you have the casual request. Drop it with the wrong person and you have an order.</p>
 </blockquote>
-<p>ちょっと<strong>手伝(てつだ)って</strong>。<br><em>Give me a hand a sec.</em></p>
-<p>ちょっと<strong>手伝(てつだ)ってください</strong>。<br><em>Could you give me a hand, please.</em></p>
-<p>The bare て-form is everywhere in speech between friends, within a family, and from older to younger. It is not rude in itself - it is simply unmarked for politeness, which means the relationship has to carry it. Adding ね or よ softens it (急(いそ)いでね); adding よ alone can sharpen it.</p>
-</div>
-</div>
-<div class="slide" data-index="12">
-  
-  <div class="slide__content"><h2>～てください · ～てください vs the plain て-form (cont.)</h2>
-<p><code>～てくれる？</code> and <code>～てくれない？</code> sit slightly above the bare form: still casual, but phrased as a question, so they ask rather than tell.</p>
+<p>ちょっと**<ruby>手伝<rt>てつだ</rt></ruby>って**。<br><em>Give me a hand a sec.</em></p>
+<p>ちょっと**<ruby>手伝<rt>てつだ</rt></ruby>ってください**。<br><em>Could you give me a hand, please.</em></p>
 </div>
 </div>
 <div class="slide" data-index="13">
+  
+  <div class="slide__content"><h2>～てください · ～てください vs the plain て-form (cont.)</h2>
+<p>The bare て-form is everywhere in speech between friends, within a family, and from older to younger. It is not rude in itself - it is simply unmarked for politeness, which means the relationship has to carry it. Adding ね or よ softens it (<ruby>急<rt>いそ</rt></ruby>いでね); adding よ alone can sharpen it.</p>
+<p><code>～てくれる？</code> and <code>～てくれない？</code> sit slightly above the bare form: still casual, but phrased as a question, so they ask rather than tell.</p>
+</div>
+</div>
+<div class="slide" data-index="14">
   
   <div class="slide__content"><h2>～てください · ～てください vs ～をください</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>ください</code> after a <strong>て-form</strong> asks for an action; <code>ください</code> after a <strong>noun + を</strong> asks for a thing.</p>
 </blockquote>
-<p>水(みず)を<strong>ください</strong>。<br><em>Some water, please.</em></p>
-<p>水(みず)を<strong>持(も)ってきてください</strong>。<br><em>Please bring me some water.</em></p>
-<p>Both are natural; they differ in what you are asking for. The first hands over an object, the second requests the act of fetching. The mistake to avoid is trying to force a noun into the verb slot - ❌手伝(てつだ)いをしてください is possible but stilted, and ✅手伝(てつだ)ってください is what a speaker actually says.</p>
-</div>
-</div>
-<div class="slide" data-index="14">
-  
-  <div class="slide__content"><h2>～てください · Common mistakes</h2>
-<ul>
-<li><p>❌ 食(た)べる<strong>てください</strong> → ✅ 食(た)<strong>べてください</strong><br><em><code>ください</code> attaches to the て-form, not the dictionary form.</em></p>
-</li>
-<li><p>❌ 待(ま)つ<strong>てください</strong> → ✅ 待(ま)っ<strong>てください</strong><br><em><code>つ</code>-verbs make their て-form with a small <code>っ</code>: 待(ま)つ → 待(ま)って.</em></p>
-</li>
-<li><p>❌ 行(い)かない<strong>てください</strong> → ✅ 行(い)かない<strong>でください</strong><br><em>The negative request uses <code>ないで</code>, never <code>ないて</code>.</em></p>
-</li>
-<li><p>❌ 部長(ぶちょう)、これを<strong>コピーしてください</strong>。 → ✅ 部長(ぶちょう)、これを<strong>コピーしていただけませんか</strong>。<br><em>Grammatical, but you are giving an instruction to someone senior. Ask instead.</em></p>
-</li>
-<li><p>❌ ペンを<strong>してください</strong>。 → ✅ ペンを<strong>ください</strong>。<br><em>Asking for an object needs no verb at all.</em></p>
-</li>
-</ul>
+<p><ruby>水<rt>みず</rt></ruby>を<strong>ください</strong>。<br><em>Some water, please.</em></p>
+<p><ruby>水<rt>みず</rt></ruby>を**<ruby>持<rt>も</rt></ruby>ってきてください**。<br><em>Please bring me some water.</em></p>
 </div>
 </div>
 <div class="slide" data-index="15">
   
-  <div class="slide__content"><h2>～てください · Practice 1</h2>
-<p><strong>1.</strong> すみません、この字(じ)が読(よ)めません。ゆっくり話(はな)____。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-ゆっくり話(はな)<strong>してください</strong>。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>話(はな)す</code> is a <code>す</code>-verb, so its て-form is <code>話(はな)して</code>, and <code>ください</code> attaches directly to that. Adding すみませんが at the front, as the question does, already softens the request.</p>
+  <div class="slide__content"><h2>～てください · ～てください vs ～をください (cont.)</h2>
+<p>Both are natural; they differ in what you are asking for. The first hands over an object, the second requests the act of fetching. The mistake to avoid is trying to force a noun into the verb slot - ❌<ruby>手伝<rt>てつだ</rt></ruby>いをしてください is possible but stilted, and ✅<ruby>手伝<rt>てつだ</rt></ruby>ってください is what a speaker actually says.</p>
 </div>
 </div>
 <div class="slide" data-index="16">
   
-  <div class="slide__content"><h2>～てください · Practice 2</h2>
-<p><strong>2.</strong> 社長(しゃちょう)に：「この書類(しょるい)を（見(み)てください・見(み)ていただけませんか）。」</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-この書類(しょるい)を<strong>見(み)ていただけませんか</strong>。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Looking over your document is a favour, not part of the president&#39;s duties, and he outranks you. The humble question form leaves him room to decline, which is exactly what politeness upward is made of.</p>
+  <div class="slide__content"><h2>～てください · Common mistakes</h2>
+<ul>
+<li><p>❌ <ruby>食<rt>た</rt></ruby>べる<strong>てください</strong> → ✅ <ruby>食<rt>た</rt></ruby><strong>べてください</strong><br><em><code>ください</code> attaches to the て-form, not the dictionary form.</em></p>
+</li>
+<li><p>❌ <ruby>待<rt>ま</rt></ruby>つ<strong>てください</strong> → ✅ <ruby>待<rt>ま</rt></ruby>っ<strong>てください</strong><br><em><code>つ</code>-verbs make their て-form with a small <code>っ</code>: <ruby>待<rt>ま</rt></ruby>つ → <ruby>待<rt>ま</rt></ruby>って.</em></p>
+</li>
+<li><p>❌ <ruby>行<rt>い</rt></ruby>かない<strong>てください</strong> → ✅ <ruby>行<rt>い</rt></ruby>かない<strong>でください</strong><br><em>The negative request uses <code>ないで</code>, never <code>ないて</code>.</em></p>
+</li>
+<li><p>❌ <ruby>部長<rt>ぶちょう</rt></ruby>、これを<strong>コピーしてください</strong>。 → ✅ <ruby>部長<rt>ぶちょう</rt></ruby>、これを<strong>コピーしていただけませんか</strong>。<br><em>Grammatical, but you are giving an instruction to someone senior. Ask instead.</em></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="17">
   
-  <div class="slide__content"><h2>～てください · Practice 3</h2>
-<p><strong>3.</strong> Translate into Japanese: &quot;Please turn off the light when you leave the room.&quot;</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-部屋(へや)を出(で)るとき、電気(でんき)を<strong>消(け)してください</strong>。</p>
-<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>消(け)す</code> → <code>消(け)して</code> + ください. This is the instructional use of the pattern - a house rule, not a personal favour - so plain <code>～てください</code> is right.</p>
+  <div class="slide__content"><h2>～てください · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ ペンを<strong>してください</strong>。 → ✅ ペンを<strong>ください</strong>。<br><em>Asking for an object needs no verb at all.</em></li>
+</ul>
 </div>
 </div>
 <div class="slide" data-index="18">
   
-  <div class="slide__content"><h2>～てください · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: あぶないですから、そこに立(た)つてください。</p>
+  <div class="slide__content"><h2>～てください · Practice 1</h2>
+<p><strong>1.</strong> すみません、この<ruby>字<rt>じ</rt></ruby>が<ruby>読<rt>よ</rt></ruby>めません。ゆっくり<ruby>話<rt>はな</rt></ruby>____。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ あぶないですから、そこに<strong>立(た)たないでください</strong>。</p>
+ゆっくり<ruby>話<rt>はな</rt></ruby><strong>してください</strong>。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Two things are wrong. The て-form of <code>立(た)つ</code> is <code>立(た)って</code>, not ❌<code>立(た)つて</code>; and the sense demands a negative - &quot;it&#39;s dangerous, so please <em>don&#39;t</em> stand there&quot; - which is built with <code>ないで</code>.</p>
+<code><ruby>話<rt>はな</rt></ruby>す</code> is a <code>す</code>-verb, so its て-form is <code><ruby>話<rt>はな</rt></ruby>して</code>, and <code>ください</code> attaches directly to that. Adding すみませんが at the front, as the question does, already softens the request.</p>
 </div>
 </div>
 <div class="slide" data-index="19">
   
+  <div class="slide__content"><h2>～てください · Practice 2</h2>
+<p><strong>2.</strong> <ruby>社長<rt>しゃちょう</rt></ruby>に：「この<ruby>書類<rt>しょるい</rt></ruby>を（<ruby>見<rt>み</rt></ruby>てください・<ruby>見<rt>み</rt></ruby>ていただけませんか）。」</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+この<ruby>書類<rt>しょるい</rt></ruby>を**<ruby>見<rt>み</rt></ruby>ていただけませんか**。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+Looking over your document is a favour, not part of the president&#39;s duties, and he outranks you. The humble question form leaves him room to decline, which is exactly what politeness upward is made of.</p>
+</div>
+</div>
+<div class="slide" data-index="20">
+  
+  <div class="slide__content"><h2>～てください · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese: &quot;Please turn off the light when you leave the room.&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<ruby>部屋<rt>へや</rt></ruby>を<ruby>出<rt>で</rt></ruby>るとき、<ruby>電気<rt>でんき</rt></ruby>を**<ruby>消<rt>け</rt></ruby>してください**。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code><ruby>消<rt>け</rt></ruby>す</code> → <code><ruby>消<rt>け</rt></ruby>して</code> + ください. This is the instructional use of the pattern - a house rule, not a personal favour - so plain <code>～てください</code> is right.</p>
+</div>
+</div>
+<div class="slide" data-index="21">
+  
+  <div class="slide__content"><h2>～てください · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the error: あぶないですから、そこに<ruby>立<rt>た</rt></ruby>つてください。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ あぶないですから、そこに**<ruby>立<rt>た</rt></ruby>たないでください**。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+Two things are wrong. The て-form of <code><ruby>立<rt>た</rt></ruby>つ</code> is <code><ruby>立<rt>た</rt></ruby>って</code>, not ❌<code><ruby>立<rt>た</rt></ruby>つて</code>; and the sense demands a negative - &quot;it&#39;s dangerous, so please <em>don&#39;t</em> stand there&quot; - which is built with <code>ないで</code>.</p>
+</div>
+</div>
+<div class="slide" data-index="22">
+  
   <div class="slide__content"><h2>～てください · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 窓(まど)を<strong>開(あ)けてください</strong>。 (b) 窓(まど)を<strong>開(あ)けてくださいませんか</strong>。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>窓<rt>まど</rt></ruby>を**<ruby>開<rt>あ</rt></ruby>けてください**。 (b) <ruby>窓<rt>まど</rt></ruby>を**<ruby>開<rt>あ</rt></ruby>けてくださいませんか**。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) is a plain polite directive. In a classroom, or between people who know each other well, it is entirely normal - but it assumes compliance and does not invite a refusal.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (b) is phrased as a negative question, so it genuinely asks. It is longer, more deferential, and the natural choice when you are imposing on someone, addressing a stranger, or speaking to someone senior to you.</p>
 </div>
 </div>
-<div class="slide" data-index="20">
+<div class="slide" data-index="23">
   
   <div class="slide__content"><h1>～をください</h1>
 <p><strong>Meaning</strong> · please give me ~ - asking for an object</p>
-<p><code>～をください</code> names a <strong>thing</strong> and asks for it. It is the sentence you use in a shop, at a ticket window, at a counter, in a restaurant - anywhere the other person is there to hand you something. <code>ください</code> is the imperative of the honorific verb <code>下(くだ)さる</code> &quot;to give (to me)&quot;, which is why a form that is literally a command still counts as polite.</p>
+<p><code>～をください</code> names a <strong>thing</strong> and asks for it. It is the sentence you use in a shop, at a ticket window, at a counter, in a restaurant - anywhere the other person is there to hand you something. <code>ください</code> is the imperative of the honorific verb <code><ruby>下<rt>くだ</rt></ruby>さる</code> &quot;to give (to me)&quot;, which is why a form that is literally a command still counts as polite.</p>
 </div>
 </div>
-<div class="slide" data-index="21">
+<div class="slide" data-index="24">
   
   <div class="slide__content"><h2>～をください · Formation</h2>
 <table>
@@ -2878,22 +2910,22 @@ Two things are wrong. The て-form of <code>立(た)つ</code> is <code>立(た)
 <tr>
 <td>Noun + quantity</td>
 <td>Noun + を + counter + ください</td>
-<td>りんご → りんごを三(みっ)つください</td>
+<td>りんご → りんごを<ruby>三<rt>みっ</rt></ruby>つください</td>
 </tr>
 <tr>
 <td>Quantity (spoken, <code>を</code> dropped)</td>
 <td>Noun + counter + ください</td>
-<td>コーヒー二(ふた)つください</td>
+<td>コーヒー<ruby>二<rt>ふた</rt></ruby>つください</td>
 </tr>
 <tr>
 <td>Verb (an action, not a thing)</td>
 <td>て-form + ください</td>
-<td>待(ま)つ → 待(ま)ってください</td>
+<td><ruby>待<rt>ま</rt></ruby>つ → <ruby>待<rt>ま</rt></ruby>ってください</td>
 </tr>
 <tr>
 <td>Politer</td>
-<td>～をお願(ねが)いします</td>
-<td>コーヒーをお願(ねが)いします</td>
+<td>～をお<ruby>願<rt>ねが</rt></ruby>いします</td>
+<td>コーヒーをお<ruby>願<rt>ねが</rt></ruby>いします</td>
 </tr>
 <tr>
 <td>Politer still</td>
@@ -2908,7 +2940,7 @@ Two things are wrong. The て-form of <code>立(た)つ</code> is <code>立(た)
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="22">
+<div class="slide" data-index="25">
   
   <div class="slide__content"><h2>～をください · Formation (cont.)</h2>
 <blockquote>
@@ -2916,153 +2948,169 @@ Two things are wrong. The て-form of <code>立(た)つ</code> is <code>立(た)
 </blockquote>
 </div>
 </div>
-<div class="slide" data-index="23">
+<div class="slide" data-index="26">
   
   <div class="slide__content"><h2>～をください · Examples</h2>
 <p>コーヒーを<strong>ください</strong>。<br><em>A coffee, please.</em></p>
 <p>すみません、メニューを<strong>ください</strong>。<br><em>Excuse me, could I have a menu.</em></p>
-<p>この赤(あか)いりんごを五(いつ)つ<strong>ください</strong>。<br><em>Five of these red apples, please.</em></p>
-<p>切符(きっぷ)を大人(おとな)二(に)まい、子(こ)ども一(いち)まい<strong>ください</strong>。<br><em>Two adult tickets and one child&#39;s, please.</em></p>
-<p>袋(ふくろ)は要(い)りませんので、レシートだけ<strong>ください</strong>。<br><em>I don&#39;t need a bag - just the receipt, please.</em></p>
-</div>
-</div>
-<div class="slide" data-index="24">
-  
-  <div class="slide__content"><h2>～をください · Examples (cont.)</h2>
-<p>もう少(すこ)し時間(じかん)を<strong>ください</strong>。<br><em>Please give me a little more time.</em></p>
-<p>すみません、温(あたた)かいお茶(ちゃ)と、砂糖(さとう)を少(すこ)し<strong>ください</strong>。<br><em>Excuse me - a hot tea, and a little sugar, please.</em></p>
-<p>白(しろ)いシャツの大(おお)きいサイズがあれば、それを<strong>ください</strong>。<br><em>If you have that white shirt in a large, I&#39;ll take it.</em></p>
-</div>
-</div>
-<div class="slide" data-index="25">
-  
-  <div class="slide__content"><h2>～をください · Nuance &amp; register</h2>
-<p><code>～をください</code> is the customer&#39;s sentence. Between a customer and staff the balance of the situation makes it perfectly polite, and it is what Japanese speakers actually say at a counter - no hedging required.</p>
-<p>Turn it around and the picture changes. Because <code>ください</code> is an imperative, asking a <strong>superior</strong> for something with it sounds like an instruction: 部長(ぶちょう)、ペンをください is the sort of thing that gets noticed. Upward you switch to a question - ペンをお借(か)りできますか, 資料(しりょう)をいただけますか - or to お願(ねが)いします.</p>
-<p>Quantities behave loosely in speech. コーヒーを二(ふた)つください and コーヒー二(ふた)つください are both normal, and the second is more common at a counter; what you should not do is mark the number with <code>を</code> as well (❌コーヒーを二(ふた)つをください). Politeness particles cluster at the front and back instead: すみません、～ください and ～ください<strong>ね</strong> are both very common.</p>
-</div>
-</div>
-<div class="slide" data-index="26">
-  
-  <div class="slide__content"><h2>～をください · Nuance &amp; register (cont.)</h2>
-<p><code>ちょうだい</code> is the casual replacement - それちょうだい - and reads as childish or warmly familiar depending on the speaker; it is more common from women and from adults talking to children. In writing, ください survives in fixed instructions (ご記入(きにゅう)ください, 少々(しょうしょう)お待(ま)ちください), which are honorific forms rather than this pattern.</p>
-<p><code>ください</code> is not limited to physical objects. Abstract nouns work fine, and this is where the pattern turns up outside shops: 時間(じかん)をください, 返事(へんじ)をください, もう一度(いちど)チャンスをください.</p>
+<p>この<ruby>赤<rt>あか</rt></ruby>いりんごを<ruby>五<rt>いつ</rt></ruby>つ<strong>ください</strong>。<br><em>Five of these red apples, please.</em></p>
+<p><ruby>切符<rt>きっぷ</rt></ruby>を<ruby>大人<rt>おとな</rt></ruby><ruby>二<rt>に</rt></ruby>まい、<ruby>子<rt>こ</rt></ruby>ども<ruby>一<rt>いち</rt></ruby>まい<strong>ください</strong>。<br><em>Two adult tickets and one child&#39;s, please.</em></p>
 </div>
 </div>
 <div class="slide" data-index="27">
   
-  <div class="slide__content"><h2>～をください · ～をください vs ～をお願(ねが)いします</h2>
-<blockquote>
-<p><strong>Rule of thumb</strong> - <code>ください</code> asks for a <strong>thing you can hand over</strong>; お願(ねが)いします asks for that <em>or</em> for a service, and sounds a touch more deferential.</p>
-</blockquote>
-<p>生(なま)ビールを<strong>ください</strong>。<br><em>A draught beer, please.</em></p>
-<p>生(なま)ビールを<strong>お願(ねが)いします</strong>。<br><em>A draught beer, please. (slightly more polite)</em></p>
-<p>Where they come apart is scope. お願(ねが)いします covers requests that have no object at all - 会計(かいけい)をお願(ねが)いします &quot;the bill, please&quot;, 山田(やまだ)さんをお願(ねが)いします &quot;could I speak to Yamada&quot; - where ください would be wrong or comic. As a rule, if you are asking someone to <em>do</em> something on your behalf, お願(ねが)いします; if you are asking them to <em>give</em> you something, either works.</p>
+  <div class="slide__content"><h2>～をください · Examples (cont.)</h2>
+<p><ruby>袋<rt>ふくろ</rt></ruby>は<ruby>要<rt>い</rt></ruby>りませんので、レシートだけ<strong>ください</strong>。<br><em>I don&#39;t need a bag - just the receipt, please.</em></p>
+<p>もう<ruby>少<rt>すこ</rt></ruby>し<ruby>時間<rt>じかん</rt></ruby>を<strong>ください</strong>。<br><em>Please give me a little more time.</em></p>
+<p>すみません、<ruby>温<rt>あたた</rt></ruby>かいお<ruby>茶<rt>ちゃ</rt></ruby>と、<ruby>砂糖<rt>さとう</rt></ruby>を<ruby>少<rt>すこ</rt></ruby>し<strong>ください</strong>。<br><em>Excuse me - a hot tea, and a little sugar, please.</em></p>
+<p><ruby>白<rt>しろ</rt></ruby>いシャツの<ruby>大<rt>おお</rt></ruby>きいサイズがあれば、それを<strong>ください</strong>。<br><em>If you have that white shirt in a large, I&#39;ll take it.</em></p>
 </div>
 </div>
 <div class="slide" data-index="28">
+  
+  <div class="slide__content"><h2>～をください · Nuance &amp; register</h2>
+<p><code>～をください</code> is the customer&#39;s sentence. Between a customer and staff the balance of the situation makes it perfectly polite, and it is what Japanese speakers actually say at a counter - no hedging required.</p>
+<p>Turn it around and the picture changes. Because <code>ください</code> is an imperative, asking a <strong>superior</strong> for something with it sounds like an instruction: <ruby>部長<rt>ぶちょう</rt></ruby>、ペンをください is the sort of thing that gets noticed. Upward you switch to a question - ペンをお<ruby>借<rt>か</rt></ruby>りできますか, <ruby>資料<rt>しりょう</rt></ruby>をいただけますか - or to お<ruby>願<rt>ねが</rt></ruby>いします.</p>
+</div>
+</div>
+<div class="slide" data-index="29">
+  
+  <div class="slide__content"><h2>～をください · Nuance &amp; register (cont.)</h2>
+<p>Quantities behave loosely in speech. コーヒーを<ruby>二<rt>ふた</rt></ruby>つください and コーヒー<ruby>二<rt>ふた</rt></ruby>つください are both normal, and the second is more common at a counter; what you should not do is mark the number with <code>を</code> as well (❌コーヒーを<ruby>二<rt>ふた</rt></ruby>つをください). Politeness particles cluster at the front and back instead: すみません、～ください and ～ください<strong>ね</strong> are both very common.</p>
+<p><code>ちょうだい</code> is the casual replacement - それちょうだい - and reads as childish or warmly familiar depending on the speaker; it is more common from women and from adults talking to children. In writing, ください survives in fixed instructions (ご<ruby>記入<rt>きにゅう</rt></ruby>ください, <ruby>少々<rt>しょうしょう</rt></ruby>お<ruby>待<rt>ま</rt></ruby>ちください), which are honorific forms rather than this pattern.</p>
+</div>
+</div>
+<div class="slide" data-index="30">
+  
+  <div class="slide__content"><h2>～をください · Nuance &amp; register (cont.)</h2>
+<p><code>ください</code> is not limited to physical objects. Abstract nouns work fine, and this is where the pattern turns up outside shops: <ruby>時間<rt>じかん</rt></ruby>をください, <ruby>返事<rt>へんじ</rt></ruby>をください, もう<ruby>一度<rt>いちど</rt></ruby>チャンスをください.</p>
+</div>
+</div>
+<div class="slide" data-index="31">
+  
+  <div class="slide__content"><h2>～をください · ～をください vs ～をお願いします</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - <code>ください</code> asks for a <strong>thing you can hand over</strong>; お<ruby>願<rt>ねが</rt></ruby>いします asks for that <em>or</em> for a service, and sounds a touch more deferential.</p>
+</blockquote>
+<p><ruby>生<rt>なま</rt></ruby>ビールを<strong>ください</strong>。<br><em>A draught beer, please.</em></p>
+<p><ruby>生<rt>なま</rt></ruby>ビールを<strong>お<ruby>願<rt>ねが</rt></ruby>いします</strong>。<br><em>A draught beer, please. (slightly more polite)</em></p>
+</div>
+</div>
+<div class="slide" data-index="32">
+  
+  <div class="slide__content"><h2>～をください · ～をください vs ～をお願いします (cont.)</h2>
+<p>Where they come apart is scope. お<ruby>願<rt>ねが</rt></ruby>いします covers requests that have no object at all - <ruby>会計<rt>かいけい</rt></ruby>をお<ruby>願<rt>ねが</rt></ruby>いします &quot;the bill, please&quot;, <ruby>山田<rt>やまだ</rt></ruby>さんをお<ruby>願<rt>ねが</rt></ruby>いします &quot;could I speak to Yamada&quot; - where ください would be wrong or comic. As a rule, if you are asking someone to <em>do</em> something on your behalf, お<ruby>願<rt>ねが</rt></ruby>いします; if you are asking them to <em>give</em> you something, either works.</p>
+</div>
+</div>
+<div class="slide" data-index="33">
   
   <div class="slide__content"><h2>～をください · ～をください vs ～てください</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - noun + <code>を</code> + ください for an <strong>object</strong>; verb て-form + ください for an <strong>action</strong>.</p>
 </blockquote>
-<p>地図(ちず)を<strong>ください</strong>。<br><em>Could I have a map.</em></p>
-<p>地図(ちず)を<strong>書(か)いてください</strong>。<br><em>Please draw me a map.</em></p>
-<p>They share the word <code>ください</code> and nothing else. English blurs them - &quot;give me a hand&quot; looks like a noun request but is really an action - so the trap is real: ✅手伝(てつだ)ってください, not ❌手伝(てつだ)いをください.</p>
+<p><ruby>地図<rt>ちず</rt></ruby>を<strong>ください</strong>。<br><em>Could I have a map.</em></p>
+<p><ruby>地図<rt>ちず</rt></ruby>を**<ruby>書<rt>か</rt></ruby>いてください**。<br><em>Please draw me a map.</em></p>
 </div>
 </div>
-<div class="slide" data-index="29">
+<div class="slide" data-index="34">
   
   <div class="slide__content"><h2>～をください · ～をください vs ～てください (cont.)</h2>
-<p>When you want an object <em>brought</em> to you rather than simply handed over, the two combine: 水(みず)を持(も)ってきてください.</p>
+<p>They share the word <code>ください</code> and nothing else. English blurs them - &quot;give me a hand&quot; looks like a noun request but is really an action - so the trap is real: ✅<ruby>手伝<rt>てつだ</rt></ruby>ってください, not ❌<ruby>手伝<rt>てつだ</rt></ruby>いをください.</p>
+<p>When you want an object <em>brought</em> to you rather than simply handed over, the two combine: <ruby>水<rt>みず</rt></ruby>を<ruby>持<rt>も</rt></ruby>ってきてください.</p>
 </div>
 </div>
-<div class="slide" data-index="30">
+<div class="slide" data-index="35">
   
   <div class="slide__content"><h2>～をください · ～をください vs ～がほしいです</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>ほしい</code> describes your inner state; <code>ください</code> performs the request. To a shop assistant, only the second one is a sentence that does anything.</p>
 </blockquote>
-<p>この靴(くつ)の黒(くろ)を<strong>ください</strong>。<br><em>I&#39;ll take these shoes in black.</em></p>
-<p>新(あたら)しい靴(くつ)が<strong>ほしい</strong>です。<br><em>I want new shoes.</em></p>
+<p>この<ruby>靴<rt>くつ</rt></ruby>の<ruby>黒<rt>くろ</rt></ruby>を<strong>ください</strong>。<br><em>I&#39;ll take these shoes in black.</em></p>
+<p><ruby>新<rt>あたら</rt></ruby>しい<ruby>靴<rt>くつ</rt></ruby>が<strong>ほしい</strong>です。<br><em>I want new shoes.</em></p>
 <p>The second is a fine thing to say to a friend and an odd thing to say to a salesperson - you have announced a feeling and left them to guess what to do about it. Note the particles as well: <code>ほしい</code> is an adjective and takes <code>が</code>, while <code>ください</code> is a verb and takes <code>を</code>. Mixing them up (❌これがください) is the single most common error with this pattern.</p>
 </div>
 </div>
-<div class="slide" data-index="31">
+<div class="slide" data-index="36">
   
   <div class="slide__content"><h2>～をください · Common mistakes</h2>
 <ul>
 <li><p>❌ これ<strong>が</strong>ください。 → ✅ これ<strong>を</strong>ください。<br><em><code>ください</code> is a verb of giving; the thing given is its object.</em></p>
 </li>
-<li><p>❌ （レストランで）お水(みず)が<strong>ほしいです</strong>。 → ✅ お水(みず)を<strong>ください</strong>。<br><em>Naming your desire at a server does not place an order.</em></p>
+<li><p>❌ （レストランで）お<ruby>水<rt>みず</rt></ruby>が<strong>ほしいです</strong>。 → ✅ お<ruby>水<rt>みず</rt></ruby>を<strong>ください</strong>。<br><em>Naming your desire at a server does not place an order.</em></p>
 </li>
-<li><p>❌ 手伝(てつだ)いを<strong>ください</strong>。 → ✅ <strong>手伝(てつだ)ってください</strong>。<br><em>Help is an action, not an object. Use the て-form.</em></p>
+<li><p>❌ <ruby>手伝<rt>てつだ</rt></ruby>いを<strong>ください</strong>。 → ✅ <strong><ruby>手伝<rt>てつだ</rt></ruby>ってください</strong>。<br><em>Help is an action, not an object. Use the て-form.</em></p>
 </li>
-<li><p>❌ コーヒーを二(ふた)つ<strong>を</strong>ください。 → ✅ コーヒーを二(ふた)つ<strong>ください</strong>。<br><em>One <code>を</code> per object. The counter does not take a particle of its own.</em></p>
-</li>
-<li><p>❌ 課長(かちょう)、はんこを<strong>ください</strong>。 → ✅ 課長(かちょう)、はんこを<strong>いただけますか</strong>。<br><em><code>ください</code> is an imperative. Pointed upward it reads as an instruction.</em></p>
+<li><p>❌ コーヒーを<ruby>二<rt>ふた</rt></ruby>つ<strong>を</strong>ください。 → ✅ コーヒーを<ruby>二<rt>ふた</rt></ruby>つ<strong>ください</strong>。<br><em>One <code>を</code> per object. The counter does not take a particle of its own.</em></p>
 </li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="32">
+<div class="slide" data-index="37">
+  
+  <div class="slide__content"><h2>～をください · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ <ruby>課長<rt>かちょう</rt></ruby>、はんこを<strong>ください</strong>。 → ✅ <ruby>課長<rt>かちょう</rt></ruby>、はんこを<strong>いただけますか</strong>。<br><em><code>ください</code> is an imperative. Pointed upward it reads as an instruction.</em></li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="38">
   
   <div class="slide__content"><h2>～をください · Practice 1</h2>
-<p><strong>1.</strong> すみません、この本(ほん)____ください。</p>
+<p><strong>1.</strong> すみません、この<ruby>本<rt>ほん</rt></ruby>____ください。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-この本(ほん)<strong>を</strong>ください。</p>
+この<ruby>本<rt>ほん</rt></ruby><strong>を</strong>ください。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>ください</code> comes from the verb <code>下(くだ)さる</code>, so the thing you are asking for is its direct object and takes <code>を</code>. The <code>が</code> that goes with <code>ほしい</code> does not transfer.</p>
+<code>ください</code> comes from the verb <code><ruby>下<rt>くだ</rt></ruby>さる</code>, so the thing you are asking for is its direct object and takes <code>を</code>. The <code>が</code> that goes with <code>ほしい</code> does not transfer.</p>
 </div>
 </div>
-<div class="slide" data-index="33">
+<div class="slide" data-index="39">
   
   <div class="slide__content"><h2>～をください · Practice 2</h2>
-<p><strong>2.</strong> 店(みせ)で：「そのかばんを（ください・ほしいです）。」</p>
+<p><strong>2.</strong> <ruby>店<rt>みせ</rt></ruby>で：「そのかばんを（ください・ほしいです）。」</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 そのかばんを<strong>ください</strong>。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 In a shop you are placing a request, and <code>ください</code> is what performs it. <code>ほしいです</code> only reports how you feel, which leaves the assistant to work out what you actually want.</p>
 </div>
 </div>
-<div class="slide" data-index="34">
+<div class="slide" data-index="40">
   
   <div class="slide__content"><h2>～をください · Practice 3</h2>
 <p><strong>3.</strong> Translate into Japanese: &quot;Two coffees and one orange juice, please.&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-コーヒーを二(ふた)つと、オレンジジュースを一(ひと)つ<strong>ください</strong>。</p>
+コーヒーを<ruby>二<rt>ふた</rt></ruby>つと、オレンジジュースを<ruby>一<rt>ひと</rt></ruby>つ<strong>ください</strong>。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Counters go between the noun and <code>ください</code>, and only one <code>を</code> per item. In speech the <code>を</code> is often dropped altogether: コーヒー二(ふた)つとオレンジジュース一(ひと)つください.</p>
+Counters go between the noun and <code>ください</code>, and only one <code>を</code> per item. In speech the <code>を</code> is often dropped altogether: コーヒー<ruby>二<rt>ふた</rt></ruby>つとオレンジジュース<ruby>一<rt>ひと</rt></ruby>つください.</p>
 </div>
 </div>
-<div class="slide" data-index="35">
+<div class="slide" data-index="41">
   
   <div class="slide__content"><h2>～をください · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: すみません、ちょっと手伝(てつだ)いをください。</p>
+<p><strong>4.</strong> Find and fix the error: すみません、ちょっと<ruby>手伝<rt>てつだ</rt></ruby>いをください。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ すみません、ちょっと<strong>手伝(てつだ)ってください</strong>。</p>
+✅ すみません、ちょっと**<ruby>手伝<rt>てつだ</rt></ruby>ってください**。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 What you want is an action, not an object, so it belongs in the て-form pattern. English &quot;give me a hand&quot; hides a verb inside a noun, and that is where the mistake comes from.</p>
 </div>
 </div>
-<div class="slide" data-index="36">
+<div class="slide" data-index="42">
   
   <div class="slide__content"><h2>～をください · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) タクシーを<strong>ください</strong>。 (b) タクシーを<strong>お願(ねが)いします</strong>。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) タクシーを<strong>ください</strong>。 (b) タクシーを<strong>お<ruby>願<rt>ねが</rt></ruby>いします</strong>。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) asks for a taxi as though it were an object to be handed across a counter, and it sounds odd for that reason - nobody gives you a taxi.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-(b) is what a hotel guest actually says. お願(ねが)いします asks the listener to <em>arrange</em> something on your behalf, which covers services, phone calls and errands. That wider scope is the main practical reason to learn it alongside <code>ください</code>.</p>
+(b) is what a hotel guest actually says. お<ruby>願<rt>ねが</rt></ruby>いします asks the listener to <em>arrange</em> something on your behalf, which covers services, phone calls and errands. That wider scope is the main practical reason to learn it alongside <code>ください</code>.</p>
 </div>
 </div>
-<div class="slide" data-index="37">
+<div class="slide" data-index="43">
   
   <div class="slide__content"><h1>～ないでください</h1>
 <p><strong>Meaning</strong> · please don&#39;t do ~ - the negative request</p>
-<p><code>～ないでください</code> is the negative counterpart of <code>～てください</code>. Take the ない-form, add <code>で</code>, add <code>ください</code>. The <code>で</code> is not decoration: <code>ないで</code> is the <strong>negative て-form</strong> of a verb, and it does the same joining work elsewhere in the language - 傘(かさ)を持(も)たないで出(で)かけた「I went out without an umbrella」.</p>
+<p><code>～ないでください</code> is the negative counterpart of <code>～てください</code>. Take the ない-form, add <code>で</code>, add <code>ください</code>. The <code>で</code> is not decoration: <code>ないで</code> is the <strong>negative て-form</strong> of a verb, and it does the same joining work elsewhere in the language - <ruby>傘<rt>かさ</rt></ruby>を<ruby>持<rt>も</rt></ruby>たないで<ruby>出<rt>で</rt></ruby>かけた「I went out without an umbrella」.</p>
 </div>
 </div>
-<div class="slide" data-index="38">
+<div class="slide" data-index="44">
   
   <div class="slide__content"><h2>～ないでください · Formation</h2>
 <table>
@@ -3076,207 +3124,218 @@ What you want is an action, not an object, so it belongs in the て-form pattern
 <tbody><tr>
 <td>Verb (う-verb)</td>
 <td>ない-form + で + ください</td>
-<td>吸(す)う → 吸(す)わないでください</td>
+<td><ruby>吸<rt>す</rt></ruby>う → <ruby>吸<rt>す</rt></ruby>わないでください</td>
 </tr>
 <tr>
 <td>Verb (る-verb)</td>
 <td>ない-form + で + ください</td>
-<td>捨(す)てる → 捨(す)てないでください</td>
+<td><ruby>捨<rt>す</rt></ruby>てる → <ruby>捨<rt>す</rt></ruby>てないでください</td>
 </tr>
 <tr>
 <td>Verb (する)</td>
 <td>しないで + ください</td>
-<td>心配(しんぱい)する → 心配(しんぱい)しないでください</td>
+<td><ruby>心配<rt>しんぱい</rt></ruby>する → <ruby>心配<rt>しんぱい</rt></ruby>しないでください</td>
 </tr>
 <tr>
-<td>Verb (来(く)る)</td>
-<td>来(こ)ないで + ください</td>
-<td>来(く)る → 来(こ)ないでください</td>
+<td>Verb (<ruby>来<rt>く</rt></ruby>る)</td>
+<td><ruby>来<rt>こ</rt></ruby>ないで + ください</td>
+<td><ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby>ないでください</td>
 </tr>
 <tr>
 <td>Casual</td>
 <td>ない-form + で</td>
-<td>見(み)ないで／見(み)ないでね</td>
+<td><ruby>見<rt>み</rt></ruby>ないで／<ruby>見<rt>み</rt></ruby>ないでね</td>
 </tr>
 <tr>
 <td>More polite</td>
 <td>～ないでいただけませんか</td>
-<td>入(はい)らないでいただけませんか</td>
+<td><ruby>入<rt>はい</rt></ruby>らないでいただけませんか</td>
 </tr>
 <tr>
 <td>Notices and signs</td>
-<td>ご遠慮(えんりょ)ください／おやめください</td>
-<td>喫煙(きつえん)はご遠慮(えんりょ)ください</td>
+<td>ご<ruby>遠慮<rt>えんりょ</rt></ruby>ください／おやめください</td>
+<td><ruby>喫煙<rt>きつえん</rt></ruby>はご<ruby>遠慮<rt>えんりょ</rt></ruby>ください</td>
 </tr>
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="39">
+<div class="slide" data-index="45">
   
   <div class="slide__content"><h2>～ないでください · Formation (cont.)</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - build the ない-form first, then swap <code>ない</code> for <code>ないで</code>. The ない-form is the hard part: 吸(す)う → 吸(す)<strong>わ</strong>ない (not ❌吸(す)あない), する → しない, 来(く)る → 来(こ)ない (read <strong>こ</strong>ない, never ❌きない).</p>
+<p><strong>Rule of thumb</strong> - build the ない-form first, then swap <code>ない</code> for <code>ないで</code>. The ない-form is the hard part: <ruby>吸<rt>す</rt></ruby>う → <ruby>吸<rt>す</rt></ruby><strong>わ</strong>ない (not ❌<ruby>吸<rt>す</rt></ruby>あない), する → しない, <ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby>ない (read <strong>こ</strong>ない, never ❌きない).</p>
 </blockquote>
 <blockquote>
-<p><strong>Note</strong> - <code>ないで</code> on its own is a full form of the verb, not just a piece of this pattern. It joins clauses in the sense <em>without doing</em> (何(なに)も言(い)わないで出(で)て行(い)った), and it feeds other endings: 忘(わす)れないでね, 来(こ)ないでほしい, 見(み)ないでくれる？</p>
+<p><strong>Note</strong> - <code>ないで</code> on its own is a full form of the verb, not just a piece of this pattern. It joins clauses in the sense <em>without doing</em> (<ruby>何<rt>なに</rt></ruby>も<ruby>言<rt>い</rt></ruby>わないで<ruby>出<rt>で</rt></ruby>て<ruby>行<rt>い</rt></ruby>った), and it feeds other endings: <ruby>忘<rt>わす</rt></ruby>れないでね, <ruby>来<rt>こ</rt></ruby>ないでほしい, <ruby>見<rt>み</rt></ruby>ないでくれる？</p>
 </blockquote>
 </div>
 </div>
-<div class="slide" data-index="40">
+<div class="slide" data-index="46">
   
   <div class="slide__content"><h2>～ないでください · Examples</h2>
-<p>ここでたばこを<strong>吸(す)わないでください</strong>。<br><em>Please don&#39;t smoke here.</em></p>
-<p>まだ<strong>帰(かえ)らないでください</strong>。<br><em>Please don&#39;t leave yet.</em></p>
-<p><strong>心配(しんぱい)しないでください</strong>。<br><em>Please don&#39;t worry.</em></p>
-<p>授業(じゅぎょう)中(ちゅう)はスマホを<strong>見(み)ないでください</strong>。<br><em>Please don&#39;t look at your phone during class.</em></p>
-<p>この部屋(へや)には<strong>入(はい)らないでください</strong>。<br><em>Please don&#39;t go into this room.</em></p>
+<p>ここでたばこを**<ruby>吸<rt>す</rt></ruby>わないでください**。<br><em>Please don&#39;t smoke here.</em></p>
+<p>まだ**<ruby>帰<rt>かえ</rt></ruby>らないでください**。<br><em>Please don&#39;t leave yet.</em></p>
+<p><strong><ruby>心配<rt>しんぱい</rt></ruby>しないでください</strong>。<br><em>Please don&#39;t worry.</em></p>
+<p><ruby>授業<rt>じゅぎょう</rt></ruby><ruby>中<rt>ちゅう</rt></ruby>はスマホを**<ruby>見<rt>み</rt></ruby>ないでください**。<br><em>Please don&#39;t look at your phone during class.</em></p>
 </div>
 </div>
-<div class="slide" data-index="41">
+<div class="slide" data-index="47">
   
   <div class="slide__content"><h2>～ないでください · Examples (cont.)</h2>
-<p>大切(たいせつ)な日(ひ)ですから、明日(あした)は<strong>遅(おく)れないでください</strong>ね。<br><em>Tomorrow&#39;s an important day, so please don&#39;t be late.</em></p>
-<p>すみませんが、この話(はなし)はまだ誰(だれ)にも<strong>言(い)わないでください</strong>。<br><em>Sorry, but please don&#39;t tell anyone about this yet.</em></p>
-<p>恐(おそ)れ入(い)りますが、館内(かんない)では写真(しゃしん)を<strong>撮(と)らないでいただけますか</strong>。<br><em>I&#39;m very sorry, but could I ask you not to take photographs inside the building?</em></p>
+<p>この<ruby>部屋<rt>へや</rt></ruby>には**<ruby>入<rt>はい</rt></ruby>らないでください**。<br><em>Please don&#39;t go into this room.</em></p>
+<p><ruby>大切<rt>たいせつ</rt></ruby>な<ruby>日<rt>ひ</rt></ruby>ですから、<ruby>明日<rt>あした</rt></ruby>は**<ruby>遅<rt>おく</rt></ruby>れないでください**ね。<br><em>Tomorrow&#39;s an important day, so please don&#39;t be late.</em></p>
+<p>すみませんが、この<ruby>話<rt>はなし</rt></ruby>はまだ<ruby>誰<rt>だれ</rt></ruby>にも**<ruby>言<rt>い</rt></ruby>わないでください**。<br><em>Sorry, but please don&#39;t tell anyone about this yet.</em></p>
+<p><ruby>恐<rt>おそ</rt></ruby>れ<ruby>入<rt>い</rt></ruby>りますが、<ruby>館内<rt>かんない</rt></ruby>では<ruby>写真<rt>しゃしん</rt></ruby>を**<ruby>撮<rt>と</rt></ruby>らないでいただけますか**。<br><em>I&#39;m very sorry, but could I ask you not to take photographs inside the building?</em></p>
 </div>
 </div>
-<div class="slide" data-index="42">
+<div class="slide" data-index="48">
   
   <div class="slide__content"><h2>～ないでください · Nuance &amp; register</h2>
 <p>Everything true of <code>～てください</code> is true here: it is polite in form and directive in function. A negative directive is inherently more confronting than a positive one, though, because you are telling someone to stop or not to start - so the softeners matter more.</p>
-<p>The usual ones are すみませんが / 恐(おそ)れ入(い)りますが at the front, ちょっと in the middle, and ね at the end. 大声(おおごえ)を出(だ)さないでくださいね is noticeably gentler than the same sentence without it.</p>
-<p>Public notices avoid the bare form, because a sign that tells thousands of people what not to do is at risk of sounding hectoring. Japanese signage prefers ご遠慮(えんりょ)ください「we ask that you refrain」, おやめください「please stop」, or a plain noun + 禁止(きんし)「prohibited」 on the sternest notices. If you learn to read those, you have covered most stations and museums.</p>
+<p>The usual ones are すみませんが / <ruby>恐<rt>おそ</rt></ruby>れ<ruby>入<rt>い</rt></ruby>りますが at the front, ちょっと in the middle, and ね at the end. <ruby>大声<rt>おおごえ</rt></ruby>を<ruby>出<rt>だ</rt></ruby>さないでくださいね is noticeably gentler than the same sentence without it.</p>
+<p>Public notices avoid the bare form, because a sign that tells thousands of people what not to do is at risk of sounding hectoring. Japanese signage prefers ご<ruby>遠慮<rt>えんりょ</rt></ruby>ください「we ask that you refrain」, おやめください「please stop」, or a plain noun + <ruby>禁止<rt>きんし</rt></ruby>「prohibited」 on the sternest notices. If you learn to read those, you have covered most stations and museums.</p>
 </div>
 </div>
-<div class="slide" data-index="43">
+<div class="slide" data-index="49">
   
   <div class="slide__content"><h2>～ないでください · Nuance &amp; register (cont.)</h2>
-<p>Casually, <code>ください</code> drops off and the ない-form does the whole job: 見(み)ないで！, 言(い)わないで. Add ね to soften, よ to press. <code>～ないでくれる？</code> and <code>～ないでほしい</code> are common alternatives among friends - the first asks, the second reports your wish.</p>
+<p>Casually, <code>ください</code> drops off and the ない-form does the whole job: <ruby>見<rt>み</rt></ruby>ないで！, <ruby>言<rt>い</rt></ruby>わないで. Add ね to soften, よ to press. <code>～ないでくれる？</code> and <code>～ないでほしい</code> are common alternatives among friends - the first asks, the second reports your wish.</p>
 <p>One thing <code>～ないでください</code> is <em>not</em>: a statement of prohibition. It is a request. If you need to say something is forbidden, <code>～てはいけません</code> is the pattern, and it carries an authority that this one does not.</p>
 </div>
 </div>
-<div class="slide" data-index="44">
+<div class="slide" data-index="50">
   
   <div class="slide__content"><h2>～ないでください · ～ないでください vs ～ないでいただけませんか</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - the negative request, then the negative <em>question</em>. Upward, and to strangers, ask rather than tell.</p>
 </blockquote>
-<p>ここに車(くるま)を<strong>とめないでください</strong>。<br><em>Please don&#39;t park here.</em></p>
-<p>ここに車(くるま)を<strong>とめないでいただけませんか</strong>。<br><em>Would you mind not parking here?</em></p>
-<p>The second is what a neighbour says to a neighbour; the first is what the sign says. <code>～ないでくださいませんか</code> sits between them, and the fully honorific ご遠慮(えんりょ)ください is the institutional voice - a shop, a train company, a museum.</p>
+<p>ここに<ruby>車<rt>くるま</rt></ruby>を<strong>とめないでください</strong>。<br><em>Please don&#39;t park here.</em></p>
+<p>ここに<ruby>車<rt>くるま</rt></ruby>を<strong>とめないでいただけませんか</strong>。<br><em>Would you mind not parking here?</em></p>
 </div>
 </div>
-<div class="slide" data-index="45">
+<div class="slide" data-index="51">
   
   <div class="slide__content"><h2>～ないでください · ～ないでください vs ～ないでいただけませんか (cont.)</h2>
+<p>The second is what a neighbour says to a neighbour; the first is what the sign says. <code>～ないでくださいませんか</code> sits between them, and the fully honorific ご<ruby>遠慮<rt>えんりょ</rt></ruby>ください is the institutional voice - a shop, a train company, a museum.</p>
 <p>The relationship decides. Telling a stranger not to do something is delicate in any language, and Japanese solves it by turning the request into a question and letting the listener seem to choose.</p>
 </div>
 </div>
-<div class="slide" data-index="46">
+<div class="slide" data-index="52">
   
   <div class="slide__content"><h2>～ないでください · ～ないで vs ～なくて</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - Japanese has <strong>two</strong> negative て-forms. <code>ないで</code> means <em>without doing</em> and is the one used in requests; <code>なくて</code> means <em>and so, because … not</em>.</p>
 </blockquote>
-<p>朝(あさ)ごはんを<strong>食(た)べないで</strong>学校(がっこう)へ行(い)きました。<br><em>I went to school without eating breakfast.</em></p>
-<p>バスが<strong>来(こ)なくて</strong>、遅(おく)れました。<br><em>The bus didn&#39;t come, and so I was late.</em></p>
+<p><ruby>朝<rt>あさ</rt></ruby>ごはんを**<ruby>食<rt>た</rt></ruby>べないで**<ruby>学校<rt>がっこう</rt></ruby>へ<ruby>行<rt>い</rt></ruby>きました。<br><em>I went to school without eating breakfast.</em></p>
+<p>バスが**<ruby>来<rt>こ</rt></ruby>なくて**、<ruby>遅<rt>おく</rt></ruby>れました。<br><em>The bus didn&#39;t come, and so I was late.</em></p>
 <p>The first describes <em>how</em> the going happened; the second gives the <em>reason</em> for being late. Swap them and the sentences stop making sense.</p>
 </div>
 </div>
-<div class="slide" data-index="47">
+<div class="slide" data-index="53">
   
   <div class="slide__content"><h2>～ないでください · ～ないで vs ～なくて (cont.)</h2>
-<p>Two consequences worth memorising. First, requests always use <code>ないで</code> - there is no ❌行(い)かなくてください. Second, <code>なくて</code> is the form that adjectives and nouns take when they are negated and joined (高(たか)くなくて安心(あんしん)しました, 雨(あめ)じゃなくてよかった), so <code>ないで</code> is verb-only territory.</p>
+<p>Two consequences worth memorising. First, requests always use <code>ないで</code> - there is no ❌<ruby>行<rt>い</rt></ruby>かなくてください. Second, <code>なくて</code> is the form that adjectives and nouns take when they are negated and joined (<ruby>高<rt>たか</rt></ruby>くなくて<ruby>安心<rt>あんしん</rt></ruby>しました, <ruby>雨<rt>あめ</rt></ruby>じゃなくてよかった), so <code>ないで</code> is verb-only territory.</p>
 </div>
 </div>
-<div class="slide" data-index="48">
+<div class="slide" data-index="54">
   
   <div class="slide__content"><h2>～ないでください · ～ないでください vs ～てはいけません</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>～ないでください</code> <strong>asks</strong>; <code>～てはいけません</code> <strong>forbids</strong>.</p>
 </blockquote>
-<p>教室(きょうしつ)で走(はし)ら<strong>ないでください</strong>。<br><em>Please don&#39;t run in the classroom.</em></p>
-<p>教室(きょうしつ)で走(はし)っ<strong>てはいけません</strong>。<br><em>You must not run in the classroom.</em></p>
+<p><ruby>教室<rt>きょうしつ</rt></ruby>で<ruby>走<rt>はし</rt></ruby>ら<strong>ないでください</strong>。<br><em>Please don&#39;t run in the classroom.</em></p>
+<p><ruby>教室<rt>きょうしつ</rt></ruby>で<ruby>走<rt>はし</rt></ruby>っ<strong>てはいけません</strong>。<br><em>You must not run in the classroom.</em></p>
 <p>The first is a request, however firmly meant; the second states a rule, and the speaker has to be in a position to state it - a teacher, a parent, a notice. Used by an equal it sounds like a scolding.</p>
-<p>There is a third, gentler option that learners rarely meet early enough: <code>～ないようにしてください</code>「please try not to…」, which frames the same content as advice. 夜(よる)遅(おそ)く電話(でんわ)しないようにしてください is the version that survives being said to almost anyone.</p>
 </div>
 </div>
-<div class="slide" data-index="49">
+<div class="slide" data-index="55">
+  
+  <div class="slide__content"><h2>～ないでください · ～ないでください vs ～てはいけません (cont.)</h2>
+<p>There is a third, gentler option that learners rarely meet early enough: <code>～ないようにしてください</code>「please try not to…」, which frames the same content as advice. <ruby>夜<rt>よる</rt></ruby><ruby>遅<rt>おそ</rt></ruby>く<ruby>電話<rt>でんわ</rt></ruby>しないようにしてください is the version that survives being said to almost anyone.</p>
+</div>
+</div>
+<div class="slide" data-index="56">
   
   <div class="slide__content"><h2>～ないでください · Common mistakes</h2>
 <ul>
-<li><p>❌ 見(み)ない<strong>てください</strong> → ✅ 見(み)ない<strong>でください</strong><br><em>The negative て-form is <code>ないで</code>. There is no form ❌<code>ないて</code>.</em></p>
+<li><p>❌ <ruby>見<rt>み</rt></ruby>ない<strong>てください</strong> → ✅ <ruby>見<rt>み</rt></ruby>ない<strong>でください</strong><br><em>The negative て-form is <code>ないで</code>. There is no form ❌<code>ないて</code>.</em></p>
 </li>
-<li><p>❌ 行(い)か<strong>なくてください</strong> → ✅ 行(い)か<strong>ないでください</strong><br><em><code>なくて</code> gives a reason; it cannot carry a request.</em></p>
+<li><p>❌ <ruby>行<rt>い</rt></ruby>か<strong>なくてください</strong> → ✅ <ruby>行<rt>い</rt></ruby>か<strong>ないでください</strong><br><em><code>なくて</code> gives a reason; it cannot carry a request.</em></p>
 </li>
 <li><p>❌ <strong>するないでください</strong> → ✅ <strong>しないでください</strong><br><em>する is irregular: its ない-form is しない, so the request is しないでください.</em></p>
 </li>
-<li><p>❌ たばこを<strong>吸(す)うないでください</strong> → ✅ たばこを<strong>吸(す)わないでください</strong><br><em><code>ないで</code> attaches to the ない-form, not the dictionary form. For う-verbs ending in <code>う</code>, the ない-form takes <code>わ</code>.</em></p>
-</li>
-<li><p>❌ 来(き)ないでください → ✅ 来(こ)ないでください<br>*Same kanji, different reading. The ない-form of 来(く)る is read <strong>こ</strong>ない.*</p>
+<li><p>❌ たばこを**<ruby>吸<rt>す</rt></ruby>うないでください** → ✅ たばこを**<ruby>吸<rt>す</rt></ruby>わないでください**<br><em><code>ないで</code> attaches to the ない-form, not the dictionary form. For う-verbs ending in <code>う</code>, the ない-form takes <code>わ</code>.</em></p>
 </li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="50">
+<div class="slide" data-index="57">
+  
+  <div class="slide__content"><h2>～ないでください · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ <ruby>来<rt>き</rt></ruby>ないでください → ✅ <ruby>来<rt>こ</rt></ruby>ないでください<br>*Same kanji, different reading. The ない-form of <ruby>来<rt>く</rt></ruby>る is read <strong>こ</strong>ない.*</li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="58">
   
   <div class="slide__content"><h2>～ないでください · Practice 1</h2>
-<p><strong>1.</strong> ここは図書館(としょかん)ですから、大(おお)きい声(こえ)で話(はな)____ください。</p>
+<p><strong>1.</strong> ここは<ruby>図書館<rt>としょかん</rt></ruby>ですから、<ruby>大<rt>おお</rt></ruby>きい<ruby>声<rt>こえ</rt></ruby>で<ruby>話<rt>はな</rt></ruby>____ください。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-大(おお)きい声(こえ)で話(はな)<strong>さないで</strong>ください。</p>
+<ruby>大<rt>おお</rt></ruby>きい<ruby>声<rt>こえ</rt></ruby>で<ruby>話<rt>はな</rt></ruby><strong>さないで</strong>ください。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>話(はな)す</code> → ない-form <code>話(はな)さない</code> → swap <code>ない</code> for <code>ないで</code>. A library is exactly the setting where the plain polite request is appropriate.</p>
+<code><ruby>話<rt>はな</rt></ruby>す</code> → ない-form <code><ruby>話<rt>はな</rt></ruby>さない</code> → swap <code>ない</code> for <code>ないで</code>. A library is exactly the setting where the plain polite request is appropriate.</p>
 </div>
 </div>
-<div class="slide" data-index="51">
+<div class="slide" data-index="59">
   
   <div class="slide__content"><h2>～ないでください · Practice 2</h2>
-<p><strong>2.</strong> 窓(まど)を（開(あ)けなくてください・開(あ)けないでください）。</p>
+<p><strong>2.</strong> <ruby>窓<rt>まど</rt></ruby>を（<ruby>開<rt>あ</rt></ruby>けなくてください・<ruby>開<rt>あ</rt></ruby>けないでください）。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-窓(まど)を<strong>開(あ)けないでください</strong>。</p>
+<ruby>窓<rt>まど</rt></ruby>を**<ruby>開<rt>あ</rt></ruby>けないでください**。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Japanese has two negative て-forms and only one of them can carry a request. <code>なくて</code> is for causes and consequences - <code>開(あ)けなくて寒(さむ)かった</code> - so it cannot be followed by <code>ください</code>.</p>
+Japanese has two negative て-forms and only one of them can carry a request. <code>なくて</code> is for causes and consequences - <code><ruby>開<rt>あ</rt></ruby>けなくて<ruby>寒<rt>さむ</rt></ruby>かった</code> - so it cannot be followed by <code>ください</code>.</p>
 </div>
 </div>
-<div class="slide" data-index="52">
+<div class="slide" data-index="60">
   
   <div class="slide__content"><h2>～ないでください · Practice 3</h2>
 <p><strong>3.</strong> Translate into Japanese: &quot;Please don&#39;t come to the office tomorrow.&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-明日(あした)は会社(かいしゃ)に<strong>来(こ)ないでください</strong>。</p>
+<ruby>明日<rt>あした</rt></ruby>は<ruby>会社<rt>かいしゃ</rt></ruby>に**<ruby>来<rt>こ</rt></ruby>ないでください**。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-The ない-form of <code>来(く)る</code> is <code>来(こ)ない</code> - the kanji stays put and the reading changes to こ. Writing きない is the classic slip.</p>
+The ない-form of <code><ruby>来<rt>く</rt></ruby>る</code> is <code><ruby>来<rt>こ</rt></ruby>ない</code> - the kanji stays put and the reading changes to こ. Writing きない is the classic slip.</p>
 </div>
 </div>
-<div class="slide" data-index="53">
+<div class="slide" data-index="61">
   
   <div class="slide__content"><h2>～ないでください · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 試験(しけん)中(ちゅう)は話(はなし)をするないでください。</p>
+<p><strong>4.</strong> Find and fix the error: <ruby>試験<rt>しけん</rt></ruby><ruby>中<rt>ちゅう</rt></ruby>は<ruby>話<rt>はなし</rt></ruby>をするないでください。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 試験(しけん)中(ちゅう)は話(はなし)を<strong>しないでください</strong>。</p>
+✅ <ruby>試験<rt>しけん</rt></ruby><ruby>中<rt>ちゅう</rt></ruby>は<ruby>話<rt>はなし</rt></ruby>を<strong>しないでください</strong>。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 する is one of the two irregular verbs. Its ない-form is しない, not ❌するない, so the negative request is しないでください.</p>
 </div>
 </div>
-<div class="slide" data-index="54">
+<div class="slide" data-index="62">
   
   <div class="slide__content"><h2>～ないでください · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) ここに荷物(にもつ)を置(お)か<strong>ないでください</strong>。 (b) ここに荷物(にもつ)を置(お)い<strong>てはいけません</strong>。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) ここに<ruby>荷物<rt>にもつ</rt></ruby>を<ruby>置<rt>お</rt></ruby>か<strong>ないでください</strong>。 (b) ここに<ruby>荷物<rt>にもつ</rt></ruby>を<ruby>置<rt>お</rt></ruby>い<strong>てはいけません</strong>。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) is a request. It is firm and unambiguous, but it is still the speaker asking, and a colleague could say it to another colleague without friction.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (b) states a rule and claims the authority to state it. It is what a member of staff, a teacher or a posted notice would use, and coming from an equal it sounds like being told off.</p>
 </div>
 </div>
-<div class="slide" data-index="55">
+<div class="slide" data-index="63">
   
   <div class="slide__content"><h1>～ましょう</h1>
 <p><strong>Meaning</strong> · let&#39;s - a proposal made on the assumption you already agree</p>
 <p><code>～ましょう</code> is the polite volitional. It turns a verb into &quot;let&#39;s do it&quot;, and its defining feature is <strong>confidence</strong>: the speaker takes agreement as read. That makes it the right form for a plan already settled, for a leader moving a group along, and for a public slogan - and the wrong form for a genuine, open invitation, where <code>～ませんか</code> is what you want.</p>
-<p>A second use hides inside the first. With <code>私(わたし)が</code>, <code>～ましょう</code> is not &quot;let&#39;s&quot; at all but &quot;I&#39;ll do it&quot; - the speaker volunteering.</p>
+<p>A second use hides inside the first. With <code><ruby>私<rt>わたし</rt></ruby>が</code>, <code>～ましょう</code> is not &quot;let&#39;s&quot; at all but &quot;I&#39;ll do it&quot; - the speaker volunteering.</p>
 </div>
 </div>
-<div class="slide" data-index="56">
+<div class="slide" data-index="64">
   
   <div class="slide__content"><h2>～ましょう · Formation</h2>
 <table>
@@ -3290,12 +3349,12 @@ The ない-form of <code>来(く)る</code> is <code>来(こ)ない</code> - the
 <tbody><tr>
 <td>Verb (う-verb)</td>
 <td>ます-stem + ましょう</td>
-<td>行(い)きます → 行(い)きましょう</td>
+<td><ruby>行<rt>い</rt></ruby>きます → <ruby>行<rt>い</rt></ruby>きましょう</td>
 </tr>
 <tr>
 <td>Verb (る-verb)</td>
 <td>ます-stem + ましょう</td>
-<td>食(た)べます → 食(た)べましょう</td>
+<td><ruby>食<rt>た</rt></ruby>べます → <ruby>食<rt>た</rt></ruby>べましょう</td>
 </tr>
 <tr>
 <td>Verb (する)</td>
@@ -3303,197 +3362,208 @@ The ない-form of <code>来(く)る</code> is <code>来(こ)ない</code> - the
 <td>します → しましょう</td>
 </tr>
 <tr>
-<td>Verb (来(く)る)</td>
+<td>Verb (<ruby>来<rt>く</rt></ruby>る)</td>
 <td>き + ましょう</td>
-<td>来(き)ます → 来(き)ましょう</td>
+<td><ruby>来<rt>き</rt></ruby>ます → <ruby>来<rt>き</rt></ruby>ましょう</td>
 </tr>
 <tr>
 <td>Softened into a question</td>
 <td>ましょう + か</td>
-<td>行(い)きましょうか</td>
+<td><ruby>行<rt>い</rt></ruby>きましょうか</td>
 </tr>
 <tr>
 <td>Casual equivalent</td>
 <td>plain volitional</td>
-<td>行(い)く → 行(い)こう／食(た)べる → 食(た)べよう</td>
+<td><ruby>行<rt>い</rt></ruby>く → <ruby>行<rt>い</rt></ruby>こう／<ruby>食<rt>た</rt></ruby>べる → <ruby>食<rt>た</rt></ruby>べよう</td>
 </tr>
 </tbody></table>
-<blockquote>
-<p><strong>Rule of thumb</strong> - <code>ましょう</code> replaces <code>ます</code>, so it builds off the same stem. 飲(の)み<strong>ます</strong> → 飲(の)み<strong>ましょう</strong>. It never attaches to the dictionary form: ❌飲(の)むましょう.</p>
-</blockquote>
 </div>
 </div>
-<div class="slide" data-index="57">
+<div class="slide" data-index="65">
   
   <div class="slide__content"><h2>～ましょう · Formation (cont.)</h2>
 <blockquote>
-<p><strong>Note</strong> - there is no negative <code>ましょう</code>. ❌行(い)きませんしょう does not exist. To propose <em>not</em> doing something, negate the content instead: 今日(きょう)は買(か)うのはやめましょう or 今日(きょう)は買(か)わないことにしましょう.</p>
+<p><strong>Rule of thumb</strong> - <code>ましょう</code> replaces <code>ます</code>, so it builds off the same stem. <ruby>飲<rt>の</rt></ruby>み<strong>ます</strong> → <ruby>飲<rt>の</rt></ruby>み<strong>ましょう</strong>. It never attaches to the dictionary form: ❌<ruby>飲<rt>の</rt></ruby>むましょう.</p>
+</blockquote>
+<blockquote>
+<p><strong>Note</strong> - there is no negative <code>ましょう</code>. ❌<ruby>行<rt>い</rt></ruby>きませんしょう does not exist. To propose <em>not</em> doing something, negate the content instead: <ruby>今日<rt>きょう</rt></ruby>は<ruby>買<rt>か</rt></ruby>うのはやめましょう or <ruby>今日<rt>きょう</rt></ruby>は<ruby>買<rt>か</rt></ruby>わないことにしましょう.</p>
 </blockquote>
 </div>
 </div>
-<div class="slide" data-index="58">
+<div class="slide" data-index="66">
   
   <div class="slide__content"><h2>～ましょう · Examples</h2>
-<p>じゃあ、<strong>行(い)きましょう</strong>。<br><em>Right - let&#39;s go.</em></p>
-<p>一緒(いっしょ)に昼(ひる)ごはんを<strong>食(た)べましょう</strong>。<br><em>Let&#39;s have lunch together.</em></p>
-<p>七(しち)時(じ)に駅(えき)の前(まえ)で<strong>会(あ)いましょう</strong>。<br><em>Let&#39;s meet in front of the station at seven.</em></p>
-<p>そろそろ<strong>始(はじ)めましょう</strong>。<br><em>Let&#39;s get started.</em></p>
-<p>今日(きょう)はここまでに<strong>しましょう</strong>。<br><em>Let&#39;s call it a day there.</em></p>
+<p>じゃあ、<strong><ruby>行<rt>い</rt></ruby>きましょう</strong>。<br><em>Right - let&#39;s go.</em></p>
+<p><ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>昼<rt>ひる</rt></ruby>ごはんを**<ruby>食<rt>た</rt></ruby>べましょう**。<br><em>Let&#39;s have lunch together.</em></p>
+<p><ruby>七<rt>しち</rt></ruby><ruby>時<rt>じ</rt></ruby>に<ruby>駅<rt>えき</rt></ruby>の<ruby>前<rt>まえ</rt></ruby>で**<ruby>会<rt>あ</rt></ruby>いましょう**。<br><em>Let&#39;s meet in front of the station at seven.</em></p>
+<p>そろそろ**<ruby>始<rt>はじ</rt></ruby>めましょう**。<br><em>Let&#39;s get started.</em></p>
 </div>
 </div>
-<div class="slide" data-index="59">
+<div class="slide" data-index="67">
   
   <div class="slide__content"><h2>～ましょう · Examples (cont.)</h2>
-<p>はい、私(わたし)が<strong>運転(うんてん)しましょう</strong>。<br><em>All right - I&#39;ll drive.</em></p>
-<p>雨(あめ)が降(ふ)りそうですから、傘(かさ)を持(も)って<strong>行(い)きましょう</strong>。<br><em>It looks like rain, so let&#39;s take umbrellas.</em></p>
-<p>時間(じかん)がありませんから、細(こま)かいことは後(あと)で<strong>話(はな)しましょう</strong>。<br><em>We&#39;re out of time, so let&#39;s go through the details afterwards.</em></p>
+<p><ruby>今日<rt>きょう</rt></ruby>はここまでに<strong>しましょう</strong>。<br><em>Let&#39;s call it a day there.</em></p>
+<p>はい、<ruby>私<rt>わたし</rt></ruby>が**<ruby>運転<rt>うんてん</rt></ruby>しましょう**。<br><em>All right - I&#39;ll drive.</em></p>
+<p><ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>りそうですから、<ruby>傘<rt>かさ</rt></ruby>を<ruby>持<rt>も</rt></ruby>って**<ruby>行<rt>い</rt></ruby>きましょう**。<br><em>It looks like rain, so let&#39;s take umbrellas.</em></p>
+<p><ruby>時間<rt>じかん</rt></ruby>がありませんから、<ruby>細<rt>こま</rt></ruby>かいことは<ruby>後<rt>あと</rt></ruby>で**<ruby>話<rt>はな</rt></ruby>しましょう**。<br><em>We&#39;re out of time, so let&#39;s go through the details afterwards.</em></p>
 </div>
 </div>
-<div class="slide" data-index="60">
+<div class="slide" data-index="68">
   
   <div class="slide__content"><h2>～ましょう · Nuance &amp; register</h2>
-<p><code>ましょう</code> is polite in form but <em>assertive in function</em>. You are announcing what the group is going to do. That is fine when the plan is agreed, when you are the one running the meeting, or when the proposal is obviously welcome (寒(さむ)いですね、中(なか)に入(はい)りましょう). It is presumptuous when the other person has not yet agreed to anything, and doubly so upward: 部長(ぶちょう)、飲(の)みに行(い)きましょう helps itself to the boss&#39;s evening. 飲(の)みに行(い)きませんか or いかがですか leaves the decision where it belongs.</p>
-<p>The same assertiveness is why <code>ましょう</code> is the voice of public exhortation. Handwashing posters, road-safety signs and school announcements are full of it: 手(て)を洗(あら)いましょう, 気(き)をつけましょう, 時間(じかん)を守(まも)りましょう. Grammatically these are invitations; in practice they are instructions with a smile.</p>
+<p><code>ましょう</code> is polite in form but <em>assertive in function</em>. You are announcing what the group is going to do. That is fine when the plan is agreed, when you are the one running the meeting, or when the proposal is obviously welcome (<ruby>寒<rt>さむ</rt></ruby>いですね、<ruby>中<rt>なか</rt></ruby>に<ruby>入<rt>はい</rt></ruby>りましょう). It is presumptuous when the other person has not yet agreed to anything, and doubly so upward: <ruby>部長<rt>ぶちょう</rt></ruby>、<ruby>飲<rt>の</rt></ruby>みに<ruby>行<rt>い</rt></ruby>きましょう helps itself to the boss&#39;s evening. <ruby>飲<rt>の</rt></ruby>みに<ruby>行<rt>い</rt></ruby>きませんか or いかがですか leaves the decision where it belongs.</p>
+<p>The same assertiveness is why <code>ましょう</code> is the voice of public exhortation. Handwashing posters, road-safety signs and school announcements are full of it: <ruby>手<rt>て</rt></ruby>を<ruby>洗<rt>あら</rt></ruby>いましょう, <ruby>気<rt>き</rt></ruby>をつけましょう, <ruby>時間<rt>じかん</rt></ruby>を<ruby>守<rt>まも</rt></ruby>りましょう. Grammatically these are invitations; in practice they are instructions with a smile.</p>
 </div>
 </div>
-<div class="slide" data-index="61">
+<div class="slide" data-index="69">
   
   <div class="slide__content"><h2>～ましょう · Nuance &amp; register (cont.)</h2>
-<p>As an answer, <code>ましょう</code> is the standard <em>yes</em>. To 一緒(いっしょ)に行(い)きませんか you reply ええ、行(い)きましょう - the invitation was open, and <code>ましょう</code> closes it.</p>
-<p>The <code>私(わたし)が</code> use is worth practising: 私(わたし)が持(も)ちましょう「I&#39;ll carry that」. It is a shade more take-charge than 持(も)ちましょうか, which asks first, and noticeably more formal than 持(も)ちます. In service Japanese it is often replaced by the humble お持(も)ちしましょう.</p>
-<p>Casually, the whole thing collapses to the plain volitional: 行(い)こう, 食(た)べよう, しよう, 来(こ)よう. Between friends <code>ましょう</code> sounds oddly ceremonious, like proposing a motion.</p>
+<p>As an answer, <code>ましょう</code> is the standard <em>yes</em>. To <ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>行<rt>い</rt></ruby>きませんか you reply ええ、<ruby>行<rt>い</rt></ruby>きましょう - the invitation was open, and <code>ましょう</code> closes it.</p>
+<p>The <code><ruby>私<rt>わたし</rt></ruby>が</code> use is worth practising: <ruby>私<rt>わたし</rt></ruby>が<ruby>持<rt>も</rt></ruby>ちましょう「I&#39;ll carry that」. It is a shade more take-charge than <ruby>持<rt>も</rt></ruby>ちましょうか, which asks first, and noticeably more formal than <ruby>持<rt>も</rt></ruby>ちます. In service Japanese it is often replaced by the humble お<ruby>持<rt>も</rt></ruby>ちしましょう.</p>
+<p>Casually, the whole thing collapses to the plain volitional: <ruby>行<rt>い</rt></ruby>こう, <ruby>食<rt>た</rt></ruby>べよう, しよう, <ruby>来<rt>こ</rt></ruby>よう. Between friends <code>ましょう</code> sounds oddly ceremonious, like proposing a motion.</p>
 </div>
 </div>
-<div class="slide" data-index="62">
+<div class="slide" data-index="70">
   
   <div class="slide__content"><h2>～ましょう · ～ましょう vs ～ませんか</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>ましょう</code> <strong>assumes</strong> you&#39;ll agree; <code>ませんか</code> <strong>asks</strong> whether you will. If the other person could reasonably say no, use <code>ませんか</code>.</p>
 </blockquote>
-<p>映画(えいが)を<strong>見(み)に行(い)きましょう</strong>。<br><em>Let&#39;s go and see a film.</em></p>
-<p>映画(えいが)を<strong>見(み)に行(い)きませんか</strong>。<br><em>Would you like to go and see a film?</em></p>
+<p><ruby>映画<rt>えいが</rt></ruby>を**<ruby>見<rt>み</rt></ruby>に<ruby>行<rt>い</rt></ruby>きましょう**。<br><em>Let&#39;s go and see a film.</em></p>
+<p><ruby>映画<rt>えいが</rt></ruby>を**<ruby>見<rt>み</rt></ruby>に<ruby>行<rt>い</rt></ruby>きませんか**。<br><em>Would you like to go and see a film?</em></p>
 <p>The first works when you have already decided to spend the afternoon together and are choosing what to do. The second works when you are asking someone out - it is a question, it is negative, and both of those give the listener room.</p>
 </div>
 </div>
-<div class="slide" data-index="63">
+<div class="slide" data-index="71">
   
   <div class="slide__content"><h2>～ましょう · ～ましょう vs ～ませんか (cont.)</h2>
 <p>This is why the pair so often appears in sequence: one person invites with <code>ませんか</code>, the other accepts with <code>ましょう</code>. Reversing them is the classic learner error, and it is the difference between &quot;would you like to?&quot; and &quot;we&#39;re going&quot;.</p>
 </div>
 </div>
-<div class="slide" data-index="64">
+<div class="slide" data-index="72">
   
   <div class="slide__content"><h2>～ましょう · ～ましょう vs ～ましょうか</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - the <code>か</code> turns a decision into a question. <code>ましょう</code> announces; <code>ましょうか</code> checks, or offers to do something <em>for</em> the listener.</p>
 </blockquote>
-<p>そろそろ<strong>出(で)ましょう</strong>。<br><em>Let&#39;s head off.</em></p>
-<p>そろそろ<strong>出(で)ましょうか</strong>。<br><em>Shall we head off?</em></p>
-<p>Adding <code>か</code> costs nothing and softens a great deal, so <code>ましょうか</code> is the safer default whenever you are not certain the other person is ready. It also unlocks a sense <code>ましょう</code> does not have: with the speaker as the doer, it becomes an offer - 荷物(にもつ)を持(も)ちましょうか「shall I take your bag?」 where 荷物(にもつ)を持(も)ちましょう is you announcing that you will.</p>
+<p>そろそろ**<ruby>出<rt>で</rt></ruby>ましょう**。<br><em>Let&#39;s head off.</em></p>
+<p>そろそろ**<ruby>出<rt>で</rt></ruby>ましょうか**。<br><em>Shall we head off?</em></p>
 </div>
 </div>
-<div class="slide" data-index="65">
+<div class="slide" data-index="73">
+  
+  <div class="slide__content"><h2>～ましょう · ～ましょう vs ～ましょうか (cont.)</h2>
+<p>Adding <code>か</code> costs nothing and softens a great deal, so <code>ましょうか</code> is the safer default whenever you are not certain the other person is ready. It also unlocks a sense <code>ましょう</code> does not have: with the speaker as the doer, it becomes an offer - <ruby>荷物<rt>にもつ</rt></ruby>を<ruby>持<rt>も</rt></ruby>ちましょうか「shall I take your bag?」 where <ruby>荷物<rt>にもつ</rt></ruby>を<ruby>持<rt>も</rt></ruby>ちましょう is you announcing that you will.</p>
+</div>
+</div>
+<div class="slide" data-index="74">
   
   <div class="slide__content"><h2>～ましょう · ～ましょう vs the plain volitional</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - same meaning, different politeness. <code>ましょう</code> is the ます-level form; 行(い)こう and 食(た)べよう are the plain-level ones.</p>
+<p><strong>Rule of thumb</strong> - same meaning, different politeness. <code>ましょう</code> is the ます-level form; <ruby>行<rt>い</rt></ruby>こう and <ruby>食<rt>た</rt></ruby>べよう are the plain-level ones.</p>
 </blockquote>
-<p>明日(あした)は八(はち)時(じ)に<strong>集(あつ)まりましょう</strong>。<br><em>Let&#39;s gather at eight tomorrow.</em></p>
-<p>おなかすいた。なんか<strong>食(た)べよう</strong>。<br><em>I&#39;m hungry. Let&#39;s get something to eat.</em></p>
-<p>The plain forms are built like this: う-verbs change the final <code>-u</code> to <code>-ou</code> (行(い)く → 行(い)こう, 飲(の)む → 飲(の)もう), る-verbs swap <code>る</code> for <code>よう</code> (見(み)る → 見(み)よう), and the two irregulars are する → しよう, 来(く)る → 来(こ)よう.</p>
+<p><ruby>明日<rt>あした</rt></ruby>は<ruby>八<rt>はち</rt></ruby><ruby>時<rt>じ</rt></ruby>に**<ruby>集<rt>あつ</rt></ruby>まりましょう**。<br><em>Let&#39;s gather at eight tomorrow.</em></p>
+<p>おなかすいた。なんか**<ruby>食<rt>た</rt></ruby>べよう**。<br><em>I&#39;m hungry. Let&#39;s get something to eat.</em></p>
 </div>
 </div>
-<div class="slide" data-index="66">
+<div class="slide" data-index="75">
   
   <div class="slide__content"><h2>～ましょう · ～ましょう vs the plain volitional (cont.)</h2>
-<p>Register maps straight across: use the plain volitional with friends, family and anyone you would speak to in plain form, and <code>ましょう</code> everywhere you are using <code>ます</code>. Note that the plain form can also take <code>か</code> - 行(い)こうか is the casual equivalent of 行(い)きましょうか.</p>
+<p>The plain forms are built like this: う-verbs change the final <code>-u</code> to <code>-ou</code> (<ruby>行<rt>い</rt></ruby>く → <ruby>行<rt>い</rt></ruby>こう, <ruby>飲<rt>の</rt></ruby>む → <ruby>飲<rt>の</rt></ruby>もう), る-verbs swap <code>る</code> for <code>よう</code> (<ruby>見<rt>み</rt></ruby>る → <ruby>見<rt>み</rt></ruby>よう), and the two irregulars are する → しよう, <ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby>よう.</p>
+<p>Register maps straight across: use the plain volitional with friends, family and anyone you would speak to in plain form, and <code>ましょう</code> everywhere you are using <code>ます</code>. Note that the plain form can also take <code>か</code> - <ruby>行<rt>い</rt></ruby>こうか is the casual equivalent of <ruby>行<rt>い</rt></ruby>きましょうか.</p>
 </div>
 </div>
-<div class="slide" data-index="67">
+<div class="slide" data-index="76">
   
   <div class="slide__content"><h2>～ましょう · Common mistakes</h2>
 <ul>
-<li><p>❌ 飲(の)む<strong>ましょう</strong> → ✅ 飲(の)み<strong>ましょう</strong><br><em><code>ましょう</code> replaces <code>ます</code> on the stem, not the dictionary form.</em></p>
+<li><p>❌ <ruby>飲<rt>の</rt></ruby>む<strong>ましょう</strong> → ✅ <ruby>飲<rt>の</rt></ruby>み<strong>ましょう</strong><br><em><code>ましょう</code> replaces <code>ます</code> on the stem, not the dictionary form.</em></p>
 </li>
-<li><p>❌ 行(い)き<strong>ましょうですか</strong> → ✅ 行(い)き<strong>ましょうか</strong><br><em><code>ましょう</code> already contains the copula. Just add <code>か</code>.</em></p>
+<li><p>❌ <ruby>行<rt>い</rt></ruby>き<strong>ましょうですか</strong> → ✅ <ruby>行<rt>い</rt></ruby>き<strong>ましょうか</strong><br><em><code>ましょう</code> already contains the copula. Just add <code>か</code>.</em></p>
 </li>
-<li><p>❌ 課長(かちょう)、一緒(いっしょ)に帰(かえ)り<strong>ましょう</strong>。 → ✅ 課長(かちょう)、一緒(いっしょ)に帰(かえ)り<strong>ませんか</strong>。<br><em>Deciding a superior&#39;s movements for them. Ask instead of proposing.</em></p>
+<li><p>❌ <ruby>課長<rt>かちょう</rt></ruby>、<ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>帰<rt>かえ</rt></ruby>り<strong>ましょう</strong>。 → ✅ <ruby>課長<rt>かちょう</rt></ruby>、<ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>帰<rt>かえ</rt></ruby>り<strong>ませんか</strong>。<br><em>Deciding a superior&#39;s movements for them. Ask instead of proposing.</em></p>
 </li>
-<li><p>❌ 明日(あした)は雨(あめ)が降(ふ)り<strong>ましょう</strong>。 → ✅ 明日(あした)は雨(あめ)が降(ふ)る<strong>でしょう</strong>。<br><em><code>ましょう</code> is a proposal, not a prediction. Guessing about the weather is <code>でしょう</code>.</em></p>
-</li>
-<li><p>❌ 行(い)き<strong>ませんしょう</strong>。 → ✅ 行(い)くのは<strong>やめましょう</strong>。<br><em>There is no negative <code>ましょう</code>; negate the content instead.</em></p>
+<li><p>❌ <ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>り<strong>ましょう</strong>。 → ✅ <ruby>明日<rt>あした</rt></ruby>は<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>る<strong>でしょう</strong>。<br><em><code>ましょう</code> is a proposal, not a prediction. Guessing about the weather is <code>でしょう</code>.</em></p>
 </li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="68">
+<div class="slide" data-index="77">
+  
+  <div class="slide__content"><h2>～ましょう · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ <ruby>行<rt>い</rt></ruby>き<strong>ませんしょう</strong>。 → ✅ <ruby>行<rt>い</rt></ruby>くのは<strong>やめましょう</strong>。<br><em>There is no negative <code>ましょう</code>; negate the content instead.</em></li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="78">
   
   <div class="slide__content"><h2>～ましょう · Practice 1</h2>
-<p><strong>1.</strong> つかれましたね。ちょっと休(やす)____。</p>
+<p><strong>1.</strong> つかれましたね。ちょっと<ruby>休<rt>やす</rt></ruby>____。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-ちょっと休(やす)<strong>みましょう</strong>。</p>
+ちょっと<ruby>休<rt>やす</rt></ruby><strong>みましょう</strong>。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>休(やす)む</code> → ます-stem <code>休(やす)み</code> → + ましょう. Both people are already tired, so agreement is safe to assume and the assertive form is natural here.</p>
+<code><ruby>休<rt>やす</rt></ruby>む</code> → ます-stem <code><ruby>休<rt>やす</rt></ruby>み</code> → + ましょう. Both people are already tired, so agreement is safe to assume and the assertive form is natural here.</p>
 </div>
 </div>
-<div class="slide" data-index="69">
+<div class="slide" data-index="79">
   
   <div class="slide__content"><h2>～ましょう · Practice 2</h2>
-<p><strong>2.</strong> 初(はじ)めて話(はな)す人(ひと)に：「今度(こんど)うちに（来(き)ましょう・来(き)ませんか）。」</p>
+<p><strong>2.</strong> <ruby>初<rt>はじ</rt></ruby>めて<ruby>話<rt>はな</rt></ruby>す<ruby>人<rt>ひと</rt></ruby>に：「<ruby>今度<rt>こんど</rt></ruby>うちに（<ruby>来<rt>き</rt></ruby>ましょう・<ruby>来<rt>き</rt></ruby>ませんか）。」</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-今度(こんど)うちに<strong>来(き)ませんか</strong>。</p>
+<ruby>今度<rt>こんど</rt></ruby>うちに**<ruby>来<rt>き</rt></ruby>ませんか**。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 You are inviting someone you have only just met, so they must be free to decline. <code>ましょう</code> would announce the visit as settled, which is presumptuous with a stranger.</p>
 </div>
 </div>
-<div class="slide" data-index="70">
+<div class="slide" data-index="80">
   
   <div class="slide__content"><h2>～ましょう · Practice 3</h2>
 <p><strong>3.</strong> Translate into Japanese: &quot;It&#39;s cold, so let&#39;s go into the café.&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-寒(さむ)いですから、喫茶店(きっさてん)に<strong>入(はい)りましょう</strong>。</p>
+<ruby>寒<rt>さむ</rt></ruby>いですから、<ruby>喫茶店<rt>きっさてん</rt></ruby>に**<ruby>入<rt>はい</rt></ruby>りましょう**。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 Here the assumption of agreement is entirely safe - you are both cold - which is exactly the situation <code>ましょう</code> is built for.</p>
 </div>
 </div>
-<div class="slide" data-index="71">
+<div class="slide" data-index="81">
   
   <div class="slide__content"><h2>～ましょう · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 来週(らいしゅう)の日曜日(にちようび)、テニスをするましょうか。</p>
+<p><strong>4.</strong> Find and fix the error: <ruby>来週<rt>らいしゅう</rt></ruby>の<ruby>日曜日<rt>にちようび</rt></ruby>、テニスをするましょうか。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 来週(らいしゅう)の日曜日(にちようび)、テニスを<strong>しましょうか</strong>。</p>
+✅ <ruby>来週<rt>らいしゅう</rt></ruby>の<ruby>日曜日<rt>にちようび</rt></ruby>、テニスを<strong>しましょうか</strong>。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 <code>ましょう</code> builds on the ます-stem, and the ます-form of する is します, so the stem is し. ❌するましょう doubles up the verb.</p>
 </div>
 </div>
-<div class="slide" data-index="72">
+<div class="slide" data-index="82">
   
   <div class="slide__content"><h2>～ましょう · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 会議(かいぎ)を始(はじ)め<strong>ましょう</strong>。 (b) 会議(かいぎ)を始(はじ)め<strong>ましょうか</strong>。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>会議<rt>かいぎ</rt></ruby>を<ruby>始<rt>はじ</rt></ruby>め<strong>ましょう</strong>。 (b) <ruby>会議<rt>かいぎ</rt></ruby>を<ruby>始<rt>はじ</rt></ruby>め<strong>ましょうか</strong>。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) starts the meeting. The speaker has the floor, everyone is present, and the sentence is really an announcement dressed as a proposal - the chair&#39;s line.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (b) checks first. It reads as &quot;shall we make a start?&quot;, which suits someone who is not chairing, or a chair who can see that two people are still on the phone. The <code>か</code> costs one syllable and buys a lot of room.</p>
 </div>
 </div>
-<div class="slide" data-index="73">
+<div class="slide" data-index="83">
   
   <div class="slide__content"><h1>～ましょうか</h1>
 <p><strong>Meaning</strong> · shall I? / shall we? - offering to do something, or proposing tentatively</p>
 <p><code>～ましょうか</code> is <code>～ましょう</code> with a question mark built in, and that small <code>か</code> does two different jobs.</p>
 <ul>
-<li><strong>Shall I?</strong> - you offer to do something <em>for</em> the listener.<br><em>窓(まど)を開(あ)けましょうか。</em></li>
-<li><strong>Shall we?</strong> - you propose something for both of you, but check first instead of<br><em>announcing. そろそろ帰(かえ)りましょうか。</em></li>
+<li><strong>Shall I?</strong> - you offer to do something <em>for</em> the listener.<br><em><ruby>窓<rt>まど</rt></ruby>を<ruby>開<rt>あ</rt></ruby>けましょうか。</em></li>
+<li><strong>Shall we?</strong> - you propose something for both of you, but check first instead of<br><em>announcing. そろそろ<ruby>帰<rt>かえ</rt></ruby>りましょうか。</em></li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="74">
+<div class="slide" data-index="84">
   
   <div class="slide__content"><h2>～ましょうか · Overview</h2>
 <p>Which one a listener hears is decided by the situation, not the grammar: if the action benefits them and only you can do it, it is an offer; if it is something you would do together, it is a proposal.</p>
 </div>
 </div>
-<div class="slide" data-index="75">
+<div class="slide" data-index="85">
   
   <div class="slide__content"><h2>～ましょうか · Formation</h2>
 <table>
@@ -3507,12 +3577,12 @@ Here the assumption of agreement is entirely safe - you are both cold - which is
 <tbody><tr>
 <td>Verb (う-verb)</td>
 <td>ます-stem + ましょうか</td>
-<td>持(も)ちます → 持(も)ちましょうか</td>
+<td><ruby>持<rt>も</rt></ruby>ちます → <ruby>持<rt>も</rt></ruby>ちましょうか</td>
 </tr>
 <tr>
 <td>Verb (る-verb)</td>
 <td>ます-stem + ましょうか</td>
-<td>開(あ)けます → 開(あ)けましょうか</td>
+<td><ruby>開<rt>あ</rt></ruby>けます → <ruby>開<rt>あ</rt></ruby>けましょうか</td>
 </tr>
 <tr>
 <td>Verb (する)</td>
@@ -3520,197 +3590,202 @@ Here the assumption of agreement is entirely safe - you are both cold - which is
 <td>します → しましょうか</td>
 </tr>
 <tr>
-<td>Verb (来(く)る)</td>
+<td>Verb (<ruby>来<rt>く</rt></ruby>る)</td>
 <td>き + ましょうか</td>
-<td>来(き)ます → 来(き)ましょうか</td>
+<td><ruby>来<rt>き</rt></ruby>ます → <ruby>来<rt>き</rt></ruby>ましょうか</td>
 </tr>
 <tr>
 <td>Humble offer (service Japanese)</td>
 <td>お + ます-stem + しましょうか</td>
-<td>お持(も)ちしましょうか</td>
+<td>お<ruby>持<rt>も</rt></ruby>ちしましょうか</td>
 </tr>
 <tr>
 <td>Casual</td>
 <td>plain volitional + か</td>
-<td>開(あ)けようか／手伝(てつだ)おうか</td>
+<td><ruby>開<rt>あ</rt></ruby>けようか／<ruby>手伝<rt>てつだ</rt></ruby>おうか</td>
 </tr>
 </tbody></table>
+</div>
+</div>
+<div class="slide" data-index="86">
+  
+  <div class="slide__content"><h2>～ましょうか · Formation (cont.)</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - mark the doer and the ambiguity disappears. 私(わたし)が運(はこ)びましょうか is unmistakably an offer; 一緒(いっしょ)に運(はこ)びましょうか is unmistakably a proposal.</p>
+<p><strong>Rule of thumb</strong> - mark the doer and the ambiguity disappears. <ruby>私<rt>わたし</rt></ruby>が<ruby>運<rt>はこ</rt></ruby>びましょうか is unmistakably an offer; <ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>運<rt>はこ</rt></ruby>びましょうか is unmistakably a proposal.</p>
 </blockquote>
 </div>
 </div>
-<div class="slide" data-index="76">
+<div class="slide" data-index="87">
   
   <div class="slide__content"><h2>～ましょうか · Examples</h2>
-<p>窓(まど)を<strong>開(あ)けましょうか</strong>。<br><em>Shall I open the window?</em></p>
-<p><strong>手伝(てつだ)いましょうか</strong>。<br><em>Shall I give you a hand?</em></p>
-<p>何(なに)を<strong>飲(の)みましょうか</strong>。<br><em>What shall we have to drink?</em></p>
-<p>暑(あつ)いですね。エアコンを<strong>つけましょうか</strong>。<br><em>It&#39;s hot, isn&#39;t it. Shall I put the air conditioning on?</em></p>
-<p>どこで<strong>会(あ)いましょうか</strong>。<br><em>Where shall we meet?</em></p>
+<p><ruby>窓<rt>まど</rt></ruby>を**<ruby>開<rt>あ</rt></ruby>けましょうか**。<br><em>Shall I open the window?</em></p>
+<p><strong><ruby>手伝<rt>てつだ</rt></ruby>いましょうか</strong>。<br><em>Shall I give you a hand?</em></p>
+<p><ruby>何<rt>なに</rt></ruby>を**<ruby>飲<rt>の</rt></ruby>みましょうか**。<br><em>What shall we have to drink?</em></p>
+<p><ruby>暑<rt>あつ</rt></ruby>いですね。エアコンを<strong>つけましょうか</strong>。<br><em>It&#39;s hot, isn&#39;t it. Shall I put the air conditioning on?</em></p>
 </div>
 </div>
-<div class="slide" data-index="77">
+<div class="slide" data-index="88">
   
   <div class="slide__content"><h2>～ましょうか · Examples (cont.)</h2>
-<p>写真(しゃしん)を<strong>撮(と)りましょうか</strong>。<br><em>Shall I take a photo for you?</em></p>
-<p>道(みち)が混(こ)んでいますね。次(つぎ)の角(かど)を右(みぎ)に<strong>曲(ま)がりましょうか</strong>。<br><em>The traffic&#39;s heavy. Shall we turn right at the next corner?</em></p>
-<p>会議(かいぎ)の資料(しりょう)、私(わたし)が人数分(にんずうぶん)<strong>コピーしておきましょうか</strong>。<br><em>Shall I run off enough copies of the meeting handouts for everyone?</em></p>
+<p>どこで**<ruby>会<rt>あ</rt></ruby>いましょうか**。<br><em>Where shall we meet?</em></p>
+<p><ruby>写真<rt>しゃしん</rt></ruby>を**<ruby>撮<rt>と</rt></ruby>りましょうか**。<br><em>Shall I take a photo for you?</em></p>
+<p><ruby>道<rt>みち</rt></ruby>が<ruby>混<rt>こ</rt></ruby>んでいますね。<ruby>次<rt>つぎ</rt></ruby>の<ruby>角<rt>かど</rt></ruby>を<ruby>右<rt>みぎ</rt></ruby>に**<ruby>曲<rt>ま</rt></ruby>がりましょうか**。<br><em>The traffic&#39;s heavy. Shall we turn right at the next corner?</em></p>
+<p><ruby>会議<rt>かいぎ</rt></ruby>の<ruby>資料<rt>しりょう</rt></ruby>、<ruby>私<rt>わたし</rt></ruby>が<ruby>人数分<rt>にんずうぶん</rt></ruby><strong>コピーしておきましょうか</strong>。<br><em>Shall I run off enough copies of the meeting handouts for everyone?</em></p>
 </div>
 </div>
-<div class="slide" data-index="78">
+<div class="slide" data-index="89">
   
   <div class="slide__content"><h2>～ましょうか · Nuance &amp; register</h2>
 <p><code>ましょうか</code> is the workhorse of everyday helpfulness. It is what you say when you notice someone struggling with a door, a suitcase, a printer. It is polite without being stiff, it commits you to nothing until they answer, and - crucially - it does not put the listener under obligation, because you are volunteering rather than asking.</p>
 <p>Learn the replies as a set, because you will hear them constantly:</p>
 <ul>
-<li><strong>お願(ねが)いします</strong> - yes, please.</li>
+<li><strong>お<ruby>願<rt>ねが</rt></ruby>いします</strong> - yes, please.</li>
 <li><strong>すみません、ありがとうございます</strong> - yes, with thanks and apology at once.</li>
-<li><strong>あ、大丈夫(だいじょうぶ)です</strong> - no, I&#39;m fine. The everyday polite refusal.</li>
-<li><strong>いえ、結構(けっこう)です</strong> - no thank you. Firmer, and cooler.</li>
+<li><strong>あ、<ruby>大丈夫<rt>だいじょうぶ</rt></ruby>です</strong> - no, I&#39;m fine. The everyday polite refusal.</li>
+<li><strong>いえ、<ruby>結構<rt>けっこう</rt></ruby>です</strong> - no thank you. Firmer, and cooler.</li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="79">
+<div class="slide" data-index="90">
   
   <div class="slide__content"><h2>～ましょうか · Nuance &amp; register (cont.)</h2>
-<p>Upward, <code>ましょうか</code> is acceptable but plain. In service Japanese and towards superiors the humble frame is standard: お持(も)ちしましょうか, お調(しら)べしましょうか, ご案内(あんない)しましょうか. These raise the listener by lowering the action, and they are what hotel staff and careful employees use.</p>
-<p>Casually the whole thing shortens to the plain volitional plus <code>か</code>: 開(あ)けようか, 手伝(てつだ)おうか, 買(か)ってこようか. Note that in casual speech the <code>か</code> is often dropped entirely and carried by intonation - 手伝(てつだ)おう？</p>
+<p>Upward, <code>ましょうか</code> is acceptable but plain. In service Japanese and towards superiors the humble frame is standard: お<ruby>持<rt>も</rt></ruby>ちしましょうか, お<ruby>調<rt>しら</rt></ruby>べしましょうか, ご<ruby>案内<rt>あんない</rt></ruby>しましょうか. These raise the listener by lowering the action, and they are what hotel staff and careful employees use.</p>
+<p>Casually the whole thing shortens to the plain volitional plus <code>か</code>: <ruby>開<rt>あ</rt></ruby>けようか, <ruby>手伝<rt>てつだ</rt></ruby>おうか, <ruby>買<rt>か</rt></ruby>ってこようか. Note that in casual speech the <code>か</code> is often dropped entirely and carried by intonation - <ruby>手伝<rt>てつだ</rt></ruby>おう？</p>
 <p>One warning about intonation and reading: <code>ましょうか</code> is a question, and it takes a rising tone. Written down, it is often followed by <code>。</code> rather than <code>？</code> in Japanese prose, which does not make it any less of a question.</p>
 </div>
 </div>
-<div class="slide" data-index="80">
+<div class="slide" data-index="91">
   
   <div class="slide__content"><h2>～ましょうか · ～ましょうか vs ～ましょう</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>ましょう</code> <strong>announces</strong>; <code>ましょうか</code> <strong>checks</strong>. The <code>か</code> hands the decision back to the listener.</p>
 </blockquote>
-<p>電気(でんき)を<strong>つけましょう</strong>。<br><em>Let&#39;s put the light on.</em></p>
-<p>電気(でんき)を<strong>つけましょうか</strong>。<br><em>Shall I put the light on?</em></p>
+<p><ruby>電気<rt>でんき</rt></ruby>を<strong>つけましょう</strong>。<br><em>Let&#39;s put the light on.</em></p>
+<p><ruby>電気<rt>でんき</rt></ruby>を<strong>つけましょうか</strong>。<br><em>Shall I put the light on?</em></p>
 <p>The first version assumes; the second asks. That is why the <code>か</code> version doubles as an offer and the bare version does not: an offer only makes sense if the other person can decline it.</p>
 </div>
 </div>
-<div class="slide" data-index="81">
+<div class="slide" data-index="92">
   
   <div class="slide__content"><h2>～ましょうか · ～ましょうか vs ～ましょう (cont.)</h2>
-<p>Between the two, <code>ましょうか</code> is almost always the safer choice with people you do not know well. Use bare <code>ましょう</code> when the plan is already agreed and you are simply moving it along - 行(い)きましょう as you both stand up.</p>
+<p>Between the two, <code>ましょうか</code> is almost always the safer choice with people you do not know well. Use bare <code>ましょう</code> when the plan is already agreed and you are simply moving it along - <ruby>行<rt>い</rt></ruby>きましょう as you both stand up.</p>
 </div>
 </div>
-<div class="slide" data-index="82">
+<div class="slide" data-index="93">
   
   <div class="slide__content"><h2>～ましょうか · ～ましょうか vs ～ませんか</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - both ask, but <code>ませんか</code> <strong>invites</strong> the listener to join you; <code>ましょうか</code> proposes a next step in something already underway, or offers to act on their behalf.</p>
 </blockquote>
-<p>今度(こんど)の土曜日(どようび)、山(やま)に<strong>登(のぼ)りませんか</strong>。<br><em>How about climbing a mountain this Saturday?</em></p>
-<p>雨(あめ)が降(ふ)ってきましたね。下(お)り<strong>ましょうか</strong>。<br><em>It&#39;s started raining. Shall we head back down?</em></p>
+<p><ruby>今度<rt>こんど</rt></ruby>の<ruby>土曜日<rt>どようび</rt></ruby>、<ruby>山<rt>やま</rt></ruby>に**<ruby>登<rt>のぼ</rt></ruby>りませんか**。<br><em>How about climbing a mountain this Saturday?</em></p>
+<p><ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>ってきましたね。<ruby>下<rt>お</rt></ruby>り<strong>ましょうか</strong>。<br><em>It&#39;s started raining. Shall we head back down?</em></p>
 <p><code>ませんか</code> opens something new and can be refused without awkwardness - it is the form for asking someone out. <code>ましょうか</code> takes the shared activity as given and asks about the <em>next move</em> within it.</p>
 </div>
 </div>
-<div class="slide" data-index="83">
+<div class="slide" data-index="94">
   
   <div class="slide__content"><h2>～ましょうか · ～ましょうか vs ～ませんか (cont.)</h2>
-<p>There is also a distribution difference that catches learners. For an <strong>offer</strong>, <code>ませんか</code> does not work: ❌荷物(にもつ)を持(も)ちませんか sounds like you are inviting the other person to carry luggage, not offering to carry theirs. Offers are <code>ましょうか</code> territory.</p>
+<p>There is also a distribution difference that catches learners. For an <strong>offer</strong>, <code>ませんか</code> does not work: ❌<ruby>荷物<rt>にもつ</rt></ruby>を<ruby>持<rt>も</rt></ruby>ちませんか sounds like you are inviting the other person to carry luggage, not offering to carry theirs. Offers are <code>ましょうか</code> territory.</p>
 </div>
 </div>
-<div class="slide" data-index="84">
+<div class="slide" data-index="95">
   
   <div class="slide__content"><h2>～ましょうか · ～ましょうか vs ～てあげましょうか</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - plain <code>ましょうか</code> for offers. <code>～てあげましょうか</code> announces that you are doing the listener a kindness, and that is not yours to announce.</p>
 </blockquote>
-<p>駅(えき)まで車(くるま)で<strong>送(おく)りましょうか</strong>。<br><em>Shall I drive you to the station?</em></p>
-<p>駅(えき)まで車(くるま)で<strong>送(おく)ってあげましょうか</strong>。<br><em>Shall I do you the favour of driving you to the station?</em></p>
+<p><ruby>駅<rt>えき</rt></ruby>まで<ruby>車<rt>くるま</rt></ruby>で**<ruby>送<rt>おく</rt></ruby>りましょうか**。<br><em>Shall I drive you to the station?</em></p>
+<p><ruby>駅<rt>えき</rt></ruby>まで<ruby>車<rt>くるま</rt></ruby>で**<ruby>送<rt>おく</rt></ruby>ってあげましょうか**。<br><em>Shall I do you the favour of driving you to the station?</em></p>
 <p>The second is grammatical and is used - among close friends, or lightly to a child - but <code>あげる</code> explicitly frames the act as a benefit conferred, and offering that to an equal or a superior sounds self-congratulatory. The neutral offer leaves the gratitude to the other person.</p>
 </div>
 </div>
-<div class="slide" data-index="85">
+<div class="slide" data-index="96">
   
   <div class="slide__content"><h2>～ましょうか · ～ましょうか vs ～てあげましょうか (cont.)</h2>
-<p>The polite move goes the other way, towards humility: お送(おく)りしましょうか lowers your own action, and is the form used in service and business. <code>～てあげる</code> and <code>お～する</code> are the two ends of the same axis, and the safe default at N5 is plain <code>ましょうか</code> in the middle.</p>
+<p>The polite move goes the other way, towards humility: お<ruby>送<rt>おく</rt></ruby>りしましょうか lowers your own action, and is the form used in service and business. <code>～てあげる</code> and <code>お～する</code> are the two ends of the same axis, and the safe default at N5 is plain <code>ましょうか</code> in the middle.</p>
 </div>
 </div>
-<div class="slide" data-index="86">
+<div class="slide" data-index="97">
   
   <div class="slide__content"><h2>～ましょうか · Common mistakes</h2>
 <ul>
-<li><p>❌ 開(あ)ける<strong>ましょうか</strong> → ✅ 開(あ)け<strong>ましょうか</strong><br><em>Built on the ます-stem: 開(あ)けます → 開(あ)け + ましょうか.</em></p>
+<li><p>❌ <ruby>開<rt>あ</rt></ruby>ける<strong>ましょうか</strong> → ✅ <ruby>開<rt>あ</rt></ruby>け<strong>ましょうか</strong><br><em>Built on the ます-stem: <ruby>開<rt>あ</rt></ruby>けます → <ruby>開<rt>あ</rt></ruby>け + ましょうか.</em></p>
 </li>
-<li><p>❌ 荷物(にもつ)を<strong>持(も)ちませんか</strong>。（as an offer） → ✅ 荷物(にもつ)を<strong>持(も)ちましょうか</strong>。<br><em><code>ませんか</code> invites the listener to do it. To offer your own help, use <code>ましょうか</code>.</em></p>
+<li><p>❌ <ruby>荷物<rt>にもつ</rt></ruby>を**<ruby>持<rt>も</rt></ruby>ちませんか**。（as an offer） → ✅ <ruby>荷物<rt>にもつ</rt></ruby>を**<ruby>持<rt>も</rt></ruby>ちましょうか**。<br><em><code>ませんか</code> invites the listener to do it. To offer your own help, use <code>ましょうか</code>.</em></p>
 </li>
-<li><p>❌ 窓(まど)を<strong>開(あ)けましょうか</strong>。（meaning &quot;please open the window&quot;） → ✅ 窓(まど)を<strong>開(あ)けてください</strong>。<br><em><code>ましょうか</code> puts the action on <em>you</em>, not on the listener. It can never be a request.</em></p>
+<li><p>❌ <ruby>窓<rt>まど</rt></ruby>を**<ruby>開<rt>あ</rt></ruby>けましょうか**。（meaning &quot;please open the window&quot;） → ✅ <ruby>窓<rt>まど</rt></ruby>を**<ruby>開<rt>あ</rt></ruby>けてください**。<br><em><code>ましょうか</code> puts the action on <em>you</em>, not on the listener. It can never be a request.</em></p>
 </li>
-<li><p>❌ 部長(ぶちょう)、コピーして<strong>あげましょうか</strong>。 → ✅ 部長(ぶちょう)、コピー<strong>しましょうか</strong>。／お手伝(てつだ)い<strong>しましょうか</strong>。<br><em><code>てあげる</code> advertises your own kindness. Upward, drop it or go humble.</em></p>
+<li><p>❌ <ruby>部長<rt>ぶちょう</rt></ruby>、コピーして<strong>あげましょうか</strong>。 → ✅ <ruby>部長<rt>ぶちょう</rt></ruby>、コピー<strong>しましょうか</strong>。／お<ruby>手伝<rt>てつだ</rt></ruby>い<strong>しましょうか</strong>。<br><em><code>てあげる</code> advertises your own kindness. Upward, drop it or go humble.</em></p>
 </li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="87">
+<div class="slide" data-index="98">
   
   <div class="slide__content"><h2>～ましょうか · Common mistakes (cont.)</h2>
 <ul>
-<li>❌ 行(い)き<strong>ましょうか、ですか</strong>。 → ✅ 行(い)き<strong>ましょうか</strong>。<br><em><code>ましょうか</code> is already a complete question.</em></li>
+<li>❌ <ruby>行<rt>い</rt></ruby>き<strong>ましょうか、ですか</strong>。 → ✅ <ruby>行<rt>い</rt></ruby>き<strong>ましょうか</strong>。<br><em><code>ましょうか</code> is already a complete question.</em></li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="88">
+<div class="slide" data-index="99">
   
   <div class="slide__content"><h2>～ましょうか · Practice 1</h2>
-<p><strong>1.</strong> 重(おも)そうですね。私(わたし)が持(も)____。</p>
+<p><strong>1.</strong> <ruby>重<rt>おも</rt></ruby>そうですね。<ruby>私<rt>わたし</rt></ruby>が<ruby>持<rt>も</rt></ruby>____。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-私(わたし)が持(も)<strong>ちましょうか</strong>。</p>
+<ruby>私<rt>わたし</rt></ruby>が<ruby>持<rt>も</rt></ruby><strong>ちましょうか</strong>。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>持(も)つ</code> → ます-stem <code>持(も)ち</code> → + ましょうか. The <code>私(わたし)が</code> makes it unambiguously an offer rather than a proposal that you both carry it.</p>
+<code><ruby>持<rt>も</rt></ruby>つ</code> → ます-stem <code><ruby>持<rt>も</rt></ruby>ち</code> → + ましょうか. The <code><ruby>私<rt>わたし</rt></ruby>が</code> makes it unambiguously an offer rather than a proposal that you both carry it.</p>
 </div>
 </div>
-<div class="slide" data-index="89">
+<div class="slide" data-index="100">
   
   <div class="slide__content"><h2>～ましょうか · Practice 2</h2>
-<p><strong>2.</strong> 友(とも)だちが寒(さむ)そうです。（エアコンを消(け)しましょうか・エアコンを消(け)しませんか）</p>
+<p><strong>2.</strong> <ruby>友<rt>とも</rt></ruby>だちが<ruby>寒<rt>さむ</rt></ruby>そうです。（エアコンを<ruby>消<rt>け</rt></ruby>しましょうか・エアコンを<ruby>消<rt>け</rt></ruby>しませんか）</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-エアコンを<strong>消(け)しましょうか</strong>。</p>
+エアコンを**<ruby>消<rt>け</rt></ruby>しましょうか**。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-You are offering to do something for your friend&#39;s benefit, and that is exactly what <code>ましょうか</code> is for. <code>消(け)しませんか</code> would be inviting <em>them</em> to switch it off, which is not what you mean.</p>
+You are offering to do something for your friend&#39;s benefit, and that is exactly what <code>ましょうか</code> is for. <code><ruby>消<rt>け</rt></ruby>しませんか</code> would be inviting <em>them</em> to switch it off, which is not what you mean.</p>
 </div>
 </div>
-<div class="slide" data-index="90">
+<div class="slide" data-index="101">
   
   <div class="slide__content"><h2>～ましょうか · Practice 3</h2>
 <p><strong>3.</strong> Translate into Japanese: &quot;Shall we decide the date now?&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-今(いま)、日(ひ)にちを<strong>決(き)めましょうか</strong>。</p>
+<ruby>今<rt>いま</rt></ruby>、<ruby>日<rt>ひ</rt></ruby>にちを**<ruby>決<rt>き</rt></ruby>めましょうか**。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-A joint action within a conversation already under way - the &quot;shall we?&quot; sense. Plain <code>決(き)めましょう</code> would work too, but it announces the decision instead of checking that the other person is ready.</p>
+A joint action within a conversation already under way - the &quot;shall we?&quot; sense. Plain <code><ruby>決<rt>き</rt></ruby>めましょう</code> would work too, but it announces the decision instead of checking that the other person is ready.</p>
 </div>
 </div>
-<div class="slide" data-index="91">
+<div class="slide" data-index="102">
   
   <div class="slide__content"><h2>～ましょうか · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: すみません、この字(じ)が読(よ)めません。読(よ)みましょうか。</p>
+<p><strong>4.</strong> Find and fix the error: すみません、この<ruby>字<rt>じ</rt></ruby>が<ruby>読<rt>よ</rt></ruby>めません。<ruby>読<rt>よ</rt></ruby>みましょうか。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ すみません、この字(じ)が読(よ)めません。<strong>読(よ)んでいただけませんか</strong>。</p>
+✅ すみません、この<ruby>字<rt>じ</rt></ruby>が<ruby>読<rt>よ</rt></ruby>めません。<strong><ruby>読<rt>よ</rt></ruby>んでいただけませんか</strong>。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 The speaker wants <em>the listener</em> to read it, but <code>ましょうか</code> offers the speaker&#39;s own action - as written, it says &quot;shall I read it?&quot;, which makes no sense after &quot;I can&#39;t read it&quot;. A request needs the <code>ください</code> or <code>いただけませんか</code> family.</p>
 </div>
 </div>
-<div class="slide" data-index="92">
+<div class="slide" data-index="103">
   
   <div class="slide__content"><h2>～ましょうか · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) お茶(ちゃ)を<strong>入(い)れましょうか</strong>。 (b) お茶(ちゃ)を<strong>入(い)れてあげましょうか</strong>。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) お<ruby>茶<rt>ちゃ</rt></ruby>を**<ruby>入<rt>い</rt></ruby>れましょうか**。 (b) お<ruby>茶<rt>ちゃ</rt></ruby>を**<ruby>入<rt>い</rt></ruby>れてあげましょうか**。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) is a plain, warm offer to make tea. It is the version that works with a guest, a colleague or a boss, because it says nothing about who is doing whom a favour.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-(b) adds <code>あげる</code>, which explicitly marks the tea as a kindness you are bestowing. Between close friends it can be playful; to anyone senior it sounds like you are inviting thanks in advance. The humble お入(い)れしましょうか goes the opposite way and is the safest of the three in a workplace.</p>
+(b) adds <code>あげる</code>, which explicitly marks the tea as a kindness you are bestowing. Between close friends it can be playful; to anyone senior it sounds like you are inviting thanks in advance. The humble お<ruby>入<rt>い</rt></ruby>れしましょうか goes the opposite way and is the safest of the three in a workplace.</p>
 </div>
 </div>
-<div class="slide" data-index="93">
+<div class="slide" data-index="104">
   
   <div class="slide__content"><h1>～ませんか</h1>
 <p><strong>Meaning</strong> · won&#39;t you…? how about it? - a genuine, open invitation</p>
 <p><code>～ませんか</code> invites. It is built as a <strong>negative question</strong>, and that is the whole point: a negative question presupposes nothing, so it leaves the listener free to decline without embarrassment. Where <code>～ましょう</code> announces a plan, <code>～ませんか</code> asks whether you would like one - which is why it is the polite way to ask someone to do something with you.</p>
 </div>
 </div>
-<div class="slide" data-index="94">
+<div class="slide" data-index="105">
   
   <div class="slide__content"><h2>～ませんか · Formation</h2>
 <table>
@@ -3724,12 +3799,12 @@ The speaker wants <em>the listener</em> to read it, but <code>ましょうか</c
 <tbody><tr>
 <td>Verb (う-verb)</td>
 <td>ます-stem + ませんか</td>
-<td>行(い)きます → 行(い)きませんか</td>
+<td><ruby>行<rt>い</rt></ruby>きます → <ruby>行<rt>い</rt></ruby>きませんか</td>
 </tr>
 <tr>
 <td>Verb (る-verb)</td>
 <td>ます-stem + ませんか</td>
-<td>食(た)べます → 食(た)べませんか</td>
+<td><ruby>食<rt>た</rt></ruby>べます → <ruby>食<rt>た</rt></ruby>べませんか</td>
 </tr>
 <tr>
 <td>Verb (する)</td>
@@ -3737,14 +3812,14 @@ The speaker wants <em>the listener</em> to read it, but <code>ましょうか</c
 <td>します → しませんか</td>
 </tr>
 <tr>
-<td>Verb (来(く)る)</td>
+<td>Verb (<ruby>来<rt>く</rt></ruby>る)</td>
 <td>き + ませんか</td>
-<td>来(き)ます → 来(き)ませんか</td>
+<td><ruby>来<rt>き</rt></ruby>ます → <ruby>来<rt>き</rt></ruby>ませんか</td>
 </tr>
 <tr>
 <td>Casual</td>
 <td>ない-form, rising tone</td>
-<td>行(い)かない？／食(た)べない？</td>
+<td><ruby>行<rt>い</rt></ruby>かない？／<ruby>食<rt>た</rt></ruby>べない？</td>
 </tr>
 <tr>
 <td>Politer</td>
@@ -3754,203 +3829,208 @@ The speaker wants <em>the listener</em> to read it, but <code>ましょうか</c
 <tr>
 <td>Accepting</td>
 <td>ええ、～ましょう</td>
-<td>ええ、行(い)きましょう</td>
+<td>ええ、<ruby>行<rt>い</rt></ruby>きましょう</td>
 </tr>
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="95">
+<div class="slide" data-index="106">
   
   <div class="slide__content"><h2>～ませんか · Formation (cont.)</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - <code>ませんか</code> is just the polite negative <code>ません</code> plus the question particle <code>か</code>, so it is built on the ます-stem like everything else in that family: 話(はな)し<strong>ます</strong> → 話(はな)し<strong>ません</strong> → 話(はな)し<strong>ませんか</strong>.</p>
+<p><strong>Rule of thumb</strong> - <code>ませんか</code> is just the polite negative <code>ません</code> plus the question particle <code>か</code>, so it is built on the ます-stem like everything else in that family: <ruby>話<rt>はな</rt></ruby>し<strong>ます</strong> → <ruby>話<rt>はな</rt></ruby>し<strong>ません</strong> → <ruby>話<rt>はな</rt></ruby>し<strong>ませんか</strong>.</p>
 </blockquote>
 </div>
 </div>
-<div class="slide" data-index="96">
+<div class="slide" data-index="107">
   
   <div class="slide__content"><h2>～ませんか · Examples</h2>
-<p>一緒(いっしょ)にお茶(ちゃ)を<strong>飲(の)みませんか</strong>。<br><em>Would you like to have a cup of tea with me?</em></p>
-<p>今度(こんど)の日曜日(にちようび)、買(か)い物(もの)に<strong>行(い)きませんか</strong>。<br><em>How about going shopping this Sunday?</em></p>
-<p>少(すこ)し<strong>休(やす)みませんか</strong>。<br><em>Shall we take a short break?</em></p>
-<p>よかったら、夕(ゆう)ごはんを一緒(いっしょ)に<strong>食(た)べませんか</strong>。<br><em>If you&#39;re free, would you like to have dinner together?</em></p>
-<p>この本(ほん)、よかったら<strong>読(よ)んでみませんか</strong>。<br><em>Would you like to give this book a read?</em></p>
+<p><ruby>一緒<rt>いっしょ</rt></ruby>にお<ruby>茶<rt>ちゃ</rt></ruby>を**<ruby>飲<rt>の</rt></ruby>みませんか**。<br><em>Would you like to have a cup of tea with me?</em></p>
+<p><ruby>今度<rt>こんど</rt></ruby>の<ruby>日曜日<rt>にちようび</rt></ruby>、<ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>に**<ruby>行<rt>い</rt></ruby>きませんか**。<br><em>How about going shopping this Sunday?</em></p>
+<p><ruby>少<rt>すこ</rt></ruby>し**<ruby>休<rt>やす</rt></ruby>みませんか**。<br><em>Shall we take a short break?</em></p>
+<p>よかったら、<ruby>夕<rt>ゆう</rt></ruby>ごはんを<ruby>一緒<rt>いっしょ</rt></ruby>に**<ruby>食<rt>た</rt></ruby>べませんか**。<br><em>If you&#39;re free, would you like to have dinner together?</em></p>
 </div>
 </div>
-<div class="slide" data-index="97">
+<div class="slide" data-index="108">
   
   <div class="slide__content"><h2>～ませんか · Examples (cont.)</h2>
-<p>来週(らいしゅう)の土曜日(どようび)、うちでバーベキューをしますが、<strong>来(き)ませんか</strong>。<br><em>We&#39;re having a barbecue at ours next Saturday - do you want to come?</em></p>
-<p>来月(らいげつ)から朝(あさ)の勉強(べんきょう)会(かい)を始(はじ)めます。田中(たなか)さんも<strong>参加(さんか)しませんか</strong>。<br><em>We&#39;re starting a morning study group next month. Would you like to join, Tanaka?</em></p>
-<p>もしお時間(じかん)があれば、駅(えき)の近(ちか)くにできた美術館(びじゅつかん)に一緒(いっしょ)に<strong>行(い)ってみませんか</strong>。<br><em>If you have time, would you like to go with me to the new museum near the station?</em></p>
+<p>この<ruby>本<rt>ほん</rt></ruby>、よかったら**<ruby>読<rt>よ</rt></ruby>んでみませんか**。<br><em>Would you like to give this book a read?</em></p>
+<p><ruby>来週<rt>らいしゅう</rt></ruby>の<ruby>土曜日<rt>どようび</rt></ruby>、うちでバーベキューをしますが、<strong><ruby>来<rt>き</rt></ruby>ませんか</strong>。<br><em>We&#39;re having a barbecue at ours next Saturday - do you want to come?</em></p>
+<p><ruby>来月<rt>らいげつ</rt></ruby>から<ruby>朝<rt>あさ</rt></ruby>の<ruby>勉強<rt>べんきょう</rt></ruby><ruby>会<rt>かい</rt></ruby>を<ruby>始<rt>はじ</rt></ruby>めます。<ruby>田中<rt>たなか</rt></ruby>さんも**<ruby>参加<rt>さんか</rt></ruby>しませんか**。<br><em>We&#39;re starting a morning study group next month. Would you like to join, Tanaka?</em></p>
+<p>もしお<ruby>時間<rt>じかん</rt></ruby>があれば、<ruby>駅<rt>えき</rt></ruby>の<ruby>近<rt>ちか</rt></ruby>くにできた<ruby>美術館<rt>びじゅつかん</rt></ruby>に<ruby>一緒<rt>いっしょ</rt></ruby>に**<ruby>行<rt>い</rt></ruby>ってみませんか**。<br><em>If you have time, would you like to go with me to the new museum near the station?</em></p>
 </div>
 </div>
-<div class="slide" data-index="98">
+<div class="slide" data-index="109">
   
   <div class="slide__content"><h2>～ませんか · Nuance &amp; register</h2>
 <p><code>ませんか</code> is the polite invitation, full stop. It works upward, sideways and to strangers, and it is the form to reach for whenever the answer could genuinely be no. The politeness comes from the shape of the question: by asking in the negative, you build the refusal into the sentence and remove any pressure to accept.</p>
 <p>Because it is a real question, it comes with a real conversational script. <strong>Accepting</strong> is almost never a bare はい:</p>
 <ul>
-<li>ええ、行(い)きましょう。 - yes, let&#39;s.</li>
+<li>ええ、<ruby>行<rt>い</rt></ruby>きましょう。 - yes, let&#39;s.</li>
 <li>いいですね。ぜひ。 - sounds good, I&#39;d love to.</li>
 </ul>
 <p><strong>Declining</strong> almost never uses いいえ either. The standard refusal trails off and is never completed:</p>
 </div>
 </div>
-<div class="slide" data-index="99">
+<div class="slide" data-index="110">
   
   <div class="slide__content"><h2>～ませんか · Nuance &amp; register (cont.)</h2>
 <ul>
-<li>すみません、明日(あした)はちょっと… - sorry, tomorrow is a bit…</li>
-<li>ありがとうございます。でも、その日(ひ)は用事(ようじ)があって… - thank you, but I have something on that day.</li>
+<li>すみません、<ruby>明日<rt>あした</rt></ruby>はちょっと… - sorry, tomorrow is a bit…</li>
+<li>ありがとうございます。でも、その<ruby>日<rt>ひ</rt></ruby>は<ruby>用事<rt>ようじ</rt></ruby>があって… - thank you, but I have something on that day.</li>
 </ul>
 <p>The unfinished ちょっと is doing real work. Saying the refusal out loud would be blunt; leaving it hanging lets both sides treat it as understood.</p>
-<p>Casually, <code>ませんか</code> becomes the plain negative with a rising tone: 行(い)かない？, 食(た)べない？, 飲(の)みに行(い)かない？ These are extremely common among friends and carry exactly the same softness.</p>
-<p>One caution: <code>～ませんか</code> is also, literally, an ordinary negative question. Out of context, 食(た)べませんか could mean &quot;aren&#39;t you eating?&quot; Intonation and situation sort it out, and the invitation reading dominates when the sentence names a shared activity or includes 一緒(いっしょ)に.</p>
+<p>Casually, <code>ませんか</code> becomes the plain negative with a rising tone: <ruby>行<rt>い</rt></ruby>かない？, <ruby>食<rt>た</rt></ruby>べない？, <ruby>飲<rt>の</rt></ruby>みに<ruby>行<rt>い</rt></ruby>かない？ These are extremely common among friends and carry exactly the same softness.</p>
 </div>
 </div>
-<div class="slide" data-index="100">
+<div class="slide" data-index="111">
   
   <div class="slide__content"><h2>～ませんか · Nuance &amp; register (cont.)</h2>
-<p>Upward, <code>ませんか</code> is already good; いかがですか is the softer noun-based version, and in formal invitations you will meet ～ませんでしょうか and ご一緒(いっしょ)しませんか.</p>
+<p>One caution: <code>～ませんか</code> is also, literally, an ordinary negative question. Out of context, <ruby>食<rt>た</rt></ruby>べませんか could mean &quot;aren&#39;t you eating?&quot; Intonation and situation sort it out, and the invitation reading dominates when the sentence names a shared activity or includes <ruby>一緒<rt>いっしょ</rt></ruby>に.</p>
+<p>Upward, <code>ませんか</code> is already good; いかがですか is the softer noun-based version, and in formal invitations you will meet ～ませんでしょうか and ご<ruby>一緒<rt>いっしょ</rt></ruby>しませんか.</p>
 </div>
 </div>
-<div class="slide" data-index="101">
+<div class="slide" data-index="112">
   
   <div class="slide__content"><h2>～ませんか · ～ませんか vs ～ましょう</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>ませんか</code> <strong>asks</strong>, <code>ましょう</code> <strong>assumes</strong>. Invite with the first; accept with the second.</p>
 </blockquote>
-<p>週末(しゅうまつ)、テニスを<strong>しませんか</strong>。<br><em>Would you like to play tennis at the weekend?</em></p>
+<p><ruby>週末<rt>しゅうまつ</rt></ruby>、テニスを<strong>しませんか</strong>。<br><em>Would you like to play tennis at the weekend?</em></p>
 <p>いいですね、<strong>しましょう</strong>。<br><em>Sounds good - let&#39;s.</em></p>
 <p>That two-turn exchange is the natural home of both patterns, and it shows why they are not interchangeable. Opening with <code>ましょう</code> treats the other person&#39;s weekend as already spent; replying with <code>ませんか</code> would be asking them a question they have just asked you.</p>
 </div>
 </div>
-<div class="slide" data-index="102">
+<div class="slide" data-index="113">
   
   <div class="slide__content"><h2>～ませんか · ～ませんか vs ～ましょう (cont.)</h2>
 <p><code>ましょう</code> is fine as an opener only when agreement is safe - when you are already out together, or when you have the standing to direct the group.</p>
 </div>
 </div>
-<div class="slide" data-index="103">
+<div class="slide" data-index="114">
   
   <div class="slide__content"><h2>～ませんか · ～ませんか vs ～ましょうか</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>ませんか</code> invites the listener <strong>to join you</strong>; <code>ましょうか</code> offers <strong>your own</strong> action, or checks the next step of something already agreed.</p>
 </blockquote>
-<p>明日(あした)、美術館(びじゅつかん)に<strong>行(い)きませんか</strong>。<br><em>How about going to the art museum tomorrow?</em></p>
-<p>切符(きっぷ)は私(わたし)が<strong>買(か)っておきましょうか</strong>。<br><em>Shall I get the tickets in advance?</em></p>
-<p>The first opens a plan; the second handles a detail inside a plan that already exists. And for offers of help the division is strict: 手伝(てつだ)いましょうか offers your hands, while ❌手伝(てつだ)いませんか asks the listener to come and help with something - possibly the opposite of what you meant.</p>
+<p><ruby>明日<rt>あした</rt></ruby>、<ruby>美術館<rt>びじゅつかん</rt></ruby>に**<ruby>行<rt>い</rt></ruby>きませんか**。<br><em>How about going to the art museum tomorrow?</em></p>
+<p><ruby>切符<rt>きっぷ</rt></ruby>は<ruby>私<rt>わたし</rt></ruby>が**<ruby>買<rt>か</rt></ruby>っておきましょうか**。<br><em>Shall I get the tickets in advance?</em></p>
 </div>
 </div>
-<div class="slide" data-index="104">
+<div class="slide" data-index="115">
+  
+  <div class="slide__content"><h2>～ませんか · ～ませんか vs ～ましょうか (cont.)</h2>
+<p>The first opens a plan; the second handles a detail inside a plan that already exists. And for offers of help the division is strict: <ruby>手伝<rt>てつだ</rt></ruby>いましょうか offers your hands, while ❌<ruby>手伝<rt>てつだ</rt></ruby>いませんか asks the listener to come and help with something - possibly the opposite of what you meant.</p>
+</div>
+</div>
+<div class="slide" data-index="116">
   
   <div class="slide__content"><h2>～ませんか · ～ませんか vs ～ますか</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>ますか</code> <strong>asks a question</strong> about what the listener will do; <code>ませんか</code> <strong>invites</strong>. The negative is what turns information-gathering into an invitation.</p>
 </blockquote>
-<p>明日(あした)のパーティーに<strong>行(い)きますか</strong>。<br><em>Are you going to the party tomorrow?</em></p>
-<p>明日(あした)のパーティーに<strong>行(い)きませんか</strong>。<br><em>Would you like to come to the party tomorrow?</em></p>
+<p><ruby>明日<rt>あした</rt></ruby>のパーティーに**<ruby>行<rt>い</rt></ruby>きますか**。<br><em>Are you going to the party tomorrow?</em></p>
+<p><ruby>明日<rt>あした</rt></ruby>のパーティーに**<ruby>行<rt>い</rt></ruby>きませんか**。<br><em>Would you like to come to the party tomorrow?</em></p>
 <p>The first is neutral enquiry - you want to know her plans, and you may not be going yourself. The second includes you, and asks her to come along.</p>
 </div>
 </div>
-<div class="slide" data-index="105">
+<div class="slide" data-index="117">
   
   <div class="slide__content"><h2>～ませんか · ～ませんか vs ～ますか (cont.)</h2>
-<p>Using <code>ますか</code> where you meant to invite is a common learner slip. It is not rude, it simply does not invite: 食(た)べますか offers information-gathering where 食(た)べませんか offers company. The affirmative question can also feel a touch demanding, because it presupposes that going is on the table.</p>
+<p>Using <code>ますか</code> where you meant to invite is a common learner slip. It is not rude, it simply does not invite: <ruby>食<rt>た</rt></ruby>べますか offers information-gathering where <ruby>食<rt>た</rt></ruby>べませんか offers company. The affirmative question can also feel a touch demanding, because it presupposes that going is on the table.</p>
 </div>
 </div>
-<div class="slide" data-index="106">
+<div class="slide" data-index="118">
   
   <div class="slide__content"><h2>～ませんか · Common mistakes</h2>
 <ul>
-<li><p>❌ 行(い)く<strong>ませんか</strong> → ✅ 行(い)き<strong>ませんか</strong><br><em>Built on the ます-stem, not the dictionary form.</em></p>
+<li><p>❌ <ruby>行<rt>い</rt></ruby>く<strong>ませんか</strong> → ✅ <ruby>行<rt>い</rt></ruby>き<strong>ませんか</strong><br><em>Built on the ます-stem, not the dictionary form.</em></p>
 </li>
-<li><p>❌ 行(い)き<strong>ませんですか</strong> → ✅ 行(い)き<strong>ませんか</strong><br><em><code>ません</code> is already polite. Do not add another <code>です</code>.</em></p>
+<li><p>❌ <ruby>行<rt>い</rt></ruby>き<strong>ませんですか</strong> → ✅ <ruby>行<rt>い</rt></ruby>き<strong>ませんか</strong><br><em><code>ません</code> is already polite. Do not add another <code>です</code>.</em></p>
 </li>
-<li><p>❌ 荷物(にもつ)を<strong>持(も)ちませんか</strong>。（offering to carry it） → ✅ 荷物(にもつ)を<strong>持(も)ちましょうか</strong>。<br><em><code>ませんか</code> invites the other person to do the action. For your own offer, use <code>ましょうか</code>.</em></p>
+<li><p>❌ <ruby>荷物<rt>にもつ</rt></ruby>を**<ruby>持<rt>も</rt></ruby>ちませんか**。（offering to carry it） → ✅ <ruby>荷物<rt>にもつ</rt></ruby>を**<ruby>持<rt>も</rt></ruby>ちましょうか**。<br><em><code>ませんか</code> invites the other person to do the action. For your own offer, use <code>ましょうか</code>.</em></p>
 </li>
-<li><p>❌ 「コーヒーを飲(の)みませんか。」「はい、飲(の)みません。」 → ✅ 「ええ、いただきます。」／「ありがとうございます。」<br><em>Do not answer the negative literally. Accepting an invitation is ええ plus a positive verb.</em></p>
+<li><p>❌ 「コーヒーを<ruby>飲<rt>の</rt></ruby>みませんか。」「はい、<ruby>飲<rt>の</rt></ruby>みません。」 → ✅ 「ええ、いただきます。」／「ありがとうございます。」<br><em>Do not answer the negative literally. Accepting an invitation is ええ plus a positive verb.</em></p>
 </li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="107">
+<div class="slide" data-index="119">
   
   <div class="slide__content"><h2>～ませんか · Common mistakes (cont.)</h2>
 <ul>
-<li>❌ 部長(ぶちょう)、昼(ひる)ごはんを食(た)べに<strong>行(い)きましょう</strong>。 → ✅ 部長(ぶちょう)、昼(ひる)ごはんを食(た)べに<strong>行(い)きませんか</strong>。<br><em>Upward, invite rather than announce.</em></li>
+<li>❌ <ruby>部長<rt>ぶちょう</rt></ruby>、<ruby>昼<rt>ひる</rt></ruby>ごはんを<ruby>食<rt>た</rt></ruby>べに**<ruby>行<rt>い</rt></ruby>きましょう**。 → ✅ <ruby>部長<rt>ぶちょう</rt></ruby>、<ruby>昼<rt>ひる</rt></ruby>ごはんを<ruby>食<rt>た</rt></ruby>べに**<ruby>行<rt>い</rt></ruby>きませんか**。<br><em>Upward, invite rather than announce.</em></li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="108">
+<div class="slide" data-index="120">
   
   <div class="slide__content"><h2>～ませんか · Practice 1</h2>
-<p><strong>1.</strong> 来週(らいしゅう)、一緒(いっしょ)に花見(はなみ)に行(い)____か。</p>
+<p><strong>1.</strong> <ruby>来週<rt>らいしゅう</rt></ruby>、<ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>花見<rt>はなみ</rt></ruby>に<ruby>行<rt>い</rt></ruby>____か。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-一緒(いっしょ)に花見(はなみ)に行(い)<strong>きません</strong>か。</p>
+<ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>花見<rt>はなみ</rt></ruby>に<ruby>行<rt>い</rt></ruby><strong>きません</strong>か。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<code>行(い)く</code> → ます-stem <code>行(い)き</code> → ません + か. The negative question is what makes this an invitation rather than an announcement.</p>
+<code><ruby>行<rt>い</rt></ruby>く</code> → ます-stem <code><ruby>行<rt>い</rt></ruby>き</code> → ません + か. The negative question is what makes this an invitation rather than an announcement.</p>
 </div>
 </div>
-<div class="slide" data-index="109">
+<div class="slide" data-index="121">
   
   <div class="slide__content"><h2>～ませんか · Practice 2</h2>
-<p><strong>2.</strong> 重(おも)い箱(はこ)を運(はこ)んでいる同僚(どうりょう)に：「（手伝(てつだ)いませんか・手伝(てつだ)いましょうか）。」</p>
+<p><strong>2.</strong> <ruby>重<rt>おも</rt></ruby>い<ruby>箱<rt>はこ</rt></ruby>を<ruby>運<rt>はこ</rt></ruby>んでいる<ruby>同僚<rt>どうりょう</rt></ruby>に：「（<ruby>手伝<rt>てつだ</rt></ruby>いませんか・<ruby>手伝<rt>てつだ</rt></ruby>いましょうか）。」</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-<strong>手伝(てつだ)いましょうか</strong>。</p>
+<strong><ruby>手伝<rt>てつだ</rt></ruby>いましょうか</strong>。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-You are offering your own help, and <code>ましょうか</code> is the form for that. <code>手伝(てつだ)いませんか</code> would be inviting your colleague to come and help someone else - the wrong direction entirely.</p>
+You are offering your own help, and <code>ましょうか</code> is the form for that. <code><ruby>手伝<rt>てつだ</rt></ruby>いませんか</code> would be inviting your colleague to come and help someone else - the wrong direction entirely.</p>
 </div>
 </div>
-<div class="slide" data-index="110">
+<div class="slide" data-index="122">
   
   <div class="slide__content"><h2>～ませんか · Practice 3</h2>
 <p><strong>3.</strong> Translate into Japanese: &quot;Would you like to go to the cinema with me on Friday?&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-金曜日(きんようび)、一緒(いっしょ)に映画館(えいがかん)に<strong>行(い)きませんか</strong>。</p>
+<ruby>金曜日<rt>きんようび</rt></ruby>、<ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>映画館<rt>えいがかん</rt></ruby>に**<ruby>行<rt>い</rt></ruby>きませんか**。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 An open invitation to someone who must be able to refuse - the core use of the pattern. Adding よかったら at the front softens it further.</p>
 </div>
 </div>
-<div class="slide" data-index="111">
+<div class="slide" data-index="123">
   
   <div class="slide__content"><h2>～ませんか · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 明日(あした)、山(やま)に登(のぼ)るませんですか。</p>
+<p><strong>4.</strong> Find and fix the error: <ruby>明日<rt>あした</rt></ruby>、<ruby>山<rt>やま</rt></ruby>に<ruby>登<rt>のぼ</rt></ruby>るませんですか。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 明日(あした)、山(やま)に<strong>登(のぼ)りませんか</strong>。</p>
+✅ <ruby>明日<rt>あした</rt></ruby>、<ruby>山<rt>やま</rt></ruby>に**<ruby>登<rt>のぼ</rt></ruby>りませんか**。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-Two errors stacked. <code>ません</code> attaches to the ます-stem <code>登(のぼ)り</code>, not the dictionary form; and <code>ません</code> is already the polite negative, so the extra <code>です</code> has nothing to do.</p>
+Two errors stacked. <code>ません</code> attaches to the ます-stem <code><ruby>登<rt>のぼ</rt></ruby>り</code>, not the dictionary form; and <code>ません</code> is already the polite negative, so the extra <code>です</code> has nothing to do.</p>
 </div>
 </div>
-<div class="slide" data-index="112">
+<div class="slide" data-index="124">
   
   <div class="slide__content"><h2>～ませんか · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 今晩(こんばん)、飲(の)みに<strong>行(い)きますか</strong>。 (b) 今晩(こんばん)、飲(の)みに<strong>行(い)きませんか</strong>。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>今晩<rt>こんばん</rt></ruby>、<ruby>飲<rt>の</rt></ruby>みに**<ruby>行<rt>い</rt></ruby>きますか**。 (b) <ruby>今晩<rt>こんばん</rt></ruby>、<ruby>飲<rt>の</rt></ruby>みに**<ruby>行<rt>い</rt></ruby>きませんか**。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) asks about the listener&#39;s plans. It is a perfectly normal question - you might be checking whether she is joining a group that is already going - but it does not in itself invite her, and it can sound as though you expect an answer either way.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (b) invites. The negative form builds in the possibility of &quot;no&quot;, so it puts no weight on the listener, and it implies that you are going too. For asking a colleague out for a drink, (b) is the sentence you want.</p>
 </div>
 </div>
-<div class="slide" data-index="113">
+<div class="slide" data-index="125">
   
   <div class="slide__content"><h1>～はどうですか</h1>
 <p><strong>Meaning</strong> · how about ~? / how is ~? - putting an option on the table, or asking for an impression</p>
 <p><code>～はどうですか</code> does two related jobs, and Japanese does not distinguish them grammatically:</p>
 <ul>
-<li><strong>Suggesting</strong> - you offer something and ask what the listener makes of it.<br><em>土曜日(どようび)はどうですか。「How about Saturday?」</em></li>
-<li><strong>Asking for an evaluation</strong> - you ask how something is, or was.<br><em>新(あたら)しい仕事(しごと)はどうですか。「How&#39;s the new job?」</em></li>
+<li><strong>Suggesting</strong> - you offer something and ask what the listener makes of it.<br><em><ruby>土曜日<rt>どようび</rt></ruby>はどうですか。「How about Saturday?」</em></li>
+<li><strong>Asking for an evaluation</strong> - you ask how something is, or was.<br><em><ruby>新<rt>あたら</rt></ruby>しい<ruby>仕事<rt>しごと</rt></ruby>はどうですか。「How&#39;s the new job?」</em></li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="114">
+<div class="slide" data-index="126">
   
   <div class="slide__content"><h2>～はどうですか · Overview</h2>
 <p>Underneath, both are the same question: <em>what is your assessment of this?</em> Tense and context decide which one the listener hears.</p>
 </div>
 </div>
-<div class="slide" data-index="115">
+<div class="slide" data-index="127">
   
   <div class="slide__content"><h2>～はどうですか · Formation</h2>
 <table>
@@ -3969,27 +4049,27 @@ Two errors stacked. <code>ません</code> attaches to the ます-stem <code>登
 <tr>
 <td>Verb (proposing an action)</td>
 <td>Dictionary + のは + どうですか</td>
-<td>歩(ある)く → 歩(ある)いて行(い)くのはどうですか</td>
+<td><ruby>歩<rt>ある</rt></ruby>く → <ruby>歩<rt>ある</rt></ruby>いて<ruby>行<rt>い</rt></ruby>くのはどうですか</td>
 </tr>
 <tr>
 <td>Verb (advising the listener)</td>
 <td>た-form + らどうですか</td>
-<td>休(やす)む → 休(やす)んだらどうですか</td>
+<td><ruby>休<rt>やす</rt></ruby>む → <ruby>休<rt>やす</rt></ruby>んだらどうですか</td>
 </tr>
 <tr>
 <td>Past (a finished event)</td>
 <td>～はどうでしたか</td>
-<td>旅行(りょこう) → 旅行(りょこう)はどうでしたか</td>
+<td><ruby>旅行<rt>りょこう</rt></ruby> → <ruby>旅行<rt>りょこう</rt></ruby>はどうでしたか</td>
 </tr>
 <tr>
 <td>Politer</td>
 <td>～はいかがですか</td>
-<td>お茶(ちゃ)はいかがですか</td>
+<td>お<ruby>茶<rt>ちゃ</rt></ruby>はいかがですか</td>
 </tr>
 <tr>
 <td>Softer, more tentative</td>
 <td>～はどうでしょうか</td>
-<td>水曜日(すいようび)はどうでしょうか</td>
+<td><ruby>水曜日<rt>すいようび</rt></ruby>はどうでしょうか</td>
 </tr>
 <tr>
 <td>Casual</td>
@@ -3999,49 +4079,54 @@ Two errors stacked. <code>ません</code> attaches to the ます-stem <code>登
 </tbody></table>
 </div>
 </div>
-<div class="slide" data-index="116">
+<div class="slide" data-index="128">
   
   <div class="slide__content"><h2>～はどうですか · Formation (cont.)</h2>
 <blockquote>
-<p><strong>Rule of thumb</strong> - <code>どう</code> asks <em>how / in what state</em>. It is not <code>どんな</code>, which asks <em>what kind of</em> and must be followed by a noun. ✅映画(えいが)はどうでしたか。 ✅どんな映画(えいが)でしたか。 ❌映画(えいが)はどんなでしたか。</p>
+<p><strong>Rule of thumb</strong> - <code>どう</code> asks <em>how / in what state</em>. It is not <code>どんな</code>, which asks <em>what kind of</em> and must be followed by a noun. ✅<ruby>映画<rt>えいが</rt></ruby>はどうでしたか。 ✅どんな<ruby>映画<rt>えいが</rt></ruby>でしたか。 ❌<ruby>映画<rt>えいが</rt></ruby>はどんなでしたか。</p>
 </blockquote>
 </div>
 </div>
-<div class="slide" data-index="117">
+<div class="slide" data-index="129">
   
   <div class="slide__content"><h2>～はどうですか · Examples</h2>
 <p>コーヒー<strong>はどうですか</strong>。<br><em>How about a coffee?</em></p>
-<p>新(あたら)しい仕事(しごと)<strong>はどうですか</strong>。<br><em>How&#39;s the new job?</em></p>
-<p>土曜日(どようび)の午後(ごご)<strong>はどうですか</strong>。<br><em>How about Saturday afternoon?</em></p>
-<p>京都(きょうと)の旅行(りょこう)<strong>はどうでしたか</strong>。<br><em>How was the trip to Kyoto?</em></p>
-<p>体(からだ)の調子(ちょうし)<strong>はどうですか</strong>。<br><em>How are you feeling?</em></p>
+<p><ruby>新<rt>あたら</rt></ruby>しい<ruby>仕事<rt>しごと</rt></ruby><strong>はどうですか</strong>。<br><em>How&#39;s the new job?</em></p>
+<p><ruby>土曜日<rt>どようび</rt></ruby>の<ruby>午後<rt>ごご</rt></ruby><strong>はどうですか</strong>。<br><em>How about Saturday afternoon?</em></p>
+<p><ruby>京都<rt>きょうと</rt></ruby>の<ruby>旅行<rt>りょこう</rt></ruby><strong>はどうでしたか</strong>。<br><em>How was the trip to Kyoto?</em></p>
 </div>
 </div>
-<div class="slide" data-index="118">
+<div class="slide" data-index="130">
   
   <div class="slide__content"><h2>～はどうですか · Examples (cont.)</h2>
-<p>この色(いろ)<strong>はどうですか</strong>。もう少(すこ)し明(あか)るいのもありますよ。<br><em>How about this colour? We have a slightly brighter one as well.</em></p>
-<p>駅(えき)の近(ちか)くに新(あたら)しいそば屋(や)ができたそうですが、今日(きょう)の昼(ひる)はそこ<strong>はどうですか</strong>。<br><em>Apparently a new soba place has opened near the station - how about there for lunch today?</em></p>
-<p>会議(かいぎ)の時間(じかん)ですが、水曜日(すいようび)の午後(ごご)三(さん)時(じ)から<strong>というのはどうでしょうか</strong>。<br><em>About the time for the meeting - how would Wednesday from three in the afternoon be?</em></p>
+<p><ruby>体<rt>からだ</rt></ruby>の<ruby>調子<rt>ちょうし</rt></ruby><strong>はどうですか</strong>。<br><em>How are you feeling?</em></p>
+<p>この<ruby>色<rt>いろ</rt></ruby><strong>はどうですか</strong>。もう<ruby>少<rt>すこ</rt></ruby>し<ruby>明<rt>あか</rt></ruby>るいのもありますよ。<br><em>How about this colour? We have a slightly brighter one as well.</em></p>
+<p><ruby>駅<rt>えき</rt></ruby>の<ruby>近<rt>ちか</rt></ruby>くに<ruby>新<rt>あたら</rt></ruby>しいそば<ruby>屋<rt>や</rt></ruby>ができたそうですが、<ruby>今日<rt>きょう</rt></ruby>の<ruby>昼<rt>ひる</rt></ruby>はそこ<strong>はどうですか</strong>。<br><em>Apparently a new soba place has opened near the station - how about there for lunch today?</em></p>
+<p><ruby>会議<rt>かいぎ</rt></ruby>の<ruby>時間<rt>じかん</rt></ruby>ですが、<ruby>水曜日<rt>すいようび</rt></ruby>の<ruby>午後<rt>ごご</rt></ruby><ruby>三<rt>さん</rt></ruby><ruby>時<rt>じ</rt></ruby>から<strong>というのはどうでしょうか</strong>。<br><em>About the time for the meeting - how would Wednesday from three in the afternoon be?</em></p>
 </div>
 </div>
-<div class="slide" data-index="119">
+<div class="slide" data-index="131">
   
   <div class="slide__content"><h2>～はどうですか · Nuance &amp; register</h2>
 <p><code>どうですか</code> is polite and completely ordinary, but it is <em>plain</em> polite - the same level as <code>です／ます</code> and no higher. Two situations expose that.</p>
-<p>The first is <strong>offering something to a superior or a customer</strong>. 部長(ぶちょう)、コーヒーはどうですか is not rude, exactly, but it is the register you would use with a colleague. お茶(ちゃ)はいかがですか is what waiters, hosts and careful employees say, and it costs nothing to learn.</p>
-<p>The second is <strong>asking someone senior how something is going</strong>. 論文(ろんぶん)はどうですか to your supervisor can sound like you are checking up on them. いかがですか, or 進(すす)んでいますか, avoids the edge.</p>
+<p>The first is <strong>offering something to a superior or a customer</strong>. <ruby>部長<rt>ぶちょう</rt></ruby>、コーヒーはどうですか is not rude, exactly, but it is the register you would use with a colleague. お<ruby>茶<rt>ちゃ</rt></ruby>はいかがですか is what waiters, hosts and careful employees say, and it costs nothing to learn.</p>
+<p>The second is <strong>asking someone senior how something is going</strong>. <ruby>論文<rt>ろんぶん</rt></ruby>はどうですか to your supervisor can sound like you are checking up on them. いかがですか, or <ruby>進<rt>すす</rt></ruby>んでいますか, avoids the edge.</p>
 </div>
 </div>
-<div class="slide" data-index="120">
+<div class="slide" data-index="132">
   
   <div class="slide__content"><h2>～はどうですか · Nuance &amp; register (cont.)</h2>
-<p>For proposals, <code>どうですか</code> is genuinely soft, because it asks for an opinion rather than a commitment. It is the standard way to float a time, a place or an option in a conversation, and 水曜日(すいようび)はどうでしょうか is softer still - <code>でしょうか</code> adds a layer of tentativeness that is very common in business email.</p>
+<p>For proposals, <code>どうですか</code> is genuinely soft, because it asks for an opinion rather than a commitment. It is the standard way to float a time, a place or an option in a conversation, and <ruby>水曜日<rt>すいようび</rt></ruby>はどうでしょうか is softer still - <code>でしょうか</code> adds a layer of tentativeness that is very common in business email.</p>
 <p>Watch the tense. A finished event takes <code>どうでしたか</code>; using <code>どうですか</code> about last night&#39;s party is a real mistake, not a stylistic one.</p>
-<p>Casually the copula drops: これ、どう？, 味(あじ)はどう？ Among friends this is the default, and it can be blunt in the sense of demanding a verdict - asking どう？ about someone&#39;s cooking while they watch you eat is as pointed in Japanese as in English.</p>
 </div>
 </div>
-<div class="slide" data-index="121">
+<div class="slide" data-index="133">
+  
+  <div class="slide__content"><h2>～はどうですか · Nuance &amp; register (cont.)</h2>
+<p>Casually the copula drops: これ、どう？, <ruby>味<rt>あじ</rt></ruby>はどう？ Among friends this is the default, and it can be blunt in the sense of demanding a verdict - asking どう？ about someone&#39;s cooking while they watch you eat is as pointed in Japanese as in English.</p>
+</div>
+</div>
+<div class="slide" data-index="134">
   
   <div class="slide__content"><h2>～はどうですか · ～はどうですか vs ～はいかがですか</h2>
 <blockquote>
@@ -4052,107 +4137,113 @@ Two errors stacked. <code>ません</code> attaches to the ます-stem <code>登
 <p><code>いかが</code> is not a different word class or a different construction - everything you can do with <code>どう</code>, you can do with <code>いかが</code>: いかがでしたか, いかがでしょうか. What changes is who you are speaking to.</p>
 </div>
 </div>
-<div class="slide" data-index="122">
+<div class="slide" data-index="135">
   
   <div class="slide__content"><h2>～はどうですか · ～はどうですか vs ～はいかがですか (cont.)</h2>
-<p>The one place <code>どうですか</code> is preferred is when you genuinely want a <em>judgement</em> between equals: この案(あん)はどうですか to a colleague asks for their honest read. <code>いかがですか</code> in the same slot can sound as though you are serving them something.</p>
+<p>The one place <code>どうですか</code> is preferred is when you genuinely want a <em>judgement</em> between equals: この<ruby>案<rt>あん</rt></ruby>はどうですか to a colleague asks for their honest read. <code>いかがですか</code> in the same slot can sound as though you are serving them something.</p>
 </div>
 </div>
-<div class="slide" data-index="123">
+<div class="slide" data-index="136">
   
   <div class="slide__content"><h2>～はどうですか · ～はどうですか vs ～ませんか</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>はどうですか</code> proposes an <strong>option</strong> and asks what you think of it; <code>ませんか</code> invites the <strong>person</strong> to do something with you.</p>
 </blockquote>
-<p>昼(ひる)ごはんは、そばとカレーとどちらがいいですか。ここ<strong>はどうですか</strong>。<br><em>Soba or curry for lunch? How about here?</em></p>
-<p>一緒(いっしょ)に昼(ひる)ごはんを<strong>食(た)べませんか</strong>。<br><em>Would you like to have lunch together?</em></p>
+<p><ruby>昼<rt>ひる</rt></ruby>ごはんは、そばとカレーとどちらがいいですか。ここ<strong>はどうですか</strong>。<br><em>Soba or curry for lunch? How about here?</em></p>
+<p><ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>昼<rt>ひる</rt></ruby>ごはんを**<ruby>食<rt>た</rt></ruby>べませんか**。<br><em>Would you like to have lunch together?</em></p>
 <p>The second commits you both to an activity; the first only puts a candidate forward inside a plan you are already making. That is why <code>はどうですか</code> is so useful in arranging things - dates, venues, options - while <code>ませんか</code> is what opens the arrangement in the first place.</p>
 </div>
 </div>
-<div class="slide" data-index="124">
+<div class="slide" data-index="137">
   
   <div class="slide__content"><h2>～はどうですか · ～はどうですか vs ～ませんか (cont.)</h2>
-<p>They stack naturally in one conversation: 食(た)べに行(い)きませんか opens it, 金曜日(きんようび)はどうですか settles the detail.</p>
+<p>They stack naturally in one conversation: <ruby>食<rt>た</rt></ruby>べに<ruby>行<rt>い</rt></ruby>きませんか opens it, <ruby>金曜日<rt>きんようび</rt></ruby>はどうですか settles the detail.</p>
 </div>
 </div>
-<div class="slide" data-index="125">
+<div class="slide" data-index="138">
   
   <div class="slide__content"><h2>～はどうですか · ～はどうですか vs ～たらどうですか</h2>
 <blockquote>
 <p><strong>Rule of thumb</strong> - <code>はどうですか</code> offers an option; <code>たらどうですか</code> tells the listener what <em>they</em> should do. The second is advice, and it can sting.</p>
 </blockquote>
-<p>この薬(くすり)<strong>はどうですか</strong>。<br><em>How about this medicine?</em></p>
-<p>少(すこ)し<strong>休(やす)んだらどうですか</strong>。<br><em>Why don&#39;t you take a bit of a rest?</em></p>
+<p>この<ruby>薬<rt>くすり</rt></ruby><strong>はどうですか</strong>。<br><em>How about this medicine?</em></p>
+<p><ruby>少<rt>すこ</rt></ruby>し**<ruby>休<rt>やす</rt></ruby>んだらどうですか**。<br><em>Why don&#39;t you take a bit of a rest?</em></p>
 <p><code>～たらどうですか</code> is built on the conditional た-form and means &quot;why don&#39;t you…&quot;. Said warmly it is caring; said flatly it implies the listener has failed to think of something obvious, which is why it carries a faint edge of impatience. Upward it is best avoided altogether - ～てはいかがでしょうか is the safe version.</p>
 </div>
 </div>
-<div class="slide" data-index="126">
+<div class="slide" data-index="139">
   
   <div class="slide__content"><h2>～はどうですか · ～はどうですか vs ～たらどうですか (cont.)</h2>
-<p>Casual speech shortens it to <code>～たら？</code> - 医者(いしゃ)に行(い)ったら？ - and the trailing, unfinished shape is exactly what makes it sound offhand.</p>
+<p>Casual speech shortens it to <code>～たら？</code> - <ruby>医者<rt>いしゃ</rt></ruby>に<ruby>行<rt>い</rt></ruby>ったら？ - and the trailing, unfinished shape is exactly what makes it sound offhand.</p>
 </div>
 </div>
-<div class="slide" data-index="127">
+<div class="slide" data-index="140">
   
   <div class="slide__content"><h2>～はどうですか · Common mistakes</h2>
 <ul>
-<li><p>❌ 昨日(きのう)のパーティー<strong>はどうですか</strong>。 → ✅ 昨日(きのう)のパーティー<strong>はどうでしたか</strong>。<br><em>A finished event takes the past form.</em></p>
+<li><p>❌ <ruby>昨日<rt>きのう</rt></ruby>のパーティー<strong>はどうですか</strong>。 → ✅ <ruby>昨日<rt>きのう</rt></ruby>のパーティー<strong>はどうでしたか</strong>。<br><em>A finished event takes the past form.</em></p>
 </li>
-<li><p>❌ 映画(えいが)を見(み)に行(い)く<strong>はどうですか</strong>。 → ✅ 映画(えいが)を見(み)に行(い)く<strong>のはどうですか</strong>。<br><em>A verb needs the nominaliser <code>の</code> before <code>は</code>.</em></p>
+<li><p>❌ <ruby>映画<rt>えいが</rt></ruby>を<ruby>見<rt>み</rt></ruby>に<ruby>行<rt>い</rt></ruby>く<strong>はどうですか</strong>。 → ✅ <ruby>映画<rt>えいが</rt></ruby>を<ruby>見<rt>み</rt></ruby>に<ruby>行<rt>い</rt></ruby>く<strong>のはどうですか</strong>。<br><em>A verb needs the nominaliser <code>の</code> before <code>は</code>.</em></p>
 </li>
-<li><p>❌ 新(あたら)しい先生(せんせい)は<strong>どんなですか</strong>。 → ✅ 新(あたら)しい先生(せんせい)は<strong>どうですか</strong>。／<strong>どんな人(ひと)ですか</strong>。<br><em><code>どんな</code> cannot stand alone; it must attach to a noun.</em></p>
+<li><p>❌ <ruby>新<rt>あたら</rt></ruby>しい<ruby>先生<rt>せんせい</rt></ruby>は<strong>どんなですか</strong>。 → ✅ <ruby>新<rt>あたら</rt></ruby>しい<ruby>先生<rt>せんせい</rt></ruby>は<strong>どうですか</strong>。／<strong>どんな<ruby>人<rt>ひと</rt></ruby>ですか</strong>。<br><em><code>どんな</code> cannot stand alone; it must attach to a noun.</em></p>
 </li>
-<li><p>❌ 社長(しゃちょう)、お飲(の)み物(もの)は<strong>どうですか</strong>。 → ✅ 社長(しゃちょう)、お飲(の)み物(もの)は<strong>いかがですか</strong>。<br><em>Offering to someone senior calls for <code>いかが</code>.</em></p>
-</li>
-<li><p>❌ 部長(ぶちょう)、もっと早(はや)く<strong>帰(かえ)ったらどうですか</strong>。 → ✅ 部長(ぶちょう)、もっと早(はや)く<strong>お帰(かえ)りになってはいかがでしょうか</strong>。<br><em>Advice aimed upward needs a much softer frame.</em></p>
+<li><p>❌ <ruby>社長<rt>しゃちょう</rt></ruby>、お<ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>は<strong>どうですか</strong>。 → ✅ <ruby>社長<rt>しゃちょう</rt></ruby>、お<ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>は<strong>いかがですか</strong>。<br><em>Offering to someone senior calls for <code>いかが</code>.</em></p>
 </li>
 </ul>
 </div>
 </div>
-<div class="slide" data-index="128">
+<div class="slide" data-index="141">
+  
+  <div class="slide__content"><h2>～はどうですか · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ <ruby>部長<rt>ぶちょう</rt></ruby>、もっと<ruby>早<rt>はや</rt></ruby>く**<ruby>帰<rt>かえ</rt></ruby>ったらどうですか**。 → ✅ <ruby>部長<rt>ぶちょう</rt></ruby>、もっと<ruby>早<rt>はや</rt></ruby>く<strong>お<ruby>帰<rt>かえ</rt></ruby>りになってはいかがでしょうか</strong>。<br><em>Advice aimed upward needs a much softer frame.</em></li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="142">
   
   <div class="slide__content"><h2>～はどうですか · Practice 1</h2>
-<p><strong>1.</strong> つかれた顔(かお)をしていますね。少(すこ)し休(やす)む____どうですか。</p>
+<p><strong>1.</strong> つかれた<ruby>顔<rt>かお</rt></ruby>をしていますね。<ruby>少<rt>すこ</rt></ruby>し<ruby>休<rt>やす</rt></ruby>む____どうですか。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-少(すこ)し休(やす)む<strong>のは</strong>どうですか。</p>
+<ruby>少<rt>すこ</rt></ruby>し<ruby>休<rt>やす</rt></ruby>む<strong>のは</strong>どうですか。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-A verb cannot be followed directly by <code>は</code>; the nominaliser <code>の</code> turns <code>休(やす)む</code> into something the topic particle can mark. You could also say <code>休(やす)んだらどうですか</code>, which is more directly advice.</p>
+A verb cannot be followed directly by <code>は</code>; the nominaliser <code>の</code> turns <code><ruby>休<rt>やす</rt></ruby>む</code> into something the topic particle can mark. You could also say <code><ruby>休<rt>やす</rt></ruby>んだらどうですか</code>, which is more directly advice.</p>
 </div>
 </div>
-<div class="slide" data-index="129">
+<div class="slide" data-index="143">
   
   <div class="slide__content"><h2>～はどうですか · Practice 2</h2>
-<p><strong>2.</strong> お客(きゃく)さんに：「お茶(ちゃ)は（どうですか・いかがですか）。」</p>
+<p><strong>2.</strong> お<ruby>客<rt>きゃく</rt></ruby>さんに：「お<ruby>茶<rt>ちゃ</rt></ruby>は（どうですか・いかがですか）。」</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-お茶(ちゃ)は<strong>いかがですか</strong>。</p>
+お<ruby>茶<rt>ちゃ</rt></ruby>は<strong>いかがですか</strong>。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 <code>いかが</code> is the polite counterpart of <code>どう</code>, and offering refreshment to a guest or customer is exactly where it belongs. <code>どうですか</code> is not wrong, just level with a colleague rather than with a customer.</p>
 </div>
 </div>
-<div class="slide" data-index="130">
+<div class="slide" data-index="144">
   
   <div class="slide__content"><h2>～はどうですか · Practice 3</h2>
 <p><strong>3.</strong> Translate into Japanese: &quot;How was the exam yesterday?&quot;</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-昨日(きのう)の試験(しけん)<strong>はどうでしたか</strong>。</p>
+<ruby>昨日<rt>きのう</rt></ruby>の<ruby>試験<rt>しけん</rt></ruby><strong>はどうでしたか</strong>。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 The exam is over, so the question has to be in the past: <code>どうでしたか</code>. <code>どうですか</code> would be asking about an exam that is still going on.</p>
 </div>
 </div>
-<div class="slide" data-index="131">
+<div class="slide" data-index="145">
   
   <div class="slide__content"><h2>～はどうですか · Practice 4</h2>
-<p><strong>4.</strong> Find and fix the error: 新(あたら)しいアパートはどんなですか。</p>
+<p><strong>4.</strong> Find and fix the error: <ruby>新<rt>あたら</rt></ruby>しいアパートはどんなですか。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
-✅ 新(あたら)しいアパートは<strong>どうですか</strong>。</p>
+✅ <ruby>新<rt>あたら</rt></ruby>しいアパートは<strong>どうですか</strong>。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 <code>どんな</code> is an attributive - it has to sit in front of a noun, as in <code>どんなアパートですか</code>. To ask how something is, on its own, the word is <code>どう</code>.</p>
 </div>
 </div>
-<div class="slide" data-index="132">
+<div class="slide" data-index="146">
   
   <div class="slide__content"><h2>～はどうですか · Practice 5</h2>
-<p><strong>5.</strong> Explain the difference in nuance: (a) 明日(あした)<strong>はどうですか</strong>。 (b) 明日(あした)会(あ)い<strong>ませんか</strong>。</p>
+<p><strong>5.</strong> Explain the difference in nuance: (a) <ruby>明日<rt>あした</rt></ruby><strong>はどうですか</strong>。 (b) <ruby>明日<rt>あした</rt></ruby><ruby>会<rt>あ</rt></ruby>い<strong>ませんか</strong>。</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
 (a) puts a date forward as a candidate. It assumes you are already arranging to meet and asks the other person to evaluate the option - it is about the <em>day</em>, not about whether to meet at all.</p>
 <p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
@@ -4183,7 +4274,7 @@ The exam is over, so the question has to be in the past: <code>どうでした�
     </div>
     <div id="hud-right">
       <a href="https://github.com/arpitbbhayani/deckrun" target="_blank" rel="noopener noreferrer" class="hud-brand" id="hud-brand" title="deckrun — Markdown presentations">powered by <span>deckrun</span></a>
-      <div id="slide-counter"><span id="cur">1</span>&nbsp;/&nbsp;<span id="tot">133</span></div>
+      <div id="slide-counter"><span id="cur">1</span>&nbsp;/&nbsp;<span id="tot">147</span></div>
     </div>
   </div>
 </div>
@@ -4236,7 +4327,7 @@ The exam is over, so the question has to be in the past: <code>どうでした�
 
 
 
-<script id="deck-notes" type="application/json">["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]</script>
+<script id="deck-notes" type="application/json">["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]</script>
 <script id="deck-themes" type="application/json">{"themes":[{"id":"midnight","label":"midnight","mood":"dark","blurb":"Catppuccin Mocha. Violet on deep indigo, drifting orbs.","decor":"orbs","colors":{"crust":"#11111b","mantle":"#181825","base":"#1e1e2e","surface0":"#313244","overlay1":"#7f849c","subtext1":"#bac2de","text":"#cdd6f4","accent":"#cba6f7","accent2":"#89b4fa","accent3":"#89dceb"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"tokyo","label":"tokyo night","mood":"dark","blurb":"Neon cyan over a wireframe grid, lifted from a rainy skyline.","decor":"grid","colors":{"crust":"#16161e","mantle":"#1a1b26","base":"#1f2335","surface0":"#292e42","overlay1":"#7c86ab","subtext1":"#b7c0e0","text":"#c8d3f5","accent":"#2ac3de","accent2":"#bb9af7","accent3":"#73daca"},"fonts":{"display":"'Sora', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"nord","label":"nord","mood":"dark","blurb":"Arctic frost blue on polar slate, with slow contour waves.","decor":"waves","colors":{"crust":"#232831","mantle":"#2e3440","base":"#353c4a","surface0":"#3b4252","overlay1":"#8e9aae","subtext1":"#d8dee9","text":"#eceff4","accent":"#88c0d0","accent2":"#81a1c1","accent3":"#8fbcbb"},"fonts":{"display":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace","body":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"dracula","label":"dracula","mood":"dark","blurb":"Purple and hot pink over charcoal, lit by a gradient mesh.","decor":"mesh","colors":{"crust":"#1a1b23","mantle":"#21222c","base":"#282a36","surface0":"#343746","overlay1":"#7b85b6","subtext1":"#e2e4f0","text":"#f8f8f2","accent":"#bd93f9","accent2":"#ff79c6","accent3":"#8be9fd"},"fonts":{"display":"'Syne', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'Fira Code', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"gruvbox","label":"gruvbox","mood":"dark","blurb":"Warm amber and moss on retro brown, hatched like graph paper.","decor":"topo","colors":{"crust":"#1b1e1f","mantle":"#232728","base":"#282828","surface0":"#32302f","overlay1":"#928374","subtext1":"#d5c4a1","text":"#ebdbb2","accent":"#fabd2f","accent2":"#fe8019","accent3":"#b8bb26"},"fonts":{"display":"'Bricolage Grotesque', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Work Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"rosepine","label":"rosé pine","mood":"dark","blurb":"Muted iris and gold on plum, under a slow aurora.","decor":"aurora","colors":{"crust":"#14121f","mantle":"#191724","base":"#1f1d2e","surface0":"#26233a","overlay1":"#817c9c","subtext1":"#cdc9e6","text":"#e0def4","accent":"#c4a7e7","accent2":"#9ccfd8","accent3":"#f6c177"},"fonts":{"display":"'Fraunces', Georgia, 'Times New Roman', serif","body":"'Newsreader', Georgia, 'Times New Roman', serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"forest","label":"forest","mood":"dark","blurb":"Everforest sage on deep pine, rippling in concentric rings.","decor":"rings","colors":{"crust":"#232a2e","mantle":"#2d353b","base":"#343f44","surface0":"#3d484d","overlay1":"#9da9a0","subtext1":"#d3c6aa","text":"#e5dfd2","accent":"#a7c080","accent2":"#6fb5ac","accent3":"#dbbc7f"},"fonts":{"display":"'Outfit', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"neon","label":"neon","mood":"dark","blurb":"Electric cyan and magenta on true black, raked by light beams.","decor":"beams","colors":{"crust":"#050509","mantle":"#0a0a12","base":"#0e0e1a","surface0":"#16162a","overlay1":"#6a6a96","subtext1":"#c8c8e4","text":"#f0f0ff","accent":"#22d3ee","accent2":"#ff5cc8","accent3":"#38e8ff"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'Space Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"daylight","label":"daylight","mood":"light","blurb":"Catppuccin Latte, contrast-tuned for a projector. Dot matrix.","decor":"dots","colors":{"crust":"#ebebeb","mantle":"#f5f5f5","base":"#fafaf8","surface0":"#ccd0da","overlay1":"#5c5f77","subtext1":"#3a3c52","text":"#1e2030","accent":"#8839ef","accent2":"#1e66f5","accent3":"#179299"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"arctic","label":"arctic","mood":"light","blurb":"Nord inverted. Frost blue on cool paper, with contour waves.","decor":"waves","colors":{"crust":"#e3e8ef","mantle":"#eceff4","base":"#f7f9fc","surface0":"#dbe1ea","overlay1":"#5f6b7c","subtext1":"#364150","text":"#2e3440","accent":"#2f7d94","accent2":"#4a7ba7","accent3":"#3b8b8a"},"fonts":{"display":"'Manrope', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"solarized","label":"solarized","mood":"light","blurb":"The classic low-glare cream, paired with Lora for long prose.","decor":"topo","colors":{"crust":"#eee8d5","mantle":"#f5efdc","base":"#fdf6e3","surface0":"#e3ddc8","overlay1":"#657b83","subtext1":"#3f5b62","text":"#073642","accent":"#268bd2","accent2":"#6c71c4","accent3":"#21958c"},"fonts":{"display":"'Outfit', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Lora', Georgia, 'Times New Roman', serif","mono":"'Source Code Pro', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"paper","label":"paper","mood":"light","blurb":"Crimson serif on warm cream. Editorial, print-first, very legible.","decor":"rings","colors":{"crust":"#efe8dc","mantle":"#f7f2e9","base":"#fdfbf5","surface0":"#e4dccc","overlay1":"#6e6553","subtext1":"#38311f","text":"#211c11","accent":"#a81f2c","accent2":"#1f7f96","accent3":"#9a6c12"},"fonts":{"display":"'Fraunces', Georgia, 'Times New Roman', serif","body":"'Newsreader', Georgia, 'Times New Roman', serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"rosequartz","label":"rose quartz","mood":"light","blurb":"Rosé Pine Dawn. Blush and iris on linen, with soft orbs.","decor":"orbs","colors":{"crust":"#f2e9e1","mantle":"#faf4ed","base":"#fffaf3","surface0":"#ece0d8","overlay1":"#7d7791","subtext1":"#55506e","text":"#423d5c","accent":"#b4637a","accent2":"#907aa9","accent3":"#56949f"},"fonts":{"display":"'Playfair Display', Georgia, 'Times New Roman', serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"swiss","label":"swiss","mood":"light","blurb":"Black on white, one red. Heavy grotesk, tight tracking, hard grid.","decor":"grid","colors":{"crust":"#f0f0f0","mantle":"#f8f8f8","base":"#ffffff","surface0":"#dcdcdc","overlay1":"#5a5a5a","subtext1":"#222222","text":"#0a0a0a","accent":"#e01b24","accent2":"#0a0a0a","accent3":"#5a5a5a"},"fonts":{"display":"'Archivo', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}}],"hljsMap":{"midnight":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css","tokyo":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css","nord":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/nord.min.css","dracula":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/dracula.min.css","gruvbox":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/gruvbox-dark-medium.min.css","rosepine":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/ros-pine.min.css","forest":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css","neon":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/night-owl.min.css","daylight":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","arctic":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","solarized":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/solarized-light.min.css","paper":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","rosequartz":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/ros-pine-dawn.min.css","swiss":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css"},"decorMap":{"midnight":"orbs","tokyo":"grid","nord":"waves","dracula":"mesh","gruvbox":"topo","rosepine":"aurora","forest":"rings","neon":"beams","daylight":"dots","arctic":"waves","solarized":"topo","paper":"rings","rosequartz":"orbs","swiss":"grid"}}</script>
 
 <script>
@@ -5424,6 +5515,36 @@ The exam is over, so the question has to be in the past: <code>どうでした�
     transition: opacity 0.15s ease, background 0.15s ease; }
   #deck-home:hover, #deck-home:focus-visible { opacity: 0.95; background: rgba(128,128,128,0.14); }
   @media print { #deck-home { display: none !important; } }
+  #furigana-toggle { position: fixed; bottom: 2.7rem; right: 1.1rem; z-index: 40;
+    font: 500 0.78rem/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+    color: currentColor; opacity: 0.38; cursor: pointer; user-select: none;
+    background: none; border: 1px solid currentColor; border-radius: 4px;
+    padding: 0.38rem 0.6rem;
+    transition: opacity 0.15s ease, background 0.15s ease; }
+  #furigana-toggle:hover, #furigana-toggle:focus-visible { opacity: 0.95; background: rgba(128,128,128,0.14); }
+  @media print { #furigana-toggle { display: none !important; } }
 </style>
+<button id="furigana-toggle" type="button" aria-pressed="true">&#12405;&#12426;&#12364;&#12394; ON</button>
+<script>
+  (function () {
+    // Deliberately click-only: readers who do not want furigana turn it off
+    // once and it sticks, while every key stays free for presenting.
+    var root = document.documentElement, btn = document.getElementById('furigana-toggle');
+    function paint() {
+      var off = root.getAttribute('data-furigana') === 'off';
+      btn.textContent = '\u3075\u308a\u304c\u306a ' + (off ? 'OFF' : 'ON');
+      btn.setAttribute('aria-pressed', String(!off));
+    }
+    btn.addEventListener('click', function () {
+      var off = root.getAttribute('data-furigana') === 'off';
+      if (off) root.removeAttribute('data-furigana');
+      else root.setAttribute('data-furigana', 'off');
+      try { localStorage.setItem('jlpt-furigana', off ? 'on' : 'off'); } catch (e) {}
+      paint();
+      btn.blur();
+    });
+    paint();
+  })();
+</script>
 </body>
 </html>
