@@ -1,0 +1,56 @@
+This repository contains material under two different licences.
+
+
+1. SLIDE CONTENT  --  n5/**, n4/**, n3/**, index.html
+-------------------------------------------------------------------------------
+Copyright (c) 2026 JLPT Grammar Enhanced contributors.
+
+Licensed under the Creative Commons Attribution-ShareAlike 4.0 International
+License (CC BY-SA 4.0).
+
+    https://creativecommons.org/licenses/by-sa/4.0/
+
+You may share and adapt this material, including commercially, provided you give
+appropriate credit, link to the licence, indicate if changes were made, and
+distribute any derivative under the same licence.
+
+The explanations, example sentences, translations and practice questions are
+reproduced from https://github.com/maitodesu/jlpt-grammar-enhanced, where they
+are original work written for that book. Changes made: the book's pages were
+reformatted into presentation slides -- split into slide-sized blocks, with
+collapsible practice answers turned into step-through reveals. The text itself
+is unchanged.
+
+
+2. EMBEDDED PRESENTATION RUNTIME  --  the inlined <style> and <script> in each page
+-------------------------------------------------------------------------------
+Copyright (c) 2026 Arpit Bhayani.
+
+Licensed under the MIT License, from deckrun
+(https://github.com/arpitbbhayani/deckrun), used as published.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+ATTRIBUTION FOR SCOPE
+-------------------------------------------------------------------------------
+The grammar-point inventory these decks cover -- which patterns, at which JLPT
+level -- follows the list published at https://jlptgrammarlist.neocities.org/.
+That site supplied the syllabus only. No text, example sentence or translation
+from it appears here. It is unaffiliated with this project and has not reviewed
+or endorsed it.

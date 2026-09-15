@@ -1,0 +1,4781 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="paper" data-decor="rings" data-size="m" data-template="classic" data-transition="slide">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>N5 - Ongoing and completed · deckrun</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Fira+Code:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Sora:wght@300;400;500;600;700;800&family=Source+Code+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;500;600;700;800&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" id="hljs-theme" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  
+  <style>
+/* ── Reset & base ─────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+::selection {
+  background: var(--selection-bg, var(--accent-line, rgba(56, 139, 253, 0.22)));
+  color: var(--selection-text, inherit);
+}
+::-moz-selection {
+  background: var(--selection-bg, var(--accent-line, rgba(56, 139, 253, 0.22)));
+  color: var(--selection-text, inherit);
+}
+
+:root[data-theme="midnight"] {
+  --crust:            #11111b;
+  --mantle:           #181825;
+  --base:             #1e1e2e;
+  --surface0:         #313244;
+  --surface1:         #45475a;
+  --surface2:         #585b70;
+  --overlay0:         #6c7086;
+  --overlay1:         #7f849c;
+  --subtext0:         #a6adc8;
+  --subtext1:         #bac2de;
+  --text:             #cdd6f4;
+  --lavender:         #b4befe;
+  --blue:             #89b4fa;
+  --sapphire:         #74c7ec;
+  --sky:              #89dceb;
+  --teal:             #94e2d5;
+  --green:            #a6e3a1;
+  --yellow:           #f9e2af;
+  --peach:            #fab387;
+  --red:              #f38ba8;
+  --mauve:            #cba6f7;
+  --pink:             #f5c2e7;
+  --accent:           #cba6f7;
+  --accent-2:         #89b4fa;
+  --accent-3:         #89dceb;
+  --accent-soft:      rgba(203, 166, 247, 0.1);
+  --accent-line:      rgba(203, 166, 247, 0.42);
+  --glow:             rgba(203, 166, 247, 0.34);
+  --gradient:         linear-gradient(115deg, #cba6f7, #89b4fa 58%, #89dceb);
+  --accent-fade:      linear-gradient(90deg, #cba6f7, rgba(203, 166, 247, 0.45) 62%, transparent);
+  --selection-bg:     rgba(203, 166, 247, 0.22);
+  --selection-text:   inherit;
+  --surface-soft:     rgba(49, 50, 68, 0.34);
+  --crust-overlay:    rgba(17, 17, 27, 0.84);
+  --scrim:            rgba(0, 0, 0, 0.5);
+  --hairline:         rgba(205, 214, 244, 0.09);
+  --shadow-md:        0 8px 28px rgba(0, 0, 0, 0.42);
+  --shadow-lg:        0 24px 68px rgba(0, 0, 0, 0.52);
+  --code-shadow:      0 6px 26px rgba(0, 0, 0, 0.4);
+  --font-display:     'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-body:        'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-mono:        'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --display-weight:   700;
+  --display-tracking: -0.025em;
+  --display-case:     none;
+  --body-tracking:    0;
+  --decor-line:       rgba(205, 214, 244, 0.05);
+  --decor-dot:        rgba(205, 214, 244, 0.085);
+  --decor-glow-1:     rgba(203, 166, 247, 0.2);
+  --decor-glow-2:     rgba(137, 180, 250, 0.16);
+  --decor-glow-3:     rgba(137, 220, 235, 0.13);
+}
+
+:root[data-theme="tokyo"] {
+  --crust:            #16161e;
+  --mantle:           #1a1b26;
+  --base:             #1f2335;
+  --surface0:         #292e42;
+  --surface1:         #3b4261;
+  --surface2:         #545c7e;
+  --overlay0:         #626c96;
+  --overlay1:         #7c86ab;
+  --subtext0:         #a5b0d6;
+  --subtext1:         #b7c0e0;
+  --text:             #c8d3f5;
+  --lavender:         #a9b1ff;
+  --blue:             #7aa2f7;
+  --sapphire:         #2ac3de;
+  --sky:              #7dcfff;
+  --teal:             #73daca;
+  --green:            #9ece6a;
+  --yellow:           #e0af68;
+  --peach:            #ff9e64;
+  --red:              #f7768e;
+  --mauve:            #bb9af7;
+  --pink:             #ff7eb6;
+  --accent:           #2ac3de;
+  --accent-2:         #bb9af7;
+  --accent-3:         #73daca;
+  --accent-soft:      rgba(42, 195, 222, 0.1);
+  --accent-line:      rgba(42, 195, 222, 0.42);
+  --glow:             rgba(42, 195, 222, 0.34);
+  --gradient:         linear-gradient(115deg, #2ac3de, #bb9af7 58%, #73daca);
+  --accent-fade:      linear-gradient(90deg, #2ac3de, rgba(42, 195, 222, 0.45) 62%, transparent);
+  --selection-bg:     rgba(42, 195, 222, 0.22);
+  --selection-text:   inherit;
+  --surface-soft:     rgba(41, 46, 66, 0.34);
+  --crust-overlay:    rgba(22, 22, 30, 0.84);
+  --scrim:            rgba(0, 0, 0, 0.5);
+  --hairline:         rgba(200, 211, 245, 0.09);
+  --shadow-md:        0 8px 28px rgba(0, 0, 0, 0.42);
+  --shadow-lg:        0 24px 68px rgba(0, 0, 0, 0.52);
+  --code-shadow:      0 6px 26px rgba(0, 0, 0, 0.4);
+  --font-display:     'Sora', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-body:        'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-mono:        'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --display-weight:   700;
+  --display-tracking: -0.03em;
+  --display-case:     none;
+  --body-tracking:    0;
+  --decor-line:       rgba(200, 211, 245, 0.05);
+  --decor-dot:        rgba(200, 211, 245, 0.085);
+  --decor-glow-1:     rgba(42, 195, 222, 0.2);
+  --decor-glow-2:     rgba(187, 154, 247, 0.16);
+  --decor-glow-3:     rgba(115, 218, 202, 0.13);
+}
+
+:root, :root[data-theme="nord"] {
+  --crust:            #232831;
+  --mantle:           #2e3440;
+  --base:             #353c4a;
+  --surface0:         #3b4252;
+  --surface1:         #434c5e;
+  --surface2:         #4c566a;
+  --overlay0:         #707d92;
+  --overlay1:         #8e9aae;
+  --subtext0:         #c3ccda;
+  --subtext1:         #d8dee9;
+  --text:             #eceff4;
+  --lavender:         #c9a9c8;
+  --blue:             #81a1c1;
+  --sapphire:         #88c0d0;
+  --sky:              #a3d4e0;
+  --teal:             #8fbcbb;
+  --green:            #a3be8c;
+  --yellow:           #ebcb8b;
+  --peach:            #d08770;
+  --red:              #bf616a;
+  --mauve:            #b48ead;
+  --pink:             #d3a3c6;
+  --accent:           #88c0d0;
+  --accent-2:         #81a1c1;
+  --accent-3:         #8fbcbb;
+  --accent-soft:      rgba(136, 192, 208, 0.1);
+  --accent-line:      rgba(136, 192, 208, 0.42);
+  --glow:             rgba(136, 192, 208, 0.34);
+  --gradient:         linear-gradient(115deg, #88c0d0, #81a1c1 58%, #8fbcbb);
+  --accent-fade:      linear-gradient(90deg, #88c0d0, rgba(136, 192, 208, 0.45) 62%, transparent);
+  --selection-bg:     rgba(136, 192, 208, 0.22);
+  --selection-text:   inherit;
+  --surface-soft:     rgba(59, 66, 82, 0.34);
+  --crust-overlay:    rgba(35, 40, 49, 0.84);
+  --scrim:            rgba(0, 0, 0, 0.5);
+  --hairline:         rgba(236, 239, 244, 0.09);
+  --shadow-md:        0 8px 28px rgba(0, 0, 0, 0.42);
+  --shadow-lg:        0 24px 68px rgba(0, 0, 0, 0.52);
+  --code-shadow:      0 6px 26px rgba(0, 0, 0, 0.4);
+  --font-display:     'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --font-body:        'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --font-mono:        'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --display-weight:   700;
+  --display-tracking: -0.025em;
+  --display-case:     none;
+  --body-tracking:    0;
+  --decor-line:       rgba(236, 239, 244, 0.05);
+  --decor-dot:        rgba(236, 239, 244, 0.085);
+  --decor-glow-1:     rgba(136, 192, 208, 0.2);
+  --decor-glow-2:     rgba(129, 161, 193, 0.16);
+  --decor-glow-3:     rgba(143, 188, 187, 0.13);
+}
+
+:root[data-theme="dracula"] {
+  --crust:            #1a1b23;
+  --mantle:           #21222c;
+  --base:             #282a36;
+  --surface0:         #343746;
+  --surface1:         #44475a;
+  --surface2:         #565a70;
+  --overlay0:         #6272a4;
+  --overlay1:         #7b85b6;
+  --subtext0:         #c8cbe0;
+  --subtext1:         #e2e4f0;
+  --text:             #f8f8f2;
+  --lavender:         #d6bcff;
+  --blue:             #79b8ff;
+  --sapphire:         #8be9fd;
+  --sky:              #a4f0fd;
+  --teal:             #66e0c8;
+  --green:            #50fa7b;
+  --yellow:           #f1fa8c;
+  --peach:            #ffb86c;
+  --red:              #ff5555;
+  --mauve:            #bd93f9;
+  --pink:             #ff79c6;
+  --accent:           #bd93f9;
+  --accent-2:         #ff79c6;
+  --accent-3:         #8be9fd;
+  --accent-soft:      rgba(189, 147, 249, 0.1);
+  --accent-line:      rgba(189, 147, 249, 0.42);
+  --glow:             rgba(189, 147, 249, 0.34);
+  --gradient:         linear-gradient(115deg, #bd93f9, #ff79c6 58%, #8be9fd);
+  --accent-fade:      linear-gradient(90deg, #bd93f9, rgba(189, 147, 249, 0.45) 62%, transparent);
+  --selection-bg:     rgba(189, 147, 249, 0.22);
+  --selection-text:   inherit;
+  --surface-soft:     rgba(52, 55, 70, 0.34);
+  --crust-overlay:    rgba(26, 27, 35, 0.84);
+  --scrim:            rgba(0, 0, 0, 0.5);
+  --hairline:         rgba(248, 248, 242, 0.09);
+  --shadow-md:        0 8px 28px rgba(0, 0, 0, 0.42);
+  --shadow-lg:        0 24px 68px rgba(0, 0, 0, 0.52);
+  --code-shadow:      0 6px 26px rgba(0, 0, 0, 0.4);
+  --font-display:     'Syne', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-body:        'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-mono:        'Fira Code', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --display-weight:   800;
+  --display-tracking: -0.02em;
+  --display-case:     none;
+  --body-tracking:    0;
+  --decor-line:       rgba(248, 248, 242, 0.05);
+  --decor-dot:        rgba(248, 248, 242, 0.085);
+  --decor-glow-1:     rgba(189, 147, 249, 0.2);
+  --decor-glow-2:     rgba(255, 121, 198, 0.16);
+  --decor-glow-3:     rgba(139, 233, 253, 0.13);
+}
+
+:root[data-theme="gruvbox"] {
+  --crust:            #1b1e1f;
+  --mantle:           #232728;
+  --base:             #282828;
+  --surface0:         #32302f;
+  --surface1:         #3c3836;
+  --surface2:         #504945;
+  --overlay0:         #7c6f64;
+  --overlay1:         #928374;
+  --subtext0:         #bdae93;
+  --subtext1:         #d5c4a1;
+  --text:             #ebdbb2;
+  --lavender:         #d3b8c8;
+  --blue:             #83a598;
+  --sapphire:         #7daea3;
+  --sky:              #8ec07c;
+  --teal:             #89b482;
+  --green:            #b8bb26;
+  --yellow:           #fabd2f;
+  --peach:            #fe8019;
+  --red:              #fb4934;
+  --mauve:            #d3869b;
+  --pink:             #e2a3b4;
+  --accent:           #fabd2f;
+  --accent-2:         #fe8019;
+  --accent-3:         #b8bb26;
+  --accent-soft:      rgba(250, 189, 47, 0.1);
+  --accent-line:      rgba(250, 189, 47, 0.42);
+  --glow:             rgba(250, 189, 47, 0.34);
+  --gradient:         linear-gradient(115deg, #fabd2f, #fe8019 58%, #b8bb26);
+  --accent-fade:      linear-gradient(90deg, #fabd2f, rgba(250, 189, 47, 0.45) 62%, transparent);
+  --selection-bg:     rgba(250, 189, 47, 0.22);
+  --selection-text:   inherit;
+  --surface-soft:     rgba(50, 48, 47, 0.34);
+  --crust-overlay:    rgba(27, 30, 31, 0.84);
+  --scrim:            rgba(0, 0, 0, 0.5);
+  --hairline:         rgba(235, 219, 178, 0.09);
+  --shadow-md:        0 8px 28px rgba(0, 0, 0, 0.42);
+  --shadow-lg:        0 24px 68px rgba(0, 0, 0, 0.52);
+  --code-shadow:      0 6px 26px rgba(0, 0, 0, 0.4);
+  --font-display:     'Bricolage Grotesque', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-body:        'Work Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-mono:        'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --display-weight:   700;
+  --display-tracking: -0.02em;
+  --display-case:     none;
+  --body-tracking:    0;
+  --decor-line:       rgba(235, 219, 178, 0.05);
+  --decor-dot:        rgba(235, 219, 178, 0.085);
+  --decor-glow-1:     rgba(250, 189, 47, 0.2);
+  --decor-glow-2:     rgba(254, 128, 25, 0.16);
+  --decor-glow-3:     rgba(184, 187, 38, 0.13);
+}
+
+:root[data-theme="rosepine"] {
+  --crust:            #14121f;
+  --mantle:           #191724;
+  --base:             #1f1d2e;
+  --surface0:         #26233a;
+  --surface1:         #403d52;
+  --surface2:         #524f67;
+  --overlay0:         #6e6a86;
+  --overlay1:         #817c9c;
+  --subtext0:         #b6b2d0;
+  --subtext1:         #cdc9e6;
+  --text:             #e0def4;
+  --lavender:         #d5c4ee;
+  --blue:             #6a9fb5;
+  --sapphire:         #6ba8bf;
+  --sky:              #9ccfd8;
+  --teal:             #86cfc4;
+  --green:            #9ccfa8;
+  --yellow:           #f6c177;
+  --peach:            #f0a882;
+  --red:              #eb6f92;
+  --mauve:            #c4a7e7;
+  --pink:             #ebbcba;
+  --accent:           #c4a7e7;
+  --accent-2:         #9ccfd8;
+  --accent-3:         #f6c177;
+  --accent-soft:      rgba(196, 167, 231, 0.1);
+  --accent-line:      rgba(196, 167, 231, 0.42);
+  --glow:             rgba(196, 167, 231, 0.34);
+  --gradient:         linear-gradient(115deg, #c4a7e7, #9ccfd8 58%, #f6c177);
+  --accent-fade:      linear-gradient(90deg, #c4a7e7, rgba(196, 167, 231, 0.45) 62%, transparent);
+  --selection-bg:     rgba(196, 167, 231, 0.22);
+  --selection-text:   inherit;
+  --surface-soft:     rgba(38, 35, 58, 0.34);
+  --crust-overlay:    rgba(20, 18, 31, 0.84);
+  --scrim:            rgba(0, 0, 0, 0.5);
+  --hairline:         rgba(224, 222, 244, 0.09);
+  --shadow-md:        0 8px 28px rgba(0, 0, 0, 0.42);
+  --shadow-lg:        0 24px 68px rgba(0, 0, 0, 0.52);
+  --code-shadow:      0 6px 26px rgba(0, 0, 0, 0.4);
+  --font-display:     'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body:        'Newsreader', Georgia, 'Times New Roman', serif;
+  --font-mono:        'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --display-weight:   600;
+  --display-tracking: -0.02em;
+  --display-case:     none;
+  --body-tracking:    0.004em;
+  --decor-line:       rgba(224, 222, 244, 0.05);
+  --decor-dot:        rgba(224, 222, 244, 0.085);
+  --decor-glow-1:     rgba(196, 167, 231, 0.2);
+  --decor-glow-2:     rgba(156, 207, 216, 0.16);
+  --decor-glow-3:     rgba(246, 193, 119, 0.13);
+}
+
+:root[data-theme="forest"] {
+  --crust:            #232a2e;
+  --mantle:           #2d353b;
+  --base:             #343f44;
+  --surface0:         #3d484d;
+  --surface1:         #475258;
+  --surface2:         #4f585e;
+  --overlay0:         #7a8478;
+  --overlay1:         #9da9a0;
+  --subtext0:         #c2c9bd;
+  --subtext1:         #d3c6aa;
+  --text:             #e5dfd2;
+  --lavender:         #d8b9c8;
+  --blue:             #7fbbb3;
+  --sapphire:         #6fb5ac;
+  --sky:              #9ed3c8;
+  --teal:             #83c092;
+  --green:            #a7c080;
+  --yellow:           #dbbc7f;
+  --peach:            #e69875;
+  --red:              #e67e80;
+  --mauve:            #d699b6;
+  --pink:             #e3aec3;
+  --accent:           #a7c080;
+  --accent-2:         #6fb5ac;
+  --accent-3:         #dbbc7f;
+  --accent-soft:      rgba(167, 192, 128, 0.1);
+  --accent-line:      rgba(167, 192, 128, 0.42);
+  --glow:             rgba(167, 192, 128, 0.34);
+  --gradient:         linear-gradient(115deg, #a7c080, #6fb5ac 58%, #dbbc7f);
+  --accent-fade:      linear-gradient(90deg, #a7c080, rgba(167, 192, 128, 0.45) 62%, transparent);
+  --selection-bg:     rgba(167, 192, 128, 0.22);
+  --selection-text:   inherit;
+  --surface-soft:     rgba(61, 72, 77, 0.34);
+  --crust-overlay:    rgba(35, 42, 46, 0.84);
+  --scrim:            rgba(0, 0, 0, 0.5);
+  --hairline:         rgba(229, 223, 210, 0.09);
+  --shadow-md:        0 8px 28px rgba(0, 0, 0, 0.42);
+  --shadow-lg:        0 24px 68px rgba(0, 0, 0, 0.52);
+  --code-shadow:      0 6px 26px rgba(0, 0, 0, 0.4);
+  --font-display:     'Outfit', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-body:        'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-mono:        'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --display-weight:   600;
+  --display-tracking: -0.025em;
+  --display-case:     none;
+  --body-tracking:    0;
+  --decor-line:       rgba(229, 223, 210, 0.05);
+  --decor-dot:        rgba(229, 223, 210, 0.085);
+  --decor-glow-1:     rgba(167, 192, 128, 0.2);
+  --decor-glow-2:     rgba(111, 181, 172, 0.16);
+  --decor-glow-3:     rgba(219, 188, 127, 0.13);
+}
+
+:root[data-theme="neon"] {
+  --crust:            #050509;
+  --mantle:           #0a0a12;
+  --base:             #0e0e1a;
+  --surface0:         #16162a;
+  --surface1:         #22223c;
+  --surface2:         #2e2e50;
+  --overlay0:         #4f4f78;
+  --overlay1:         #6a6a96;
+  --subtext0:         #a8a8cc;
+  --subtext1:         #c8c8e4;
+  --text:             #f0f0ff;
+  --lavender:         #b39dff;
+  --blue:             #4d9fff;
+  --sapphire:         #22d3ee;
+  --sky:              #38e8ff;
+  --teal:             #2dd4bf;
+  --green:            #4ade80;
+  --yellow:           #fde047;
+  --peach:            #fb923c;
+  --red:              #fb5c7d;
+  --mauve:            #d946ef;
+  --pink:             #ff5cc8;
+  --accent:           #22d3ee;
+  --accent-2:         #ff5cc8;
+  --accent-3:         #38e8ff;
+  --accent-soft:      rgba(34, 211, 238, 0.1);
+  --accent-line:      rgba(34, 211, 238, 0.42);
+  --glow:             rgba(34, 211, 238, 0.34);
+  --gradient:         linear-gradient(115deg, #22d3ee, #ff5cc8 58%, #38e8ff);
+  --accent-fade:      linear-gradient(90deg, #22d3ee, rgba(34, 211, 238, 0.45) 62%, transparent);
+  --selection-bg:     rgba(34, 211, 238, 0.22);
+  --selection-text:   inherit;
+  --surface-soft:     rgba(22, 22, 42, 0.34);
+  --crust-overlay:    rgba(5, 5, 9, 0.84);
+  --scrim:            rgba(0, 0, 0, 0.5);
+  --hairline:         rgba(240, 240, 255, 0.09);
+  --shadow-md:        0 8px 28px rgba(0, 0, 0, 0.42);
+  --shadow-lg:        0 24px 68px rgba(0, 0, 0, 0.52);
+  --code-shadow:      0 6px 26px rgba(0, 0, 0, 0.4);
+  --font-display:     'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-body:        'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-mono:        'Space Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --display-weight:   700;
+  --display-tracking: 0.04em;
+  --display-case:     uppercase;
+  --body-tracking:    0;
+  --decor-line:       rgba(240, 240, 255, 0.05);
+  --decor-dot:        rgba(240, 240, 255, 0.085);
+  --decor-glow-1:     rgba(34, 211, 238, 0.2);
+  --decor-glow-2:     rgba(255, 92, 200, 0.16);
+  --decor-glow-3:     rgba(56, 232, 255, 0.13);
+}
+
+:root[data-theme="daylight"] {
+  --crust:            #ebebeb;
+  --mantle:           #f5f5f5;
+  --base:             #fafaf8;
+  --surface0:         #ccd0da;
+  --surface1:         #9ca0b0;
+  --surface2:         #8c8fa1;
+  --overlay0:         #6c6f85;
+  --overlay1:         #5c5f77;
+  --subtext0:         #4c4f69;
+  --subtext1:         #3a3c52;
+  --text:             #1e2030;
+  --lavender:         #7287fd;
+  --blue:             #1e66f5;
+  --sapphire:         #209fb5;
+  --sky:              #04a5e5;
+  --teal:             #179299;
+  --green:            #40a02b;
+  --yellow:           #df8e1d;
+  --peach:            #fe640b;
+  --red:              #d20f39;
+  --mauve:            #8839ef;
+  --pink:             #ea76cb;
+  --accent:           #8839ef;
+  --accent-2:         #1e66f5;
+  --accent-3:         #179299;
+  --accent-soft:      rgba(136, 57, 239, 0.09);
+  --accent-line:      rgba(136, 57, 239, 0.34);
+  --glow:             rgba(136, 57, 239, 0.22);
+  --gradient:         linear-gradient(115deg, #8839ef, #1e66f5 58%, #179299);
+  --accent-fade:      linear-gradient(90deg, #8839ef, rgba(136, 57, 239, 0.45) 62%, transparent);
+  --selection-bg:     rgba(136, 57, 239, 0.18);
+  --selection-text:   inherit;
+  --surface-soft:     rgba(204, 208, 218, 0.42);
+  --crust-overlay:    rgba(235, 235, 235, 0.88);
+  --scrim:            rgba(30, 32, 48, 0.26);
+  --hairline:         rgba(30, 32, 48, 0.11);
+  --shadow-md:        0 8px 28px rgba(30, 32, 48, 0.17639999999999997);
+  --shadow-lg:        0 24px 68px rgba(30, 32, 48, 0.2184);
+  --code-shadow:      0 6px 26px rgba(30, 32, 48, 0.168);
+  --font-display:     'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-body:        'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-mono:        'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --display-weight:   700;
+  --display-tracking: -0.025em;
+  --display-case:     none;
+  --body-tracking:    0;
+  --decor-line:       rgba(30, 32, 48, 0.07);
+  --decor-dot:        rgba(30, 32, 48, 0.1);
+  --decor-glow-1:     rgba(136, 57, 239, 0.15);
+  --decor-glow-2:     rgba(30, 102, 245, 0.12);
+  --decor-glow-3:     rgba(23, 146, 153, 0.1);
+}
+
+:root[data-theme="arctic"] {
+  --crust:            #e3e8ef;
+  --mantle:           #eceff4;
+  --base:             #f7f9fc;
+  --surface0:         #dbe1ea;
+  --surface1:         #c2cad6;
+  --surface2:         #a3adbd;
+  --overlay0:         #7b8797;
+  --overlay1:         #5f6b7c;
+  --subtext0:         #445060;
+  --subtext1:         #364150;
+  --text:             #2e3440;
+  --lavender:         #9c6f96;
+  --blue:             #4a7ba7;
+  --sapphire:         #2f7d94;
+  --sky:              #3d8fa8;
+  --teal:             #3b8b8a;
+  --green:            #5d8a45;
+  --yellow:           #b08834;
+  --peach:            #c06a4a;
+  --red:              #b0505a;
+  --mauve:            #96628f;
+  --pink:             #a86a94;
+  --accent:           #2f7d94;
+  --accent-2:         #4a7ba7;
+  --accent-3:         #3b8b8a;
+  --accent-soft:      rgba(47, 125, 148, 0.09);
+  --accent-line:      rgba(47, 125, 148, 0.34);
+  --glow:             rgba(47, 125, 148, 0.22);
+  --gradient:         linear-gradient(115deg, #2f7d94, #4a7ba7 58%, #3b8b8a);
+  --accent-fade:      linear-gradient(90deg, #2f7d94, rgba(47, 125, 148, 0.45) 62%, transparent);
+  --selection-bg:     rgba(47, 125, 148, 0.18);
+  --selection-text:   inherit;
+  --surface-soft:     rgba(219, 225, 234, 0.42);
+  --crust-overlay:    rgba(227, 232, 239, 0.88);
+  --scrim:            rgba(46, 52, 64, 0.26);
+  --hairline:         rgba(46, 52, 64, 0.11);
+  --shadow-md:        0 8px 28px rgba(46, 52, 64, 0.17639999999999997);
+  --shadow-lg:        0 24px 68px rgba(46, 52, 64, 0.2184);
+  --code-shadow:      0 6px 26px rgba(46, 52, 64, 0.168);
+  --font-display:     'Manrope', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-body:        'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-mono:        'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --display-weight:   800;
+  --display-tracking: -0.035em;
+  --display-case:     none;
+  --body-tracking:    0;
+  --decor-line:       rgba(46, 52, 64, 0.07);
+  --decor-dot:        rgba(46, 52, 64, 0.1);
+  --decor-glow-1:     rgba(47, 125, 148, 0.15);
+  --decor-glow-2:     rgba(74, 123, 167, 0.12);
+  --decor-glow-3:     rgba(59, 139, 138, 0.1);
+}
+
+:root[data-theme="solarized"] {
+  --crust:            #eee8d5;
+  --mantle:           #f5efdc;
+  --base:             #fdf6e3;
+  --surface0:         #e3ddc8;
+  --surface1:         #c9c3ad;
+  --surface2:         #a8a48e;
+  --overlay0:         #839496;
+  --overlay1:         #657b83;
+  --subtext0:         #586e75;
+  --subtext1:         #3f5b62;
+  --text:             #073642;
+  --lavender:         #8a8fd0;
+  --blue:             #268bd2;
+  --sapphire:         #1f8fa8;
+  --sky:              #2aa198;
+  --teal:             #21958c;
+  --green:            #859900;
+  --yellow:           #b58900;
+  --peach:            #cb4b16;
+  --red:              #dc322f;
+  --mauve:            #6c71c4;
+  --pink:             #d33682;
+  --accent:           #268bd2;
+  --accent-2:         #6c71c4;
+  --accent-3:         #21958c;
+  --accent-soft:      rgba(38, 139, 210, 0.09);
+  --accent-line:      rgba(38, 139, 210, 0.34);
+  --glow:             rgba(38, 139, 210, 0.22);
+  --gradient:         linear-gradient(115deg, #268bd2, #6c71c4 58%, #21958c);
+  --accent-fade:      linear-gradient(90deg, #268bd2, rgba(38, 139, 210, 0.45) 62%, transparent);
+  --selection-bg:     rgba(38, 139, 210, 0.18);
+  --selection-text:   inherit;
+  --surface-soft:     rgba(227, 221, 200, 0.42);
+  --crust-overlay:    rgba(238, 232, 213, 0.88);
+  --scrim:            rgba(7, 54, 66, 0.26);
+  --hairline:         rgba(7, 54, 66, 0.11);
+  --shadow-md:        0 8px 28px rgba(7, 54, 66, 0.17639999999999997);
+  --shadow-lg:        0 24px 68px rgba(7, 54, 66, 0.2184);
+  --code-shadow:      0 6px 26px rgba(7, 54, 66, 0.168);
+  --font-display:     'Outfit', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-body:        'Lora', Georgia, 'Times New Roman', serif;
+  --font-mono:        'Source Code Pro', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --display-weight:   600;
+  --display-tracking: -0.02em;
+  --display-case:     none;
+  --body-tracking:    0;
+  --decor-line:       rgba(7, 54, 66, 0.07);
+  --decor-dot:        rgba(7, 54, 66, 0.1);
+  --decor-glow-1:     rgba(38, 139, 210, 0.15);
+  --decor-glow-2:     rgba(108, 113, 196, 0.12);
+  --decor-glow-3:     rgba(33, 149, 140, 0.1);
+}
+
+:root[data-theme="paper"] {
+  --crust:            #efe8dc;
+  --mantle:           #f7f2e9;
+  --base:             #fdfbf5;
+  --surface0:         #e4dccc;
+  --surface1:         #cec4b0;
+  --surface2:         #b0a48d;
+  --overlay0:         #8b8069;
+  --overlay1:         #6e6553;
+  --subtext0:         #4d4535;
+  --subtext1:         #38311f;
+  --text:             #211c11;
+  --lavender:         #6f5ba8;
+  --blue:             #2d5fa8;
+  --sapphire:         #1f7f96;
+  --sky:              #10788f;
+  --teal:             #1c7a6b;
+  --green:            #3f7a2e;
+  --yellow:           #9a6c12;
+  --peach:            #b35311;
+  --red:              #a81f2c;
+  --mauve:            #7a3f9c;
+  --pink:             #a83f77;
+  --accent:           #a81f2c;
+  --accent-2:         #1f7f96;
+  --accent-3:         #9a6c12;
+  --accent-soft:      rgba(168, 31, 44, 0.09);
+  --accent-line:      rgba(168, 31, 44, 0.34);
+  --glow:             rgba(168, 31, 44, 0.22);
+  --gradient:         linear-gradient(115deg, #a81f2c, #1f7f96 58%, #9a6c12);
+  --accent-fade:      linear-gradient(90deg, #a81f2c, rgba(168, 31, 44, 0.45) 62%, transparent);
+  --selection-bg:     rgba(168, 31, 44, 0.18);
+  --selection-text:   inherit;
+  --surface-soft:     rgba(228, 220, 204, 0.42);
+  --crust-overlay:    rgba(239, 232, 220, 0.88);
+  --scrim:            rgba(33, 28, 17, 0.26);
+  --hairline:         rgba(33, 28, 17, 0.11);
+  --shadow-md:        0 8px 28px rgba(33, 28, 17, 0.17639999999999997);
+  --shadow-lg:        0 24px 68px rgba(33, 28, 17, 0.2184);
+  --code-shadow:      0 6px 26px rgba(33, 28, 17, 0.168);
+  --font-display:     'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body:        'Newsreader', Georgia, 'Times New Roman', serif;
+  --font-mono:        'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --display-weight:   700;
+  --display-tracking: -0.02em;
+  --display-case:     none;
+  --body-tracking:    0.003em;
+  --decor-line:       rgba(33, 28, 17, 0.07);
+  --decor-dot:        rgba(33, 28, 17, 0.1);
+  --decor-glow-1:     rgba(168, 31, 44, 0.15);
+  --decor-glow-2:     rgba(31, 127, 150, 0.12);
+  --decor-glow-3:     rgba(154, 108, 18, 0.1);
+}
+
+:root[data-theme="rosequartz"] {
+  --crust:            #f2e9e1;
+  --mantle:           #faf4ed;
+  --base:             #fffaf3;
+  --surface0:         #ece0d8;
+  --surface1:         #d8ccc6;
+  --surface2:         #bdb0ae;
+  --overlay0:         #9893a5;
+  --overlay1:         #7d7791;
+  --subtext0:         #625b7d;
+  --subtext1:         #55506e;
+  --text:             #423d5c;
+  --lavender:         #a68fc0;
+  --blue:             #286983;
+  --sapphire:         #2f7d92;
+  --sky:              #56949f;
+  --teal:             #4a9188;
+  --green:            #5a8f52;
+  --yellow:           #ea9d34;
+  --peach:            #d7827e;
+  --red:              #b4637a;
+  --mauve:            #907aa9;
+  --pink:             #c4759a;
+  --accent:           #b4637a;
+  --accent-2:         #907aa9;
+  --accent-3:         #56949f;
+  --accent-soft:      rgba(180, 99, 122, 0.09);
+  --accent-line:      rgba(180, 99, 122, 0.34);
+  --glow:             rgba(180, 99, 122, 0.22);
+  --gradient:         linear-gradient(115deg, #b4637a, #907aa9 58%, #56949f);
+  --accent-fade:      linear-gradient(90deg, #b4637a, rgba(180, 99, 122, 0.45) 62%, transparent);
+  --selection-bg:     rgba(180, 99, 122, 0.18);
+  --selection-text:   inherit;
+  --surface-soft:     rgba(236, 224, 216, 0.42);
+  --crust-overlay:    rgba(242, 233, 225, 0.88);
+  --scrim:            rgba(66, 61, 92, 0.26);
+  --hairline:         rgba(66, 61, 92, 0.11);
+  --shadow-md:        0 8px 28px rgba(66, 61, 92, 0.17639999999999997);
+  --shadow-lg:        0 24px 68px rgba(66, 61, 92, 0.2184);
+  --code-shadow:      0 6px 26px rgba(66, 61, 92, 0.168);
+  --font-display:     'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body:        'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-mono:        'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --display-weight:   700;
+  --display-tracking: -0.02em;
+  --display-case:     none;
+  --body-tracking:    0;
+  --decor-line:       rgba(66, 61, 92, 0.07);
+  --decor-dot:        rgba(66, 61, 92, 0.1);
+  --decor-glow-1:     rgba(180, 99, 122, 0.15);
+  --decor-glow-2:     rgba(144, 122, 169, 0.12);
+  --decor-glow-3:     rgba(86, 148, 159, 0.1);
+}
+
+:root[data-theme="swiss"] {
+  --crust:            #f0f0f0;
+  --mantle:           #f8f8f8;
+  --base:             #ffffff;
+  --surface0:         #dcdcdc;
+  --surface1:         #bebebe;
+  --surface2:         #9a9a9a;
+  --overlay0:         #767676;
+  --overlay1:         #5a5a5a;
+  --subtext0:         #3a3a3a;
+  --subtext1:         #222222;
+  --text:             #0a0a0a;
+  --lavender:         #4b4b8f;
+  --blue:             #1a4fd6;
+  --sapphire:         #0a6e8a;
+  --sky:              #0e7490;
+  --teal:             #0f766e;
+  --green:            #15803d;
+  --yellow:           #a16207;
+  --peach:            #c2410c;
+  --red:              #e01b24;
+  --mauve:            #5b21b6;
+  --pink:             #be185d;
+  --accent:           #e01b24;
+  --accent-2:         #0a0a0a;
+  --accent-3:         #5a5a5a;
+  --accent-soft:      rgba(224, 27, 36, 0.09);
+  --accent-line:      rgba(224, 27, 36, 0.34);
+  --glow:             rgba(224, 27, 36, 0.22);
+  --gradient:         linear-gradient(115deg, #e01b24, #0a0a0a 58%, #5a5a5a);
+  --accent-fade:      linear-gradient(90deg, #e01b24, rgba(224, 27, 36, 0.45) 62%, transparent);
+  --selection-bg:     rgba(224, 27, 36, 0.18);
+  --selection-text:   inherit;
+  --surface-soft:     rgba(220, 220, 220, 0.42);
+  --crust-overlay:    rgba(240, 240, 240, 0.88);
+  --scrim:            rgba(10, 10, 10, 0.26);
+  --hairline:         rgba(10, 10, 10, 0.11);
+  --shadow-md:        0 8px 28px rgba(10, 10, 10, 0.17639999999999997);
+  --shadow-lg:        0 24px 68px rgba(10, 10, 10, 0.2184);
+  --code-shadow:      0 6px 26px rgba(10, 10, 10, 0.168);
+  --font-display:     'Archivo', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-body:        'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-mono:        'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --display-weight:   900;
+  --display-tracking: -0.045em;
+  --display-case:     none;
+  --body-tracking:    0;
+  --decor-line:       rgba(10, 10, 10, 0.07);
+  --decor-dot:        rgba(10, 10, 10, 0.1);
+  --decor-glow-1:     rgba(224, 27, 36, 0.15);
+  --decor-glow-2:     rgba(10, 10, 10, 0.12);
+  --decor-glow-3:     rgba(90, 90, 90, 0.1);
+}
+
+:root {
+  --type-display: 1;
+  --type-body:    1;
+  --type-code:    1;
+  --type-lead:    1;
+  --slide-pad-y:  4.4rem;
+  --slide-pad-x:  6rem;
+}
+
+/* ── Font overrides ───────────────────────────────────────────────────── */
+:root[data-head="inter"] { --font-display: 'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
+:root[data-head="spaceGrotesk"] { --font-display: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
+:root[data-head="sora"] { --font-display: 'Sora', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
+:root[data-head="manrope"] { --font-display: 'Manrope', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
+:root[data-head="figtree"] { --font-display: 'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
+:root[data-head="outfit"] { --font-display: 'Outfit', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
+:root[data-head="archivo"] { --font-display: 'Archivo', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
+:root[data-head="syne"] { --font-display: 'Syne', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
+:root[data-head="bricolage"] { --font-display: 'Bricolage Grotesque', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
+:root[data-head="workSans"] { --font-display: 'Work Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
+:root[data-head="plexSans"] { --font-display: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
+:root[data-head="fraunces"] { --font-display: 'Fraunces', Georgia, 'Times New Roman', serif; }
+:root[data-head="playfair"] { --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif; }
+:root[data-head="newsreader"] { --font-display: 'Newsreader', Georgia, 'Times New Roman', serif; }
+:root[data-head="lora"] { --font-display: 'Lora', Georgia, 'Times New Roman', serif; }
+:root[data-head="plexMono"] { --font-display: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+:root[data-head="jetbrains"] { --font-display: 'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+:root[data-head="firaCode"] { --font-display: 'Fira Code', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+:root[data-head="spaceMono"] { --font-display: 'Space Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+:root[data-head="sourceCodePro"] { --font-display: 'Source Code Pro', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+:root[data-body="inter"] { --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
+:root[data-body="spaceGrotesk"] { --font-body: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
+:root[data-body="sora"] { --font-body: 'Sora', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
+:root[data-body="manrope"] { --font-body: 'Manrope', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
+:root[data-body="figtree"] { --font-body: 'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
+:root[data-body="outfit"] { --font-body: 'Outfit', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
+:root[data-body="archivo"] { --font-body: 'Archivo', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
+:root[data-body="syne"] { --font-body: 'Syne', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
+:root[data-body="bricolage"] { --font-body: 'Bricolage Grotesque', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
+:root[data-body="workSans"] { --font-body: 'Work Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
+:root[data-body="plexSans"] { --font-body: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
+:root[data-body="fraunces"] { --font-body: 'Fraunces', Georgia, 'Times New Roman', serif; }
+:root[data-body="playfair"] { --font-body: 'Playfair Display', Georgia, 'Times New Roman', serif; }
+:root[data-body="newsreader"] { --font-body: 'Newsreader', Georgia, 'Times New Roman', serif; }
+:root[data-body="lora"] { --font-body: 'Lora', Georgia, 'Times New Roman', serif; }
+:root[data-body="plexMono"] { --font-body: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+:root[data-body="jetbrains"] { --font-body: 'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+:root[data-body="firaCode"] { --font-body: 'Fira Code', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+:root[data-body="spaceMono"] { --font-body: 'Space Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+:root[data-body="sourceCodePro"] { --font-body: 'Source Code Pro', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  background: var(--crust);
+  color: var(--text);
+  font-family: var(--font-body);
+  letter-spacing: var(--body-tracking);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-variant-ligatures: common-ligatures;
+}
+
+/* ── Presentation shell ───────────────────────────────────────────────── */
+#presentation {
+  position: relative;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ── Slide base ───────────────────────────────────────────────────────── */
+.slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  padding: var(--slide-pad-y) var(--slide-pad-x);
+  opacity: 0;
+  pointer-events: none;
+  /* forward: enter from right */
+  transform: translateX(48px);
+  transition:
+    opacity 0.38s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide.is-active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: all;
+}
+
+/* Exiting slide direction classes — set by JS before transition */
+.slide.exit-left  { opacity: 0; transform: translateX(-48px); }
+.slide.exit-right { opacity: 0; transform: translateX(48px); }
+.slide.enter-from-left  { transform: translateX(-48px); opacity: 0; }
+.slide.enter-from-right { transform: translateX(48px);  opacity: 0; }
+
+/* ── Background image layer ───────────────────────────────────────────── */
+.slide--has-bg {
+  background: var(--base);
+}
+
+.slide__bg {
+  position: absolute;
+  inset: 0;
+  background-image: var(--slide-bg-url);
+  background-size: cover;
+  background-position: center;
+  opacity: var(--slide-bg-opacity, 0.5);
+  z-index: 0;
+}
+
+/* ── Content area ─────────────────────────────────────────────────────── */
+.slide__content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 100%;
+  max-height: calc(100vh - var(--slide-pad-y) * 2);
+  overflow: hidden;
+}
+
+/* Each block lands a beat after the one above it, so a slide assembles
+   itself instead of appearing all at once. */
+.slide.is-active .slide__content > * {
+  animation: slide-rise 0.52s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.slide.is-active .slide__content > *:nth-child(1) { animation-delay: 0.05s; }
+.slide.is-active .slide__content > *:nth-child(2) { animation-delay: 0.11s; }
+.slide.is-active .slide__content > *:nth-child(3) { animation-delay: 0.17s; }
+.slide.is-active .slide__content > *:nth-child(4) { animation-delay: 0.23s; }
+.slide.is-active .slide__content > *:nth-child(5) { animation-delay: 0.29s; }
+.slide.is-active .slide__content > *:nth-child(6) { animation-delay: 0.34s; }
+.slide.is-active .slide__content > *:nth-child(n+7) { animation-delay: 0.39s; }
+
+@keyframes slide-rise {
+  from { opacity: 0; transform: translateY(15px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide { transition: opacity 0.2s linear; transform: none !important; }
+  .slide.is-active .slide__content > * { animation: none !important; }
+}
+
+/* ── Split layouts ────────────────────────────────────────────────────── */
+.slide__split {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  height: calc(100vh - var(--slide-pad-y) * 2);
+  align-items: center;
+  gap: 3.2rem;
+}
+
+.slide__split .slide__content {
+  flex: 1;
+  max-width: none;
+}
+
+.slide__image-panel {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 80vh;
+}
+
+.slide__image-panel img {
+  max-width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  border-radius: 12px;
+  border: 1px solid var(--hairline);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ── Typography ───────────────────────────────────────────────────────── */
+.slide__content h1,
+.slide__content h2,
+.slide__content h3,
+.slide__content h4 {
+  font-family: var(--font-display);
+  letter-spacing: var(--display-tracking);
+  text-wrap: balance;
+}
+
+.slide__content h1 {
+  position: relative;
+  font-size: calc(clamp(2.1rem, 4.6vw, 3.6rem) * var(--type-display));
+  font-weight: var(--display-weight);
+  text-transform: var(--display-case);
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.55rem;
+  line-height: 1.1;
+}
+
+/* A gradient rule under the title, fading out rather than stopping dead. */
+.slide__content h1::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 2.4em;
+  max-width: 55%;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--accent-fade);
+}
+
+.slide__content h2 {
+  font-size: calc(clamp(1.55rem, 3vw, 2.5rem) * var(--type-display));
+  font-weight: 600;
+  color: var(--accent-2);
+  margin-bottom: 1.05rem;
+  line-height: 1.2;
+}
+
+.slide__content h3 {
+  font-size: calc(clamp(1.15rem, 2vw, 1.8rem) * var(--type-display));
+  font-weight: 600;
+  color: var(--accent-3);
+  margin-bottom: 0.75rem;
+  line-height: 1.28;
+}
+
+.slide__content h4 {
+  font-size: calc(1.3rem * var(--type-display));
+  font-weight: 600;
+  color: var(--subtext1);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.55rem;
+}
+
+.slide__content p {
+  font-size: calc(clamp(1rem, 1.6vw, 1.35rem) * var(--type-body));
+  line-height: calc(1.72 * var(--type-lead));
+  margin-bottom: 1rem;
+  color: var(--subtext1);
+}
+
+.slide__content strong {
+  color: var(--text);
+  font-weight: 700;
+  /* A tinted underlay instead of a second color, so emphasis reads without
+     turning the sentence into a swatch. */
+  background: linear-gradient(transparent 62%, var(--accent-soft) 62%);
+}
+
+.slide__content em {
+  color: var(--accent-3);
+  font-style: italic;
+}
+
+/* ── Lists ────────────────────────────────────────────────────────────── */
+.slide__content ul,
+.slide__content ol {
+  font-size: calc(clamp(0.95rem, 1.5vw, 1.28rem) * var(--type-body));
+  line-height: calc(1.72 * var(--type-lead));
+  margin-bottom: 1rem;
+  color: var(--subtext1);
+}
+
+.slide__content ul { list-style: none; padding-left: 1.35em; }
+
+/* Numbers live in the marker box, outside the content box, so an ordered list
+   needs room for "10." before its text starts. */
+.slide__content ol { padding-left: 2.05em; }
+
+.slide__content li {
+  margin-bottom: 0.42em;
+  padding-left: 0.15em;
+}
+
+.slide__content ol li::marker {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+  font-weight: 600;
+}
+
+/* A custom bullet: small, accent-colored, and vertically centred on the
+   first line rather than sitting on the baseline like a period. */
+.slide__content ul > li {
+  position: relative;
+  padding-left: 0.9em;
+}
+
+.slide__content ul > li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 0.33em;
+  height: 0.33em;
+  border-radius: 0.1em;
+  background: var(--accent);
+  transform: rotate(45deg);
+}
+
+.slide__content ul ul > li::before {
+  background: transparent;
+  border: 1.5px solid var(--accent-3);
+}
+
+.slide__content ul ul,
+.slide__content ol ol,
+.slide__content ul ol,
+.slide__content ol ul {
+  margin-top: 0.34em;
+  margin-bottom: 0;
+  padding-left: 1em;
+  font-size: 0.94em;
+  color: var(--subtext0);
+}
+
+/* ── Code ─────────────────────────────────────────────────────────────── */
+.slide__content pre {
+  position: relative;
+  margin: 1.2rem 0;
+  border-radius: 12px;
+  border: 1px solid var(--hairline);
+  overflow-x: auto;
+  font-size: calc(clamp(0.75rem, 1.1vw, 1rem) * var(--type-code));
+  box-shadow: var(--code-shadow);
+  background: var(--mantle);
+}
+
+/* A hairline of accent along the top edge, so a code block reads as a panel
+   rather than as a hole in the slide. */
+.slide__content pre::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  border-radius: 12px 12px 0 0;
+  background: var(--accent-fade);
+  opacity: 0.8;
+}
+
+/* Override hljs background to match our theme */
+.slide__content pre code.hljs {
+  background: transparent !important;
+  border-radius: 12px;
+  padding: 1.5rem 1.7rem;
+  font-family: var(--font-mono);
+  font-size: inherit;
+  line-height: calc(1.66 * var(--type-lead));
+  letter-spacing: 0;
+}
+
+/* Inline code */
+.slide__content :not(pre) > code {
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+  background: var(--surface-soft);
+  color: var(--accent-3);
+  border-radius: 5px;
+  padding: 0.16em 0.42em;
+  border: 1px solid var(--hairline);
+  letter-spacing: 0;
+}
+
+/* ── Blockquotes ──────────────────────────────────────────────────────── */
+.slide__content blockquote {
+  position: relative;
+  padding: 0.78em 1.25em 0.78em 1.7em;
+  margin: 1.2rem 0;
+  background: var(--accent-soft);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+  color: var(--subtext1);
+  font-size: calc(clamp(1rem, 1.5vw, 1.3rem) * var(--type-body));
+}
+
+.slide__content blockquote::before {
+  content: '\201C';
+  position: absolute;
+  /* em here is the glyph's own 2.6em, not the quote's. */
+  left: 0.16em;
+  top: 0.04em;
+  font-family: var(--font-display);
+  font-size: 2.6em;
+  line-height: 1;
+  color: var(--accent-line);
+  pointer-events: none;
+}
+
+.slide__content blockquote p {
+  font-size: inherit;
+  margin-bottom: 0;
+  color: inherit;
+  max-width: none;
+}
+
+/* ── Tables ───────────────────────────────────────────────────────────── */
+.slide__content table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.2rem 0;
+  font-size: calc(clamp(0.85rem, 1.2vw, 1.05rem) * var(--type-code));
+  /* Rules, not boxes: a grid of borders fights the text for attention. */
+  border-bottom: 1px solid var(--hairline);
+}
+
+.slide__content th {
+  background: transparent;
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.86em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  text-align: left;
+  border: none;
+  border-bottom: 2px solid var(--accent-line);
+}
+
+.slide__content td {
+  padding: 0.6rem 1rem;
+  border: none;
+  border-bottom: 1px solid var(--hairline);
+  color: var(--subtext1);
+}
+
+.slide__content tr:nth-child(even) td {
+  background: var(--surface-soft);
+}
+
+/* ── Links ────────────────────────────────────────────────────────────── */
+.slide__content a {
+  color: var(--accent-2);
+  text-decoration: none;
+  background: linear-gradient(var(--accent-2), var(--accent-2)) 0 100% / 100% 1px no-repeat;
+  padding-bottom: 2px;
+  transition: color 0.18s ease, background-size 0.18s ease;
+}
+
+.slide__content a:hover {
+  color: var(--accent);
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-size: 100% 2px;
+}
+
+/* ── Inline images (no positioning) ──────────────────────────────────── */
+.slide__content img {
+  max-width: 100%;
+  max-height: 55vh;
+  border-radius: 10px;
+  display: block;
+  margin: 1rem auto;
+  box-shadow: var(--shadow-md);
+}
+
+/* ── Embeds: raw HTML iframe / video ─────────────────────────────────── */
+.slide__content iframe {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  margin: 1.1rem auto;
+  border: 1px solid var(--hairline);
+  border-radius: 12px;
+  background: var(--mantle);
+  box-shadow: var(--shadow-md);
+}
+
+.slide__content video {
+  display: block;
+  max-width: 100%;
+  max-height: 60vh;
+  margin: 1.1rem auto;
+  border-radius: 12px;
+  background: var(--crust);
+  object-fit: contain;
+  box-shadow: var(--shadow-md);
+}
+
+/* ── Inline HTML accents ──────────────────────────────────────────────── */
+.slide__content kbd {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.8em;
+  background: var(--surface0);
+  border: 1px solid var(--surface2);
+  border-bottom-width: 2px;
+  border-radius: 6px;
+  padding: 0.12em 0.45em;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.slide__content mark {
+  background: var(--accent-soft);
+  color: var(--accent);
+  box-shadow: inset 0 -0.42em 0 var(--accent-soft);
+  border-radius: 3px;
+  padding: 0.05em 0.24em;
+  font-weight: 600;
+}
+
+/* ── Horizontal rule ──────────────────────────────────────────────────── */
+.slide__content hr {
+  border: none;
+  height: 1px;
+  margin: 1.8rem 0;
+  background: linear-gradient(90deg, var(--accent-line), var(--hairline) 40%, transparent);
+}
+
+/* ── Templates ──────────────────────────────────────────────────────────── */
+
+/* Minimal */
+:root[data-template="minimal"] {
+  --slide-pad-x: 10vw;
+  --slide-pad-y: 8vh;
+}
+:root[data-template="minimal"] #backdrop {
+  opacity: 0.15;
+}
+:root[data-template="minimal"] .slide__content h1 {
+  letter-spacing: -0.02em;
+}
+:root[data-template="minimal"] blockquote {
+  border-left-width: 2px;
+  background: transparent;
+}
+:root[data-template="minimal"] pre {
+  border: 1px solid var(--surface0);
+}
+
+/* Editorial */
+:root[data-template="editorial"] {
+  --slide-pad-x: 7vw;
+}
+:root[data-template="editorial"] .slide__content h1 {
+  border-bottom: 3px solid var(--accent);
+  padding-bottom: 0.3em;
+  margin-bottom: 0.6em;
+}
+:root[data-template="editorial"] .slide__content h2 {
+  border-bottom: 1px solid var(--surface1);
+  padding-bottom: 0.2em;
+}
+:root[data-template="editorial"] blockquote {
+  border-left: 4px solid var(--accent);
+  font-style: italic;
+  background: var(--surface0);
+}
+:root[data-template="editorial"] table th {
+  border-bottom: 2px solid var(--accent);
+}
+:root[data-template="editorial"] hr {
+  border: none;
+  border-top: 2px solid var(--surface2);
+  margin: 2em 0;
+}
+
+/* Spotlight */
+:root[data-template="spotlight"] .slide {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+:root[data-template="spotlight"] .slide__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+:root[data-template="spotlight"] .slide__content h1 {
+  font-size: calc(var(--type-display) * 1.15);
+  text-align: center;
+}
+:root[data-template="spotlight"] .slide__content p {
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+:root[data-template="spotlight"] .slide__content ul,
+:root[data-template="spotlight"] .slide__content ol {
+  text-align: left;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
+:root[data-template="spotlight"] .slide__content blockquote {
+  text-align: center;
+  border-left: none;
+  border-top: 2px solid var(--accent);
+  border-bottom: 2px solid var(--accent);
+  padding: 1em 2em;
+  background: transparent;
+}
+:root[data-template="spotlight"] .slide__content pre {
+  text-align: left;
+}
+
+
+/* ── Transitions ────────────────────────────────────────────────────────── */
+
+/* Fade */
+:root[data-transition="fade"] .slide {
+  transition: opacity 0.3s ease;
+  transform: none !important;
+}
+:root[data-transition="fade"] .slide.exit-left,
+:root[data-transition="fade"] .slide.exit-right,
+:root[data-transition="fade"] .slide.enter-from-left,
+:root[data-transition="fade"] .slide.enter-from-right {
+  transform: none !important;
+  opacity: 0;
+}
+:root[data-transition="fade"] .slide.is-active {
+  opacity: 1;
+  transform: none !important;
+}
+
+/* Zoom */
+:root[data-transition="zoom"] .slide {
+  transform: scale(0.92);
+  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+:root[data-transition="zoom"] .slide.is-active {
+  transform: scale(1);
+  opacity: 1;
+}
+:root[data-transition="zoom"] .slide.exit-left,
+:root[data-transition="zoom"] .slide.exit-right {
+  transform: scale(1.08);
+  opacity: 0;
+}
+:root[data-transition="zoom"] .slide.enter-from-left,
+:root[data-transition="zoom"] .slide.enter-from-right {
+  transform: scale(0.92);
+  opacity: 0;
+}
+
+/* Lift */
+:root[data-transition="lift"] .slide {
+  transform: translateY(48px);
+  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+:root[data-transition="lift"] .slide.is-active {
+  transform: translateY(0);
+  opacity: 1;
+}
+:root[data-transition="lift"] .slide.exit-left,
+:root[data-transition="lift"] .slide.exit-right {
+  transform: translateY(-48px);
+  opacity: 0;
+}
+:root[data-transition="lift"] .slide.enter-from-left,
+:root[data-transition="lift"] .slide.enter-from-right {
+  transform: translateY(48px);
+  opacity: 0;
+}
+
+/* None */
+:root[data-transition="none"] .slide,
+:root[data-transition="none"] .slide.is-active,
+:root[data-transition="none"] .slide.exit-left,
+:root[data-transition="none"] .slide.exit-right,
+:root[data-transition="none"] .slide.enter-from-left,
+:root[data-transition="none"] .slide.enter-from-right {
+  transition: none !important;
+  transform: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root[data-transition] .slide {
+    transition: opacity 0.2s linear !important;
+    transform: none !important;
+  }
+}
+
+@media print {
+  :root[data-transition] .slide {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+
+/* ── Fragments / Incremental Reveals ─────────────────────────────────────── */
+
+.fragment {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.2, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.fragment.is-revealed {
+  opacity: 1;
+  transform: none;
+  pointer-events: all;
+}
+
+.deckrun-fragment-marker {
+  display: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fragment {
+    transform: none !important;
+    transition: opacity 0.2s linear !important;
+  }
+}
+
+@media print {
+  .fragment {
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: all !important;
+  }
+}
+
+
+/* ── Rich Content (Math & Diagrams) ─────────────────────────────────────── */
+
+.math-source {
+  font-family: inherit;
+}
+
+div.math-source {
+  display: flex;
+  justify-content: center;
+  margin: 1.2em 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+span.math-source {
+  display: inline;
+}
+
+.katex-display {
+  margin: 0.8em 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.katex {
+  font-size: 1.15em;
+  text-rendering: auto;
+}
+
+.math-error {
+  color: var(--maroon, #f38ba8);
+  background: var(--surface0, rgba(255, 0, 0, 0.1));
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.85em;
+}
+
+.mermaid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.2em auto;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.mermaid-error {
+  color: var(--maroon, #f38ba8);
+  background: var(--surface0, rgba(255, 0, 0, 0.1));
+  border: 1px solid var(--maroon, #f38ba8);
+  border-radius: 6px;
+  padding: 12px 16px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.9em;
+  white-space: pre-wrap;
+  margin: 1em 0;
+}
+
+
+/* ── Backdrop geometry ────────────────────────────────────────────────── */
+:root[data-decor="none"] {
+  --dc-glow:
+    radial-gradient(closest-side, var(--decor-glow-1), transparent),
+    radial-gradient(closest-side, var(--decor-glow-2), transparent);
+  --dc-glow-size: 74vmax 74vmax, 58vmax 58vmax;
+  --dc-glow-pos: 92% -20%, -14% 112%;
+  --dc-glow-anim: dc-breathe 34s ease-in-out infinite;
+}
+
+:root[data-decor="grid"] {
+  --dc-layers:
+    linear-gradient(to right, var(--decor-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--decor-line) 1px, transparent 1px);
+  --dc-size: 72px 72px;
+  --dc-mask: radial-gradient(ellipse 88% 76% at 50% 40%, #000 24%, transparent 82%);
+  --dc-anim: dc-pan 150s linear infinite;
+  --dc-dx: 72px;
+  --dc-dy: 72px;
+  --dc-glow:
+    radial-gradient(closest-side, var(--decor-glow-1), transparent),
+    radial-gradient(closest-side, var(--decor-glow-2), transparent);
+  --dc-glow-size: 70vmax 70vmax, 56vmax 56vmax;
+  --dc-glow-pos: 90% -22%, -12% 110%;
+  --dc-glow-anim: dc-breathe 30s ease-in-out infinite;
+}
+
+:root[data-decor="dots"] {
+  --dc-layers: radial-gradient(var(--decor-dot) 1.4px, transparent 1.6px);
+  --dc-size: 30px 30px;
+  --dc-mask: radial-gradient(ellipse 92% 80% at 50% 42%, #000 20%, transparent 84%);
+  --dc-anim: dc-pan 160s linear infinite;
+  --dc-dx: 30px;
+  --dc-dy: 30px;
+  --dc-glow:
+    radial-gradient(closest-side, var(--decor-glow-1), transparent),
+    radial-gradient(closest-side, var(--decor-glow-3), transparent);
+  --dc-glow-size: 64vmax 64vmax, 50vmax 50vmax;
+  --dc-glow-pos: -14% -18%, 106% 96%;
+  --dc-glow-anim: dc-breathe 36s ease-in-out infinite;
+}
+
+:root[data-decor="topo"] {
+  --dc-layers: repeating-linear-gradient(52deg,
+    var(--decor-line) 0 1px,
+    transparent 1px 22px);
+  --dc-mask: radial-gradient(ellipse 92% 84% at 46% 44%, #000 18%, transparent 86%);
+  --dc-anim: dc-pan 90s linear infinite;
+  --dc-dx: 17.34px;
+  --dc-dy: -13.54px;
+  --dc-glow:
+    radial-gradient(closest-side, var(--decor-glow-1), transparent),
+    radial-gradient(closest-side, var(--decor-glow-2), transparent);
+  --dc-glow-size: 72vmax 72vmax, 52vmax 52vmax;
+  --dc-glow-pos: 96% 8%, -10% 104%;
+  --dc-glow-anim: dc-breathe 32s ease-in-out infinite;
+}
+
+:root[data-decor="beams"] {
+  --dc-layers: repeating-linear-gradient(105deg,
+    transparent 0 44px,
+    var(--decor-glow-1) 44px 118px,
+    transparent 118px 166px,
+    var(--decor-glow-2) 166px 214px,
+    transparent 214px 300px);
+  --dc-mask: linear-gradient(to bottom, transparent, #000 22%, #000 70%, transparent);
+  --dc-inset: -30%;
+  --dc-anim: dc-pan 44s linear infinite;
+  --dc-dx: 289.8px;
+  --dc-dy: 77.6px;
+  --dc-glow: radial-gradient(closest-side, var(--decor-glow-3), transparent);
+  --dc-glow-size: 80vmax 80vmax;
+  --dc-glow-pos: 50% 118%;
+  --dc-glow-anim: dc-breathe 26s ease-in-out infinite;
+}
+
+:root[data-decor="rings"] {
+  --dc-layers: repeating-radial-gradient(circle at 50% 50%,
+    transparent 0 78px,
+    var(--decor-line) 78px 79px,
+    transparent 79px 158px);
+  --dc-size: 100% 100%;
+  --dc-repeat: no-repeat;
+  --dc-mask: radial-gradient(circle at 50% 46%, #000 12%, transparent 74%);
+  --dc-inset: -45%;
+  --dc-anim: dc-zoom 52s ease-in-out infinite;
+  --dc-glow:
+    radial-gradient(closest-side, var(--decor-glow-1), transparent),
+    radial-gradient(closest-side, var(--decor-glow-2), transparent);
+  --dc-glow-size: 62vmax 62vmax, 48vmax 48vmax;
+  --dc-glow-pos: 8% 4%, 96% 92%;
+  --dc-glow-anim: dc-breathe 38s ease-in-out infinite;
+}
+
+:root[data-decor="waves"] {
+  --dc-layers:
+    radial-gradient(130% 62% at 50% 128%, transparent 57.6%, var(--decor-line) 58%, transparent 58.4%),
+    radial-gradient(130% 66% at 46% 140%, transparent 57.6%, var(--decor-line) 58%, transparent 58.4%),
+    radial-gradient(140% 72% at 54% 154%, transparent 57.6%, var(--decor-line) 58%, transparent 58.4%),
+    radial-gradient(150% 80% at 50% 172%, transparent 57.6%, var(--decor-line) 58%, transparent 58.4%);
+  --dc-size: 100% 100%;
+  --dc-repeat: no-repeat;
+  --dc-inset: -14%;
+  --dc-anim: dc-sway 40s ease-in-out infinite;
+  --dc-glow:
+    radial-gradient(closest-side, var(--decor-glow-1), transparent),
+    radial-gradient(closest-side, var(--decor-glow-3), transparent);
+  --dc-glow-size: 76vmax 60vmax, 54vmax 54vmax;
+  --dc-glow-pos: 50% 116%, 88% -16%;
+  --dc-glow-anim: dc-breathe 30s ease-in-out infinite;
+}
+
+:root[data-decor="orbs"] {
+  --dc-layers:
+    radial-gradient(closest-side, var(--decor-glow-1), transparent),
+    radial-gradient(closest-side, var(--decor-glow-2), transparent),
+    radial-gradient(closest-side, var(--decor-glow-3), transparent);
+  --dc-size: 64vmax 64vmax, 50vmax 50vmax, 42vmax 42vmax;
+  --dc-pos: 10% 6%, 86% 28%, 60% 98%;
+  --dc-repeat: no-repeat;
+  --dc-inset: -22%;
+  --dc-anim: dc-float 56s ease-in-out infinite;
+}
+
+:root[data-decor="mesh"] {
+  --dc-layers:
+    radial-gradient(closest-side, var(--decor-glow-1), transparent),
+    radial-gradient(closest-side, var(--decor-glow-2), transparent),
+    radial-gradient(closest-side, var(--decor-glow-3), transparent),
+    radial-gradient(var(--decor-dot) 1px, transparent 1.4px);
+  --dc-size: 58vmax 58vmax, 54vmax 54vmax, 46vmax 46vmax, 26px 26px;
+  --dc-pos: -8% -14%, 98% 16%, 44% 106%, 0 0;
+  --dc-repeat: no-repeat, no-repeat, no-repeat, repeat;
+  --dc-inset: -20%;
+  --dc-anim: dc-float 62s ease-in-out infinite;
+}
+
+:root[data-decor="aurora"] {
+  --dc-layers:
+    radial-gradient(ellipse 72% 34% at 20% 20%, var(--decor-glow-1), transparent 68%),
+    radial-gradient(ellipse 62% 30% at 78% 34%, var(--decor-glow-2), transparent 68%),
+    radial-gradient(ellipse 94% 28% at 50% 84%, var(--decor-glow-3), transparent 70%);
+  --dc-size: 100% 100%;
+  --dc-repeat: no-repeat;
+  --dc-inset: -18%;
+  --dc-anim: dc-aurora 58s ease-in-out infinite;
+}
+
+#backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  -webkit-mask-image: var(--dc-mask, none);
+          mask-image: var(--dc-mask, none);
+}
+
+#backdrop::before,
+#backdrop::after {
+  content: '';
+  position: absolute;
+  inset: var(--dc-inset, -12%);
+  background-repeat: var(--dc-repeat, repeat);
+  will-change: transform;
+}
+
+#backdrop::before {
+  background-image: var(--dc-layers, none);
+  background-size: var(--dc-size, auto);
+  background-position: var(--dc-pos, 0 0);
+  animation: var(--dc-anim, none);
+}
+
+#backdrop::after {
+  background-image: var(--dc-glow, none);
+  background-size: var(--dc-glow-size, auto);
+  background-position: var(--dc-glow-pos, 0 0);
+  background-repeat: no-repeat;
+  animation: var(--dc-glow-anim, none);
+}
+
+/* One tile of travel per cycle, so the pattern lands back on itself. */
+@keyframes dc-pan {
+  to { transform: translate3d(var(--dc-dx, 0px), var(--dc-dy, 0px), 0); }
+}
+
+@keyframes dc-float {
+  0%, 100% { transform: translate3d(-1.5%, -1%, 0) scale(1); }
+  34%      { transform: translate3d(2%, 1.5%, 0)   scale(1.06); }
+  67%      { transform: translate3d(-1%, 2%, 0)    scale(0.97); }
+}
+
+@keyframes dc-sway {
+  0%, 100% { transform: translate3d(-2.5%, 0, 0) scale(1); }
+  50%      { transform: translate3d(2.5%, 1.5%, 0) scale(1.04); }
+}
+
+@keyframes dc-zoom {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.1); }
+}
+
+@keyframes dc-aurora {
+  0%, 100% { transform: translate3d(0, 0, 0) skewY(0deg); }
+  50%      { transform: translate3d(3%, -2%, 0) skewY(-1.6deg); }
+}
+
+@keyframes dc-breathe {
+  0%, 100% { opacity: 0.75; transform: scale(1); }
+  50%      { opacity: 1;    transform: scale(1.07); }
+}
+
+/* A drifting backdrop is exactly the kind of motion this setting turns off. */
+@media (prefers-reduced-motion: reduce) {
+  #backdrop::before,
+  #backdrop::after { animation: none !important; }
+}
+
+@media print {
+  /* Fixed elements do not repeat across pages, so the backdrop is rebuilt on
+     each slide instead — same custom properties, no second definition. */
+  #backdrop { display: none !important; }
+
+  .slide::before,
+  .slide::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    animation: none !important;
+    -webkit-mask-image: var(--dc-mask, none);
+            mask-image: var(--dc-mask, none);
+  }
+
+  .slide::before {
+    background-image: var(--dc-layers, none);
+    background-size: var(--dc-size, auto);
+    background-position: var(--dc-pos, 0 0);
+    background-repeat: var(--dc-repeat, repeat);
+  }
+
+  .slide::after {
+    background-image: var(--dc-glow, none);
+    background-size: var(--dc-glow-size, auto);
+    background-position: var(--dc-glow-pos, 0 0);
+    background-repeat: no-repeat;
+  }
+}
+
+/* ── HUD (progress + counter) ────────────────────────────────────────── */
+#hud {
+  font-family: var(--font-mono);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  pointer-events: none;
+}
+
+#progress-bar {
+  height: 2px;
+  background: var(--surface0);
+}
+
+#progress-fill {
+  height: 100%;
+  background: var(--gradient);
+  transition: width 0.3s ease;
+  width: 0%;
+}
+
+#slide-counter {
+  flex: 0 0 auto;
+  text-align: right;
+  font-size: 0.72rem;
+  color: var(--overlay1);
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+/* ── Nav arrows ───────────────────────────────────────────────────────── */
+.nav-arrow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: var(--surface1);
+  cursor: pointer;
+  padding: 1.2rem 0.8rem;
+  z-index: 200;
+  transition: color 0.2s ease;
+  line-height: 1;
+  font-size: 1.4rem;
+  pointer-events: all;
+}
+
+.nav-arrow:hover { color: var(--text); }
+.nav-arrow--prev { left: 0.5rem; }
+.nav-arrow--next { right: 0.5rem; }
+
+/* ── Overview mode ────────────────────────────────────────────────────── */
+#overview {
+  font-family: var(--font-mono);
+  position: fixed;
+  inset: 0;
+  background: var(--crust);
+  z-index: 300;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+#overview.hidden { display: none; }
+
+.overview-thumb {
+  background: var(--base);
+  border: 1px solid var(--surface0);
+  border-radius: 12px;
+  cursor: pointer;
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.overview-thumb:hover { border-color: var(--accent); transform: translateY(-3px) scale(1.02); box-shadow: var(--shadow-md); }
+.overview-thumb.is-current { border-color: var(--accent-2); box-shadow: 0 0 0 1px var(--accent-2); }
+
+.overview-thumb__number {
+  position: absolute;
+  top: 0.4rem;
+  left: 0.5rem;
+  font-size: 0.65rem;
+  color: var(--overlay0);
+  z-index: 1;
+}
+
+.overview-thumb__inner {
+  width: 100%;
+  height: 100%;
+  transform: scale(0.28);
+  transform-origin: top left;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* ── Kbd hint ─────────────────────────────────────────────────────────── */
+#kbd-hint {
+  font-family: var(--font-mono);
+  position: fixed;
+  bottom: 2.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.65rem;
+  color: var(--overlay0);
+  letter-spacing: 0.06em;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.6s ease;
+  z-index: 150;
+}
+
+#kbd-hint.hidden { opacity: 0; }
+
+/* ── Pets ─────────────────────────────────────────────────────────────── */
+.pet {
+  position: fixed;
+  z-index: 50;
+  pointer-events: none;
+  image-rendering: pixelated;
+}
+
+@media print {
+  .pet { display: none !important; }
+}
+
+/* ── Blinking cursor ──────────────────────────────────────────────────── */
+/* Parked where an h1's cap height sits, so it reads as the title's caret. */
+#cursor {
+  position: fixed;
+  top: var(--slide-pad-y);
+  right: var(--slide-pad-x);
+  width: 12px;
+  height: calc(clamp(2rem, 4.5vw, 3.4rem) * var(--type-display));
+  background: var(--accent);
+  box-shadow: 0 0 22px var(--glow);
+  z-index: 100;
+  pointer-events: none;
+  animation: cursor-blink 1.1s step-start infinite;
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@media print {
+  #cursor { display: none !important; }
+}
+
+/* ── Fullscreen hint ──────────────────────────────────────────────────── */
+#fs-hint {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--crust-overlay);
+  cursor: pointer;
+  transition: opacity 0.4s ease;
+}
+
+#fs-hint.hidden { opacity: 0; pointer-events: none; }
+
+#fs-hint__inner {
+  font-family: var(--font-mono);
+  text-align: center;
+  color: var(--subtext1);
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  border: 1px solid var(--surface1);
+  border-radius: 8px;
+  padding: 1.6rem 2.8rem;
+  background: var(--base);
+}
+
+#fs-hint__inner kbd {
+  display: inline-block;
+  background: var(--surface0);
+  border: 1px solid var(--surface1);
+  border-radius: 5px;
+  padding: 0.1em 0.5em;
+  font-family: var(--font-mono);
+  color: var(--accent);
+}
+
+/* ── Scrollbar ────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--surface1); border-radius: 3px; }
+
+/* ── Print / PDF export ───────────────────────────────────────────────── */
+/* One 16:9 page per slide, edge to edge. 13.333in x 7.5in is the standard
+   widescreen slide size, so the page box needs no orientation choice. */
+@page {
+  size: 13.333in 7.5in;
+  margin: 0;
+}
+
+@media print {
+  /* Without this, printing drops every background: the theme, the code block
+     surfaces, and the background images all vanish behind white paper. */
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  html, body {
+    width: 13.333in !important;
+    height: auto !important;
+    overflow: visible !important;
+    background: var(--crust) !important;
+  }
+
+  #presentation {
+    position: static !important;
+    width: 13.333in !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .slide {
+    position: relative !important;
+    inset: auto !important;
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: all !important;
+    transition: none !important;
+    /* Absolute units, not vw/vh: viewport units in paged media resolve
+       against the page box, which is not what the deck was laid out for. */
+    width: 13.333in !important;
+    height: 7.5in !important;
+    page-break-after: always;
+    break-after: page;
+    break-inside: avoid;
+    overflow: hidden !important;
+  }
+
+  .slide:last-of-type {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  .slide__content {
+    max-height: calc(7.5in - var(--slide-pad-y) * 2) !important;
+  }
+
+  /* The staggered entrance would freeze mid-flight on paper. */
+  .slide__content > * { animation: none !important; opacity: 1 !important; transform: none !important; }
+
+  .slide__split {
+    height: calc(7.5in - var(--slide-pad-y) * 2) !important;
+  }
+
+  .slide__image-panel { max-height: calc(7.5in - var(--slide-pad-y) * 2) !important; }
+  .slide__image-panel img { max-height: calc(7.5in - var(--slide-pad-y) * 2 - 1rem) !important; }
+  .slide__content img { max-height: 4in !important; }
+  .slide__content iframe, .slide__content video { max-height: 4in !important; }
+
+  #hud, .nav-arrow, #overview, #kbd-hint, #cursor, #fs-hint, .pet,
+  #board, #laser, #blackout, #help, #themes {
+    display: none !important;
+  }
+}
+
+/* ── HUD tool strip ───────────────────────────────────────────────────── */
+#hud-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.26rem 1.1rem 0.34rem;
+}
+
+#hud-tools {
+  display: flex;
+  align-items: center;
+  gap: 0.28rem;
+  min-width: 0;
+  flex-wrap: wrap;
+}
+
+.hud-btn {
+  pointer-events: all;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.34rem;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 0.14rem 0.44rem;
+  font: inherit;
+  font-size: 0.66rem;
+  letter-spacing: 0.07em;
+  color: var(--overlay0);
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.hud-btn:hover { color: var(--text); border-color: var(--surface1); }
+.hud-btn.is-on {
+  color: var(--accent);
+  border-color: var(--accent-line);
+  background: var(--accent-soft);
+}
+
+.hud-btn kbd {
+  font: inherit;
+  font-size: 0.58rem;
+  color: inherit;
+  opacity: 0.7;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+  padding: 0 0.28em;
+}
+
+#hud-sep {
+  width: 1px;
+  height: 12px;
+  background: var(--surface1);
+  margin: 0 0.2rem;
+}
+
+/* ── Pen strip (only while the pen is down) ───────────────────────────── */
+#pen-bar {
+  display: none;
+  align-items: center;
+  gap: 0.28rem;
+}
+
+#pen-bar.is-on { display: inline-flex; }
+
+#pen-swatches { display: inline-flex; align-items: center; gap: 0.3rem; }
+
+.swatch {
+  pointer-events: all;
+  width: 13px;
+  height: 13px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid var(--surface2);
+  cursor: pointer;
+  transition: transform 0.12s ease, border-color 0.12s ease;
+}
+
+.swatch:hover { transform: scale(1.2); }
+.swatch.is-on { transform: scale(1.35); border-color: var(--text); }
+
+#pen-width {
+  font-size: 0.6rem;
+  color: var(--overlay0);
+  letter-spacing: 0.06em;
+  min-width: 2.2em;
+  text-align: center;
+}
+
+#hud-right {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  flex: 0 0 auto;
+}
+
+.hud-brand {
+  pointer-events: all;
+  font-size: 0.64rem;
+  color: var(--overlay0);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  opacity: 0.72;
+  transition: opacity 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+}
+
+.hud-brand:hover {
+  opacity: 1;
+  color: var(--accent);
+}
+
+.hud-brand span {
+  font-weight: 600;
+  color: var(--subtext1);
+}
+
+.hud-brand:hover span {
+  color: var(--accent);
+}
+
+/* ── Annotation canvas ────────────────────────────────────────────────── */
+#board {
+  position: fixed;
+  inset: 0;
+  z-index: 180;
+  pointer-events: none;
+  touch-action: none;
+  background: transparent;
+  transition: background 0.18s ease;
+}
+
+/* Only the pen makes the canvas swallow clicks, so navigation keeps working
+   whenever annotations are merely on display. */
+#board.is-drawing { pointer-events: all; cursor: crosshair; }
+#board.is-erasing { cursor: cell; }
+#board.is-blank   { background: var(--crust); }
+
+/* ── Laser pointer ────────────────────────────────────────────────────── */
+#laser {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(255,255,255,0.95) 0%,
+    var(--red) 38%,
+    var(--glow) 62%,
+    transparent 74%);
+  box-shadow: 0 0 20px 8px var(--glow);
+  z-index: 380;
+  pointer-events: none;
+  display: none;
+  will-change: transform;
+}
+
+#laser.is-on { display: block; }
+
+/* The dot replaces the cursor, so the real one gets out of the way. */
+body.laser-on, body.laser-on #board.is-drawing { cursor: none; }
+
+/* ── Blackout ─────────────────────────────────────────────────────────── */
+#blackout {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 420;
+  display: none;
+  cursor: pointer;
+}
+
+#blackout.is-on { display: block; }
+
+/* ── Theme picker overlay ─────────────────────────────────────────────── */
+#themes {
+  position: fixed;
+  inset: 0;
+  z-index: 450;
+  display: none;
+}
+
+#themes.is-on { display: block; }
+
+#themes__backdrop {
+  position: absolute;
+  inset: 0;
+  background: var(--crust-overlay);
+  backdrop-filter: blur(4px);
+}
+
+#themes__box {
+  font-family: var(--font-mono);
+  position: relative;
+  width: min(980px, 94vw);
+  max-height: 84vh;
+  margin: 6vh auto 0;
+  background: var(--mantle);
+  border: 1px solid var(--surface1);
+  border-radius: 14px;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+#themes__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.8rem;
+  padding: 1rem 1.4rem;
+  border-bottom: 1px solid var(--surface0);
+  background: var(--mantle);
+}
+
+.th-head__title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.th-head__sub {
+  flex: 1 1 auto;
+  font-size: 0.68rem;
+  color: var(--overlay1);
+}
+
+.th-head__sub kbd {
+  display: inline-block;
+  font: inherit;
+  font-size: 0.6rem;
+  background: var(--surface0);
+  border: 1px solid var(--surface1);
+  border-radius: 3px;
+  padding: 0.05em 0.35em;
+  color: var(--lavender);
+}
+
+.th-head__brand {
+  font-size: 0.65rem;
+  color: var(--overlay0);
+  text-decoration: none;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  background: var(--surface0);
+  border: 1px solid var(--surface1);
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.th-head__brand:hover { color: var(--accent); border-color: var(--accent-line); }
+
+#themes__close {
+  background: transparent;
+  border: none;
+  color: var(--overlay0);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 0.2rem;
+}
+#themes__close:hover { color: var(--text); }
+
+#themes__list {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: 1.1rem 1.4rem 1.4rem;
+}
+
+.th-group {
+  padding: 0.4rem 0.2rem 0.6rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.th-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(195px, 1fr));
+  gap: 0.85rem;
+  margin-bottom: 1.2rem;
+}
+
+.th-card {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--surface1);
+  border-radius: 10px;
+  background: var(--base);
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  transition: border-color 0.14s ease, transform 0.14s ease, box-shadow 0.14s ease;
+}
+
+.th-card:hover, .th-card.is-sel {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.th-card.is-current { box-shadow: inset 0 0 0 1px var(--accent); }
+
+.th-thumb {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  padding: 11px 12px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--surface0);
+}
+
+.th-thumb__glow {
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  right: -55%;
+  top: -60%;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.th-thumb__title {
+  position: relative;
+  font-size: 13px;
+  line-height: 1.1;
+  margin-bottom: 5px;
+}
+
+.th-thumb__rule { position: relative; width: 30px; height: 2px; border-radius: 2px; margin-bottom: 7px; }
+.th-thumb__line { position: relative; height: 2.5px; border-radius: 2px; margin-bottom: 4px; }
+.th-thumb__code {
+  position: relative;
+  margin-top: 6px;
+  border-radius: 4px;
+  padding: 3px 5px;
+  font-size: 7.5px;
+  letter-spacing: 0;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.th-meta { padding: 8px 10px 10px; }
+.th-meta__top { display: flex; align-items: baseline; gap: 6px; }
+.th-meta__name { flex: 1 1 auto; font-size: 11.5px; color: var(--text); }
+.th-meta__mood {
+  flex: 0 0 auto;
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--overlay0);
+}
+.th-meta__blurb {
+  font-size: 9.5px;
+  line-height: 1.5;
+  color: var(--overlay1);
+  margin-top: 3px;
+}
+
+#themes__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.8rem 1.4rem;
+  border-top: 1px solid var(--surface0);
+  background: var(--mantle);
+  font-size: 0.65rem;
+  color: var(--overlay1);
+}
+
+.th-foot__brand a, #help__foot a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+.th-foot__brand a:hover, #help__foot a:hover {
+  text-decoration: underline;
+}
+
+/* ── Controls overlay ─────────────────────────────────────────────────── */
+#help {
+  position: fixed;
+  inset: 0;
+  z-index: 460;
+  display: none;
+}
+
+#help.is-on { display: block; }
+
+#help__backdrop {
+  position: absolute;
+  inset: 0;
+  background: var(--crust-overlay);
+  backdrop-filter: blur(4px);
+}
+
+#help__panel {
+  font-family: var(--font-mono);
+  position: relative;
+  width: min(780px, 92vw);
+  max-height: 84vh;
+  overflow-y: auto;
+  margin: 7vh auto 0;
+  padding: 1.4rem 1.7rem 1.7rem;
+  background: var(--mantle);
+  border: 1px solid var(--surface1);
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+}
+
+#help__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.1rem;
+}
+
+#help__head h2 {
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+#help__head p { font-size: 0.68rem; color: var(--overlay1); }
+
+#help__head kbd,
+.help-row__keys kbd {
+  display: inline-block;
+  font: inherit;
+  font-size: 0.63rem;
+  background: var(--surface0);
+  border: 1px solid var(--surface1);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  padding: 0.05em 0.4em;
+  color: var(--lavender);
+  white-space: nowrap;
+}
+
+#help__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem 2rem;
+}
+
+.help-group__title {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+  margin-bottom: 0.45rem;
+}
+
+.help-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.9rem;
+  padding: 0.17rem 0;
+  font-size: 0.72rem;
+  color: var(--subtext0);
+}
+
+.help-row__keys { flex: 0 0 auto; display: flex; gap: 0.22rem; }
+
+#help__close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.8rem;
+  background: transparent;
+  border: none;
+  color: var(--overlay0);
+  font-size: 1.15rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+#help__close:hover { color: var(--text); }
+
+#help__foot {
+  margin-top: 1.2rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--surface0);
+  font-size: 0.66rem;
+  color: var(--overlay1);
+  line-height: 1.7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+  </style>
+</head>
+<body>
+
+<div id="backdrop" aria-hidden="true"></div>
+
+<div id="presentation">
+<div class="slide" data-index="0">
+  
+  <div class="slide__content"><style>html { font-size: 20.0px; }</style>
+
+<h1>N5 - Ongoing and completed</h1>
+<ul>
+<li>～ている - is doing; is in a state</li>
+<li>まだ - still; not yet</li>
+<li>まだ～ていません - haven&#39;t ~ yet</li>
+<li>もう - already; anymore</li>
+<li>～たことがある</li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="1">
+  
+  <div class="slide__content"><h1>～ている - is doing; is in a state</h1>
+<p><strong>Meaning</strong> · the action is going on now - or its result is still with us</p>
+<p><code>～ている</code> is not the English present progressive, and treating it as one is the single most expensive mistake in beginner Japanese. It says that something connected to the verb is <strong>true right now</strong>. Whether that something is the action still running, or the state left behind after the action finished, is decided by the verb itself - not by <code>ている</code>.</p>
+</div>
+</div>
+<div class="slide" data-index="2">
+  
+  <div class="slide__content"><h2>～ている - is doing; is in a state · Formation</h2>
+<p><code>いる</code> is a る-verb, so it conjugates normally after the て-form.</p>
+</div>
+</div>
+<div class="slide" data-index="3">
+  
+  <div class="slide__content"><h2>～ている - is doing; is in a state · Formation (cont.)</h2>
+<table>
+<thead>
+<tr>
+<th>Attaches to</th>
+<th>Form</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>う-verb (て)</td>
+<td>て-form + いる</td>
+<td>待(ま)つ → 待(ま)っている</td>
+</tr>
+<tr>
+<td>う-verb (で)</td>
+<td>で-form + いる</td>
+<td>遊(あそ)ぶ → 遊(あそ)んでいる</td>
+</tr>
+<tr>
+<td>る-verb</td>
+<td>て-form + いる</td>
+<td>食(た)べる → 食(た)べている</td>
+</tr>
+<tr>
+<td>する</td>
+<td>している</td>
+<td>勉強(べんきょう)する → 勉強(べんきょう)している</td>
+</tr>
+<tr>
+<td>来(く)る</td>
+<td>きている</td>
+<td>来(く)る → 来(き)ている</td>
+</tr>
+<tr>
+<td>Polite</td>
+<td>ています</td>
+<td>食(た)べています</td>
+</tr>
+<tr>
+<td>Negative</td>
+<td>ていない／ていません</td>
+<td>食(た)べていません</td>
+</tr>
+<tr>
+<td>Past</td>
+<td>ていた／ていました</td>
+<td>食(た)べていました</td>
+</tr>
+<tr>
+<td>Casual contraction</td>
+<td>ている → てる</td>
+<td>食(た)べてる</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+<div class="slide" data-index="4">
+  
+  <div class="slide__content"><h2>～ている - is doing; is in a state · Formation (cont.)</h2>
+<table>
+<thead>
+<tr>
+<th>Attaches to</th>
+<th>Form</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Honorific / humble</td>
+<td>ていらっしゃる／ております</td>
+<td>待(ま)っていらっしゃる</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>Rule of thumb</strong> - verbs that take time (<code>食(た)べる</code>, <code>読(よ)む</code>, <code>走(はし)る</code>) give <strong>ongoing action</strong>. Verbs that happen in an instant and change something (<code>結婚(けっこん)する</code>, <code>死(し)ぬ</code>, <code>開(あ)く</code>, <code>知(し)る</code>) give <strong>resulting state</strong>. Same <code>ている</code>, two readings, and the verb decides.</p>
+</blockquote>
+<p>There is a third, quieter use - <strong>habitual action</strong> (<code>毎朝(まいあさ)走(はし)っています</code>) - and a fourth for accumulated record (<code>三回(さんかい)優勝(ゆうしょう)している</code>, &quot;has won three times&quot;). Both are common; the first is essential at N5.</p>
+</div>
+</div>
+<div class="slide" data-index="5">
+  
+  <div class="slide__content"><h2>～ている - is doing; is in a state · Examples</h2>
+<p>今(いま)、ごはんを<strong>食(た)べています</strong>。<br><em>I&#39;m eating right now.</em></p>
+<p>子(こ)どもたちが公園(こうえん)で<strong>遊(あそ)んでいる</strong>。<br><em>The children are playing in the park.</em></p>
+<p>姉(あね)は<strong>結婚(けっこん)しています</strong>。<br><em>My older sister is married.</em></p>
+<p>あの人(ひと)の名前(なまえ)を<strong>知(し)っています</strong>か。<br><em>Do you know that person&#39;s name?</em></p>
+<p>田中(たなか)さんはめがねを<strong>かけています</strong>。<br><em>Tanaka wears glasses.</em></p>
+</div>
+</div>
+<div class="slide" data-index="6">
+  
+  <div class="slide__content"><h2>～ている - is doing; is in a state · Examples (cont.)</h2>
+<p>窓(まど)が<strong>開(あ)いています</strong>よ。閉(し)めましょうか。<br><em>The window&#39;s open. Shall I shut it?</em></p>
+<p>毎朝(まいあさ)六時(ろくじ)に起(お)きて、近(ちか)くの川(かわ)まで<strong>走(はし)っています</strong>。<br><em>Every morning I get up at six and run down to the river nearby.</em></p>
+<p>庭(にわ)で虫(むし)が<strong>死(し)んでいた</strong>ので、土(つち)にうめてやった。<br><em>There was a dead insect in the garden, so I buried it.</em></p>
+<p>道(みち)が<strong>混(こ)んでいる</strong>から、着(つ)くのが少(すこ)し遅(おそ)くなりそうです。<br><em>The roads are busy, so I&#39;ll probably arrive a little late.</em></p>
+</div>
+</div>
+<div class="slide" data-index="7">
+  
+  <div class="slide__content"><h2>～ている - is doing; is in a state · Nuance &amp; register</h2>
+<p><strong><code>ている</code> is where Japanese talks about the present.</strong> The dictionary form does <em>not</em> mean &quot;now&quot;: <code>食(た)べる</code> is &quot;will eat&quot; or &quot;eats (habitually)&quot;, never &quot;is eating&quot;. If something is happening as you speak, <code>ている</code> is not optional.</p>
+<p><strong><code>てる</code> is the normal spoken shape.</strong> <code>何(なに)してるの？</code>, <code>待(ま)ってるよ</code>, <code>知(し)ってた？</code> - the <code>い</code> drops in casual speech, including in <code>ていた</code> → <code>てた</code>. It is informal but extremely common; keep the full form in writing, in <code>ます</code> speech and in the exam.</p>
+<p><strong>States you would never think of as verbs.</strong> Japanese uses <code>ている</code> for a large class of descriptions that English handles with adjectives or the simple present: <code>住(す)んでいます</code> (live), <code>持(も)っています</code> (have), <code>勤(つと)めています</code> (work for), <code>似(に)ている</code> (resemble), <code>太(ふと)っている</code> (be heavy-set), <code>曲(ま)がっている</code> (be bent). Several of these are <em>only</em> natural in <code>ている</code> form - you cannot describe a present resemblance with ❌<code>似(に)る</code>.</p>
+</div>
+</div>
+<div class="slide" data-index="8">
+  
+  <div class="slide__content"><h2>～ている - is doing; is in a state · Nuance &amp; register (cont.)</h2>
+<p><strong>Politeness.</strong> Honorific speech gives <code>～ていらっしゃる</code> and <code>～ておられる</code>; humble speech gives <code>～ております</code> (<code>承知(しょうち)しております</code>). These are N4 and beyond, but you will hear <code>ております</code> on the phone from day one.</p>
+<p><strong>The negative is where the special cases hide.</strong> <code>食(た)べていません</code> means &quot;hasn&#39;t eaten (yet)&quot; - the action has not started or is not underway. But some state verbs refuse the negative <code>ている</code> altogether, and <code>知(し)る</code> is the famous one: see below.</p>
+</div>
+</div>
+<div class="slide" data-index="9">
+  
+  <div class="slide__content"><h2>～ている - is doing; is in a state · Ongoing action vs resulting state</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - ask how long the verb takes. If the action itself has duration, <code>ている</code> catches it mid-flow. If the action is over in an instant and leaves a changed world, <code>ている</code> describes the change that is still there.</p>
+</blockquote>
+<p>弟(おとうと)は今(いま)、手紙(てがみ)を<strong>書(か)いています</strong>。<br><em>My little brother is writing a letter right now. (still writing)</em></p>
+<p>おじいさんは去年(きょねん)<strong>亡(な)くなっています</strong>。<br><em>My grandfather passed away last year. (and is dead now)</em></p>
+<p>The second is not &quot;is dying&quot;. <code>死(し)ぬ</code> and <code>亡(な)くなる</code> take no time at all, so there is no flow for <code>ている</code> to catch - only the state afterwards. The same logic explains <code>結婚(けっこん)している</code> (is married, not &quot;is getting married&quot;), <code>来(き)ている</code> (is here, having come), <code>ドアが閉(し)まっている</code> (the door is shut) and <code>覚(おぼ)えている</code> (remembers).</p>
+</div>
+</div>
+<div class="slide" data-index="10">
+  
+  <div class="slide__content"><h2>～ている - is doing; is in a state · Ongoing action vs resulting state (cont.)</h2>
+<p>電気(でんき)が<strong>ついています</strong>。誰(だれ)かいるのかもしれません。<br><em>The light is on. Someone might be in.</em></p>
+<p>A useful test: if the English translation is an adjective or &quot;is/has been&quot;, you are looking at a resulting state.</p>
+</div>
+</div>
+<div class="slide" data-index="11">
+  
+  <div class="slide__content"><h2>～ている - is doing; is in a state · ～ている vs the dictionary form</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - <code>ている</code> = now. Dictionary form = will, or generally does. The overlap English speakers expect between &quot;I eat&quot; and &quot;I&#39;m eating&quot; does not exist here.</p>
+</blockquote>
+<p>毎日(まいにち)新聞(しんぶん)を読(よ)みます。<br><em>I read the newspaper every day. (habit - plain present is fine)</em></p>
+<p>今(いま)、新聞(しんぶん)を<strong>読(よ)んでいます</strong>。<br><em>I&#39;m reading the newspaper right now.</em></p>
+<p>Habitual actions can take either form, with a difference of framing: <code>ています</code> presents the habit as a current, ongoing arrangement of your life - <code>銀行(ぎんこう)で働(はたら)いています</code> is how you say what you do for a living, and <code>銀行(ぎんこう)で働(はたら)きます</code> would sound like a plan for tomorrow.</p>
+</div>
+</div>
+<div class="slide" data-index="12">
+  
+  <div class="slide__content"><h2>～ている - is doing; is in a state · 知(し)っている vs 知(し)らない</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - &quot;I know&quot; is <code>知(し)っています</code>. &quot;I don&#39;t know&quot; is <code>知(し)りません</code>. There is no ❌<code>知(し)っていません</code> in ordinary use.</p>
+</blockquote>
+<p>その話(はなし)なら<strong>知(し)っています</strong>。<br><em>Yes, I know about that.</em></p>
+<p>すみません、知(し)りません。<br><em>Sorry, I don&#39;t know.</em></p>
+<p><code>知(し)る</code> means &quot;to come to know&quot;, so <code>知(し)っている</code> is the state of having come to know - and its opposite is simply never having done so, which is <code>知(し)らない</code>. Answering a question with ❌<code>知(し)っていません</code> marks you immediately as a learner; answering with a flat <code>知(し)りません</code> can sound curt, so soften it: <code>ちょっと分(わ)かりません</code>, <code>すみません、知(し)らないんです</code>.</p>
+</div>
+</div>
+<div class="slide" data-index="13">
+  
+  <div class="slide__content"><h2>～ている - is doing; is in a state · 知(し)っている vs 知(し)らない (cont.)</h2>
+<p><code>分(わ)かる</code> behaves differently again: it is already a state, so <code>分(わ)かります</code>／<code>分(わ)かりません</code> need no <code>ている</code> at all.</p>
+</div>
+</div>
+<div class="slide" data-index="14">
+  
+  <div class="slide__content"><h2>～ている - is doing; is in a state · Common mistakes</h2>
+<ul>
+<li><p>❌ その人(ひと)は知(し)っていません。 → ✅ その人(ひと)は知(し)りません。<br><em>The negative of <code>知(し)っている</code> is <code>知(し)らない</code>. This one is worth memorising as a pair rather than as a rule.</em></p>
+</li>
+<li><p>❌ 今(いま)、昼(ひる)ごはんを食(た)べます。（intending &quot;I&#39;m eating lunch now&quot;）→ ✅ 今(いま)、昼(ひる)ごはんを食(た)べています。<br><em>The plain present is future or habitual. It cannot describe what is happening as you speak.</em></p>
+</li>
+<li><p>❌ 兄(あに)は結婚(けっこん)します。（intending &quot;my brother is married&quot;）→ ✅ 兄(あに)は結婚(けっこん)しています。<br><em>Without <code>ている</code> you have announced a wedding that has not happened yet.</em></p>
+</li>
+<li><p>❌ 東京(とうきょう)に住(す)みます。 → ✅ 東京(とうきょう)に住(す)んでいます。<br><em>Living somewhere is a state. The dictionary form would mean you are about to move there.</em></p>
+</li>
+<li><p>❌ 駅(えき)で待(ま)ちています。 → ✅ 駅(えき)で待(ま)っています。<br><em><code>待(ま)つ</code> is a <code>つ</code> verb, so its て-form is <code>待(ま)って</code>. <code>ている</code> never attaches to the ます-stem.</em></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="15">
+  
+  <div class="slide__content"><h2>～ている - is doing; is in a state · Practice 1</h2>
+<p><strong>1.</strong> 母(はは)は台所(だいどころ)で料理(りょうり)を____います。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+料理(りょうり)を<strong>して</strong>います。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code>する</code> becomes <code>して</code>, and cooking takes time, so this is the ongoing reading: she is in the middle of it right now.</p>
+</div>
+</div>
+<div class="slide" data-index="16">
+  
+  <div class="slide__content"><h2>～ている - is doing; is in a state · Practice 2</h2>
+<p><strong>2.</strong> 山田(やまだ)さんの電話番号(でんわばんごう)を（知(し)っていません・知(し)りません）。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+山田(やまだ)さんの電話番号(でんわばんごう)を<strong>知(し)りません</strong>。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code>知(し)っている</code> has no negative form of its own - not knowing is expressed by the plain negative <code>知(し)らない</code>／<code>知(し)りません</code>. The affirmative and the negative simply do not match in shape.</p>
+</div>
+</div>
+<div class="slide" data-index="17">
+  
+  <div class="slide__content"><h2>～ている - is doing; is in a state · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese: &quot;The door is open.&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+ドアが<strong>開(あ)いています</strong>。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code>開(あ)く</code> is an instantaneous change of state, so <code>ている</code> gives the resulting state - the door is <em>currently open</em>, not &quot;is opening&quot;. English speakers often reach for an adjective here; Japanese uses the verb.</p>
+</div>
+</div>
+<div class="slide" data-index="18">
+  
+  <div class="slide__content"><h2>～ている - is doing; is in a state · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the problem: 今(いま)、田中(たなか)さんは電話(でんわ)を使(つか)います。あとでかけ直(なお)してください。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ 今(いま)、田中(たなか)さんは電話(でんわ)を使(つか)っています。あとでかけ直(なお)してください。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The second sentence makes it clear the phone is in use <em>at this moment</em>, so the first needs <code>ています</code>. As written, it says Tanaka will use the phone - which gives the listener no reason to call back later.</p>
+</div>
+</div>
+<div class="slide" data-index="19">
+  
+  <div class="slide__content"><h2>～ている - is doing; is in a state · Practice 5</h2>
+<p><strong>5.</strong> Explain the difference in nuance: (a) 窓(まど)を開(あ)けています。 (b) 窓(まど)が開(あ)いています。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+(a) uses the transitive <code>開(あ)ける</code> with <code>を</code>: somebody is in the act of opening the window, and the sentence is about their action.</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+(b) uses the intransitive <code>開(あ)く</code> with <code>が</code>: the window is open. Nobody is mentioned, nobody is doing anything, and the sentence simply describes the state of the room. The particle and the verb pair together - change one and you must change the other.</p>
+</div>
+</div>
+<div class="slide" data-index="20">
+  
+  <div class="slide__content"><h1>まだ - still; not yet</h1>
+<p><strong>Meaning</strong> · still (it hasn&#39;t changed) - or, with a negative, not yet (it hasn&#39;t happened)</p>
+<p><code>まだ</code> marks a situation as <strong>unchanged</strong>. If the sentence is positive, what has not changed is a state that continues: <em>still</em>. If the sentence is negative, what has not changed is an event everyone is waiting for: <em>not yet</em>. One word, one idea, two English translations.</p>
+</div>
+</div>
+<div class="slide" data-index="21">
+  
+  <div class="slide__content"><h2>まだ - still; not yet · Usage</h2>
+<p><code>まだ</code> is an adverb. It does not conjugate and it attaches to nothing - you simply put it before the part of the sentence it applies to, usually near the front.</p>
+<p>With an <strong>affirmative</strong> predicate it means <em>still</em>: <code>まだ降(ふ)っています</code> (still raining), <code>まだ子(こ)どもです</code> (still a child), <code>まだ新(あたら)しい</code> (still new). Verbs, い-adjectives, な-adjectives and nouns all take it equally.</p>
+<p>With a <strong>negative</strong> predicate it means <em>not yet</em>: <code>まだ決(き)まっていません</code> (not decided yet), <code>まだ来(き)ません</code> (hasn&#39;t come yet). The most important pattern of this kind is <code>まだ～ていません</code>, which has a page of its own.</p>
+<p><code>まだ</code> also stands alone as a complete answer. To <code>もう食(た)べましたか</code> you can reply simply <code>まだです</code>, or casually <code>まだ</code>. And doubled, <code>まだまだ</code> means &quot;nowhere near yet&quot;: <code>日本語(にほんご)はまだまだです</code>.</p>
+</div>
+</div>
+<div class="slide" data-index="22">
+  
+  <div class="slide__content"><h2>まだ - still; not yet · Usage (cont.)</h2>
+<p>One extra use worth knowing: before a quantity or a time, <code>まだ</code> means <em>only</em> - <code>まだ三時(さんじ)ですよ</code> (&quot;it&#39;s only three&quot;), <code>まだ半分(はんぶん)残(のこ)っている</code> (&quot;there&#39;s still half left&quot;). The nuance is that there is more of it than the listener assumed.</p>
+</div>
+</div>
+<div class="slide" data-index="23">
+  
+  <div class="slide__content"><h2>まだ - still; not yet · Examples</h2>
+<p><strong>まだ</strong>時間(じかん)がありますよ。<br><em>There&#39;s still time.</em></p>
+<p>父(ちち)は<strong>まだ</strong>寝(ね)ています。<br><em>My father is still asleep.</em></p>
+<p>バスが<strong>まだ</strong>来(き)ません。<br><em>The bus still hasn&#39;t come.</em></p>
+<p>駅前(えきまえ)のパン屋(や)、<strong>まだ</strong>やっているかな。もう九時(くじ)だけど。<br><em>I wonder if the bakery by the station is still open - it&#39;s gone nine, though.</em></p>
+</div>
+</div>
+<div class="slide" data-index="24">
+  
+  <div class="slide__content"><h2>まだ - still; not yet · Nuance &amp; register</h2>
+<p><code>まだ</code> is register-neutral. It sits comfortably in a business email and in a text message to a friend, and it carries no politeness of its own - the ending of the sentence does that work.</p>
+<p>What it does carry is a faint sense of <strong>expectation not yet met</strong>, and that is where tone creeps in. A bare <code>まだ？</code> to someone who is running late is impatient in any language. The polite answer <code>まだです</code> is neutral, but as a <em>question</em> - <code>まだですか</code> - it presses. Aimed upward, replace it with something that does not ask the person to account for the delay: <code>恐(おそ)れ入(い)りますが、いかがでしょうか</code>.</p>
+<p>In the other direction, <code>まだまだ</code> is a standard humility formula. Told that your Japanese is good, <code>いえいえ、まだまだです</code> is the expected reply - literally &quot;not by a long way yet&quot;, and understood as modesty rather than self-criticism.</p>
+</div>
+</div>
+<div class="slide" data-index="25">
+  
+  <div class="slide__content"><h2>まだ - still; not yet · まだ vs もう</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - <code>まだ</code> says nothing has changed; <code>もう</code> says the change has already happened. They divide the timeline at the moment of change, and they are each other&#39;s natural opposite in both positive and negative sentences.</p>
+</blockquote>
+<p>外(そと)は<strong>まだ</strong>明(あか)るいですね。<br><em>It&#39;s still light outside.</em></p>
+<p>外(そと)はもう暗(くら)いですね。<br><em>It&#39;s already dark outside.</em></p>
+<p>The negative pairing is the one to watch, because the English flips too:</p>
+<p>兄(あに)は<strong>まだ</strong>働(はたら)いていません。<br><em>My brother isn&#39;t working yet. (he will - he&#39;s still studying)</em></p>
+</div>
+</div>
+<div class="slide" data-index="26">
+  
+  <div class="slide__content"><h2>まだ - still; not yet · まだ vs もう (cont.)</h2>
+<p>兄(あに)はもう働(はたら)いていません。<br><em>My brother isn&#39;t working any more. (he has retired or quit)</em></p>
+<p><code>まだ</code> + negative looks forward to something expected; <code>もう</code> + negative looks back at something finished. Choosing the wrong one does not produce a slightly odd sentence - it produces the opposite fact.</p>
+</div>
+</div>
+<div class="slide" data-index="27">
+  
+  <div class="slide__content"><h2>まだ - still; not yet · Common mistakes</h2>
+<ul>
+<li><p>❌ <strong>まだ</strong>昼(ひる)ごはんを食(た)べませんでした。 → ✅ <strong>まだ</strong>昼(ひる)ごはんを食(た)べていません。<br><em><code>ませんでした</code> closes the door on the event: it did not happen and that is that. <code>まだ</code> means it is still coming, so it needs the <code>ていません</code> form.</em></p>
+</li>
+<li><p>❌ レポートは<strong>まだ</strong>終(お)わりました。 → ✅ レポートは<strong>もう</strong>終(お)わりました。<br><em><code>まだ</code> cannot introduce a completed event. Once something is done, the adverb you want is <code>もう</code>.</em></p>
+</li>
+<li><p>❌ もう<strong>まだ</strong>着(つ)いていません。 → ✅ <strong>まだ</strong>着(つ)いていません。<br><em><code>もう</code> and <code>まだ</code> are opposites and do not stack. Pick one.</em></p>
+</li>
+<li><p>❌ 部長(ぶちょう)、あの件(けん)、<strong>まだ</strong>ですか。 → ✅ 部長(ぶちょう)、あの件(けん)はいかがでしょうか。<br><em>Grammatical, but it asks a superior why they have not finished. Ask about the status instead of the delay.</em></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="28">
+  
+  <div class="slide__content"><h2>まだ - still; not yet · Practice 1</h2>
+<p><strong>1.</strong> 「もう帰(かえ)りますか。」「いいえ、____仕事(しごと)が残(のこ)っているので、もう少(すこ)しいます。」</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+いいえ、<strong>まだ</strong>仕事(しごと)が残(のこ)っているので…</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The work is unfinished and the situation is unchanged, which is exactly <code>まだ</code> with an affirmative verb: <em>still</em> there is work left. <code>もう</code> would claim the opposite.</p>
+</div>
+</div>
+<div class="slide" data-index="29">
+  
+  <div class="slide__content"><h2>まだ - still; not yet · Practice 2</h2>
+<p><strong>2.</strong> 子(こ)どもたちは（まだ・もう）起(お)きています。寝(ね)かせないと。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+子(こ)どもたちは<strong>まだ</strong>起(お)きています。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The second sentence - &quot;I need to get them to bed&quot; - tells you the children ought to be asleep already and are not. That is a continuing state contrary to expectation, so <code>まだ</code>. <code>もう起(お)きています</code> would mean they are already awake, which fits a morning, not a bedtime.</p>
+</div>
+</div>
+<div class="slide" data-index="30">
+  
+  <div class="slide__content"><h2>まだ - still; not yet · Practice 3</h2>
+<p><strong>3.</strong> Explain the difference in nuance: (a) まだ三時(さんじ)ですよ。 (b) もう三時(さんじ)ですよ。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+Both state the same time and disagree entirely about what it means.</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+(a) presents three o&#39;clock as early: there is more of the day left than the listener thought - sit down, finish your coffee. (b) presents it as late: time has run away and something should have happened by now. <code>まだ</code> measures what remains; <code>もう</code> measures what has already gone.</p>
+</div>
+</div>
+<div class="slide" data-index="31">
+  
+  <div class="slide__content"><h1>まだ～ていません - haven&#39;t ~ yet</h1>
+<p><strong>Meaning</strong> · I haven&#39;t done it yet - and it is still on the list</p>
+<p>This is the standard answer to <code>もう～ましたか</code>. The two halves each do a job: <code>まだ</code> says the situation is unchanged, and <code>～ていません</code> says the action has not reached completion. Together they describe something that has not happened <strong>and is still expected to</strong> - which is why &quot;yet&quot; is such a good translation and &quot;didn&#39;t&quot; is such a bad one.</p>
+</div>
+</div>
+<div class="slide" data-index="32">
+  
+  <div class="slide__content"><h2>まだ～ていません - haven&#39;t ~ yet · Formation</h2>
+<table>
+<thead>
+<tr>
+<th>Attaches to</th>
+<th>Form</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Verb</td>
+<td>まだ + て-form + いません</td>
+<td>食(た)べる → まだ食(た)べていません</td>
+</tr>
+<tr>
+<td>Plain style</td>
+<td>まだ + て-form + いない</td>
+<td>食(た)べる → まだ食(た)べていない</td>
+</tr>
+<tr>
+<td>Casual contraction</td>
+<td>ていない → てない</td>
+<td>食(た)べる → まだ食(た)べてない</td>
+</tr>
+<tr>
+<td>する verbs</td>
+<td>まだ + していません</td>
+<td>予約(よやく)する → まだ予約(よやく)していません</td>
+</tr>
+<tr>
+<td>来(く)る</td>
+<td>まだ + きていません</td>
+<td>来(く)る → まだ来(き)ていません</td>
+</tr>
+<tr>
+<td>Short answer</td>
+<td>まだです</td>
+<td>「もう読(よ)みましたか。」「いいえ、まだです。」</td>
+</tr>
+<tr>
+<td>The question it answers</td>
+<td>もう～ましたか</td>
+<td>もう読(よ)みましたか</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+<div class="slide" data-index="33">
+  
+  <div class="slide__content"><h2>まだ～ていません - haven&#39;t ~ yet · Formation (cont.)</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - the negative goes on <code>いる</code>, not on the main verb. It is <code>食(た)べて + いません</code>, never ❌<code>食(た)べない + います</code> and never ❌<code>食(た)べませんでした</code>.</p>
+</blockquote>
+</div>
+</div>
+<div class="slide" data-index="34">
+  
+  <div class="slide__content"><h2>まだ～ていません - haven&#39;t ~ yet · Examples</h2>
+<p>いいえ、<strong>まだ読(よ)んでいません</strong>。<br><em>No, I haven&#39;t read it yet.</em></p>
+<p>宿題(しゅくだい)は<strong>まだ終(お)わっていません</strong>。<br><em>I haven&#39;t finished my homework yet.</em></p>
+<p>ホテルは<strong>まだ予約(よやく)していません</strong>。<br><em>I haven&#39;t booked the hotel yet.</em></p>
+<p>「もう返事(へんじ)が来(き)ましたか。」「いいえ、<strong>まだ来(き)ていません</strong>。」<br><em>&quot;Has the reply arrived?&quot; &quot;No, not yet.&quot;</em></p>
+<p>そのドラマ、<strong>まだ見(み)てない</strong>から言(い)わないで。<br><em>I haven&#39;t watched that show yet, so don&#39;t tell me.</em></p>
+</div>
+</div>
+<div class="slide" data-index="35">
+  
+  <div class="slide__content"><h2>まだ～ていません - haven&#39;t ~ yet · Examples (cont.)</h2>
+<p>新(あたら)しい住所(じゅうしょ)は<strong>まだ誰(だれ)にも教(おし)えていません</strong>。<br><em>I haven&#39;t given anyone my new address yet.</em></p>
+<p>来月(らいげつ)の旅行(りょこう)のことは、両親(りょうしん)に<strong>まだ話(はな)していない</strong>んです。<br><em>I haven&#39;t told my parents about next month&#39;s trip yet.</em></p>
+<p>注文(ちゅうもん)した品物(しなもの)が<strong>まだ届(とど)いていない</strong>のですが、確認(かくにん)していただけますか。<br><em>The item I ordered still hasn&#39;t arrived - could you look into it?</em></p>
+</div>
+</div>
+<div class="slide" data-index="36">
+  
+  <div class="slide__content"><h2>まだ～ていません - haven&#39;t ~ yet · Nuance &amp; register</h2>
+<p><strong>It promises the action is coming.</strong> <code>まだ払(はら)っていません</code> means the bill is unpaid <em>and</em> that paying is still on the table. That is why it makes such a good excuse and such a good apology: it admits the gap and implies you will close it. If the thing genuinely will never happen, this pattern is the wrong choice.</p>
+<p><strong>It is softer than it looks.</strong> Compared with a flat <code>いいえ</code>, answering <code>まだです</code> or <code>まだ決(き)めていません</code> leaves the door open and buys time. In business Japanese this is a standard hedge: <code>社内(しゃない)でまだ検討(けんとう)しております</code> - &quot;we are still considering it internally&quot; - says no without saying no.</p>
+<p><strong>Register is carried by the ending, not by <code>まだ</code>.</strong> <code>まだ～ていません</code> polite, <code>まだ～ていない</code> plain, <code>まだ～てない</code> casual and extremely common in speech. <code>まだ？</code> on its own is blunt and impatient; <code>まだですか</code> presses; and neither should be aimed at a superior.</p>
+</div>
+</div>
+<div class="slide" data-index="37">
+  
+  <div class="slide__content"><h2>まだ～ていません - haven&#39;t ~ yet · Nuance &amp; register (cont.)</h2>
+<p><strong>Watch the stative verbs.</strong> A handful of verbs describe states already and do not take <code>ている</code> in the negative: it is <code>まだ分(わ)かりません</code> (&quot;I don&#39;t know yet&quot;), <code>まだ要(い)りません</code> (&quot;I don&#39;t need it yet&quot;), and <code>まだありません</code>. The most notorious is <code>知(し)る</code> - &quot;I don&#39;t know yet&quot; is <code>まだ知(し)りません</code>, never ❌<code>まだ知(し)っていません</code>.</p>
+</div>
+</div>
+<div class="slide" data-index="38">
+  
+  <div class="slide__content"><h2>まだ～ていません - haven&#39;t ~ yet · まだ～ていません vs ～ませんでした</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - <code>～ませんでした</code> closes the book: it didn&#39;t happen, end of story. <code>まだ～ていません</code> leaves it open: it hasn&#39;t happened <em>so far</em>.</p>
+</blockquote>
+<p>お昼(ひる)は<strong>まだ食(た)べていません</strong>。<br><em>I haven&#39;t had lunch yet. (and I intend to)</em></p>
+<p>昨日(きのう)はお昼(ひる)を食(た)べませんでした。<br><em>I didn&#39;t have lunch yesterday. (I skipped it - that day is over)</em></p>
+<p>English uses &quot;haven&#39;t&quot; and &quot;didn&#39;t&quot; for this distinction and Japanese uses the aspect of the verb, so the mapping is clean once you see it. If you can add &quot;yet&quot; to the English, you need <code>まだ～ていません</code>.</p>
+</div>
+</div>
+<div class="slide" data-index="39">
+  
+  <div class="slide__content"><h2>まだ～ていません - haven&#39;t ~ yet · まだ～ていません vs もう～ました</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - these two are the answer pair to the same question. <code>もう～ました</code> = done. <code>まだ～ていません</code> = not done. Nothing else belongs in that slot.</p>
+</blockquote>
+<p>「もう薬(くすり)を飲(の)みましたか。」「はい、もう飲(の)みました。」<br><em>&quot;Have you taken your medicine?&quot; &quot;Yes, I&#39;ve taken it.&quot;</em></p>
+<p>「もう薬(くすり)を飲(の)みましたか。」「いいえ、<strong>まだ飲(の)んでいません</strong>。」<br><em>&quot;Have you taken your medicine?&quot; &quot;No, not yet.&quot;</em></p>
+<p>Note the asymmetry that trips everyone up: the affirmative answer uses the plain past, but the negative answer cannot. ❌<code>いいえ、飲(の)みませんでした</code> would mean you skipped it altogether - a different, and in a hospital a dangerous, answer.</p>
+</div>
+</div>
+<div class="slide" data-index="40">
+  
+  <div class="slide__content"><h2>まだ～ていません vs ～たことがありません</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - &quot;not yet&quot; implies you expect to. &quot;Never&quot; makes no such promise. <code>まだ～ていません</code> is about a pending task; <code>～たことがありません</code> is about an empty life-experience column.</p>
+</blockquote>
+<p>来週(らいしゅう)の会議(かいぎ)の資料(しりょう)は、<strong>まだ作(つく)っていません</strong>。<br><em>I haven&#39;t made the materials for next week&#39;s meeting yet.</em></p>
+<p>北海道(ほっかいどう)へは行(い)ったことがありません。<br><em>I&#39;ve never been to Hokkaido.</em></p>
+<p>Saying <code>北海道(ほっかいどう)へはまだ行(い)っていません</code> is not wrong, but it means something narrower: a trip is planned, or expected of you, and it has not happened <em>yet</em>. Use it when there is a plan; use <code>～たことがありません</code> when there is only an absence.</p>
+</div>
+</div>
+<div class="slide" data-index="41">
+  
+  <div class="slide__content"><h2>まだ～ていません - haven&#39;t ~ yet · Common mistakes</h2>
+<ul>
+<li><p>❌ まだレポートを出(だ)し<strong>ませんでした</strong>。 → ✅ まだレポートを出(だ)し<strong>ていません</strong>。<br><em><code>まだ</code> cannot sit with a plain past negative. The two contradict each other: one says &quot;still pending&quot;, the other says &quot;over and done with&quot;.</em></p>
+</li>
+<li><p>❌ <strong>もう</strong>荷物(にもつ)が届(とど)いていません。 → ✅ <strong>まだ</strong>荷物(にもつ)が届(とど)いていません。<br><em><code>もう～ていません</code> means &quot;not any more&quot;. With a parcel that never came, you want <code>まだ</code>.</em></p>
+</li>
+<li><p>❌ まだ知(し)っていません。 → ✅ まだ知(し)りません。<br><em><code>知(し)る</code> has no negative <code>ている</code> form. This exception survives inside the <code>まだ</code> pattern too.</em></p>
+</li>
+<li><p>❌ まだ食(た)べ<strong>ないです</strong>。 → ✅ まだ食(た)べ<strong>ていません</strong>。<br><em><code>食(た)べない</code> means &quot;won&#39;t eat&quot; - a refusal, not a delay. The negative belongs on <code>いる</code>.</em></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="42">
+  
+  <div class="slide__content"><h2>まだ～ていません - haven&#39;t ~ yet · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ お寿司(すし)はまだ食(た)べていません。（meaning &quot;I&#39;ve never eaten sushi&quot;）→ ✅ お寿司(すし)は食(た)べたことがありません。<br><em><code>まだ</code> promises that it is going to happen. For a plain absence of experience, use <code>～たことがありません</code>.</em></li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="43">
+  
+  <div class="slide__content"><h2>まだ～ていません - haven&#39;t ~ yet · Practice 1</h2>
+<p><strong>1.</strong> 「もうチケットを買(か)いましたか。」「いいえ、まだ買(か)____。」</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+いいえ、まだ<strong>買(か)っていません</strong>。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The negative attaches to <code>いる</code>, giving <code>買(か)って + いません</code>. The answer also implies you still mean to buy them, which is exactly what the questioner wants to know.</p>
+</div>
+</div>
+<div class="slide" data-index="44">
+  
+  <div class="slide__content"><h2>まだ～ていません - haven&#39;t ~ yet · Practice 2</h2>
+<p><strong>2.</strong> 昨日(きのう)は忙(いそが)しくて、晩(ばん)ごはんを（食(た)べませんでした・まだ食(た)べていません）。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+昨日(きのう)は忙(いそが)しくて、晩(ばん)ごはんを<strong>食(た)べませんでした</strong>。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+Yesterday is finished, so the meal was skipped rather than postponed. <code>まだ～ていません</code> would claim that yesterday&#39;s dinner is still coming, which time no longer allows.</p>
+</div>
+</div>
+<div class="slide" data-index="45">
+  
+  <div class="slide__content"><h2>まだ～ていません - haven&#39;t ~ yet · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese: &quot;I haven&#39;t decided yet.&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<strong>まだ決(き)めていません</strong>。 （casual: まだ決(き)めてない。）</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code>決(き)める</code> → <code>決(き)めて</code> → <code>決(き)めていません</code>. This is one of the most useful sentences in the language, because it declines to answer without refusing to answer.</p>
+</div>
+</div>
+<div class="slide" data-index="46">
+  
+  <div class="slide__content"><h2>まだ～ていません - haven&#39;t ~ yet · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the problem: メールをまだ送(おく)りませんでした。すみません、これから送(おく)ります。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ メールをまだ送(おく)っていません。すみません、これから送(おく)ります。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The second sentence says you are about to send it, so the first cannot use <code>ませんでした</code> - that would mean the sending is off the table. <code>まだ送(おく)っていません</code> keeps the action pending, which matches the apology.</p>
+</div>
+</div>
+<div class="slide" data-index="47">
+  
+  <div class="slide__content"><h2>まだ～ていません - haven&#39;t ~ yet · Practice 5</h2>
+<p><strong>5.</strong> Explain the difference in nuance: (a) その本(ほん)はまだ読(よ)んでいません。 (b) その本(ほん)は読(よ)んだことがありません。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+(a) says the book is on your list. It is sitting on the shelf, someone recommended it, perhaps it was assigned - and you fully expect to get to it.</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+(b) simply reports that reading it has never been part of your life. There is no implication of a plan, and none of guilt. If your professor asks whether you have read the set text, (a) is a promise and (b) is a confession.</p>
+</div>
+</div>
+<div class="slide" data-index="48">
+  
+  <div class="slide__content"><h1>もう - already; anymore</h1>
+<p><strong>Meaning</strong> · the change has happened - already, by now, or (with a negative) not any more</p>
+<p><code>もう</code> marks a threshold as crossed. Whatever the situation used to be, it is not that any longer: the meal is eaten, the shop is shut, the pain has stopped. Point it at a positive sentence and you get <em>already</em>; point it at a negative one and you get <em>not any more</em>.</p>
+</div>
+</div>
+<div class="slide" data-index="49">
+  
+  <div class="slide__content"><h2>もう - already; anymore · Usage</h2>
+<p><code>もう</code> is an adverb and never changes shape. It normally comes early in the sentence, though it can sit right before the word it modifies.</p>
+<p>With a <strong>past or completed</strong> predicate it means <em>already</em>: <code>もう終(お)わりました</code>, <code>もう出(で)かけた</code>, <code>もう大丈夫(だいじょうぶ)です</code>. In a question it is the standard way to ask whether something is done: <code>もう見(み)ましたか</code>.</p>
+<p>With a <strong>negative</strong> predicate it means <em>no longer</em>: <code>もう吸(す)いません</code> (I don&#39;t smoke any more), <code>もう子(こ)どもじゃない</code> (not a child any more). The change has already happened and there is no going back.</p>
+<p>Before a <strong>number or quantity</strong> it means <em>another</em>, <em>more</em>: <code>もう一杯(いっぱい)</code> (one more glass), <code>もう一度(いちど)</code> (once more), <code>もう少(すこ)し</code> (a bit more), <code>もうちょっと</code>. This use has nothing to do with time, and learners often meet it before they meet the other two.</p>
+</div>
+</div>
+<div class="slide" data-index="50">
+  
+  <div class="slide__content"><h2>もう - already; anymore · Usage (cont.)</h2>
+<p>Before a <strong>time expression</strong> it means the moment has arrived: <code>もうすぐ着(つ)きます</code> (arriving shortly), <code>もう帰(かえ)る時間(じかん)だ</code> (time to go home). And on its own, <code>もう</code> is an interjection of exasperation - see below.</p>
+</div>
+</div>
+<div class="slide" data-index="51">
+  
+  <div class="slide__content"><h2>もう - already; anymore · Examples</h2>
+<p><strong>もう</strong>昼(ひる)ごはんを食(た)べましたか。<br><em>Have you had lunch already?</em></p>
+<p><strong>もう</strong>お酒(さけ)は飲(の)みません。<br><em>I don&#39;t drink any more.</em></p>
+<p>コーヒーを<strong>もう</strong>一杯(いっぱい)いかがですか。<br><em>Would you like another cup of coffee?</em></p>
+<p><strong>もう</strong>こんな時間(じかん)。そろそろ失礼(しつれい)します。<br><em>Look at the time already. I ought to be going.</em></p>
+</div>
+</div>
+<div class="slide" data-index="52">
+  
+  <div class="slide__content"><h2>もう - already; anymore · Nuance &amp; register</h2>
+<p><code>もう</code> itself is neutral - it belongs equally to a text message and to a meeting. What varies is what surrounds it, and <code>もう</code> has a few spoken lives worth knowing.</p>
+<p><strong><code>もう？</code> is surprise.</strong> Said with a rising tone in reply to news, it means &quot;that soon?&quot; - <code>え、もう終(お)わったの？</code>. It is friendly, and it is one of the easiest natural-sounding reactions to learn.</p>
+<p><strong><code>もう！</code> is exhaustion.</strong> Alone, drawn out, it expresses irritation or fond exasperation: <code>もう、遅(おそ)いよ！</code>. This interjection leans female and very casual, and it is the <code>もう</code> you will hear most often in drama.</p>
+<p><strong><code>もういい</code> needs care.</strong> It means &quot;that&#39;s enough&quot; and lands anywhere between &quot;I&#39;m full, thank you&quot; and &quot;forget it, I&#39;m done with this,&quot; depending entirely on tone. <code>もういいです</code> said flatly to a shop assistant sounds like giving up on them; <code>結構(けっこう)です</code> is the safe refusal.</p>
+</div>
+</div>
+<div class="slide" data-index="53">
+  
+  <div class="slide__content"><h2>もう - already; anymore · Nuance &amp; register (cont.)</h2>
+<p><strong>Formal writing prefers <code>すでに</code>.</strong> Reports and notices use <code>すでに完了(かんりょう)しております</code> rather than <code>もう</code>. <code>もう</code> is not rude, just conversational.</p>
+</div>
+</div>
+<div class="slide" data-index="54">
+  
+  <div class="slide__content"><h2>もう - already; anymore · もう vs まだ</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - <code>もう</code> is on the far side of the change; <code>まだ</code> is on the near side. Every <code>もう</code> sentence has a <code>まだ</code> mirror image, and the mirror flips in the negative as well as the positive.</p>
+</blockquote>
+<p>会議(かいぎ)は<strong>もう</strong>始(はじ)まりました。<br><em>The meeting has already started.</em></p>
+<p>会議(かいぎ)はまだ始(はじ)まっていません。<br><em>The meeting hasn&#39;t started yet.</em></p>
+<p>Now the negatives, which is where English gives you two completely different words:</p>
+<p>足(あし)は<strong>もう</strong>痛(いた)くありません。<br><em>My leg doesn&#39;t hurt any more. (it did; it stopped)</em></p>
+</div>
+</div>
+<div class="slide" data-index="55">
+  
+  <div class="slide__content"><h2>もう - already; anymore · もう vs まだ (cont.)</h2>
+<p>足(あし)はまだ痛(いた)いです。<br><em>My leg still hurts. (nothing has changed)</em></p>
+<p>Keep hold of the direction rather than the English: <code>もう</code> + negative looks back at something that has ended, <code>まだ</code> + negative looks forward to something that has not begun. <code>もう働(はたら)いていません</code> is a retirement; <code>まだ働(はたら)いていません</code> is a student.</p>
+</div>
+</div>
+<div class="slide" data-index="56">
+  
+  <div class="slide__content"><h2>もう - already; anymore · Common mistakes</h2>
+<ul>
+<li><p>❌ 宿題(しゅくだい)は<strong>もう</strong>しています。（intending &quot;I&#39;ve already done it&quot;）→ ✅ 宿題(しゅくだい)は<strong>もう</strong>しました。<br><em><code>もう～ている</code> says you are already in the middle of it. Completion in the past takes the plain past: <code>もう～ました</code>.</em></p>
+</li>
+<li><p>❌ バスが<strong>もう</strong>来(き)ていません。（intending &quot;the bus hasn&#39;t come yet&quot;）→ ✅ バスが<strong>まだ</strong>来(き)ていません。<br><em>With a negative, <code>もう</code> means &quot;not any more&quot; - you would be saying the bus service has stopped running.</em></p>
+</li>
+<li><p>❌ コーヒーを<strong>もう</strong>一(いち)ください。 → ✅ コーヒーを<strong>もう</strong>一杯(いっぱい)ください。<br><em><code>もう</code> needs a full counter phrase after it: <code>一杯(いっぱい)</code>, <code>一(ひと)つ</code>, <code>一度(いちど)</code>, <code>少(すこ)し</code>.</em></p>
+</li>
+<li><p>❌ （in a written report）作業(さぎょう)は<strong>もう</strong>終(お)わりました。 → ✅ 作業(さぎょう)はすでに完了(かんりょう)しております。<br><em>Not ungrammatical, just conversational. Formal writing reaches for <code>すでに</code>.</em></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="57">
+  
+  <div class="slide__content"><h2>もう - already; anymore · Practice 1</h2>
+<p><strong>1.</strong> 「映画(えいが)のチケット、____買(か)いましたか。」「はい、昨日(きのう)買(か)いました。」</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+「映画(えいが)のチケット、<strong>もう</strong>買(か)いましたか。」</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+Asking whether something is done by now is the core use of <code>もう</code> with the past tense. It is also the question that <code>まだ～ていません</code> exists to answer in the negative.</p>
+</div>
+</div>
+<div class="slide" data-index="58">
+  
+  <div class="slide__content"><h2>もう - already; anymore · Practice 2</h2>
+<p><strong>2.</strong> 昔(むかし)はたばこを吸(す)っていましたが、（もう・まだ）吸(す)っていません。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+昔(むかし)はたばこを吸(す)っていましたが、<strong>もう</strong>吸(す)っていません。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The first half establishes that the speaker used to smoke, so the habit has ended: &quot;not any more.&quot; <code>まだ</code> would mean they had never started, which contradicts <code>昔(むかし)は吸(す)っていました</code>.</p>
+</div>
+</div>
+<div class="slide" data-index="59">
+  
+  <div class="slide__content"><h2>もう - already; anymore · Practice 3</h2>
+<p><strong>3.</strong> Explain the difference in nuance: (a) もう少(すこ)し待(ま)ってください。 (b) もう待(ま)ちません。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+(a) uses the quantity sense: <code>もう少(すこ)し</code> is &quot;a little more&quot;, so the speaker is asking for extra time. It is polite and cooperative.</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+(b) uses the negative sense: the waiting is over and will not continue. Depending on the tone it is either a decision to give up or an outright threat. The same adverb, doing two of its jobs, in sentences that could not be further apart.</p>
+</div>
+</div>
+<div class="slide" data-index="60">
+  
+  <div class="slide__content"><h1>～たことがある</h1>
+<p><strong>Meaning</strong> · to have done something before - an experience you carry with you</p>
+<p><code>～たことがある</code> is not a past tense. It says that somewhere in your life there exists an instance of doing this thing. Literally: &quot;there is a <em>time-when-I-did-it</em>.&quot; That is why it uses <code>ある</code> - the experience is treated as something you possess, not as an event on a calendar.</p>
+</div>
+</div>
+<div class="slide" data-index="61">
+  
+  <div class="slide__content"><h2>～たことがある · Formation</h2>
+<p>Take the <strong>た-form</strong>, then add <code>ことがある</code>.</p>
+</div>
+</div>
+<div class="slide" data-index="62">
+  
+  <div class="slide__content"><h2>～たことがある · Formation (cont.)</h2>
+<table>
+<thead>
+<tr>
+<th>Attaches to</th>
+<th>Form</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Verb</td>
+<td>た-form + ことがある</td>
+<td>行(い)く → 行(い)った → 行(い)ったことがある</td>
+</tr>
+<tr>
+<td>Verb (る-verb)</td>
+<td>た-form + ことがある</td>
+<td>食(た)べる → 食(た)べた → 食(た)べたことがある</td>
+</tr>
+<tr>
+<td>Verb (する／来(く)る)</td>
+<td>した／来(き)た + ことがある</td>
+<td>する → したことがある</td>
+</tr>
+<tr>
+<td>い-adjective</td>
+<td>かった + ことがある</td>
+<td>忙(いそが)しい → 忙(いそが)しかったことがある</td>
+</tr>
+<tr>
+<td>な-adjective</td>
+<td>だった + ことがある</td>
+<td>大変(たいへん)だ → 大変(たいへん)だったことがある</td>
+</tr>
+<tr>
+<td>Noun</td>
+<td>だった + ことがある</td>
+<td>学生(がくせい) → 学生(がくせい)だったことがある</td>
+</tr>
+<tr>
+<td>Polite</td>
+<td>ある → あります</td>
+<td>行(い)ったことがあります</td>
+</tr>
+<tr>
+<td>Negative</td>
+<td>ある → ない／ありません</td>
+<td>行(い)ったことがない</td>
+</tr>
+<tr>
+<td>Past</td>
+<td>ある → あった／ありました</td>
+<td>行(い)ったことがありました</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+<div class="slide" data-index="63">
+  
+  <div class="slide__content"><h2>～たことがある · Formation (cont.)</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - the <code>た</code> is compulsory and is <strong>not</strong> the past tense. It is the form the pattern is built on, the way <code>～ておく</code> is built on the て-form. A dictionary form here gives you a different pattern entirely (see Contrast).</p>
+</blockquote>
+</div>
+</div>
+<div class="slide" data-index="64">
+  
+  <div class="slide__content"><h2>～たことがある · Examples</h2>
+<p>おすしを<strong>食(た)べたことがあります</strong>か。<br><em>Have you ever eaten sushi?</em></p>
+<p>北海道(ほっかいどう)に<strong>行(い)ったことがあります</strong>。<br><em>I&#39;ve been to Hokkaido.</em></p>
+<p>私(わたし)は馬(うま)に<strong>乗(の)ったことがない</strong>。<br><em>I&#39;ve never ridden a horse.</em></p>
+<p>富士山(ふじさん)に<strong>登(のぼ)ったことある</strong>?<br><em>Have you ever climbed Mt. Fuji?</em></p>
+<p>学生(がくせい)のとき、パン屋(や)で<strong>働(はたら)いたことがあります</strong>。<br><em>When I was a student I worked at a bakery for a while.</em></p>
+</div>
+</div>
+<div class="slide" data-index="65">
+  
+  <div class="slide__content"><h2>～たことがある · Examples (cont.)</h2>
+<p>一度(いちど)だけ、テレビで見(み)た人(ひと)に道(みち)で<strong>会(あ)ったことがある</strong>。<br><em>Just once, I&#39;ve run into someone on the street that I&#39;d seen on TV.</em></p>
+<p>日本(にほん)に三年(さんねん)住(す)んでいましたが、京都(きょうと)には一度(いちど)も<strong>行(い)ったことがありません</strong>。<br><em>I lived in Japan for three years, but I&#39;ve never once been to Kyoto.</em></p>
+<p>こんなに美(うつく)しい景色(けしき)は今(いま)まで<strong>見(み)たことがない</strong>。<br><em>I have never seen scenery this beautiful in my life.</em></p>
+</div>
+</div>
+<div class="slide" data-index="66">
+  
+  <div class="slide__content"><h2>～たことがある · Nuance &amp; register</h2>
+<p>Register-neutral. <code>あります</code> polite, <code>ある</code> plain, and nothing about the pattern marks age or gender.</p>
+<p>Two contractions dominate spoken Japanese and will ambush you:</p>
+<ul>
+<li><strong><code>が</code> drops.</strong> 行(い)ったことある? - this is the ordinary spoken form of the<br><em>question. So is 見(み)たことない, for the negative.</em></li>
+<li><strong><code>が</code> becomes <code>は</code> for emphasis.</strong> 見(み)たこと<strong>は</strong>ない - &quot;I&#39;ve certainly<br><em>never <em>seen</em> it (whatever else I may have done).&quot; The <code>は</code> adds the contrast that <code>は</code> always adds.</em></li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="67">
+  
+  <div class="slide__content"><h2>～たことがある · Nuance &amp; register (cont.)</h2>
+<p>The pattern carries a built-in sense of <strong>distance</strong>. The experience has to feel like part of your history, not like something from this morning. That is why a specific recent time and <code>～たことがある</code> fight each other: ❌ きのう、おすしを食(た)べたことがあります. Say 食(た)べました. Vague time expressions are fine, and in fact common: 前(まえ)に, 昔(むかし), 一度(いちど), 子(こ)どものとき, 今(いま)まで.</p>
+<p>It also implies the experience is <strong>worth remarking on</strong>. Everyday, everyone-does-it actions sound strange: ❌ ご飯(はん)を食(た)べたことがあります is odd, because of course you have. The exception is when you are genuinely drawing a line - 納豆(なっとう)は食(た)べたことがありません is fine, because plenty of people haven&#39;t.</p>
+<p><code>一度(いちど)も</code> + negative is the fixed way to say &quot;not even once&quot;, and the two must agree: 一度(いちど)も行(い)ったことが<strong>ありません</strong>.</p>
+</div>
+</div>
+<div class="slide" data-index="68">
+  
+  <div class="slide__content"><h2>～たことがある · ～たことがある vs the plain past</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - plain past puts the event on a timeline. <code>～たことがある</code> puts it on your résumé.</p>
+</blockquote>
+<p>去年(きょねん)、北海道(ほっかいどう)に行(い)きました。<br><em>I went to Hokkaido last year.</em></p>
+<p>That is a report of one occasion, anchored to a date. Which occasion matters.</p>
+<p>北海道(ほっかいどう)に<strong>行(い)ったことがあります</strong>。<br><em>I&#39;ve been to Hokkaido.</em></p>
+<p>That is a fact about <em>me</em>. When I went, or how often, is beside the point - what is being claimed is that Hokkaido is inside my experience.</p>
+</div>
+</div>
+<div class="slide" data-index="69">
+  
+  <div class="slide__content"><h2>～たことがある · ～たことがある vs the plain past (cont.)</h2>
+<p>This is why a definite time expression forces the plain past. <code>去年(きょねん)</code>, <code>きのう</code>, <code>三時(さんじ)に</code> all pin the event down, and pinning it down is exactly what <code>～たことがある</code> refuses to do. English &quot;I have been to Hokkaido&quot; behaves the same way - you cannot say &quot;I have been there yesterday&quot; either.</p>
+</div>
+</div>
+<div class="slide" data-index="70">
+  
+  <div class="slide__content"><h2>～たことがある · ～たことがある vs ～たことがない</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - the negation lands on <code>ある</code>, never on the verb.</p>
+</blockquote>
+<p>海外(かいがい)に<strong>行(い)ったことがありません</strong>。<br><em>I&#39;ve never been abroad.</em></p>
+<p>Learners reach for the verb and produce ❌<code>行(い)かなかったことがあります</code>. That is not a negative - it means &quot;there have been occasions when I didn&#39;t go&quot;, which is a real but very different sentence.</p>
+<p>The negative is used far more than the affirmative in practice, and it has its own set of companions: <code>一度(いちど)も</code> (not once), <code>まだ</code> (not yet), <code>今(いま)まで</code> (up to now).</p>
+<p>まだ新(あたら)しい店(みせ)に行(い)ったことがないんです。<br><em>I haven&#39;t been to the new place yet.</em></p>
+</div>
+</div>
+<div class="slide" data-index="71">
+  
+  <div class="slide__content"><h2>～たことがある · ～たことがある vs ～たことがない (cont.)</h2>
+<p>Past tense on <code>ある</code> gives you &quot;hadn&#39;t, at that point&quot;: 去年(きょねん)まで一度(いちど)も飛行機(ひこうき)に乗(の)ったことが<strong>ありませんでした</strong> - &quot;until last year I&#39;d never flown.&quot;</p>
+</div>
+</div>
+<div class="slide" data-index="72">
+  
+  <div class="slide__content"><h2>～たことがある · ～たことがある vs ～ることがある</h2>
+<blockquote>
+<p><strong>Rule of thumb</strong> - た-form = &quot;I have done it&quot;. Dictionary form = &quot;it sometimes happens&quot;.</p>
+</blockquote>
+<p>Same three words, and swapping the verb form changes the meaning completely.</p>
+<p>電車(でんしゃ)が<strong>遅(おく)れたことがあります</strong>。<br><em>The train has been late before. (I&#39;ve experienced it)</em></p>
+<p>電車(でんしゃ)が<strong>遅(おく)れることがあります</strong>。<br><em>The train is sometimes late. (it happens from time to time)</em></p>
+<p>The dictionary-form version is about frequency in the present, so it works with <code>ときどき</code>, <code>たまに</code>, and with negatives: 朝(あさ)ごはんを食(た)べないことがあります - &quot;there are times when I skip breakfast.&quot;</p>
+</div>
+</div>
+<div class="slide" data-index="73">
+  
+  <div class="slide__content"><h2>～たことがある · Common mistakes</h2>
+<ul>
+<li><p>❌ 北海道(ほっかいどう)に<strong>行(い)くことがあります</strong>。（meaning &quot;I&#39;ve been&quot;）→ ✅ 北海道(ほっかいどう)に<strong>行(い)ったことがあります</strong>。<br><em>Dictionary form gives you &quot;I sometimes go there&quot;, which is a different claim. Experience needs the た-form.</em></p>
+</li>
+<li><p>❌ きのう、おすしを食(た)べたことがあります。 → ✅ きのう、おすしを<strong>食(た)べました</strong>。<br><em>A specific recent time pins the event to the calendar, and <code>～たことがある</code> is precisely the form that refuses to be pinned. Use the plain past.</em></p>
+</li>
+<li><p>❌ 日本(にほん)に行(い)ったこと<strong>を</strong>あります。 → ✅ 日本(にほん)に行(い)ったこと<strong>が</strong>あります。<br><em><code>ある</code> is intransitive and never takes <code>を</code>. The <code>が</code> here is doing its normal job: marking what exists.</em></p>
+</li>
+<li><p>❌ 一度(いちど)も見(み)たことが<strong>あります</strong>。 → ✅ 一度(いちど)も見(み)たことが<strong>ありません</strong>。<br><em><code>一度(いちど)も</code> requires a negative to complete it, the way English &quot;not once&quot; does.</em></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="74">
+  
+  <div class="slide__content"><h2>～たことがある · Common mistakes (cont.)</h2>
+<ul>
+<li>❌ 学生(がくせい)ことがあります。 → ✅ 学生(がくせい)<strong>だった</strong>ことがあります。<br><em>Nouns and な-adjectives need <code>だった</code> in front of <code>ことがある</code>. The pattern always wants a plain past form before it, whatever the word class.</em></li>
+</ul>
+</div>
+</div>
+<div class="slide" data-index="75">
+  
+  <div class="slide__content"><h2>～たことがある · Practice 1</h2>
+<p><strong>1.</strong> 馬(うま)に乗(の)____ことがありますか。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+馬(うま)に乗(の)<strong>った</strong>ことがありますか。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The pattern is built on the た-form. <code>乗(の)る</code> is a う-verb ending in る, so る → った: 乗(の)る → 乗(の)った.</p>
+</div>
+</div>
+<div class="slide" data-index="76">
+  
+  <div class="slide__content"><h2>～たことがある · Practice 2</h2>
+<p><strong>2.</strong> &quot;Trains around here are sometimes delayed.&quot; この辺(へん)の電車(でんしゃ)は（遅(おく)れる・遅(おく)れた）ことがあります。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+この辺(へん)の電車(でんしゃ)は<strong>遅(おく)れる</strong>ことがあります。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+Dictionary form + <code>ことがある</code> means &quot;it happens from time to time&quot; - a statement about how often something occurs. The た-form would have said &quot;the trains have been late before&quot;, which is about experience rather than frequency.</p>
+</div>
+</div>
+<div class="slide" data-index="77">
+  
+  <div class="slide__content"><h2>～たことがある · Practice 3</h2>
+<p><strong>3.</strong> Translate into Japanese: &quot;I&#39;ve never been to Kyoto.&quot;</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+京都(きょうと)に<strong>行(い)ったことがありません</strong>。 （casual: 京都(きょうと)、行(い)ったことない。）</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+The negation goes on <code>ある</code>, not on the verb - the た-form stays fixed. Adding <code>一度(いちど)も</code> gives &quot;never once&quot;: 京都(きょうと)には一度(いちど)も行(い)ったことがありません。</p>
+</div>
+</div>
+<div class="slide" data-index="78">
+  
+  <div class="slide__content"><h2>～たことがある · Practice 4</h2>
+<p><strong>4.</strong> Find and fix the error: 先週(せんしゅう)、あの映画(えいが)を見(み)たことがあります。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+✅ 先週(せんしゅう)、あの映画(えいが)を<strong>見(み)ました</strong>。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+<code>先週(せんしゅう)</code> locates the event on a specific occasion, and <code>～たことがある</code> cannot take a definite recent time - it deliberately leaves <em>when</em> open. Drop the time word and <code>見(み)たことがあります</code> becomes fine again.</p>
+</div>
+</div>
+<div class="slide" data-index="79">
+  
+  <div class="slide__content"><h2>～たことがある · Practice 5</h2>
+<p><strong>5.</strong> Explain the difference in nuance: (a) 沖縄(おきなわ)に行(い)きました。 (b) 沖縄(おきなわ)に行(い)ったことがあります。</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+(a) reports a particular trip. It belongs in a narrative - the listener will expect to hear when, or who with, or what happened there. On its own it can sound like the opening of a story.</p>
+<p><span class="deckrun-fragment-marker" aria-hidden="true"></span>
+(b) makes no claim about any particular trip. It says only that Okinawa is inside my experience, which is what you offer when someone asks &quot;have you been?&quot; or mentions Okinawa in passing. It is a fact about the speaker, not about a day.</p>
+</div>
+</div>
+</div>
+
+<div id="hud">
+  <div id="progress-bar"><div id="progress-fill"></div></div>
+  <div id="hud-row">
+    <div id="hud-tools">
+      <button class="hud-btn" id="btn-laser" title="Laser pointer (L)">laser <kbd>L</kbd></button>
+      <button class="hud-btn" id="btn-pen" title="Draw on the slide (D)">pen <kbd>D</kbd></button>
+      <button class="hud-btn" id="btn-blank" title="Blank canvas over the slide (C)">canvas <kbd>C</kbd></button>
+      <button class="hud-btn" id="btn-black" title="Black out the screen (B)">black <kbd>B</kbd></button>
+      <button class="hud-btn" id="btn-theme" title="Change theme (T)">theme <kbd>T</kbd></button>
+      <div id="pen-bar">
+        <span id="hud-sep"></span>
+        <span id="pen-swatches"></span>
+        <button class="hud-btn" id="btn-erase" title="Eraser (E)">erase <kbd>E</kbd></button>
+        <button class="hud-btn" id="btn-thin" title="Thinner ([)">&minus;</button>
+        <span id="pen-width">4px</span>
+        <button class="hud-btn" id="btn-thick" title="Thicker (])">+</button>
+        <button class="hud-btn" id="btn-clear" title="Clear this slide (X)">clear <kbd>X</kbd></button>
+      </div>
+      <button class="hud-btn" id="btn-help" title="Show every control (?)">? controls</button>
+    </div>
+    <div id="hud-right">
+      <a href="https://github.com/arpitbbhayani/deckrun" target="_blank" rel="noopener noreferrer" class="hud-brand" id="hud-brand" title="deckrun — Markdown presentations">powered by <span>deckrun</span></a>
+      <div id="slide-counter"><span id="cur">1</span>&nbsp;/&nbsp;<span id="tot">80</span></div>
+    </div>
+  </div>
+</div>
+
+<canvas id="board"></canvas>
+<div id="laser" aria-hidden="true"></div>
+<div id="blackout" title="Click or press B to come back"></div>
+
+<div id="themes" role="dialog" aria-modal="true" aria-label="Theme picker">
+  <div id="themes__backdrop" data-close="themes"></div>
+  <div id="themes__box">
+    <div id="themes__head">
+      <span class="th-head__title">themes</span>
+      <span class="th-head__sub">Arrow keys preview live &nbsp;·&nbsp; enter selects &nbsp;·&nbsp; esc closes</span>
+      <a href="https://github.com/arpitbbhayani/deckrun" target="_blank" rel="noopener noreferrer" class="th-head__brand" title="deckrun">deckrun</a>
+      <button id="themes__close" data-close="themes" title="Close (Esc)">&times;</button>
+    </div>
+    <div id="themes__list"></div>
+    <div id="themes__foot">
+      <span class="th-foot__brand">powered by <a href="https://github.com/arpitbbhayani/deckrun" target="_blank" rel="noopener noreferrer">deckrun</a></span>
+      <span class="th-foot__hint">Switch themes on the fly</span>
+    </div>
+  </div>
+</div>
+
+<div id="help" role="dialog" aria-modal="true" aria-label="Presenter controls">
+  <div id="help__backdrop" data-close="help"></div>
+  <div id="help__panel">
+    <button id="help__close" data-close="help" title="Close (Esc)">&times;</button>
+    <div id="help__head">
+      <h2>controls</h2>
+      <p>press <kbd>?</kbd> any time</p>
+    </div>
+    <div id="help__grid"></div>
+    <div id="help__foot">
+      <span>Annotations live per slide and survive navigation.</span>
+      <span>powered by <a href="https://github.com/arpitbbhayani/deckrun" target="_blank" rel="noopener noreferrer">deckrun</a></span>
+    </div>
+  </div>
+</div>
+
+<button class="nav-arrow nav-arrow--prev" id="btn-prev" title="Previous (←)">&#8592;</button>
+<button class="nav-arrow nav-arrow--next" id="btn-next" title="Next (→)">&#8594;</button>
+
+<div id="cursor"></div>
+
+<div id="overview" class="hidden"></div>
+
+<div id="kbd-hint">← → reveal / navigate &nbsp;·&nbsp; O overview &nbsp;·&nbsp; F fullscreen &nbsp;·&nbsp; T theme &nbsp;·&nbsp; L laser &nbsp;·&nbsp; D draw &nbsp;·&nbsp; ? controls</div>
+
+
+
+<script id="deck-notes" type="application/json">["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]</script>
+<script id="deck-themes" type="application/json">{"themes":[{"id":"midnight","label":"midnight","mood":"dark","blurb":"Catppuccin Mocha. Violet on deep indigo, drifting orbs.","decor":"orbs","colors":{"crust":"#11111b","mantle":"#181825","base":"#1e1e2e","surface0":"#313244","overlay1":"#7f849c","subtext1":"#bac2de","text":"#cdd6f4","accent":"#cba6f7","accent2":"#89b4fa","accent3":"#89dceb"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"tokyo","label":"tokyo night","mood":"dark","blurb":"Neon cyan over a wireframe grid, lifted from a rainy skyline.","decor":"grid","colors":{"crust":"#16161e","mantle":"#1a1b26","base":"#1f2335","surface0":"#292e42","overlay1":"#7c86ab","subtext1":"#b7c0e0","text":"#c8d3f5","accent":"#2ac3de","accent2":"#bb9af7","accent3":"#73daca"},"fonts":{"display":"'Sora', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"nord","label":"nord","mood":"dark","blurb":"Arctic frost blue on polar slate, with slow contour waves.","decor":"waves","colors":{"crust":"#232831","mantle":"#2e3440","base":"#353c4a","surface0":"#3b4252","overlay1":"#8e9aae","subtext1":"#d8dee9","text":"#eceff4","accent":"#88c0d0","accent2":"#81a1c1","accent3":"#8fbcbb"},"fonts":{"display":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace","body":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"dracula","label":"dracula","mood":"dark","blurb":"Purple and hot pink over charcoal, lit by a gradient mesh.","decor":"mesh","colors":{"crust":"#1a1b23","mantle":"#21222c","base":"#282a36","surface0":"#343746","overlay1":"#7b85b6","subtext1":"#e2e4f0","text":"#f8f8f2","accent":"#bd93f9","accent2":"#ff79c6","accent3":"#8be9fd"},"fonts":{"display":"'Syne', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'Fira Code', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"gruvbox","label":"gruvbox","mood":"dark","blurb":"Warm amber and moss on retro brown, hatched like graph paper.","decor":"topo","colors":{"crust":"#1b1e1f","mantle":"#232728","base":"#282828","surface0":"#32302f","overlay1":"#928374","subtext1":"#d5c4a1","text":"#ebdbb2","accent":"#fabd2f","accent2":"#fe8019","accent3":"#b8bb26"},"fonts":{"display":"'Bricolage Grotesque', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Work Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"rosepine","label":"rosé pine","mood":"dark","blurb":"Muted iris and gold on plum, under a slow aurora.","decor":"aurora","colors":{"crust":"#14121f","mantle":"#191724","base":"#1f1d2e","surface0":"#26233a","overlay1":"#817c9c","subtext1":"#cdc9e6","text":"#e0def4","accent":"#c4a7e7","accent2":"#9ccfd8","accent3":"#f6c177"},"fonts":{"display":"'Fraunces', Georgia, 'Times New Roman', serif","body":"'Newsreader', Georgia, 'Times New Roman', serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"forest","label":"forest","mood":"dark","blurb":"Everforest sage on deep pine, rippling in concentric rings.","decor":"rings","colors":{"crust":"#232a2e","mantle":"#2d353b","base":"#343f44","surface0":"#3d484d","overlay1":"#9da9a0","subtext1":"#d3c6aa","text":"#e5dfd2","accent":"#a7c080","accent2":"#6fb5ac","accent3":"#dbbc7f"},"fonts":{"display":"'Outfit', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"neon","label":"neon","mood":"dark","blurb":"Electric cyan and magenta on true black, raked by light beams.","decor":"beams","colors":{"crust":"#050509","mantle":"#0a0a12","base":"#0e0e1a","surface0":"#16162a","overlay1":"#6a6a96","subtext1":"#c8c8e4","text":"#f0f0ff","accent":"#22d3ee","accent2":"#ff5cc8","accent3":"#38e8ff"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'Space Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"daylight","label":"daylight","mood":"light","blurb":"Catppuccin Latte, contrast-tuned for a projector. Dot matrix.","decor":"dots","colors":{"crust":"#ebebeb","mantle":"#f5f5f5","base":"#fafaf8","surface0":"#ccd0da","overlay1":"#5c5f77","subtext1":"#3a3c52","text":"#1e2030","accent":"#8839ef","accent2":"#1e66f5","accent3":"#179299"},"fonts":{"display":"'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"arctic","label":"arctic","mood":"light","blurb":"Nord inverted. Frost blue on cool paper, with contour waves.","decor":"waves","colors":{"crust":"#e3e8ef","mantle":"#eceff4","base":"#f7f9fc","surface0":"#dbe1ea","overlay1":"#5f6b7c","subtext1":"#364150","text":"#2e3440","accent":"#2f7d94","accent2":"#4a7ba7","accent3":"#3b8b8a"},"fonts":{"display":"'Manrope', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'JetBrains Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"solarized","label":"solarized","mood":"light","blurb":"The classic low-glare cream, paired with Lora for long prose.","decor":"topo","colors":{"crust":"#eee8d5","mantle":"#f5efdc","base":"#fdf6e3","surface0":"#e3ddc8","overlay1":"#657b83","subtext1":"#3f5b62","text":"#073642","accent":"#268bd2","accent2":"#6c71c4","accent3":"#21958c"},"fonts":{"display":"'Outfit', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Lora', Georgia, 'Times New Roman', serif","mono":"'Source Code Pro', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"paper","label":"paper","mood":"light","blurb":"Crimson serif on warm cream. Editorial, print-first, very legible.","decor":"rings","colors":{"crust":"#efe8dc","mantle":"#f7f2e9","base":"#fdfbf5","surface0":"#e4dccc","overlay1":"#6e6553","subtext1":"#38311f","text":"#211c11","accent":"#a81f2c","accent2":"#1f7f96","accent3":"#9a6c12"},"fonts":{"display":"'Fraunces', Georgia, 'Times New Roman', serif","body":"'Newsreader', Georgia, 'Times New Roman', serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"rosequartz","label":"rose quartz","mood":"light","blurb":"Rosé Pine Dawn. Blush and iris on linen, with soft orbs.","decor":"orbs","colors":{"crust":"#f2e9e1","mantle":"#faf4ed","base":"#fffaf3","surface0":"#ece0d8","overlay1":"#7d7791","subtext1":"#55506e","text":"#423d5c","accent":"#b4637a","accent2":"#907aa9","accent3":"#56949f"},"fonts":{"display":"'Playfair Display', Georgia, 'Times New Roman', serif","body":"'Figtree', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}},{"id":"swiss","label":"swiss","mood":"light","blurb":"Black on white, one red. Heavy grotesk, tight tracking, hard grid.","decor":"grid","colors":{"crust":"#f0f0f0","mantle":"#f8f8f8","base":"#ffffff","surface0":"#dcdcdc","overlay1":"#5a5a5a","subtext1":"#222222","text":"#0a0a0a","accent":"#e01b24","accent2":"#0a0a0a","accent3":"#5a5a5a"},"fonts":{"display":"'Archivo', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","body":"'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif","mono":"'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"}}],"hljsMap":{"midnight":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css","tokyo":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css","nord":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/nord.min.css","dracula":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/dracula.min.css","gruvbox":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/gruvbox-dark-medium.min.css","rosepine":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/ros-pine.min.css","forest":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css","neon":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/night-owl.min.css","daylight":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","arctic":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","solarized":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/solarized-light.min.css","paper":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css","rosequartz":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/ros-pine-dawn.min.css","swiss":"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css"},"decorMap":{"midnight":"orbs","tokyo":"grid","nord":"waves","dracula":"mesh","gruvbox":"topo","rosepine":"aurora","forest":"rings","neon":"beams","daylight":"dots","arctic":"waves","solarized":"topo","paper":"rings","rosequartz":"orbs","swiss":"grid"}}</script>
+
+<script>
+(function () {
+  window.deckrunPrepareFragments = function (root, allVisible) {
+    if (!root) return;
+    var markers = root.querySelectorAll('.deckrun-fragment-marker');
+    for (var i = 0; i < markers.length; i++) {
+      var marker = markers[i];
+      var parent = marker.parentElement;
+      if (!parent) continue;
+
+      var textContent = parent.textContent ? parent.textContent.trim() : '';
+      if (textContent === '' && parent.tagName.toLowerCase() === 'p') {
+        var next = parent.nextElementSibling;
+        if (next) {
+          next.classList.add('fragment');
+          if (allVisible) {
+            next.classList.add('is-revealed');
+            next.setAttribute('aria-hidden', 'false');
+          } else {
+            next.setAttribute('aria-hidden', 'true');
+          }
+        }
+        parent.remove();
+      } else {
+        var target = marker.closest('li') || parent;
+        target.classList.add('fragment');
+        if (allVisible) {
+          target.classList.add('is-revealed');
+          target.setAttribute('aria-hidden', 'false');
+        } else {
+          target.setAttribute('aria-hidden', 'true');
+        }
+        marker.remove();
+      }
+    }
+  };
+})();
+
+
+(function () {
+  window.deckrunRenderRichContent = function (root) {
+    if (!root) return Promise.resolve();
+
+    // 1. Render KaTeX math
+    if (window.katex) {
+      var mathNodes = root.querySelectorAll('.math-source:not([data-rendered])');
+      for (var i = 0; i < mathNodes.length; i++) {
+        var el = mathNodes[i];
+        var tex = el.textContent || '';
+        var isDisplay = el.dataset.display === 'true';
+        try {
+          window.katex.render(tex, el, {
+            displayMode: isDisplay,
+            throwOnError: false,
+            output: 'htmlAndMathml'
+          });
+          el.setAttribute('data-rendered', 'true');
+        } catch (err) {
+          el.innerHTML = '<span class="math-error">' + (err && err.message ? err.message : 'Math rendering error') + '</span>';
+          el.setAttribute('data-rendered', 'true');
+        }
+      }
+    }
+
+    // 2. Render Mermaid diagrams
+    var mermaidPromises = [];
+    var codeBlocks = root.querySelectorAll('pre code.language-mermaid, pre code.lang-mermaid');
+    if (codeBlocks.length > 0 && window.mermaid) {
+      try {
+        window.mermaid.initialize({
+          startOnLoad: false,
+          theme: 'dark',
+          securityLevel: 'loose'
+        });
+      } catch (e) {}
+
+      for (var j = 0; j < codeBlocks.length; j++) {
+        (function (codeEl) {
+          var preEl = codeEl.closest('pre');
+          if (!preEl || preEl.dataset.rendered) return;
+          preEl.dataset.rendered = 'true';
+          var code = codeEl.textContent || '';
+          var container = document.createElement('div');
+          container.className = 'mermaid';
+          preEl.parentNode.insertBefore(container, preEl);
+          preEl.style.display = 'none';
+
+          var id = 'mermaid-' + Math.random().toString(36).slice(2, 10);
+          var p = window.mermaid.render(id, code)
+            .then(function (res) {
+              container.innerHTML = res.svg;
+              preEl.remove();
+            })
+            .catch(function (err) {
+              container.className = 'mermaid-error';
+              container.textContent = 'Mermaid Error: ' + (err && err.message ? err.message : String(err));
+              preEl.remove();
+            });
+          mermaidPromises.push(p);
+        })(codeBlocks[j]);
+      }
+    }
+
+    return Promise.all(mermaidPromises).then(function () {});
+  };
+})();
+
+</script>
+<script>
+(function () {
+  'use strict';
+
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const total  = slides.length;
+  let cur      = 0;
+  let inOverview = false;
+
+  const elCur      = document.getElementById('cur');
+  const elFill     = document.getElementById('progress-fill');
+  const elBtnPrev  = document.getElementById('btn-prev');
+  const elBtnNext  = document.getElementById('btn-next');
+  const elOverview = document.getElementById('overview');
+  const elHint     = document.getElementById('kbd-hint');
+  const elBoard    = document.getElementById('board');
+  const elLaser    = document.getElementById('laser');
+  const elBlack    = document.getElementById('blackout');
+  const elHelp     = document.getElementById('help');
+  const elThemes   = document.getElementById('themes');
+  const elPenBar   = document.getElementById('pen-bar');
+  const elPenWidth = document.getElementById('pen-width');
+
+  if (window.deckrunPrepareFragments) {
+    window.deckrunPrepareFragments(document.getElementById('presentation'), false);
+  }
+
+  const fragmentSteps = slides.map(() => 0);
+
+  function fragmentsAt(index) {
+    return Array.from(slides[index].querySelectorAll('.fragment'));
+  }
+
+  function applyFragmentStep(index) {
+    const fragments = fragmentsAt(index);
+    const step = Math.max(0, Math.min(fragmentSteps[index] || 0, fragments.length));
+    fragmentSteps[index] = step;
+    fragments.forEach(function (fragment, i) {
+      const shown = i < step;
+      fragment.classList.toggle('is-revealed', shown);
+      fragment.setAttribute('aria-hidden', shown ? 'false' : 'true');
+    });
+  }
+
+  function revealNext() {
+    const count = fragmentsAt(cur).length;
+    if ((fragmentSteps[cur] || 0) >= count) return false;
+    fragmentSteps[cur] = (fragmentSteps[cur] || 0) + 1;
+    applyFragmentStep(cur);
+    updateHud();
+    return true;
+  }
+
+  function concealPrevious() {
+    if ((fragmentSteps[cur] || 0) <= 0) return false;
+    fragmentSteps[cur] -= 1;
+    applyFragmentStep(cur);
+    updateHud();
+    return true;
+  }
+
+  // ── Syntax highlighting ──────────────────────────────────────────────
+  // Guarded: the highlighter comes off a CDN, and a deck presented offline
+  // should still navigate rather than die on a missing global.
+  if (window.hljs) {
+    document.querySelectorAll('pre code:not(.language-mermaid):not(.lang-mermaid)').forEach(function (block) {
+      try { window.hljs.highlightElement(block); } catch (e) {}
+    });
+  }
+
+  const richReady = window.deckrunRenderRichContent
+    ? window.deckrunRenderRichContent(document.getElementById('presentation'))
+    : Promise.resolve();
+
+  // ── Slide navigation ─────────────────────────────────────────────────
+  function showSlide(next, direction, fragmentMode) {
+    const prev = cur;
+    if (next < 0 || next >= total) return;
+
+    if (next === prev && !fragmentMode) return;
+
+    const nextFragments = fragmentsAt(next).length;
+    fragmentSteps[next] = fragmentMode === 'start' || (fragmentMode !== 'end' && direction === 'forward')
+      ? 0
+      : nextFragments;
+    applyFragmentStep(next);
+
+    if (next === prev) {
+      updateHud();
+      return;
+    }
+
+    const slideOut = slides[prev];
+    const slideIn  = slides[next];
+
+    // Set up entering slide position
+    const enterClass = direction === 'forward' ? 'enter-from-right' : 'enter-from-left';
+    const exitClass  = direction === 'forward' ? 'exit-left'        : 'exit-right';
+
+    slideIn.classList.add(enterClass);
+    slideIn.style.transition = 'none';
+
+    // Force reflow so the initial position is painted
+    void slideIn.offsetWidth;
+
+    slideIn.style.transition = '';
+    slideIn.classList.remove(enterClass);
+    slideIn.classList.add('is-active');
+
+    slideOut.classList.remove('is-active');
+    slideOut.classList.add(exitClass);
+
+    // Clean up exit class after transition
+    var cleaned = false;
+    function cleanup() {
+      if (cleaned) return;
+      cleaned = true;
+      slideOut.classList.remove(exitClass, 'exit-left', 'exit-right');
+      slideOut.removeEventListener('transitionend', cleanup);
+    }
+    slideOut.addEventListener('transitionend', cleanup);
+    // The no-motion preset has no transitionend event. The timeout also guards interrupted
+    // transitions, so no slide can retain an exit class indefinitely.
+    if (document.documentElement.dataset.transition === 'none') cleanup();
+    else setTimeout(cleanup, 650);
+
+    cur = next;
+    updateHud();
+  }
+
+  function updateHud() {
+    redrawBoard();
+    elCur.textContent = String(cur + 1);
+    const pct = total > 1 ? (cur / (total - 1)) * 100 : 100;
+    elFill.style.width = pct + '%';
+    const step = fragmentSteps[cur] || 0;
+    const count = fragmentsAt(cur).length;
+    elBtnPrev.style.opacity = cur === 0 && step === 0 ? '0.2' : '1';
+    elBtnNext.style.opacity = cur === total - 1 && step >= count ? '0.2' : '1';
+    post({ type: 'state', index: cur, total: total });
+  }
+
+  function next() {
+    if (!revealNext()) showSlide(cur + 1, 'forward');
+  }
+
+  function prev() {
+    if (!concealPrevious()) showSlide(cur - 1, 'backward');
+  }
+
+  // ── Editor mirror ─────────────────────────────────────────────────────
+  // The editor that presented this tab is a peer of it: this tab feeds it,
+  // over BroadcastChannel, the slides on screen plus the speaker notes. The
+  // session id comes from the URL the editor opened (ps=...), so only a deck
+  // an editor actually presented listens; one opened straight from a file
+  // skips the machinery entirely.
+  const psParam = new URLSearchParams(location.search).get('ps');
+  const sid = (psParam && /^[A-Za-z0-9-]{1,64}$/.test(psParam)) ? psParam : null;
+  const channel = (sid && typeof BroadcastChannel !== 'undefined')
+    ? new BroadcastChannel('deckrun:' + sid)
+    : null;
+
+  function post(msg) {
+    if (!channel) return;
+    msg.id = sid;
+    channel.postMessage(msg);
+  }
+
+  if (channel) {
+    const NOTES = (function readNotes() {
+      try {
+        return JSON.parse(document.getElementById('deck-notes').textContent);
+      } catch (e) {
+        return [];
+      }
+    })();
+
+    channel.onmessage = function (e) {
+      const m = e.data || {};
+      if (m.id !== sid) return;
+      if (m.type === 'ready') {
+        post({ type: 'init', notes: NOTES });
+        post({ type: 'state', index: cur, total: total });
+      } else if (m.type === 'goto') {
+        const i = parseInt(m.index, 10);
+        if (!isNaN(i) && i >= 0 && i < total && i !== cur) {
+          showSlide(i, i > cur ? 'forward' : 'backward');
+        }
+      }
+    };
+  }
+
+  // ── Overview mode ────────────────────────────────────────────────────
+  function buildOverview() {
+    elOverview.innerHTML = '';
+    slides.forEach((slide, i) => {
+      const thumb = document.createElement('div');
+      thumb.className = 'overview-thumb' + (i === cur ? ' is-current' : '');
+
+      const num = document.createElement('span');
+      num.className = 'overview-thumb__number';
+      num.textContent = String(i + 1);
+
+      // Clone slide content into thumbnail
+      const inner = document.createElement('div');
+      inner.className = 'overview-thumb__inner';
+      inner.style.width  = window.innerWidth  + 'px';
+      inner.style.height = window.innerHeight + 'px';
+      const clone = slide.cloneNode(true);
+      clone.classList.add('is-active');
+      clone.style.transition = 'none';
+      clone.querySelectorAll('.fragment').forEach(function (fragment) {
+        fragment.classList.add('is-revealed');
+        fragment.setAttribute('aria-hidden', 'false');
+      });
+      inner.appendChild(clone);
+
+      thumb.appendChild(num);
+      thumb.appendChild(inner);
+
+      thumb.addEventListener('click', () => {
+        const direction = i >= cur ? 'forward' : 'backward';
+        toggleOverview(false);
+        showSlide(i, direction);
+      });
+
+      elOverview.appendChild(thumb);
+    });
+  }
+
+  function toggleOverview(force) {
+    inOverview = force !== undefined ? force : !inOverview;
+    if (inOverview) {
+      buildOverview();
+      elOverview.classList.remove('hidden');
+    } else {
+      elOverview.classList.add('hidden');
+    }
+  }
+
+  // ── Presenter tools ───────────────────────────────────────────────────
+  // One canvas serves both drawing modes: the pen annotates over the live
+  // slide, and the blank canvas paints the same board opaque so the slide
+  // disappears behind it. Strokes are kept per slide in normalised
+  // coordinates, so a resize or a jump into fullscreen keeps them in place.
+  const ctx = elBoard.getContext('2d');
+  const rootStyle = getComputedStyle(document.documentElement);
+
+  function themeColor(name, fallback) {
+    const v = rootStyle.getPropertyValue('--' + name).trim();
+    return v || fallback;
+  }
+
+  const PEN_COLORS = [
+    themeColor('red',    '#f38ba8'),
+    themeColor('yellow', '#f9e2af'),
+    themeColor('green',  '#a6e3a1'),
+    themeColor('blue',   '#89b4fa'),
+    themeColor('text',   '#cdd6f4'),
+  ];
+  const PEN_WIDTHS = [2, 3, 4, 6, 9, 14];
+  const ERASER_SCALE = 5;
+
+  const strokes = [];           // strokes[slideIndex] = [{ color, width, erase, pts }]
+  let colorIdx = 0;
+  let widthIdx = 2;
+  let stroke = null;            // the stroke being drawn right now
+
+  let penOn   = false;
+  let blankOn = false;
+  let eraseOn = false;
+  let laserOn = false;
+  let blackOn = false;
+  let helpOn  = false;
+
+  const tools = {
+    laser: document.getElementById('btn-laser'),
+    pen:   document.getElementById('btn-pen'),
+    blank: document.getElementById('btn-blank'),
+    black: document.getElementById('btn-black'),
+    theme: document.getElementById('btn-theme'),
+    erase: document.getElementById('btn-erase'),
+  };
+
+  /** Click handler that drops focus, so Space keeps meaning "next slide". */
+  function onClick(el, fn) {
+    if (!el) return;
+    el.addEventListener('click', function (e) {
+      el.blur();
+      fn(e);
+    });
+  }
+
+  // ── Canvas sizing and painting ───────────────────────────────────────
+  function sizeBoard() {
+    const dpr = window.devicePixelRatio || 1;
+    elBoard.width  = Math.round(window.innerWidth  * dpr);
+    elBoard.height = Math.round(window.innerHeight * dpr);
+    elBoard.style.width  = window.innerWidth  + 'px';
+    elBoard.style.height = window.innerHeight + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    redrawBoard();
+  }
+
+  function strokeStyle(s) {
+    ctx.globalCompositeOperation = s.erase ? 'destination-out' : 'source-over';
+    ctx.strokeStyle = s.color;
+    ctx.lineWidth = s.erase ? s.width * ERASER_SCALE : s.width;
+    ctx.lineJoin = 'round';
+    ctx.lineCap = 'round';
+  }
+
+  function paintStroke(s) {
+    const w = window.innerWidth, h = window.innerHeight;
+    if (!s.pts.length) return;
+    strokeStyle(s);
+    ctx.beginPath();
+    ctx.moveTo(s.pts[0][0] * w, s.pts[0][1] * h);
+    if (s.pts.length === 1) {
+      // A tap still deserves a dot.
+      ctx.lineTo(s.pts[0][0] * w + 0.01, s.pts[0][1] * h);
+    } else {
+      for (let i = 1; i < s.pts.length; i++) ctx.lineTo(s.pts[i][0] * w, s.pts[i][1] * h);
+    }
+    ctx.stroke();
+  }
+
+  /** Draw only the newest segment — repainting everything on every move is
+      wasteful once a slide carries a few dozen strokes. */
+  function paintTip(s) {
+    const w = window.innerWidth, h = window.innerHeight;
+    const n = s.pts.length;
+    if (n < 2) { paintStroke(s); return; }
+    strokeStyle(s);
+    ctx.beginPath();
+    ctx.moveTo(s.pts[n - 2][0] * w, s.pts[n - 2][1] * h);
+    ctx.lineTo(s.pts[n - 1][0] * w, s.pts[n - 1][1] * h);
+    ctx.stroke();
+  }
+
+  function redrawBoard() {
+    ctx.globalCompositeOperation = 'source-over';
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    const list = strokes[cur] || [];
+    for (let i = 0; i < list.length; i++) paintStroke(list[i]);
+    ctx.globalCompositeOperation = 'source-over';
+  }
+
+  function hasInk() { return !!(strokes[cur] && strokes[cur].length); }
+
+  // ── Drawing ──────────────────────────────────────────────────────────
+  function pointOf(e) {
+    return [e.clientX / window.innerWidth, e.clientY / window.innerHeight];
+  }
+
+  elBoard.addEventListener('pointerdown', function (e) {
+    if (!penOn) return;
+    e.preventDefault();
+    try { elBoard.setPointerCapture(e.pointerId); } catch (err) {}
+    stroke = {
+      color: PEN_COLORS[colorIdx],
+      width: PEN_WIDTHS[widthIdx],
+      erase: eraseOn,
+      pts: [pointOf(e)],
+    };
+    if (!strokes[cur]) strokes[cur] = [];
+    strokes[cur].push(stroke);
+    paintStroke(stroke);
+  });
+
+  elBoard.addEventListener('pointermove', function (e) {
+    if (!stroke) return;
+    e.preventDefault();
+    stroke.pts.push(pointOf(e));
+    paintTip(stroke);
+  });
+
+  function endStroke() {
+    if (!stroke) return;
+    stroke = null;
+    ctx.globalCompositeOperation = 'source-over';
+    syncTools();
+  }
+
+  elBoard.addEventListener('pointerup', endStroke);
+  elBoard.addEventListener('pointercancel', endStroke);
+  elBoard.addEventListener('pointerleave', endStroke);
+
+  function undoStroke() {
+    const list = strokes[cur];
+    if (!list || !list.length) return;
+    list.pop();
+    redrawBoard();
+    syncTools();
+  }
+
+  function clearSlide() {
+    strokes[cur] = [];
+    redrawBoard();
+    syncTools();
+  }
+
+  // ── Tool state ───────────────────────────────────────────────────────
+  function setPen(on) {
+    penOn = !!on;
+    if (!penOn) {
+      endStroke();
+      // The blank canvas has no meaning without a pen to use on it.
+      blankOn = false;
+      eraseOn = false;
+    }
+    syncTools();
+  }
+
+  function setBlank(on) {
+    blankOn = !!on;
+    // Opening the blank canvas arms the pen; closing it leaves the pen alone.
+    if (blankOn) penOn = true;
+    syncTools();
+  }
+
+  function setEraser(on) {
+    eraseOn = !!on;
+    if (eraseOn) penOn = true;
+    syncTools();
+  }
+
+  function setLaser(on) {
+    laserOn = !!on;
+    syncTools();
+  }
+
+  function setBlack(on) {
+    blackOn = !!on;
+    syncTools();
+  }
+
+  function setColor(i) {
+    colorIdx = Math.max(0, Math.min(PEN_COLORS.length - 1, i));
+    eraseOn = false;
+    penOn = true;
+    syncTools();
+  }
+
+  function nudgeWidth(delta) {
+    widthIdx = Math.max(0, Math.min(PEN_WIDTHS.length - 1, widthIdx + delta));
+    syncTools();
+  }
+
+  const swatches = [];
+  (function buildSwatches() {
+    const host = document.getElementById('pen-swatches');
+    PEN_COLORS.forEach(function (color, i) {
+      const b = document.createElement('button');
+      b.className = 'swatch';
+      b.style.background = color;
+      b.title = 'Pen color ' + (i + 1);
+      onClick(b, function () { setColor(i); });
+      host.appendChild(b);
+      swatches.push(b);
+    });
+  })();
+
+  function syncTools() {
+    tools.laser.classList.toggle('is-on', laserOn);
+    tools.pen.classList.toggle('is-on', penOn);
+    tools.blank.classList.toggle('is-on', blankOn);
+    tools.black.classList.toggle('is-on', blackOn);
+    if (tools.theme) tools.theme.classList.toggle('is-on', themesOpen());
+    tools.erase.classList.toggle('is-on', eraseOn);
+
+    elBoard.classList.toggle('is-drawing', penOn);
+    elBoard.classList.toggle('is-erasing', penOn && eraseOn);
+    elBoard.classList.toggle('is-blank', blankOn);
+
+    elPenBar.classList.toggle('is-on', penOn);
+    elPenWidth.textContent = PEN_WIDTHS[widthIdx] + 'px';
+    swatches.forEach(function (b, i) {
+      b.classList.toggle('is-on', !eraseOn && i === colorIdx);
+    });
+
+    elLaser.classList.toggle('is-on', laserOn);
+    document.body.classList.toggle('laser-on', laserOn);
+    elBlack.classList.toggle('is-on', blackOn);
+    elHelp.classList.toggle('is-on', helpOn);
+  }
+
+  // ── Theme picker ─────────────────────────────────────────────────────
+  let themeBootstrap = { themes: [], hljsMap: {}, decorMap: {} };
+  try {
+    const elBt = document.getElementById('deck-themes');
+    if (elBt) themeBootstrap = JSON.parse(elBt.textContent || '{}');
+  } catch (e) {}
+  const themeList = themeBootstrap.themes || [];
+  const hljsMap = themeBootstrap.hljsMap || {};
+  const decorMap = themeBootstrap.decorMap || {};
+  const THEME_DATA = Object.fromEntries(themeList.map(function (t) { return [t.id, t]; }));
+  let activeTheme = document.documentElement.dataset.theme || 'nord';
+  let themeCommitted = activeTheme;
+  let themeSel = 0;
+  let themeCards = [];
+
+  function themeThumb(t) {
+    const c = t.colors;
+    const wrap = document.createElement('div');
+    wrap.className = 'th-thumb';
+    wrap.style.background = c.crust;
+    wrap.style.color = c.text;
+
+    const glow = document.createElement('div');
+    glow.className = 'th-thumb__glow';
+    glow.style.background = 'radial-gradient(circle, ' + c.accent + ' 0%, transparent 70%)';
+    glow.style.opacity = t.mood === 'dark' ? '0.22' : '0.12';
+    wrap.appendChild(glow);
+
+    const title = document.createElement('div');
+    title.className = 'th-thumb__title';
+    title.textContent = t.label;
+    title.style.fontFamily = t.fonts.display;
+    title.style.color = c.accent;
+    wrap.appendChild(title);
+
+    const rule = document.createElement('div');
+    rule.className = 'th-thumb__rule';
+    rule.style.background = c.accent2;
+    wrap.appendChild(rule);
+
+    [75, 55].forEach(function (w) {
+      const line = document.createElement('div');
+      line.className = 'th-thumb__line';
+      line.style.width = w + '%';
+      line.style.background = c.surface0;
+      wrap.appendChild(line);
+    });
+
+    const code = document.createElement('div');
+    code.className = 'th-thumb__code';
+    code.textContent = 'const deck = md';
+    code.style.fontFamily = t.fonts.mono;
+    code.style.background = c.mantle;
+    code.style.color = c.accent3;
+    code.style.border = '1px solid ' + c.surface0;
+    wrap.appendChild(code);
+
+    return wrap;
+  }
+
+  function themeCard(t) {
+    const card = document.createElement('button');
+    card.className = 'th-card' + (t.id === activeTheme ? ' is-current' : '');
+    card.dataset.theme = t.id;
+    card.appendChild(themeThumb(t));
+
+    const meta = document.createElement('div');
+    meta.className = 'th-meta';
+
+    const top = document.createElement('div');
+    top.className = 'th-meta__top';
+    const name = document.createElement('span');
+    name.className = 'th-meta__name';
+    name.textContent = t.label;
+    const mood = document.createElement('span');
+    mood.className = 'th-meta__mood';
+    mood.textContent = t.mood;
+    top.appendChild(name);
+    top.appendChild(mood);
+
+    const blurb = document.createElement('div');
+    blurb.className = 'th-meta__blurb';
+    blurb.textContent = t.blurb;
+
+    meta.appendChild(top);
+    meta.appendChild(blurb);
+    card.appendChild(meta);
+    return card;
+  }
+
+  function buildThemePicker() {
+    const host = document.getElementById('themes__list');
+    if (!host) return;
+    host.innerHTML = '';
+    themeCards = [];
+
+    [['dark', 'dark palettes'], ['light', 'light palettes']].forEach(function (pair) {
+      const list = themeList.filter(function (t) { return t.mood === pair[0]; });
+      if (!list.length) return;
+
+      const label = document.createElement('div');
+      label.className = 'th-group';
+      label.textContent = pair[1];
+      host.appendChild(label);
+
+      const grid = document.createElement('div');
+      grid.className = 'th-grid';
+      list.forEach(function (t) {
+        const card = themeCard(t);
+        card.addEventListener('mouseenter', function () { selectTheme(themeCards.indexOf(card)); });
+        card.addEventListener('click', function () { selectTheme(themeCards.indexOf(card)); commitTheme(); });
+        grid.appendChild(card);
+        themeCards.push(card);
+      });
+      host.appendChild(grid);
+    });
+  }
+
+  function updateThemePenColors() {
+    const rs = getComputedStyle(document.documentElement);
+    function tc(name, fb) {
+      const v = rs.getPropertyValue('--' + name).trim();
+      return v || fb;
+    }
+    PEN_COLORS[0] = tc('red',    '#f38ba8');
+    PEN_COLORS[1] = tc('yellow', '#f9e2af');
+    PEN_COLORS[2] = tc('green',  '#a6e3a1');
+    PEN_COLORS[3] = tc('blue',   '#89b4fa');
+    PEN_COLORS[4] = tc('text',   '#cdd6f4');
+    swatches.forEach(function (sw, i) {
+      if (sw && PEN_COLORS[i]) sw.style.background = PEN_COLORS[i];
+    });
+  }
+
+  function setTheme(id, remember) {
+    if (!id || !THEME_DATA[id]) return;
+    activeTheme = id;
+    document.documentElement.dataset.theme = id;
+    document.documentElement.dataset.decor = decorMap[id] || 'orbs';
+    const hljsLink = document.getElementById('hljs-theme');
+    if (hljsLink && hljsMap[id]) {
+      hljsLink.href = hljsMap[id];
+    }
+    updateThemePenColors();
+    if (remember !== false) {
+      try { localStorage.setItem('deckrun.theme.v1', id); } catch (e) {}
+    }
+    if (themeCards.length) {
+      themeCards.forEach(function (card) {
+        card.classList.toggle('is-current', card.dataset.theme === id);
+      });
+    }
+    post({ type: 'theme', theme: id });
+  }
+
+  function selectTheme(i) {
+    if (i < 0 || i >= themeCards.length) return;
+    themeSel = i;
+    themeCards.forEach(function (c, n) { c.classList.toggle('is-sel', n === i); });
+    setTheme(themeCards[i].dataset.theme, false);
+  }
+
+  function openThemes() {
+    if (helpOn) setHelp(false);
+    if (inOverview) toggleOverview(false);
+    themeCommitted = activeTheme;
+    buildThemePicker();
+    let at = 0;
+    themeCards.forEach(function (c, n) { if (c.dataset.theme === activeTheme) at = n; });
+    elThemes.classList.add('is-on');
+    syncTools();
+    selectTheme(at);
+    if (themeCards[themeSel]) themeCards[themeSel].scrollIntoView({ block: 'nearest' });
+  }
+
+  function commitTheme() {
+    themeCommitted = activeTheme;
+    setTheme(activeTheme, true);
+    closeThemes(false);
+  }
+
+  function closeThemes(restore) {
+    if (restore && themeCommitted && themeCommitted !== activeTheme) {
+      setTheme(themeCommitted, true);
+    }
+    elThemes.classList.remove('is-on');
+    syncTools();
+    themeCards.forEach(function (c) { c.classList.remove('is-sel'); });
+  }
+
+  function themesOpen() {
+    return elThemes ? elThemes.classList.contains('is-on') : false;
+  }
+
+  // ── Laser pointer ────────────────────────────────────────────────────
+  document.addEventListener('pointermove', function (e) {
+    if (!laserOn) return;
+    elLaser.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px)';
+  }, { passive: true });
+
+  // ── Controls overlay ─────────────────────────────────────────────────
+  const HELP_GROUPS = [
+    { title: 'navigate', rows: [
+      { keys: ['→', '↓', 'Space'],        desc: 'Next reveal or slide' },
+      { keys: ['←', '↑', 'Backspace'],    desc: 'Previous reveal or slide' },
+      { keys: ['Home'],                   desc: 'First slide' },
+      { keys: ['End'],                    desc: 'Last slide' },
+      { keys: ['O'],                      desc: 'Overview grid' },
+      { keys: ['Esc'],                    desc: 'Close what is open' },
+    ]},
+    { title: 'screen', rows: [
+      { keys: ['F'],                      desc: 'Fullscreen' },
+      { keys: ['T'],                      desc: 'Theme picker' },
+      { keys: ['B'],                      desc: 'Black out the screen' },
+      { keys: ['?'],                      desc: 'These controls' },
+    ]},
+    { title: 'point', rows: [
+      { keys: ['L'],                      desc: 'Laser pointer' },
+    ]},
+    { title: 'draw', rows: [
+      { keys: ['D'],                      desc: 'Pen, over the slide' },
+      { keys: ['C'],                      desc: 'Blank canvas' },
+      { keys: ['1', '2', '3', '4', '5'],  desc: 'Pen color' },
+      { keys: ['E'],                      desc: 'Eraser' },
+      { keys: ['['], desc: 'Thinner' },
+      { keys: [']'], desc: 'Thicker' },
+      { keys: ['Ctrl', 'Z'],              desc: 'Undo last stroke' },
+      { keys: ['X'],                      desc: 'Clear this slide' },
+    ]},
+  ];
+
+  (function buildHelp() {
+    const grid = document.getElementById('help__grid');
+    HELP_GROUPS.forEach(function (group) {
+      const box = document.createElement('div');
+      box.className = 'help-group';
+
+      const title = document.createElement('div');
+      title.className = 'help-group__title';
+      title.textContent = group.title;
+      box.appendChild(title);
+
+      group.rows.forEach(function (row) {
+        const line = document.createElement('div');
+        line.className = 'help-row';
+
+        const desc = document.createElement('span');
+        desc.textContent = row.desc;
+
+        const keys = document.createElement('span');
+        keys.className = 'help-row__keys';
+        row.keys.forEach(function (k) {
+          const kbd = document.createElement('kbd');
+          kbd.textContent = k;
+          keys.appendChild(kbd);
+        });
+
+        line.appendChild(desc);
+        line.appendChild(keys);
+        box.appendChild(line);
+      });
+
+      grid.appendChild(box);
+    });
+  })();
+
+  function setHelp(on) {
+    helpOn = !!on;
+    syncTools();
+  }
+
+  function toggleFullscreen() {
+    if (!document.fullscreenElement) document.documentElement.requestFullscreen().catch(() => {});
+    else document.exitFullscreen().catch(() => {});
+  }
+
+  // ── Tool wiring ──────────────────────────────────────────────────────
+  onClick(tools.laser, function () { setLaser(!laserOn); });
+  onClick(tools.pen,   function () { setPen(!penOn); });
+  onClick(tools.blank, function () { setBlank(!blankOn); });
+  onClick(tools.black, function () { setBlack(true); });
+  onClick(tools.erase, function () { setEraser(!eraseOn); });
+  onClick(tools.theme, function () { themesOpen() ? closeThemes(false) : openThemes(); });
+  onClick(document.getElementById('btn-thin'),  function () { nudgeWidth(-1); });
+  onClick(document.getElementById('btn-thick'), function () { nudgeWidth(1); });
+  onClick(document.getElementById('btn-clear'), function () { clearSlide(); });
+  onClick(document.getElementById('btn-help'),  function () { setHelp(!helpOn); });
+  onClick(elBlack, function () { setBlack(false); });
+
+  Array.prototype.forEach.call(elThemes.querySelectorAll('[data-close="themes"]'), function (el) {
+    onClick(el, function () { closeThemes(false); });
+  });
+
+  Array.prototype.forEach.call(elHelp.querySelectorAll('[data-close="help"]'), function (el) {
+    onClick(el, function () { setHelp(false); });
+  });
+
+  window.addEventListener('resize', sizeBoard);
+
+  // ── Keyboard ─────────────────────────────────────────────────────────
+  document.addEventListener('keydown', function (e) {
+    const k = e.key;
+
+    // Undo and PDF/Print modifier combos
+    if (e.metaKey || e.ctrlKey || e.altKey) {
+      if ((k === 'z' || k === 'Z') && hasInk()) {
+        e.preventDefault();
+        undoStroke();
+        return;
+      }
+      if (k === 'p' || k === 'P') {
+        e.preventDefault();
+        triggerPdfExport();
+        return;
+      }
+      return;
+    }
+
+    // Each overlay swallows keys until it is dismissed, outermost first.
+    if (themesOpen()) {
+      if (k === 'Escape') {
+        e.preventDefault();
+        closeThemes(true);
+        return;
+      }
+      if (k === 'Enter') {
+        e.preventDefault();
+        commitTheme();
+        return;
+      }
+      if (k === 'ArrowRight' || k === 'ArrowDown') {
+        e.preventDefault();
+        const nextIdx = (themeSel + 1) % themeCards.length;
+        selectTheme(nextIdx);
+        if (themeCards[nextIdx]) themeCards[nextIdx].scrollIntoView({ block: 'nearest' });
+        return;
+      }
+      if (k === 'ArrowLeft' || k === 'ArrowUp') {
+        e.preventDefault();
+        const prevIdx = (themeSel - 1 + themeCards.length) % themeCards.length;
+        selectTheme(prevIdx);
+        if (themeCards[prevIdx]) themeCards[prevIdx].scrollIntoView({ block: 'nearest' });
+        return;
+      }
+      if (k === 't' || k === 'T') {
+        e.preventDefault();
+        closeThemes(false);
+        return;
+      }
+      return;
+    }
+
+    if (helpOn) {
+      if (k === 'Escape' || k === '?' || k === 'h' || k === 'H') {
+        e.preventDefault();
+        setHelp(false);
+      }
+      return;
+    }
+    if (k === '?' || k === 'h' || k === 'H') {
+      e.preventDefault();
+      setHelp(true);
+      return;
+    }
+
+    if (blackOn) {
+      // A stray key should not advance the deck behind a black screen.
+      e.preventDefault();
+      if (k === 'Escape' || k === 'b' || k === 'B' || k === ' ' || k === 'Enter') setBlack(false);
+      return;
+    }
+    if (k === 'b' || k === 'B') {
+      e.preventDefault();
+      setBlack(true);
+      return;
+    }
+
+    if (inOverview) {
+      if (k === 'Escape' || k === 'o' || k === 'O') {
+        e.preventDefault();
+        toggleOverview(false);
+      }
+      return;
+    }
+
+    // Pen sub-controls only bind while the pen is down, so the letters stay
+    // free for everything else the rest of the time.
+    if (penOn) {
+      if (k >= '1' && k <= String(PEN_COLORS.length)) { e.preventDefault(); setColor(parseInt(k, 10) - 1); return; }
+      if (k === 'e' || k === 'E') { e.preventDefault(); setEraser(!eraseOn); return; }
+      if (k === '[') { e.preventDefault(); nudgeWidth(-1); return; }
+      if (k === ']') { e.preventDefault(); nudgeWidth(1); return; }
+      if (k === 'x' || k === 'X') { e.preventDefault(); clearSlide(); return; }
+    }
+
+    switch (k) {
+      case 'ArrowRight':
+      case 'ArrowDown':
+      case ' ':
+      case 'PageDown':
+        e.preventDefault();
+        next();
+        break;
+      case 'ArrowLeft':
+      case 'ArrowUp':
+      case 'Backspace':
+      case 'PageUp':
+        e.preventDefault();
+        prev();
+        break;
+      case 'Home':
+        e.preventDefault();
+        showSlide(0, 'backward', 'start');
+        break;
+      case 'End':
+        e.preventDefault();
+        showSlide(total - 1, 'forward', 'end');
+        break;
+      case 'f':
+      case 'F':
+        e.preventDefault();
+        toggleFullscreen();
+        break;
+      case 't':
+      case 'T':
+        e.preventDefault();
+        openThemes();
+        break;
+      case 'l':
+      case 'L':
+        e.preventDefault();
+        setLaser(!laserOn);
+        break;
+      case 'd':
+      case 'D':
+        e.preventDefault();
+        setPen(!penOn);
+        break;
+      case 'c':
+      case 'C':
+        e.preventDefault();
+        setBlank(!blankOn);
+        break;
+      case 'o':
+      case 'O':
+        e.preventDefault();
+        toggleOverview();
+        break;
+      case 'Escape':
+        e.preventDefault();
+        // Peel one layer at a time: themes, canvas, pen, laser, then the overview.
+        if (themesOpen()) closeThemes(true);
+        else if (blankOn) setBlank(false);
+        else if (penOn) setPen(false);
+        else if (laserOn) setLaser(false);
+        else toggleOverview();
+        break;
+    }
+  });
+
+  // ── Mouse/touch ───────────────────────────────────────────────────────
+  onClick(elBtnPrev, prev);
+  onClick(elBtnNext, next);
+
+  let touchStartX = 0;
+  document.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  document.addEventListener('touchend', (e) => {
+    // A stroke is not a swipe. Touch events fire alongside the pointer events
+    // the canvas draws with, so an unguarded swipe would change slides
+    // underneath every horizontal line drawn on a touchscreen.
+    if (penOn) return;
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 50) dx < 0 ? next() : prev();
+  }, { passive: true });
+
+  // ── Hint auto-hide ────────────────────────────────────────────────────
+  setTimeout(() => { elHint.classList.add('hidden'); }, 4000);
+
+  // ── Pets ──────────────────────────────────────────────────────────────
+  (function spawnPets() {
+    const petUrls = [
+      'https://github.com/tonybaloney/vscode-pets/blob/main/media/turtle/orange_with_ball_8fps.gif?raw=true',
+      'https://github.com/tonybaloney/vscode-pets/blob/main/media/turtle/green_with_ball_8fps.gif?raw=true',
+      'https://github.com/tonybaloney/vscode-pets/blob/main/media/chicken/white_with_ball_8fps.gif?raw=true',
+      'https://github.com/tonybaloney/vscode-pets/blob/main/media/crab/red_with_ball_8fps.gif?raw=true',
+      'https://github.com/tonybaloney/vscode-pets/blob/main/media/dog/akita_with_ball_8fps.gif?raw=true',
+      'https://github.com/tonybaloney/vscode-pets/blob/main/media/dog/brown_with_ball_8fps.gif?raw=true',
+      'https://github.com/tonybaloney/vscode-pets/blob/main/media/fox/white_with_ball_8fps.gif?raw=true',
+    ];
+
+    const count = 3;
+    const minDist = 100;
+
+    // Shuffle and pick N unique pets
+    const shuffled = petUrls.slice().sort(() => Math.random() - 0.5);
+    const chosen = shuffled.slice(0, count);
+
+    // HUD: 2px progress bar + ~30px counter row. Pets sit just above that.
+    const hudHeight = 34;
+    const bottomOffset = hudHeight;
+
+    // Pick random x positions along the full width, min 100px apart
+    const xPositions = [];
+    let attempts = 0;
+    while (xPositions.length < count && attempts < 2000) {
+      attempts++;
+      const x = 20 + Math.random() * (window.innerWidth - 100);
+      const tooClose = xPositions.some(px => Math.abs(px - x) < minDist);
+      if (!tooClose) xPositions.push(x);
+    }
+
+    chosen.forEach(function(url, i) {
+      const img = document.createElement('img');
+      img.src = url;
+      img.className = 'pet';
+      img.style.left   = xPositions[i] + 'px';
+      img.style.bottom = bottomOffset + 'px';
+      img.style.top    = 'auto';
+      document.body.appendChild(img);
+    });
+  })();
+
+  // ── Auto-fullscreen ───────────────────────────────────────────────────
+  const fsHint = document.getElementById('fs-hint');
+  if (fsHint) {
+    function enterFullscreen() {
+      fsHint.classList.add('hidden');
+      document.documentElement.requestFullscreen().catch(() => {});
+    }
+    fsHint.addEventListener('click', enterFullscreen, { once: true });
+    document.addEventListener('keydown', function fsKey(e) {
+      // Let the click handler own the 'f' key if hint is still visible
+      document.removeEventListener('keydown', fsKey);
+      enterFullscreen();
+    }, { once: true });
+  }
+
+  // ── PDF export / Print intercept ───────────────────────────────────────────
+  function triggerPdfExport() {
+    fetch('/__pdf', { method: 'POST', headers: { 'Content-Type': 'application/json' } })
+      .then(function (r) {
+        if (r.ok) return r.blob();
+        throw new Error('Server PDF unavailable');
+      })
+      .then(function (blob) {
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = url;
+        var title = (document.title || 'deck').replace(/[s/\?%*:|"<>]+/g, '-').toLowerCase();
+        a.download = (title.endsWith('.pdf') ? title : title + '.pdf');
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(function () { URL.revokeObjectURL(url); }, 5000);
+      })
+      .catch(function () {
+        var fontsReady = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
+        Promise.all([richReady, fontsReady]).then(function () {
+          setTimeout(function () { window.print(); }, 150);
+        });
+      });
+  }
+
+  // ── Print export ─────────────────────────────────────────────────────
+  // Loading the deck with ?print=1 opens the print dialog once fonts and
+  // highlighting have settled. The editor's PDF export uses this.
+  var wantsPrint = false;
+  try { wantsPrint = new URLSearchParams(location.search).has('print'); } catch (e) {}
+  if (wantsPrint) {
+    var openPrint = function () { setTimeout(function () { window.print(); }, 350); };
+    var fontsReady = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
+    Promise.all([richReady, fontsReady]).then(openPrint, openPrint);
+  }
+
+  // ── Init ─────────────────────────────────────────────────────────────
+  slides[0].classList.add('is-active');
+  sizeBoard();
+  syncTools();
+  updateHud();
+})();
+</script>
+</body>
+</html>
